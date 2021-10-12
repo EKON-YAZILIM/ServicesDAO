@@ -146,6 +146,7 @@ namespace DAO_DbService.Controllers
                 return false;
             }
         }
+     
         [Route("Update")]
         [HttpPut]
         public JobPostDto Update([FromBody] JobPostDto model)
@@ -195,6 +196,7 @@ namespace DAO_DbService.Controllers
 
             return res;
         }
+       
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<JobPostDto> Search(string query, int page = 1, int pageCount = 30)

@@ -1,118 +1,118 @@
-﻿using DAO_DbService.Contexts;
-using DAO_DbService.Models;
-using Helpers.Models.DtoModels.MainDbDto;
+﻿using DAO_LogService.Models;
+using Helpers.Models.DtoModels.LogDbDto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static Helpers.Constants.Enums;
-using static DAO_DbService.Mapping.AutoMapperBase;
-using PagedList;
-using DAO_DbService.Mapping;
+using static DAO_LogService.Mapping.AutoMapperBase;
+using DAO_LogService.Contexts;
 using Helpers.Models.SharedModels;
+using PagedList.Core;
+using DAO_LogService.Mapping;
 
-namespace DAO_DbService.Controllers
+namespace DAO_LogService.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class AuctionBidController : Controller
+    public class UserLogController : Controller
     {
         [Route("Get")]
         [HttpGet]
-        public IEnumerable<AuctionBidDto> Get()
+        public IEnumerable<UserLogDto> Get()
         {
-            List<AuctionBid> model = new List<AuctionBid>();
+            List<UserLog> model = new List<UserLog>();
 
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
-                    model = db.AuctionBids.ToList();
+                    model = db.UserLogs.ToList();
                 }
             }
             catch (Exception ex)
             {
-                model = new List<AuctionBid>();
+                model = new List<UserLog>();
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(model).ToArray();
+            return _mapper.Map<List<UserLog>, List<UserLogDto>>(model).ToArray();
         }
-        
+
         [Route("GetId")]
         [HttpGet]
-        public AuctionBidDto GetId(int id)
+        public UserLogDto GetId(int id)
         {
-            AuctionBid model = new AuctionBid();
+            UserLog model = new UserLog();
 
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
-                    model = db.AuctionBids.Find(id);
+                    model = db.UserLogs.Find(id);
                 }
             }
             catch (Exception ex)
             {
-                model = new AuctionBid();
+                model = new UserLog();
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return _mapper.Map<AuctionBid, AuctionBidDto>(model);
+            return _mapper.Map<UserLog, UserLogDto>(model);
         }
-        
+
         [Route("Post")]
         [HttpPost]
-        public AuctionBidDto Post([FromBody] AuctionBidDto model)
+        public UserLogDto Post([FromBody] UserLogDto model)
         {
             try
             {
-                AuctionBid item = _mapper.Map<AuctionBidDto, AuctionBid>(model);
-                using (dao_maindb_context db = new dao_maindb_context())
+                UserLog item = _mapper.Map<UserLogDto, UserLog>(model);
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
-                    db.AuctionBids.Add(item);
+                    db.UserLogs.Add(item);
                     db.SaveChanges();
                 }
-                return _mapper.Map<AuctionBid, AuctionBidDto>(item);
+                return _mapper.Map<UserLog, UserLogDto>(item);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return new AuctionBidDto();
+                return new UserLogDto();
             }
         }
-        
+
         [Route("PostMultiple")]
         [HttpPost]
-        public List<AuctionBidDto> PostMultiple([FromBody] List<AuctionBidDto> model)
+        public List<UserLogDto> PostMultiple([FromBody] List<UserLogDto> model)
         {
             try
             {
-                List<AuctionBid> item = _mapper.Map<List<AuctionBidDto>, List<AuctionBid>>(model);
-                using (dao_maindb_context db = new dao_maindb_context())
+                List<UserLog> item = _mapper.Map<List<UserLogDto>, List<UserLog>>(model);
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
-                    db.AuctionBids.AddRange(item);
+                    db.UserLogs.AddRange(item);
                     db.SaveChanges();
                 }
-                return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(item);
+                return _mapper.Map<List<UserLog>, List<UserLogDto>>(item);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return new List<AuctionBidDto>();
+                return new List<UserLogDto>();
             }
         }
-        
+
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
         {
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
-                    AuctionBid item = db.AuctionBids.FirstOrDefault(s => s.AuctionBidID == ID);
+                    UserLog item = db.UserLogs.FirstOrDefault(s => s.UserLogId == ID);
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     db.SaveChanges();
                 }
@@ -124,40 +124,40 @@ namespace DAO_DbService.Controllers
                 return false;
             }
         }
-        
+
         [Route("Update")]
         [HttpPut]
-        public AuctionBidDto Update([FromBody] AuctionBidDto model)
+        public UserLogDto Update([FromBody] UserLogDto model)
         {
             try
             {
-                AuctionBid item = _mapper.Map<AuctionBidDto, AuctionBid>(model);
-                using (dao_maindb_context db = new dao_maindb_context())
+                UserLog item = _mapper.Map<UserLogDto, UserLog>(model);
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
                 }
-                return _mapper.Map<AuctionBid, AuctionBidDto>(item);
+                return _mapper.Map<UserLog, UserLogDto>(item);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return new AuctionBidDto();
+                return new UserLogDto();
             }
         }
-      
+
         [Route("GetPaged")]
         [HttpGet]
-        public PaginationEntity<AuctionBidDto> GetPaged(int page = 1, int pageCount = 30)
+        public PaginationEntity<UserLogDto> GetPaged(int page = 1, int pageCount = 30)
         {
-            PaginationEntity<AuctionBidDto> res = new PaginationEntity<AuctionBidDto>();
+            PaginationEntity<UserLogDto> res = new PaginationEntity<UserLogDto>();
 
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_logsdb_context db = new dao_logsdb_context())
                 {
 
-                    IPagedList<AuctionBidDto> lst = AutoMapperBase.ToMappedPagedList<AuctionBid, AuctionBidDto>(db.AuctionBids.OrderByDescending(x => x.AuctionBidID).ToPagedList(page, pageCount));
+                    IPagedList<UserLogDto> lst = AutoMapperBase.ToMappedPagedList<UserLog, UserLogDto>(db.UserLogs.OrderByDescending(x => x.UserLogId).ToPagedList(page, pageCount));
 
                     res.Items = lst;
                     res.MetaData = new PaginationMetaData() { Count = lst.Count, FirstItemOnPage = lst.FirstItemOnPage, HasNextPage = lst.HasNextPage, HasPreviousPage = lst.HasPreviousPage, IsFirstPage = lst.IsFirstPage, IsLastPage = lst.IsLastPage, LastItemOnPage = lst.LastItemOnPage, PageCount = lst.PageCount, PageNumber = lst.PageNumber, PageSize = lst.PageSize, TotalItemCount = lst.TotalItemCount };

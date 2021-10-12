@@ -24,7 +24,7 @@ namespace DAO_ReputationService
         public static Settings _settings { get; set; } = new Settings();
         public static Helpers.RabbitMQ rabbitMq = new Helpers.RabbitMQ();
         public static Monitizer monitizer;
-
+        public static DbContextOptions dbOptions;
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

@@ -9,12 +9,23 @@ namespace DAO_ReputationService.Contexts
 {
     public class dao_reputationserv_context : DbContext
     {
-        public dao_reputationserv_context(DbContextOptions options) : base(options)
+        //public dao_reputationserv_context(DbContextOptions options) : base(options)
+        //{
+        //    Database.Migrate();
+        //}
+        public dao_reputationserv_context()
         {
-            Database.Migrate();
+
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySQL(Program._settings.DbConnectionString);
+            }
         }
 
-       // public DbSet<Reputation> Reputations { get; set; }
+        // public DbSet<Reputation> Reputations { get; set; }
         public DbSet<UserReputation> UserReputations { get; set; }
         public DbSet<UserReputationHistory> UserReputationHistories { get; set; }
     }

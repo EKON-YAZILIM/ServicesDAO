@@ -44,12 +44,12 @@ namespace DAO_VotingEngine
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<dao_votesdb_context>(o => o.UseMySQL(_settings.DbConnectionString));
+            //services.AddDbContextPool<dao_votesdb_context>(o => o.UseMySQL(_settings.DbConnectionString));
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, dao_votesdb_context context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -62,10 +62,14 @@ namespace DAO_VotingEngine
 
             app.UseAuthorization();
 
-            context.Database.EnsureCreated();
+            using (dao_votesdb_context db = new dao_votesdb_context())
+            {
+                db.Database.Migrate();
+                db.Database.EnsureCreated();
+            }
+
+          
             //context.Database.Migrate();
-
-
 
             app.UseEndpoints(endpoints =>
             {
