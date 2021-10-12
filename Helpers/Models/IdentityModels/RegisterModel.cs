@@ -12,5 +12,7 @@ namespace Helpers.Models.IdentityModels
         public string password { get; set; }
         public string registerEmailTitle { get; set; }
         public string registerEmailContent { get; set; }
+        public string ip { get; set; }
+        public string port { get; set; }
     }
 }

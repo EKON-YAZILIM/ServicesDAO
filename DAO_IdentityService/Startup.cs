@@ -38,7 +38,7 @@ namespace DAO_IdentityService
             if (monitizer.startSuccesful != -1)
             {
                 monitizer.startSuccesful = 1;
-                monitizer.AddLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
+                monitizer.AddApplicationLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
             }
 
         }

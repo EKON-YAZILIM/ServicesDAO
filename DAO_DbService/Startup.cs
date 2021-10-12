@@ -48,7 +48,7 @@ namespace DAO_DbService
             if (monitizer.startSuccesful != -1)
             {
                 monitizer.startSuccesful = 1; 
-                monitizer.AddLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
+                monitizer.AddApplicationLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
             }
         }
 

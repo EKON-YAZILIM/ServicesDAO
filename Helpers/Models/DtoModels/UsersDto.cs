@@ -23,7 +23,5 @@ namespace Helpers.Models.DtoModels
         public int? FailedLoginCount { get; set; }
         public string ProfileImage { get; set; }
         public DateTime? LastLoginDate { get; set; }
-        public string ApiKey { get; set; }
-        public DateTime? ApiKeyCreateDate { get; set; }
     }
 }

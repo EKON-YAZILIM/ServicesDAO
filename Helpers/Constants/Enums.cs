@@ -34,7 +34,7 @@
         /// </summary>
         public enum UserLogType
         {
-            Login,
+            Auth,
             Request,
             Agreement
         }

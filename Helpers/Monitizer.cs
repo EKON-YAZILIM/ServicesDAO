@@ -9,7 +9,7 @@ using System.Timers;
 using Helpers.Models.DtoModels.LogDbDto;
 
 namespace Helpers
-{    
+{
     /// <summary>
     ///  Basic healthcheck and information class for applications
     /// </summary>
@@ -81,6 +81,7 @@ namespace Helpers
                 {
                     rabbitMq.ExchangeDeclare(FeedNames.ErrorLogs, "direct", false, false);
                     rabbitMq.ExchangeDeclare(FeedNames.ApplicationLogs, "direct", false, false);
+                    rabbitMq.ExchangeDeclare(FeedNames.UserLogs, "direct", false, false);
                     rabbitMq.ExchangeDeclare(FeedNames.ApplicationStatus, "direct", false, false);
                     rabbitConnected = true;
                 }
@@ -92,7 +93,7 @@ namespace Helpers
             if (dns.Length > 0)
             {
                 ipAddress = dns[dns.Length - 1].ToString();
-                if(dns.Length > 1 && ipAddress.Length > 20)
+                if (dns.Length > 1 && ipAddress.Length > 20)
                 {
                     ipAddress = dns[0].ToString();
                 }
@@ -152,7 +153,7 @@ namespace Helpers
         /// <param name="explanation">Explanation</param>
         /// <param name="IdFieldName">Log source db field name</param>
         /// <param name="IdField">Log source primary key id</param>
-        public void AddLog(Constants.Enums.LogTypes type, string explanation, string IdFieldName = "", int IdField = 0)
+        public void AddApplicationLog(Constants.Enums.LogTypes type, string explanation, string IdFieldName = "", int IdField = 0)
         {
             ApplicationLogDto log = new ApplicationLogDto();
             log.Application = appName;
@@ -171,6 +172,34 @@ namespace Helpers
 
             if (rabbitConnected)
                 rabbitMq.Publish(FeedNames.ApplicationLogs, "", log);
+        }
+
+        /// <summary>
+        ///  Generic user logger
+        /// </summary>
+        /// <param name="userId">User identity</param>
+        /// <param name="type">Valid log types:  Auth, Request, Agreement</param>
+        /// <param name="explanation">Explanation</param>
+        /// <param name="ip">User request IP</param>
+        /// <param name="port">User request port</param>
+        public void AddUserLog(int userId, Constants.Enums.UserLogType type, string explanation, string ip = "", string port = "")
+        {
+            UserLogDto log = new UserLogDto();
+            log.Application = appName;
+            log.Ip = ip;
+            log.Port = port;
+            log.UserId = userId;
+            log.Explanation = explanation;
+            log.Type = type.ToString();
+            log.Date = DateTime.Now;
+
+            if (logs.Count > 1000)
+            {
+                logs.RemoveAt(0);
+            }
+
+            if (rabbitConnected)
+                rabbitMq.Publish(FeedNames.UserLogs, "", log);
         }
 
         /// <summary>
@@ -213,7 +242,7 @@ namespace Helpers
 
             if (exceptions.Count > 10)
             {
-                res.Exceptions = exceptions.OrderByDescending(x=>x.Date).Take(10).ToList();
+                res.Exceptions = exceptions.OrderByDescending(x => x.Date).Take(10).ToList();
             }
             else
             {
@@ -255,11 +284,11 @@ namespace Helpers
             status.FatalCount = fatalCounter;
             status.Ip = ipAddress;
             status.Status = 1;
-            if(status.FatalCount > 0)
+            if (status.FatalCount > 0)
             {
                 status.Status = -1;
             }
-            else if(status.ErrorCount > 0)
+            else if (status.ErrorCount > 0)
             {
                 status.Status = 0;
             }
