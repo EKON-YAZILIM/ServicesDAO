@@ -14,10 +14,6 @@
 /DAO_LogService/obj
 /DAO_NotificationService/bin/Debug/netcoreapp3.1
 /DAO_NotificationService/obj
-/DAO_ReputationService/bin/Debug/netcoreapp3.1
-/DAO_ReputationService/obj
-/DAO_VotingEngine/bin/Debug/netcoreapp3.1
-/DAO_VotingEngine/obj
 /DAO_WebPortal/bin/Debug/netcoreapp3.1
 /DAO_WebPortal/obj
 /Helpers/bin/Debug/netcoreapp3.1
@@ -33,10 +29,6 @@
 /DAO_LogService/Properties/PublishProfiles
 /DAO_NotificationService/bin/Release/netcoreapp3.1
 /DAO_NotificationService/Properties/PublishProfiles
-/DAO_ReputationService/bin/Release/netcoreapp3.1
-/DAO_ReputationService/Properties/PublishProfiles
-/DAO_VotingEngine/bin/Release/netcoreapp3.1
-/DAO_VotingEngine/Properties/PublishProfiles
 /DAO_WebPortal/bin/Release/netcoreapp3.1
 /DAO_WebPortal/Properties/PublishProfiles
 /Helpers/bin/Release/netcoreapp3.1

@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 using DAO_DbService.Mapping;
 using static DAO_DbService.Mapping.AutoMapperBase;
 using Helpers.Models.SharedModels;
-using PagedList;
-using Microsoft.EntityFrameworkCore;
+using PagedList.Core;
 using static Helpers.Constants.Enums;
 
 namespace DAO_DbService.Controllers

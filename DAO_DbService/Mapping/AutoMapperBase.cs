@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using PagedList;
+using PagedList.Core;
 using System.Collections.Generic;
 
 namespace DAO_DbService.Mapping
