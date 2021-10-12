@@ -1,4 +1,5 @@
 ﻿using Helpers.Models.DtoModels;
+using Helpers.Models.DtoModels.MainDbDto;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -8,7 +9,7 @@ namespace Helpers.Models.IdentityModels
 {
     public class UserContainer
     {
-        public UsersDto User { get; set; }
+        public UserDto User { get; set; }
         public List<Claim> Claims { get; set; }
         public string Token { get; set; }
         public string LoginChannel { get; set; }

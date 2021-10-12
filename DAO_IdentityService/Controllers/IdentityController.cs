@@ -1,5 +1,6 @@
 ﻿using Helpers.Models.DtoModels;
 using Helpers.Models.DtoModels.LogDbDto;
+using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.IdentityModels;
 using Helpers.Models.SharedModels;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +31,7 @@ namespace DAO_IdentityService.Controllers
             {
                 string json = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + user);
 
-                var userObj = Helpers.Serializers.DeserializeJson<UsersDto>(json);
+                var userObj = Helpers.Serializers.DeserializeJson<UserDto>(json);
 
                 if (userObj == null || userObj.UserId <= 0)
                 {
@@ -46,7 +47,7 @@ namespace DAO_IdentityService.Controllers
 
                     return res;
                 }
-                else if (!Convert.ToBoolean(userObj.ActiveStatus))
+                else if (!userObj.IsActive)
                 {
                     res.IsNotActive = true;
                     res.IsSuccessful = false;
@@ -73,32 +74,17 @@ namespace DAO_IdentityService.Controllers
                     res.UserId = userObj.UserId;
                     res.Email = userObj.Email;
                     res.NameSurname = userObj.NameSurname;
-                    res.LicenseType = userObj.LicenseType;
                     res.ProfileImage = userObj.ProfileImage;
-
                     res.IsSuccessful = true;
 
-                    userObj.LastLoginDate = DateTime.Now;
                     userObj.FailedLoginCount = 0;
-
-                    UserLogDto log = new UserLogDto();
-                    log.Application = application.ToString();
-                    log.Ip = ip;
-                    log.Port = port;
-                    log.UserId = userObj.UserId;
-                    log.Explanation = "User login successful.";
-                    log.Type = Helpers.Constants.Enums.UserLogType.Auth.ToString();
-                    log.Date = DateTime.Now;
 
                     Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login successful.", ip, port);
 
                     //WILL BE INTEGRATED WITH DB (ActiveSessions)
                     //Program.redis.Set("session-" + res.UserId, Helpers.Serializers.Serialize(res));
 
-                    Program.rabbitMq.Publish(Helpers.Constants.FeedNames.UserLogs, "", log);
-
                     Program.monitizer.AddConsole("User login successful. UserID:" + userObj.UserId);
-
                 }
                 else
                 {
@@ -120,7 +106,7 @@ namespace DAO_IdentityService.Controllers
 
         }
 
-        private IEnumerable<Claim> GetUserClaims(UsersDto user, UserIdentityType userType)
+        private IEnumerable<Claim> GetUserClaims(UserDto user, UserIdentityType userType)
         {
             List<Claim> claims = new List<Claim>();
 
@@ -162,32 +148,29 @@ namespace DAO_IdentityService.Controllers
         {
             try
             {
-                UsersDto modelUser = new UsersDto();
+                UserDto modelUser = new UserDto();
                 var jsonUser = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + input.email.ToLower());
-                modelUser = Helpers.Serializers.DeserializeJson<UsersDto>(jsonUser);
+                modelUser = Helpers.Serializers.DeserializeJson<UserDto>(jsonUser);
                 if (modelUser != null)
                 {
                     return new AjaxResponse() { Success = false, Message = "User exist" };
                 }
 
-                UsersDto model = new UsersDto();
+                UserDto model = new UserDto();
                 var hashPass = Helpers.Encryption.EncryptPassword(input.password);
                 model.Email = input.email.ToLower();
                 model.NameSurname = input.namesurname;
                 model.Password = hashPass;
-                model.ActiveStatus = true;
                 model.Newsletter = false;
                 model.IsBlocked = false;
                 model.FailedLoginCount = 0;
-                model.CreatedDate = DateTime.Now;
-                model.ActiveStatus = false;
+                model.CreateDate = DateTime.Now;
+                model.IsActive = false;
                 model.UserType = UserIdentityType.User.ToString();
-                model.IsAdmin = false;
-                model.GSM = input.gsm;
                 model.ProfileImage = "defaultUser.jpg";
 
                 var json = Helpers.Request.Post(Program._settings.Service_Db_Url + "/Users/Post", Helpers.Serializers.SerializeJson(model));
-                model = Helpers.Serializers.DeserializeJson<UsersDto>(json);
+                model = Helpers.Serializers.DeserializeJson<UserDto>(json);
                 if (model != null && model.UserId != 0)
                 {
                     string enc = Helpers.Encryption.EncryptString(input.email + "|" + DateTime.Now.ToString());
@@ -224,13 +207,13 @@ namespace DAO_IdentityService.Controllers
                 {
                     string email = stre.Split('|')[0];
 
-                    UsersDto modelUser = new UsersDto();
+                    UserDto modelUser = new UserDto();
                     var jsonUser = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email.ToLower());
-                    modelUser = Helpers.Serializers.DeserializeJson<UsersDto>(jsonUser);
+                    modelUser = Helpers.Serializers.DeserializeJson<UserDto>(jsonUser);
 
                     if (modelUser != null)
                     {
-                        modelUser.ActiveStatus = true;
+                        modelUser.IsActive = true;
                         Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", JsonConvert.SerializeObject(modelUser));
 
                         Program.monitizer.AddUserLog(modelUser.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User account activated.");
@@ -259,7 +242,7 @@ namespace DAO_IdentityService.Controllers
         {
             try
             {
-                var userModel = Helpers.Serializers.DeserializeJson<UsersDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + model.email));
+                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + model.email));
                 if (userModel != null && userModel.Email == model.email)
                 {
                     string enc = Helpers.Encryption.EncryptString(model.email + "|" + DateTime.Now.ToString());
@@ -294,7 +277,7 @@ namespace DAO_IdentityService.Controllers
                 DateTime emaildate = Convert.ToDateTime(tokendec.Split('|')[1]);
                 emaildate = emaildate.AddMinutes(5);
 
-                var usr = Helpers.Serializers.DeserializeJson<UsersDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email));
+                var usr = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email));
                 if (usr != null && usr.Email == email && emaildate > DateTime.Now)
                 {
 
@@ -302,7 +285,7 @@ namespace DAO_IdentityService.Controllers
                     usr.IsBlocked = false;
                     usr.Password = Helpers.Encryption.EncryptPassword(model.newpass);
 
-                    var userModel = Helpers.Serializers.DeserializeJson<UsersDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", Helpers.Serializers.SerializeJson(usr)));
+                    var userModel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", Helpers.Serializers.SerializeJson(usr)));
                     if (userModel != null && userModel.Email == usr.Email)
                     {
                         Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "Password reset completed.");
