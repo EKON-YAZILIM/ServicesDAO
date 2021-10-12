@@ -1,0 +1,163 @@
+version: '3.4'
+
+volumes:
+  datafiles: 
+  votes_datafiles:
+  logs_datafiles:
+
+services:
+  dao_rabbitmq:
+    image: rabbitmq:3-management
+    container_name: 'rabbitmq'
+    environment:
+        RABBITMQ_DEFAULT_USER: "daorabbit"
+        RABBITMQ_DEFAULT_PASS: "dao2021*"
+    ports:
+        - 5673:5673
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    
+    networks:
+        - daonetwork
+
+  dao_db:
+    image: mysql:5.7
+    volumes:
+      - datafiles:/var/lib/mysql      
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secred
+      - MYSQL_DATABASE=daodb
+    networks:
+      - daonetwork
+
+  dao_votesdb:
+    image: mysql:5.7
+    volumes:
+      - votes_datafiles:/var/lib/mysql      
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secred
+      - MYSQL_DATABASE=daovotesdb
+    networks:
+      - daonetwork
+
+  dao_logsdb:
+    image: mysql:5.7
+    volumes:
+      - logs_datafiles:/var/lib/mysql      
+    restart: always
+    ports:
+      - "3311:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secred
+      - MYSQL_DATABASE=daologsdb
+    networks:
+      - daonetwork  
+
+  dao_apigateway:
+    image: ${DOCKER_REGISTRY-}daoapigateway
+    build:
+      context: .
+      dockerfile: DAO_ApiGateway/Dockerfile
+    depends_on:
+      - dao_db
+      - dao_rabbitmq
+    restart: always
+    networks:
+      - daonetwork
+
+  dao_dbservice:
+    image: ${DOCKER_REGISTRY-}daodbservice
+    build:
+      context: .
+      dockerfile: DAO_DbService/Dockerfile
+    depends_on:
+      - dao_db
+      - dao_rabbitmq
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - daonetwork
+
+  dao_identityservice:
+    image: ${DOCKER_REGISTRY-}daoidentityservice
+    build:
+      context: .
+      dockerfile: DAO_IdentityService/Dockerfile
+    depends_on:
+      - dao_rabbitmq
+    networks:
+        - daonetwork
+
+  dao_logservice:
+    image: ${DOCKER_REGISTRY-}daologservice
+    build:
+      context: .
+      dockerfile: DAO_LogService/Dockerfile
+    depends_on:
+      - dao_logsdb
+      - dao_rabbitmq
+    networks:
+        - daonetwork
+
+  dao_notificationservice:
+    image: ${DOCKER_REGISTRY-}daonotificationservice
+    build:
+      context: .
+      dockerfile: DAO_NotificationService/Dockerfile
+    depends_on:
+      - dao_rabbitmq
+    networks:
+        - daonetwork
+
+  dao_reputationservice:
+    image: ${DOCKER_REGISTRY-}daoreputationservice
+    build:
+      context: .
+      dockerfile: DAO_ReputationService/Dockerfile
+    depends_on:
+      - dao_rabbitmq
+      - dao_votesdb
+    networks:
+      - daonetwork
+
+  dao_votingengine:
+    image: ${DOCKER_REGISTRY-}daovotingengine
+    build:
+      context: .
+      dockerfile: DAO_VotingEngine/Dockerfile
+    depends_on:
+       - dao_votesdb
+       - dao_rabbitmq
+    restart: always
+    networks:
+      - daonetwork
+
+  dao_webportal:
+    image: ${DOCKER_REGISTRY-}daowebportal
+    build:
+      context: .
+      dockerfile: DAO_WebPortal/Dockerfile
+    networks:
+      - daonetwork
+
+
+
+networks:
+  daonetwork:
+    name: daonetwork
+    driver: bridge
+
+
+
+
+
+
+

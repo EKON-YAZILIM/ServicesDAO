@@ -1,0 +1,132 @@
+{
+  "ReRoutes": [
+    //DbService API
+    {
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
+        "AllowedScopes": []
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1101"
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamPathTemplate": "/Db/{everything}",
+      "Priority": 1
+    },
+    //LogService API
+    {
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
+        "AllowedScopes": []
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1002"
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamPathTemplate": "/Log/{everything}",
+      "Priority": 1
+    },
+    //Public Actions
+    {
+      "DownstreamPathTemplate": "/Identity/Login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/Login",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/LoginAdmin",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/LoginAdmin",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/LoginApiKey",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/LoginApiKey",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/Register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/Register",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/RegisterComplete",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/RegisterComplete",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/ResetPassword",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/ResetPassword",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/ResetPasswordComplete",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.5.2",
+          "Port": "1003"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
+    }
+  ]
+}

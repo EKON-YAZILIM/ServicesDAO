@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_ApiGateway", "DAO_ApiGateway\DAO_ApiGateway.csproj", "{ECD901A2-3CD5-4545-B296-3BA96CD0B8DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_DbService", "DAO_DbService\DAO_DbService.csproj", "{1E951F99-0E19-403F-A408-DB19DA3E92BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_IdentityService", "DAO_IdentityService\DAO_IdentityService.csproj", "{2C1D4CB0-2171-4691-8454-CD0889FF84F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_LogService", "DAO_LogService\DAO_LogService.csproj", "{6655F079-3AEB-430C-9994-075B83CE993F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_NotificationService", "DAO_NotificationService\DAO_NotificationService.csproj", "{0A6B4DB0-49D0-40A5-B47E-8EC15F18985E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_ReputationService", "DAO_ReputationService\DAO_ReputationService.csproj", "{7779C3BF-6516-4353-B5BE-4F145B753131}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_VotingEngine", "DAO_VotingEngine\DAO_VotingEngine.csproj", "{875E215A-7E08-4E3E-9109-FEA9625E9FC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_WebPortal", "DAO_WebPortal\DAO_WebPortal.csproj", "{188F6DEE-FD89-4E4A-A533-34441DBFF68E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{DE3BB920-5049-40EC-BF59-96C0C3347CEA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3310397C-36A1-45DD-B0FE-9980ED4663F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECD901A2-3CD5-4545-B296-3BA96CD0B8DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD901A2-3CD5-4545-B296-3BA96CD0B8DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD901A2-3CD5-4545-B296-3BA96CD0B8DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD901A2-3CD5-4545-B296-3BA96CD0B8DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E951F99-0E19-403F-A408-DB19DA3E92BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E951F99-0E19-403F-A408-DB19DA3E92BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E951F99-0E19-403F-A408-DB19DA3E92BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E951F99-0E19-403F-A408-DB19DA3E92BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1D4CB0-2171-4691-8454-CD0889FF84F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1D4CB0-2171-4691-8454-CD0889FF84F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1D4CB0-2171-4691-8454-CD0889FF84F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1D4CB0-2171-4691-8454-CD0889FF84F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6655F079-3AEB-430C-9994-075B83CE993F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6655F079-3AEB-430C-9994-075B83CE993F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6655F079-3AEB-430C-9994-075B83CE993F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6655F079-3AEB-430C-9994-075B83CE993F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6B4DB0-49D0-40A5-B47E-8EC15F18985E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6B4DB0-49D0-40A5-B47E-8EC15F18985E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6B4DB0-49D0-40A5-B47E-8EC15F18985E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6B4DB0-49D0-40A5-B47E-8EC15F18985E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7779C3BF-6516-4353-B5BE-4F145B753131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7779C3BF-6516-4353-B5BE-4F145B753131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7779C3BF-6516-4353-B5BE-4F145B753131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7779C3BF-6516-4353-B5BE-4F145B753131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875E215A-7E08-4E3E-9109-FEA9625E9FC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875E215A-7E08-4E3E-9109-FEA9625E9FC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875E215A-7E08-4E3E-9109-FEA9625E9FC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875E215A-7E08-4E3E-9109-FEA9625E9FC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{188F6DEE-FD89-4E4A-A533-34441DBFF68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{188F6DEE-FD89-4E4A-A533-34441DBFF68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{188F6DEE-FD89-4E4A-A533-34441DBFF68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{188F6DEE-FD89-4E4A-A533-34441DBFF68E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3BB920-5049-40EC-BF59-96C0C3347CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3BB920-5049-40EC-BF59-96C0C3347CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3BB920-5049-40EC-BF59-96C0C3347CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3BB920-5049-40EC-BF59-96C0C3347CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C01F51E4-65BD-4F62-ABEF-1661B516E469}
+	EndGlobalSection
+EndGlobal

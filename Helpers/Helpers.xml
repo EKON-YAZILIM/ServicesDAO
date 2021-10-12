@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Helpers</name>
+    </assembly>
+    <members>
+        <member name="T:Helpers.Constants.Enums.AppNames">
+            <summary>
+             Enum of application names in the project
+            </summary>
+        </member>
+        <member name="T:Helpers.Constants.Enums.LogTypes">
+            <summary>
+             Enum of log types in the system
+            </summary>
+        </member>
+        <member name="T:Helpers.Constants.Enums.UserLogType">
+            <summary>
+             Enum of user log types in the system
+            </summary>
+        </member>
+        <member name="T:Helpers.Constants.Enums.NotificationTypes">
+            <summary>
+             Enum of notification channels (Only Email is available in the current version)
+            </summary>
+        </member>
+        <member name="T:Helpers.Constants.Enums.UserIdentityType">
+            <summary>
+             Enum of user authorization types
+            </summary>
+        </member>
+        <member name="T:Helpers.Constants.FeedNames">
+            <summary>
+             Predefined RabbitMQ feed names
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.AjaxResponse">
+            <summary>
+             Simple http response class
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.ApiResponse`1">
+            <summary>
+             Simple http response class with an entity and message
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.ApplicationStartResult">
+            <summary>
+             Microservice start result class
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.AppStatus">
+            <summary>
+             Microservice heartbeat status class
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.AppStatus.AppName">
+            <summary>
+             Name of the application
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.AppStatus.Date">
+            <summary>
+             Date of app status message
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.AppStatus.Ip">
+            <summary>
+             Ip of the application
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.AppStatus.ErrorCount">
+            <summary>
+             Number of exceptions occured in the application.
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.AppStatus.FatalCount">
+            <summary>
+             Number of fatal exceptions occured in the application. (Fatal exception: Exceptions which prevents service to work properly.)
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.AppStatus.Status">
+            <summary>
+             Date of app status message
+             Service start status
+             <value>-1: Application has fatal errors</value>
+             <value>0: Application has errors</value>
+             <value>1: Application healthy</value>
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.MessageResult">
+            <summary>
+             Simple toastr type message class
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.MonitizerResult">
+            <summary>
+             Microservice info and health check class
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.FatalCounter">
+            <summary>
+             Number of fatal exceptions occured in the application. (Fatal exception: Exceptions which prevents service to work properly.)
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.ExceptionCounter">
+            <summary>
+             Number of exceptions occured in the application.
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.StartSuccesful">
+            <summary>
+             Service start status
+             <value>-1: Application error in startup</value>
+             <value>0: Application loading</value>
+             <value>1: Application started successfully</value>
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.Exceptions">
+            <summary>
+             List of exceptions occured in the application
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.Logs">
+            <summary>
+             List of application type logs in the application
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.AppName">
+            <summary>
+             Application name
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.IpAddress">
+            <summary>
+             Application hosting ip
+            </summary>
+        </member>
+        <member name="P:Helpers.Models.CommonModels.MonitizerResult.Console">
+            <summary>
+             Fast logs for diagnose on the application start page. (Not stored in DB, similar to Console.WriteLine())
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.PaginationEntity`1">
+            <summary>
+             Extension class for .NET Core PagedList package
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.PaginationMetaData">
+            <summary>
+             Paged list meta data
+            </summary>
+        </member>
+        <member name="T:Helpers.Models.CommonModels.SendEmailModel">
+            <summary>
+             Email notification model 
+            </summary>
+        </member>
+    </members>
+</doc>

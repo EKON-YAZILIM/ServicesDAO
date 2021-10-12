@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , shrink-to-fit=no" />
+    <meta name="author" content="DAO" />
+    <meta name="description" content="" />
+    <meta name="keyword" content="">
+
+    <title>DAO WebPortal</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Public/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Public/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Public/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Public/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Public/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Public/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Public/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Public/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Public/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Public/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Public/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Public/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Public/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Public/assets/favicon/manifest.json">
+
+    <link href="~/Public/css/vendor.bundle.css?ver=1930" rel="stylesheet" />
+    <link href="~/Public/css/style-lobelia.css?ver=1930" rel="stylesheet" />
+    <link href="~/Public/css/theme.css?ver=1930" rel="stylesheet" />
+
+</head>
+<body class="nk-body body-wider mode-onepage bg-light">
+
+
+    <div class="nk-wrap">
+
+
+        @RenderBody()
+
+        
+    </div>
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="modal-login">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="modal-body p-md-4 p-lg-5">
+                    <div class="row">
+                        <div class="ath-body">
+                            <h5 class="ath-heading title">Log in <small class="tc-default">with your DevxDAO Account</small></h5>
+                            <div>
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="text" class="input-bordered" placeholder="Your Email">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="password" class="input-bordered" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center pdb-r">
+                                    <div class="field-item pb-0">
+                                        <input class="input-checkbox" id="remember-me-2" type="checkbox">
+                                        <label for="remember-me-2">Remember Me</label>
+                                    </div>
+                                    <div class="forget-link fz-6">
+                                        <a href="page-reset.html">Forgot password?</a>
+                                    </div>
+                                </div>
+                                <button onclick="Login()" class="btn btn-primary btn-block btn-md">Log In</button>
+                            </div>
+                            <div class="sap-text"><span>Or Log In With</span></div>
+                            <ul class="row gutter-20px gutter-vr-20px">
+                                <li class="col"><a href="#" class="btn btn-md btn-facebook btn-block"><em class="icon fab fa-facebook-f"></em><span>Facebook</span></a></li>
+                                <li class="col"><a href="#" class="btn btn-md btn-google btn-block"><em class="icon fab fa-google"></em><span>Google</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .modal  -->
+    <!-- Modal Login -->
+    <div class="modal fade" id="modal-signUp">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="modal-body p-md-4 p-lg-5">
+                    <div class="row">
+                        <div class="ath-body">
+                            <h5 class="ath-heading title">Sign Up <small class="tc-default">Create New DevxDAO Account</small></h5>
+                            <form action="./">
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="text" class="input-bordered" placeholder="Your Name">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="text" class="input-bordered" placeholder="Your Email">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="password" class="input-bordered" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="password" class="input-bordered" placeholder="Repeat Password">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <input class="input-checkbox" id="agree-term-2" type="checkbox">
+                                    <label for="agree-term-2">I agree to Icos <a href="#">Privacy Policy</a> &amp; <a href="#">Terms</a>.</label>
+                                </div>
+                                <button class="btn btn-primary btn-block btn-md">Sign Up</button>
+                            </form>
+                            <div class="sap-text"><span>Or Sign Up With</span></div>
+
+                            <ul class="btn-grp gutter-20px gutter-vr-20px">
+                                <li class="col"><a href="#" class="btn btn-md btn-facebook btn-block"><em class="icon fab fa-facebook-f"></em><span>Facebook</span></a></li>
+                                <li class="col"><a href="#" class="btn btn-md btn-google btn-block"><em class="icon fab fa-google"></em><span>Google</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .modal  -->
+    <script src="~/Public/js/jquery.bundle.js?ver=1930"></script>
+    <script src="~/Public/js/scripts.js?ver=1930"></script>
+    <script src="~/Public/js/charts.js"></script>
+
+
+    <script>
+        function Login() {
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeIn(300);
+            $('.preloader').fadeIn(300);
+            setTimeout(function () {
+                $(".spinner").removeClass("load-done");
+                $('.spinner').fadeOut(300);
+                $('.preloader').delay(300).fadeOut(300);
+                window.location.href="/Home"
+            }, 1000)
+        }
+    </script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
