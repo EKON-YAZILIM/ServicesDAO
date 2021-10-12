@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using DAO_LogService.Models;
 using Helpers.Models.DtoModels;
+using Helpers.Models.DtoModels.LogDbDto;
 
 namespace DAO_LogService.Mapping
 {
@@ -7,14 +9,14 @@ namespace DAO_LogService.Mapping
     {
         public MappingProfile()
         {
-            //CreateMap<ApplicationLog, ApplicationLogsDto>();
-            //CreateMap<ApplicationLogsDto, ApplicationLog>();
+            CreateMap<ApplicationLog, ApplicationLogDto>();
+            CreateMap<ApplicationLogDto, ApplicationLog>();
 
-            //CreateMap<ErrorLog, ErrorLogsDto>();
-            //CreateMap<ErrorLogsDto, ErrorLog>();
+            CreateMap<ErrorLog, ErrorLogDto>();
+            CreateMap<ErrorLogDto, ErrorLog>();
 
-            //CreateMap<UserLog, UserLogsDto>();
-            //CreateMap<UserLogsDto, UserLog>();
+            CreateMap<UserLog, UserLogDto>();
+            CreateMap<UserLogDto, UserLog>();
 
         }
     }

@@ -49,13 +49,13 @@ namespace DAO_ReputationService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<dao_reputationserv_context>(o => o.UseMySQL(_settings.DbConnectionString));
+          //  services.AddDbContext<dao_reputationserv_context>(o => o.UseMySQL(_settings.DbConnectionString));
 
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, dao_reputationserv_context context)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -68,7 +68,13 @@ namespace DAO_ReputationService
 
             app.UseAuthorization();
 
-            context.Database.EnsureCreated();
+            using (dao_reputationserv_context db = new dao_reputationserv_context())
+            {
+                db.Database.Migrate();
+                db.Database.EnsureCreated();
+            }
+
+        
             
             app.UseEndpoints(endpoints =>
             {

@@ -9,9 +9,20 @@ namespace DAO_LogService.Contexts
 {
     public class dao_logsdb_context : DbContext
     {
-        public dao_logsdb_context(DbContextOptions options) : base(options)
+        public dao_logsdb_context()
         {
-            Database.Migrate();
+           
+        }
+        //public dao_logsdb_context(DbContextOptions options) : base(options)
+        //{
+        //    Database.Migrate();
+        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySQL(Program._settings.DbConnectionString);
+            }
         }
 
         // public DbSet<AppException> appExceptions { get; set; }

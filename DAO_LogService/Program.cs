@@ -1,5 +1,6 @@
 using Helpers;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -26,7 +27,7 @@ namespace DAO_LogService
         public static Helpers.RabbitMQ rabbitMq = new Helpers.RabbitMQ();
         public static Monitizer monitizer;
         public static Mysql mysql = new Helpers.Mysql();
-
+        public static DbContextOptions dbOptions;
         //public static ConcurrentQueue<UserLogsDto> UserLogs = new ConcurrentQueue<UserLogsDto>();
         //public static ConcurrentQueue<ApplicationLogsDto> ApplicationLogs = new ConcurrentQueue<ApplicationLogsDto>();
         //public static ConcurrentQueue<ErrorLogsDto> ErrorLogs = new ConcurrentQueue<ErrorLogsDto>();

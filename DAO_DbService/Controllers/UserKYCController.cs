@@ -196,6 +196,7 @@ namespace DAO_DbService.Controllers
 
             return res;
         }
+     
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<UserKYCDto> Search(string query, int page = 1, int pageCount = 30)

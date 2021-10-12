@@ -1,5 +1,6 @@
 using Helpers;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -23,6 +24,7 @@ namespace DAO_VotingEngine
         public static Settings _settings { get; set; } = new Settings();
         public static Helpers.RabbitMQ rabbitMq = new Helpers.RabbitMQ();
         public static Monitizer monitizer;
+        public static DbContextOptions dbOptions;
 
         public static void Main(string[] args)
         {

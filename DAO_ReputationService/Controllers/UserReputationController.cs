@@ -1,118 +1,118 @@
-﻿using DAO_DbService.Contexts;
-using DAO_DbService.Models;
-using Helpers.Models.DtoModels.MainDbDto;
+﻿using DAO_ReputationService.Contexts;
+using DAO_ReputationService.Models;
+using Helpers.Models.DtoModels.VoteDbDto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static Helpers.Constants.Enums;
-using static DAO_DbService.Mapping.AutoMapperBase;
+using static DAO_ReputationService.Mapping.AutoMapperBase;
 using PagedList;
-using DAO_DbService.Mapping;
 using Helpers.Models.SharedModels;
+using DAO_ReputationService.Mapping;
 
-namespace DAO_DbService.Controllers
+namespace DAO_ReputationService.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class AuctionBidController : Controller
+    public class UserReputationController : Controller
     {
         [Route("Get")]
         [HttpGet]
-        public IEnumerable<AuctionBidDto> Get()
+        public IEnumerable<UserReputationDto> Get()
         {
-            List<AuctionBid> model = new List<AuctionBid>();
+            List<UserReputation> model = new List<UserReputation>();
 
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
-                    model = db.AuctionBids.ToList();
+                    model = db.UserReputations.ToList();
                 }
             }
             catch (Exception ex)
             {
-                model = new List<AuctionBid>();
+                model = new List<UserReputation>();
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(model).ToArray();
+            return _mapper.Map<List<UserReputation>, List<UserReputationDto>>(model).ToArray();
         }
-        
+
         [Route("GetId")]
         [HttpGet]
-        public AuctionBidDto GetId(int id)
+        public UserReputationDto GetId(int id)
         {
-            AuctionBid model = new AuctionBid();
+            UserReputation model = new UserReputation();
 
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
-                    model = db.AuctionBids.Find(id);
+                    model = db.UserReputations.Find(id);
                 }
             }
             catch (Exception ex)
             {
-                model = new AuctionBid();
+                model = new UserReputation();
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return _mapper.Map<AuctionBid, AuctionBidDto>(model);
+            return _mapper.Map<UserReputation, UserReputationDto>(model);
         }
         
         [Route("Post")]
         [HttpPost]
-        public AuctionBidDto Post([FromBody] AuctionBidDto model)
+        public UserReputationDto Post([FromBody] UserReputationDto model)
         {
             try
             {
-                AuctionBid item = _mapper.Map<AuctionBidDto, AuctionBid>(model);
-                using (dao_maindb_context db = new dao_maindb_context())
+                UserReputation item = _mapper.Map<UserReputationDto, UserReputation>(model);
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
-                    db.AuctionBids.Add(item);
+                    db.UserReputations.Add(item);
                     db.SaveChanges();
                 }
-                return _mapper.Map<AuctionBid, AuctionBidDto>(item);
+                return _mapper.Map<UserReputation, UserReputationDto>(item);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return new AuctionBidDto();
+                return new UserReputationDto();
             }
         }
-        
+       
         [Route("PostMultiple")]
         [HttpPost]
-        public List<AuctionBidDto> PostMultiple([FromBody] List<AuctionBidDto> model)
+        public List<UserReputationDto> PostMultiple([FromBody] List<UserReputationDto> model)
         {
             try
             {
-                List<AuctionBid> item = _mapper.Map<List<AuctionBidDto>, List<AuctionBid>>(model);
-                using (dao_maindb_context db = new dao_maindb_context())
+                List<UserReputation> item = _mapper.Map<List<UserReputationDto>, List<UserReputation>>(model);
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
-                    db.AuctionBids.AddRange(item);
+                    db.UserReputations.AddRange(item);
                     db.SaveChanges();
                 }
-                return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(item);
+                return _mapper.Map<List<UserReputation>, List<UserReputationDto>>(item);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return new List<AuctionBidDto>();
+                return new List<UserReputationDto>();
             }
         }
-        
+       
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
         {
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
-                    AuctionBid item = db.AuctionBids.FirstOrDefault(s => s.AuctionBidID == ID);
+                    UserReputation item = db.UserReputations.FirstOrDefault(s => s.UserReputationID == ID);
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     db.SaveChanges();
                 }
@@ -124,40 +124,40 @@ namespace DAO_DbService.Controllers
                 return false;
             }
         }
-        
+       
         [Route("Update")]
         [HttpPut]
-        public AuctionBidDto Update([FromBody] AuctionBidDto model)
+        public UserReputationDto Update([FromBody] UserReputationDto model)
         {
             try
             {
-                AuctionBid item = _mapper.Map<AuctionBidDto, AuctionBid>(model);
-                using (dao_maindb_context db = new dao_maindb_context())
+                UserReputation item = _mapper.Map<UserReputationDto, UserReputation>(model);
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
                 }
-                return _mapper.Map<AuctionBid, AuctionBidDto>(item);
+                return _mapper.Map<UserReputation, UserReputationDto>(item);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return new AuctionBidDto();
+                return new UserReputationDto();
             }
         }
-      
+       
         [Route("GetPaged")]
         [HttpGet]
-        public PaginationEntity<AuctionBidDto> GetPaged(int page = 1, int pageCount = 30)
+        public PaginationEntity<UserReputationDto> GetPaged(int page = 1, int pageCount = 30)
         {
-            PaginationEntity<AuctionBidDto> res = new PaginationEntity<AuctionBidDto>();
+            PaginationEntity<UserReputationDto> res = new PaginationEntity<UserReputationDto>();
 
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                using (dao_reputationserv_context db = new dao_reputationserv_context())
                 {
 
-                    IPagedList<AuctionBidDto> lst = AutoMapperBase.ToMappedPagedList<AuctionBid, AuctionBidDto>(db.AuctionBids.OrderByDescending(x => x.AuctionBidID).ToPagedList(page, pageCount));
+                    IPagedList<UserReputationDto> lst = AutoMapperBase.ToMappedPagedList<UserReputation, UserReputationDto>(db.UserReputations.OrderByDescending(x => x.UserReputationID).ToPagedList(page, pageCount));
 
                     res.Items = lst;
                     res.MetaData = new PaginationMetaData() { Count = lst.Count, FirstItemOnPage = lst.FirstItemOnPage, HasNextPage = lst.HasNextPage, HasPreviousPage = lst.HasPreviousPage, IsFirstPage = lst.IsFirstPage, IsLastPage = lst.IsLastPage, LastItemOnPage = lst.LastItemOnPage, PageCount = lst.PageCount, PageNumber = lst.PageNumber, PageSize = lst.PageSize, TotalItemCount = lst.TotalItemCount };
