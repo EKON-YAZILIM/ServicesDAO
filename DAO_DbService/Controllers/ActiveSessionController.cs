@@ -175,8 +175,63 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
-    
+        [Route("PostOrUpdate")]
+        [HttpPost]
+        public ActiveSessionDto PostOrUpdate([FromBody] ActiveSessionDto model)
+        {
+            try
+            {
+                ActiveSession item = _mapper.Map<ActiveSessionDto, ActiveSession>(model);
 
-    
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    if(db.ActiveSessions.Count(x => x.UserID == model.UserID) > 0)
+                    {
+                        item = db.ActiveSessions.First(x => x.UserID == model.UserID);
+                        item.Token = model.Token;
+                        item.LoginDate = model.LoginDate;
+                        db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        db.ActiveSessions.Add(item);
+                        db.SaveChanges();
+                    }
+                }
+
+                return _mapper.Map<ActiveSession, ActiveSessionDto>(item);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return new ActiveSessionDto();
+            }
+        }
+
+        [Route("DeleteByUserId")]
+        [HttpDelete]
+        public bool DeleteByUserId(int userid)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    var records = db.ActiveSessions.Where(x => x.UserID == userid).ToList();
+                    foreach (var item in records)
+                    {
+                        db.ActiveSessions.Remove(item);
+                    }
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return false;
+            }
+        }
+
     }
 }

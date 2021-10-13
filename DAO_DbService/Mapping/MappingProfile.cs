@@ -26,6 +26,8 @@ namespace DAO_DbService.Mapping
             CreateMap<UserKYC, UserKYCDto>();
             CreateMap<UserKYCDto, UserKYC>();
 
+            CreateMap<ActiveSession, ActiveSessionDto>();
+            CreateMap<ActiveSessionDto, ActiveSession>();
         }
     }
 }

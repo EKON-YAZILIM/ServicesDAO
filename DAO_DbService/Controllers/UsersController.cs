@@ -197,26 +197,6 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
-        [Route("GetByEmail")]
-        [HttpGet]
-        public UserDto GetByEmail(string email)
-        {
-            UserDto model = new UserDto();
-            try
-            {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    model = _mapper.Map<User, UserDto>(db.Users.FirstOrDefault(x => x.Email == email));
-                }
-            }
-            catch (Exception ex)
-            {
-                model = new UserDto();
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-            return model;
-        }
-      
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<UserDto> Search(string query, int page = 1, int pageCount = 30)
@@ -243,6 +223,44 @@ namespace DAO_DbService.Controllers
 
         }
 
-        
+        [Route("GetByEmail")]
+        [HttpGet]
+        public UserDto GetByEmail(string email)
+        {
+            UserDto model = new UserDto();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = _mapper.Map<User, UserDto>(db.Users.FirstOrDefault(x => x.Email == email));
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new UserDto();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return model;
+        }
+
+        [Route("GetByUsername")]
+        [HttpGet]
+        public UserDto GetByUsername(string username)
+        {
+            UserDto model = new UserDto();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = _mapper.Map<User, UserDto>(db.Users.FirstOrDefault(x => x.UserName == username));
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new UserDto();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return model;
+        }
     }
 }

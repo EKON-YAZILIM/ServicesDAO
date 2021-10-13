@@ -1,8 +1,6 @@
-﻿using Helpers.Models.SharedModels;
+﻿using Helpers.Models.NotificationModels;
+using Helpers.Models.SharedModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DAO_NotificationService.Integrations
 {

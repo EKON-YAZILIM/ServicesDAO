@@ -1,9 +1,8 @@
-﻿using Helpers.Models.DtoModels;
-using Helpers.Models.DtoModels.LogDbDto;
+﻿using Helpers.Constants;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.IdentityModels;
+using Helpers.Models.NotificationModels;
 using Helpers.Models.SharedModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -13,7 +12,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 using static Helpers.Constants.Enums;
 
 namespace DAO_IdentityService.Controllers
@@ -22,6 +20,13 @@ namespace DAO_IdentityService.Controllers
     [ApiController]
     public class IdentityController : ControllerBase
     {
+        /// <summary>
+        ///  User login method with email or username.
+        ///  A JWT Token is created with every successful login. Active user sessions are stored in the database (ActiveSessions table)
+        ///  It is recommended to change the JwtTokenKey in production environment.
+        /// </summary>
+        /// <param name="model">LoginModel</param>
+        /// <returns>User summary and token</returns>
         [HttpPost("Login", Name = "Login")]
         public LoginResponse Login(LoginModel model)
         {
@@ -29,16 +34,29 @@ namespace DAO_IdentityService.Controllers
 
             try
             {
-                string json = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + model.email);
+                //Try to find user in database
+                string userJson = string.Empty;
+                //Try to find user with email
+                if (model.email.Contains("@"))
+                {
+                    userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + model.email);
+                }
+                //Try to find user with username
+                else
+                {
+                    userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByUsername?username=" + model.email);
+                }
+                var userObj = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
-                var userObj = Helpers.Serializers.DeserializeJson<UserDto>(json);
-
+                //User not found control
                 if (userObj == null || userObj.UserId <= 0)
                 {
                     res.IsSuccessful = false;
                     return res;
                 }
-                else if (Convert.ToBoolean(userObj.IsBlocked))
+
+                //User blocked(banned) control
+                if (Convert.ToBoolean(userObj.IsBlocked))
                 {
                     res.IsBlocked = true;
                     res.IsSuccessful = false;
@@ -47,7 +65,9 @@ namespace DAO_IdentityService.Controllers
 
                     return res;
                 }
-                else if (!userObj.IsActive)
+
+                //User email activation control
+                if (!userObj.IsActive)
                 {
                     res.IsActive = false;
                     res.IsSuccessful = false;
@@ -56,49 +76,48 @@ namespace DAO_IdentityService.Controllers
 
                     return res;
                 }
-               
-                if (!string.IsNullOrEmpty(model.pass) && userObj.UserId != 0 && Helpers.Encryption.CheckPassword(userObj.Password, model.pass))
+
+                //Password control
+                if (string.IsNullOrEmpty(model.pass) || !Helpers.Encryption.CheckPassword(userObj.Password, model.pass))
                 {
-                    var key = Encoding.ASCII.GetBytes("56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv");
-
-                    var JWToken = new JwtSecurityToken(
-                        claims: GetUserClaims(userObj, UserIdentityType.User),
-                        notBefore: new DateTimeOffset(DateTime.Now).DateTime,
-                        expires: new DateTimeOffset(DateTime.Now.AddDays(1)).DateTime,
-                        signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-                    );
-
-                    var token = new JwtSecurityTokenHandler().WriteToken(JWToken);
-
-                    res.Token = token;
-                    res.UserId = userObj.UserId;
-                    res.Email = userObj.Email;
-                    res.NameSurname = userObj.NameSurname;
-                    res.ProfileImage = userObj.ProfileImage;
-                    res.IsSuccessful = true;
-                    res.IsActive = true;
-                    res.IsBanned = false;
-                    res.IsBlocked = false;
-
-                    userObj.FailedLoginCount = 0;
-
-                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login successful.", model.ip, model.port);
-
-                    //WILL BE INTEGRATED WITH DB (ActiveSessions)
-                    //Program.redis.Set("session-" + res.UserId, Helpers.Serializers.Serialize(res));
-
-                    Program.monitizer.AddConsole("User login successful. UserID:" + userObj.UserId);
-                }
-                else
-                {
-                    userObj.FailedLoginCount++;
+                    res.IsSuccessful = false;
 
                     Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Incorrect password.", model.ip, model.port);
 
-                    res.IsSuccessful = false;
+                    return res;
                 }
 
-                Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", JsonConvert.SerializeObject(userObj));
+                //--------LOGIN SUCCESFUL--------
+
+                //Create JWT Token
+                var key = Encoding.ASCII.GetBytes(Program._settings.JwtTokenKey);
+
+                var JWToken = new JwtSecurityToken(
+                    claims: CreateUserClaims(userObj, (Enums.UserIdentityType)Enum.Parse(typeof(Enums.UserIdentityType), userObj.UserType)),
+                    notBefore: new DateTimeOffset(DateTime.Now).DateTime,
+                    expires: new DateTimeOffset(DateTime.Now.AddDays(1)).DateTime,
+                    signingCredentials: new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                );
+
+                var token = new JwtSecurityTokenHandler().WriteToken(JWToken);
+
+                //Create response object
+                res.Token = token;
+                res.UserId = userObj.UserId;
+                res.Email = userObj.Email;
+                res.NameSurname = userObj.NameSurname;
+                res.ProfileImage = userObj.ProfileImage;
+                res.IsSuccessful = true;
+                res.IsActive = true;
+                res.IsBanned = false;
+                res.IsBlocked = false;
+
+                //Post or update user session in database
+                Helpers.Request.Post(Program._settings.Service_Db_Url + "/ActiveSession/PostOrUpdate", Helpers.Serializers.SerializeJson(new ActiveSessionDto() { LoginDate = DateTime.Now, Token = token, UserID = res.UserId }));
+
+                //Logging
+                Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login successful.", model.ip, model.port);
+                Program.monitizer.AddConsole("User login successful. UserID:" + userObj.UserId);
             }
             catch (Exception ex)
             {
@@ -106,10 +125,15 @@ namespace DAO_IdentityService.Controllers
             }
 
             return res;
-
         }
 
-        private IEnumerable<Claim> GetUserClaims(UserDto user, UserIdentityType userType)
+        /// <summary>
+        ///  Get claims of the user from user object and user identity type
+        /// </summary>
+        /// <param name="user">UserDto object</param>
+        /// <param name="userType">UserIdentityType enum</param>
+        /// <returns>User claims list</returns>
+        private IEnumerable<Claim> CreateUserClaims(UserDto user, UserIdentityType userType)
         {
             List<Claim> claims = new List<Claim>();
 
@@ -126,14 +150,14 @@ namespace DAO_IdentityService.Controllers
 
                 switch (userType)
                 {
-                    case UserIdentityType.User:
-
+                    case UserIdentityType.Associate:
                         return claims;
-
                     case UserIdentityType.Admin:
                         claims.Add(new Claim("Admin", true.ToString()));
                         return claims;
-
+                    case UserIdentityType.VotingAssociate:
+                        claims.Add(new Claim("Associate", true.ToString()));
+                        return claims;
                     default:
                         return claims;
                 }
@@ -146,46 +170,68 @@ namespace DAO_IdentityService.Controllers
             return claims;
         }
 
+        /// <summary>
+        ///  User register method
+        /// </summary>
+        /// <param name="registerInput">Registration information of the user</param>
+        /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("Register", Name = "Register")]
-        public AjaxResponse Register([FromBody] RegisterModel input)
+        public AjaxResponse Register([FromBody] RegisterModel registerInput)
         {
             try
             {
-                UserDto modelUser = new UserDto();
-                var jsonUser = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + input.email.ToLower());
-                modelUser = Helpers.Serializers.DeserializeJson<UserDto>(jsonUser);
-                if (modelUser != null)
+                //Email already exists control
+                UserDto userControlModel1 = new UserDto();
+                var userControlJson1 = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + registerInput.email.ToLower());
+                userControlModel1 = Helpers.Serializers.DeserializeJson<UserDto>(userControlJson1);
+                if (userControlModel1 != null)
                 {
-                    return new AjaxResponse() { Success = false, Message = "User exist" };
+                    return new AjaxResponse() { Success = false, Message = "Email already exists." };
                 }
 
-                UserDto model = new UserDto();
-                var hashPass = Helpers.Encryption.EncryptPassword(input.password);
-                model.Email = input.email.ToLower();
-                model.NameSurname = input.username;
-                model.Password = hashPass;
-                model.Newsletter = false;
-                model.IsBlocked = false;
-                model.FailedLoginCount = 0;
-                model.CreateDate = DateTime.Now;
-                model.IsActive = false;
-                model.UserType = UserIdentityType.User.ToString();
-                model.ProfileImage = "defaultUser.jpg";
-
-                var json = Helpers.Request.Post(Program._settings.Service_Db_Url + "/Users/Post", Helpers.Serializers.SerializeJson(model));
-                model = Helpers.Serializers.DeserializeJson<UserDto>(json);
-                if (model != null && model.UserId != 0)
+                //Username already exists control
+                UserDto userControlModel2 = new UserDto();
+                var userControlJson2 = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByUsername?username=" + registerInput.username.ToLower());
+                userControlModel2 = Helpers.Serializers.DeserializeJson<UserDto>(userControlJson2);
+                if (userControlModel2 != null)
                 {
-                    string enc = Helpers.Encryption.EncryptString(input.email + "|" + DateTime.Now.ToString());
+                    return new AjaxResponse() { Success = false, Message = "Username already exists." };
+                }
+
+                //Create new user object
+                UserDto userModel = new UserDto();
+                var hashPass = Helpers.Encryption.EncryptPassword(registerInput.password);
+                userModel.Email = registerInput.email.ToLower();
+                userModel.UserName = registerInput.username;
+                userModel.NameSurname = registerInput.namesurname;
+                userModel.Password = hashPass;
+                userModel.Newsletter = false;
+                userModel.IsBlocked = false;
+                userModel.FailedLoginCount = 0;
+                userModel.CreateDate = DateTime.Now;
+                userModel.IsActive = true;   //Should be false in the production environment for email approval.
+                userModel.UserType = UserIdentityType.Associate.ToString();
+                userModel.ProfileImage = "defaultUser.jpg";
+
+                //Insert user object to database
+                var json = Helpers.Request.Post(Program._settings.Service_Db_Url + "/Users/Post", Helpers.Serializers.SerializeJson(userModel));
+                userModel = Helpers.Serializers.DeserializeJson<UserDto>(json);
+                if (userModel != null && userModel.UserId != 0)
+                {
+                    //Create encrypted activation key for email approval
+                    string enc = Helpers.Encryption.EncryptString(registerInput.email + "|" + DateTime.Now.ToString());
                     string denc = Helpers.Encryption.DecryptString(enc);
 
+                    //Set email title and content
                     string emailTitle = "Welcome to ServicesDAO";
-                    string emailContent = "<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete registration.</a>";
+                    string emailContent = "<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete the registration.</a>";
 
-                    SendEmailModel emailModel = new SendEmailModel() {  Subject = emailTitle, Content = emailContent, To = new List<string> { model.Email } };
-                    Helpers.Request.Post(Program._settings.Service_Notification_Url + "/Notification/SendEmail", Helpers.Serializers.SerializeJson(emailModel));
-                    
-                    Program.monitizer.AddUserLog(model.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User register successful.", input.ip, input.port);
+                    //Send email
+                    SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
+                    Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
+
+                    //Logging
+                    Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User register successful.", registerInput.ip, registerInput.port);
 
                     return new AjaxResponse() { Success = true };
                 }
@@ -202,60 +248,77 @@ namespace DAO_IdentityService.Controllers
 
         }
 
-        [HttpGet("RegisterComplete", Name = "RegisterComplete")]
-        public AjaxResponse RegisterComplete(string registerCode)
+        /// <summary>
+        ///  Email approval method after registration
+        /// </summary>
+        /// <param name="model">Token generated from the Register method</param>
+        /// <returns>Generic AjaxResponse class</returns>
+        [HttpPost("RegisterComplete", Name = "RegisterComplete")]
+        public AjaxResponse RegisterComplete(RegisterCompleteModel model)
         {
             try
             {
-                string stre = Helpers.Encryption.DecryptString(registerCode);
+                //Decrypt token in the email
+                string stre = Helpers.Encryption.DecryptString(model.registerToken);
 
+                //Check if it's a valid token
                 if (stre.Split('|').Length > 1)
                 {
                     string email = stre.Split('|')[0];
 
+                    //Find user in database
                     UserDto modelUser = new UserDto();
                     var jsonUser = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email.ToLower());
                     modelUser = Helpers.Serializers.DeserializeJson<UserDto>(jsonUser);
 
                     if (modelUser != null)
                     {
+                        //Change active status of the user and update database
                         modelUser.IsActive = true;
                         Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", JsonConvert.SerializeObject(modelUser));
 
+                        //Logging
                         Program.monitizer.AddUserLog(modelUser.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User account activated.");
-
                         return new AjaxResponse() { Success = true };
                     }
-                    else
-                    {
-                        return new AjaxResponse() { Success = false };
-                    }
-                }
-                else
-                {
-                    return new AjaxResponse() { Success = false };
                 }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new AjaxResponse() { Success = false };
             }
+
+            return new AjaxResponse() { Success = false };
         }
 
+        /// <summary>
+        ///  Reset password request method
+        /// </summary>
+        /// <param name="model">User registered email in the system</param>
+        /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("ResetPassword", Name = "ResetPassword")]
         public AjaxResponse ResetPassword(ResetPasswordModel model)
         {
             try
             {
+                //Find user in database from email
                 var userModel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + model.email));
-                if (userModel != null && userModel.Email == model.email)
+
+                //Check user exists
+                if (userModel != null)
                 {
+                    //Create encrypted token for password renewal
                     string enc = Helpers.Encryption.EncryptString(model.email + "|" + DateTime.Now.ToString());
 
-                    SendEmailModel emailModel = new SendEmailModel() { Subject = model.forgotPassEmailTitle, Content = model.forgotPassEmailContent.Replace("{resetbutton}", Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc), To = new List<string> { model.email } };
-                    Helpers.Request.Post(Program._settings.Service_Notification_Url + "/Notification/SendEmail", Helpers.Serializers.SerializeJson(emailModel));
+                    //Set password renewal email title and content
+                    string emailTitle = "ServicesDAO Password Renewal";
+                    string emailContent = "<a href='" + Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc + "'>Click here to reset your password.</a>";
 
+                    //Send password renewal email
+                    SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { model.email } };
+                    Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
+
+                    //Logging
                     Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "Password reset email sent to user.");
 
                     return new AjaxResponse { Success = true };
@@ -272,36 +335,39 @@ namespace DAO_IdentityService.Controllers
             }
         }
 
+        /// <summary>
+        ///  Change password method after reset password request
+        /// </summary>
+        /// <param name="model">passwordChangeToken: Token generated from ResetPassword method</param>
+        /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("ResetPasswordComplete", Name = "ResetPasswordComplete")]
         public AjaxResponse ResetPasswordComplete(ResetCompleteModel model)
         {
             try
             {
-                string tokendec = Helpers.Encryption.DecryptString(model.passwordchangetoken);
+                //Decrypt token in password renewal email
+                string tokendec = Helpers.Encryption.DecryptString(model.passwordChangeToken);
                 string email = tokendec.Split('|')[0];
 
-                DateTime emaildate = Convert.ToDateTime(tokendec.Split('|')[1]);
-                emaildate = emaildate.AddMinutes(5);
-
+                //Find user in database
                 var usr = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email));
+
+                DateTime emaildate = Convert.ToDateTime(tokendec.Split('|')[1]);
+                emaildate = emaildate.AddMinutes(60);
+
+                //Check if user is valid and password renewal is expired
                 if (usr != null && usr.Email == email && emaildate > DateTime.Now)
                 {
+                    //Reset password
+                    usr.Password = Helpers.Encryption.EncryptPassword(model.newPass);
 
-                    usr.FailedLoginCount = 0;
-                    usr.IsBlocked = false;
-                    usr.Password = Helpers.Encryption.EncryptPassword(model.newpass);
-
+                    //Update user password in database
                     var userModel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", Helpers.Serializers.SerializeJson(usr)));
-                    if (userModel != null && userModel.Email == usr.Email)
-                    {
-                        Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "Password reset completed.");
 
-                        return new AjaxResponse { Success = true };
-                    }
-                    else
-                    {
-                        return new AjaxResponse { Success = false, Message = "Renew expired" };
-                    }
+                    //Logging
+                    Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "Password reset completed.");
+
+                    return new AjaxResponse { Success = true, Message = "Password reset completed." };
                 }
                 else
                 {
@@ -316,44 +382,25 @@ namespace DAO_IdentityService.Controllers
             }
         }
 
-        [HttpGet("GetUserInfo", Name = "GetUserInfo")]
-        public LoginResponse GetUserInfo(string token)
-        {
-            try
-            {
-                var parsedToken = new JwtSecurityTokenHandler().ReadToken(token) as JwtSecurityToken;
-
-                LoginResponse res = new LoginResponse();
-                if (parsedToken != null)
-                {
-                    res.Email = parsedToken.Claims.FirstOrDefault(x => x.Type == "Email").Value;
-                    res.UserId = Convert.ToInt32(parsedToken.Claims.FirstOrDefault(x => x.Type == "UserId").Value);
-                }
-                return res;
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-            }
-
-            return new LoginResponse();
-        }
-
+        /// <summary>
+        ///  User logout method
+        /// </summary>
+        /// <param name="token">Jwt token of the user</param>
+        /// <returns>Is successful</returns>
         [HttpGet("Logout", Name = "Logout")]
         public bool Logout(string token)
         {
             try
             {
-                //WILL BE INTEGRATED WITH DB (ActiveSessions)
+                //Get UserId from JWT token
+                var tokenObj = new JwtSecurityTokenHandler().ReadJwtToken(token);
+                int userId = Convert.ToInt32(tokenObj.Claims.First(c => c.Type == "UserId").Value);
 
-                //var userModel = Helpers.Serializers.DeserializeJson<List<ActiveStatusDto>>(Helpers.Request.Get(Program.settings.AlgolabGetServiceUrl + "/ActiveStatus/GetByToken=" + token)).FirstOrDefault(x => x.Token == token);
+                //Delete all active sessions of the user from database
+                Helpers.Request.Delete(Program._settings.Service_Db_Url + "/ActiveSession/DeleteByUserId?userid="+userId);
 
-                //if (userModel != null)
-                //{
-                //    DeleteActiveStatus(Convert.ToInt32(user.UserId));
-                //}
-
-                //Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User requested logout.");
+                //Logging
+                Program.monitizer.AddUserLog(userId, Helpers.Constants.Enums.UserLogType.Auth, "User requested logout.");
             }
             catch (Exception ex)
             {

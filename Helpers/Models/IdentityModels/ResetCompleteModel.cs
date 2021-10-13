@@ -6,8 +6,7 @@ namespace Helpers.Models.IdentityModels
 {
     public class ResetCompleteModel
     {
-        public string newpass { get; set; }
-        public string newpassagain { get; set; }
-        public string passwordchangetoken { get; set; }
+        public string newPass { get; set; }
+        public string passwordChangeToken { get; set; }
     }
 }

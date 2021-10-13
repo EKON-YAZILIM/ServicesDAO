@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Helpers.Models.IdentityModels
 {
-    public class ResetPasswordModel
+    public class RegisterCompleteModel
     {
-        public string email { get; set; }
+        public string registerToken { get; set; }
     }
 }

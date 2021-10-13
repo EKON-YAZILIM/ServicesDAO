@@ -26,6 +26,7 @@ namespace DAO_IdentityService
 
             var config = Configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
+            Helpers.Encryption.EncryptionKey = Program._settings.EncryptionKey;
 
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
 

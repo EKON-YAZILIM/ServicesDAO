@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Helpers.Models.SharedModels
+namespace Helpers.Models.NotificationModels
 {
     /// <summary>
     ///  Email notification model 
     /// </summary>
+    [Serializable]
     public class SendEmailModel
     {
         public string Subject { get; set; }

@@ -54,14 +54,14 @@ namespace DAO_ApiGateway
         {
             services.AddControllers();
 
-            var key = Encoding.ASCII.GetBytes(_settings.Identity_Token_Key);
+            var key = Encoding.ASCII.GetBytes(_settings.JwtTokenKey);
 
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(_settings.Identity_Token_Key, x =>
+            .AddJwtBearer(_settings.JwtTokenKey, x =>
             {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = true;

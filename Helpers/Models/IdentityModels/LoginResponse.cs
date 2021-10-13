@@ -16,7 +16,6 @@ namespace Helpers.Models.IdentityModels
         public bool IsBanned { get; set; }
         public string CustomMessage { get; set; }
         public string NameSurname { get; set; }
-        public string LicenseType { get; set; }
         public string ProfileImage { get; set; }
     }
 }

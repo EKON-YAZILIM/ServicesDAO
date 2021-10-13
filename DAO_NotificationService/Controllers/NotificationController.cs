@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Helpers.Models.SharedModels;
-using Microsoft.AspNetCore.Http;
+using Helpers;
+using Helpers.Models.NotificationModels;
 using Microsoft.AspNetCore.Mvc;
 using static Helpers.Constants.Enums;
 
@@ -22,14 +22,14 @@ namespace DAO_NotificationService.Controllers
                 if(Program._settings.EmailChannel.ToLower() == "smtp")
                 {
                     string res = DAO_NotificationService.Integrations.SmtpMailSender.SendEmail(model);
-                    Program.monitizer.AddConsole("Email sent. To:" + model.To + " Channel: SMTP");
+                    Program.monitizer.AddConsole("Email sent. To:" + Serializers.SerializeJson(model.To) + " Channel: SMTP");
                     return "Success";
 
                 }
                 if (Program._settings.EmailChannel.ToLower() == "api")
                 {
                     string res = DAO_NotificationService.Integrations.ApiMailSender.SendEmail(model);
-                    Program.monitizer.AddConsole("Email sent. To:" + model.To + " Channel: API");
+                    Program.monitizer.AddConsole("Email sent. To:" + Serializers.SerializeJson(model.To) + " Channel: API");
                     return "Success";
                 }
 

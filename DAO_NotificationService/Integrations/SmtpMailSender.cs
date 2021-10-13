@@ -1,4 +1,4 @@
-﻿using Helpers.Models.SharedModels;
+﻿using Helpers.Models.NotificationModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
 ﻿using Helpers.Constants;
-using Helpers.Models.SharedModels;
+using Helpers.Models.NotificationModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace DAO_NotificationService
             try
             {
                 Program.rabbitMq.ExchangeDeclare(FeedNames.NotificationFeed, "topic", false, false);
-                Program.rabbitMq.QueueBind(FeedNames.NotificationFeed, "*", OnEmailMessageReceived);
+                Program.rabbitMq.QueueBind(FeedNames.NotificationFeed, "email", OnEmailMessageReceived);
             }
             catch (Exception ex)
             {

@@ -23,6 +23,9 @@ namespace DAO_IdentityService
             public string Service_Db_Url { get; set; }
             public string WebPortal_Url { get; set; }
             public string Service_Notification_Url { get; set; }
+
+            public string EncryptionKey { get; set; }
+            public string JwtTokenKey { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();

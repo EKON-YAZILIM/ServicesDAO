@@ -57,7 +57,8 @@
         public enum UserIdentityType
         {
             Admin,
-            User
+            Associate,
+            VotingAssociate
         }
 
     }

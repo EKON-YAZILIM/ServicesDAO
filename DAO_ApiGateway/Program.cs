@@ -21,7 +21,7 @@ namespace DAO_ApiGateway
             public string RabbitMQUsername { get; set; }
             public string RabbitMQPassword { get; set; }
 
-            public string Identity_Token_Key { get; set; }
+            public string JwtTokenKey { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();
