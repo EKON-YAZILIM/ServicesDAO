@@ -22,5 +22,6 @@ namespace DAO_DbService.Models
         public bool KYCStatus { get; set; }
         public int? FailedLoginCount { get; set; }
         public string ProfileImage { get; set; }
+        public string UserName { get; set; }
     }
 }

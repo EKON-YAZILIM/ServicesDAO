@@ -17,5 +17,6 @@ namespace Helpers.Models.DtoModels.LogDbDto
         public string Port { get; set; }
         public string IdField { get; set; }
         public int IdValue { get; set; }
+        public string UserName { get; set; }
     }
 }

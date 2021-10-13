@@ -50,7 +50,7 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    res = db.Users.Where(x => x.NameSurname.Contains(query) || x.Email.Contains(query)).ToList();
+                    res = db.Users.Where(x => x.NameSurname.Contains(query) || x.Email.Contains(query)||x.UserName.Contains(query)).ToList();
                 }
 
             }
@@ -227,7 +227,7 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    IPagedList<UserDto> lst = AutoMapperBase.ToMappedPagedList<User, UserDto>(db.Users.Where(x => x.Email.Contains(query) || x.NameSurname.Contains(query)).ToPagedList(page, pageCount));
+                    IPagedList<UserDto> lst = AutoMapperBase.ToMappedPagedList<User, UserDto>(db.Users.Where(x => x.Email.Contains(query) || x.NameSurname.Contains(query) || x.UserName.Contains(query)).ToPagedList(page, pageCount));
 
                     res.Items = lst;
                     res.MetaData = new PaginationMetaData() { Count = lst.Count, FirstItemOnPage = lst.FirstItemOnPage, HasNextPage = lst.HasNextPage, HasPreviousPage = lst.HasPreviousPage, IsFirstPage = lst.IsFirstPage, IsLastPage = lst.IsLastPage, LastItemOnPage = lst.LastItemOnPage, PageCount = lst.PageCount, PageNumber = lst.PageNumber, PageSize = lst.PageSize, TotalItemCount = lst.TotalItemCount };
