@@ -16,31 +16,30 @@
 
     <title>DAO WebPortal</title>
 
-    <link rel="apple-touch-icon" sizes="57x57" href="~/Home/assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="~/Home/assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="~/Home/assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="~/Home/assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="~/Home/assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="~/Home/assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="~/Home/assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="~/Home/assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="~/Home/assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="~/Home/assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="~/Home/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="~/Home/assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="~/Home/assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="~/Home/assets/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Home/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Home/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Home/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Home/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Home/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Home/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Home/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Home/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Home/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Home/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Home/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Home/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Home/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Home/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="~/Home/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!-- Jquery -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--Jquery-->
+    <script src="~/Home/js/jquery/dist/jquery.min.js"></script>
     <!-- Vendors styles-->
     <link href="~/Home/simplebar/css/simplebar.css" rel="stylesheet" />
     <link href="~/Home/vendors/simplebar.css" rel="stylesheet" />
     <!-- Main styles for this application-->
     <link href="~/Home/css/style.css" rel="stylesheet" />
-
     <link href="~/Home/css/examples.css" rel="stylesheet" />
     <link href="~/Home/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
 
@@ -48,12 +47,8 @@
 <body class="@theme">
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
         <div class="sidebar-brand d-none d-md-flex">
-            <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-                <use xlink:href="/Home/images/svg/coreui.svg#full"></use>
-            </svg>
-            <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI Logo">
-                <use xlink:href="/Home/images/svg/coreui.svg#signet"></use>
-            </svg>
+            <img src="~/Home/images/logo118.png" class="sidebar-brand-full" width="118" height="46" alt="Services DAO" />
+            <img src="~/Home/images/logo48.png" class="sidebar-brand-narrow" width="46" height="46" alt="Services DAO" />
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-item">
@@ -66,31 +61,17 @@
             <li class="nav-title">Pages</li>
 
             <li class="nav-item">
-                <a class="nav-link" href="../Jobs">
+                <a class="nav-link" href="../My-Jobs">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-pencil"></use>
-                    </svg> Jobs
+                    </svg>My Jobs
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../New-Job">
+                <a class="nav-link" href="../All-Jobs">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-pencil"></use>
-                    </svg> New Job Posting
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Forum">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-drop"></use>
-                    </svg> Forum
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Forum-Detail">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-drop"></use>
-                    </svg> Forum-Detail
+                    </svg> All Jobs
                 </a>
             </li>
             <li class="nav-item">
@@ -101,31 +82,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../Auction-Detail">
+                <a class="nav-link" href="../Votes">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-drop"></use>
-                    </svg> Auction Detail
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Voting">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-drop"></use>
-                    </svg> Voting
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Voting-Detail">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-drop"></use>
-                    </svg> Voting Detail
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../User-Profile">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-user"></use>
-                    </svg> User Profile
+                    </svg> Votes
                 </a>
             </li>
             <li class="nav-item">
@@ -140,6 +100,13 @@
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-drop"></use>
                     </svg> Payments History
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../User-Profile">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-user"></use>
+                    </svg> User Profile
                 </a>
             </li>
             <li class="nav-item">
@@ -641,7 +608,6 @@
 
         }
     </script>
-
     <script src="~/Home/chartjs/js/coreui-chartjs.js"></script>
     <script src="~/Home/chartjs/js/chart.min.js"></script>
     <script src="~/Home/chartjs/js/coreui-utils.js"></script>

@@ -227,17 +227,22 @@ sup {
 
 a {
   color: var(--cui-link-color, #321fdb);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
-  color: var(--cui-link-hover-color, #2819af);
+  color: var(--cui-link-hover-color, #2819af)!important;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: inherit;
   text-decoration: none;
 }
-
+.cA svg {
+    color: var(--cui-link-color, #321fdb)!important;
+}
+    .cA svg:hover {
+        color: var(--cui-link-hover-color, #2819af) !important;
+    }
 pre,
 code,
 kbd,
