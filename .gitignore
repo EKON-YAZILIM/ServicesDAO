@@ -32,3 +32,10 @@
 /DAO_WebPortal/bin/Release/netcoreapp3.1
 /DAO_WebPortal/Properties/PublishProfiles
 /Helpers/bin/Release/netcoreapp3.1
+/DAO_ApiGateway/DAO_ApiGateway.csproj.user
+/DAO_DbService/DAO_DbService.csproj.user
+/DAO_IdentityService/DAO_IdentityService.csproj.user
+/DAO_LogService/DAO_LogService.csproj.user
+/DAO_NotificationService/DAO_NotificationService.csproj.user
+/DAO_WebPortal/DAO_WebPortal.csproj.user
+/Helpers/Helpers.csproj.user
