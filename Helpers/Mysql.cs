@@ -1,9 +1,8 @@
 ﻿using Helpers.Models.SharedModels;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Text;
 
 namespace Helpers
 {
@@ -42,6 +41,24 @@ namespace Helpers
             }
         }
 
-    
+        /// <summary>
+        ///  Generic database creation and migration method
+        /// </summary>
+        /// <param name="db">Database object of EntityFramework</param>
+        /// <returns></returns>
+        public ApplicationStartResult Migrate(DatabaseFacade db)
+        {
+            try
+            {
+                db.Migrate();
+                db.EnsureCreated();
+
+                return new ApplicationStartResult() { Success = true };
+            }
+            catch (Exception ex)
+            {
+                return new ApplicationStartResult() { Success = false, Exception = ex };
+            }
+        }
     }
 }

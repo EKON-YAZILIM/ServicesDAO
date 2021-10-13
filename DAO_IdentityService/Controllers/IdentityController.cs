@@ -22,14 +22,14 @@ namespace DAO_IdentityService.Controllers
     [ApiController]
     public class IdentityController : ControllerBase
     {
-        [HttpGet("Login", Name = "Login")]
-        public LoginResponse Login(string user, string pass, Helpers.Constants.Enums.AppNames? application, string ip = "", string port = "")
+        [HttpPost("Login", Name = "Login")]
+        public LoginResponse Login(LoginModel model)
         {
             LoginResponse res = new LoginResponse();
 
             try
             {
-                string json = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + user);
+                string json = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + model.email);
 
                 var userObj = Helpers.Serializers.DeserializeJson<UserDto>(json);
 
@@ -43,21 +43,21 @@ namespace DAO_IdentityService.Controllers
                     res.IsBlocked = true;
                     res.IsSuccessful = false;
 
-                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Blocked account.", ip, port);
+                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Blocked account.", model.ip, model.port);
 
                     return res;
                 }
                 else if (!userObj.IsActive)
                 {
-                    res.IsNotActive = true;
+                    res.IsActive = false;
                     res.IsSuccessful = false;
 
-                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Inactive account.", ip, port);
+                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Inactive account.", model.ip, model.port);
 
                     return res;
                 }
                
-                if (!string.IsNullOrEmpty(pass) && userObj.UserId != 0 && Helpers.Encryption.CheckPassword(userObj.Password, pass))
+                if (!string.IsNullOrEmpty(model.pass) && userObj.UserId != 0 && Helpers.Encryption.CheckPassword(userObj.Password, model.pass))
                 {
                     var key = Encoding.ASCII.GetBytes("56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv");
 
@@ -76,10 +76,13 @@ namespace DAO_IdentityService.Controllers
                     res.NameSurname = userObj.NameSurname;
                     res.ProfileImage = userObj.ProfileImage;
                     res.IsSuccessful = true;
+                    res.IsActive = true;
+                    res.IsBanned = false;
+                    res.IsBlocked = false;
 
                     userObj.FailedLoginCount = 0;
 
-                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login successful.", ip, port);
+                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login successful.", model.ip, model.port);
 
                     //WILL BE INTEGRATED WITH DB (ActiveSessions)
                     //Program.redis.Set("session-" + res.UserId, Helpers.Serializers.Serialize(res));
@@ -90,7 +93,7 @@ namespace DAO_IdentityService.Controllers
                 {
                     userObj.FailedLoginCount++;
 
-                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Incorrect password.", ip, port);
+                    Program.monitizer.AddUserLog(userObj.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User login failed. Incorrect password.", model.ip, model.port);
 
                     res.IsSuccessful = false;
                 }
@@ -159,7 +162,7 @@ namespace DAO_IdentityService.Controllers
                 UserDto model = new UserDto();
                 var hashPass = Helpers.Encryption.EncryptPassword(input.password);
                 model.Email = input.email.ToLower();
-                model.NameSurname = input.namesurname;
+                model.NameSurname = input.username;
                 model.Password = hashPass;
                 model.Newsletter = false;
                 model.IsBlocked = false;
@@ -176,7 +179,10 @@ namespace DAO_IdentityService.Controllers
                     string enc = Helpers.Encryption.EncryptString(input.email + "|" + DateTime.Now.ToString());
                     string denc = Helpers.Encryption.DecryptString(enc);
 
-                    SendEmailModel emailModel = new SendEmailModel() {  Subject = input.registerEmailTitle, Content = input.registerEmailContent.Replace("{registerbutton}", Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc), To = new List<string> { model.Email } };
+                    string emailTitle = "Welcome to ServicesDAO";
+                    string emailContent = "<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete registration.</a>";
+
+                    SendEmailModel emailModel = new SendEmailModel() {  Subject = emailTitle, Content = emailContent, To = new List<string> { model.Email } };
                     Helpers.Request.Post(Program._settings.Service_Notification_Url + "/Notification/SendEmail", Helpers.Serializers.SerializeJson(emailModel));
                     
                     Program.monitizer.AddUserLog(model.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User register successful.", input.ip, input.port);
