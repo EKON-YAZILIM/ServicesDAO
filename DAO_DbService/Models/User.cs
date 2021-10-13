@@ -12,7 +12,6 @@ namespace DAO_DbService.Models
         public int UserId { get; set; }
         public string NameSurname { get; set; }
         public string Email { get; set; }
-        public string UserAlias { get; set; }
         public string Password { get; set; }
         public bool Newsletter { get; set; }
         public string UserType { get; set; }
@@ -22,5 +21,6 @@ namespace DAO_DbService.Models
         public bool KYCStatus { get; set; }
         public int? FailedLoginCount { get; set; }
         public string ProfileImage { get; set; }
+        public string UserName { get; set; }
     }
 }

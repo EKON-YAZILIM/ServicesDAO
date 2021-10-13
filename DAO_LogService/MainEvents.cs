@@ -1,4 +1,6 @@
-﻿using Helpers.Constants;
+﻿using Helpers;
+using Helpers.Constants;
+using Helpers.Models.DtoModels.LogDbDto;
 using Helpers.Models.SharedModels;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,8 @@ namespace DAO_LogService
         {
             try
             {
+                TimerEvents.StartTimers();
+
                 Program.rabbitMq.ExchangeDeclare(FeedNames.ApplicationLogs, "direct", false, false);
                 Program.rabbitMq.ExchangeDeclare(FeedNames.ErrorLogs, "direct", false, false);
                 Program.rabbitMq.ExchangeDeclare(FeedNames.UserLogs, "direct", false, false);
@@ -31,54 +35,26 @@ namespace DAO_LogService
 
         public static void OnApplicationLog(string source, byte[] data)
         {
-            //ApplicationLogsDto log = Serializers.Deserialize<ApplicationLogsDto>(data);
-            //Program.ApplicationLogs.Enqueue(log);
+            ApplicationLogDto log = Serializers.Deserialize<ApplicationLogDto>(data);
+            Program.ApplicationLogs.Enqueue(log);
 
-            //Program.monitizer.AddConsole(source + " " + log.Explanation);
-
-            //Program.monitizer.AddConsole(source + " OnApplicationLog :: " + log.Explanation);
+            Program.monitizer.AddConsole(source + " OnApplicationLog :: " + log.Explanation);
         }
 
         public static void OnErrorLog(string source, byte[] data)
         {
-            //ErrorLogsDto log = Serializers.Deserialize<ErrorLogsDto>(data);
+            ErrorLogDto log = Serializers.Deserialize<ErrorLogDto>(data);
+            Program.ErrorLogs.Enqueue(log);
 
-            //if (!Program.errorLogController.ContainsKey(log.Application))
-            //{
-            //    Program.errorLogController.Add(log.Application, new System.Collections.Generic.List<ErrorLogsDto>());
-            //}
-
-            //var controlList = Program.errorLogController[log.Application];
-
-            //if (controlList.Count(x => x.Date > DateTime.Now.AddMinutes(-5)) > 50)
-            //{
-            //    if (Program.errorLogController[log.Application].Count(x => x.Message == "Max log control reached.") == 0)
-            //    {
-            //        log = new ErrorLogsDto() { Application = log.Application, Date = DateTime.Now, Message = "Max log control reached.", Type = "Log" };
-            //        Program.errorLogController[log.Application].Add(log);
-            //        Program.ErrorLogs.Enqueue(log);
-            //    }
-            //}
-            //else
-            //{
-            //    Program.ErrorLogs.Enqueue(log);
-            //    Program.errorLogController[log.Application].Add(log);
-            //}
-
-            //if (controlList.Count > 100)
-            //{
-            //    Program.errorLogController[log.Application].RemoveAt(0);
-            //}
-
-            //Program.monitizer.AddConsole(source + " OnErrorLog :: " + log.Message);
+            Program.monitizer.AddConsole(source + " OnErrorLog :: " + log.Message);
         }
 
         public static void OnUserLog(string source, byte[] data)
         {
-            //UserLogsDto log = Serializers.Deserialize<UserLogsDto>(data);
-            //Program.UserLogs.Enqueue(log);
+            UserLogDto log = Serializers.Deserialize<UserLogDto>(data);
+            Program.UserLogs.Enqueue(log);
 
-            //Program.monitizer.AddConsole(source + " OnUserLog :: " + log.Explanation);
+            Program.monitizer.AddConsole(source + " OnUserLog :: " + log.Explanation);
         }
 
     }

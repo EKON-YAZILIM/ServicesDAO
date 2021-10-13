@@ -30,6 +30,7 @@ namespace DAO_DbService.Contexts
         public DbSet<JobPostComment> JobPostComments { get; set; }
         public DbSet<JobPost> JobPosts { get; set; }
         public DbSet<UserKYC> UserKYCs { get; set; }
+        public DbSet<ActiveSession> ActiveSessions { get; set; }
 
 
 

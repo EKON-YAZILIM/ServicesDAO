@@ -12,7 +12,7 @@ namespace Helpers.Models.IdentityModels
         public string Token { get; set; }
         public bool IsSuccessful { get; set; }
         public bool IsBlocked { get; set; }
-        public bool IsNotActive { get; set; }
+        public bool IsActive { get; set; }
         public bool IsBanned { get; set; }
         public string CustomMessage { get; set; }
         public string NameSurname { get; set; }

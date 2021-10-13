@@ -24,9 +24,9 @@ namespace DAO_DbService
             public string RabbitMQPassword { get; set; }
         }
 
+        public static Monitizer monitizer;
         public static Settings _settings { get; set; } = new Settings();
         public static Helpers.RabbitMQ rabbitMq = new Helpers.RabbitMQ();
-        public static Monitizer monitizer;
         public static Mysql mysql = new Helpers.Mysql();
         public static DbContextOptions dbOptions;
 

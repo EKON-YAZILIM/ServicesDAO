@@ -16,6 +16,7 @@ using Helpers;
 using Helpers.Models.SharedModels;
 using DAO_LogService.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace DAO_LogService
 {
@@ -32,6 +33,13 @@ namespace DAO_LogService
 
             ApplicationStartResult rabbitControl = rabbitMq.Initialize(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
             if (!rabbitControl.Success)
+            {
+                monitizer.startSuccesful = -1;
+                monitizer.AddException(rabbitControl.Exception, LogTypes.ApplicationError, true);
+            }
+
+            ApplicationStartResult mysqlMigrationcontrol = mysql.Migrate(new dao_logsdb_context().Database);
+            if (!mysqlMigrationcontrol.Success)
             {
                 monitizer.startSuccesful = -1;
                 monitizer.AddException(rabbitControl.Exception, LogTypes.ApplicationError, true);
@@ -76,13 +84,6 @@ namespace DAO_LogService
             app.UseRouting();
 
             app.UseAuthorization();
-
-          
-            using (dao_logsdb_context db = new dao_logsdb_context())
-            {
-                db.Database.Migrate();
-                db.Database.EnsureCreated();
-            }
 
             app.UseEndpoints(endpoints =>
             {

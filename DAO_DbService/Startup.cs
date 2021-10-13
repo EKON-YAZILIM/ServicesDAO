@@ -38,6 +38,13 @@ namespace DAO_DbService
                 monitizer.AddException(rabbitControl.Exception, LogTypes.ApplicationError, true);
             }
 
+            ApplicationStartResult mysqlMigrationcontrol = mysql.Migrate(new dao_maindb_context().Database);
+            if (!mysqlMigrationcontrol.Success)
+            {
+                monitizer.startSuccesful = -1;
+                monitizer.AddException(rabbitControl.Exception, LogTypes.ApplicationError, true);
+            }
+
             ApplicationStartResult mysqlcontrol = mysql.Connect(_settings.DbConnectionString);
             if (!mysqlcontrol.Success)
             {
@@ -75,12 +82,6 @@ namespace DAO_DbService
             app.UseRouting();
 
             app.UseAuthorization();
-
-            using (dao_maindb_context db = new dao_maindb_context())
-            {
-                db.Database.Migrate();
-                db.Database.EnsureCreated();
-            }
 
             app.UseEndpoints(endpoints =>
             {
