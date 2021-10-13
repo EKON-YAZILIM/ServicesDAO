@@ -15,7 +15,7 @@ namespace DAO_NotificationService.Controllers
     {
         [Route("SendEmail")]
         [HttpPost]
-        public string SendEmail([FromBody]SendEmailModel model)
+        public string SendEmail(SendEmailModel model)
         {
             try
             {

@@ -60,7 +60,7 @@ namespace DAO_NotificationService.Integrations
 
             "<div style=\"width:100%;height:100px;background:#353847 !important;border-bottom: 5px solid #334d80;\">" +
                 "<center>" +
-                    "<img style=\"margin-top:30px\" src=\"https://www.ekonteknoloji.com/omnis.png\">" +
+                    "<img style=\"margin-top:30px;width: 160px;\" src=\"https://www.ekonteknoloji.com/logodao.png\">" +
                 "</center>" +
             "</div>" +
 
