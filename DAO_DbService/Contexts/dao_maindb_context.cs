@@ -31,6 +31,7 @@ namespace DAO_DbService.Contexts
         public DbSet<JobPost> JobPosts { get; set; }
         public DbSet<UserKYC> UserKYCs { get; set; }
         public DbSet<ActiveSession> ActiveSessions { get; set; }
+        public DbSet<UserCommentVote> UserCommentVotes { get; set; }
 
 
 

@@ -15,6 +15,7 @@ namespace DAO_DbService.Models
         public DateTime Date { get; set; }
         public string Comment { get; set; }
         public int SubCommentID { get; set; }
-
+        public int UpVote { get; set; }
+        public int DownVote { get; set; }
     }
 }

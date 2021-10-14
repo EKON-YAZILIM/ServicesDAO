@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-
+using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.DtoModels.MainDbDto
 {
@@ -16,5 +16,8 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public double Amount { get; set; }
         public double DosPaid { get; set; }
         public string TimeFrame { get; set; }
+        public DateTime LastUpdate { get; set; }
+        public JobStatusTypes Status { get; set; }
+        public JobProgressTypes ProgressType { get; set; }
     }
 }

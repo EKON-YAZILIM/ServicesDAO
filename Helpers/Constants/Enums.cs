@@ -61,5 +61,29 @@
             VotingAssociate
         }
 
+        /// <summary>
+        ///  Enum of current progress of a job post
+        /// </summary>
+        public enum JobProgressTypes
+        {
+            AdminApprovalPending,
+            Auction,
+            Voting,
+            InProgress
+        }
+
+        /// <summary>
+        ///  Enum of current status of a job post
+        /// </summary>
+        public enum JobStatusTypes
+        {
+            Pending,
+            KYCPending,
+            DoSFeePending,
+            AdminApprovalPending,
+            Active,
+            Waiting,
+            Completed
+        }
     }
 }

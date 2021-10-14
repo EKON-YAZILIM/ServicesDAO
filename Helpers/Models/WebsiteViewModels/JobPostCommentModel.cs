@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using System.Text;
 
-
-namespace Helpers.Models.DtoModels.MainDbDto
+namespace Helpers.Models.WebsiteViewModels
 {
-    [Serializable]
-    public partial class JobPostCommentDto
+   public class JobPostCommentModel
     {
-        public int JobPostCommentID { get; set; }
-        public int JobID { get; set; }
-        public int UserID { get; set; }
+        public string ProfileImage { get; set; }
+        public string UserName { get; set; }
         public DateTime Date { get; set; }
         public string Comment { get; set; }
         public int SubCommentID { get; set; }
         public int UpVote { get; set; }
         public int DownVote { get; set; }
+        public int Points { get; set; }
     }
 }

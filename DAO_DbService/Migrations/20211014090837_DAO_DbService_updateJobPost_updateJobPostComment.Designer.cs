@@ -3,14 +3,16 @@ using System;
 using DAO_DbService.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAO_DbService.Migrations
 {
     [DbContext(typeof(dao_maindb_context))]
-    partial class dao_maindb_contextModelSnapshot : ModelSnapshot
+    [Migration("20211014090837_DAO_DbService_updateJobPost_updateJobPostComment")]
+    partial class DAO_DbService_updateJobPost_updateJobPostComment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,26 +218,6 @@ namespace DAO_DbService.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("DAO_DbService.Models.UserCommentVote", b =>
-                {
-                    b.Property<int>("UserCommentVoteID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsUpVote")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<int>("JobPostCommentID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserCommentVoteID");
-
-                    b.ToTable("UserCommentVotes");
                 });
 
             modelBuilder.Entity("DAO_DbService.Models.UserKYC", b =>
