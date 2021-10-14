@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_PublicLayout.cshtml";
 
 }
@@ -61,8 +60,8 @@
                             <div class="col-xl-6 col-lg-9">
                                 <div class="banner-caption cpn tc-light text-center">
                                     <div class="cpn-head">
-                                        <h2 class="title ttu">Privacy Policy</h2>
-                                        <p>We designed a brand-new cool design and lots of features, the latest version of the template supports advanced decentralization scenarios, and more.</p>
+                                        <h2 class="title ttu">Request for Proposal (RFP)</h2>
+                                        <p>We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,59 +76,53 @@
 </header>
 
 <main class="nk-pages">
-    <section class="section bg-light section-about">
+    <section class="section section-contact bg-transparent">
         <div class="container">
             <!-- Block  -->
-            <div class="nk-block">
-                <div class="row gutter-vr-30px align-items-center">
-                    <div class="col-lg-12">
-                        <div class="nk-block-text">
-                            <h2 class="title">Privacy Policy</h2>
-                            <p><strong>Dao Web Services</strong> which helps you decentralize your bussiness. Wincididunt uteop labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud exercit ullamco. </p>
-                            <p>Dao Web Services sectetur adipiscing elit, sed do eiusmod tempor incididunt uteop labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud exercit ullamco laboris nisi commodo consequat.</p>
-                            <p>We create dipiscing elit, sed do eiusmod tempor incididunt uteop labore et dolore magna aliqua. Ut enim ad minim veniam, nostrud exercit ullamco laboris nisi commodo consequat.</p>
+            <div class="nk-block block-contact" id="contact">
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-10">
+                        <div class="contact-wrap round split split-left split-lg-left bg-white">
+                            <h5 class="title title-md">Proposal Form</h5>
+                            <form class="nk-form-submit" action="form/contact.php" method="post" novalidate="novalidate">
+                                <div class="field-item">
+                                    <input name="jobName" type="text" class="input-line required" aria-required="true">
+                                    <label class="field-label field-label-line">Type of Job</label>
+                                </div>
+                                <div class="field-item">
+                                    <textarea name="exp" type="text" class="input-line input-textarea required" aria-required="true"></textarea>
+                                    <label class="field-label field-label-line">Job Explanation</label>
+                                </div>
+                                <div class="field-item">
+                                    <input name="lang" type="text" class="input-line required" aria-required="true">
+                                    <label class="field-label field-label-line">Language of Code Review</label>
+                                </div>
+                                <div class="field-item">
+                                    <input name="price" type="text" class="input-line required" aria-required="true">
+                                    <label class="field-label field-label-line">Total Price for Job ($)</label>
+                                </div>
+                                <div class="field-item">
+                                    <input name="time" type="text" class="input-line required" aria-required="true">
+                                    <label class="field-label field-label-line">Time Expectations for Job Completion</label>
+                                </div>
+                                <input type="text" class="d-none" name="form-anti-honeypot" value="">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <button type="submit" class="btn btn-lg btn-grad">Submit</button>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-results"></div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                </div>
-            </div><!-- .nk-block  -->
-            <div class="hr"></div>
-            <!-- Block  -->
-            <div class="nk-block nk-block-about">
-                <div class="row gutter-vr-30px align-items-center justify-content-between">
-                    <div class="col-md-4 col-lg-3">
-                        <div class="nk-block-text">
-                            <h2 class="title title-lg">Dao Web Services <br>you can trust</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-lg-8">
-                        <div class="nk-block-text">
-                            <p class="lead">Tempor incididunt uteop labore et dolore magna aliqua &amp; easy to use. In Dao Web Services, we believe that, adipiscing elit do eiusmod tempor incididunt uteop labore et dolore magna aliqua. </p>
-                            <p>Ut enim ad minim veniam, nostrud exercit ullamco laboris nisi commodo consequat. Tempor incididunt uteop labore et dolore magna aliqua. Ut enim ad minim veniam ostrud exercit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- .nk-block  -->
-            <div class="hr"></div>
-            <!-- Block  -->
-            <div class="nk-block nk-block-about">
-                <div class="row gutter-vr-30px align-items-center justify-content-between">
-                    <div class="col-md-4 col-lg-3">
-                        <div class="nk-block-text">
-                            <h2 class="title title-lg">Our Mission</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-7 col-lg-8">
-                        <div class="nk-block-text">
-                            <p class="lead">Our Mission is to create next generation decentralization. Ut enim ad minim veniam, nostrud exercit ullamco laboris nisi commodo. Tempor incididunt uteop labore et dolore magna aliqua nostrud exercit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- .nk-block  -->
-
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .block  -->
         </div>
     </section>
-    <!-- // -->
 </main>
+
 
 <footer class="nk-footer bg-theme-grad">
     <section class="section section-footer tc-light bg-transparent">

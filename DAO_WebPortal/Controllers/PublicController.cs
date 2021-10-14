@@ -22,5 +22,10 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
+        [Route("RFP")]
+        public IActionResult RFP()
+        {
+            return View();
+        }
     }
 }
