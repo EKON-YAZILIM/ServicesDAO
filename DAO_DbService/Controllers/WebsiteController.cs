@@ -129,10 +129,10 @@ namespace DAO_DbService.Controllers
 
             using (dao_maindb_context db = new dao_maindb_context())
             {
-                string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/VoteJob/GetAllVoteJobs?status=" + status);
+                string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/VoteJob/GetVoteJobsByStatus?status=" + status);
                 List<VoteJobDto> model = Helpers.Serializers.DeserializeJson<List<VoteJobDto>>(votejobsJson);
 
-                var result = (from votejob in model
+                res = (from votejob in model
                               join job in db.JobPosts on votejob.JobID equals job.JobID
                               where status == null || job.Status == status
                               select new VoteJobViewModel
