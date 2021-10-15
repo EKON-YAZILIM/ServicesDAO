@@ -60,6 +60,12 @@ namespace DAO_WebPortal.Controllers
             return View();
         }
 
+        [Route("Job-Detail/{Job}")]
+        public IActionResult Job_Detail(int Job)
+        {
+            return View();
+        }
+
         #endregion
 
         #region UserSerttings

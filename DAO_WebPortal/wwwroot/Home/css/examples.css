@@ -297,5 +297,8 @@
     display: inline;
 }
 
+.cursorp{
+    cursor:pointer!important
+}
 
 /*# sourceMappingURL=examples.css.map */
