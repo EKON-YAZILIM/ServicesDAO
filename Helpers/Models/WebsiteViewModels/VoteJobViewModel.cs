@@ -3,12 +3,18 @@ using Helpers.Models.DtoModels.VoteDbDto;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.WebsiteViewModels
 {
     public class VoteJobViewModel
     {
-        public VoteJobDto voteJob { get; set; }
-        public int jobId { get; set; }
+        public int JobID { get; set; }
+        public bool IsFormal { get; set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public string Title { get; set; }
+  
     }
 }

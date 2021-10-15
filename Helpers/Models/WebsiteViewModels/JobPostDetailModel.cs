@@ -6,7 +6,7 @@ namespace Helpers.Models.WebsiteViewModels
 {
    public class JobPostDetailModel
     {
-        public JobPostWebsiteModel JobPostWebsiteModel { get; set; }
+        public JobPostViewModel JobPostWebsiteModel { get; set; }
         public List<JobPostCommentModel> JobPostCommentMode { get; set; }
     }
 }

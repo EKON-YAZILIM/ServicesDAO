@@ -15,9 +15,9 @@ namespace DAO_DbService.Controllers
     {
         [Route("GetAllJobs")]
         [HttpGet]
-        public List<JobPostWebsiteModel> GetAllJobs()
+        public List<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status)
         {
-            List<JobPostWebsiteModel> result = new List<JobPostWebsiteModel>();
+            List<JobPostViewModel> result = new List<JobPostViewModel>();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
@@ -26,8 +26,8 @@ namespace DAO_DbService.Controllers
                               join user in db.Users on job.UserID equals user.UserId
                               let explenation = job.JobDescription.Substring(0, 100)
                               let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
-                              where job.Status == Helpers.Constants.Enums.JobStatusTypes.Active
-                              select new JobPostWebsiteModel
+                              where status == null || job.Status == status
+                              select new JobPostViewModel
                               {
                                   Title = job.Title,
                                   UserName = user.UserName,
@@ -40,7 +40,7 @@ namespace DAO_DbService.Controllers
                                   ProgressType = job.ProgressType,
                                   CommentCount = count
                               }).ToList();
-                    
+
                 }
 
 
@@ -97,7 +97,7 @@ namespace DAO_DbService.Controllers
                     var jobPost = db.JobPosts.Find(jobid);
                     var user = db.Users.Find(jobPost.UserID);
                     var count = db.JobPostComments.Count(x => x.JobID == jobPost.JobID);
-                    result.JobPostWebsiteModel = new JobPostWebsiteModel
+                    result.JobPostWebsiteModel = new JobPostViewModel
                     {
                         Title = jobPost.Title,
                         UserName = user.UserName,
@@ -121,6 +121,11 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+
+
+
+
+
         [Route("GetVoteJobsByStatus")]
         [HttpGet]
         public List<VoteJobViewModel> GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
@@ -133,16 +138,121 @@ namespace DAO_DbService.Controllers
                 List<VoteJobDto> model = Helpers.Serializers.DeserializeJson<List<VoteJobDto>>(votejobsJson);
 
                 res = (from votejob in model
-                              join job in db.JobPosts on votejob.JobID equals job.JobID
-                              where status == null || job.Status == status
-                              select new VoteJobViewModel
-                              {
-                                  voteJob = votejob,
-                                  jobId = job.JobID
-                              }).ToList();
+                       join job in db.JobPosts on votejob.JobID equals job.JobID
+                       where status == null || job.Status == status
+                       select new VoteJobViewModel
+                       {
+
+                           JobID = job.JobID,
+                           IsFormal = votejob.IsFormal,
+                           CreateDate = votejob.CreateDate,
+                           StartDate = votejob.StartDate,
+                           EndDate = votejob.EndDate,
+                           Title = job.Title
+
+                       }).ToList();
             }
 
             return res;
         }
+
+        [Route("GetUserJobs")]
+        [HttpGet]
+        public List<JobPostModel> GetUserJobs(int userid)
+        {
+            List<JobPostModel> result = new List<JobPostModel>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result = (from job in db.JobPosts
+                              join user in db.Users on job.UserID equals user.UserId
+                              where job.UserID == userid
+                              select new JobPostModel
+                              {
+                                  Title = job.Title,
+                                  UserName = user.UserName,
+                                  CreateDate = job.CreateDate,
+                                  JobDescription = job.JobDescription,
+                                  LastUpdate = job.LastUpdate,
+                                  JobID = job.JobID,
+                                  Status = job.Status,
+                                  Amount = job.Amount,
+                                  ProgressType = job.ProgressType,
+
+                              }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        [Route("GetAuction")]
+        [HttpGet]
+        public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.JobStatusTypes? status)
+        {
+            List<AuctionViewModel> result = new List<AuctionViewModel>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result = (from act in db.Auctions
+                              join job in db.JobPosts on act.JobID equals job.JobID
+                              join user in db.Users on job.UserID equals user.UserId
+                               where status == null || act.Status == status
+                              select new AuctionViewModel
+                              {
+                                  JobID = act.JobID,
+                                  StartDate = act.StartDate,
+                                  EndDate = act.EndDate,
+                                  CreateDate = act.CreateDate,
+                                  JobPosterUserId = act.JobPosterUserId,
+                                  WinnerAuctionBidID = act.WinnerAuctionBidID,
+                                  UserName = user.UserName
+                              }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        [Route("GetAuctionBids")]
+        [HttpGet]
+        public List<AuctionBidViewModel> GetAuctionBids(int auctionid)
+        {
+            List<AuctionBidViewModel> result = new List<AuctionBidViewModel>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result = (from act in db.AuctionBids
+                              join user in db.Users on act.UserId equals user.UserId
+                              where act.AuctionID == auctionid
+                              select new AuctionBidViewModel
+                              {
+                                  AuctionID = act.AuctionID,
+                                  UserId = act.UserId,
+                                  Price = act.Price,
+                                  Time = act.Time,
+                                  IsInternal = act.IsInternal,
+                                  ReputationStake = act.ReputationStake,
+                                  UserName = user.UserName
+
+                              }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
     }
 }
+

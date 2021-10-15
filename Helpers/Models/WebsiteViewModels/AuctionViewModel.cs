@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using static Helpers.Constants.Enums;
 
-namespace DAO_DbService.Models
+namespace Helpers.Models.WebsiteViewModels
 {
-    public class Auction 
+   public class AuctionViewModel
     {
-        [Key]
-        public int AuctionID { get; set; }
         public int JobID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -18,5 +14,6 @@ namespace DAO_DbService.Models
         public int JobPosterUserId { get; set; }
         public int WinnerAuctionBidID { get; set; }
         public JobStatusTypes Status { get; set; }
+        public string UserName { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-   public class JobPostWebsiteModel
+   public class JobPostViewModel
     {
         public string Title { get; set; }
         public string UserName { get; set; }

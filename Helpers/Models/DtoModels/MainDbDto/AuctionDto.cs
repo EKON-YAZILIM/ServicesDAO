@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-
+using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.DtoModels.MainDbDto
 {
@@ -15,6 +15,6 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public DateTime CreateDate { get; set; }
         public int JobPosterUserId { get; set; }
         public int WinnerAuctionBidID { get; set; }
-        public string Status { get; set; }
+        public JobStatusTypes Status { get; set; }
     }
 }
