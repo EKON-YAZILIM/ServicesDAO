@@ -22,6 +22,7 @@ namespace DAO_DbService
             public string RabbitMQUrl { get; set; }
             public string RabbitMQUsername { get; set; }
             public string RabbitMQPassword { get; set; }
+            public string Voting_Engine_Url { get; set; }
         }
 
         public static Monitizer monitizer;
@@ -32,7 +33,7 @@ namespace DAO_DbService
 
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();                
+                CreateHostBuilder(args).Build().Run();                
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

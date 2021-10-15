@@ -6513,7 +6513,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 
 .logo-light, .is-transparent:not(.has-fixed) .logo-dark, .is-dark .logo-dark { display: none; }
 
-.logo img { height: 36px; transition: all .4s; }
+.logo img { height: 40px; transition: all .4s; }
 
 .logo-md img { height: 44px; }
 
@@ -6525,7 +6525,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
   .header-container:not(.container) { padding: 0 25px; }
   .header-container-s1:not(.container) { padding: 0 25px; }
   .header-banner { min-height: 98px; }
-  .logo img { height: 40px; }
+  .logo img { height: 45px; }
   .logo-md img { height: 50px; }
   .logo-lg img { height: 60px; } }
 

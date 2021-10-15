@@ -1,4 +1,5 @@
 ﻿using DAO_DbService.Contexts;
+using Helpers.Models.DtoModels.VoteDbDto;
 using Helpers.Models.WebsiteViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -118,6 +119,30 @@ namespace DAO_DbService.Controllers
 
             }
             return result;
+        }
+
+        [Route("GetVoteJobsByStatus")]
+        [HttpGet]
+        public List<VoteJobViewModel> GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
+        {
+            List<VoteJobViewModel> res = new List<VoteJobViewModel>();
+
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/VoteJob/GetAllVoteJobs?status=" + status);
+                List<VoteJobDto> model = Helpers.Serializers.DeserializeJson<List<VoteJobDto>>(votejobsJson);
+
+                var result = (from votejob in model
+                              join job in db.JobPosts on votejob.JobID equals job.JobID
+                              where status == null || job.Status == status
+                              select new VoteJobViewModel
+                              {
+                                  voteJob = votejob,
+                                  jobId = job.JobID
+                              }).ToList();
+            }
+
+            return res;
         }
     }
 }

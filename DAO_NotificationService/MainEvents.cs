@@ -41,6 +41,5 @@ namespace DAO_NotificationService
             }
         }
 
-
     }
 }

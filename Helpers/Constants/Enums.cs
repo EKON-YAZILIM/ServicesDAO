@@ -67,20 +67,31 @@
         public enum JobProgressTypes
         {
             AdminApprovalPending,
+            DoSFeePending,
+            KYCPending,
             Auction,
             Voting,
-            InProgress
+            InProgress,
+            Completed
         }
 
         /// <summary>
-        ///  Enum of current status of a job post
+        ///  Enum of current status of a job
         /// </summary>
         public enum JobStatusTypes
         {
             Pending,
-            KYCPending,
-            DoSFeePending,
-            AdminApprovalPending,
+            Active,
+            Waiting,
+            Completed
+        }
+
+        /// <summary>
+        ///  Enum of current status of a voting
+        /// </summary>
+        public enum VoteStatusTypes
+        {
+            Pending,
             Active,
             Waiting,
             Completed
