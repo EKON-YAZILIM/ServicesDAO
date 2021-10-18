@@ -8,8 +8,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1101"
+          "Host": "dao_dbservice",
+          "Port": "80"
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -26,8 +26,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1002"
+          "Host": "dao_logservice",
+          "Port": "80"
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -42,37 +42,11 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1003"
+          "Host": "dao_identityservice",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/Login",
-      "UpstreamHttpMethod": [ "GET" ],
-      "Priority": 2
-    },
-    {
-      "DownstreamPathTemplate": "/Identity/LoginAdmin",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "192.168.5.2",
-          "Port": "1003"
-        }
-      ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/LoginAdmin",
-      "UpstreamHttpMethod": [ "GET" ],
-      "Priority": 2
-    },
-    {
-      "DownstreamPathTemplate": "/Identity/LoginApiKey",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "192.168.5.2",
-          "Port": "1003"
-        }
-      ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/LoginApiKey",
       "UpstreamHttpMethod": [ "GET" ],
       "Priority": 2
     },
@@ -81,8 +55,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1003"
+          "Host": "dao_identityservice",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/Register",
@@ -94,8 +68,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1003"
+          "Host": "dao_identityservice",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/RegisterComplete",
@@ -107,8 +81,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1003"
+          "Host": "dao_identityservice",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPassword",
@@ -120,8 +94,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.5.2",
-          "Port": "1003"
+          "Host": "dao_identityservice",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",
