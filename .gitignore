@@ -40,3 +40,7 @@
 /DAO_WebPortal/DAO_WebPortal.csproj.user
 /Helpers/Helpers.csproj.user
 /bin/Release
+/UnitTests\DAO_DbService.Test\bin
+/UnitTests\DAO_DbService.Test\obj
+/UnitTests/DAO_DbService.Test/bin/Debug/netcoreapp3.1
+/UnitTests/DAO_DbService.Test/obj

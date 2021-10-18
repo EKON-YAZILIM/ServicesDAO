@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3310397C-36A1-45DD-B0FE-9980ED4663F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO_DbService.Test", "UnitTests\DAO_DbService.Test\DAO_DbService.Test.csproj", "{8BA54AA9-D33D-4210-AEE8-6276DD9E6672}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{0F0A2576-E0AB-4B97-AE16-1C8829D9513A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,9 +61,16 @@ Global
 		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3310397C-36A1-45DD-B0FE-9980ED4663F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA54AA9-D33D-4210-AEE8-6276DD9E6672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA54AA9-D33D-4210-AEE8-6276DD9E6672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA54AA9-D33D-4210-AEE8-6276DD9E6672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA54AA9-D33D-4210-AEE8-6276DD9E6672}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8BA54AA9-D33D-4210-AEE8-6276DD9E6672} = {0F0A2576-E0AB-4B97-AE16-1C8829D9513A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C01F51E4-65BD-4F62-ABEF-1661B516E469}

@@ -10,8 +10,12 @@ namespace DAO_DbService.Contexts
 {
     public class dao_maindb_context : DbContext
     {
-
         public dao_maindb_context()
+        {
+
+        }
+
+        public dao_maindb_context(DbContextOptions options) : base(options)
         {
 
         }
