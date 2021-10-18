@@ -174,5 +174,27 @@ namespace DAO_LogService.Controllers
 
             return res;
         }
+
+        [Route("GetLastWithCount")]
+        [HttpGet]
+        public IEnumerable<UserLogDto> GetLastWithCount(int count =20)
+        {
+            List<UserLog> model = new List<UserLog>();
+
+            try
+            {
+                using (dao_logsdb_context db = new dao_logsdb_context())
+                {
+                    model = db.UserLogs.OrderByDescending(x=>x.UserLogId).Take(count).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new List<UserLog>();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return _mapper.Map<List<UserLog>, List<UserLogDto>>(model).ToArray();
+        }
     }
 }

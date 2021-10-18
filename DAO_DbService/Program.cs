@@ -23,6 +23,7 @@ namespace DAO_DbService
             public string RabbitMQUsername { get; set; }
             public string RabbitMQPassword { get; set; }
             public string Voting_Engine_Url { get; set; }
+            public string LogServices_Url { get; set; }   
         }
 
         public static Monitizer monitizer;

@@ -7,9 +7,9 @@ using static Helpers.Constants.Enums;
 namespace Helpers.Models.DtoModels.VoteDbDto
 {
     [Serializable]
-    public partial class VoteJobDto
+    public partial class VotingDto
     {
-        public int VoteJobID { get; set; }
+        public int VotingID { get; set; }
         public int JobID { get; set; }
         public bool IsFormal { get; set; }
         public DateTime CreateDate { get; set; }

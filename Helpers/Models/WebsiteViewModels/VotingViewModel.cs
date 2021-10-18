@@ -7,7 +7,7 @@ using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-    public class VoteJobViewModel
+    public class VotingViewModel
     {
         public int JobID { get; set; }
         public bool IsFormal { get; set; }
