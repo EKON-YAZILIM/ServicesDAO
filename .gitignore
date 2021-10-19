@@ -44,3 +44,4 @@
 /UnitTests\DAO_DbService.Test\obj
 /UnitTests/DAO_DbService.Test/bin/Debug/netcoreapp3.1
 /UnitTests/DAO_DbService.Test/obj
+/UnitTests/DAO_DbService.Test/bin/Release/netcoreapp3.1/CoverletSourceRootsMapping

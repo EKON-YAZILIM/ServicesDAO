@@ -17,5 +17,7 @@ namespace Helpers.Models.IdentityModels
         public string CustomMessage { get; set; }
         public string NameSurname { get; set; }
         public string ProfileImage { get; set; }
+        public Helpers.Constants.Enums.UserIdentityType UserType { get; set; }
+
     }
 }

@@ -107,6 +107,7 @@ namespace DAO_IdentityService.Controllers
                 res.Email = userObj.Email;
                 res.NameSurname = userObj.NameSurname;
                 res.ProfileImage = userObj.ProfileImage;
+                res.UserType = (Enums.UserIdentityType)Enum.Parse(typeof(Enums.UserIdentityType), userObj.UserType);
                 res.IsSuccessful = true;
                 res.IsActive = true;
                 res.IsBanned = false;
