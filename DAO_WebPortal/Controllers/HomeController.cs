@@ -65,7 +65,11 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
-
+        [Route("Vote-Detail/{VoteID}")]
+         public IActionResult Vote_Detail(int VoteID)
+        {
+            return View();
+        }
         #endregion
 
         #region UserSerttings
