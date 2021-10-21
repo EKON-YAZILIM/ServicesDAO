@@ -61,6 +61,15 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not receive response from the server..
+        /// </summary>
+        public static string ConnectionError {
+            get {
+                return ResourceManager.GetString("ConnectionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter an e-mail address registered in the system..
         /// </summary>
         public static string EmailError {
@@ -124,6 +133,60 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I agree your terms and conditions.
+        /// </summary>
+        public static string Login_AggreeTerms {
+            get {
+                return ResourceManager.GetString("Login_AggreeTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please confirm user agreement..
+        /// </summary>
+        public static string Login_CheckTermsError {
+            get {
+                return ResourceManager.GetString("Login_CheckTermsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot password?.
+        /// </summary>
+        public static string Login_ForgotPassword {
+            get {
+                return ResourceManager.GetString("Login_ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember me.
+        /// </summary>
+        public static string Login_RememberMe {
+            get {
+                return ResourceManager.GetString("Login_RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        public static string Login_SignInTitle {
+            get {
+                return ResourceManager.GetString("Login_SignInTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to DAO.
+        /// </summary>
+        public static string LoginViewTitle {
+            get {
+                return ResourceManager.GetString("LoginViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Passwords entered are not compatible..
         /// </summary>
         public static string NotCompatiblePass {
@@ -174,6 +237,15 @@ namespace DAO_WebPortal.Resources {
         public static string RenewExpired {
             get {
                 return ResourceManager.GetString("RenewExpired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter security code.
+        /// </summary>
+        public static string SecureNote {
+            get {
+                return ResourceManager.GetString("SecureNote", resourceCulture);
             }
         }
         

@@ -48,13 +48,14 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 LoginResponse loginModel = new LoginResponse();
-
                 string ip = Methods.GetClientIpAddress(HttpContext);
                 string port = Methods.GetClientPort(HttpContext);
+                LoginModel LoginModelPost = new LoginModel() { email = email, pass = password, ip = ip, port = port, application = Helpers.Constants.Enums.AppNames.DAO_WebPortal };
 
-                var loginJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Login?user=" + email + "&pass=" + password + "&ip=" + ip + "&port=" + port + "&application=" + Helpers.Constants.Enums.AppNames.DAO_WebPortal);
+
+                var loginJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Login", Helpers.Serializers.SerializeJson(LoginModelPost));
                 loginModel = Helpers.Serializers.DeserializeJson<LoginResponse>(loginJson);
-
+       
                 if (loginModel.UserId != 0 && loginModel != null && loginModel.IsSuccessful == true)
                 {
                     string token = loginModel.Token.ToString();
@@ -127,6 +128,10 @@ namespace DAO_WebPortal.Controllers
                 {
                     failCount++;
                     if (registerResponse.Message == "User exist")
+                    {
+                        return Json(new AjaxResponse { Success = false, Message = Lang.ErrorMailMsg });
+                    }
+                   else if (registerResponse.Message == "Email already exists.")
                     {
                         return Json(new AjaxResponse { Success = false, Message = Lang.ErrorMailMsg });
                     }

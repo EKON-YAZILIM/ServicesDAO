@@ -41,6 +41,9 @@ namespace DAO_ApiGateway
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+            .ConfigureAppConfiguration((hostContext, config)=> {
+                    config.AddJsonFile("ocelot.json");
                 });
     }
 }

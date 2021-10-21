@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using static DAO_WebPortal.Program;
+
 
 namespace DAO_WebPortal
 {
@@ -19,6 +21,9 @@ namespace DAO_WebPortal
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            var config = Configuration.GetSection("PlatformSettings");
+            config.Bind(_settings);
         }
 
         public IConfiguration Configuration { get; }
@@ -37,6 +42,16 @@ namespace DAO_WebPortal
                 opts.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("tr-TR");
                 opts.SupportedCultures = supportedCultures;
                 opts.SupportedUICultures = supportedCultures;
+
+            });
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(1);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
             });
 
             //services.AddHsts(options =>
@@ -66,6 +81,8 @@ namespace DAO_WebPortal
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

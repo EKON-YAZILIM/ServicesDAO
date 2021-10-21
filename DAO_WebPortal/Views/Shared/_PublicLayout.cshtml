@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using DAO_WebPortal.Resources
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+<!DOCTYPE html>
 <html lang="en" class="js">
 <head>
     <meta charset="utf-8" />
@@ -38,45 +41,49 @@
 
         @RenderBody()
 
-        
+
     </div>
 
     <!-- Modal Login -->
-    <div class="modal fade" id="modal-login">
+    <div class="modal fade " id="modal-login">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
-                <div class="modal-body p-md-4 p-lg-5">
+                <div class="modal-body p-md-4 p-lg-5" id="logindiv">
                     <div class="row">
                         <div class="ath-body">
-                            <h5 class="ath-heading title">Log in <small class="tc-default">with your DevxDAO Account</small></h5>
-                            <div>
+                            <h5 class="ath-heading title">@Lang.Login_SignInTitle<small class="tc-default">with your DevxDAO Account</small></h5>
+                            <div id="loginForm">
+                                @Html.AntiForgeryToken()
                                 <div class="field-item">
                                     <div class="field-wrap">
-                                        <input type="text" class="input-bordered" placeholder="Your Email">
+                                        <input type="text" id="email" class="input-bordered" placeholder="Your Email">
                                     </div>
                                 </div>
                                 <div class="field-item">
-                                    <div class="field-wrap">
-                                        <input type="password" class="input-bordered" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center pdb-r">
-                                    <div class="field-item pb-0">
-                                        <input class="input-checkbox" id="remember-me-2" type="checkbox">
-                                        <label for="remember-me-2">Remember Me</label>
-                                    </div>
                                     <div class="forget-link fz-6">
-                                        <a href="page-reset.html">Forgot password?</a>
+                                        <a data-toggle="modal" data-target="#forgotPassDiv" @*onclick="OpenSection('forgotpass');"*@>@Lang.Login_ForgotPassword</a>
+                                    </div>
+                                    <div class="field-wrap">
+                                        <input type="password" id="pass" class="input-bordered" placeholder="Password">
                                     </div>
                                 </div>
-                                <button onclick="Login()" class="btn btn-primary btn-block btn-md">Log In</button>
+                             
+                                <!-- Remember Me -->
+                                <div class="form-check d-flex align-items-center text-center">
+                                    <input type="checkbox" class="form-check-input mt-0 mr-3" id="chcremember">
+                                    <label class="form-check-label small" for="exampleCheck1">@Lang.Login_RememberMe</label>
+                                </div>
+                                <!-- Captcha -->
+                                <div class="input-group inpcapthca mt-2 captchaDiv d-none">
+                                    <div class="input-group-prepend">
+                                        <img id="img-captcha1" src="../get-captcha-image?code=securityCode1" style="width: 120px; height: 40px;" />
+                                    </div>
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode1" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                </div>
+                                <button type="button" onclick="Login();" class="btn btn-primary btn-block btn-md loginFormButton">Log In</button>
                             </div>
-                            <div class="sap-text"><span>Or Log In With</span></div>
-                            <ul class="row gutter-20px gutter-vr-20px">
-                                <li class="col"><a href="#" class="btn btn-md btn-facebook btn-block"><em class="icon fab fa-facebook-f"></em><span>Facebook</span></a></li>
-                                <li class="col"><a href="#" class="btn btn-md btn-google btn-block"><em class="icon fab fa-google"></em><span>Google</span></a></li>
-                            </ul>
+                  
                         </div>
                     </div>
                 </div>
@@ -84,7 +91,8 @@
         </div>
     </div>
     <!-- .modal  -->
-    <!-- Modal Login -->
+
+    <!-- Modal Sign Up -->
     <div class="modal fade" id="modal-signUp">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -93,66 +101,340 @@
                     <div class="row">
                         <div class="ath-body">
                             <h5 class="ath-heading title">Sign Up <small class="tc-default">Create New DevxDAO Account</small></h5>
-                            <form action="./">
+                            <div class="login-signup-form" id="registerForm">
+                                @Html.AntiForgeryToken()
                                 <div class="field-item">
                                     <div class="field-wrap">
-                                        <input type="text" class="input-bordered" placeholder="Your Name">
+                                        <input type="text" id="nameregister" class="input-bordered" placeholder="Your Name">
                                     </div>
                                 </div>
                                 <div class="field-item">
                                     <div class="field-wrap">
-                                        <input type="text" class="input-bordered" placeholder="Your Email">
+                                        <input type="text" id="emailregister" class="input-bordered" placeholder="Your Email">
                                     </div>
                                 </div>
                                 <div class="field-item">
                                     <div class="field-wrap">
-                                        <input type="password" class="input-bordered" placeholder="Password">
+                                        <input type="text" id="usernameregister" class="input-bordered" placeholder="Your User Name">
                                     </div>
                                 </div>
                                 <div class="field-item">
                                     <div class="field-wrap">
-                                        <input type="password" class="input-bordered" placeholder="Repeat Password">
+                                        <input type="password" id="passregister" class="input-bordered" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="field-item">
-                                    <input class="input-checkbox" id="agree-term-2" type="checkbox">
-                                    <label for="agree-term-2">I agree to Icos <a href="#">Privacy Policy</a> &amp; <a href="#">Terms</a>.</label>
+                                    <div class="field-wrap">
+                                        <input type="password" id="passregister2" class="input-bordered" placeholder="Repeat Password">
+                                    </div>
                                 </div>
-                                <button class="btn btn-primary btn-block btn-md">Sign Up</button>
-                            </form>
-                            <div class="sap-text"><span>Or Sign Up With</span></div>
 
-                            <ul class="btn-grp gutter-20px gutter-vr-20px">
-                                <li class="col"><a href="#" class="btn btn-md btn-facebook btn-block"><em class="icon fab fa-facebook-f"></em><span>Facebook</span></a></li>
-                                <li class="col"><a href="#" class="btn btn-md btn-google btn-block"><em class="icon fab fa-google"></em><span>Google</span></a></li>
-                            </ul>
+                                <!-- Legal Check -->  
+                                <div class="field-item">
+                                    <div class="form-check d-flex align-items-center text-center">
+                                        <input type="checkbox" class="form-check-input mt-0 mr-3" id="chcTerms">
+                                        <label class="form-check-label small" for="exampleCheck1">@Html.Raw(Lang.Login_AggreeTerms)</label>
+                                    </div>
+                                </div>
+                                <!-- Captcha -->
+                                <div class="input-group inpcapthca mt-2 captchaDiv d-none">
+                                    <div class="input-group-prepend">
+                                        <img id="img-captcha2" src="../get-captcha-image?code=securityCode2" style="width: 120px; height: 40px;" />
+                                    </div>
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode2" @*placeholder="@Lang.SecureNote"*@ maxlength="5" style="margin-left: 10px; height:40px;" />
+                                </div>
+
+                                <button type="button" onclick="Register();" class="btn btn-primary btn-block btn-md loginFormButton">Sign Up</button>
+                            </div>
+                            @*<div class="sap-text"><span>Or Sign Up With</span></div>
+
+                                <ul class="btn-grp gutter-20px gutter-vr-20px">
+                                    <li class="col"><a href="#" class="btn btn-md btn-facebook btn-block"><em class="icon fab fa-facebook-f"></em><span>Facebook</span></a></li>
+                                    <li class="col"><a href="#" class="btn btn-md btn-google btn-block"><em class="icon fab fa-google"></em><span>Google</span></a></li>
+                                </ul>*@
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Forgot Pass -->
+    <div class="modal fade" id="forgotPassDiv">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="modal-body p-md-4 p-lg-5">
+                    <div class="row">
+                        <div class="ath-body">
+                            <h5 class="ath-heading title">Reset Password <small class="tc-default">Create New DevxDAO Account</small></h5>
+                            <div class="login-signup-form" id="forgotPassForm">
+                                @Html.AntiForgeryToken()
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="text" id="emailforgot" class="input-bordered" placeholder="Your Name">
+                                    </div>
+                                </div>
+
+                                <!-- Captcha -->
+                                <div class="input-group inpcapthca mt-2 captchaDiv d-none">
+                                    <div class="input-group-prepend">
+                                        <img id="img-captcha3" src="../get-captcha-image?code=securityCode3" style="width: 120px; height: 40px;" />
+                                    </div>
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode3" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                </div>
+
+                                <button type="button" onclick="ResetPassword();" class="btn btn-primary btn-block btn-md loginFormButton">Reset Password</button>
+                            </div>
+
+                        </div>
+                        <!--<div class="card-footer bg-transparent border-top px-md-5">-->
+
+                        @*<a href="#" class="small" onclick="OpenSection('login')"> Open Section</a>*@
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- .modal  -->
     <script src="~/Public/js/jquery.bundle.js?ver=1930"></script>
     <script src="~/Public/js/scripts.js?ver=1930"></script>
     <script src="~/Public/js/charts.js"></script>
 
-
     <script>
+        var failCount = 0;
+
+        $(document).ready(function () {
+
+            if (localStorage.getItem("username") != undefined && localStorage.getItem("username") != "") {
+                $("#email").val(localStorage.getItem("username"));
+                $("#chcremember").prop('checked', true);
+            }
+
+            //Toastr library options
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": false,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            //Create Captcha after failed request attempts
+             @if(httpContextAccessor.HttpContext.Session.GetInt32("FailCount") > 3)
+            {
+                @Html.Raw("resetCaptchaImage(\"#img-captcha1\", \"securityCode1\");")
+                @Html.Raw("$(\".captchaDiv\").removeClass(\"d-none\");");
+            }
+
+            $(document).on('keypress', function (e) {
+                if (e.which == 13) {
+                    if (!$("#registerDiv").hasClass("d-none")) {
+                        Register();
+                    }
+                    else if (!$("#forgotPassDiv").hasClass("d-none")) {
+                        ResetPassword();
+                    }
+                    else if (!$("#logindiv").hasClass("d-none")) {
+                        Login();
+                    }
+                    else if (!$("#resetPassDiv").hasClass("d-none")) {
+                        ResetPasswordComplete();
+                    }
+                }
+            });
+
+        });
+
+        function resetCaptchaImage(captchaID, code) {
+            var d = new Date();
+            $(captchaID).attr("src", "/get-captcha-image?" + d.getTime() + "&code=" + code);
+        }
+
         function Login() {
+            $('.loginFormButton').prop('disabled', true);
             $(".spinner").removeClass("load-done");
             $('.spinner').fadeIn(300);
             $('.preloader').fadeIn(300);
-            setTimeout(function () {
-                $(".spinner").removeClass("load-done");
-                $('.spinner').fadeOut(300);
-                $('.preloader').delay(300).fadeOut(300);
-                window.location.href ="/All-Jobs"
-            }, 1000)
+
+            var code = $('#securityCode1').val();
+            var email = $('#email').val()
+            var password = $('#pass').val();
+            if ($('#chcremember').is(':checked')) {
+                localStorage.setItem("username", email);
+            }
+            else {
+                localStorage.setItem("username", "");
+            }
+            var form = $('#loginForm');
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
+            $.ajax({
+                type: "POST",
+                url: "../Public/Login",
+                data: { "email": email, "password": password, "usercode": code, "__RequestVerificationToken": token },
+
+                success: function (result) {
+                    debugger;
+                    console.log(result)
+                      if (result.Success) {
+                          toastr.success(result.message,"@Lang.Successful");
+                        setTimeout(function () {
+                            window.location.href = "../Main/Dashboard";
+                        }, 1000);
+                      }
+                      else {
+                          failCount++;
+                           $('.loginFormButton').removeAttr("disabled");
+                          resetCaptchaImage("#img-captcha1", "securityCode1");
+                          $(".spinner").removeClass("load-done");
+                          $('.spinner').fadeOut(300);
+                          $('.preloader').delay(300).fadeOut(300);
+                          toastr.warning(result.message);
+                          if (failCount > 4) {
+                              $(".captchaDiv").removeClass("d-none");
+                          }
+                      }
+                },
+                failure: function (response) {
+                    $('.loginFormButton').removeAttr("disabled");
+                    toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                    toastr.error("@Lang.UnexpectedError");
+                    $('.loginFormButton').removeAttr("disabled");
+                }
+            });
         }
+
+        function Register() {
+              if (!$("#chcTerms").is(":checked")) {
+                toastr.warning("@Lang.Login_CheckTermsError");
+                return;
+            }
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeIn(300);
+            $('.preloader').fadeIn(300);
+            var email = $('#emailregister').val()
+            var namesurname = $('#nameregister').val();
+            var username = $('#usernameregister').val();
+            var pass = $('#passregister').val();
+            var pass2 = $('#passregister2').val();
+            var code2 = $('#securityCode2').val();
+            var form = $('#registerForm');
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
+            $.ajax({
+                type: "POST",
+                url: "../Public/Register",
+                data: { "email": email, "namesurname": namesurname, "username": username, "password": pass, "repass": pass2, "usercode": code2, "__RequestVerificationToken": token },
+                success: function (result) {
+                    if (result.Success) {
+                        toastr.success(result.message, "@Lang.Successful");
+                        setTimeout(function () {
+                            window.location.href = "../Main/Dashboard";
+                        }, 3000);
+                    }
+                    else {
+                        failCount++;
+                        $('.loginFormButton').removeAttr("disabled");
+                        resetCaptchaImage("#img-captcha2", "securityCode2");
+                        $(".spinner").removeClass("load-done");
+                        $('.spinner').fadeOut(300);
+                        $('.preloader').delay(300).fadeOut(300);
+                        toastr.error(result.message);
+                        if (failCount > 4) {
+                            $(".captchaDiv").removeClass("d-none");
+                        }
+                    }
+                },
+                  failure: function (response) {
+                    $('.loginFormButton').removeAttr("disabled");
+                    toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                    toastr.error("@Lang.UnexpectedError");
+                    $('.loginFormButton').removeAttr("disabled");
+                }
+
+            });
+        }
+
+        function ResetPassword() {
+            $('.loginFormButton').prop('disabled', true);
+            var email = $('#emailforgot').val()
+
+            var form = $('#forgotPassForm');
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
+
+            var code = $('#securityCode3').val();
+
+            $.ajax({
+                type: "POST",
+                url: "../Public/ResetPassword",
+                data: { "email": email, "usercode": code, "__RequestVerificationToken": token },
+                success: function (result) {
+                    failCount++;
+                    if (result.Success) {
+                        toastr.success(result.message,"@Lang.Successful");
+                    }
+                    else {
+                        resetCaptchaImage("#img-captcha3","securityCode3");
+                        toastr.error(result.message, "@Lang.Error");
+                    }
+
+                    if (failCount > 4) {
+                        $(".captchaDiv").removeClass("d-none");
+                    }
+
+                    $('.loginFormButton').removeAttr("disabled");
+                },
+                failure: function (response) {
+                    $('.loginFormButton').removeAttr("disabled");
+                    toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                    toastr.error("@Lang.UnexpectedError");
+                    $('.loginFormButton').removeAttr("disabled");
+                }
+            });
+        }
+
+        function OpenSection(section) {
+            if (section == "login") {
+                $("#modal-signUp").addClass("d-none");
+                $("#forgotPassDiv").addClass("d-none");
+                $("#modal-login").removeClass("d-none");
+                $("#resetPassDiv").addClass("d-none");
+            }
+            else if (section == "register") {
+                $("#registerDiv").removeClass("d-none");
+                $("#forgotPassDiv").addClass("d-none");
+                $("#loginDiv").addClass("d-none");
+                $("#resetPassDiv").addClass("d-none");
+            }
+            else if (section == "forgotpass") {
+                $("#modal-signUp").addClass("d-none");
+                $("#forgotPassDiv").removeClass("d-none");
+                $("#modal-login").addClass("d-none");
+                $("#resetPassDiv").addClass("d-none");
+            }
+        }
+
     </script>
 
 
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>

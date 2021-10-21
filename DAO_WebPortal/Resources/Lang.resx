@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConnectionError" xml:space="preserve">
+    <value>Could not receive response from the server.</value>
+  </data>
   <data name="EmailError" xml:space="preserve">
     <value>Please enter an e-mail address registered in the system.</value>
   </data>
@@ -138,6 +141,24 @@
   <data name="IncorrectPassReset" xml:space="preserve">
     <value>Incorrect password reset request.</value>
   </data>
+  <data name="LoginViewTitle" xml:space="preserve">
+    <value>Welcome to DAO</value>
+  </data>
+  <data name="Login_AggreeTerms" xml:space="preserve">
+    <value>I agree your terms and conditions</value>
+  </data>
+  <data name="Login_CheckTermsError" xml:space="preserve">
+    <value>Please confirm user agreement.</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="Login_RememberMe" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="Login_SignInTitle" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
   <data name="NotCompatiblePass" xml:space="preserve">
     <value>Passwords entered are not compatible.</value>
   </data>
@@ -155,6 +176,9 @@
   </data>
   <data name="RenewExpired" xml:space="preserve">
     <value>This password renewal request has expired.</value>
+  </data>
+  <data name="SecureNote" xml:space="preserve">
+    <value>Enter security code</value>
   </data>
   <data name="Successful" xml:space="preserve">
     <value>Success</value>
