@@ -97,13 +97,13 @@ namespace DAO_ApiGateway
                 endpoints.MapControllers();
             });
 
-            await app.UseOcelot();
-
             DefaultFilesOptions DefaultFile = new DefaultFilesOptions();
             DefaultFile.DefaultFileNames.Clear();
             DefaultFile.DefaultFileNames.Add("Index.html");
             app.UseDefaultFiles(DefaultFile);
             app.UseStaticFiles();
+
+            app.UseOcelot();
         }
     }
 }

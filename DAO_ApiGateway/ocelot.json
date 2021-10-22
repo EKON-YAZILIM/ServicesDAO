@@ -8,8 +8,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_dbservice",
-          "Port": "80"
+          "Host": "192.168.250.10",
+          "Port": "1091"
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -26,8 +26,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_logservice",
-          "Port": "80"
+          "Host": "192.168.250.10",
+          "Port": "1093"
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -42,24 +42,11 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_identityservice",
-          "Port": "80"
+          "Host": "192.168.250.10",
+          "Port": "1092"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/Login",
-      "UpstreamHttpMethod": [ "GET" ],
-      "Priority": 2
-    },
-    {
-      "DownstreamPathTemplate": "/Identity/Register",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "dao_identityservice",
-          "Port": "80"
-        }
-      ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/Register",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
@@ -68,8 +55,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_identityservice",
-          "Port": "80"
+          "Host": "192.168.250.10",
+          "Port": "1092"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/RegisterComplete",
@@ -81,8 +68,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_identityservice",
-          "Port": "80"
+          "Host": "192.168.250.10",
+          "Port": "1092"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPassword",
@@ -94,8 +81,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_identityservice",
-          "Port": "80"
+          "Host": "192.168.250.10",
+          "Port": "1092"
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",

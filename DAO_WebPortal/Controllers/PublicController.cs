@@ -16,10 +16,34 @@ namespace DAO_WebPortal.Controllers
 {
     public class PublicController : Controller
     {
+        #region Views
         public IActionResult Index()
         {
             return View();
         }
+        [Route("Privacy-Policy")]
+        public IActionResult Privacy_Policy()
+        {
+            return View();
+        }
+        [Route("Contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        [Route("RFP")]
+        public IActionResult RFP()
+        {
+            return View();
+        }
+
+        [Route("Error")]
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+        #endregion
 
         #region Login & Register
 
@@ -347,27 +371,7 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
-        [Route("Privacy-Policy")]
-        public IActionResult Privacy_Policy()
-        {
-            return View();
-        }
-        [Route("Contact")]
-        public IActionResult Contact()
-        {
-            return View();
-        }
-        [Route("RFP")]
-        public IActionResult RFP()
-        {
-            return View();
-        }
-
-        [Route("Error")]
-        public IActionResult Error()
-        {
-            return View();
-        }
+       
 
         [Route("get-captcha-image")]
         public IActionResult GetCaptchaImage(string code)

@@ -2527,7 +2527,7 @@ input:-moz-placeholder, textarea:-moz-placeholder { color: rgba(65, 80, 118, 0.6
 
 .input-radio ~ label:not(.error):before, .input-radio ~ label:not(.error):after { border-radius: 50%; }
 
-@media (min-width: 576px) { .field-item { padding-bottom: 30px; }
+@media (min-width: 576px) { .field-item { padding-bottom: 15px; }
   .field-inline .btn-md { line-height: 23px; } }
 
 @media (min-width: 768px) { .field-inline .submit-wrap .btn { width: auto; height: 100%; }

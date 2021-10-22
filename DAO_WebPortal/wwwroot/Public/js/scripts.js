@@ -1,10 +1,7 @@
 
-/*!
- * ICOCrypto v1.9.3 by Softnio. 
-**/
 var NioApp = (function (jQ, win, doc){
     "use strict";
-    var NioApp = {AppInfo: {name: "ICOCrypto", package: "1.9.2", version: "1.0.4", author: "Softnio"} },
+    var NioApp = {AppInfo: {name: "Dao Web Services", package: "1.0.0", version: "1.0.0", author: "Ekon Software and Technology"} },
         components = {docReady: [], docReadyDefer: [], winLoad: [], winLoadDefer: []};
 
     jQ(doc).ready(docReady);
@@ -1004,4 +1001,3 @@ NioApp = function (NioApp, $, window, document) {
 	
 	return NioApp;
 }(NioApp, jQuery, window, document);
-/* END @iO */

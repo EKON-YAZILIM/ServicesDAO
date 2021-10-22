@@ -8098,6 +8098,9 @@ html:not([dir=rtl]) .sidebar-nav .nav-group-items .nav-link .nav-icon {
     position: fixed;
     bottom: 0;
   }
+    .sidebar-narrow-unfoldable:not(:hover) .sidebar-exit {
+        bottom: 48px!important;
+    }
   html:not([dir=rtl]) .sidebar-narrow-unfoldable:not(:hover) .sidebar-toggler::before, html:not([dir=rtl]) .sidebar-narrow .sidebar-toggler::before {
     transform: rotate(-180deg);
   }

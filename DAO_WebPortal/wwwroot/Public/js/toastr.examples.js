@@ -1,6 +1,4 @@
-/*!
- * Toastr - ICOCrypto v1.9.3 by Softnio.
-**/
+
 NioApp = (function (NioApp, $, window) {
     "use strict";
     

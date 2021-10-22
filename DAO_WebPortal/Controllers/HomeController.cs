@@ -1,4 +1,6 @@
 ﻿using DAO_WebPortal.Models;
+using DAO_WebPortal.Providers;
+using Helpers.Models.WebsiteViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,19 +12,26 @@ using System.Threading.Tasks;
 
 namespace DAO_WebPortal.Controllers
 {
+    [AuthorizeUser]
     public class HomeController : Controller
     {
         #region Views
+        
         [Route("Home")]
         public IActionResult Index()
         {
-            return View();
+            var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoard?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+            var loginModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
+
+            return View(loginModel);
         }
+
         [Route("My-Jobs")]
         public IActionResult My_Jobs()
         {
             return View();
         }
+
         [Route("All-Jobs")]
         public IActionResult All_Jobs()
         {
@@ -34,26 +43,31 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
+
         [Route("Votes")]
         public IActionResult Votes()
         {
             return View();
         }
+
         [Route("Reputation-History")]
         public IActionResult Reputation_History()
         {
             return View();
         }
+
         [Route("Payments-History")]
         public IActionResult Payments_History()
         {
             return View();
         }
+
         [Route("User-Profile")]
         public IActionResult User_Profile()
         {
             return View();
         }
+
         [Route("Contact-Help")]
         public IActionResult Contact_Help()
         {
@@ -65,6 +79,7 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
+
         [Route("Vote-Detail/{VoteID}")]
          public IActionResult Vote_Detail(int VoteID)
         {

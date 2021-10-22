@@ -30,7 +30,7 @@
 
     <link href="~/Public/css/vendor.bundle.css?ver=1930" rel="stylesheet" />
     <link href="~/Public/css/style-lobelia.css?ver=1930" rel="stylesheet" />
-    <link href="~/Public/css/theme.css?ver=1930" rel="stylesheet" />
+    <link href="~/Public/css/style.css" rel="stylesheet" />
 
 </head>
 <body class="nk-body body-wider mode-onepage bg-light">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Modal Login -->
-    <div class="modal fade " id="modal-login">
+    <div class="modal fade" id="modal-login">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
@@ -61,29 +61,33 @@
                                     </div>
                                 </div>
                                 <div class="field-item">
-                                    <div class="forget-link fz-6">
-                                        <a data-toggle="modal" data-target="#forgotPassDiv" @*onclick="OpenSection('forgotpass');"*@>@Lang.Login_ForgotPassword</a>
-                                    </div>
                                     <div class="field-wrap">
                                         <input type="password" id="pass" class="input-bordered" placeholder="Password">
                                     </div>
                                 </div>
-                             
-                                <!-- Remember Me -->
-                                <div class="form-check d-flex align-items-center text-center">
-                                    <input type="checkbox" class="form-check-input mt-0 mr-3" id="chcremember">
-                                    <label class="form-check-label small" for="exampleCheck1">@Lang.Login_RememberMe</label>
-                                </div>
-                                <!-- Captcha -->
-                                <div class="input-group inpcapthca mt-2 captchaDiv d-none">
-                                    <div class="input-group-prepend">
-                                        <img id="img-captcha1" src="../get-captcha-image?code=securityCode1" style="width: 120px; height: 40px;" />
+
+                                <div class="field-item d-flex justify-content-between align-items-center">
+                                    <div class="field-item pb-0">
+                                        <input class="input-checkbox" id="chcremember" type="checkbox">
+                                        <label for="chcremember">@Lang.Login_RememberMe</label>
                                     </div>
-                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode1" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                    <div class="forget-link fz-6">
+                                        <a class="cursorp fp forgotPass">@Lang.Login_ForgotPassword</a>
+                                    </div>
                                 </div>
-                                <button type="button" onclick="Login();" class="btn btn-primary btn-block btn-md loginFormButton">Log In</button>
+                                <button type="button" onclick="Login();" class="btn btn-primary btn-block btn-md loginFormButton mt-3 w-100">Log In</button>
                             </div>
-                  
+
+                            <div class="input-group inpcapthca mt-2 captchaDiv d-none">
+                                <div class="input-group-prepend">
+                                    <img id="img-captcha1" src="../get-captcha-image?code=securityCode1" style="width: 120px; height: 40px;" />
+                                </div>
+                                <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode1" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                            </div>
+                            <div class="sap-text"></div>
+                            <div class="text-center">
+                                Don’t have an account? <a class="cursorp signUp fp"> <strong>Sign up here</strong></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +95,6 @@
         </div>
     </div>
     <!-- .modal  -->
-
     <!-- Modal Sign Up -->
     <div class="modal fade" id="modal-signUp">
         <div class="modal-dialog modal-dialog-centered">
@@ -101,7 +104,7 @@
                     <div class="row">
                         <div class="ath-body">
                             <h5 class="ath-heading title">Sign Up <small class="tc-default">Create New DevxDAO Account</small></h5>
-                            <div class="login-signup-form" id="registerForm">
+                            <div id="registerForm">
                                 @Html.AntiForgeryToken()
                                 <div class="field-item">
                                     <div class="field-wrap">
@@ -129,7 +132,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Legal Check -->  
+                                <!-- Legal Check -->
                                 <div class="field-item">
                                     <div class="form-check d-flex align-items-center text-center">
                                         <input type="checkbox" class="form-check-input mt-0 mr-3" id="chcTerms">
@@ -144,14 +147,8 @@
                                     <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode2" @*placeholder="@Lang.SecureNote"*@ maxlength="5" style="margin-left: 10px; height:40px;" />
                                 </div>
 
-                                <button type="button" onclick="Register();" class="btn btn-primary btn-block btn-md loginFormButton">Sign Up</button>
+                                <button type="button" onclick="Register();" class="btn btn-primary btn-block btn-md loginFormButton mt-3 w-100">Sign Up</button>
                             </div>
-                            @*<div class="sap-text"><span>Or Sign Up With</span></div>
-
-                                <ul class="btn-grp gutter-20px gutter-vr-20px">
-                                    <li class="col"><a href="#" class="btn btn-md btn-facebook btn-block"><em class="icon fab fa-facebook-f"></em><span>Facebook</span></a></li>
-                                    <li class="col"><a href="#" class="btn btn-md btn-google btn-block"><em class="icon fab fa-google"></em><span>Google</span></a></li>
-                                </ul>*@
                         </div>
                     </div>
                 </div>
@@ -189,7 +186,6 @@
 
                         </div>
                         <!--<div class="card-footer bg-transparent border-top px-md-5">-->
-
                         @*<a href="#" class="small" onclick="OpenSection('login')"> Open Section</a>*@
                         <!--</div>-->
                     </div>
@@ -286,12 +282,10 @@
                 data: { "email": email, "password": password, "usercode": code, "__RequestVerificationToken": token },
 
                 success: function (result) {
-                    debugger;
-                    console.log(result)
-                      if (result.Success) {
+                      if (result.success) {
                           toastr.success(result.message,"@Lang.Successful");
                         setTimeout(function () {
-                            window.location.href = "../Main/Dashboard";
+                            window.location.href = "./Home";
                         }, 1000);
                       }
                       else {
@@ -319,10 +313,11 @@
         }
 
         function Register() {
-              if (!$("#chcTerms").is(":checked")) {
+            if (!$("#chcTerms").is(":checked")) {
                 toastr.warning("@Lang.Login_CheckTermsError");
                 return;
             }
+            $('.loginFormButton').prop('disabled', true);
             $(".spinner").removeClass("load-done");
             $('.spinner').fadeIn(300);
             $('.preloader').fadeIn(300);
@@ -430,6 +425,19 @@
                 $("#resetPassDiv").addClass("d-none");
             }
         }
+
+        $(".forgotPass").on("click", function () {
+            $("#modal-login").modal("toggle");
+            setTimeout(function () {
+                $("#forgotPassDiv").modal("toggle");
+            }, 500);
+        })
+        $(".signUp").on("click", function () {
+            $("#modal-login").modal("toggle");
+            setTimeout(function () {
+                $("#modal-signUp").modal("toggle");
+            }, 500);
+        })
 
     </script>
 
