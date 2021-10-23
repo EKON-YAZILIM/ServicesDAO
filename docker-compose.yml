@@ -8,7 +8,7 @@ volumes:
 services:
   dao_rabbitmq:
     image: rabbitmq:3-management
-    container_name: 'rabbitmq'
+    container_name: 'dao_rabbitmq'
     environment:
         RABBITMQ_DEFAULT_USER: "daorabbit"
         RABBITMQ_DEFAULT_PASS: "dao2021*"
@@ -19,6 +19,11 @@ services:
     volumes:
         - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
         - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    healthcheck:
+        test: rabbitmq-diagnostics -q status
+        interval: 10s
+        timeout: 30s
+        retries: 5
     
     networks:
         - daonetwork
@@ -53,7 +58,9 @@ services:
       context: .
       dockerfile: DAO_ApiGateway/Dockerfile
     depends_on:
-      - dao_db
+      dao_rabbitmq:
+        condition: service_healthy
+    links:
       - dao_rabbitmq
     restart: always
     networks:
@@ -64,9 +71,9 @@ services:
     build:
       context: .
       dockerfile: DAO_DbService/Dockerfile
-    depends_on:
-      - dao_db
-      - dao_rabbitmq
+    depends_on:      
+      dao_rabbitmq:
+        condition: service_healthy
     restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -79,7 +86,10 @@ services:
       context: .
       dockerfile: DAO_IdentityService/Dockerfile
     depends_on:
-      - dao_rabbitmq
+      dao_rabbitmq:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
     networks:
         - daonetwork
 
@@ -89,8 +99,8 @@ services:
       context: .
       dockerfile: DAO_LogService/Dockerfile
     depends_on:
-      - dao_logsdb
-      - dao_rabbitmq
+      dao_rabbitmq:
+        condition: service_healthy
     networks:
         - daonetwork
 
@@ -100,7 +110,8 @@ services:
       context: .
       dockerfile: DAO_NotificationService/Dockerfile
     depends_on:
-      - dao_rabbitmq
+      dao_rabbitmq:
+        condition: service_healthy
     networks:
         - daonetwork
 
@@ -109,10 +120,12 @@ services:
     build:
       context: .
       dockerfile: DAO_WebPortal/Dockerfile
+    depends_on:
+      dao_rabbitmq:
+        condition: service_healthy
+    
     networks:
       - daonetwork
-
-
 
 networks:
   daonetwork:

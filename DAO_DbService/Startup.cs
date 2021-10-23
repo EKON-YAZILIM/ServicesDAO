@@ -28,7 +28,6 @@ namespace DAO_DbService
 
             var config = Configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
-
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
 
             ApplicationStartResult rabbitControl = rabbitMq.Initialize(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
