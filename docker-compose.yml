@@ -2,7 +2,7 @@ version: '3.4'
 
 volumes:
   datafiles: 
-  votes_datafiles:
+  # votes_datafiles:
   logs_datafiles:
 
 services:

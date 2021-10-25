@@ -16,13 +16,10 @@ services:
     ports:
       - 3309:3306
 
-  dao_db: 
+ 
+  dao_logsdb: 
     ports:
       - 3310:3306
-  
-  dao_db: 
-    ports:
-      - 3311:3306
 
   dao_identityservice: 
     environment:
