@@ -20,10 +20,18 @@ namespace DAO_WebPortal.Controllers
         [Route("Home")]
         public IActionResult Index()
         {
-            var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoard?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-            var loginModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
-
-            return View(loginModel);
+            GetDashBoardViewModel dashModel = new GetDashBoardViewModel();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoard?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                 dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
+            }
+            catch (Exception)
+            {
+                return View(new GetDashBoardViewModel());
+            }
+           
+            return View(dashModel);
         }
 
         [Route("My-Jobs")]
@@ -82,6 +90,12 @@ namespace DAO_WebPortal.Controllers
 
         [Route("Vote-Detail/{VoteID}")]
          public IActionResult Vote_Detail(int VoteID)
+        {
+            return View();
+        }
+
+        [Route("New-Job")]
+        public IActionResult New_Job(int VoteID)
         {
             return View();
         }
