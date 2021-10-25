@@ -12,11 +12,9 @@ Description:
 
 Some of the features:
 ---------------------
+Post a job
+Voting
 
-
-
-License information:
---------------------
 
 
 
