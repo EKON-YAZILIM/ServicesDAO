@@ -1,4 +1,4 @@
-﻿//using DAO_RFPService.Models;
+﻿using DAO_RFPService.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,8 +22,8 @@ namespace DAO_RFPService.Contexts
             }
         }
 
-        //public DbSet<ApplicationLog> ApplicationLogs { get; set; }
-        //public DbSet<ErrorLog> ErrorLogs { get; set; }
+        public DbSet<Rfp> Rfps { get; set; }
+        public DbSet<RfpBid> RfpBids { get; set; }
         //public DbSet<UserLog> UserLogs { get; set; }
     }
 }

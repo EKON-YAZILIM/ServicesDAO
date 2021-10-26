@@ -135,6 +135,9 @@
   <data name="ErrorPasswordMsg" xml:space="preserve">
     <value>The password must contain at least 8 characters and contain 1 digit 1 lowercase 1 uppercase.</value>
   </data>
+  <data name="ErrorUserMsg" xml:space="preserve">
+    <value>There is an existing account with this Username.</value>
+  </data>
   <data name="ErrorUsernamePassword" xml:space="preserve">
     <value>Username or password is wrong.</value>
   </data>

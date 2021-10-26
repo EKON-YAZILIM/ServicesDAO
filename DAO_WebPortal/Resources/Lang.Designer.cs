@@ -115,6 +115,15 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is an existing account with this Username..
+        /// </summary>
+        public static string ErrorUserMsg {
+            get {
+                return ResourceManager.GetString("ErrorUserMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or password is wrong..
         /// </summary>
         public static string ErrorUsernamePassword {

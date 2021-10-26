@@ -165,11 +165,11 @@ namespace DAO_WebPortal.Controllers
                 if (registerResponse.Success == false)
                 {
                     failCount++;
-                    if (registerResponse.Message == "User exist")
+                    if (registerResponse.Message == "Username already exists.")
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.ErrorMailMsg });
+                        return Json(new AjaxResponse { Success = false, Message = Lang.ErrorUserMsg });
                     }
-                   else if (registerResponse.Message == "Email already exists.")
+                    else if (registerResponse.Message == "Email already exists.")
                     {
                         return Json(new AjaxResponse { Success = false, Message = Lang.ErrorMailMsg });
                     }
