@@ -14,5 +14,6 @@ namespace DAO_RFPService.Models
         public string FormInput { get; set; }
         public DateTime CreateDate { get; set; }
         public string Status { get; set; }
+        public int WinnerRfpBidID { get; set; }
     }
 }
