@@ -72,7 +72,7 @@ namespace DAO_RFPService
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
@@ -82,6 +82,12 @@ namespace DAO_RFPService
             {
                 endpoints.MapControllers();
             });
+
+            DefaultFilesOptions DefaultFile = new DefaultFilesOptions();
+            DefaultFile.DefaultFileNames.Clear();
+            DefaultFile.DefaultFileNames.Add("Index.html");
+            app.UseDefaultFiles(DefaultFile);
+            app.UseStaticFiles();
         }
     }
 }
