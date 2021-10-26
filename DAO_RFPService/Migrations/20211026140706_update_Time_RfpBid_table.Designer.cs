@@ -3,14 +3,16 @@ using System;
 using DAO_RFPService.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAO_RFPService.Migrations
 {
     [DbContext(typeof(dao_rfpdb_context))]
-    partial class dao_rfpdb_contextModelSnapshot : ModelSnapshot
+    [Migration("20211026140706_update_Time_RfpBid_table")]
+    partial class update_Time_RfpBid_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,9 +62,6 @@ namespace DAO_RFPService.Migrations
 
                     b.Property<int>("RfpID")
                         .HasColumnType("int");
-
-                    b.Property<string>("Time")
-                        .HasColumnType("text");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");

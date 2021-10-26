@@ -13,8 +13,8 @@ namespace DAO_RFPService.Models
         public int UserId { get; set; }
         public DateTime CreateDate { get; set; }
         public int RfpID { get; set; }
-        public DateTime Time { get; set; }
         public double Amount { get; set; }
         public string Note { get; set; }
+        public string Time { get; set; }
     }
 }
