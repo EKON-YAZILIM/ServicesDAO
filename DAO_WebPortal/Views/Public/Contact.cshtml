@@ -1,79 +1,9 @@
 ﻿
 @{
     Layout = "~/Views/Shared/_PublicLayout.cshtml";
-
 }
 
-<header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
-    <!-- Header  -->
-    <div class="header-main">
-        <div class="header-container container">
-            <div class="header-wrap">
-                <!-- Logo -->
-                <div class="header-logo logo animated" data-animate="fadeInDown" data-delay=".6">
-                    <a href="./" class="logo-link">
-                        <img class="logo-dark" src="/Public/images/logo-dark.png" srcset="Public/images/logo-dark.png 2x" alt="logo">
-                        <img class="logo-light" src="/Public/images/logo-light.png" srcset="Public/images/logo-light.png 2x" alt="logo">
-                    </a>
-                </div>
-                <!-- Menu Toogle  -->
-                <div class="header-nav-toggle">
-                    <a href="#" class="navbar-toggle" data-menu-toggle="header-menu">
-                        <div class="toggle-line">
-                            <span></span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Menu  -->
-                <div class="header-navbar animated" data-animate="fadeInDown" data-delay=".75">
-                    <nav class="header-menu" id="example-menu-02">
-                        <ul class="menu">
-                            <li class="menu-item">
-                                <a class="menu-link nav-link" href="../RFP">RFP</a>
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link nav-link" href="../Privacy-Policy">Privacy Policy</a>
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link nav-link" href="../Contact">Contact</a>
-                            </li>
-
-                        </ul>
-                        <ul class="menu-btns">
-                            <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-login"><span>Login</span></button></li>
-                            <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-signUp"><span>Sign Up</span></button></li>
-                        </ul>
-                    </nav>
-                    <div class="header-navbar-overlay"></div>
-                </div><!-- .header-navbar  -->
-            </div>
-        </div>
-    </div><!-- .header-main  -->
-    <!-- Banner  -->
-    <div class="header-banner bg-theme-grad">
-        <div class="nk-banner">
-            <div class="banner banner-page">
-                <div class="banner-wrap">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-xl-6 col-lg-9">
-                                <div class="banner-caption cpn tc-light text-center">
-                                    <div class="cpn-head">
-                                        <h2 class="title ttu">Contact</h2>
-                                        <p>We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- .nk-banner -->
-        <div class="nk-ovm shape-a-sm"></div>
-    </div>
-    <!-- .header-banner  -->
-</header>
+<partial name="../Shared/_PublicHeaderPartial" />
 
 <main class="nk-pages">
     <section class="section section-contact bg-transparent">
@@ -160,62 +90,4 @@
     </section>
 </main>
 
-<footer class="nk-footer bg-theme-grad">
-    <section class="section section-footer tc-light bg-transparent">
-        <div class="container">
-            <!-- Block  -->
-            <div class="nk-block block-footer">
-                <div class="row">
-                    <div class="col-lg-2 col-sm-4 mb-4 mb-sm-0">
-                        <div class="wgs wgs-menu">
-                            <h6 class="wgs-title">Company</h6>
-                            <div class="wgs-body">
-                                <ul class="wgs-links">
-                                    <li><a href="./#about-us">About Us</a></li>
-                                    <li><a href="./Contact">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div><!-- .col -->
-                    <div class="col-lg-2 col-sm-4 mb-4 mb-sm-0">
-                        <div class="wgs wgs-menu">
-                            <h6 class="wgs-title">Legal</h6>
-                            <div class="wgs-body">
-                                <ul class="wgs-links">
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    @*<li><a href="#">Whitepaper</a></li>*@
-                                </ul>
-                            </div>
-                        </div>
-                    </div><!-- .col -->
-                    <div class="col-lg-2 col-sm-4 mb-4 mb-sm-0">
-                        <div class="wgs wgs-menu">
-                            <h6 class="wgs-title">Quick Links</h6>
-                            <div class="wgs-body">
-                                <ul class="wgs-links">
-                                    <li><a href="../#faqs">Faqs</a></li>
-                                    @*<li><a href="#" data-toggle="modal" data-target="#modal-login">Login</a></li>*@
-                                </ul>
-                            </div>
-                        </div>
-                    </div><!-- .col -->
-                    <div class="col-lg-6 mb-4 mb-lg-0 order-lg-first">
-                        <div class="wgs wgs-text">
-                            <div class="wgs-body">
-                                <a href="./" class="wgs-logo">
-                                    <img src="/Public/images/logo-light.png" srcset="Public/images/logo-light.png 2x" alt="logo">
-                                </a>
-                                <p>Copyright © 2021 DAO Web Services. <br>All rights reserved. </p>
-                                <p class="copyright-text">Created by <a href="https://devxdao.com/">DEVxDAO</a></p>
-                            </div>
-                        </div>
-                    </div><!-- .col -->
-                </div><!-- .row -->
-            </div><!-- .block  -->
-        </div>
-
-    </section>
-    <div class="nk-ovm shape-b"></div>
-</footer>
-
-<div class="preloader"><span class="spinner spinner-round"></span></div>
+<partial name="../Shared/_PublicFooterPartial" />
