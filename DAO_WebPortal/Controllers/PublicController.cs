@@ -21,19 +21,33 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
+
         [Route("Privacy-Policy")]
         public IActionResult Privacy_Policy()
         {
+            ViewBag.HeaderTitle = "Privacy Policy";
+            ViewBag.HeaderSubTitle = "We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.";
+
+
             return View();
         }
+
         [Route("Contact")]
         public IActionResult Contact()
         {
+            ViewBag.HeaderTitle = "Contact";
+            ViewBag.HeaderSubTitle = "We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.";
+
             return View();
         }
+
         [Route("RFP")]
         public IActionResult RFP()
         {
+            ViewBag.HeaderTitle = "Request for Proposal (RFP)";
+            ViewBag.HeaderSubTitle = "We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.";
+
+
             return View();
         }
 
@@ -371,8 +385,7 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
-       
-
+      
         [Route("get-captcha-image")]
         public IActionResult GetCaptchaImage(string code)
         {
