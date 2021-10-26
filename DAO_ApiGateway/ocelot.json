@@ -51,6 +51,19 @@
       "Priority": 2
     },
     {
+      "DownstreamPathTemplate": "/Identity/Register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1092"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/Register",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
       "DownstreamPathTemplate": "/Identity/RegisterComplete",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

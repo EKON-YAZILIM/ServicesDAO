@@ -23,9 +23,18 @@ namespace DAO_IdentityService
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LoadConfig(configuration);
+            InitializeService();
+        }
 
-            var config = Configuration.GetSection("PlatformSettings");
+        public static void LoadConfig(IConfiguration configuration)
+        {
+            var config = configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
+        }
+
+        public static void InitializeService()
+        {
             Helpers.Encryption.EncryptionKey = Program._settings.EncryptionKey;
 
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);

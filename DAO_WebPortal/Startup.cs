@@ -1,3 +1,5 @@
+using Helpers;
+using Helpers.Models.SharedModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +14,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using static DAO_WebPortal.Program;
-
+using static Helpers.Constants.Enums;
 
 namespace DAO_WebPortal
 {
@@ -21,9 +23,35 @@ namespace DAO_WebPortal
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LoadConfig(configuration);
+            InitializeService();
 
             var config = Configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
+        }
+
+        public static void LoadConfig(IConfiguration configuration)
+        {
+            var config = configuration.GetSection("PlatformSettings");
+            config.Bind(_settings);
+        }
+
+        public static void InitializeService()
+        {
+            monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
+
+            ApplicationStartResult rabbitControl = rabbitMq.Initialize(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
+            if (!rabbitControl.Success)
+            {
+                monitizer.startSuccesful = -1;
+                monitizer.AddException(rabbitControl.Exception, LogTypes.ApplicationError, true);
+            }
+
+            if (monitizer.startSuccesful != -1)
+            {
+                monitizer.startSuccesful = 1;
+                monitizer.AddApplicationLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
+            }
         }
 
         public IConfiguration Configuration { get; }

@@ -51,3 +51,6 @@
 /UnitTests/DAO_IdentityService.Test/bin/Debug/netcoreapp3.1
 /UnitTests/DAO_IdentityService.Test/obj
 /UnitTests/DAO_IdentityService.Test/bin/Release/netcoreapp3.1/CoverletSourceRootsMapping
+/DAO_RFPService/obj
+*.user
+/UnitTests/DAO_DbService.Test/bin/Release/netcoreapp3.1
