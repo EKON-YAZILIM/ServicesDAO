@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group mb-4">
+            <label for="jobName">Type of Job</label>
+            <input type="text" class="form-control" id="jobName" placeholder="Type of Job">
+        </div>
+        <div class="form-group mb-4">
+            <label for="exp">Job Explanation</label>
+            <textarea type="text" class="form-control" id="exp" placeholder="Job Explanation" rows="5"></textarea>
+        </div>
+        <div class="form-group mb-4">
+            <label for="lang">Language of Code Review</label>
+            <input type="text" class="form-control" id="lang" placeholder="Language of Code Review">
+        </div>
+        <div class="form-group mb-4">
+            <label for="price">Total Price</label>
+            <input type="text" class="form-control" id="price" placeholder="Total Price for Job ($)">
+        </div>
+        <div class="form-group mb-4">
+            <label for="time">Time Expectations for Job Completion</label>
+            <input type="datetime" class="form-control" id="time">
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button class="btn btn-primary" type="button">Submit</button>
+        </div>
+    </div>
+</div>

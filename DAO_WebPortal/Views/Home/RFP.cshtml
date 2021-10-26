@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+@model List<Helpers.Models.WebsiteViewModels.RfpModel>;
+
+<div class="row d-flex mb-3">
+    <div class="col-md-12 d-flex justify-content-end">
+        <button class="btn btn-primary" type="button" onclick="window.location.href='./RFP-Form';">
+            <svg class="icon me-2">
+                <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
+            </svg>New RFP
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var item in Model)
+        {
+            try
+            {
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <div class="titleContainer">
+                            @{
+                                dynamic obj = Newtonsoft.Json.JsonConvert.DeserializeObject(item.FormInput);
+                            }
+                            <h5 class="card-title" title="@obj.Title">@obj.Title</h5>
+                            <small class="text-medium-emphasis">@item.createDate , Ekin Keçeci</small>
+                        </div>
+                    </div>
+                    <div class="card-body cursorp" onclick="window.location.href='./RFP-Detail/'+@item.rfpID">
+                        <p class="p-3 card-text">
+                            @item.FormInput
+                        </p>
+                        <p class="card-text"><small class="text-medium-emphasis">@item.createDate</small></p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="card-text cA" href="#">
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                            </svg> Share
+                        </a>
+                    </div>
+                </div>
+            }
+            catch (Exception){}
+
+        }
+
+
+
+    </div>
+</div>

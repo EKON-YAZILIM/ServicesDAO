@@ -1,28 +1,24 @@
-/* global Chart, coreui */
 
-/**
- * --------------------------------------------------------------------------
- * CoreUI Boostrap Admin Template (v4.0.1): main.js
- * License (https://coreui.io/pro/license)
- * --------------------------------------------------------------------------
- */
 // Disable the on-canvas tooltip
 Chart.defaults.pointHitDetectionRadius = 1;
 Chart.defaults.plugins.tooltip.enabled = false;
 Chart.defaults.plugins.tooltip.mode = 'index';
 Chart.defaults.plugins.tooltip.position = 'nearest';
 Chart.defaults.plugins.tooltip.external = coreui.ChartJS.customTooltips;
-Chart.defaults.color = coreui.Utils.getStyle('--cui-body-color'); // console.log(Chart.defaults.color)
+Chart.defaults.color = coreui.Utils.getStyle('--cui-body-color');
+// console.log(Chart.defaults.color)
 
 document.body.addEventListener('themeChange', () => {
     cardChart1.data.datasets[0].pointBackgroundColor = coreui.Utils.getStyle('--cui-primary');
     cardChart2.data.datasets[0].pointBackgroundColor = coreui.Utils.getStyle('--cui-info');
-    mainChart.options.scales.x.ticks.color = coreui.Utils.getStyle('--cui-body-color');
-    mainChart.options.scales.y.ticks.color = coreui.Utils.getStyle('--cui-body-color');
     cardChart1.update();
     cardChart2.update();
-    mainChart.update();
-    mainChart2.update();
+
+
+    auctionChart.options.scales.x.ticks.color = coreui.Utils.getStyle('--cui-body-color');
+    auctionChart.options.scales.y.ticks.color = coreui.Utils.getStyle('--cui-body-color');
+    auctionChart.update();
+
 });
 
 const random = (min, max) => {
@@ -221,41 +217,43 @@ const cardChart4 = new Chart(document.getElementById('card-chart4'), {
         }
     }
 });
-const mainChart = new Chart(document.getElementById('main-chart'), {
-    type: 'doughnut',
+const auctionChart = new Chart(document.getElementById('main-chart'), {
+    type: 'line',
     data: {
-        labels: ['Internal', 'Public'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-            backgroundColor: [coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10), coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-primary'), 10)],
+            label: 'Internal',
+            backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10),
             borderColor: coreui.Utils.getStyle('--cui-info'),
             pointHoverBackgroundColor: '#fff',
             borderWidth: 2,
-            data: [random(50, 200), random(50, 200)],
+            data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)],
             fill: true
+        }, {
+            label: 'Public',
+            borderColor: coreui.Utils.getStyle('--cui-success'),
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 2,
+            data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)]
         }]
     },
     options: {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                display: false
+                display: true
             }
         },
         scales: {
             x: {
-                display: false,
                 grid: {
-                    drawOnChartArea: false
+                    drawOnChartArea: true
                 }
             },
             y: {
-                display: false,
                 ticks: {
                     beginAtZero: true,
                     maxTicksLimit: 5,
-                    stepSize: Math.ceil(250 / 5),
-                    max: 250,
-
                 }
             }
         },
@@ -272,41 +270,43 @@ const mainChart = new Chart(document.getElementById('main-chart'), {
         }
     }
 });
-const mainChart2 = new Chart(document.getElementById('main-chart2'), {
-    type: 'doughnut',
+const votingChart = new Chart(document.getElementById('main-chart2'), {
+    type: 'line',
     data: {
-        labels: ['Formal', 'Informal'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
-            backgroundColor: [coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10), coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-primary'), 10)],
+            label: 'Formal',
+            backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10),
             borderColor: coreui.Utils.getStyle('--cui-info'),
             pointHoverBackgroundColor: '#fff',
             borderWidth: 2,
-            data: [random(50, 200), random(50, 200)],
+            data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)],
             fill: true
+        }, {
+            label: 'Informal',
+            borderColor: coreui.Utils.getStyle('--cui-success'),
+            pointHoverBackgroundColor: '#fff',
+            borderWidth: 2,
+            data: [random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200), random(50, 200)]
         }]
     },
     options: {
         maintainAspectRatio: false,
         plugins: {
             legend: {
-                display: false
+                display: true
             }
         },
         scales: {
             x: {
-                display: false,
                 grid: {
-                    drawOnChartArea: false
+                    drawOnChartArea: true
                 }
             },
             y: {
-                display: false,
                 ticks: {
                     beginAtZero: true,
                     maxTicksLimit: 5,
-                    stepSize: Math.ceil(250 / 5),
-                    max: 250,
-
                 }
             }
         },
