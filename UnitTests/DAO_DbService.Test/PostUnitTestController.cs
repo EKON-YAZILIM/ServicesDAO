@@ -1,5 +1,6 @@
 ﻿using DAO_DbService.Contexts;
 using DAO_DbService.Controllers;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,25 +10,43 @@ namespace DAO_DbService.Test
 {
     public class PostUnitTestController
     {
-        private UsersController usersControllers;
-        public static DbContextOptions<dao_maindb_context> options { get; }
-        public static string connectionString = "Server=localhost;Port=3309;Database=daodb_test;Uid=root;Pwd=secred;";
+        public UsersController usersControllers;
+        public ActiveSessionController activeSessionController;
+        public AuctionBidController auctionBidController;
+        public AuctionController auctionController;
+        public InfoController infoController;
+        public JobPostCommentController jobPostCommentController;
+        public JobPostController jobPostController;
+        public UserCommentVoteController userCommentVoteController;
+        public UserKYCController userKYCController;
+        public WebsiteController websiteController;
 
         static PostUnitTestController()
         {
-            options = new DbContextOptionsBuilder<dao_maindb_context>()
-                .UseMySQL(connectionString)
-                .Options;
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            DAO_DbService.Startup.LoadConfig(config);
         }
 
         public PostUnitTestController()
         {
-            var context = new dao_maindb_context(options);
+            new dao_maindb_context().Database.EnsureDeleted();
+            DAO_DbService.Startup.InitializeService();
+            var context = new dao_maindb_context();
             
             DummyDataDBInitializer db = new DummyDataDBInitializer();
             db.Seed(context);
 
             usersControllers = new UsersController();
+            usersControllers = new UsersController();
+            activeSessionController = new ActiveSessionController();
+            auctionBidController = new AuctionBidController();
+            auctionController = new AuctionController();
+            infoController = new InfoController();
+            jobPostCommentController = new JobPostCommentController();
+            jobPostController = new JobPostController();
+            userCommentVoteController = new UserCommentVoteController();
+            userKYCController = new UserKYCController();
+            websiteController = new WebsiteController();
         }
 
     }

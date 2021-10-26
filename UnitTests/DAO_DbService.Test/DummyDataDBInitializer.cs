@@ -14,9 +14,6 @@ namespace DAO_DbService.Test
         }
         public void Seed(dao_maindb_context context)
         {
-            context.Database.EnsureDeleted();
-            context.Database.EnsureCreated();
-
             context.Users.AddRange(
                 new User() {
                     NameSurname = "John Doe",

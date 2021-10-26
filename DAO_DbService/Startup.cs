@@ -25,9 +25,18 @@ namespace DAO_DbService
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LoadConfig(configuration);
+            InitializeService();
+        }
 
-            var config = Configuration.GetSection("PlatformSettings");
+        public static void LoadConfig(IConfiguration configuration)
+        {
+            var config = configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
+        }
+
+        public static void InitializeService()
+        {
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
 
             ApplicationStartResult rabbitControl = rabbitMq.Initialize(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
@@ -53,10 +62,45 @@ namespace DAO_DbService
 
             if (monitizer.startSuccesful != -1)
             {
-                monitizer.startSuccesful = 1; 
+                monitizer.startSuccesful = 1;
                 monitizer.AddApplicationLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
             }
         }
+        // public Startup(IConfiguration configuration)
+        // {
+        //     Configuration = configuration;
+
+        //     var config = Configuration.GetSection("PlatformSettings");
+        //     config.Bind(_settings);
+        //     monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
+
+        //     ApplicationStartResult rabbitControl = rabbitMq.Initialize(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
+        //     if (!rabbitControl.Success)
+        //     {
+        //         monitizer.startSuccesful = -1;
+        //         monitizer.AddException(rabbitControl.Exception, LogTypes.ApplicationError, true);
+        //     }
+
+        //     ApplicationStartResult mysqlMigrationcontrol = mysql.Migrate(new dao_maindb_context().Database);
+        //     if (!mysqlMigrationcontrol.Success)
+        //     {
+        //         monitizer.startSuccesful = -1;
+        //         monitizer.AddException(mysqlMigrationcontrol.Exception, LogTypes.ApplicationError, true);
+        //     }
+
+        //     ApplicationStartResult mysqlcontrol = mysql.Connect(_settings.DbConnectionString);
+        //     if (!mysqlcontrol.Success)
+        //     {
+        //         monitizer.startSuccesful = -1;
+        //         monitizer.AddException(mysqlcontrol.Exception, LogTypes.ApplicationError, true);
+        //     }
+
+        //     if (monitizer.startSuccesful != -1)
+        //     {
+        //         monitizer.startSuccesful = 1; 
+        //         monitizer.AddApplicationLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
+        //     }
+        // }
 
         public IConfiguration Configuration { get; }
 

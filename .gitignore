@@ -46,3 +46,8 @@
 /UnitTests/DAO_DbService.Test/bin/Debug/netcoreapp3.1
 /UnitTests/DAO_DbService.Test/obj
 /UnitTests/DAO_DbService.Test/bin/Release/netcoreapp3.1/CoverletSourceRootsMapping
+/UnitTests\DAO_IdentityService.Test\bin
+/UnitTests\DAO_IdentityService.Test\obj
+/UnitTests/DAO_IdentityService.Test/bin/Debug/netcoreapp3.1
+/UnitTests/DAO_IdentityService.Test/obj
+/UnitTests/DAO_IdentityService.Test/bin/Release/netcoreapp3.1/CoverletSourceRootsMapping

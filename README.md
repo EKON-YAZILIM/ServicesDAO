@@ -27,7 +27,7 @@ dao_rabbitmq user interface adress is http://localhost:15672
 
 All applications can be built and run in their own docker containers with the following command;
 
-docker build -f "./Dockerfile" -t [IMAGE_NAME]:dev "[SolutionPath]]\ServicesDAO"
+docker build -f "./Dockerfile" -t [IMAGE_NAME]:dev "[SolutionPath]\ServicesDAO"
 docker run -p [application access port]:80 -name:[NAME]  [IMAGE_NAME]:dev --
 
 For the application to work, all containers should be created in the same network also database, rabbitmq and api endpoints can be redefined.
