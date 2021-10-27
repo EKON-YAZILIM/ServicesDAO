@@ -75,7 +75,46 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
+       
+        [Route("RFP-Form")]
+        public IActionResult RFP_Form()
+        {
+            return View();
+        }
 
+        [Route("RFPs")]
+        public IActionResult RFP()
+        {
+            List<RfpModel> model = new List<RfpModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Rfp/Rfp/GetRfpsByStatus", HttpContext.Session.GetString("Token"));
+                model = Helpers.Serializers.DeserializeJson<List<RfpModel>>(url);
+            }
+            catch (Exception)
+            {
+
+                return View(new List<RfpModel>());
+            }
+
+            return View(model);
+        }
+
+        [Route("RFP-Detail/{RFPID}")]
+        public IActionResult RFP_Detail(int RFPID)
+        {
+            List<RfpBidDetailModel> model = new List<RfpBidDetailModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Rfp/Rfp/GetRfpBidsByRfpId?rfpid="+RFPID, HttpContext.Session.GetString("Token"));
+                model = Helpers.Serializers.DeserializeJson<List<RfpBidDetailModel>>(url);
+            }
+            catch (Exception)
+            {
+                return View(new List<RfpBidDetailModel>());
+            }
+            return View(model);
+        }
         [Route("Contact-Help")]
         public IActionResult Contact_Help()
         {
