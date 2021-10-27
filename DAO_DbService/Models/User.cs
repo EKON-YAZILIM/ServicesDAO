@@ -22,7 +22,6 @@ namespace DAO_DbService.Models
         public int? FailedLoginCount { get; set; }
         public string ProfileImage { get; set; }
         public string UserName { get; set; }
-        public string ThirdPartyKey { get; set; }
-        public string ThirdPartyType { get; set; }
+     
     }
 }
