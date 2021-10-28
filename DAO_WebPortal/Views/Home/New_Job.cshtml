@@ -1,4 +1,5 @@
-﻿@{
+﻿@using DAO_WebPortal.Resources
+@{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
 }
@@ -26,7 +27,66 @@
             <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="5"></textarea>
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Submit Job</button>
+            <button type="submit" class="btn btn-primary" onclick="Register();">Submit Job</button>
         </div>
     </div>
 </div>
+<script>
+
+       $(document).ready(function () {
+
+           toastr.options = {
+               "closeButton": true,
+               "debug": false,
+               "newestOnTop": true,
+               "progressBar": false,
+               "positionClass": "toast-bottom-right",
+               "preventDuplicates": false,
+               "onclick": null,
+               "showDuration": "300",
+               "hideDuration": "1000",
+               "timeOut": "5000",
+               "extendedTimeOut": "1000",
+               "showEasing": "swing",
+               "hideEasing": "linear",
+               "showMethod": "fadeIn",
+               "hideMethod": "fadeOut"
+           };
+        });
+
+     function Register() {
+
+         var title = $('#title').val()
+         var amount = $('#amount').val();
+         var time = $('#time').val();
+         var price = $('#price').val();
+         var description = $('#description').val();
+
+            $.ajax({
+                type: "POST",
+                url: "../Home/New_Job_Post",
+                data: { "title": title, "amount": amount, "time": time, "price": price, "description": description },
+                success: function (result) {
+                    console.log(result);
+                    if (result.success) {
+                        toastr.success(result.message);
+                        setTimeout(function () {
+                            window.location.href = "./My-Jobs";
+                        }, 1000);
+                    }
+                    else {
+                        toastr.warning(result.message);
+
+                    }
+                },
+                  failure: function (response) {
+                        toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                     toastr.error("@Lang.UnexpectedError");
+                }
+
+            });
+        }
+
+</script>

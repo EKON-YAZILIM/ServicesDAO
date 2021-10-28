@@ -1,5 +1,8 @@
 ﻿using DAO_WebPortal.Models;
 using DAO_WebPortal.Providers;
+using Helpers.Models.DtoModels.MainDbDto;
+using Helpers.Models.DtoModels.VoteDbDto;
+using Helpers.Models.SharedModels;
 using Helpers.Models.WebsiteViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +19,7 @@ namespace DAO_WebPortal.Controllers
     public class HomeController : Controller
     {
         #region Views
-        
+
         [Route("Home")]
         public IActionResult Index()
         {
@@ -24,26 +27,47 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoard?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-                 dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
+                dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
             }
             catch (Exception)
             {
                 return View(new GetDashBoardViewModel());
             }
-           
+
             return View(dashModel);
         }
 
         [Route("My-Jobs")]
         public IActionResult My_Jobs()
         {
-            return View();
+            List<JobPostViewModel> myJobsModel = new List<JobPostViewModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                myJobsModel = Helpers.Serializers.DeserializeJson<List<JobPostViewModel>>(url);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(myJobsModel);
         }
 
         [Route("All-Jobs")]
         public IActionResult All_Jobs()
         {
-            return View();
+            List<JobPostViewModel> allJobsModel = new List<JobPostViewModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs", HttpContext.Session.GetString("Token"));
+                allJobsModel = Helpers.Serializers.DeserializeJson<List<JobPostViewModel>>(url);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return View(allJobsModel);
         }
 
         [Route("Auctions")]
@@ -55,7 +79,19 @@ namespace DAO_WebPortal.Controllers
         [Route("Votes")]
         public IActionResult Votes()
         {
-            return View();
+            List<VotingViewModel> votesModel = new List<VotingViewModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVoteJobsByStatus", HttpContext.Session.GetString("Token"));
+                votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(url);
+
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+            return View(votesModel);
         }
 
         [Route("Reputation-History")]
@@ -75,7 +111,7 @@ namespace DAO_WebPortal.Controllers
         {
             return View();
         }
-       
+
         [Route("RFP-Form")]
         public IActionResult RFP_Form()
         {
@@ -106,7 +142,7 @@ namespace DAO_WebPortal.Controllers
             List<RfpBidDetailModel> model = new List<RfpBidDetailModel>();
             try
             {
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Rfp/Rfp/GetRfpBidsByRfpId?rfpid="+RFPID, HttpContext.Session.GetString("Token"));
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Rfp/Rfp/GetRfpBidsByRfpId?rfpid=" + RFPID, HttpContext.Session.GetString("Token"));
                 model = Helpers.Serializers.DeserializeJson<List<RfpBidDetailModel>>(url);
             }
             catch (Exception)
@@ -124,19 +160,74 @@ namespace DAO_WebPortal.Controllers
         [Route("Job-Detail/{Job}")]
         public IActionResult Job_Detail(int Job)
         {
-            return View();
+            JobPostDetailModel jobDetailModel = new JobPostDetailModel();
+            List<JobPostCommentModel> newList = new List<JobPostCommentModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetJobDetail?jobid=" + Job, HttpContext.Session.GetString("Token"));
+                jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDetailModel>(url);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(jobDetailModel);
         }
+    
 
         [Route("Vote-Detail/{VoteID}")]
-         public IActionResult Vote_Detail(int VoteID)
+        public IActionResult Vote_Detail(int VoteID)
         {
-            return View();
+            List<VoteDto> voteDetailModel = new List<VoteDto>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVoteDetail?voteid=" + VoteID, HttpContext.Session.GetString("Token"));
+                voteDetailModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(url);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(voteDetailModel);
+
+
         }
 
         [Route("New-Job")]
         public IActionResult New_Job(int VoteID)
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult New_Job_Post(string title, double amount, string time, int price, string description)
+        {
+            JobPostDto model = new JobPostDto();
+            AjaxResponse result = new AjaxResponse();
+            try
+            {
+                model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(new JobPostDto { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title }), HttpContext.Session.GetString("Token")));
+                if (model.JobID == 0 || model.JobID == null)
+                {
+                    result.Success = false;
+                    result.Message = "Kayıt esnasında hata oluştu.";
+                    result.Content = model;
+                }
+                else
+                {
+                    result.Success = true;
+                    result.Message = "Kayıt yapıldı.";
+                    result.Content = model;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.Message = "İşlem esnasında hata oluştu.";
+                result.Content = model;
+            }
+            return Json(result);
         }
         #endregion
 

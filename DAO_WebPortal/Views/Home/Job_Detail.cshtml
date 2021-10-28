@@ -2,27 +2,27 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
 }
-
+@model Helpers.Models.WebsiteViewModels.JobPostDetailModel
 <div class="row">
     <div class="col-md-12">
         <div class="card mb-3">
             <div class="card-header">
                 <div class="titleContainer">
-                    <h5 class="card-title" title="Services DAO Portal Scoping Grant">Services DAO Portal Sc.. </h5>
-                    <small class="text-medium-emphasis">13.10.2021 , Ekin Keçeci</small>
+                    <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.JobPostWebsiteModel.Title</h5>
+                    <small class="text-medium-emphasis">@Model.JobPostWebsiteModel.CreateDate.ToString("dd.MM.yyyy") , @Model.JobPostWebsiteModel.UserName</small>
                 </div>
             </div>
             <div class="card-body">
                 <p class="p-3 card-text">
-                    This is a scoping/requirements grant. The objective of this grant is to gather requirements, and coordinate with the Services DAO  members to evaluate and further refine&improve the Services DAO portal development proposal. (https://portal.devxdao.com/app/proposal/246)
+                    @Model.JobPostWebsiteModel.JobDescription
                 </p>
-                <p class="card-text"><small class="text-medium-emphasis">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.JobPostWebsiteModel.LastUpdate.ToString("dd.MM.yyyy")</small></p>
             </div>
             <div class="card-footer">
                 <a class="card-text me-2 cA" data-coreui-toggle="collapse" href="#commentsx" aria-expanded="true" aria-controls="commentsx">
                     <svg class="icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                    </svg> 12 Comment
+                    </svg> @Model.JobPostWebsiteModel.CommentCount Comment
                 </a>
                 <a class="card-text cA" href="#">
                     <svg class="icon">
@@ -30,6 +30,8 @@
                     </svg> Share
                 </a>
             </div>
+
+
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
                     <!-- Comment 1 start -->
@@ -62,7 +64,7 @@
                                     <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
                                 </svg> 53
                             </a>
-                            <a class="card-text me-2 cA cursorp replyBtn" >
+                            <a class="card-text me-2 cA cursorp replyBtn">
                                 <svg class="icon">
                                     <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                                 </svg> Reply
@@ -284,6 +286,53 @@
                     @*<a href="#load-more">Load more replies</a>*@
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3">
+            <div class="card-header">
+                <div class="titleContainer">
+                    <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.JobPostWebsiteModel.Title</h5>
+                    <small class="text-medium-emphasis">@Model.JobPostWebsiteModel.CreateDate.ToString("dd.MM.yyyy") , @Model.JobPostWebsiteModel.UserName</small>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="p-3 card-text">
+                    @Model.JobPostWebsiteModel.JobDescription
+                </p>
+                <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.JobPostWebsiteModel.LastUpdate.ToString("dd.MM.yyyy")</small></p>
+            </div>
+            <div class="card-footer">
+                <a class="card-text me-2 cA" data-coreui-toggle="collapse" href="#commentsx" aria-expanded="true" aria-controls="commentsx">
+                    <svg class="icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+                    </svg> @Model.JobPostWebsiteModel.CommentCount Comment
+                </a>
+                <a class="card-text cA" href="#">
+                    <svg class="icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                    </svg> Share
+                </a>
+            </div>
+
+            <div id="commentsx" class="card-footer collapse show">
+                <div id="comments" class="comment-thread">
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+
+</script>

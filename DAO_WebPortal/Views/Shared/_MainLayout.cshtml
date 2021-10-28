@@ -42,6 +42,7 @@
     <link href="~/Home/css/style.css" rel="stylesheet" />
     <link href="~/Home/css/examples.css" rel="stylesheet" />
     <link href="~/Home/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
+    <link href="~/Home/css/toastr.css" rel="stylesheet" />
 
 </head>
 <body class="@theme">
@@ -269,8 +270,8 @@
     <script src="~/Home/chartjs/js/coreui-chartjs.js"></script>
     <script src="~/Home/chartjs/js/chart.min.js"></script>
     <script src="~/Home/chartjs/js/coreui-utils.js"></script>
-  
     <script src="~/Home/js/MutualJs.js"></script>
+    <script src="~/Home/js/toastr.js"></script>
     <script>
         function changeThemeCookie(src) {
             $.ajax({ type: "GET", url: './Home/SetCookie', data: { "src": src }, cache: false, async: true });

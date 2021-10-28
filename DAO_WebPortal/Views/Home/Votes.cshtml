@@ -2,7 +2,7 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
 }
-
+@model List<Helpers.Models.WebsiteViewModels.VotingViewModel>
 <div class="example">
     <ul class="nav nav-underline border-0" role="tablist">
         <li class="nav-item">
@@ -22,7 +22,10 @@
     </ul>
 
     <div class="tab-content rounded-bottom mt-2">
+
+
         <div class="tab-pane p-3 active" role="tabpanel" id="preview-924">
+
             <div class="card m-2">
                 <div class="card-header">
                     <span class="small ms-1">Active Informal Votes</span>
@@ -41,37 +44,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/1">
+
+                            @foreach (var item in Model)
+                            {
+                                if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == false)
+                                {
+                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
                                 <th scope="row">1</th>
-                                <td>Dao Web Services</td>
+                                <td>@item.Title</td>
                                 <td>Milestone</td>
                                 <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
+                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
                                 <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
+                                <td>@item.CreateDate</td>
                             </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/2">
-                                <th scope="row">2</th>
-                                <td>Dao Web Services 2</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/3">
-                                <th scope="row">3</th>
-                                <td>Dao Web Services 3</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
+                                }
+
+                            }
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
             <div class="card m-2">
                 <div class="card-header"><span class="small ms-1">Active Formal Votes</span></div>
                 <div class="card-body">
@@ -88,39 +84,33 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/4">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == true)
+                                {
+                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
                                 <th scope="row">4</th>
-                                <td>Dao Web Services 4</td>
+                                <td>@item.Title</td>
                                 <td>Milestone</td>
                                 <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
+                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
                                 <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
+                                <td>@item.CreateDate</td>
                             </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/5">
-                                <th scope="row">5</th>
-                                <td>Dao Web Services 5</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/6">
-                                <th scope="row">6</th>
-                                <td>Dao Web Services 6</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
+                                }
+
+                            }
+                            
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </div>
+
         <div class="tab-pane p-3" role="tabpanel" id="code-924">
+
             <div class="card m-2">
                 <div class="card-header">
                     <span class="small ms-1">Completed Informal Votes</span>
@@ -139,37 +129,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/7">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Status != Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == false)
+                                {
+                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
                                 <th scope="row">7</th>
-                                <td>Dao Web Services 7</td>
+                                <td>@item.Title</td>
                                 <td>Milestone</td>
                                 <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
+                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
                                 <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
+                                <td>@item.CreateDate</td>
                             </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/8">
-                                <th scope="row">8</th>
-                                <td>Dao Web Services 8</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/9">
-                                <th scope="row">9</th>
-                                <td>Dao Web Services 9</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
+                                }
+
+                            }
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
             <div class="card m-2">
                 <div class="card-header"><span class="small ms-1">Completed Formal Votes</span></div>
                 <div class="card-body">
@@ -186,37 +168,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/10">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Status != Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == true)
+                                {
+                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
                                 <th scope="row">10</th>
-                                <td>Dao Web Services 10</td>
+                                <td>@item.Title</td>
                                 <td>Milestone</td>
                                 <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
+                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
                                 <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
+                                <td>@item.CreateDate</td>
                             </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/11">
-                                <th scope="row">11</th>
-                                <td>Dao Web Services 11</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/12">
-                                <th scope="row">12</th>
-                                <td>Dao Web Services 12</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>0D:17H:59MIN</td>
-                                <td>18/25 &#10003;</td>
-                                <td>10/14/2021 8:46 AM</td>
-                            </tr>
+                                }
+
+                            }
+
+
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </div>
+
     </div>
 </div>

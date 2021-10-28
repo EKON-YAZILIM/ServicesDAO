@@ -65,6 +65,8 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
+
+                  
                     result = (from job in db.JobPostComments
                               join user in db.Users on job.UserID equals user.UserId
                               where job.JobID == jobid
@@ -130,44 +132,56 @@ namespace DAO_DbService.Controllers
         public List<VotingViewModel> GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
         {
             List<VotingViewModel> res = new List<VotingViewModel>();
-
-            using (dao_maindb_context db = new dao_maindb_context())
+            try
             {
-                string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/GetVotingByStatus?status=" + status);
-                List<VotingDto> model = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votejobsJson);
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/GetVotingByStatus?status=" + status);
+                    List<VotingDto> model = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votejobsJson);
 
-                res = (from votejob in model
-                       join job in db.JobPosts on votejob.JobID equals job.JobID
-                       where status == null || job.Status == status
-                       select new VotingViewModel
-                       {
+                    res = (from votejob in model
+                           join job in db.JobPosts on votejob.JobID equals job.JobID
+                           where status == null || job.Status == status
+                           select new VotingViewModel
+                           {
 
-                           JobID = job.JobID,
-                           IsFormal = votejob.IsFormal,
-                           CreateDate = votejob.CreateDate,
-                           StartDate = votejob.StartDate,
-                           EndDate = votejob.EndDate,
-                           Title = job.Title
+                               JobID = job.JobID,
+                               VoteID = votejob.VotingID,
+                               IsFormal = votejob.IsFormal,
+                               CreateDate = votejob.CreateDate,
+                               StartDate = votejob.StartDate,
+                               EndDate = votejob.EndDate,
+                               Title = job.Title,
+                               Status = job.Status
 
-                       }).ToList();
+                           }).ToList();
+                }
             }
+            catch (Exception ex)
+            {
+              
+          
+            }
+           
 
             return res;
         }
 
         [Route("GetUserJobs")]
         [HttpGet]
-        public List<JobPostModel> GetUserJobs(int userid)
+        public List<JobPostViewModel> GetUserJobs(int userid)
         {
-            List<JobPostModel> result = new List<JobPostModel>();
+            List<JobPostViewModel> result = new List<JobPostViewModel>();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
                     result = (from job in db.JobPosts
                               join user in db.Users on job.UserID equals user.UserId
+                              let explenation = job.JobDescription.Substring(0, 100)
+                              let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                               where job.UserID == userid
-                              select new JobPostModel
+                              select new JobPostViewModel
                               {
                                   Title = job.Title,
                                   UserName = user.UserName,
@@ -177,7 +191,8 @@ namespace DAO_DbService.Controllers
                                   JobID = job.JobID,
                                   Status = job.Status,
                                   Amount = job.Amount,
-                                  ProgressType = job.ProgressType,
+                                  ProgressType = job.ProgressType,                       
+                                  CommentCount = count
 
                               }).ToList();
                 }
@@ -318,6 +333,26 @@ namespace DAO_DbService.Controllers
                     {
 
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
+        }
+
+        [Route("GetVoteDetail")]
+        [HttpGet]
+        public List<VoteDto> GetVoteDetail(int voteid)
+        {
+            List<VoteDto> res = new List<VoteDto>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    string voteJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVote?VoteJobID=" + voteid);
+                    res = Helpers.Serializers.DeserializeJson<List<VoteDto>>(voteJson);
                 }
             }
             catch (Exception ex)
