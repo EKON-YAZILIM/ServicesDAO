@@ -1,6 +1,8 @@
-﻿@{
-    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
 
+@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
 }
 
 <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
@@ -40,10 +42,20 @@
                             </li>
 
                         </ul>
-                        <ul class="menu-btns">
-                            <li><button class="btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-login"><span>Login</span></button></li>
-                            <li><button class="btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-signUp"><span>Sign Up</span></button></li>
-                        </ul>
+
+                        @if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != null)
+                        {
+                            <ul class="menu-btns">
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" onclick="window.location.href='../Home'"><span>Dashboard</span></button></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="menu-btns">
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-login"><span>Login</span></button></li>
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-signUp"><span>Sign Up</span></button></li>
+                            </ul>
+                        }
                     </nav>
                     <div class="header-navbar-overlay"></div>
                 </div><!-- .header-navbar  -->

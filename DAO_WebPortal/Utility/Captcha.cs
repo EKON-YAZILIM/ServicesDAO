@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace DAO_WebPortal.Utility
 {
+    /// <summary>
+    ///  Captcha class for generating captcha control for public inputs
+    /// </summary>
     public static class Captcha
     {
         const string Letters = "2346789ABCDEFGHJKLMNPRTUVWXYZ";

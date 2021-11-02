@@ -238,7 +238,33 @@
 
     <script src="~/Home/js/coreui.bundle.min.js"></script>
     <script src="~/Home/simplebar/js/simplebar.min.js"></script>
+    <script src="~/Home/chartjs/js/coreui-chartjs.js"></script>
+    <script src="~/Home/chartjs/js/chart.min.js"></script>
+    <script src="~/Home/chartjs/js/coreui-utils.js"></script>
+    <script src="~/Home/js/MutualJs.js"></script>
+    <script src="~/Home/js/toastr.js"></script>
     <script>
+
+        $(document).ready(function () {
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": false,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+        });
 
         if (document.body.classList.contains('dark-theme')) {
             var element = document.getElementById('btn-dark-theme');
@@ -266,17 +292,12 @@
             changeThemeCookie(src);
 
         }
-    </script>
-    <script src="~/Home/chartjs/js/coreui-chartjs.js"></script>
-    <script src="~/Home/chartjs/js/chart.min.js"></script>
-    <script src="~/Home/chartjs/js/coreui-utils.js"></script>
-    <script src="~/Home/js/MutualJs.js"></script>
-    <script src="~/Home/js/toastr.js"></script>
-    <script>
+
         function changeThemeCookie(src) {
             $.ajax({ type: "GET", url: './Home/SetCookie', data: { "src": src }, cache: false, async: true });
         }
     </script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

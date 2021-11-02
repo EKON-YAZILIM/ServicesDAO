@@ -169,7 +169,7 @@
     <value>Password reset link sent to your email.</value>
   </data>
   <data name="RegisterComplete" xml:space="preserve">
-    <value>Registration completed.</value>
+    <value>Registration completed. You can sign in with your email/username and password.</value>
   </data>
   <data name="RegisterEmailSent" xml:space="preserve">
     <value>Please confirm your account from your email.</value>

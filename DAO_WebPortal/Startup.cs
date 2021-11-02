@@ -38,6 +38,8 @@ namespace DAO_WebPortal
 
         public static void InitializeService()
         {
+            Helpers.Encryption.EncryptionKey = Program._settings.EncryptionKey;
+
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);
 
             ApplicationStartResult rabbitControl = rabbitMq.Initialize(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);

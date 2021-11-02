@@ -214,7 +214,7 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registration completed..
+        ///   Looks up a localized string similar to Registration completed. You can sign in with your email/username and password..
         /// </summary>
         public static string RegisterComplete {
             get {

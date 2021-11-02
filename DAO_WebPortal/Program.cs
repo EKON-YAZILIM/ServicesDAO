@@ -18,6 +18,7 @@ namespace DAO_WebPortal
             public string RabbitMQUsername { get; set; }
             public string RabbitMQPassword { get; set; }
             public string Service_ApiGateway_Url { get; set; }
+            public string EncryptionKey { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();

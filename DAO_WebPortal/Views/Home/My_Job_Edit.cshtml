@@ -18,7 +18,7 @@
             <label for="time">Time Frame</label>
             <input type="text" class="form-control" id="time" value="@Model.TimeFrame">
         </div>
-        
+
         <div class="form-group mb-4">
             <label for="description">Job Description</label>
             <textarea type="text" class="form-control" id="description" value="@Model.JobDescription" rows="5"></textarea>
@@ -30,26 +30,9 @@
 </div>
 <script>
 
-       $(document).ready(function () {
+    $(document).ready(function () {
 
-           toastr.options = {
-               "closeButton": true,
-               "debug": false,
-               "newestOnTop": true,
-               "progressBar": false,
-               "positionClass": "toast-bottom-right",
-               "preventDuplicates": false,
-               "onclick": null,
-               "showDuration": "300",
-               "hideDuration": "1000",
-               "timeOut": "5000",
-               "extendedTimeOut": "1000",
-               "showEasing": "swing",
-               "hideEasing": "linear",
-               "showMethod": "fadeIn",
-               "hideMethod": "fadeOut"
-           };
-        });
+    });
 
      function Update() {
          dataModel = @Html.Raw(Json.Serialize(Model));
@@ -57,7 +40,7 @@
          dataModel.amount = $('#amount').val();
          dataModel.time = $('#time').val();
          dataModel.jobDescription = $('#description').val();
-        
+
             $.ajax({
                 type: "PUT",
                 url: "../Home/My_Job_Update",

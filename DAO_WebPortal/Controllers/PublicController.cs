@@ -14,6 +14,9 @@ using System.Text.RegularExpressions;
 
 namespace DAO_WebPortal.Controllers
 {
+    /// <summary>
+    ///  Controller for public views and public actions
+    /// </summary>
     public class PublicController : Controller
     {
         #region Views
@@ -59,40 +62,42 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
-        #region Login & Register
+        #region Login & Register Methods
 
-        public IActionResult Login()
-        {
-            if (HttpContext.Session.GetInt32("UserID") != null && HttpContext.Session.GetInt32("UserID") > 0)
-            {
-                return RedirectToAction("Dashboard", "Main");
-            }
-            return View();
-        }
-
+        /// <summary>
+        ///  User login function
+        /// </summary>
+        /// <param name="email">User's email or username</param>
+        /// <param name="password">User's password</param>
+        /// <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Login(string email, string password, string usercode)
         {
             try
             {
+                // Check captcha only after 3 failed requests
                 int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-
-                if (failCount > 4 && !Utility.Captcha.ValidateCaptchaCode("securityCode1", usercode, HttpContext))
+                if (failCount > 3 && !Utility.Captcha.ValidateCaptchaCode("securityCode1", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
                     return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
-                LoginResponse loginModel = new LoginResponse();
-                string ip = Methods.GetClientIpAddress(HttpContext);
-                string port = Methods.GetClientPort(HttpContext);
+                //Get client Ip and Port
+                string ip = IpHelper.GetClientIpAddress(HttpContext);
+                string port = IpHelper.GetClientPort(HttpContext);
+
+                //Create model
                 LoginModel LoginModelPost = new LoginModel() { email = email, pass = password, ip = ip, port = port, application = Helpers.Constants.Enums.AppNames.DAO_WebPortal };
 
-
+                //Post model to ApiGateway
                 var loginJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Login", Helpers.Serializers.SerializeJson(LoginModelPost));
-                loginModel = Helpers.Serializers.DeserializeJson<LoginResponse>(loginJson);
+
+                //Parse response
+                LoginResponse loginModel = Helpers.Serializers.DeserializeJson<LoginResponse>(loginJson);
        
                 if (loginModel.UserId != 0 && loginModel != null && loginModel.IsSuccessful == true)
                 {
@@ -123,23 +128,32 @@ namespace DAO_WebPortal.Controllers
             }
         }
 
+        /// <summary>
+        ///  New user registration function
+        /// </summary>
+        /// <param name="email">Email</param>
+        /// <param name="username">Username</param>
+        /// <param name="namesurname">Name Surname</param>
+        /// <param name="password">Password</param>
+        /// <param name="repass">Password confirmation</param>
+        /// <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult Register(string email, string username, string namesurname, string gsm, string password, string repass, string usercode)
+        public JsonResult Register(string email, string username, string namesurname, string password, string repass, string usercode)
         {
-            int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-
             try
             {
-                //CAPTCHA CONTROL
-                if (failCount > 4 && !Captcha.ValidateCaptchaCode("securityCode2", usercode, HttpContext))
+                // Check captcha only after 3 failed requests
+                int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
+                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCode2", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
                     return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
-                //PASSWORD MATCH CONTROL
+                //Password match control
                 if (password != repass)
                 {
                     failCount++;
@@ -147,7 +161,7 @@ namespace DAO_WebPortal.Controllers
                     return Json(new AjaxResponse { Success = false, Message = Lang.NotCompatiblePass });
                 }
 
-                //PASSWORD STRENGTH CONTROL
+                //Password strength control
                 if (!Regex.IsMatch(password, @"^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])"))
                 {
                     failCount++;
@@ -155,11 +169,14 @@ namespace DAO_WebPortal.Controllers
                     return Json(new AjaxResponse { Success = false, Message = Lang.ErrorPasswordMsg });
                 }
 
-                string ip = Methods.GetClientIpAddress(HttpContext);
-                string port = Methods.GetClientPort(HttpContext);
+                //Get client Ip and Port
+                string ip = IpHelper.GetClientIpAddress(HttpContext);
+                string port = IpHelper.GetClientPort(HttpContext);
 
-                //REGISTER
+                //Post model to ApiGateway
                 var registerJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Register", Helpers.Serializers.SerializeJson(new RegisterModel() { email = email, username = username, namesurname = namesurname, password = password, ip = ip, port = port }));
+
+                //Parse response
                 AjaxResponse registerResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(registerJson);
 
                 if (registerResponse.Success == false)
@@ -189,62 +206,71 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-                failCount++;
-                HttpContext.Session.SetInt32("FailCount", failCount);
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
                 return Json(new AjaxResponse { Success = false, Message = Lang.ErrorNote });
             }
-
-
         }
 
+        /// <summary>
+        /// Completes user registration from activation link in the confirmation email
+        /// </summary>
+        /// <param name="str">Encrypted user information in the registration email</param>
+        /// <returns></returns>
         public ActionResult RegisterCompleteView(string str)
         {
             try
             {
-                HttpContext.Session.SetString("passwordchangetoken", str);
-
-                var completeJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/RegisterComplete?registerCode=" + str);
+                //Get result
+                var completeJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/RegisterComplete", Helpers.Serializers.SerializeJson(new Helpers.Models.IdentityModels.RegisterCompleteModel() { registerToken = str }));
+                
+                //Parse result
                 AjaxResponse completeResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(completeJson);
 
                 if (completeResponse.Success)
                 {
-                    TempData["message"] = Lang.Successful;
-                    TempData["message2"] = Lang.RegisterComplete;
+                    TempData["message"] = Lang.RegisterComplete;
                 }
                 else
                 {
-                    TempData["message"] = Lang.Error;
-                    TempData["message2"] = Lang.UnexpectedError;
+                    TempData["message"] = Lang.UnexpectedError;
                 }
             }
             catch (Exception ex)
             {
-                TempData["message"] = Lang.Error;
-                TempData["message2"] = Lang.ErrorNote;
+                TempData["message"] = Lang.ErrorNote;
 
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Sends password reset email to user's email
+        /// </summary>
+        /// <param name="email">User's email</param>
+        /// <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult ResetPassword(string email, string usercode)
         {
-            int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
 
             try
-            {
-                if (failCount > 4 && !Captcha.ValidateCaptchaCode("securityCode3", usercode, HttpContext))
+            {                
+                // Check captcha only after 3 failed requests
+                int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
+                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCode3", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
                     return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
+                //Post model to ApiGateway
                 var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/ResetPassword", Helpers.Serializers.SerializeJson(new ResetPasswordModel() { email = email }));
+
+                //Parse result
                 AjaxResponse resetResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(resetJson);
 
                 if (resetResponse.Success)
@@ -269,68 +295,88 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-                failCount++;
-                HttpContext.Session.SetInt32("FailCount", failCount);
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
                 return Json(new AjaxResponse { Success = false, Message = Lang.UnexpectedError });
             }
         }
 
+        /// <summary>
+        /// Opens password reset model from 
+        /// </summary>
+        /// <param name="str">Encrypted user information in the password reset email</param>
+        /// <returns></returns>
         public ActionResult ResetPasswordView(string str)
         {
             try
             {
+                //Set password change token into session
                 HttpContext.Session.SetString("passwordchangetoken", str);
 
-                string email = Helpers.Encryption.DecryptString(str);
-                if (email.Split('|').Length > 1)
+                //Decrypt information
+                string decryptedToken = Helpers.Encryption.DecryptString(str);
+
+                //Check if format is valid
+                if (decryptedToken.Split('|').Length > 1)
                 {
-                    DateTime emaildate = Convert.ToDateTime(email.Split('|')[1]);
-                    if (emaildate.AddMinutes(15) < DateTime.Now)
+                    //Check if password renewal expired
+                    DateTime emaildate = Convert.ToDateTime(decryptedToken.Split('|')[1]);
+                    if (emaildate.AddMinutes(60) < DateTime.Now)
                     {
-                        TempData["message"] = Lang.Error;
-                        TempData["message2"] = Lang.RenewExpired;
+                        TempData["message"] = Lang.RenewExpired;
                     }
                     else
                     {
-                        HttpContext.Session.SetString("passwordchangeemail", email.Split('|')[0]);
+                        //Set user's email
+                        HttpContext.Session.SetString("passwordchangeemail", decryptedToken.Split('|')[0]);
                         TempData["action"] = "resetpassword";
                     }
                 }
                 else
                 {
-                    TempData["message"] = Lang.Error;
-                    TempData["message2"] = Lang.IncorrectPassReset;
+                    TempData["message"] = Lang.IncorrectPassReset;
                 }
             }
             catch (Exception ex)
             {
-                TempData["message"] = Lang.Error;
-                TempData["message2"] = Lang.ErrorNote;
+                TempData["message"] = Lang.ErrorNote;
 
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Sets user new password
+        /// </summary>
+        /// <param name="newpass">New password</param>
+        /// <param name="newpassagain">New password confirmation</param>
+        /// <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public JsonResult ResetComplete(string newpass, string newpassagain, string usercode)
+        public JsonResult ResetPasswordComplete(string newpass, string newpassagain, string usercode)
         {
-            int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-
             try
             {
-                //CAPTCHA CONTROL
-                if (failCount > 4 && !Captcha.ValidateCaptchaCode("securityCode4", usercode, HttpContext))
+                // Check captcha only after 3 failed requests
+                int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
+                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCode4", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
                     return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
-                //PASSWORD STRENGTH CONTROL
+                //Password match control
+                if (newpass != newpassagain)
+                {
+                    failCount++;
+                    HttpContext.Session.SetInt32("FailCount", failCount);
+                    return Json(new AjaxResponse { Success = false, Message = Lang.NotCompatiblePass });
+                }
+
+                //Password strength control
                 if (!Regex.IsMatch(newpass, @"^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])"))
                 {
                     failCount++;
@@ -338,16 +384,10 @@ namespace DAO_WebPortal.Controllers
                     return Json(new AjaxResponse { Success = false, Message = Lang.ErrorPasswordMsg });
                 }
 
-                //PASSWORD MATCH CONTROL
-                if (newpass != newpassagain)
-                {
-                    failCount++;
-                    HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.NotCompatiblePass });
-
-                }
-
+                //Post model to ApiGateway
                 var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/ResetPasswordComplete", Helpers.Serializers.SerializeJson(new ResetCompleteModel() { newPass = newpass, passwordChangeToken = HttpContext.Session.GetString("passwordchangetoken") }));
+
+                //Parse result
                 AjaxResponse resetResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(resetJson);
 
                 if (resetResponse.Success)
@@ -370,13 +410,15 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-                failCount++;
-                HttpContext.Session.SetInt32("FailCount", failCount);
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
                 return Json(new AjaxResponse { Success = false, Message = Lang.ErrorNote });
             }
         }
 
+        /// <summary>
+        /// User logout function
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
@@ -385,7 +427,12 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
-      
+        /// <summary>
+        /// Creates captcha image for public forms
+        /// This method is called after 3 failed requests
+        /// </summary>
+        /// <param name="code">Captcha code</param>
+        /// <returns>Captcha image</returns>
         [Route("get-captcha-image")]
         public IActionResult GetCaptchaImage(string code)
         {

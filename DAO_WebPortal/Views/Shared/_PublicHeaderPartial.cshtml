@@ -1,9 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+<!-- Public pages header  -->
 <header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
     <!-- Header  -->
     <div class="header-main">
@@ -40,10 +37,20 @@
                             </li>
 
                         </ul>
-                        <ul class="menu-btns">
-                            <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-login"><span>Login</span></button></li>
-                            <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-signUp"><span>Sign Up</span></button></li>
-                        </ul>
+                        @if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != null)
+                        {
+                            <ul class="menu-btns">
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" onclick="window.location.href='../Home'"><span>Dashboard</span></button></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="menu-btns">
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-login"><span>Login</span></button></li>
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-signUp"><span>Sign Up</span></button></li>
+                            </ul>
+                        }
+
                     </nav>
                     <div class="header-navbar-overlay"></div>
                 </div><!-- .header-navbar  -->
@@ -51,7 +58,6 @@
         </div>
     </div>
     <!-- .header-main  -->
-
     <!-- Banner  -->
     <div class="header-banner bg-theme-grad">
         <div class="nk-banner">

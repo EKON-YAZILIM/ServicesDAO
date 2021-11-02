@@ -60,7 +60,7 @@
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/Register",
-      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
     {
@@ -73,7 +73,7 @@
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/RegisterComplete",
-      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
     {

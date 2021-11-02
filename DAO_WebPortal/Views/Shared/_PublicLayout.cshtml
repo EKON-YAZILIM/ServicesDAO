@@ -13,6 +13,7 @@
 
     <title>DAO WebPortal</title>
 
+    <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="~/Public/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="~/Public/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="~/Public/favicon/apple-icon-72x72.png">
@@ -28,6 +29,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/Public/favicon/favicon-16x16.png">
     <link rel="manifest" href="~/Public/favicon/manifest.json">
 
+    <!-- Styles -->
     <link href="~/Public/css/vendor.bundle.css?ver=1930" rel="stylesheet" />
     <link href="~/Public/css/style-lobelia.css?ver=1930" rel="stylesheet" />
     <link href="~/Public/css/style.css" rel="stylesheet" />
@@ -35,13 +37,9 @@
 </head>
 <body class="nk-body body-wider mode-onepage bg-light">
 
-
+    <!-- Body Main Content -->
     <div class="nk-wrap">
-
-
         @RenderBody()
-
-
     </div>
 
     <!-- Modal Login -->
@@ -94,7 +92,6 @@
             </div>
         </div>
     </div>
-    <!-- .modal  -->
 
     <!-- Modal Sign Up -->
     <div class="modal fade" id="modal-signUp">
@@ -157,20 +154,20 @@
         </div>
     </div>
 
-    <!-- Forgot Pass -->
-    <div class="modal fade" id="forgotPassDiv">
+    <!-- Modal Forgot Pass -->
+    <div class="modal fade" id="modal-forgotpass">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
                 <div class="modal-body p-md-4 p-lg-5">
                     <div class="row">
                         <div class="ath-body">
-                            <h5 class="ath-heading title">Reset Password <small class="tc-default">Create New ServicesDAO Account</small></h5>
+                            <h5 class="ath-heading title">Reset Password <small class="tc-default">Get password reset link to your registered email</small></h5>
                             <div class="login-signup-form" id="forgotPassForm">
                                 @Html.AntiForgeryToken()
                                 <div class="field-item">
                                     <div class="field-wrap">
-                                        <input type="text" id="emailforgot" class="input-bordered" placeholder="Your Name">
+                                        <input type="text" id="emailforgot" class="input-bordered" placeholder="Registered email">
                                     </div>
                                 </div>
 
@@ -182,7 +179,7 @@
                                     <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode3" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
                                 </div>
 
-                                <button type="button" onclick="ResetPassword();" class="btn btn-primary btn-block btn-md loginFormButton">Reset Password</button>
+                                <button type="button" onclick="ResetPassword();" class="btn btn-primary btn-block btn-md float-right loginFormButton">Reset Password</button>
                             </div>
 
                         </div>
@@ -195,16 +192,63 @@
         </div>
     </div>
 
-    <!-- .modal  -->
+    <!-- Modal Reset Pass -->
+    <div class="modal fade" id="modal-resetpass">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <a href="#" class="modal-close" data-dismiss="modal" aria-label="Close"><em class="ti ti-close"></em></a>
+                <div class="modal-body p-md-4 p-lg-5">
+                    <div class="row">
+                        <div class="ath-body">
+                            <h5 class="ath-heading title">Set New Password <small class="tc-default">Set a new password for your account</small></h5>
+                            <div class="login-signup-form" id="forgotPassForm">
+                                @Html.AntiForgeryToken()
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="password" id="passreset" class="input-bordered" placeholder="New password">
+                                    </div>
+                                </div>
+                                <div class="field-item">
+                                    <div class="field-wrap">
+                                        <input type="password" id="passreset2" class="input-bordered" placeholder="New password confirmation">
+                                    </div>
+                                </div>
+                                <!-- Captcha -->
+                                <div class="input-group inpcapthca mt-2 captchaDiv d-none">
+                                    <div class="input-group-prepend">
+                                        <img id="img-captcha3" src="../get-captcha-image?code=securityCode3" style="width: 120px; height: 40px;" />
+                                    </div>
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode3" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                </div>
+
+                                <button type="button" onclick="ResetPasswordComplete();" class="btn btn-primary btn-block btn-md float-right loginFormButton">Set New Password</button>
+                            </div>
+
+                        </div>
+                        <!--<div class="card-footer bg-transparent border-top px-md-5">-->
+                        @*<a href="#" class="small" onclick="OpenSection('login')"> Open Section</a>*@
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading spinner -->
+    <div class="preloader"><span class="spinner spinner-round"></span></div>
+
+    <!-- Scripts -->
     <script src="~/Public/js/jquery.bundle.js?ver=1930"></script>
     <script src="~/Public/js/scripts.js?ver=1930"></script>
     <script src="~/Public/js/charts.js"></script>
 
     <script>
+        //Failed request count. After 3 failed requet attempts Captcha will appear for public forms
         var failCount = 0;
 
         $(document).ready(function () {
 
+            //Fill username if exists in local storage
             if (localStorage.getItem("username") != undefined && localStorage.getItem("username") != "") {
                 $("#email").val(localStorage.getItem("username"));
                 $("#chcremember").prop('checked', true);
@@ -230,170 +274,224 @@
             };
 
             //Create Captcha after failed request attempts
-             @if(httpContextAccessor.HttpContext.Session.GetInt32("FailCount") > 3)
+            @if(httpContextAccessor.HttpContext.Session.GetInt32("FailCount") > 3)
             {
                 @Html.Raw("resetCaptchaImage(\"#img-captcha1\", \"securityCode1\");")
                 @Html.Raw("$(\".captchaDiv\").removeClass(\"d-none\");");
             }
 
+            //Enter keypress submit event for forms
             $(document).on('keypress', function (e) {
                 if (e.which == 13) {
-                    if (!$("#registerDiv").hasClass("d-none")) {
+                    if ($("#modal-register").hasClass("show")) {
                         Register();
                     }
-                    else if (!$("#forgotPassDiv").hasClass("d-none")) {
+                    else if ($("#modal-forgotpass").hasClass("show")) {
                         ResetPassword();
                     }
-                    else if (!$("#logindiv").hasClass("d-none")) {
+                    else if ($("#modal-login").hasClass("show")) {
                         Login();
                     }
-                    else if (!$("#resetPassDiv").hasClass("d-none")) {
+                    else if ($("#modal-resetpass").hasClass("show")) {
                         ResetPasswordComplete();
                     }
                 }
             });
 
+            //Display forget pass modal event
+            $(".forgotPass").on("click", function () {
+                $("#modal-login").modal("toggle");
+                setTimeout(function () {
+                    $("#modal-forgotpass").modal("toggle");
+                }, 500);
+            })
+
+            //Display sign up modal event
+            $(".signUp").on("click", function () {
+                $("#modal-login").modal("toggle");
+                setTimeout(function () {
+                    $("#modal-signUp").modal("toggle");
+                }, 500);
+            })
+
+            //Display toastr message from server side
+            if ('@TempData["message"]'.length > 0) {
+                toastr.warning('@TempData["message"]');
+            }
+
+            //Open password renewal modal if user redirected from renewal email
+            if ('@TempData["action"]' == "resetpassword") {
+                $("#modal-resetpass").modal("toggle");
+            }
         });
 
+        //Creates new captcha image
         function resetCaptchaImage(captchaID, code) {
             var d = new Date();
             $(captchaID).attr("src", "/get-captcha-image?" + d.getTime() + "&code=" + code);
         }
 
+        //Login function
         function Login() {
+            //Disable submit button
             $('.loginFormButton').prop('disabled', true);
+
+            //Display loading
             $(".spinner").removeClass("load-done");
             $('.spinner').fadeIn(300);
             $('.preloader').fadeIn(300);
 
+            //Create login model
             var code = $('#securityCode1').val();
             var email = $('#email').val()
             var password = $('#pass').val();
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
+
+            //Save username/email in local storage if "Remember Me" is checked.
             if ($('#chcremember').is(':checked')) {
                 localStorage.setItem("username", email);
             }
             else {
                 localStorage.setItem("username", "");
             }
-            var form = $('#loginForm');
-            var token = $('input[name="__RequestVerificationToken"]', token).val();
+
+            //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Public/Login",
                 data: { "email": email, "password": password, "usercode": code, "__RequestVerificationToken": token },
-
+                async: false,
                 success: function (result) {
                       if (result.success) {
-                          toastr.success(result.message,"@Lang.Successful");
-                        setTimeout(function () {
-                            window.location.href = "./Home";
-                        }, 1000);
+                          window.location.href = "./Home";
                       }
                       else {
                           failCount++;
-                           $('.loginFormButton').removeAttr("disabled");
-                          resetCaptchaImage("#img-captcha1", "securityCode1");
-                          $(".spinner").removeClass("load-done");
-                          $('.spinner').fadeOut(300);
-                          $('.preloader').delay(300).fadeOut(300);
                           toastr.warning(result.message);
-                          if (failCount > 4) {
+                          //Show captcha image after failed request attempts
+                          if (failCount > 3) {
+                              resetCaptchaImage("#img-captcha1", "securityCode1");
                               $(".captchaDiv").removeClass("d-none");
                           }
                       }
                 },
                 failure: function (response) {
-                    $('.loginFormButton').removeAttr("disabled");
                     toastr.warning("@Lang.ConnectionError");
                 },
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
-                    $('.loginFormButton').removeAttr("disabled");
                 }
             });
+
+            //Enable submit button
+            $('.loginFormButton').removeAttr("disabled");
+
+            //Hide loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeOut(300);
+            $('.preloader').delay(300).fadeOut(300);
         }
 
+        //Register function
         function Register() {
+            //Check if terms is checked
             if (!$("#chcTerms").is(":checked")) {
                 toastr.warning("@Lang.Login_CheckTermsError");
                 return;
             }
+
+            //Disable submit button
             $('.loginFormButton').prop('disabled', true);
+
+            //Display loading
             $(".spinner").removeClass("load-done");
             $('.spinner').fadeIn(300);
             $('.preloader').fadeIn(300);
+
+            //Create register model
             var email = $('#emailregister').val()
             var namesurname = $('#nameregister').val();
             var username = $('#usernameregister').val();
             var pass = $('#passregister').val();
             var pass2 = $('#passregister2').val();
             var code2 = $('#securityCode2').val();
-            var form = $('#registerForm');
             var token = $('input[name="__RequestVerificationToken"]', token).val();
+
+            //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Public/Register",
+                async: false,
                 data: { "email": email, "namesurname": namesurname, "username": username, "password": pass, "repass": pass2, "usercode": code2, "__RequestVerificationToken": token },
                 success: function (result) {
                     if (result.Success) {
-                        toastr.success(result.message, "@Lang.Successful");
-                        setTimeout(function () {
-                            window.location.href = "../Main/Dashboard";
-                        }, 3000);
+                        toastr.success(result.message);
+                        $("#modal-signUp").modal("toggle");
                     }
                     else {
                         failCount++;
-                        $('.loginFormButton').removeAttr("disabled");
-                        resetCaptchaImage("#img-captcha2", "securityCode2");
-                        $(".spinner").removeClass("load-done");
-                        $('.spinner').fadeOut(300);
-                        $('.preloader').delay(300).fadeOut(300);
                         toastr.error(result.message);
-                        if (failCount > 4) {
+                        //Show captcha image after failed request attempts
+                        if (failCount > 3) {
+                            resetCaptchaImage("#img-captcha2", "securityCode2");
                             $(".captchaDiv").removeClass("d-none");
                         }
                     }
                 },
                   failure: function (response) {
-                    $('.loginFormButton').removeAttr("disabled");
                     toastr.warning("@Lang.ConnectionError");
                 },
                 error: function (response) {
-                    toastr.error("@Lang.UnexpectedError");
                     $('.loginFormButton').removeAttr("disabled");
                 }
 
             });
+
+            //Enable submit button
+            $('.loginFormButton').removeAttr("disabled");
+
+            //Hide loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeOut(300);
+            $('.preloader').delay(300).fadeOut(300);
+
         }
 
+        //Reset password function
         function ResetPassword() {
+            //Disable submit button
             $('.loginFormButton').prop('disabled', true);
+
+            //Display loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeIn(300);
+            $('.preloader').fadeIn(300);
+
+            //Create reset password model
             var email = $('#emailforgot').val()
-
-            var form = $('#forgotPassForm');
             var token = $('input[name="__RequestVerificationToken"]', token).val();
-
             var code = $('#securityCode3').val();
 
+            //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Public/ResetPassword",
+                async: false,
                 data: { "email": email, "usercode": code, "__RequestVerificationToken": token },
                 success: function (result) {
-                    failCount++;
-                    if (result.Success) {
-                        toastr.success(result.message,"@Lang.Successful");
+                    if (result.success) {
+                        toastr.success(result.message);
                     }
                     else {
-                        resetCaptchaImage("#img-captcha3","securityCode3");
-                        toastr.error(result.message, "@Lang.Error");
+                        failCount++;
+                        toastr.error(result.message);
                     }
 
-                    if (failCount > 4) {
+                    //Show captcha image after failed request attempts
+                    if (failCount > 3) {
+                        resetCaptchaImage("#img-captcha3", "securityCode3");
                         $(".captchaDiv").removeClass("d-none");
                     }
-
-                    $('.loginFormButton').removeAttr("disabled");
                 },
                 failure: function (response) {
                     $('.loginFormButton').removeAttr("disabled");
@@ -404,46 +502,76 @@
                     $('.loginFormButton').removeAttr("disabled");
                 }
             });
+
+            //Enable submit button
+            $('.loginFormButton').removeAttr("disabled");
+
+            //Hide loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeOut(300);
+            $('.preloader').delay(300).fadeOut(300);
+
         }
 
-        function OpenSection(section) {
-            if (section == "login") {
-                $("#modal-signUp").addClass("d-none");
-                $("#forgotPassDiv").addClass("d-none");
-                $("#modal-login").removeClass("d-none");
-                $("#resetPassDiv").addClass("d-none");
-            }
-            else if (section == "register") {
-                $("#registerDiv").removeClass("d-none");
-                $("#forgotPassDiv").addClass("d-none");
-                $("#loginDiv").addClass("d-none");
-                $("#resetPassDiv").addClass("d-none");
-            }
-            else if (section == "forgotpass") {
-                $("#modal-signUp").addClass("d-none");
-                $("#forgotPassDiv").removeClass("d-none");
-                $("#modal-login").addClass("d-none");
-                $("#resetPassDiv").addClass("d-none");
-            }
-        }
+        //Reset password complete function
+        function ResetPasswordComplete() {
+            //Disable submit button
+            $('.loginFormButton').prop('disabled', true);
 
-        $(".forgotPass").on("click", function () {
-            $("#modal-login").modal("toggle");
-            setTimeout(function () {
-                $("#forgotPassDiv").modal("toggle");
-            }, 500);
-        })
-        $(".signUp").on("click", function () {
-            $("#modal-login").modal("toggle");
-            setTimeout(function () {
-                $("#modal-signUp").modal("toggle");
-            }, 500);
-        })
+            //Display loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeIn(300);
+            $('.preloader').fadeIn(300);
+
+            //Create new password model
+            var pass1 = $('#passreset').val()
+            var pass2 = $('#passreset2').val()
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
+            var code = $('#securityCode4').val();
+
+            //Ajax post action
+            $.ajax({
+                type: "POST",
+                url: "../Public/ResetPasswordComplete",
+                async: false,
+                data: { "newpass": pass1, "newpassagain": pass2, "usercode": code, "__RequestVerificationToken": token },
+                success: function (result) {
+                    if (result.success) {
+                        toastr.success(result.message);
+                        $("#modal-resetpass").modal("toggle");
+                        setTimeout(function () {
+                            $("#modal-login").modal("toggle");
+                        }, 500);
+                    }
+                    else {
+                        failCount++;
+                        toastr.error(result.message);
+                    }
+
+                    if (failCount > 3) {
+                        resetCaptchaImage("#img-captcha4", "securityCode4");
+                        $(".captchaDiv").removeClass("d-none");
+                    }
+                },
+                failure: function (response) {
+                    toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                    toastr.error("@Lang.UnexpectedError");
+                }
+            });
+
+            //Enable submit button
+            $('.loginFormButton').removeAttr("disabled");
+
+            //Hide loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeOut(300);
+            $('.preloader').delay(300).fadeOut(300);
+        }
 
     </script>
 
-
     @RenderSection("Scripts", required: false)
-
 </body>
 </html>

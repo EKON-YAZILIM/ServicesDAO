@@ -326,7 +326,7 @@ namespace DAO_IdentityService.Controllers
                 }
                 else
                 {
-                    return new AjaxResponse { Success = false, Message = "Email error" };
+                    return new AjaxResponse { Success = false, Message = "Email not found" };
                 }
             }
             catch (Exception ex)
