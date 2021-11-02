@@ -6,11 +6,7 @@
 @model List<Helpers.Models.WebsiteViewModels.JobPostViewModel>
 <div class="row d-flex mb-3">
     <div class="col-md-6 d-flex">
-        <a class="card-text cA align-self-end" href="#">
-            <svg class="icon">
-                <use xlink:href="/Home/images/svg/free.svg#cil-save"></use>
-            </svg> Load a saved job
-        </a>
+       
     </div>
     <div class="col-md-6 d-flex justify-content-end">
         <button class="btn btn-primary" type="button" onclick="window.location.href='./New-Job';">
@@ -50,9 +46,15 @@
                             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                         </svg> Share
                     </a>
+                    <a class="card-text cA" onclick="window.location.href='./My-Job-Edit/'+@item.JobID">
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                        </svg> Edit
+                    </a>
                 </div>
             </div>
         }
     </div>
 
 </div>
+

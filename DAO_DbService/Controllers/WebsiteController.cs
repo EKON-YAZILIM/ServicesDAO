@@ -72,6 +72,7 @@ namespace DAO_DbService.Controllers
                               where job.JobID == jobid
                               select new JobPostCommentModel
                               {
+                                  JobPostCommentID = job.JobPostCommentID,
                                   ProfileImage = user.ProfileImage,
                                   UserName = user.UserName,
                                   Date = job.Date,
@@ -116,7 +117,7 @@ namespace DAO_DbService.Controllers
                         ProgressType = jobPost.ProgressType,
                         CommentCount = count
                     };
-                    result.JobPostCommentMode = GetJobComment(jobid);
+                    result.JobPostCommentModel = GetJobComment(jobid);
                 }
 
             }

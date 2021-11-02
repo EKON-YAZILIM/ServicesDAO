@@ -73,7 +73,17 @@ namespace DAO_WebPortal.Controllers
         [Route("Auctions")]
         public IActionResult Auctions()
         {
-            return View();
+            List<AuctionViewModel> auctionModel = new List<AuctionViewModel>();
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "//Db/Website/GetAuction", HttpContext.Session.GetString("Token"));
+                auctionModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(url);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(auctionModel);
         }
 
         [Route("Votes")]
@@ -166,7 +176,8 @@ namespace DAO_WebPortal.Controllers
             {
                 var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetJobDetail?jobid=" + Job, HttpContext.Session.GetString("Token"));
                 jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDetailModel>(url);
-
+                
+               
             }
             catch (Exception ex)
             {
@@ -174,8 +185,7 @@ namespace DAO_WebPortal.Controllers
             }
             return View(jobDetailModel);
         }
-    
-
+        
         [Route("Vote-Detail/{VoteID}")]
         public IActionResult Vote_Detail(int VoteID)
         {
@@ -231,6 +241,53 @@ namespace DAO_WebPortal.Controllers
         }
         #endregion
 
+        [Route("My-Job-Edit/{Job}")]
+        public IActionResult My_Job_Edit(int Job)
+        {
+            JobPostDto jobDetailModel = new JobPostDto();
+           
+            try
+            {
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + Job, HttpContext.Session.GetString("Token"));
+                jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDto>(url);
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return View(jobDetailModel);
+        }
+
+        [HttpPut]
+        public JsonResult My_Job_Update(JobPostDto Model)
+        {
+            JobPostDto model = new JobPostDto();
+            AjaxResponse result = new AjaxResponse();
+            try
+            {
+                model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(Model) , HttpContext.Session.GetString("Token")));
+                if (model.JobID == 0 || model.JobID == null)
+                {
+                    result.Success = false;
+                    result.Message = "Güncelleme esnasında hata oluştu.";
+                    result.Content = model;
+                }
+                else
+                {
+                    result.Success = true;
+                    result.Message = "Güncelleme yapıldı.";
+                    result.Content = model;
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.Message = "İşlem esnasında hata oluştu.";
+                result.Content = model;
+            }
+            return Json(result);
+        }
         #region UserSerttings
         [HttpGet]
         public JsonResult SetCookie(string src)

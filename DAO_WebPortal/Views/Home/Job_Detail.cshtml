@@ -3,6 +3,8 @@
 
 }
 @model Helpers.Models.WebsiteViewModels.JobPostDetailModel
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="card mb-3">
@@ -24,81 +26,67 @@
                         <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                     </svg> @Model.JobPostWebsiteModel.CommentCount Comment
                 </a>
-                <a class="card-text cA" href="#">
+                <a class="card-text me-2 cA" href="#">
                     <svg class="icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                     </svg> Share
                 </a>
+              
             </div>
 
 
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
-                    <!-- Comment 1 start -->
-                    <div class="comment" id="comment-1">
-                        <a href="#comment-1" class="comment-border-link">
-                            <span class="sr-only">Jump to comment-1</span>
-                        </a>
-                        <div class="comment-heading">
-                            <div class="comment-voting">
-                                <img class="avatar-img" src="/Home/images/avatars/4.jpg" alt="somebody1">
-                            </div>
-                            <div class="comment-info">
-                                <a href="#" class="comment-author">somebody1</a>
-                                <p class="m-0">
-                                    22 points &bull; 4 days ago
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-body">
-                            <p>
-                                This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
-                            </p>
-                            <a class="card-text me-2 ms-2 cA">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                </svg> 124
-                            </a>
-                            <a class="card-text me-2 cA">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                </svg> 53
-                            </a>
-                            <a class="card-text me-2 cA cursorp replyBtn">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                </svg> Reply
-                            </a>
-                        </div>
-                        <div class="replies">
-                            <div class="comment" id="comment-2">
-                                <a href="#comment-2" class="comment-border-link">
-                                    <span class="sr-only">Jump to comment-2</span>
+                    @{
+                        ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList(), 0, 1);
+                    }
+                </div>
+
+                @functions{
+                    int Count = 0;
+                    public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments, int CountGlobal, int CountLocal)
+                    {
+
+                        @foreach (var i in currentcomments)
+                        {
+                            Count = Count + 1;
+                            CountGlobal = Count;
+
+                            <div class="comment" id="comment-1">
+
+                                <a href="#comment-1" id="RemoveClass_@CountGlobal">
+                                    <span class="sr-only">Jump to comment-1</span>
                                 </a>
+                                @if (currentcomments.Count() > 1  && CountGlobal == CountLocal)
+                                {
+                                    <script>
+                                        $("#RemoveClass_"+@CountGlobal).addClass("comment-border-link");
+                                    </script>
+                                }
                                 <div class="comment-heading">
                                     <div class="comment-voting">
-                                        <img class="avatar-img" src="/Home/images/avatars/2.jpg" alt="somebody2">
+                                        <img class="avatar-img" src="/Home/images/avatars/4.jpg" alt="somebody1">
                                     </div>
                                     <div class="comment-info">
-                                        <a href="#" class="comment-author">somebody2</a>
+                                        <a href="#" class="comment-author">somebody1</a>
                                         <p class="m-0">
-                                            22 points &bull; 4 days ago
+                                             @i.Date.ToString("dd.MM.yyyy")
                                         </p>
                                     </div>
                                 </div>
                                 <div class="comment-body">
                                     <p>
-                                        This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
+                                        @i.Comment
                                     </p>
-                                    <a class="card-text me-2 ms-2 cA">
+                                    <a  class="card-text me-2 ms-2 cA upVote">
                                         <svg class="icon">
                                             <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                        </svg> 124
+                                        </svg> @i.UpVote
                                     </a>
-                                    <a class="card-text me-2 cA">
+                                    <a class="card-text me-2 cA downVote">
                                         <svg class="icon">
                                             <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                        </svg> 53
+                                        </svg> @i.DownVote 
                                     </a>
                                     <a class="card-text me-2 cA cursorp replyBtn">
                                         <svg class="icon">
@@ -106,233 +94,31 @@
                                         </svg> Reply
                                     </a>
                                 </div>
-                                <div class="replies">
-                                    <div class="comment" id="comment-3">
-                                        <a href="#comment-3" class="comment-border-link">
-                                            <span class="sr-only">Jump to comment-2</span>
-                                        </a>
-                                        <div class="comment-heading">
-                                            <div class="comment-voting">
-                                                <img class="avatar-img" src="/Home/images/avatars/1.jpg" alt="somebody6">
-                                            </div>
-                                            <div class="comment-info">
-                                                <a href="#" class="comment-author">somebody6</a>
-                                                <p class="m-0">
-                                                    22 points &bull; 4 days ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="comment-body">
-                                            <p>
-                                                This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
-                                            </p>
-                                            <a class="card-text me-2 ms-2 cA">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                                </svg> 124
-                                            </a>
-                                            <a class="card-text me-2 cA">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                                </svg> 53
-                                            </a>
-                                            <a class="card-text me-2 cA cursorp replyBtn">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                                </svg> Reply
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="comment" id="comment-4">
-                                        <a href="#comment-4" class="comment-border-link">
-                                            <span class="sr-only">Jump to comment-4</span>
-                                        </a>
-                                        <div class="comment-heading">
-                                            <div class="comment-voting">
-                                                <img class="avatar-img" src="/Home/images/avatars/1.jpg" alt="somebody7">
-                                            </div>
-                                            <div class="comment-info">
-                                                <a href="#" class="comment-author">somebody7</a>
-                                                <p class="m-0">
-                                                    22 points &bull; 4 days ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="comment-body">
-                                            <p>
-                                                This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
-                                            </p>
-                                            <a class="card-text me-2 ms-2 cA">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                                </svg> 124
-                                            </a>
-                                            <a class="card-text me-2 cA">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                                </svg> 53
-                                            </a>
-                                            <a class="card-text me-2 cA cursorp replyBtn">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                                </svg> Reply
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="comment-heading">
-                                            <div class="comment-voting">
-                                                <img class="avatar-img" src="/Home/images/avatars/4.jpg" alt="somebody1">
-                                            </div>
-                                            <div class="comment-info">
-                                                <a href="#" class="comment-author">somebody1</a>
-                                                <p class="m-0">
-                                                    22 points &bull; 4 days ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="comment-body">
-                                            <p>
-                                                This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
-                                            </p>
-                                            <a class="card-text me-2 ms-2 cA">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                                </svg> 124
-                                            </a>
-                                            <a class="card-text me-2 cA">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                                </svg> 53
-                                            </a>
-                                            <a class="card-text me-2 cA cursorp replyBtn">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                                </svg> Reply
-                                            </a>
-                                        </div>
-                                    </div>
+                               <div class="replies">
+                                    @{
+                                        CountLocal = Count;
+                                        CountLocal++;
+
+                                        if (Model.JobPostCommentModel.Count(x => x.SubCommentID == i.JobPostCommentID) > 0)
+                                        {
+                                            ShowCommentTree( Model.JobPostCommentModel.Where(x => x.SubCommentID == i.JobPostCommentID).ToList(), CountGlobal, CountLocal);
+                                        }
+                                    }
                                 </div>
                             </div>
-                            <div class="comment">
-                                <div class="comment-heading">
-                                    <div class="comment-voting">
-                                        <img class="avatar-img" src="/Home/images/avatars/2.jpg" alt="somebody14">
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#" class="comment-author">somebody14</a>
-                                        <p class="m-0">
-                                            22 points &bull; 4 days ago
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>
-                                        This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
-                                    </p>
-                                    <a class="card-text me-2 ms-2 cA">
-                                        <svg class="icon">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                        </svg> 124
-                                    </a>
-                                    <a class="card-text me-2 cA">
-                                        <svg class="icon">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                        </svg> 53
-                                    </a>
-                                    <a class="card-text me-2 cA cursorp replyBtn">
-                                        <svg class="icon">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                        </svg> Reply
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment">
-                        <div class="comment-heading">
-                            <div class="comment-voting">
-                                <img class="avatar-img" src="/Home/images/avatars/2.jpg" alt="somebody5">
-                            </div>
-                            <div class="comment-info">
-                                <a href="#" class="comment-author">somebody5</a>
-                                <p class="m-0">
-                                    22 points &bull; 4 days ago
-                                </p>
-                            </div>
-                        </div>
-                        <div class="comment-body">
-                            <p>
-                                This is really great! I fully agree with what you wrote, and this is sure to help me out in the future. Thank you for posting this.
-                            </p>
-                            <a class="card-text me-2 ms-2 cA">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                </svg> 124
-                            </a>
-                            <a class="card-text me-2 cA">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                </svg> 53
-                            </a>
-                            <a class="card-text me-2 cA cursorp replyBtn">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                </svg> Reply
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Comment 1 end -->
-                    @*<a href="#load-more">Load more replies</a>*@
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-12">
-        <div class="card mb-3">
-            <div class="card-header">
-                <div class="titleContainer">
-                    <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.JobPostWebsiteModel.Title</h5>
-                    <small class="text-medium-emphasis">@Model.JobPostWebsiteModel.CreateDate.ToString("dd.MM.yyyy") , @Model.JobPostWebsiteModel.UserName</small>
-                </div>
-            </div>
-            <div class="card-body">
-                <p class="p-3 card-text">
-                    @Model.JobPostWebsiteModel.JobDescription
-                </p>
-                <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.JobPostWebsiteModel.LastUpdate.ToString("dd.MM.yyyy")</small></p>
-            </div>
-            <div class="card-footer">
-                <a class="card-text me-2 cA" data-coreui-toggle="collapse" href="#commentsx" aria-expanded="true" aria-controls="commentsx">
-                    <svg class="icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                    </svg> @Model.JobPostWebsiteModel.CommentCount Comment
-                </a>
-                <a class="card-text cA" href="#">
-                    <svg class="icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                    </svg> Share
-                </a>
-            </div>
-
-            <div id="commentsx" class="card-footer collapse show">
-                <div id="comments" class="comment-thread">
-
-
-                </div>
+                        }
+                    }
+                }
             </div>
         </div>
     </div>
 </div>
-
 
 <script>
-
-
-
+    $(".upVote").click(function () {
+        alert("The paragraph was up.");
+    });
+    $(".downVote").click(function () {
+        alert("The paragraph was down.");
+    });
 </script>

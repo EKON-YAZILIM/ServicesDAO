@@ -6,6 +6,7 @@ namespace Helpers.Models.WebsiteViewModels
 {
    public class JobPostCommentModel
     {
+        public int JobPostCommentID { get; set; }
         public string ProfileImage { get; set; }
         public string UserName { get; set; }
         public DateTime Date { get; set; }
@@ -14,5 +15,6 @@ namespace Helpers.Models.WebsiteViewModels
         public int UpVote { get; set; }
         public int DownVote { get; set; }
         public int Points { get; set; }
+
     }
 }
