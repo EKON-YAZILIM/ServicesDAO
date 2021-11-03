@@ -226,7 +226,9 @@ namespace DAO_DbService.Controllers
                                   CreateDate = act.CreateDate,
                                   JobPosterUserId = act.JobPosterUserId,
                                   WinnerAuctionBidID = act.WinnerAuctionBidID,
-                                  UserName = user.UserName
+                                  UserName = user.UserName,
+                                  IsInternal = act.IsInternal
+                                  
                               }).ToList();
                 }
             }
@@ -255,7 +257,6 @@ namespace DAO_DbService.Controllers
                                   UserId = act.UserId,
                                   Price = act.Price,
                                   Time = act.Time,
-                                  IsInternal = act.IsInternal,
                                   ReputationStake = act.ReputationStake,
                                   UserName = user.UserName
 

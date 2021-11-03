@@ -10,7 +10,6 @@ namespace Helpers.Models.WebsiteViewModels
         public int UserId { get; set; }
         public double Price { get; set; }
         public string Time { get; set; }
-        public bool IsInternal { get; set; }
         public double ReputationStake { get; set; }
         public string UserName { get; set; }
     }

@@ -18,5 +18,6 @@ namespace DAO_DbService.Models
         public int JobPosterUserId { get; set; }
         public int WinnerAuctionBidID { get; set; }
         public JobStatusTypes Status { get; set; }
+        public bool IsInternal { get; set; }
     }
 }

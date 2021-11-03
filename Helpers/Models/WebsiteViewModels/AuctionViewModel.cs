@@ -15,5 +15,6 @@ namespace Helpers.Models.WebsiteViewModels
         public int WinnerAuctionBidID { get; set; }
         public JobStatusTypes Status { get; set; }
         public string UserName { get; set; }
+        public bool IsInternal { get; set; }
     }
 }

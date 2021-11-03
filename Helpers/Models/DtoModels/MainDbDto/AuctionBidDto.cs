@@ -12,7 +12,6 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public int UserId { get; set; }
         public double Price { get; set; }
         public string Time { get; set; }
-        public bool IsInternal { get; set; }
         public double ReputationStake { get; set; }
   
     }
