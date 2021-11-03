@@ -29,7 +29,7 @@ namespace DAO_WebPortal.Controllers
         public IActionResult Privacy_Policy()
         {
             ViewBag.HeaderTitle = "Privacy Policy";
-            ViewBag.HeaderSubTitle = "We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.";
+            ViewBag.HeaderSubTitle = "ServicesDAO privacy policy and user agreement";
 
 
             return View();
@@ -39,17 +39,7 @@ namespace DAO_WebPortal.Controllers
         public IActionResult Contact()
         {
             ViewBag.HeaderTitle = "Contact";
-            ViewBag.HeaderSubTitle = "We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.";
-
-            return View();
-        }
-
-        [Route("RFP")]
-        public IActionResult RFP()
-        {
-            ViewBag.HeaderTitle = "Request for Proposal (RFP)";
-            ViewBag.HeaderSubTitle = "We designed a brand-new cool design and lots of features, the latest version of the template supports advanced block base scenarios, and more.";
-
+            ViewBag.HeaderSubTitle = "Feel free to reach out for any questions and wishes.";
 
             return View();
         }

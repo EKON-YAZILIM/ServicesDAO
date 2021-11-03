@@ -30,8 +30,8 @@
     <link rel="manifest" href="~/Public/favicon/manifest.json">
 
     <!-- Styles -->
-    <link href="~/Public/css/vendor.bundle.css?ver=1930" rel="stylesheet" />
-    <link href="~/Public/css/style-lobelia.css?ver=1930" rel="stylesheet" />
+    <link href="~/Public/css/vendor.bundle.css" rel="stylesheet" />
+    <link href="~/Public/css/style-theme.css" rel="stylesheet" />
     <link href="~/Public/css/style.css" rel="stylesheet" />
 
 </head>
@@ -216,9 +216,9 @@
                                 <!-- Captcha -->
                                 <div class="input-group inpcapthca mt-2 captchaDiv d-none">
                                     <div class="input-group-prepend">
-                                        <img id="img-captcha3" src="../get-captcha-image?code=securityCode3" style="width: 120px; height: 40px;" />
+                                        <img id="img-captcha3" src="../get-captcha-image?code=securityCode4" style="width: 120px; height: 40px;" />
                                     </div>
-                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode3" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode4" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
                                 </div>
 
                                 <button type="button" onclick="ResetPasswordComplete();" class="btn btn-primary btn-block btn-md float-right loginFormButton">Set New Password</button>
@@ -238,9 +238,8 @@
     <div class="preloader"><span class="spinner spinner-round"></span></div>
 
     <!-- Scripts -->
-    <script src="~/Public/js/jquery.bundle.js?ver=1930"></script>
-    <script src="~/Public/js/scripts.js?ver=1930"></script>
-    <script src="~/Public/js/charts.js"></script>
+    <script src="~/Public/js/jquery.bundle.js"></script>
+    <script src="~/Public/js/scripts.js"></script>
 
     <script>
         //Failed request count. After 3 failed requet attempts Captcha will appear for public forms

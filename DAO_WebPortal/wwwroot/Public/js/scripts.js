@@ -1,7 +1,7 @@
 
-var NioApp = (function (jQ, win, doc){
+var DaoApp = (function (jQ, win, doc){
     "use strict";
-    var NioApp = {AppInfo: {name: "Dao Web Services", package: "1.0.0", version: "1.0.0", author: "Ekon Software and Technology"} },
+    var DaoApp = {AppInfo: {name: "ServicesDAO", package: "1.0.0", version: "1.0.0", author: "Ekon Software and Technology"} },
         components = {docReady: [], docReadyDefer: [], winLoad: [], winLoadDefer: []};
 
     jQ(doc).ready(docReady);
@@ -17,14 +17,14 @@ var NioApp = (function (jQ, win, doc){
         components.winLoad.concat(components.winLoadDefer).forEach(function(component){ component(stmt); });
     }
 	
-    NioApp.components   = components;
-    NioApp.docReady 	= docReady;
-    NioApp.winLoad    	= winLoad;
+    DaoApp.components   = components;
+    DaoApp.docReady 	= docReady;
+    DaoApp.winLoad    	= winLoad;
 
-    return NioApp;
+    return DaoApp;
 }(jQuery, window, document));
 
-NioApp = function (NioApp, $, window, document) {
+DaoApp = function (DaoApp, $, window, document) {
     "use strict";
 	// Defined Variables
     var $win		= $(window), 
@@ -50,40 +50,40 @@ NioApp = function (NioApp, $, window, document) {
     };
 	
 	// Return Check @v1.0
-	NioApp.Win = {};
-	NioApp.Win.height = $(window).height();
-	NioApp.Win.width = $(window).width();
+	DaoApp.Win = {};
+	DaoApp.Win.height = $(window).height();
+	DaoApp.Win.width = $(window).width();
 	
 	// getStatus @v1.0
-	NioApp.getStatus = {};
-	NioApp.getStatus.isRTL = ($body.hasClass('has-rtl') || $body.attr('dir') === 'rtl') ? true : false;
-	NioApp.getStatus.isTouch = (("ontouchstart" in document.documentElement)) ? true : false;
-	NioApp.getStatus.isMobile = (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone|/i)) ? true : false;
-	NioApp.getStatus.asMobile = (NioApp.Win.width < _mobBreak) ? true : false;
+	DaoApp.getStatus = {};
+	DaoApp.getStatus.isRTL = ($body.hasClass('has-rtl') || $body.attr('dir') === 'rtl') ? true : false;
+	DaoApp.getStatus.isTouch = (("ontouchstart" in document.documentElement)) ? true : false;
+	DaoApp.getStatus.isMobile = (navigator.userAgent.match(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone|/i)) ? true : false;
+	DaoApp.getStatus.asMobile = (DaoApp.Win.width < _mobBreak) ? true : false;
 
 	// Update on Resize
 	$win.on('resize',function(){
-		NioApp.Win.height = $(window).height();
-		NioApp.Win.width = $(window).width();
-		NioApp.getStatus.asMobile = (NioApp.Win.width < _mobBreak) ? true : false;
+		DaoApp.Win.height = $(window).height();
+		DaoApp.Win.width = $(window).width();
+		DaoApp.getStatus.asMobile = (DaoApp.Win.width < _mobBreak) ? true : false;
 	});
 
 
     
 	//// Utilities ////
 	///////////////////
-	NioApp.Util = {};
+	DaoApp.Util = {};
 	// ClassInit !Util @v1.0
-	NioApp.Util.classInit = function() {
+	DaoApp.Util.classInit = function() {
 		var hastouch = function () {
-				if (NioApp.getStatus.isTouch===true) { 
+				if (DaoApp.getStatus.isTouch===true) { 
 					$body.addClass("has-touch"); 
 				} else { 
 					$body.addClass("no-touch"); 
 				}
 			},
 			mobileview = function () {
-				if (NioApp.getStatus.asMobile===true) { 
+				if (DaoApp.getStatus.asMobile===true) { 
 					$body.addClass('as-mobile');
 				} else {
 					$body.removeClass('as-mobile');
@@ -92,7 +92,7 @@ NioApp = function (NioApp, $, window, document) {
             hasrtl = function () {
                 if($body.attr('dir') === 'rtl') {
                     $body.addClass('has-rtl');
-                    NioApp.getStatus.isRTL = true;
+                    DaoApp.getStatus.isRTL = true;
                 }
             },
             theming = function () {
@@ -103,10 +103,10 @@ NioApp = function (NioApp, $, window, document) {
 		hastouch(); mobileview(); hasrtl(); theming();
 		$(window).on('resize', mobileview);
 	};
-    NioApp.components.docReady.push(NioApp.Util.classInit);
+    DaoApp.components.docReady.push(DaoApp.Util.classInit);
 	
     // PreLoader !Util @v1.0
-    NioApp.Util.preLoader = function () {
+    DaoApp.Util.preLoader = function () {
 		var $preloader 	= $('.preloader'),
             $spinner 	= $('.spinner');
 		
@@ -119,10 +119,10 @@ NioApp = function (NioApp, $, window, document) {
             $preloader.delay(600).fadeOut(300);
         }
 	};
-	NioApp.components.winLoad.push(NioApp.Util.preLoader);
+	DaoApp.components.winLoad.push(DaoApp.Util.preLoader);
 	
 	// BackTop !Util @v1.0
-	NioApp.Util.backTop = function () {
+	DaoApp.Util.backTop = function () {
 		var $backtop = $('.backtop');
 			
         if ($backtop.exists()) {
@@ -141,10 +141,10 @@ NioApp = function (NioApp, $, window, document) {
               });
           }
     };
-	NioApp.components.docReady.push(NioApp.Util.backTop);
+	DaoApp.components.docReady.push(DaoApp.Util.backTop);
     
     // Browser Check !Util @v1.0
-    NioApp.Util.browser = function() {
+    DaoApp.Util.browser = function() {
         var isChrome = (navigator.userAgent.indexOf("Chrome") !== -1) ? 1 : 0, 
         isFirefox = (navigator.userAgent.indexOf("Firefox") !== -1) ? 1 : 0,
         isSafari = (navigator.userAgent.indexOf("Safari") !== -1) ? true : false,
@@ -166,10 +166,10 @@ NioApp = function (NioApp, $, window, document) {
             $body.addClass('safari');
         }
     };
-	NioApp.components.winLoad.push(NioApp.Util.browser);
+	DaoApp.components.winLoad.push(DaoApp.Util.browser);
 	
 	// HeaderSticky !Util @v1.0
-	NioApp.Util.headerSticky = function () {
+	DaoApp.Util.headerSticky = function () {
 		var $is_sticky = $('.is-sticky');
         
         var stickyInit = {};
@@ -206,10 +206,10 @@ NioApp = function (NioApp, $, window, document) {
         });
         
 	};
-	NioApp.components.docReady.push(NioApp.Util.headerSticky);
+	DaoApp.components.docReady.push(DaoApp.Util.headerSticky);
     
 	// imageBG !Util @v1.0
-	NioApp.Util.imageBG = function () {
+	DaoApp.Util.imageBG = function () {
 		var $imagebg = $(".bg-image");
 		
 		if($imagebg.exists()) {
@@ -241,9 +241,9 @@ NioApp = function (NioApp, $, window, document) {
 			});
 		}
 	};
-	NioApp.components.docReady.push(NioApp.Util.imageBG);
+	DaoApp.components.docReady.push(DaoApp.Util.imageBG);
 	
-	NioApp.Util.Ovm = function () {
+	DaoApp.Util.Ovm = function () {
 		var $elm_ovm = $('.nk-ovm'), $elm_ovm_mask = $('.nk-ovm[class*=mask]'), $ui_mask = $('[class*=ui-mask]');
 		if($elm_ovm.exists()) {
 			$elm_ovm.each(function(){
@@ -262,10 +262,10 @@ NioApp = function (NioApp, $, window, document) {
 		}
 	};
 	
-    NioApp.components.docReady.push(NioApp.Util.Ovm);
+    DaoApp.components.docReady.push(DaoApp.Util.Ovm);
 
 	// progressBar @v1.1
-    NioApp.Util.progressBar = function() {
+    DaoApp.Util.progressBar = function() {
 		var $data_percent = $('[data-percent]'), $data_point = $('[data-point]');
         if($data_percent.exists()){
             $data_percent.each(function() {
@@ -278,17 +278,17 @@ NioApp = function (NioApp, $, window, document) {
                 $(this).css('left', $(this).data('point') + '%');
             });
         }
-        if($data_point.exists() && NioApp.getStatus.isRTL === true){
+        if($data_point.exists() && DaoApp.getStatus.isRTL === true){
             $data_point.each(function() {
                 $(this).css('right', $(this).data('point') + '%');
                 $(this).css('left', 'auto');
             });
         }
 	};
-	NioApp.components.docReady.push(NioApp.Util.progressBar);
+	DaoApp.components.docReady.push(DaoApp.Util.progressBar);
     
     // inputAnimation @v1.0
-    NioApp.Util.inputAnimate = function(){
+    DaoApp.Util.inputAnimate = function(){
 		var $inputline = $('.input-line');
 		
         if ($inputline.exists()) {
@@ -312,10 +312,10 @@ NioApp = function (NioApp, $, window, document) {
             });
         }
     };
-	NioApp.components.docReady.push(NioApp.Util.inputAnimate);
+	DaoApp.components.docReady.push(DaoApp.Util.inputAnimate);
 	
     // Dropdown @v1.0
-    NioApp.Util.toggler = function(){
+    DaoApp.Util.toggler = function(){
 		var _trigger = '.toggle-tigger', _toggle = '.toggle-class';
 		
         if ($(_trigger).exists()) {
@@ -337,10 +337,10 @@ NioApp = function (NioApp, $, window, document) {
             }
         });
     };
-	NioApp.components.docReady.push(NioApp.Util.toggler);
+	DaoApp.components.docReady.push(DaoApp.Util.toggler);
 	
 	// accordionActive @v1.0
-    NioApp.Util.accordionActive = function() {
+    DaoApp.Util.accordionActive = function() {
         var $accordion_item = $('.accordion-item'),
             $accordion_title = $('.accordion-title');
         
@@ -363,10 +363,10 @@ NioApp = function (NioApp, $, window, document) {
             });
         }
 	};
-	NioApp.components.docReady.push(NioApp.Util.accordionActive);
+	DaoApp.components.docReady.push(DaoApp.Util.accordionActive);
 	
 	// scrollAnimation !Util @v1.0
-    NioApp.Util.scrollAnimation = function () {
+    DaoApp.Util.scrollAnimation = function () {
 		var $animated = $('.animated');
 		
         if($().waypoint && $animated.exists()){
@@ -384,10 +384,10 @@ NioApp = function (NioApp, $, window, document) {
 			});
         }
     };
-	NioApp.components.winLoad.push(NioApp.Util.scrollAnimation);
+	DaoApp.components.winLoad.push(DaoApp.Util.scrollAnimation);
     
 	// Mainmenu/Nav @v1.0
-	NioApp.MainMenu = function() {
+	DaoApp.MainMenu = function() {
 		var $navbar_toggle       = $('.navbar-toggle'),  
 			$main_navbar         = $('.header-navbar'),
 			$main_navbar_classic = $('.header-navbar-classic'),
@@ -492,11 +492,11 @@ NioApp = function (NioApp, $, window, document) {
             MenuInit.mobileNav();
         });
 	};
-	NioApp.components.docReady.push(NioApp.MainMenu);
+	DaoApp.components.docReady.push(DaoApp.MainMenu);
 	
 	
     // OnePageScroll @v1.0
-    NioApp.OnePageScroll = function() {
+    DaoApp.OnePageScroll = function() {
         var _scroll_tigger = '.menu-link';
         $('a'+ _scroll_tigger +'[href*="#"]:not([href="#"])').on("click", function() {
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
@@ -513,20 +513,20 @@ NioApp = function (NioApp, $, window, document) {
             }
         });
     };
-	NioApp.components.docReady.push(NioApp.OnePageScroll);
+	DaoApp.components.docReady.push(DaoApp.OnePageScroll);
 
     //scrollAct @v1.0
-    NioApp.scrollAct = function() {
+    DaoApp.scrollAct = function() {
         var _header_menu_id = $('.header-menu').attr('id');
         $body.scrollspy({ 
             target: '#' + _header_menu_id,
             offset: (_headerHT + 2),
         });
     };
-	NioApp.components.docReady.push(NioApp.scrollAct);
+	DaoApp.components.docReady.push(DaoApp.scrollAct);
 	
 	//ModalFix @v1.0
-	NioApp.modalFix = function() {
+	DaoApp.modalFix = function() {
 	   var $modal = $('.modal');
 	   $modal.on('shown.bs.modal', function () {
 		   if(!$body.hasClass('modal-open'))  {
@@ -534,14 +534,14 @@ NioApp = function (NioApp, $, window, document) {
 		   }
 	   });
 	};
-	NioApp.components.docReady.push(NioApp.modalFix);
+	DaoApp.components.docReady.push(DaoApp.modalFix);
 	
 	//// Plugins ////
 	/////////////////
-	NioApp.Plugins = {};
+	DaoApp.Plugins = {};
 	
 	// Count Down !Plugin @v1.0
-	NioApp.Plugins.countdown = function () {
+	DaoApp.Plugins.countdown = function () {
 		var $count = $('.countdown');
         if ($count.exists()) {
             $count.each(function() {
@@ -556,11 +556,11 @@ NioApp = function (NioApp, $, window, document) {
             });
         }
     };
-	NioApp.components.docReady.push(NioApp.Plugins.countdown);
+	DaoApp.components.docReady.push(DaoApp.Plugins.countdown);
 	
     
     // Carousel !Plugin @v1.1
-    NioApp.Plugins.carousel = function () {
+    DaoApp.Plugins.carousel = function () {
 		var $carousel = $('.has-carousel');
 		if ($carousel.exists()) {
 			$carousel.each(function () {
@@ -603,7 +603,7 @@ NioApp = function (NioApp, $, window, document) {
                     autoplaySpeed: c_auto_speed,
                     animateOut : c_animate_out,
                     animateIn : c_animate_in,
-                    rtl: NioApp.getStatus.isRTL,
+                    rtl: DaoApp.getStatus.isRTL,
                     autoHeight: false,
                     responsive:{ 
                         0:{ items:cim_xm, margin: c_mgn_mob }, 
@@ -639,10 +639,10 @@ NioApp = function (NioApp, $, window, document) {
             }
         }
 	};
-    NioApp.components.docReady.push(NioApp.Plugins.carousel);
+    DaoApp.components.docReady.push(DaoApp.Plugins.carousel);
     
     // Flex Slider !Plugin @v1.9.1
-	NioApp.Plugins.flexslider = function () {
+	DaoApp.Plugins.flexslider = function () {
 		var $FlexSlioder = $('.gfx-slider');
         if ($FlexSlioder.exists()) {
             $FlexSlioder.each(function() {
@@ -665,10 +665,10 @@ NioApp = function (NioApp, $, window, document) {
             });
         }
     };
-	NioApp.components.docReady.push(NioApp.Plugins.flexslider);
+	DaoApp.components.docReady.push(DaoApp.Plugins.flexslider);
 	
 	// Select2 !Plugin @v1.0
-	NioApp.Plugins.select2 = function () {
+	DaoApp.Plugins.select2 = function () {
 		var $select = $(".select");
 		if ($select.exists()) {
 			$select.each(function(){
@@ -679,10 +679,10 @@ NioApp = function (NioApp, $, window, document) {
 			});
         }
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.select2);
+	DaoApp.components.docReady.push(DaoApp.Plugins.select2);
     
     // Validator !Plugin @v1.0
-	NioApp.Plugins.validform = function () {
+	DaoApp.Plugins.validform = function () {
 		var $form = $(".form-validate");
         if( !$().validate ) {
             console.log('jQuery Form Validate not Defined.');
@@ -696,10 +696,10 @@ NioApp = function (NioApp, $, window, document) {
 			});
         }
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.validform);
+	DaoApp.components.docReady.push(DaoApp.Plugins.validform);
 
 	// Form Validation !Plugin @v1.0
-	NioApp.Plugins.submitform = function () {
+	DaoApp.Plugins.submitform = function () {
 		var $form = $('.nk-form-submit');
         
         if( !$().validate && !$().ajaxSubmit ) {
@@ -729,10 +729,10 @@ NioApp = function (NioApp, $, window, document) {
             });
         }
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.submitform);
+	DaoApp.components.docReady.push(DaoApp.Plugins.submitform);
     
 	// Parallax !Plugin @v1.0
-	NioApp.Plugins.parallax = function () {
+	DaoApp.Plugins.parallax = function () {
 		var $parallax = $("[data-parallax]");
 		
 		if ($parallax.exists()) {
@@ -745,10 +745,10 @@ NioApp = function (NioApp, $, window, document) {
 			});
         }
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.parallax);
+	DaoApp.components.docReady.push(DaoApp.Plugins.parallax);
 	
     // Popup !Plugin @v1.0
-	NioApp.Plugins.popup = function () {
+	DaoApp.Plugins.popup = function () {
 		var $content_popup = $('.content-popup'),
 			$video_popup     = $('.video-popup'),
 			$image_popup     = $('.image-popup');
@@ -800,10 +800,10 @@ NioApp = function (NioApp, $, window, document) {
 		popupInit.video_popup();
 		popupInit.image_popup();
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.popup);
+	DaoApp.components.docReady.push(DaoApp.Plugins.popup);
     
     // particlesJS !Plugin @v1.0
-	NioApp.Plugins.particles = function () {
+	DaoApp.Plugins.particles = function () {
         var $particles_bg = $('.particles-bg');
         if ($particles_bg.exists()) {
             $particles_bg.each(function(){
@@ -926,9 +926,9 @@ NioApp = function (NioApp, $, window, document) {
             });
         }
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.particles);
+	DaoApp.components.docReady.push(DaoApp.Plugins.particles);
     
-    NioApp.Plugins.videoBG = function () {
+    DaoApp.Plugins.videoBG = function () {
 		var $videobg = $(".bg-video");
 		
 		if($videobg.exists()) {
@@ -954,7 +954,7 @@ NioApp = function (NioApp, $, window, document) {
                     $this.addClass('overlay-opacity-'+opacity_value);
                 }
                 
-                if ( cover_value && NioApp.Win.width < _mobBreak) {
+                if ( cover_value && DaoApp.Win.width < _mobBreak) {
                     $this.addClass('cover-enabled')
                     $this.append('<div class="bg-video-cover" style="background-image:url('+ cover_value +')"></div>');
                 }
@@ -971,13 +971,13 @@ NioApp = function (NioApp, $, window, document) {
 			});
 		}
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.videoBG);
+	DaoApp.components.docReady.push(DaoApp.Plugins.videoBG);
     $win.on('resize', function(){
-        NioApp.components.docReady.push(NioApp.Plugins.videoBG);
+        DaoApp.components.docReady.push(DaoApp.Plugins.videoBG);
     });
     
     // Data Tables @v100
-    NioApp.Plugins.dataTable = function () {
+    DaoApp.Plugins.dataTable = function () {
 		var $dt_filter = $('.dt-filter-init');
 		
 		if($dt_filter.exists()) {
@@ -997,7 +997,7 @@ NioApp = function (NioApp, $, window, document) {
             });
 		}
 	};
-	NioApp.components.docReady.push(NioApp.Plugins.dataTable);
+	DaoApp.components.docReady.push(DaoApp.Plugins.dataTable);
 	
-	return NioApp;
-}(NioApp, jQuery, window, document);
+	return DaoApp;
+}(DaoApp, jQuery, window, document);
