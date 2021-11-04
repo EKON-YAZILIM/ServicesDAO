@@ -119,7 +119,19 @@ namespace DAO_WebPortal.Controllers
         [Route("User-Profile")]
         public IActionResult User_Profile()
         {
-            return View();
+            UserDto profileModel = new UserDto();
+
+            try
+            {
+                var json = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id="+ HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                profileModel = Helpers.Serializers.DeserializeJson<UserDto>(json);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return View(profileModel);
         }
 
         [Route("Contact-Help")]

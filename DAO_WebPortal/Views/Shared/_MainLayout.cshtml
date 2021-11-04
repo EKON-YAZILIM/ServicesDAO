@@ -43,7 +43,7 @@
     <link href="~/Home/css/examples.css" rel="stylesheet" />
     <link href="~/Home/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
     <link href="~/Home/css/toastr.css" rel="stylesheet" />
-
+    <link href="~/Home/css/custom.css" rel="stylesheet" />
 </head>
 <body class="@theme">
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
@@ -111,13 +111,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../RFPs">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-short-text"></use>
-                    </svg> RFP
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="../Contact-Help">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-contact"></use>
@@ -179,42 +172,39 @@
                                     <div class="small text-medium-emphasis text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
                                 </div>
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <div class="message">
-                                    <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="/Home/images/avatars/6.jpg" alt="user@email.com"><span class="avatar-status bg-warning"></span></div>
-                                    </div>
-                                    <div><small class="text-medium-emphasis">John Doe</small><small class="text-medium-emphasis float-end mt-1">5 minutes ago</small></div>
-                                    <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-                                    <div class="small text-medium-emphasis text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <div class="message">
-                                    <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="/Home/images/avatars/5.jpg" alt="user@email.com"><span class="avatar-status bg-danger"></span></div>
-                                    </div>
-                                    <div><small class="text-medium-emphasis">John Doe</small><small class="text-medium-emphasis float-end mt-1">1:52 PM</small></div>
-                                    <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-                                    <div class="small text-medium-emphasis text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <div class="message">
-                                    <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="/Home/images/avatars/4.jpg" alt="user@email.com"><span class="avatar-status bg-info"></span></div>
-                                    </div>
-                                    <div><small class="text-medium-emphasis">John Doe</small><small class="text-medium-emphasis float-end mt-1">4:03 PM</small></div>
-                                    <div class="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-                                    <div class="small text-medium-emphasis text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-                                </div>
-                            </a><a class="dropdown-item text-center border-top" href="#"><strong>View all messages</strong></a>
+                            <a class="dropdown-item text-center border-top" href="#"><strong>View all messages</strong></a>
                         </div>
                     </li>
                 </ul>
-                <ul class="header-nav me-4">
-                    <li class="nav-item dropdown d-flex align-items-center">
-                        <div class="avatar avatar-md"><img class="avatar-img" src="/Home/images/avatars/1.jpg" alt="user@email.com"></div>
+                <ul class="header-nav">
+                    <li class="nav-item dropdown d-md-down-none">
+                        <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar  avatar-md">
+                                @if (!string.IsNullOrEmpty(httpContextAccessor.HttpContext.Session.GetString("ProfileImage")))
+                                {
+                                    <img class="avatar-img" src="../Home/images/avatars/@httpContextAccessor.HttpContext.Session.GetString("ProfileImage")">
+                                }
+                                else
+                                {
+                                    <img class="avatar-img" src="../Home/images/avatars/default.png">
+                                }
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg pt-0">
+                           
+                            <div class="message">
+                                <div class="dropdown-header bg-light py-2">
+                                    <strong>Account</strong>
+                                </div>
+                                <a class="dropdown-item" href="../User-Profile">
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="../Public/Logout">
+                                    Logout
+                                </a>
+                            </div>
+                            
+                        </div>
                     </li>
                 </ul>
             </div>
