@@ -212,7 +212,7 @@ namespace DAO_IdentityService.Controllers
                 userModel.CreateDate = DateTime.Now;
                 userModel.IsActive = true;   //Should be false in the production environment for email approval.
                 userModel.UserType = UserIdentityType.Associate.ToString();
-                userModel.ProfileImage = "defaultUser.jpg";
+                userModel.ProfileImage = "default.png";
 
                 //Insert user object to database
                 var json = Helpers.Request.Post(Program._settings.Service_Db_Url + "/Users/Post", Helpers.Serializers.SerializeJson(userModel));
@@ -221,7 +221,6 @@ namespace DAO_IdentityService.Controllers
                 {
                     //Create encrypted activation key for email approval
                     string enc = Helpers.Encryption.EncryptString(registerInput.email + "|" + DateTime.Now.ToString());
-                    string denc = Helpers.Encryption.DecryptString(enc);
 
                     //Set email title and content
                     string emailTitle = "Welcome to ServicesDAO";

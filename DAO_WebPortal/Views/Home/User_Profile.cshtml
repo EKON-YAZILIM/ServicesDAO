@@ -1,4 +1,287 @@
-﻿@{
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
+﻿@model Helpers.Models.DtoModels.MainDbDto.UserDto
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card p-5">
+
+            <div class="profile" id="photodiv">
+                <div class="profile__options">
+                    <a class="last-btn btn btn-dark" tabindex="2" onclick="changeAvatar('last');" onkeyup="if (event.keyCode !== 13) { return; } else { changeAvatar('last'); }">
+                        ←
+                    </a>
+
+                    <a class="next-btn btn btn-dark" tabindex="3" onclick="changeAvatar('next');" onkeyup="if (event.keyCode !== 13) { return; } else { changeAvatar('next'); }">
+                        →
+                    </a>
+                </div>
+                <div class="avatar-profile" onclick="pupload();">
+                    <div id="preview">
+                        @if (!string.IsNullOrEmpty(Model.ProfileImage))
+                        {
+                            <img src="../Home/images/avatars/@Model.ProfileImage" id="avatar-image" class="avatar_img"> }
+                        else
+                        {
+                            <img src="../Home/images/avatars/default.png" id="avatar-image" class="avatar_img">
+                        }
+                    </div>
+                    <i class="material-icons" id="uploadicon"></i>
+                    <div class="avatar_upload">
+                        <label class="upload_label">
+                            <input type="file" id="upload">
+                        </label>
+                    </div>
+                </div>
+                <div class="nickname">
+                    <span id="name" tabindex="4" data-key="1" contenteditable="true" onkeyup="changeAvatarName(event, this.dataset.key, this.textContent)" onblur="changeAvatarName('blur', this.dataset.key, this.textContent)"></span>
+                </div>
+            </div>
+
+            <div class="profileinfodiv mt-5">
+                <h3 class="mb-3">@Model.NameSurname</h3>
+                <small>Email</small>
+                <p><b>@Model.Email</b></p>
+                <small>Username</small>
+                <p><b>@Model.UserName</b></p>
+                <small>User Type</small>
+                <p><b>@Model.UserType</b></p>
+                <small>Registration Date</small>
+                <p><b>@Model.CreateDate</b></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#avatar').bind('mouseenter', function () {
+                $('#avatar-image').css("display", "none");
+                $('#uploadicon').css("display", "block");
+            });
+
+            $('#avatar').bind('mouseleave', function () {
+                $('#avatar-image').css("display", "inline");
+                $('#uploadicon').css("display", "none");
+            });
+        });
+
+        function saveProfile() {
+            var formData = new FormData();
+            var imagefile = $('input[type=file]')[0].files[0];
+            formData.append('image', $(".avatar_img").attr("src"));
+            formData.append('File', imagefile);
+
+
+            var form = $('#bodys');
+            var token = $('input[name="__RequestVerificationToken"]', form).val();
+            formData.append("__RequestVerificationToken", token);
+            $.ajax({
+                type: "POST",
+                url: "../Home/ProfileUpdate",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    if (response.success == false) {
+                        alertify.error(response.message);
+                    }
+                    else {
+                        $("#profileimage").attr("src", $(".avatar_img").attr("src"));
+                        $('#saveProfilePhotoBtn').css('display', 'none');
+
+                        alertify.success("Güncelleme başarılı");
+                    }
+                },
+                failure: function (response) {
+                    alertify.error("Sunucu ile bağlantı sağlanamadı", "Hata");
+                },
+                error: function (response) {
+                    alertify.error("İşlemler sırasında bir hata meydana geldi", "Hata");
+                }
+            });
+        }
+
+        function changeAvatarName(event, key, name) {
+            if (event.keyCode != 13 && event != 'blur') return;
+            key = parseInt(key);
+            if (!name) return;
+            var change = avatars.changeName(key, name);
+            document.activeElement.blur();
+            // remove selection abilities
+            window.getSelection().removeAllRanges();
+
+        };
+
+        function changeAvatar(dir) {
+            $('#saveProfilePhotoBtn').css('display', 'block');
+
+            if (dir === 'next') {
+                avatars.showLast();
+            }
+            else {
+                avatars.showNext();
+            }
+        };
+
+        //DEFINITIONS
+        var upload = document.getElementById("upload");
+        var preview = document.getElementById("preview");
+        var avatar = document.getElementById("avatar");
+        var avatar_name = document.getElementById("name");
+        var avatar_name_change_box =
+            document.getElementById("change-name-box");
+
+        //METHODS
+        var avatars = {
+            srcList: [
+                {
+                    name: "1",
+                    src: encodeURIComponent("../Home/images/avatars/1.jpg")
+                },
+                {
+                    name: "2",
+                    src: encodeURIComponent("../Home/images/avatars/2.jpg")
+                },
+                {
+                    name: "3",
+                    src: encodeURIComponent("../Home/images/avatars/3.jpg")
+                },
+                {
+                    name: "4",
+                    src: encodeURIComponent("../Home/images/avatars/4.jpg")
+                }
+                ,
+                {
+                    name: "5",
+                    src: encodeURIComponent("../Home/images/avatars/5.jpg")
+                }
+                ,
+                {
+                    name: "6",
+                    src: encodeURIComponent("../Home/images/avatars/6.jpg")
+                }
+                ,
+                {
+                    name: "7",
+                    src: encodeURIComponent("../Home/images/avatars/7.jpg")
+                }
+            ],
+            activeKey: 1,
+            add: function (_name, _src) {
+                this.activeKey = this.srcList.length;
+                return (this.srcList.push({ name: _name, src: encodeURIComponent(_src) }) - 1);
+            },
+            changeName: function (key, _name) {
+
+                if (!Number.isInteger(key)) {
+                    return false;
+                }
+                this.srcList[key].name = _name;
+                if (avatar_name.dataset.key == key) {
+                    avatar_name.textContent = _name;
+                }
+                return _name;
+            },
+            showNext: function () {
+
+                var _next = this.activeKey + 1;
+                if (_next >= this.srcList.length) {
+                    _next = 0;
+                }
+                this.showByKey(_next);
+
+            },
+            showLast: function () {
+                var _next = this.activeKey - 1;
+                if (_next < 0) {
+                    _next = this.srcList.length - 1;
+                }
+                this.showByKey(_next);
+            },
+            showByKey: function (_next) {
+                var _on = this.srcList[_next];
+                if (!_on.name) return;
+
+                while (preview.firstChild) {
+                    preview.removeChild(preview.firstChild);
+                }
+
+                var img = document.createElement("img");
+                img.src = decodeURIComponent(_on.src);
+                img.className = "avatar_img--loading";
+                img.id = "avatar-image";
+                img.onload = function () {
+                    img.classList.add("avatar_img");
+                }
+                avatar_name.textContent = _on.name;
+                avatar_name.setAttribute("data-key", _next);
+                preview.appendChild(img);
+                this.activeKey = _next;
+            }
+        };
+
+        function showAvatar(key) {
+            if (!key) {
+                key = avatars.activeKey;
+            }
+
+        }
+
+        upload.addEventListener("change", handleFiles, false);
+
+        function handleFiles() {
+            var files = this.files;
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var imageType = /^image\//;
+
+                if (!imageType.test(file.type)) {
+                    avatar.classList.add("avatar--upload-error");
+                    setTimeout(function () {
+                        avatar.classList.remove("avatar--upload-error");
+                    }, 1200);
+                    continue;
+                }
+
+                avatar.classList.remove("avatar--upload-error");
+
+                while (preview.firstChild) {
+                    preview.removeChild(preview.firstChild);
+                }
+
+                var img = document.createElement("img");
+                img.file = file;
+                img.src = window.URL.createObjectURL(file);
+                img.onload = function () {
+                    // window.URL.revokeObjectURL(this.src);
+                }
+                img.className = "avatar_img";
+
+                /* Clear focus and any text editing mode */
+                document.activeElement.blur();
+                window.getSelection().removeAllRanges();
+
+                var _avatarKey = avatars.add(file.name, img.src);
+                avatar_name.textContent = file.name;
+                avatar_name.setAttribute("data-key", _avatarKey);
+                preview.appendChild(img);
+            }
+        }
+
+        //UPLOAD BUTTON
+        if (document.getElementById("upload")) {
+            document.getElementById("upload").onchange = function () {
+                var filename = document.getElementById('upload').files[0].name;
+                $('#saveProfilePhotoBtn').css('display', 'block');
+            };
+        }
+    </script>
 }
