@@ -18,10 +18,6 @@
             <label for="time">Time Frame</label>
             <input type="text" class="form-control" id="time" placeholder="Time Frame">
         </div>
-        @*<div class="form-group mb-4">
-            <label for="price">Bid Price</label>
-            <input type="text" class="form-control" id="price" placeholder="Bid Price">
-        </div>*@
         <div class="form-group mb-4">
             <label for="description">Job Description</label>
             <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="5"></textarea>
@@ -32,19 +28,16 @@
     </div>
 </div>
 <script>
-
      function Register() {
-
          var title = $('#title').val()
          var amount = $('#amount').val();
          var time = $('#time').val();
          var price = $('#price').val();
          var description = $('#description').val();
-
             $.ajax({
                 type: "POST",
                 url: "../Home/New_Job_Post",
-                data: { "title": title, "amount": amount, "time": time, "price": price, "description": description },
+                data: { "title": title, "amount": amount, "time": time, "description": description },
                 success: function (result) {
                     console.log(result);
                     if (result.success) {
@@ -55,7 +48,6 @@
                     }
                     else {
                         toastr.warning(result.message);
-
                     }
                 },
                   failure: function (response) {
@@ -64,8 +56,6 @@
                 error: function (response) {
                      toastr.error("@Lang.UnexpectedError");
                 }
-
             });
         }
-
 </script>

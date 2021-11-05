@@ -15,7 +15,7 @@ namespace Helpers.Models.WebsiteViewModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Title { get; set; }
-        public JobStatusTypes Status { get; set; }
+        public VoteStatusTypes Status { get; set; }
         public int VoteID { get; set; }
 
     }

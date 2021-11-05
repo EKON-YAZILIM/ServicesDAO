@@ -3,6 +3,7 @@
 
 }
 @model List<Helpers.Models.WebsiteViewModels.VotingViewModel>
+
 <div class="example">
     <ul class="nav nav-underline border-0" role="tablist">
         <li class="nav-item">
@@ -20,12 +21,8 @@
             </a>
         </li>
     </ul>
-
     <div class="tab-content rounded-bottom mt-2">
-
-
         <div class="tab-pane p-3 active" role="tabpanel" id="preview-924">
-
             <div class="card m-2">
                 <div class="card-header">
                     <span class="small ms-1">Active Informal Votes</span>
@@ -36,38 +33,40 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Ballot Type</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
                                 <th scope="col">Time Left</th>
-                                <th scope="col">Quorum</th>
-                                <th scope="col">Submitted</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @{int Count = 0;}
                             @foreach (var item in Model)
                             {
-                                if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == false)
+                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && item.IsFormal == false)
                                 {
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
-                                <th scope="row">1</th>
-                                <td>@item.Title</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
-                                <td>18/25 &#10003;</td>
-                                <td>@item.CreateDate</td>
+                                    Count++;
+                                    int TitleLenght = 0;
+                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
+                            <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
+                                <th scope="row">@Count</th>
+                                <td>@item.Title.Substring(0, TitleLenght)</td>
+                                <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
+                                <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                <td id="demo_@item.VoteID"></td>
+                                <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
+                                    <svg class="icon">
+                                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                                    </svg> Detail
+                                </td>
                             </tr>
                                 }
 
                             }
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
             <div class="card m-2">
                 <div class="card-header"><span class="small ms-1">Active Formal Votes</span></div>
                 <div class="card-body">
@@ -76,41 +75,42 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Ballot Type</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
                                 <th scope="col">Time Left</th>
-                                <th scope="col">Quorum</th>
-                                <th scope="col">Submitted</th>
+                                <th scope="col"></th>
+
                             </tr>
                         </thead>
                         <tbody>
+                            @{int Count2 = 0;}
                             @foreach (var item in Model)
                             {
-                                if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == true)
+                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && item.IsFormal == true)
                                 {
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
-                                <th scope="row">4</th>
-                                <td>@item.Title</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
-                                <td>18/25 &#10003;</td>
-                                <td>@item.CreateDate</td>
+                                    Count2++;
+                                    int TitleLenght = 0;
+                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
+                            <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
+                                <th scope="row">@Count2</th>
+                                <td>@item.Title.Substring(0, TitleLenght)</td>
+                                <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
+                                <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                <td id="demo_@item.VoteID"></td>
+                                <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
+                                    <svg class="icon">
+                                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                                    </svg> Detail
+                                </td>
                             </tr>
                                 }
-
                             }
-                            
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
-
         <div class="tab-pane p-3" role="tabpanel" id="code-924">
-
             <div class="card m-2">
                 <div class="card-header">
                     <span class="small ms-1">Completed Informal Votes</span>
@@ -121,37 +121,40 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Ballot Type</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
                                 <th scope="col">Time Left</th>
-                                <th scope="col">Quorum</th>
-                                <th scope="col">Submitted</th>
+                                <th scope="col"></th>
+
                             </tr>
                         </thead>
                         <tbody>
+                            @{int Count3 = 0;}
                             @foreach (var item in Model)
                             {
-                                if (item.Status != Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == false)
+                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed && item.IsFormal == false)
                                 {
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
-                                <th scope="row">7</th>
-                                <td>@item.Title</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
-                                <td>18/25 &#10003;</td>
-                                <td>@item.CreateDate</td>
+                                    Count3++;
+                                    int TitleLenght = 0;
+                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
+                            <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
+                                <th scope="row">@Count3</th>
+                                <td>@item.Title.Substring(0, TitleLenght)</td>
+                                <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
+                                <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                <td id="demo_@item.VoteID"></td>
+                                <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
+                                    <svg class="icon">
+                                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                                    </svg> Detail
+                                </td>
                             </tr>
                                 }
-
                             }
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
             <div class="card m-2">
                 <div class="card-header"><span class="small ms-1">Completed Formal Votes</span></div>
                 <div class="card-body">
@@ -160,38 +163,79 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Ballot Type</th>
-                                <th scope="col">Price</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
                                 <th scope="col">Time Left</th>
-                                <th scope="col">Quorum</th>
-                                <th scope="col">Submitted</th>
+                                <th scope="col"></th>
+
                             </tr>
                         </thead>
                         <tbody>
+                            @{int Count4 = 0;}
                             @foreach (var item in Model)
                             {
-                                if (item.Status != Helpers.Constants.Enums.JobStatusTypes.Active && item.IsFormal == true)
+                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed && item.IsFormal == true)
                                 {
-                            <tr class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
-                                <th scope="row">10</th>
-                                <td>@item.Title</td>
-                                <td>Milestone</td>
-                                <td>&euro;18.000</td>
-                                <td>@Html.Raw(item.EndDate - DateTime.Now)</td>
-                                <td>18/25 &#10003;</td>
-                                <td>@item.CreateDate</td>
+                                    Count4++;
+                                    int TitleLenght = 0;
+                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
+                            <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
+                                <th scope="row">@Count4</th>
+                                <td>@item.Title.Substring(0, TitleLenght)</td>
+                                <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
+                                <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                <td id="demo_@item.VoteID"></td>
+                                <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
+                                    <svg class="icon">
+                                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+                                    </svg> Detail
+                                </td>
                             </tr>
                                 }
-
                             }
-
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
+<script>
+    dataModel = @Html.Raw(Json.Serialize(Model));
+
+    //Send all VoteID CountDown function
+    function StartInterval(index, frequency) {
+        setInterval(function () {
+            CountDown(index.voteID, countDownDate);
+        }, frequency);
+    }
+    //Send StartInterval function all votes 
+    for (i = 0; i < dataModel.length; i++) {
+        var countDownDate = new Date(dataModel[i].endDate).getTime();
+        CountDown(dataModel[i].voteID, countDownDate);
+        StartInterval(dataModel[i], 1000)
+    }
+
+    function CountDown(id, countDownDate) {
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo_id"
+        document.getElementById("demo_"+id).innerHTML = "<span>" + days + "</span>" + " days <span>" + hours + "</span> hours <span> "
+            + minutes + "</span> min <span>" + seconds + "</span> sec ";
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo_" + id).innerHTML = "EXPIRED";
+        }
+    }
+</script>

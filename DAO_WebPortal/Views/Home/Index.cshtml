@@ -4,7 +4,6 @@
 }
 @model Helpers.Models.WebsiteViewModels.GetDashBoardViewModel;
 
-
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card mb-4 text-white bg-primary-gradient">
@@ -134,7 +133,6 @@
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">
-
                                 <th>Title</th>
                                 <th>Time Frame</th>
                                 <th>Job Description</th>
@@ -144,105 +142,42 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="align-middle">
+                            @foreach (var item in Model.JobPostDtos)
+                            {
+                                <tr class="align-middle">
+                                    <td>
+                                        <div>@item.Title</div>
+                                        <div class="small text-medium-emphasis"><span>New</span> | Registered: @item.CreateDate.ToString("dd.MM.yyyy")</div>
+                                    </td>
+                                    <td>
+                                        @item.TimeFrame
+                                    </td>
+                                    <td title="@item.JobDescription">
 
-                                <td>
-                                    <div>ServicesDAO</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td title="This is a scoping/requirements grant. The objective of this grant is to gather requirements, and coordinate with the Services DAO members to evaluate and further refine&improve the Services DAO portal development proposal. ">
-                                    This is a scoping/requirements grant. The objective of ..
-                                </td>
-                                <td>
-                                    $10.000
-                                </td>
-                                <td>
-                                    Informal Voting
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#">Info</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item text-danger" href="#">Delete</a>
+                                        @item.JobDescription
+                                    </td>
+                                    <td>
+                                        @item.Amount
+                                    </td>
+                                    <td>
+                                        @item.Status
+                                    </td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Info</a>
+                                                <a class="dropdown-item" href="#">Edit</a>
+                                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-
-                                <td>
-                                    <div>ServicesDAO</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td title="This is a scoping/requirements grant. The objective of this grant is to gather requirements, and coordinate with the Services DAO members to evaluate and further refine&improve the Services DAO portal development proposal. ">
-                                    This is a scoping/requirements grant. The objective of ..
-                                </td>
-                                <td>
-                                    $10.000
-                                </td>
-                                <td>
-                                    Informal Voting
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#">Info</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item text-danger" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-
-                                <td>
-                                    <div>ServicesDAO</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td title="This is a scoping/requirements grant. The objective of this grant is to gather requirements, and coordinate with the Services DAO members to evaluate and further refine&improve the Services DAO portal development proposal. ">
-                                    This is a scoping/requirements grant. The objective of ..
-                                </td>
-                                <td>
-                                    $10.000
-                                </td>
-                                <td>
-                                    Informal Voting
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="#">Info</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item text-danger" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -252,7 +187,6 @@
     <!-- /.col-->
 </div>
 <!-- /.row-->
-
 <div class="row">
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
@@ -270,62 +204,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="align-middle">
-
-                                <td>
-                                    ServicesDAO
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td>
-                                    12/20/2021
-                                </td>
-                                <td>
-                                    03/20/2022
-                                </td>
-                                <td>
-                                    Formal Voting
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-
-                                <td>
-                                    ServicesDAO 2
-
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td>
-                                    12/20/2021
-                                </td>
-                                <td>
-                                    03/20/2022
-                                </td>
-                                <td>
-                                    Formal Voting
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-
-                                <td>
-                                    ServicesDAO 3
-
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td>
-                                    12/20/2021
-                                </td>
-                                <td>
-                                    03/20/2022
-                                </td>
-                                <td>
-                                    Formal Voting
-                                </td>
-                            </tr>
+                            @foreach (var item in Model.AuctionViewModels)
+                            {
+                                <tr class="align-middle">
+                                    <td>
+                                        @item.Title
+                                    </td>
+                                    <td>
+                                        @item.CreateDate
+                                    </td>
+                                    <td>
+                                        @item.StartDate
+                                    </td>
+                                    <td>
+                                        @item.EndDate
+                                    </td>
+                                    <td>
+                                        @item.Status
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -341,7 +239,6 @@
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">
                                 <th>JobID</th>
-                                <th>Username</th>
                                 <th>Create Date</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
@@ -349,60 +246,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="align-middle">
-                                <td>1</td>
-                                <td>
-                                    Ekin Keçeci
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td>
-                                    12/20/2021
-                                </td>
-                                <td>
-                                    03/20/2022
-                                </td>
-                                <td>
-                                    Formal
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>2</td>
-                                <td>
-                                    Ebubekir Yardımcı
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td>
-                                    12/20/2021
-                                </td>
-                                <td>
-                                    03/20/2022
-                                </td>
-                                <td>
-                                    Informal
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>3</td>
-                                <td>
-                                    Taylan Civaoğlu
-                                </td>
-                                <td>
-                                    10/20/2021
-                                </td>
-                                <td>
-                                    12/20/2021
-                                </td>
-                                <td>
-                                    03/20/2022
-                                </td>
-                                <td>
-                                    Informal
-                                </td>
-                            </tr>
+                            @foreach (var item in Model.VotingViewModels)
+                            {
+                                <tr class="align-middle">
+                                    <td>@item.JobID</td>
+                                    <td>
+                                        @item.CreateDate
+                                    </td>
+                                    <td>
+                                        @item.StartDate
+                                    </td>
+                                    <td>
+                                        @item.EndDate
+                                    </td>
+                                    <td>
+                                        @if (item.IsFormal == true)
+                                        {<span>Formal</span>}
+                                        InFormal
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -413,29 +276,27 @@
 </div>
 <!-- /.row-->
 <div class="row">
-        <div class="col-lg-6 col-md-12 ">
-            <div class="card mb-4">
-                <div class="card-header">Auction</div>
-                <div class="card-body">
-                    <div class="c-chart-wrapper" style="height:300px">
-                        <canvas class="chart" id="main-chart" height="300"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-12 ">
-            <div class="card mb-4">
-                <div class="card-header">Voting</div>
-                <div class="card-body">
-                    <div class="c-chart-wrapper" style="height:300px">
-                        <canvas class="chart" id="main-chart2" height="300"></canvas>
-                    </div>
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Auction</div>
+            <div class="card-body">
+                <div class="c-chart-wrapper" style="height:300px">
+                    <canvas class="chart" id="main-chart" height="300"></canvas>
                 </div>
             </div>
         </div>
     </div>
-
-
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Voting</div>
+            <div class="card-body">
+                <div class="c-chart-wrapper" style="height:300px">
+                    <canvas class="chart" id="main-chart2" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
@@ -452,42 +313,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="align-middle">
-                                <td>1</td>
-                                <td>
-                                    10/24/2021 12:48
-                                </td>
-                                <td>
-                                    Login
-                                </td>
-                                <td>
-                                    Successfully logged in
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>3</td>
-                                <td>
-                                    10/24/2021 11:43
-                                </td>
-                                <td>
-                                    Login
-                                </td>
-                                <td>
-                                    Successfully logged in
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>12</td>
-                                <td>
-                                    10/24/2021 11:32
-                                </td>
-                                <td>
-                                    Voting
-                                </td>
-                                <td>
-                                    Voted for job no:245
-                                </td>
-                            </tr>
+                            @foreach (var item in Model.UserLogDtos)
+                            {
+                                <tr class="align-middle">
+                                    <td>@item.UserId</td>
+                                    <td>
+                                        @item.Date
+                                    </td>
+                                    <td>
+                                        @item.Type
+                                    </td>
+                                    <td>
+                                        @item.Explanation
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -509,30 +349,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="align-middle">
-                                <td>DAO_DbService</td>
-                                <td>
-                                    10/19/2021 20:37
-                                </td>
-                                <td>
-                                    Database Connection Error
-                                </td>
-                                <td>
-                                    Parameter count mismatch.
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>DAO_WebService</td>
-                                <td>
-                                    10/17/2021 09:36
-                                </td>
-                                <td>
-                                    Parameter Error
-                                </td>
-                                <td>
-                                    Index was out of range.
-                                </td>
-                            </tr>
+                            @foreach (var item in Model.ApplicationLogDtos)
+                            {
+                                <tr class="align-middle">
+                                    <td>@item.Application</td>
+                                    <td>
+                                        @item.Date
+                                    </td>
+                                    <td>
+                                        @item.Type
+                                    </td>
+                                    <td>
+                                        @item.Explanation
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

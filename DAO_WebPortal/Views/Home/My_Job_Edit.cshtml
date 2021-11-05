@@ -4,6 +4,7 @@
 
 }
 @model Helpers.Models.DtoModels.MainDbDto.JobPostDto
+
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
@@ -18,7 +19,6 @@
             <label for="time">Time Frame</label>
             <input type="text" class="form-control" id="time" value="@Model.TimeFrame">
         </div>
-
         <div class="form-group mb-4">
             <label for="description">Job Description</label>
             <textarea type="text" class="form-control" id="description" value="@Model.JobDescription" rows="5"></textarea>
@@ -29,18 +29,12 @@
     </div>
 </div>
 <script>
-
-    $(document).ready(function () {
-
-    });
-
      function Update() {
          dataModel = @Html.Raw(Json.Serialize(Model));
          dataModel.title = $('#title').val()
          dataModel.amount = $('#amount').val();
          dataModel.time = $('#time').val();
          dataModel.jobDescription = $('#description').val();
-
             $.ajax({
                 type: "PUT",
                 url: "../Home/My_Job_Update",
@@ -55,7 +49,6 @@
                     }
                     else {
                         toastr.warning(result.message);
-
                     }
                 },
                   failure: function (response) {
@@ -64,8 +57,6 @@
                 error: function (response) {
                      toastr.error("@Lang.UnexpectedError");
                 }
-
             });
-        }
-
+     }
 </script>

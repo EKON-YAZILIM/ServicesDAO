@@ -8,6 +8,8 @@ namespace Helpers.Models.WebsiteViewModels
    public class AuctionViewModel
     {
         public int JobID { get; set; }
+        public string Title { get; set; }
+        public int AuctionID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime CreateDate { get; set; }

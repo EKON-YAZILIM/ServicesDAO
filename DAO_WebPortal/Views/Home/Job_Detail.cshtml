@@ -3,7 +3,12 @@
 
 }
 @model Helpers.Models.WebsiteViewModels.JobPostDetailModel
-
+<style>
+    .myClass {
+        background-color: #ff0000;
+        color: #1dd;
+    }
+</style>
 
 <div class="row">
     <div class="col-md-12">
@@ -31,33 +36,26 @@
                         <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                     </svg> Share
                 </a>
-              
             </div>
-
-
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
                     @{
                         ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList(), 0, 1);
                     }
                 </div>
-
                 @functions{
                     int Count = 0;
                     public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments, int CountGlobal, int CountLocal)
                     {
-
                         @foreach (var i in currentcomments)
                         {
                             Count = Count + 1;
                             CountGlobal = Count;
-
                             <div class="comment" id="comment-1">
-
                                 <a href="#comment-1" id="RemoveClass_@CountGlobal">
                                     <span class="sr-only">Jump to comment-1</span>
                                 </a>
-                                @if (currentcomments.Count() > 1  && CountGlobal == CountLocal)
+                                @if (currentcomments.Count() > 1 && CountGlobal == CountLocal)
                                 {
                                     <script>
                                         $("#RemoveClass_"+@CountGlobal).addClass("comment-border-link");
@@ -68,9 +66,9 @@
                                         <img class="avatar-img" src="/Home/images/avatars/4.jpg" alt="somebody1">
                                     </div>
                                     <div class="comment-info">
-                                        <a href="#" class="comment-author">somebody1</a>
+                                        <a href="#" class="comment-author">@i.UserName</a>
                                         <p class="m-0">
-                                             @i.Date.ToString("dd.MM.yyyy")
+                                            @i.Date.ToString("dd.MM.yyyy")
                                         </p>
                                     </div>
                                 </div>
@@ -78,30 +76,43 @@
                                     <p>
                                         @i.Comment
                                     </p>
-                                    <a  class="card-text me-2 ms-2 cA upVote">
-                                        <svg class="icon">
+                                    <a onclick="UpVote(@i.JobPostCommentID);" class="card-text me-2 ms-2 cA ">
+                                        <svg class="icon" id="demoUp_@i.JobPostCommentID">
                                             <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                        </svg> @i.UpVote
+                                        </svg><a id="UpVote_@i.JobPostCommentID">@i.UpVote</a>
                                     </a>
-                                    <a class="card-text me-2 cA downVote">
-                                        <svg class="icon">
+                                    <a onclick="DownVote(@i.JobPostCommentID);" class="card-text me-2 cA ">
+                                        <svg class="icon " id="demoDown_@i.JobPostCommentID">
                                             <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                        </svg> @i.DownVote 
+                                        </svg><a id="DownVote_@i.JobPostCommentID">
+                                            @i.DownVote
+                                        </a>
                                     </a>
+                                    @if (i.IsUpVote == false)
+                                    {
+                                        <script>
+                                            $("#demoDown_"+@i.JobPostCommentID).addClass("myClass");
+                                        </script>
+                                    }
+                                    @if (i.IsUpVote == true)
+                                    {
+                                        <script>
+                                            $("#demoUp_"+@i.JobPostCommentID).addClass("myClass");
+                                        </script>
+                                    }
                                     <a class="card-text me-2 cA cursorp replyBtn">
                                         <svg class="icon">
                                             <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                                         </svg> Reply
                                     </a>
                                 </div>
-                               <div class="replies">
+                                <div class="replies">
                                     @{
                                         CountLocal = Count;
                                         CountLocal++;
-
                                         if (Model.JobPostCommentModel.Count(x => x.SubCommentID == i.JobPostCommentID) > 0)
                                         {
-                                            ShowCommentTree( Model.JobPostCommentModel.Where(x => x.SubCommentID == i.JobPostCommentID).ToList(), CountGlobal, CountLocal);
+                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == i.JobPostCommentID).ToList(), CountGlobal, CountLocal);
                                         }
                                     }
                                 </div>
@@ -115,10 +126,46 @@
 </div>
 
 <script>
-    $(".upVote").click(function () {
-        alert("The paragraph was up.");
-    });
-    $(".downVote").click(function () {
-        alert("The paragraph was down.");
-    });
+    function UpVote(id) {
+        $.ajax({
+            type: "GET",
+            url: "../Home/UpVote",
+            data: { "JobPostCommentId": id },
+            success: function (result) {
+                document.getElementById("UpVote_" + id).innerHTML = "<span>" + result.content[0] + "</span>";
+                document.getElementById("DownVote_" + id).innerHTML = "<span>" + result.content[1] + "</span>";
+                if ($("#demoUp_" + id).hasClass("myClass")) {
+                    $("#demoUp_" + id).removeClass("myClass");
+                }
+                else if ($("#demoDown_" + id).hasClass("myClass")) {
+                    $("#demoDown_" + id).removeClass("myClass");
+                    $("#demoUp_" + id).addClass("myClass");
+                }
+                else {
+                    $("#demoUp_" + id).addClass("myClass");
+                }
+            }
+        });
+    }
+    function DownVote(id) {
+        $.ajax({
+            type: "GET",
+            url: "../Home/DownVote",
+            data: { "JobPostCommentId": id },
+            success: function (result) {
+                document.getElementById("DownVote_" + id).innerHTML = "<span>" + result.content[1] + "</span>";
+                document.getElementById("UpVote_" + id).innerHTML = "<span>" + result.content[0] + "</span>";
+                if ($("#demoDown_" + id).hasClass("myClass")) {
+                    $("#demoDown_" + id).removeClass("myClass");
+                }
+                else if ($("#demoUp_" + id).hasClass("myClass")) {
+                    $("#demoUp_" + id).removeClass("myClass");
+                    $("#demoDown_" + id).addClass("myClass");
+                }
+                else {
+                    $("#demoDown_" + id).addClass("myClass");
+                }
+            }
+        });
+    }
 </script>

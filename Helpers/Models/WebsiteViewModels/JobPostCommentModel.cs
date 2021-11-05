@@ -15,6 +15,7 @@ namespace Helpers.Models.WebsiteViewModels
         public int UpVote { get; set; }
         public int DownVote { get; set; }
         public int Points { get; set; }
+        public bool? IsUpVote { get; set; }
 
     }
 }

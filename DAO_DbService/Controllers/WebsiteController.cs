@@ -66,9 +66,11 @@ namespace DAO_DbService.Controllers
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
 
-                  
+
                     result = (from job in db.JobPostComments
                               join user in db.Users on job.UserID equals user.UserId
+                              let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == job.JobPostCommentID)
+                              let downvote = db.UserCommentVotes.Count(x => x.IsUpVote == false && x.JobPostCommentID == job.JobPostCommentID)
                               where job.JobID == jobid
                               select new JobPostCommentModel
                               {
@@ -78,8 +80,8 @@ namespace DAO_DbService.Controllers
                                   Date = job.Date,
                                   Comment = job.Comment,
                                   SubCommentID = job.SubCommentID,
-                                  UpVote = job.UpVote,
-                                  DownVote = job.DownVote,
+                                  UpVote = upvote,
+                                  DownVote = downvote,
                                   Points = 0
                               }).ToList();
                 }
@@ -153,7 +155,7 @@ namespace DAO_DbService.Controllers
                                StartDate = votejob.StartDate,
                                EndDate = votejob.EndDate,
                                Title = job.Title,
-                               Status = job.Status
+                               Status = votejob.Status
 
                            }).ToList();
                 }
@@ -227,7 +229,10 @@ namespace DAO_DbService.Controllers
                                   JobPosterUserId = act.JobPosterUserId,
                                   WinnerAuctionBidID = act.WinnerAuctionBidID,
                                   UserName = user.UserName,
-                                  IsInternal = act.IsInternal
+                                  IsInternal = act.IsInternal,
+                                  Status = act.Status,
+                                  AuctionID = act.AuctionID,
+                                  Title = job.Title
                                   
                               }).ToList();
                 }
@@ -317,8 +322,8 @@ namespace DAO_DbService.Controllers
                         res.JobPostDtos = GetVoteJobsByProgressTypes(Helpers.Constants.Enums.JobProgressTypes.AdminApprovalPending);
                         res.AuctionViewModels = GetAuctions(Helpers.Constants.Enums.JobStatusTypes.Active);
                         res.VotingViewModels = GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes.Active);
-                        res.ApplicationLogDtos = Helpers.Serializers.DeserializeJson<List<ApplicationLogDto>>(Helpers.Request.Get(Program._settings.LogServices_Url + "/ApplicationLog/GetLastWithCount?count=" + 20));
-                        res.UserLogDtos = Helpers.Serializers.DeserializeJson<List<UserLogDto>>(Helpers.Request.Get(Program._settings.LogServices_Url + "/UserLog/GetLastWithCount?Count=" + 20));
+                        res.ApplicationLogDtos = Helpers.Serializers.DeserializeJson<List<ApplicationLogDto>>(Helpers.Request.Get(Program._settings.Service_Log_Url + "/ApplicationLog/GetLastWithCount?count=" + 20));
+                        res.UserLogDtos = Helpers.Serializers.DeserializeJson<List<UserLogDto>>(Helpers.Request.Get(Program._settings.Service_Log_Url + "/UserLog/GetLastWithCount?Count=" + 20));
                         var date = DateTime.Now.AddMonths(-1);
                         var usersModel = db.Users.Where(x => x.CreateDate > date).ToList();
                         res.UserDtos = _mapper.Map<List<User>, List<UserDto>>(usersModel).ToList();
@@ -355,6 +360,26 @@ namespace DAO_DbService.Controllers
                 {
                     string voteJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVote?VoteJobID=" + voteid);
                     res = Helpers.Serializers.DeserializeJson<List<VoteDto>>(voteJson);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
+        }
+
+        [Route("ReputationHistory")]
+        [HttpGet]
+        public List<UserReputationHistoryDto> ReputationHistory (int userid)
+        {
+            List<UserReputationHistoryDto> res = new List<UserReputationHistoryDto>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    var url = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/UserReputationHistory/GetUserId?userid=" + userid);
+                    res = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(url);
                 }
             }
             catch (Exception ex)

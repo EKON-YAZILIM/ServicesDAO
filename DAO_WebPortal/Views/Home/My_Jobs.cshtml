@@ -4,9 +4,9 @@
 }
 
 @model List<Helpers.Models.WebsiteViewModels.JobPostViewModel>
+
 <div class="row d-flex mb-3">
-    <div class="col-md-6 d-flex">
-       
+    <div class="col-md-6 d-flex">     
     </div>
     <div class="col-md-6 d-flex justify-content-end">
         <button class="btn btn-primary" type="button" onclick="window.location.href='./New-Job';">
@@ -16,8 +16,6 @@
         </button>
     </div>
 </div>
-
-
 <div class="row">
     <div class="col-md-12">
         @foreach (var item in Model)
@@ -55,6 +53,5 @@
             </div>
         }
     </div>
-
 </div>
 

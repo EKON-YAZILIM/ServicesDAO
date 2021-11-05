@@ -28,6 +28,9 @@ namespace DAO_DbService.Mapping
 
             CreateMap<ActiveSession, ActiveSessionDto>();
             CreateMap<ActiveSessionDto, ActiveSession>();
+
+            CreateMap<UserCommentVote, UserCommentVoteDto>();
+            CreateMap<UserCommentVoteDto, UserCommentVote>();
         }
     }
 }
