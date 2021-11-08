@@ -101,6 +101,19 @@
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Notification/SendPublicContactEmail",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1094"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Notification/SendPublicContactEmail",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
     }
   ]
 }

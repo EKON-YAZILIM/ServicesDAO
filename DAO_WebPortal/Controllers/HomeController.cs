@@ -237,7 +237,7 @@ namespace DAO_WebPortal.Controllers
         public JsonResult New_Job_Post(string title, double amount, string time, string description)
         {
             JobPostDto model = new JobPostDto();
-            AjaxResponse result = new AjaxResponse();
+            SimpleResponse result = new SimpleResponse();
             try
             {
                 model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(new JobPostDto { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title }), HttpContext.Session.GetString("Token")));
@@ -291,7 +291,7 @@ namespace DAO_WebPortal.Controllers
         public JsonResult My_Job_Update(JobPostDto Model)
         {
             JobPostDto model = new JobPostDto();
-            AjaxResponse result = new AjaxResponse();
+            SimpleResponse result = new SimpleResponse();
             try
             {
                 model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(Model), HttpContext.Session.GetString("Token")));
@@ -326,7 +326,7 @@ namespace DAO_WebPortal.Controllers
         public JsonResult UpVote(int JobPostCommentId)
         {
             int[] res = { 0, 0 };
-            AjaxResponse result = new AjaxResponse();
+            SimpleResponse result = new SimpleResponse();
             try
             {
                 var model = Helpers.Serializers.DeserializeJson<List<UserCommentVoteDto>>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/UserCommentVote/GetByCommentId?CommentId=" + JobPostCommentId, HttpContext.Session.GetString("Token")));
@@ -393,7 +393,7 @@ namespace DAO_WebPortal.Controllers
         public JsonResult DownVote(int JobPostCommentId)
         {
             int[] res = { 0, 0 };
-            AjaxResponse result = new AjaxResponse();
+            SimpleResponse result = new SimpleResponse();
             try
             {
                 var model = Helpers.Serializers.DeserializeJson<List<UserCommentVoteDto>>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/UserCommentVote/GetByCommentId?CommentId=" + JobPostCommentId, HttpContext.Session.GetString("Token")));
@@ -458,7 +458,7 @@ namespace DAO_WebPortal.Controllers
         public JsonResult Auction_Add(AuctionBidDto Model)
         {
             AuctionBidDto model = new AuctionBidDto();
-            AjaxResponse result = new AjaxResponse();
+            SimpleResponse result = new SimpleResponse();
             try
             {
                 var userid = HttpContext.Session.GetInt32("UserID");

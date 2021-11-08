@@ -132,11 +132,7 @@
                         <use xlink:href="/Home/images/svg/free.svg#cil-menu"></use>
                     </svg>
                 </button>
-                <a class="header-brand d-md-none" href="#">
-                    <svg width="118" height="46" alt="CoreUI Logo">
-                        <use xlink:href="/Home/images/svg/coreui.svg#full"></use>
-                    </svg>
-                </a>
+
                 <nav class="header-nav ms-auto me-4">
                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                         <input class="btn-check" id="btn-light-theme" type="radio" name="theme-switch" autocomplete="off" value="light-theme" onchange="handleThemeChange(this.value)">
@@ -153,33 +149,12 @@
                         </label>
                     </div>
                 </nav>
-                <ul class="header-nav me-3">
-                    <li class="nav-item dropdown d-md-down-none">
-                        <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <svg class="icon icon-lg my-1 mx-2">
-                                <use xlink:href="/Home/images/svg/free.svg#cil-envelope-open"></use>
-                            </svg><span class="badge rounded-pill position-absolute top-0 end-0 bg-info-gradient">7</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg pt-0">
-                            <div class="dropdown-header bg-light"><strong>You have 4 messages</strong></div>
-                            <a class="dropdown-item" href="#">
-                                <div class="message">
-                                    <div class="py-3 me-3 float-start">
-                                        <div class="avatar"><img class="avatar-img" src="/Home/images/avatars/7.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                    </div>
-                                    <div><small class="text-medium-emphasis">John Doe</small><small class="text-medium-emphasis float-end mt-1">Just now</small></div>
-                                    <div class="text-truncate font-weight-bold"><span class="text-danger">!</span> Important message</div>
-                                    <div class="small text-medium-emphasis text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</div>
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center border-top" href="#"><strong>View all messages</strong></a>
-                        </div>
-                    </li>
-                </ul>
+           
                 <ul class="header-nav">
                     <li class="nav-item dropdown d-md-down-none">
                         <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <div class="avatar  avatar-md">
+
+                            <div class="avatar avatar-md d-inline-block" style="vertical-align:top">
                                 @if (!string.IsNullOrEmpty(httpContextAccessor.HttpContext.Session.GetString("ProfileImage")))
                                 {
                                     <img class="avatar-img" src="../Home/images/avatars/@httpContextAccessor.HttpContext.Session.GetString("ProfileImage")">
@@ -188,6 +163,10 @@
                                 {
                                     <img class="avatar-img" src="../Home/images/avatars/default.png">
                                 }
+                            </div>
+                            <div class="d-inline-block">
+                                <small class="mb-0">@httpContextAccessor.HttpContext.Session.GetString("NameSurname")</small><br />
+                                <small><b>Type:</b> @httpContextAccessor.HttpContext.Session.GetString("UserType")</small>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg pt-0">
@@ -287,7 +266,6 @@
             $.ajax({ type: "GET", url: './Home/SetCookie', data: { "src": src }, cache: false, async: true });
         }
     </script>
-
 
     @RenderSection("Scripts", required: false)
 </body>

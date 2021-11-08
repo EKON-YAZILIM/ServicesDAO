@@ -11,6 +11,8 @@ using DAO_WebPortal.Resources;
 using Helpers.Models.IdentityModels;
 using static Helpers.Constants.Enums;
 using System.Text.RegularExpressions;
+using Helpers.Models.DtoModels.MainDbDto;
+using Helpers.Models.NotificationModels;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -52,6 +54,51 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
+        /// <summary>
+        ///  Sends user's message as email to system admins
+        /// </summary>
+        /// <param name="namesurname">User's name surname</param>
+        /// <param name="email">User's email</param>
+        /// <param name="message">User's message</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult SubmitContactForm(string namesurname, string email, string message, string usercode)
+        {
+            try
+            {
+                // Check captcha
+                if (!Utility.Captcha.ValidateCaptchaCode("securityCodeContact", usercode, HttpContext))
+                {
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
+                }
+
+                //Create email model
+                SendEmailModel model = new SendEmailModel();
+                model.Subject = "Contact form submission from anonymous user";
+                model.Content = "Name surname: " + namesurname + ", Email:" + email + ", Message:" + message;
+
+                //Send email to system Admin
+                string jsonResponse = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Notification/SendPublicContactEmail", Helpers.Serializers.SerializeJson(model));
+
+                //Parse response
+                SimpleResponse res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
+
+                if(res.Success == false)
+                {
+                    res.Message = "Currently we are unable to send your message. Please try again later.";
+                }
+
+                return Json(res);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+            }
+        }
+
         #region Login & Register Methods
 
         /// <summary>
@@ -69,11 +116,11 @@ namespace DAO_WebPortal.Controllers
             {
                 // Check captcha only after 3 failed requests
                 int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-                if (failCount > 3 && !Utility.Captcha.ValidateCaptchaCode("securityCode1", usercode, HttpContext))
+                if (failCount > 3 && !Utility.Captcha.ValidateCaptchaCode("securityCodeLogin", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
                 //Get client Ip and Port
@@ -88,7 +135,7 @@ namespace DAO_WebPortal.Controllers
 
                 //Parse response
                 LoginResponse loginModel = Helpers.Serializers.DeserializeJson<LoginResponse>(loginJson);
-       
+
                 if (loginModel.UserId != 0 && loginModel != null && loginModel.IsSuccessful == true)
                 {
                     string token = loginModel.Token.ToString();
@@ -102,19 +149,19 @@ namespace DAO_WebPortal.Controllers
                     HttpContext.Session.SetString("UserType", loginModel.UserType.ToString());
                     HttpContext.Session.SetString("ProfileImage", loginModel.ProfileImage);
 
-                    return Json(new AjaxResponse { Success = true, Message = Lang.SuccessLogin });
+                    return base.Json(new SimpleResponse { Success = true, Message = Lang.SuccessLogin });
                 }
                 else
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.ErrorUsernamePassword });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorUsernamePassword });
                 }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return Json(new AjaxResponse { Success = false, Message = Lang.ErrorNote });
+                return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
             }
         }
 
@@ -136,11 +183,11 @@ namespace DAO_WebPortal.Controllers
             {
                 // Check captcha only after 3 failed requests
                 int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCode2", usercode, HttpContext))
+                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCodeRegister", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
                 //Password match control
@@ -148,7 +195,7 @@ namespace DAO_WebPortal.Controllers
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.NotCompatiblePass });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.NotCompatiblePass });
                 }
 
                 //Password strength control
@@ -156,7 +203,7 @@ namespace DAO_WebPortal.Controllers
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.ErrorPasswordMsg });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorPasswordMsg });
                 }
 
                 //Get client Ip and Port
@@ -167,37 +214,37 @@ namespace DAO_WebPortal.Controllers
                 var registerJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Register", Helpers.Serializers.SerializeJson(new RegisterModel() { email = email, username = username, namesurname = namesurname, password = password, ip = ip, port = port }));
 
                 //Parse response
-                AjaxResponse registerResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(registerJson);
+                SimpleResponse registerResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(registerJson);
 
                 if (registerResponse.Success == false)
                 {
                     failCount++;
                     if (registerResponse.Message == "Username already exists.")
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.ErrorUserMsg });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorUserMsg });
                     }
                     else if (registerResponse.Message == "Email already exists.")
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.ErrorMailMsg });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorMailMsg });
                     }
                     else if (registerResponse.Message == "User post error")
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.UnexpectedError });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.UnexpectedError });
                     }
                     else
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.ErrorNote });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
                     }
                 }
                 else
                 {
-                    return Json(new AjaxResponse { Success = true, Message = Lang.RegisterEmailSent });
+                    return base.Json(new SimpleResponse { Success = true, Message = Lang.RegisterEmailSent });
                 }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return Json(new AjaxResponse { Success = false, Message = Lang.ErrorNote });
+                return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
             }
         }
 
@@ -212,9 +259,9 @@ namespace DAO_WebPortal.Controllers
             {
                 //Get result
                 var completeJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/RegisterComplete", Helpers.Serializers.SerializeJson(new Helpers.Models.IdentityModels.RegisterCompleteModel() { registerToken = str }));
-                
+
                 //Parse result
-                AjaxResponse completeResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(completeJson);
+                SimpleResponse completeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(completeJson);
 
                 if (completeResponse.Success)
                 {
@@ -247,26 +294,26 @@ namespace DAO_WebPortal.Controllers
         {
 
             try
-            {                
+            {
                 // Check captcha only after 3 failed requests
                 int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCode3", usercode, HttpContext))
+                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCodeResetPass", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
                 //Post model to ApiGateway
                 var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/ResetPassword", Helpers.Serializers.SerializeJson(new ResetPasswordModel() { email = email }));
 
                 //Parse result
-                AjaxResponse resetResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(resetJson);
+                SimpleResponse resetResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(resetJson);
 
                 if (resetResponse.Success)
                 {
                     failCount++;
-                    return Json(new AjaxResponse { Success = true, Message = Lang.PasswordResetSuccess });
+                    return base.Json(new SimpleResponse { Success = true, Message = Lang.PasswordResetSuccess });
                 }
                 else
                 {
@@ -274,11 +321,11 @@ namespace DAO_WebPortal.Controllers
                     if (resetResponse.Message == "Email error")
                     {
                         HttpContext.Session.SetInt32("FailCount", failCount);
-                        return Json(new AjaxResponse { Success = false, Message = Lang.EmailError });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.EmailError });
                     }
                     else
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.UnexpectedError });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.UnexpectedError });
                     }
                 }
 
@@ -286,7 +333,7 @@ namespace DAO_WebPortal.Controllers
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return Json(new AjaxResponse { Success = false, Message = Lang.UnexpectedError });
+                return base.Json(new SimpleResponse { Success = false, Message = Lang.UnexpectedError });
             }
         }
 
@@ -351,11 +398,11 @@ namespace DAO_WebPortal.Controllers
             {
                 // Check captcha only after 3 failed requests
                 int failCount = Convert.ToInt32(HttpContext.Session.GetInt32("FailCount"));
-                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCode4", usercode, HttpContext))
+                if (failCount > 3 && !Captcha.ValidateCaptchaCode("securityCodeResetPassComplete", usercode, HttpContext))
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
                 }
 
                 //Password match control
@@ -363,7 +410,7 @@ namespace DAO_WebPortal.Controllers
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.NotCompatiblePass });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.NotCompatiblePass });
                 }
 
                 //Password strength control
@@ -371,18 +418,18 @@ namespace DAO_WebPortal.Controllers
                 {
                     failCount++;
                     HttpContext.Session.SetInt32("FailCount", failCount);
-                    return Json(new AjaxResponse { Success = false, Message = Lang.ErrorPasswordMsg });
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorPasswordMsg });
                 }
 
                 //Post model to ApiGateway
                 var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/ResetPasswordComplete", Helpers.Serializers.SerializeJson(new ResetCompleteModel() { newPass = newpass, passwordChangeToken = HttpContext.Session.GetString("passwordchangetoken") }));
 
                 //Parse result
-                AjaxResponse resetResponse = Helpers.Serializers.DeserializeJson<AjaxResponse>(resetJson);
+                SimpleResponse resetResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(resetJson);
 
                 if (resetResponse.Success)
                 {
-                    return Json(new AjaxResponse { Success = true, Message = Lang.UpdatePassword });
+                    return base.Json(new SimpleResponse { Success = true, Message = Lang.UpdatePassword });
                 }
                 else
                 {
@@ -390,18 +437,18 @@ namespace DAO_WebPortal.Controllers
                     {
                         HttpContext.Session.SetString("passwordchangeemail", "true");
 
-                        return Json(new AjaxResponse { Success = false, Message = Lang.RenewExpired });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.RenewExpired });
                     }
                     else
                     {
-                        return Json(new AjaxResponse { Success = false, Message = Lang.UnexpectedError });
+                        return base.Json(new SimpleResponse { Success = false, Message = Lang.UnexpectedError });
                     }
                 }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return Json(new AjaxResponse { Success = false, Message = Lang.ErrorNote });
+                return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
             }
         }
 

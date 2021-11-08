@@ -145,7 +145,7 @@
     <value>Incorrect password reset request.</value>
   </data>
   <data name="LoginViewTitle" xml:space="preserve">
-    <value>Welcome to DAO</value>
+    <value>Welcome to ServicesDAO</value>
   </data>
   <data name="Login_AggreeTerms" xml:space="preserve">
     <value>I agree your terms and conditions</value>
@@ -175,7 +175,7 @@
     <value>Please confirm your account from your email.</value>
   </data>
   <data name="RegisterEmailTitle" xml:space="preserve">
-    <value>Welcome to Omnis</value>
+    <value>Welcome to ServicesDAO</value>
   </data>
   <data name="RenewExpired" xml:space="preserve">
     <value>This password renewal request has expired.</value>

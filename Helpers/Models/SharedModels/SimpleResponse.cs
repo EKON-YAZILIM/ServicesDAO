@@ -6,7 +6,7 @@ namespace Helpers.Models.SharedModels
     ///  Simple http response class
     /// </summary>
     [Serializable]
-    public class AjaxResponse
+    public class SimpleResponse
     {
         public bool Success { get; set; }
         public string Message { get; set; }

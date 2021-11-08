@@ -177,7 +177,7 @@ namespace DAO_IdentityService.Controllers
         /// <param name="registerInput">Registration information of the user</param>
         /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("Register", Name = "Register")]
-        public AjaxResponse Register([FromBody] RegisterModel registerInput)
+        public SimpleResponse Register([FromBody] RegisterModel registerInput)
         {
             try
             {
@@ -187,7 +187,7 @@ namespace DAO_IdentityService.Controllers
                 userControlModel1 = Helpers.Serializers.DeserializeJson<UserDto>(userControlJson1);
                 if (userControlModel1 != null)
                 {
-                    return new AjaxResponse() { Success = false, Message = "Email already exists." };
+                    return new SimpleResponse() { Success = false, Message = "Email already exists." };
                 }
 
                 //Username already exists control
@@ -196,7 +196,7 @@ namespace DAO_IdentityService.Controllers
                 userControlModel2 = Helpers.Serializers.DeserializeJson<UserDto>(userControlJson2);
                 if (userControlModel2 != null)
                 {
-                    return new AjaxResponse() { Success = false, Message = "Username already exists." };
+                    return new SimpleResponse() { Success = false, Message = "Username already exists." };
                 }
 
                 //Create new user object
@@ -233,17 +233,17 @@ namespace DAO_IdentityService.Controllers
                     //Logging
                     Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User register successful.", registerInput.ip, registerInput.port);
 
-                    return new AjaxResponse() { Success = true };
+                    return new SimpleResponse() { Success = true };
                 }
                 else
                 {
-                    return new AjaxResponse() { Success = false, Message = "User post error" };
+                    return new SimpleResponse() { Success = false, Message = "User post error" };
                 }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new AjaxResponse() { Success = false, Message = "Unexpected error" };
+                return new SimpleResponse() { Success = false, Message = "Unexpected error" };
             }
 
         }
@@ -254,7 +254,7 @@ namespace DAO_IdentityService.Controllers
         /// <param name="model">Token generated from the Register method</param>
         /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("RegisterComplete", Name = "RegisterComplete")]
-        public AjaxResponse RegisterComplete(RegisterCompleteModel model)
+        public SimpleResponse RegisterComplete(RegisterCompleteModel model)
         {
             try
             {
@@ -279,7 +279,7 @@ namespace DAO_IdentityService.Controllers
 
                         //Logging
                         Program.monitizer.AddUserLog(modelUser.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User account activated.");
-                        return new AjaxResponse() { Success = true };
+                        return new SimpleResponse() { Success = true };
                     }
                 }
             }
@@ -288,7 +288,7 @@ namespace DAO_IdentityService.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
             }
 
-            return new AjaxResponse() { Success = false };
+            return new SimpleResponse() { Success = false };
         }
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace DAO_IdentityService.Controllers
         /// <param name="model">User registered email in the system</param>
         /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("ResetPassword", Name = "ResetPassword")]
-        public AjaxResponse ResetPassword(ResetPasswordModel model)
+        public SimpleResponse ResetPassword(ResetPasswordModel model)
         {
             try
             {
@@ -321,17 +321,17 @@ namespace DAO_IdentityService.Controllers
                     //Logging
                     Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "Password reset email sent to user.");
 
-                    return new AjaxResponse { Success = true };
+                    return new SimpleResponse { Success = true };
                 }
                 else
                 {
-                    return new AjaxResponse { Success = false, Message = "Email not found" };
+                    return new SimpleResponse { Success = false, Message = "Email not found" };
                 }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new AjaxResponse() { Success = false };
+                return new SimpleResponse() { Success = false };
             }
         }
 
@@ -341,7 +341,7 @@ namespace DAO_IdentityService.Controllers
         /// <param name="model">passwordChangeToken: Token generated from ResetPassword method</param>
         /// <returns>Generic AjaxResponse class</returns>
         [HttpPost("ResetPasswordComplete", Name = "ResetPasswordComplete")]
-        public AjaxResponse ResetPasswordComplete(ResetCompleteModel model)
+        public SimpleResponse ResetPasswordComplete(ResetCompleteModel model)
         {
             try
             {
@@ -367,18 +367,18 @@ namespace DAO_IdentityService.Controllers
                     //Logging
                     Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "Password reset completed.");
 
-                    return new AjaxResponse { Success = true, Message = "Password reset completed." };
+                    return new SimpleResponse { Success = true, Message = "Password reset completed." };
                 }
                 else
                 {
-                    return new AjaxResponse { Success = false, Message = "Renew expired" };
+                    return new SimpleResponse { Success = false, Message = "Renew expired" };
                 }
 
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new AjaxResponse() { Success = false };
+                return new SimpleResponse() { Success = false };
             }
         }
 

@@ -73,14 +73,14 @@
                                         <a class="cursorp fp forgotPass">@Lang.Login_ForgotPassword</a>
                                     </div>
                                 </div>
-                                <button type="button" onclick="Login();" class="btn btn-primary btn-block btn-md loginFormButton mt-3 w-100">Log In</button>
+                                <button type="button" onclick="Login();" class="btn btn-primary btn-block btn-md submitFormButton mt-3 w-100">Log In</button>
                             </div>
 
                             <div class="input-group inpcapthca mt-2 captchaDiv d-none">
                                 <div class="input-group-prepend">
-                                    <img id="img-captcha1" src="../get-captcha-image?code=securityCode1" style="width: 120px; height: 40px;" />
+                                    <img id="img-captcha-login" src="../get-captcha-image?code=securityCodeLogin" style="width: 120px; height: 40px;" />
                                 </div>
-                                <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode1" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCodeLogin" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
                             </div>
                             <div class="sap-text"></div>
                             <div class="text-center">
@@ -140,12 +140,12 @@
                                 <!-- Captcha -->
                                 <div class="input-group inpcapthca mt-2 captchaDiv d-none">
                                     <div class="input-group-prepend">
-                                        <img id="img-captcha2" src="../get-captcha-image?code=securityCode2" style="width: 120px; height: 40px;" />
+                                        <img id="img-captcha-register" src="../get-captcha-image?code=securityCodeRegister" style="width: 120px; height: 40px;" />
                                     </div>
-                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode2" @*placeholder="@Lang.SecureNote"*@ maxlength="5" style="margin-left: 10px; height:40px;" />
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCodeRegister" @*placeholder="@Lang.SecureNote"*@ maxlength="5" style="margin-left: 10px; height:40px;" />
                                 </div>
 
-                                <button type="button" onclick="Register();" class="btn btn-primary btn-block btn-md loginFormButton mt-3 w-100">Sign Up</button>
+                                <button type="button" onclick="Register();" class="btn btn-primary btn-block btn-md submitFormButton mt-3 w-100">Sign Up</button>
                             </div>
                         </div>
                     </div>
@@ -174,12 +174,12 @@
                                 <!-- Captcha -->
                                 <div class="input-group inpcapthca mt-2 captchaDiv d-none">
                                     <div class="input-group-prepend">
-                                        <img id="img-captcha3" src="../get-captcha-image?code=securityCode3" style="width: 120px; height: 40px;" />
+                                        <img id="img-captcha-resetpass" src="../get-captcha-image?code=securityCodeResetPass" style="width: 120px; height: 40px;" />
                                     </div>
-                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode3" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCodeResetPass" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
                                 </div>
 
-                                <button type="button" onclick="ResetPassword();" class="btn btn-primary btn-block btn-md float-right loginFormButton">Reset Password</button>
+                                <button type="button" onclick="ResetPassword();" class="btn btn-primary btn-block btn-md float-right submitFormButton">Reset Password</button>
                             </div>
 
                         </div>
@@ -216,12 +216,12 @@
                                 <!-- Captcha -->
                                 <div class="input-group inpcapthca mt-2 captchaDiv d-none">
                                     <div class="input-group-prepend">
-                                        <img id="img-captcha3" src="../get-captcha-image?code=securityCode4" style="width: 120px; height: 40px;" />
+                                        <img id="img-captcha-resetpasscomplete" src="../get-captcha-image?code=securityCodeResetPassComplete" style="width: 120px; height: 40px;" />
                                     </div>
-                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCode4" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCodeResetPassComplete" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
                                 </div>
 
-                                <button type="button" onclick="ResetPasswordComplete();" class="btn btn-primary btn-block btn-md float-right loginFormButton">Set New Password</button>
+                                <button type="button" onclick="ResetPasswordComplete();" class="btn btn-primary btn-block btn-md float-right submitFormButton">Set New Password</button>
                             </div>
 
                         </div>
@@ -269,11 +269,15 @@
                 "hideMethod": "fadeOut"
             };
 
-            //Create Captcha after failed request attempts
+            //Create Captcha after failed request attempts for all public inputs
             @if(httpContextAccessor.HttpContext.Session.GetInt32("FailCount") > 3)
             {
-                @Html.Raw("resetCaptchaImage(\"#img-captcha1\", \"securityCode1\");")
+                @Html.Raw("resetCaptchaImage(\"#img-captcha-login\", \"securityCodeLogin\");")
+                @Html.Raw("resetCaptchaImage(\"#img-captcha-register\", \"securityCodeRegister\");")
+                @Html.Raw("resetCaptchaImage(\"#img-img-captcha-resetpass\", \"securityCodeResetPass\");")
+                @Html.Raw("resetCaptchaImage(\"#img-captcha-resetpasscomplete\", \"securityCodeResetPassComplete\");")
                 @Html.Raw("$(\".captchaDiv\").removeClass(\"d-none\");");
+                @Html.Raw("failCount="+ httpContextAccessor.HttpContext.Session.GetInt32("FailCount"));
             }
 
             //Enter keypress submit event for forms
@@ -330,7 +334,7 @@
         //Login function
         function Login() {
             //Disable submit button
-            $('.loginFormButton').prop('disabled', true);
+            $('.submitFormButton').prop('disabled', true);
 
             //Display loading
             $(".spinner").removeClass("load-done");
@@ -338,7 +342,7 @@
             $('.preloader').fadeIn(300);
 
             //Create login model
-            var code = $('#securityCode1').val();
+            var code = $('#securityCodeLogin').val();
             var email = $('#email').val()
             var password = $('#pass').val();
             var token = $('input[name="__RequestVerificationToken"]', token).val();
@@ -356,7 +360,7 @@
                 type: "POST",
                 url: "../Public/Login",
                 data: { "email": email, "password": password, "usercode": code, "__RequestVerificationToken": token },
-                async: false,
+                async: true,
                 success: function (result) {
                       if (result.success) {
                           window.location.href = "./Home";
@@ -366,7 +370,7 @@
                           toastr.warning(result.message);
                           //Show captcha image after failed request attempts
                           if (failCount > 3) {
-                              resetCaptchaImage("#img-captcha1", "securityCode1");
+                              resetCaptchaImage("#img-captcha-login", "securityCodeLogin");
                               $(".captchaDiv").removeClass("d-none");
                           }
                       }
@@ -377,15 +381,15 @@
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
                 }
+            }).done(function () {
+                //Enable submit button
+                $('.submitFormButton').removeAttr("disabled");
+
+                //Hide loading
+                $(".spinner").removeClass("load-done");
+                $('.spinner').fadeOut(300);
+                $('.preloader').delay(300).fadeOut(300);
             });
-
-            //Enable submit button
-            $('.loginFormButton').removeAttr("disabled");
-
-            //Hide loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeOut(300);
-            $('.preloader').delay(300).fadeOut(300);
         }
 
         //Register function
@@ -397,7 +401,7 @@
             }
 
             //Disable submit button
-            $('.loginFormButton').prop('disabled', true);
+            $('.submitFormButton').prop('disabled', true);
 
             //Display loading
             $(".spinner").removeClass("load-done");
@@ -410,14 +414,14 @@
             var username = $('#usernameregister').val();
             var pass = $('#passregister').val();
             var pass2 = $('#passregister2').val();
-            var code2 = $('#securityCode2').val();
+            var code2 = $('#securityCodeRegister').val();
             var token = $('input[name="__RequestVerificationToken"]', token).val();
 
             //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Public/Register",
-                async: false,
+                async: true,
                 data: { "email": email, "namesurname": namesurname, "username": username, "password": pass, "repass": pass2, "usercode": code2, "__RequestVerificationToken": token },
                 success: function (result) {
                     if (result.Success) {
@@ -429,7 +433,7 @@
                         toastr.error(result.message);
                         //Show captcha image after failed request attempts
                         if (failCount > 3) {
-                            resetCaptchaImage("#img-captcha2", "securityCode2");
+                            resetCaptchaImage("#img-captcha-register", "securityCodeRegister");
                             $(".captchaDiv").removeClass("d-none");
                         }
                     }
@@ -438,25 +442,24 @@
                     toastr.warning("@Lang.ConnectionError");
                 },
                 error: function (response) {
-                    $('.loginFormButton').removeAttr("disabled");
+                    $('.submitFormButton').removeAttr("disabled");
                 }
 
+            }).done(function () {
+                //Enable submit button
+                $('.submitFormButton').removeAttr("disabled");
+
+                //Hide loading
+                $(".spinner").removeClass("load-done");
+                $('.spinner').fadeOut(300);
+                $('.preloader').delay(300).fadeOut(300);
             });
-
-            //Enable submit button
-            $('.loginFormButton').removeAttr("disabled");
-
-            //Hide loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeOut(300);
-            $('.preloader').delay(300).fadeOut(300);
-
         }
 
         //Reset password function
         function ResetPassword() {
             //Disable submit button
-            $('.loginFormButton').prop('disabled', true);
+            $('.submitFormButton').prop('disabled', true);
 
             //Display loading
             $(".spinner").removeClass("load-done");
@@ -466,13 +469,13 @@
             //Create reset password model
             var email = $('#emailforgot').val()
             var token = $('input[name="__RequestVerificationToken"]', token).val();
-            var code = $('#securityCode3').val();
+            var code = $('#securityCodeResetPass').val();
 
             //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Public/ResetPassword",
-                async: false,
+                async: true,
                 data: { "email": email, "usercode": code, "__RequestVerificationToken": token },
                 success: function (result) {
                     if (result.success) {
@@ -485,34 +488,34 @@
 
                     //Show captcha image after failed request attempts
                     if (failCount > 3) {
-                        resetCaptchaImage("#img-captcha3", "securityCode3");
+                        resetCaptchaImage("#img-captcha-resetpass", "securityCodeResetPass");
                         $(".captchaDiv").removeClass("d-none");
                     }
                 },
                 failure: function (response) {
-                    $('.loginFormButton').removeAttr("disabled");
+                    $('.submitFormButton').removeAttr("disabled");
                     toastr.warning("@Lang.ConnectionError");
                 },
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
-                    $('.loginFormButton').removeAttr("disabled");
+                    $('.submitFormButton').removeAttr("disabled");
                 }
+            }).done(function () {
+                //Enable submit button
+                $('.submitFormButton').removeAttr("disabled");
+
+                //Hide loading
+                $(".spinner").removeClass("load-done");
+                $('.spinner').fadeOut(300);
+                $('.preloader').delay(300).fadeOut(300);
             });
-
-            //Enable submit button
-            $('.loginFormButton').removeAttr("disabled");
-
-            //Hide loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeOut(300);
-            $('.preloader').delay(300).fadeOut(300);
 
         }
 
         //Reset password complete function
         function ResetPasswordComplete() {
             //Disable submit button
-            $('.loginFormButton').prop('disabled', true);
+            $('.submitFormButton').prop('disabled', true);
 
             //Display loading
             $(".spinner").removeClass("load-done");
@@ -523,13 +526,13 @@
             var pass1 = $('#passreset').val()
             var pass2 = $('#passreset2').val()
             var token = $('input[name="__RequestVerificationToken"]', token).val();
-            var code = $('#securityCode4').val();
+            var code = $('#securityCodeResetPassComplete').val();
 
             //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Public/ResetPasswordComplete",
-                async: false,
+                async: true,
                 data: { "newpass": pass1, "newpassagain": pass2, "usercode": code, "__RequestVerificationToken": token },
                 success: function (result) {
                     if (result.success) {
@@ -545,7 +548,7 @@
                     }
 
                     if (failCount > 3) {
-                        resetCaptchaImage("#img-captcha4", "securityCode4");
+                        resetCaptchaImage("#img-captcha-resetpasscomplete", "securityCodeResetPassComplete");
                         $(".captchaDiv").removeClass("d-none");
                     }
                 },
@@ -555,15 +558,15 @@
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
                 }
+            }).done(function () {
+                //Enable submit button
+                $('.submitFormButton').removeAttr("disabled");
+
+                //Hide loading
+                $(".spinner").removeClass("load-done");
+                $('.spinner').fadeOut(300);
+                $('.preloader').delay(300).fadeOut(300);
             });
-
-            //Enable submit button
-            $('.loginFormButton').removeAttr("disabled");
-
-            //Hide loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeOut(300);
-            $('.preloader').delay(300).fadeOut(300);
         }
 
     </script>

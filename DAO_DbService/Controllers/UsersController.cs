@@ -262,5 +262,25 @@ namespace DAO_DbService.Controllers
             }
             return model;
         }
+
+        [Route("GetAdminUsers")]
+        [HttpGet]
+        public List<UserDto> GetAdminUsers()
+        {
+            List<UserDto> model = new List<UserDto>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = _mapper.Map< List<User>, List<UserDto>>(db.Users.Where(x => x.UserType == Helpers.Constants.Enums.UserIdentityType.Admin.ToString()).ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new List<UserDto>();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return model;
+        }
     }
 }

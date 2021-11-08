@@ -187,7 +187,7 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to DAO.
+        ///   Looks up a localized string similar to Welcome to ServicesDAO.
         /// </summary>
         public static string LoginViewTitle {
             get {
@@ -232,7 +232,7 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to Omnis.
+        ///   Looks up a localized string similar to Welcome to ServicesDAO.
         /// </summary>
         public static string RegisterEmailTitle {
             get {

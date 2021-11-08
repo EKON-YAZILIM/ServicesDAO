@@ -21,7 +21,7 @@
                         →
                     </a>
                 </div>
-                <div class="avatar-profile" onclick="pupload();">
+                <div class="avatar-profile">
                     <div id="preview">
                         @if (!string.IsNullOrEmpty(Model.ProfileImage))
                         {
@@ -31,14 +31,11 @@
                             <img src="../Home/images/avatars/default.png" id="avatar-image" class="avatar_img">
                         }
                     </div>
-                    <i class="material-icons" id="uploadicon"></i>
                     <div class="avatar_upload">
-                        <label class="upload_label">
-                            <input type="file" id="upload">
-                        </label>
+                        <input type="file" id="upload">
                     </div>
                 </div>
-                <div class="nickname">
+                <div class="nickname d-none">
                     <span id="name" tabindex="4" data-key="1" contenteditable="true" onkeyup="changeAvatarName(event, this.dataset.key, this.textContent)" onblur="changeAvatarName('blur', this.dataset.key, this.textContent)"></span>
                 </div>
             </div>
