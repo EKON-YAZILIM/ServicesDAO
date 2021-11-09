@@ -3,24 +3,27 @@
 
 }
 @model List<Helpers.Models.WebsiteViewModels.JobPostViewModel>
-
+<!-- Row -->
 <div class="row">
     <div class="col-md-12">
         @foreach (var item in Model)
         {
             <div class="card mb-3">
                 <div class="card-header">
+                    <!-- .header -->
                     <div class="titleContainer">
                         <h5 class="card-title" title="Services DAO Portal Scoping Grant">@item.Title </h5>
                         <small class="text-medium-emphasis">@item.CreateDate.ToString("dd.MM.yyyy") , @item.UserName</small>
                     </div>
-                </div>
+                </div><!-- .header -->
+                <!-- Card Body -->
                 <div class="card-body cursorp" onclick="window.location.href='./Job-Detail/' + @item.JobID">
                     <p class="p-3 card-text">
                         @item.JobDescription
                     </p>
                     <p class="card-text"><small class="text-medium-emphasis">Last updated @item.LastUpdate.ToString("dd.MM.yyyy")</small></p>
-                </div>
+                </div><!-- Card Body -->
+                <!-- Footer -->
                 <div class="card-footer">
                     <a class="card-text me-2 cA" href="./Job-Detail/@item.JobID">
                         <svg class="icon">
@@ -32,7 +35,7 @@
                             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                         </svg> Share
                     </a>
-                </div>
+                </div> <!-- Footer -->
             </div>
         }
     </div>

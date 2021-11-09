@@ -5,6 +5,7 @@
 @model List<Helpers.Models.WebsiteViewModels.AuctionViewModel>
 
 <div class="example">
+    <!-- Tab list -->
     <ul class="nav nav-underline border-0" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" data-coreui-toggle="tab" href="#preview-924" role="tab" aria-selected="false">
@@ -21,8 +22,11 @@
             </a>
         </li>
     </ul>
+    <!-- Content -->
     <div class="tab-content rounded-bottom mt-2">
+        <!-- Tab panel -->
         <div class="tab-pane p-3 active" role="tabpanel" id="preview-924">
+            <!-- .card -->
             <div class="card m-2">
                 <div class="card-header">
                     <span class="small ms-1">Active Internal Auctions</span>
@@ -48,7 +52,7 @@
                                     Count++;
                                     int TitleLenght = 0;
                                     if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
-                                   <tr @*class=" voteDetail" data-href="./Auction-Detail/@item.AuctionID"*@>
+                                    <tr @*class=" voteDetail" data-href="./Auction-Detail/@item.AuctionID"*@>
                                         <th scope="row">@Count</th>
                                         <td>@item.Title.Substring(0, TitleLenght)</td>
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
@@ -65,7 +69,8 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> <!-- .card -->
+            <!-- .card -->
             <div class="card m-2">
                 <div class="card-header"><span class="small ms-1">Active Public Auctions</span></div>
                 <div class="card-body">
@@ -106,9 +111,11 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> <!-- .card -->
         </div>
+        <!-- Tab panel -->
         <div class="tab-pane p-3" role="tabpanel" id="code-924">
+            <!-- .card -->
             <div class="card m-2">
                 <div class="card-header">
                     <span class="small ms-1">Completed Internal Auctions</span>
@@ -151,7 +158,8 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div><!-- .card -->
+            <!-- .card -->
             <div class="card m-2">
                 <div class="card-header"><span class="small ms-1">Completed Public Auctions</span></div>
                 <div class="card-body">
@@ -191,7 +199,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div><!-- .card -->
         </div>
     </div>
 </div>

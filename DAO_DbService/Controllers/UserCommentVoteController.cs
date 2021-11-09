@@ -179,35 +179,13 @@ namespace DAO_DbService.Controllers
         [HttpGet]
         public List<UserCommentVoteDto> GetByUserId(int UserId)
         {
-            List <UserCommentVote> model = new List<UserCommentVote>();
+            List<UserCommentVote> model = new List<UserCommentVote>();
 
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    model = db.UserCommentVotes.Where(x=>x.UserId == UserId).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                model = new List<UserCommentVote>();
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-
-            return _mapper.Map< List<UserCommentVote>, List<UserCommentVoteDto>>(model);
-        }
-
-        [Route("GetByCommentId")]
-        [HttpGet]
-        public List<UserCommentVoteDto> GetByCommentId(int CommentId)
-        {
-            List <UserCommentVote> model = new List<UserCommentVote>();
-
-            try
-            {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    model = db.UserCommentVotes.Where(x=>x.JobPostCommentID == CommentId).ToList();
+                    model = db.UserCommentVotes.Where(x => x.UserId == UserId).ToList();
                 }
             }
             catch (Exception ex)
@@ -218,5 +196,30 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<List<UserCommentVote>, List<UserCommentVoteDto>>(model);
         }
+
+        [Route("GetByCommentId")]
+        [HttpGet]
+        public List<UserCommentVoteDto> GetByCommentId(int CommentId)
+        {
+            List<UserCommentVote> model = new List<UserCommentVote>();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = db.UserCommentVotes.Where(x => x.JobPostCommentID == CommentId).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new List<UserCommentVote>();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return _mapper.Map<List<UserCommentVote>, List<UserCommentVoteDto>>(model);
+        }
+
+
     }
 }
+

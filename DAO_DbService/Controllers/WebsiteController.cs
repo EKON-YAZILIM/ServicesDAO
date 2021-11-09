@@ -17,6 +17,13 @@ namespace DAO_DbService.Controllers
     [ApiController]
     public class WebsiteController : Controller
     {
+
+        #region Jobs
+        /// <summary>
+        /// Get all jobs
+        /// </summary>
+        /// <param name="status">Job Status Types</param>
+        /// <returns></returns>
         [Route("GetAllJobs")]
         [HttpGet]
         public List<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status)
@@ -44,10 +51,7 @@ namespace DAO_DbService.Controllers
                                   ProgressType = job.ProgressType,
                                   CommentCount = count
                               }).ToList();
-
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -56,17 +60,21 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get Job comment and user 
+        /// </summary>
+        /// <param name="jobid"> Job Id</param>
+        /// <param name="userid"> User Id</param>
+        /// <returns></returns>
         [Route("GetJobComment")]
         [HttpGet]
-        public List<JobPostCommentModel> GetJobComment(int jobid)
+        public List<JobPostCommentModel> GetJobComment(int jobid, int userid)
         {
             List<JobPostCommentModel> result = new List<JobPostCommentModel>();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-
-
                     result = (from job in db.JobPostComments
                               join user in db.Users on job.UserID equals user.UserId
                               let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == job.JobPostCommentID)
@@ -84,8 +92,17 @@ namespace DAO_DbService.Controllers
                                   DownVote = downvote,
                                   Points = 0
                               }).ToList();
-                }
 
+                    var commentIds = result.Select(x => x.JobPostCommentID).ToList();
+
+                    var commentVotesOfUser = db.UserCommentVotes.Where(x => x.UserId == userid && commentIds.Contains(x.JobPostCommentID));
+
+                    foreach (var commentVote in commentVotesOfUser)
+                    {
+                        var comment = result.First(x=>x.JobPostCommentID == commentVote.JobPostCommentID);
+                        comment.IsUpVote = commentVote.IsUpVote;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -94,11 +111,16 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get job detail
+        /// </summary>
+        /// <param name="jobid"></param>
+        /// <returns></returns>
         [Route("GetJobDetail")]
         [HttpGet]
-        public JobPostDetailModel GetJobDetail(int jobid)
+        public JobPostViewModel GetJobDetail(int jobid)
         {
-            JobPostDetailModel result = new JobPostDetailModel();
+            JobPostViewModel result = new JobPostViewModel();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
@@ -106,7 +128,7 @@ namespace DAO_DbService.Controllers
                     var jobPost = db.JobPosts.Find(jobid);
                     var user = db.Users.Find(jobPost.UserID);
                     var count = db.JobPostComments.Count(x => x.JobID == jobPost.JobID);
-                    result.JobPostWebsiteModel = new JobPostViewModel
+                    result = new JobPostViewModel
                     {
                         Title = jobPost.Title,
                         UserName = user.UserName,
@@ -119,9 +141,7 @@ namespace DAO_DbService.Controllers
                         ProgressType = jobPost.ProgressType,
                         CommentCount = count
                     };
-                    result.JobPostCommentModel = GetJobComment(jobid);
                 }
-
             }
             catch (Exception ex)
             {
@@ -130,46 +150,11 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
-        [Route("GetVoteJobsByStatus")]
-        [HttpGet]
-        public List<VotingViewModel> GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
-        {
-            List<VotingViewModel> res = new List<VotingViewModel>();
-            try
-            {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/GetVotingByStatus?status=" + status);
-                    List<VotingDto> model = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votejobsJson);
-
-                    res = (from votejob in model
-                           join job in db.JobPosts on votejob.JobID equals job.JobID
-                           where status == null || job.Status == status
-                           select new VotingViewModel
-                           {
-
-                               JobID = job.JobID,
-                               VoteID = votejob.VotingID,
-                               IsFormal = votejob.IsFormal,
-                               CreateDate = votejob.CreateDate,
-                               StartDate = votejob.StartDate,
-                               EndDate = votejob.EndDate,
-                               Title = job.Title,
-                               Status = votejob.Status
-
-                           }).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-              
-          
-            }
-           
-
-            return res;
-        }
-
+        /// <summary>
+        /// Get users job
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [Route("GetUserJobs")]
         [HttpGet]
         public List<JobPostViewModel> GetUserJobs(int userid)
@@ -194,7 +179,7 @@ namespace DAO_DbService.Controllers
                                   JobID = job.JobID,
                                   Status = job.Status,
                                   Amount = job.Amount,
-                                  ProgressType = job.ProgressType,                       
+                                  ProgressType = job.ProgressType,
                                   CommentCount = count
 
                               }).ToList();
@@ -207,6 +192,50 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get jobpost and user table together 
+        /// </summary>
+        /// <param name="ProgressType"></param>
+        /// <returns></returns>
+        [Route("GetVoteJobsByProgressTypes")]
+        [HttpGet]
+        public List<JobPostDto> GetVoteJobsByProgressTypes(Helpers.Constants.Enums.JobProgressTypes? ProgressType)
+        {
+            List<JobPostDto> res = new List<JobPostDto>();
+
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                res = (from job in db.JobPosts
+                       join user in db.Users on job.UserID equals user.UserId
+                       let explenation = job.JobDescription.Substring(0, 100)
+                       where job.ProgressType == ProgressType
+                       select new JobPostDto
+                       {
+                           JobID = job.JobID,
+                           CreateDate = job.CreateDate,
+                           UserID = user.UserId,
+                           Title = job.Title,
+                           JobDescription = explenation,
+                           Amount = job.Amount,
+                           DosPaid = job.DosPaid,
+                           TimeFrame = job.TimeFrame,
+                           LastUpdate = job.LastUpdate,
+                           Status = job.Status,
+                           ProgressType = job.ProgressType
+                       }).ToList();
+            }
+            return res;
+        }
+
+        #endregion
+
+        #region Auction
+
+        /// <summary>
+        /// Get auctions
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
         [Route("GetAuction")]
         [HttpGet]
         public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.JobStatusTypes? status)
@@ -244,6 +273,11 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get auctions bids
+        /// </summary>
+        /// <param name="auctionid"></param>
+        /// <returns></returns>
         [Route("GetAuctionBids")]
         [HttpGet]
         public List<AuctionBidViewModel> GetAuctionBids(int auctionid)
@@ -275,38 +309,15 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
-        [Route("GetVoteJobsByProgressTypes")]
-        [HttpGet]
-        public List<JobPostDto> GetVoteJobsByProgressTypes(Helpers.Constants.Enums.JobProgressTypes? ProgressType)
-        {
-            List<JobPostDto> res = new List<JobPostDto>();
+        #endregion
 
-            using (dao_maindb_context db = new dao_maindb_context())
-            {
+        #region Dashboard
 
-                res = (from job in db.JobPosts
-                       join user in db.Users on job.UserID equals user.UserId
-                       let explenation = job.JobDescription.Substring(0, 100)
-                       where job.ProgressType == ProgressType
-                       select new JobPostDto
-                       {
-                           JobID = job.JobID,
-                           CreateDate = job.CreateDate,
-                           UserID = user.UserId,
-                           Title = job.Title,
-                           JobDescription = explenation,
-                           Amount = job.Amount,
-                           DosPaid = job.DosPaid,
-                           TimeFrame = job.TimeFrame,
-                           LastUpdate = job.LastUpdate,
-                           Status = job.Status,
-                           ProgressType = job.ProgressType
-                       }).ToList();
-            }
-
-            return res;
-        }
-
+        /// <summary>
+        /// Get dashboard by user type
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [Route("GetDashBoard")]
         [HttpGet]
         public GetDashBoardViewModel GetDashBoard(int userid)
@@ -317,22 +328,44 @@ namespace DAO_DbService.Controllers
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
                     var userType = db.Users.First(x => x.UserId == userid).UserType;
+
+                    //User type check
                     if (userType == "Admin")
                     {
+                        //Get job post model from GetVoteJobsByProgressTypes function
                         res.JobPostDtos = GetVoteJobsByProgressTypes(Helpers.Constants.Enums.JobProgressTypes.AdminApprovalPending);
+
+                        //Get auction model from GetAuctions function
                         res.AuctionViewModels = GetAuctions(Helpers.Constants.Enums.JobStatusTypes.Active);
+
+                        //Get auction model from GetVoteJobsByStatus function
                         res.VotingViewModels = GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes.Active);
+
+                        //Get model from Service_Log_Url
                         res.ApplicationLogDtos = Helpers.Serializers.DeserializeJson<List<ApplicationLogDto>>(Helpers.Request.Get(Program._settings.Service_Log_Url + "/ApplicationLog/GetLastWithCount?count=" + 20));
+
+                        //Get model from Service_Log_Url
                         res.UserLogDtos = Helpers.Serializers.DeserializeJson<List<UserLogDto>>(Helpers.Request.Get(Program._settings.Service_Log_Url + "/UserLog/GetLastWithCount?Count=" + 20));
+
+                        //Get users registered in the last mounth
                         var date = DateTime.Now.AddMonths(-1);
                         var usersModel = db.Users.Where(x => x.CreateDate > date).ToList();
                         res.UserDtos = _mapper.Map<List<User>, List<UserDto>>(usersModel).ToList();
+
+                        //Get users count
                         res.UserCount = db.Users.Count();
+
+                        //Get job post count
                         res.JobCount = db.JobPosts.Count();
+
+                        //Get auction count
                         res.AuctionCount = db.Auctions.Count();
+
+                        //Get voting count
+                        //Get model from Voting_Engine_Url
                         res.VotingCount = Helpers.Serializers.DeserializeJson<List<VotingDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get?")).Count();
                     }
-                    else if (userType == "Admin")
+                    else if (userType == "Associate")
                     {
 
                     }
@@ -349,6 +382,15 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        #endregion
+   
+        #region Vote
+
+        /// <summary>
+        /// Get vote detail
+        /// </summary>
+        /// <param name="voteid"></param>
+        /// <returns></returns>
         [Route("GetVoteDetail")]
         [HttpGet]
         public List<VoteDto> GetVoteDetail(int voteid)
@@ -369,6 +411,57 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// Get voting
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        [Route("GetVoteJobsByStatus")]
+        [HttpGet]
+        public List<VotingViewModel> GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
+        {
+            List<VotingViewModel> res = new List<VotingViewModel>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    string votejobsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/GetVotingByStatus?status=" + status);
+                    List<VotingDto> model = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votejobsJson);
+
+                    res = (from votejob in model
+                           join job in db.JobPosts on votejob.JobID equals job.JobID
+                           where status == null || job.Status == status
+                           select new VotingViewModel
+                           {
+
+                               JobID = job.JobID,
+                               VoteID = votejob.VotingID,
+                               IsFormal = votejob.IsFormal,
+                               CreateDate = votejob.CreateDate,
+                               StartDate = votejob.StartDate,
+                               EndDate = votejob.EndDate,
+                               Title = job.Title,
+                               Status = votejob.Status
+
+                           }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
+        }
+
+        #endregion
+
+        #region Reputation
+
+        /// <summary>
+        /// Get user reputation history
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [Route("ReputationHistory")]
         [HttpGet]
         public List<UserReputationHistoryDto> ReputationHistory (int userid)
@@ -388,6 +481,8 @@ namespace DAO_DbService.Controllers
             }
             return res;
         }
+
+        #endregion
     }
 }
 

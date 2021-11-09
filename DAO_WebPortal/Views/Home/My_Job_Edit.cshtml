@@ -5,6 +5,7 @@
 }
 @model Helpers.Models.DtoModels.MainDbDto.JobPostDto
 
+<!-- Row -->
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
@@ -29,12 +30,16 @@
     </div>
 </div>
 <script>
-     function Update() {
+
+    //Job edit function
+    function Update() {
+         //Create job model
          dataModel = @Html.Raw(Json.Serialize(Model));
          dataModel.title = $('#title').val()
          dataModel.amount = $('#amount').val();
          dataModel.time = $('#time').val();
          dataModel.jobDescription = $('#description').val();
+            //Ajax put action
             $.ajax({
                 type: "PUT",
                 url: "../Home/My_Job_Update",

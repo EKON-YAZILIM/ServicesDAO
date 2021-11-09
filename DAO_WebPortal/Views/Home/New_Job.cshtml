@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
 }
-
+<!--Row-->
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
@@ -23,17 +23,20 @@
             <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="5"></textarea>
         </div>
         <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary" onclick="Register();">Submit Job</button>
+            <button type="submit" class="btn btn-primary" onclick="NewJob();">Submit Job</button>
         </div>
     </div>
 </div>
 <script>
-     function Register() {
+    //Add new job function
+    function NewJob() {
+        //Create job model
          var title = $('#title').val()
          var amount = $('#amount').val();
          var time = $('#time').val();
          var price = $('#price').val();
-         var description = $('#description').val();
+        var description = $('#description').val();
+           //Ajax post action
             $.ajax({
                 type: "POST",
                 url: "../Home/New_Job_Post",

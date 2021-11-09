@@ -128,8 +128,8 @@
     <div class="col-md-12">
         <div class="card mb-4">
             <div class="card-header">Jobs Admin Approval</div>
-            <div class="card-body">
-                <div class="table-responsive">
+            <div class="card-body" >
+                <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">
@@ -192,7 +192,7 @@
         <div class="card mb-4">
             <div class="card-header">Auction</div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive"style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">
@@ -211,13 +211,13 @@
                                         @item.Title
                                     </td>
                                     <td>
-                                        @item.CreateDate
+                                        @item.CreateDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
-                                        @item.StartDate
+                                        @item.StartDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
-                                        @item.EndDate
+                                        @item.EndDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
                                         @item.Status
@@ -234,7 +234,7 @@
         <div class="card mb-4">
             <div class="card-header">Voting</div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">
@@ -251,13 +251,13 @@
                                 <tr class="align-middle">
                                     <td>@item.JobID</td>
                                     <td>
-                                        @item.CreateDate
+                                        @item.CreateDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
-                                        @item.StartDate
+                                        @item.StartDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
-                                        @item.EndDate
+                                        @item.EndDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
                                         @if (item.IsFormal == true)
@@ -302,7 +302,7 @@
         <div class="card mb-4">
             <div class="card-header">User Log</div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">
@@ -338,7 +338,7 @@
         <div class="card mb-4">
             <div class="card-header">Application Logs</div>
             <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
                             <tr class="align-middle">

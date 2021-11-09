@@ -4,9 +4,9 @@
 }
 
 @model List<Helpers.Models.WebsiteViewModels.JobPostViewModel>
-
+<!-- Row -->
 <div class="row d-flex mb-3">
-    <div class="col-md-6 d-flex">     
+    <div class="col-md-6 d-flex">
     </div>
     <div class="col-md-6 d-flex justify-content-end">
         <button class="btn btn-primary" type="button" onclick="window.location.href='./New-Job';">
@@ -16,23 +16,27 @@
         </button>
     </div>
 </div>
+<!-- Row -->
 <div class="row">
     <div class="col-md-12">
         @foreach (var item in Model)
         {
             <div class="card mb-3">
+                <!-- Card Header-->
                 <div class="card-header">
                     <div class="titleContainer">
                         <h5 class="card-title" title="Services DAO Portal Scoping Grant">@item.Title </h5>
                         <small class="text-medium-emphasis">@item.CreateDate.ToString("dd.MM.yyyy")</small>
                     </div>
-                </div>
+                </div> <!-- Card Header-->
+                <!-- Card Body-->
                 <div class="card-body cursorp" onclick="window.location.href='./Job-Detail/'+@item.JobID">
                     <p class="p-3 card-text">
-                       @item.JobDescription 
+                        @item.JobDescription
                     </p>
                     <p class="card-text"><small class="text-medium-emphasis">Last updated @item.LastUpdate.ToString("dd.MM.yyyy") </small></p>
-                </div>
+                </div> <!-- Card Body-->
+                <!-- Card Footer-->
                 <div class="card-footer">
                     <a class="card-text me-2 cA" href="./Job-Detail/@item.JobID">
                         <svg class="icon">
@@ -49,7 +53,7 @@
                             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                         </svg> Edit
                     </a>
-                </div>
+                </div> <!-- Card Footer-->
             </div>
         }
     </div>
