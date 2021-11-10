@@ -18,6 +18,10 @@ namespace Helpers.Models.WebsiteViewModels
         public int JobCount { get; set; }
         public int AuctionCount { get; set; }
         public int VotingCount { get; set; }
+        public double UserRatio { get; set; }
+        public double JobRatio { get; set; }
+        public double AuctionRatio { get; set; }
+        public double VotingRatio { get; set; }     
 
     }
 }

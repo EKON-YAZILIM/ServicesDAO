@@ -111,7 +111,7 @@ namespace DAO_DbService.Controllers
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
-                {
+                {                  
                     UserCommentVote item = db.UserCommentVotes.FirstOrDefault(s => s.UserCommentVoteID == ID);
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     db.SaveChanges();
@@ -125,6 +125,26 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        [Route("DeleteMultiple")]
+        [HttpDelete]
+        public bool DeleteMultiple(int? ID)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    List<UserCommentVote> item = db.UserCommentVotes.Where(s => s.JobPostCommentID == ID).ToList();
+                    db.UserCommentVotes.RemoveRange(item);                 
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return false;
+            }
+        }
         [Route("Update")]
         [HttpPut]
         public UserCommentVoteDto Update([FromBody] UserCommentVoteDto model)

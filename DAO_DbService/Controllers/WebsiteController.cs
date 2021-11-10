@@ -79,6 +79,7 @@ namespace DAO_DbService.Controllers
                               join user in db.Users on job.UserID equals user.UserId
                               let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == job.JobPostCommentID)
                               let downvote = db.UserCommentVotes.Count(x => x.IsUpVote == false && x.JobPostCommentID == job.JobPostCommentID)
+                              let isComment = job.UserID == userid ? true : false
                               where job.JobID == jobid
                               select new JobPostCommentModel
                               {
@@ -90,6 +91,7 @@ namespace DAO_DbService.Controllers
                                   SubCommentID = job.SubCommentID,
                                   UpVote = upvote,
                                   DownVote = downvote,
+                                  IsComment = isComment,
                                   Points = 0
                               }).ToList();
 
@@ -99,7 +101,7 @@ namespace DAO_DbService.Controllers
 
                     foreach (var commentVote in commentVotesOfUser)
                     {
-                        var comment = result.First(x=>x.JobPostCommentID == commentVote.JobPostCommentID);
+                        var comment = result.First(x => x.JobPostCommentID == commentVote.JobPostCommentID);
                         comment.IsUpVote = commentVote.IsUpVote;
                     }
                 }
@@ -262,7 +264,7 @@ namespace DAO_DbService.Controllers
                                   Status = act.Status,
                                   AuctionID = act.AuctionID,
                                   Title = job.Title
-                                  
+
                               }).ToList();
                 }
             }
@@ -349,21 +351,51 @@ namespace DAO_DbService.Controllers
 
                         //Get users registered in the last mounth
                         var date = DateTime.Now.AddMonths(-1);
+                        var date2 = DateTime.Now.AddMonths(-2);
                         var usersModel = db.Users.Where(x => x.CreateDate > date).ToList();
                         res.UserDtos = _mapper.Map<List<User>, List<UserDto>>(usersModel).ToList();
 
                         //Get users count
-                        res.UserCount = db.Users.Count();
+                        var UsersModel = db.Users.ToList();
+                        res.UserCount = UsersModel.Count();
 
                         //Get job post count
-                        res.JobCount = db.JobPosts.Count();
+                        var JobsModel = db.JobPosts.ToList();
+                        res.JobCount = JobsModel.Count();
 
                         //Get auction count
-                        res.AuctionCount = db.Auctions.Count();
+                        var AuctionsModel = db.Auctions.ToList();
+                        res.AuctionCount = AuctionsModel.Count();
 
                         //Get voting count
                         //Get model from Voting_Engine_Url
-                        res.VotingCount = Helpers.Serializers.DeserializeJson<List<VotingDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get?")).Count();
+                        var Voting = Helpers.Serializers.DeserializeJson<List<VotingDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get?"));
+                        res.VotingCount = Voting.Count();
+
+                        res.UserRatio = 0;
+                        res.JobRatio = 0;
+                        res.AuctionRatio = 0;
+                        res.VotingRatio = 0;
+
+                        //Get user ratio from the comparison of the last two months
+                        var UserPreviousCount = UsersModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        if (usersModel.Count() != 0) { res.UserRatio = ((usersModel.Count() * UserPreviousCount) / usersModel.Count()) * 100; }
+
+                        //Get job ratio from the comparison of the last two months
+                        var JobPreviousCount = JobsModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var JobCount = JobsModel.Where(x => x.CreateDate > date).Count();
+                        if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
+
+                        //Get auction ratio from the comparison of the last two months
+                        var AuctionPreviousCount = AuctionsModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var AuctionCount = AuctionsModel.Where(x => x.CreateDate > date).Count();
+                        if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
+
+                        //Get voting ratio from the comparison of the last two months
+                        var VotingPreviousCount = Voting.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var VotingCount = Voting.Where(x => x.CreateDate > date).Count();
+                        if (VotingCount != 0) { res.VotingRatio = ((VotingCount * VotingPreviousCount) / VotingCount) * 100; }
+
                     }
                     else if (userType == "Associate")
                     {
@@ -383,7 +415,7 @@ namespace DAO_DbService.Controllers
         }
 
         #endregion
-   
+
         #region Vote
 
         /// <summary>
@@ -464,7 +496,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("ReputationHistory")]
         [HttpGet]
-        public List<UserReputationHistoryDto> ReputationHistory (int userid)
+        public List<UserReputationHistoryDto> ReputationHistory(int userid)
         {
             List<UserReputationHistoryDto> res = new List<UserReputationHistoryDto>();
             try

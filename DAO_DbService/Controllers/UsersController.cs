@@ -133,7 +133,7 @@ namespace DAO_DbService.Controllers
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
-                {
+                {                    
                     User item = db.Users.FirstOrDefault(s => s.UserId == ID);
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     db.SaveChanges();

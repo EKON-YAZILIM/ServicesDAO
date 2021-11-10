@@ -9,6 +9,9 @@
         background-color: #ff0000;
         color: #1dd;
     }
+    .display {
+        display: none;
+    }
 </style>
 <!-- Row -->
 <div class="row">
@@ -45,35 +48,38 @@
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
                     @{
-                        ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList(), 0, 1);
+                        ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList());
                     }
                 </div>
                 <!-- Job comment recursive function -->
                 @functions{
                     int Count = 0;
-                    public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments, int CountGlobal, int CountLocal)
+                    public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments)
                     {
+                        int SubCommentCount = 0;
+
                         @foreach (var i in currentcomments)
                         {
                             Count = Count + 1;
-                            CountGlobal = Count;
+                            SubCommentCount = SubCommentCount + 1;
+
                             <!-- Comment -->
                             <div class="comment" id="comment-1">
-                                <a href="#comment-1" id="RemoveClass_@CountGlobal">
+                                <a href="#comment-1" id="RemoveClass_@Count">
                                     <span class="sr-only">Jump to comment-1</span>
                                 </a>
                                 <!-- Add comment-border-link class-->
-                                @if (currentcomments.Count() > 1 && CountGlobal == CountLocal)
+                                @if (currentcomments.Count() > SubCommentCount)
                                 {
                                     <script>
-                                        $("#RemoveClass_"+@CountGlobal).addClass("comment-border-link");
+                                        $("#RemoveClass_"+@Count).addClass("comment-border-link");
                                     </script>
                                 }
                                 <!-- Heading -->
                                 <div class="comment-heading">
-                                    @*<div class="comment-voting">
-                                        <img class="avatar-img" src="@i.ProfileImage" alt="somebody1">
-                                    </div>*@
+                                    <div class="comment-voting">
+                                            <img class="avatar-img" src="../Home/images/avatars/@i.ProfileImage" alt="somebody1">
+                                        </div>
                                     <div class="comment-info">
                                         <a href="#" class="comment-author">@i.UserName</a>
                                         <p class="m-0">
@@ -100,21 +106,22 @@
                                             @i.DownVote
                                         </a>
                                     </a>
+
                                     <!-- IsUpVote check-->
                                     @if (i.IsUpVote == false)
                                     {
                                         <!-- Add myClass upvote icon-->
-                                        <script>
+                                    <script>
                                             $("#demoDown_"+@i.JobPostCommentID).addClass("myClass");
-                                        </script>
+                                    </script>
                                     }
                                     <!-- IsUpVote check-->
                                     @if (i.IsUpVote == true)
                                     {
                                         <!-- Add myClass downvote icon-->
-                                        <script>
+                                    <script>
                                             $("#demoUp_"+@i.JobPostCommentID).addClass("myClass");
-                                        </script>
+                                    </script>
                                     }
                                     <!-- New comment click -->
                                     <a onclick="AddNewComment(@Model.JobPostWebsiteModel.JobID,@i.JobPostCommentID)" class="card-text me-2 cA cursorp replyBtn">
@@ -122,14 +129,23 @@
                                             <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                                         </svg> Reply
                                     </a>
+                                    <a onclick="DeleteComment(@i.JobPostCommentID);" class="card-text me-2 cA " id="delete_@i.JobPostCommentID">
+                                        <svg class="icon">
+                                            <use xlink:href="/Home/images/svg/free.svg#cil-backspace"></use>
+                                        </svg>
+                                    </a>
+                                    @if (i.IsComment == false)
+                                    {
+                                    <script>
+                                            $("#delete_" +@i.JobPostCommentID).addClass("display");
+                                    </script>
+                                    }
                                 </div><!-- Comment body -->
                                 <div class="replies">
                                     @{
-                                        CountLocal = Count;
-                                        CountLocal++;
                                         if (Model.JobPostCommentModel.Count(x => x.SubCommentID == i.JobPostCommentID) > 0)
                                         {
-                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == i.JobPostCommentID).ToList(), CountGlobal, CountLocal);
+                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == i.JobPostCommentID).ToList());
                                         }
                                     }
                                 </div>
@@ -199,12 +215,12 @@
             }
         });
     }
-
+    //Add new Comment
     function AddNewComment(jobid, commentid) {
 
         var comment ="asasdadada"
         $.ajax({
-            type: "Post",
+            type: "POST",
             url: "../Home/AddNewComment",
             data: { "JobId": jobid, "CommentId": commentid, "Comment": comment},
             success: function (result) {
@@ -225,6 +241,33 @@
                 error: function (response) {
                      toastr.error("@Lang.UnexpectedError");
 
+            }
+        });
+    }
+    //Delete Comment
+    function DeleteComment(commentid) {
+
+        $.ajax({
+            type: "DELETE",
+            url: "../Home/DeleteComment",
+            data: {  "CommentId": commentid },
+            success: function (result) {
+               console.log(result);
+                    if (result.success) {
+                        toastr.success(result.message);
+                        //setTimeout(function () {
+                        //    window.location.href = "./../Auction-Detail/"+id;
+                        //}, 1000);
+                    }
+                    else {
+                        toastr.warning(result.message);
+                    }
+                },
+                  failure: function (response) {
+                        toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                     toastr.error("@Lang.UnexpectedError");
             }
         });
     }

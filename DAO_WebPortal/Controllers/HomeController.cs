@@ -692,6 +692,45 @@ namespace DAO_WebPortal.Controllers
             return Json(result);
         }
         #region UserSerttings
+
+        /// <summary>
+        /// Delete user comment and comments upvote and downvote
+        /// </summary>
+        /// <param name="CommentId">JobPostCommentID</param>
+        /// <returns></returns>
+        [HttpDelete]
+        public JsonResult DeleteComment(int CommentId)
+        {
+            SimpleResponse result = new SimpleResponse();
+            try
+            {
+                //Delete model from ApiGateway              
+                var DeleteModel = Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Delete?ID="+ CommentId , HttpContext.Session.GetString("Token"));
+
+                //Delete model from ApiGateway
+                var DeleteModelVote = Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/UserCommentVote/DeleteMultiple?ID=" + CommentId, HttpContext.Session.GetString("Token"));
+
+                if (DeleteModel == "false" )
+                {
+                    result.Success = false;
+                    result.Message = "Silme işlemi esnasında hata oluştu.";
+                    result.Content = "";
+                }
+                else
+                {
+                    result.Success = true;
+                    result.Message = "Silme işlemi yapıldı.";
+                    result.Content = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Success = false;
+                result.Message = "İşlem esnasında hata oluştu.";
+                result.Content = "";
+            }
+            return Json(result);
+        }
         [HttpGet]
         public JsonResult SetCookie(string src)
         {
