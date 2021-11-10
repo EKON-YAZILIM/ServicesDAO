@@ -175,7 +175,7 @@ namespace DAO_IdentityService.Controllers
         ///  User register method
         /// </summary>
         /// <param name="registerInput">Registration information of the user</param>
-        /// <returns>Generic AjaxResponse class</returns>
+        /// <returns>Generic SimpleResponse class</returns>
         [HttpPost("Register", Name = "Register")]
         public SimpleResponse Register([FromBody] RegisterModel registerInput)
         {
@@ -252,7 +252,7 @@ namespace DAO_IdentityService.Controllers
         ///  Email approval method after registration
         /// </summary>
         /// <param name="model">Token generated from the Register method</param>
-        /// <returns>Generic AjaxResponse class</returns>
+        /// <returns>Generic SimpleResponse class</returns>
         [HttpPost("RegisterComplete", Name = "RegisterComplete")]
         public SimpleResponse RegisterComplete(RegisterCompleteModel model)
         {
@@ -295,7 +295,7 @@ namespace DAO_IdentityService.Controllers
         ///  Reset password request method
         /// </summary>
         /// <param name="model">User registered email in the system</param>
-        /// <returns>Generic AjaxResponse class</returns>
+        /// <returns>Generic SimpleResponse class</returns>
         [HttpPost("ResetPassword", Name = "ResetPassword")]
         public SimpleResponse ResetPassword(ResetPasswordModel model)
         {
@@ -339,7 +339,7 @@ namespace DAO_IdentityService.Controllers
         ///  Change password method after reset password request
         /// </summary>
         /// <param name="model">passwordChangeToken: Token generated from ResetPassword method</param>
-        /// <returns>Generic AjaxResponse class</returns>
+        /// <returns>Generic SimpleResponse class</returns>
         [HttpPost("ResetPasswordComplete", Name = "ResetPasswordComplete")]
         public SimpleResponse ResetPasswordComplete(ResetCompleteModel model)
         {

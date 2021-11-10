@@ -1,5 +1,6 @@
 ﻿@model Helpers.Models.DtoModels.MainDbDto.UserDto
 
+@using DAO_WebPortal.Resources
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor httpContextAccessor
 
@@ -52,6 +53,9 @@
                 <p><b>@Model.CreateDate</b></p>
             </div>
 
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary" id="saveProfilePhotoBtn" onclick="SaveProfileChanges();">Save Changes</button>
+            </div>
         </div>
     </div>
 </div>
@@ -70,7 +74,7 @@
             });
         });
 
-        function saveProfile() {
+        function SaveProfileChanges() {
             var formData = new FormData();
             var imagefile = $('input[type=file]')[0].files[0];
             formData.append('image', $(".avatar_img").attr("src"));
@@ -80,6 +84,7 @@
             var form = $('#bodys');
             var token = $('input[name="__RequestVerificationToken"]', form).val();
             formData.append("__RequestVerificationToken", token);
+
             $.ajax({
                 type: "POST",
                 url: "../Home/ProfileUpdate",
@@ -88,20 +93,20 @@
                 contentType: false,
                 success: function (response) {
                     if (response.success == false) {
-                        alertify.error(response.message);
+                        toastr.error(response.message);
                     }
                     else {
                         $("#profileimage").attr("src", $(".avatar_img").attr("src"));
                         $('#saveProfilePhotoBtn').css('display', 'none');
 
-                        alertify.success("Güncelleme başarılı");
+                        toastr.success(response.message);
                     }
                 },
                 failure: function (response) {
-                    alertify.error("Sunucu ile bağlantı sağlanamadı", "Hata");
+                    toastr.warning("@Lang.ConnectionError");
                 },
                 error: function (response) {
-                    alertify.error("İşlemler sırasında bir hata meydana geldi", "Hata");
+                    toastr.error("@Lang.UnexpectedError");
                 }
             });
         }

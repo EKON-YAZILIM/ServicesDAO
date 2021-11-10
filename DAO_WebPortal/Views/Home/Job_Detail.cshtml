@@ -4,15 +4,6 @@
 
 }
 @model Helpers.Models.WebsiteViewModels.JobPostDetailModel
-<style>
-    .myClass {
-        background-color: #ff0000;
-        color: #1dd;
-    }
-    .display {
-        display: none;
-    }
-</style>
 <!-- Row -->
 <div class="row">
     <div class="col-md-12">
@@ -38,7 +29,7 @@
                         <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                     </svg> @Model.JobPostWebsiteModel.CommentCount Comment
                 </a>
-                <a class="card-text me-2 cA" href="#">
+                <a class="card-text me-2 cA" href="#" onclick="ShareJobPost();">
                     <svg class="icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                     </svg> Share
@@ -54,98 +45,108 @@
                 <!-- Job comment recursive function -->
                 @functions{
                     int Count = 0;
+
                     public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments)
                     {
                         int SubCommentCount = 0;
 
-                        @foreach (var i in currentcomments)
+                        @foreach (var commentItem in currentcomments)
                         {
                             Count = Count + 1;
                             SubCommentCount = SubCommentCount + 1;
 
                             <!-- Comment -->
-                            <div class="comment" id="comment-1">
-                                <a href="#comment-1" id="RemoveClass_@Count">
-                                    <span class="sr-only">Jump to comment-1</span>
-                                </a>
+                            <div class="comment" id="comment-@Count">
+
                                 <!-- Add comment-border-link class-->
                                 @if (currentcomments.Count() > SubCommentCount)
                                 {
-                                    <script>
-                                        $("#RemoveClass_"+@Count).addClass("comment-border-link");
-                                    </script>
+                                    <a href="#comment-@Count" class="comment-border-link">
+                                        <span class="sr-only">Jump to comment-@Count</span>
+                                    </a>
                                 }
+                                else
+                                {
+                                    <a href="#comment-@Count">
+                                        <span class="sr-only">Jump to comment-@Count</span>
+                                    </a>
+                                }
+
                                 <!-- Heading -->
                                 <div class="comment-heading">
                                     <div class="comment-voting">
-                                            <img class="avatar-img" src="../Home/images/avatars/@i.ProfileImage" alt="somebody1">
-                                        </div>
+                                        <img class="avatar-img" src="../Home/images/avatars/@commentItem.ProfileImage" alt="somebody1">
+                                    </div>
                                     <div class="comment-info">
-                                        <a href="#" class="comment-author">@i.UserName</a>
+                                        <a href="#" class="comment-author">@commentItem.UserName</a>
                                         <p class="m-0">
-                                            @i.Date.ToString("dd.MM.yyyy")
+                                            @commentItem.Date.ToString("dd.MM.yyyy")
                                         </p>
                                     </div>
                                 </div> <!-- Heading -->
                                 <!-- Comment body -->
                                 <div class="comment-body">
-                                    <p>
-                                        @i.Comment
-                                    </p>
+
+                                    @if (commentItem.Comment == "This comment is deleted by the owner.")
+                                    {
+                                        <p><i>@commentItem.Comment</i></p>
+                                    }
+                                    else
+                                    {
+                                        <p>@commentItem.Comment</p>
+                                    }
+
                                     <!--Upvote click -->
-                                    <a onclick="UpVote(@i.JobPostCommentID);" class="card-text me-2 ms-2 cA ">
-                                        <svg class="icon" id="demoUp_@i.JobPostCommentID">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-caret-top"></use>
-                                        </svg><a id="UpVote_@i.JobPostCommentID">@i.UpVote</a>
+                                    <a onclick="UpVote(@commentItem.JobPostCommentID);" class="card-text me-2 ms-2 cA cursorp">
+                                        <!-- IsUpVote check-->
+                                        @if (commentItem.IsUpVote == true)
+                                        {
+                                            <i class="fas fa-caret-square-up" id="voteUp_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-caret-square-up" id="voteUp_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        <span id="voteUpCount_@commentItem.JobPostCommentID">@commentItem.UpVote</span>
                                     </a>
                                     <!--Downvote click -->
-                                    <a onclick="DownVote(@i.JobPostCommentID);" class="card-text me-2 cA ">
-                                        <svg class="icon " id="demoDown_@i.JobPostCommentID">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-caret-bottom"></use>
-                                        </svg><a id="DownVote_@i.JobPostCommentID">
-                                            @i.DownVote
-                                        </a>
+                                    <a onclick="DownVote(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp">
+                                        @if (commentItem.IsUpVote == false)
+                                        {
+                                            <i class="fas fa-caret-square-down" id="voteDown_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-caret-square-down" id="voteDown_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        <span id="voteDownCount_@commentItem.JobPostCommentID">@commentItem.DownVote</span>
+
                                     </a>
 
-                                    <!-- IsUpVote check-->
-                                    @if (i.IsUpVote == false)
-                                    {
-                                        <!-- Add myClass upvote icon-->
-                                    <script>
-                                            $("#demoDown_"+@i.JobPostCommentID).addClass("myClass");
-                                    </script>
-                                    }
-                                    <!-- IsUpVote check-->
-                                    @if (i.IsUpVote == true)
-                                    {
-                                        <!-- Add myClass downvote icon-->
-                                    <script>
-                                            $("#demoUp_"+@i.JobPostCommentID).addClass("myClass");
-                                    </script>
-                                    }
                                     <!-- New comment click -->
-                                    <a onclick="AddNewComment(@Model.JobPostWebsiteModel.JobID,@i.JobPostCommentID)" class="card-text me-2 cA cursorp replyBtn">
+                                    <a onclick="CreateReplyBox(this, @commentItem.JobPostCommentID)" class="card-text me-2 cA cursorp">
                                         <svg class="icon">
                                             <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                                         </svg> Reply
                                     </a>
-                                    <a onclick="DeleteComment(@i.JobPostCommentID);" class="card-text me-2 cA " id="delete_@i.JobPostCommentID">
-                                        <svg class="icon">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-backspace"></use>
-                                        </svg>
-                                    </a>
-                                    @if (i.IsComment == false)
+
+                                    @if (commentItem.IsComment == true && commentItem.Comment != "This comment is deleted by the owner.")
                                     {
-                                    <script>
-                                            $("#delete_" +@i.JobPostCommentID).addClass("display");
-                                    </script>
+                                        <a onclick="DeleteComment(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp" id="delete_@commentItem.JobPostCommentID">
+                                            <svg class="icon">
+                                                <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                            </svg> Delete
+                                        </a>
                                     }
-                                </div><!-- Comment body -->
+
+                                </div>
+
+                                <!-- Comment body -->
                                 <div class="replies">
                                     @{
-                                        if (Model.JobPostCommentModel.Count(x => x.SubCommentID == i.JobPostCommentID) > 0)
+                                        if (Model.JobPostCommentModel.Count(x => x.SubCommentID == commentItem.JobPostCommentID) > 0)
                                         {
-                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == i.JobPostCommentID).ToList());
+                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == commentItem.JobPostCommentID).ToList());
                                         }
                                     }
                                 </div>
@@ -158,7 +159,14 @@
     </div>
 </div>
 
-<script>
+@section Scripts{
+    <script>
+
+    $(document).ready(function () {
+
+
+    });
+
     //Upvote function
     function UpVote(id) {
         //Ajax get action
@@ -169,24 +177,30 @@
             success: function (result) {
 
                 //Update upvote and downvote count
-                document.getElementById("UpVote_" + id).innerHTML = "<span>" + result.content[0] + "</span>";
-                document.getElementById("DownVote_" + id).innerHTML = "<span>" + result.content[1] + "</span>";
+                document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
+                document.getElementById("voteDownCount_" + id).innerHTML = result.content[1];
 
                 //Add and remove myClass
                 //Checking for existence of myClass
-                if ($("#demoUp_" + id).hasClass("myClass")) {
-                    $("#demoUp_" + id).removeClass("myClass");
+                if ($("#voteUp_" + id).hasClass("fas")) {
+                    $("#voteUp_" + id).removeClass("fas");
+                    $("#voteUp_" + id).addClass("far");
                 }
-                else if ($("#demoDown_" + id).hasClass("myClass")) {
-                    $("#demoDown_" + id).removeClass("myClass");
-                    $("#demoUp_" + id).addClass("myClass");
+                else if ($("#voteDown_" + id).hasClass("fas")) {
+                    $("#voteDown_" + id).removeClass("fas");
+                    $("#voteDown_" + id).addClass("far");
+
+                    $("#voteUp_" + id).removeClass("far");
+                    $("#voteUp_" + id).addClass("fas");
                 }
                 else {
-                    $("#demoUp_" + id).addClass("myClass");
+                    $("#voteUp_" + id).removeClass("far");
+                    $("#voteUp_" + id).addClass("fas");
                 }
             }
         });
     }
+
     //Downvote function
     function DownVote(id) {
         //Ajax get action
@@ -197,39 +211,47 @@
             success: function (result) {
 
                 //Update upvote and downvote count
-                document.getElementById("DownVote_" + id).innerHTML = "<span>" + result.content[1] + "</span>";
-                document.getElementById("UpVote_" + id).innerHTML = "<span>" + result.content[0] + "</span>";
+                document.getElementById("voteDownCount_" + id).innerHTML =  result.content[1];
+                document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
 
                 //Add and remove myClass
                 //Checking for existence of myClass
-                if ($("#demoDown_" + id).hasClass("myClass")) {
-                    $("#demoDown_" + id).removeClass("myClass");
+                if ($("#voteDown_" + id).hasClass("fas")) {
+                    $("#voteDown_" + id).removeClass("fas");
+                    $("#voteDown_" + id).addClass("far");
                 }
-                else if ($("#demoUp_" + id).hasClass("myClass")) {
-                    $("#demoUp_" + id).removeClass("myClass");
-                    $("#demoDown_" + id).addClass("myClass");
+                else if ($("#voteUp_" + id).hasClass("fas")) {
+                    $("#voteUp_" + id).removeClass("fas");
+                    $("#voteUp_" + id).addClass("far");
+
+                    $("#voteDown_" + id).removeClass("far");
+                    $("#voteDown_" + id).addClass("fas");
                 }
                 else {
-                    $("#demoDown_" + id).addClass("myClass");
+                    $("#voteDown_" + id).removeClass("far");
+                    $("#voteDown_" + id).addClass("fas");
                 }
             }
         });
     }
+
+    //Creates reply textbox below the comment
+    function CreateReplyBox(e, commentid) {
+        $(e).parent().append("<div class='comment-body mt-2'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary' onclick='AddNewComment("+@Model.JobPostWebsiteModel.JobID+","+commentid+");'>Reply</button></div></div>")
+
+    }
+
     //Add new Comment
     function AddNewComment(jobid, commentid) {
 
-        var comment ="asasdadada"
         $.ajax({
             type: "POST",
             url: "../Home/AddNewComment",
-            data: { "JobId": jobid, "CommentId": commentid, "Comment": comment},
+            data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
             success: function (result) {
                console.log(result);
                     if (result.success) {
                         toastr.success(result.message);
-                        //setTimeout(function () {
-                        //    window.location.href = "./../Auction-Detail/"+id;
-                        //}, 1000);
                     }
                     else {
                         toastr.warning(result.message);
@@ -244,6 +266,7 @@
             }
         });
     }
+
     //Delete Comment
     function DeleteComment(commentid) {
 
@@ -271,4 +294,10 @@
             }
         });
     }
-</script>
+
+    //Share Job Post
+    function ShareJobPost() {
+        toastr.warning("This feature will be available in the next version.");
+    }
+    </script>
+}

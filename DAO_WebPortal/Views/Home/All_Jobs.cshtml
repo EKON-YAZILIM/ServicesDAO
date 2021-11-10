@@ -30,7 +30,7 @@
                             <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
                         </svg> @item.CommentCount Comment
                     </a>
-                    <a class="card-text cA" href="#">
+                    <a class="card-text cA" href="#" onclick="ShareJobPost();">
                         <svg class="icon">
                             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                         </svg> Share
@@ -41,3 +41,14 @@
     </div>
 </div>
 
+
+@section Scripts{
+    <script>
+
+        //Share Job Post
+        function ShareJobPost() {
+            toastr.warning("This feature will be available in the next version.");
+        }
+
+    </script>
+}

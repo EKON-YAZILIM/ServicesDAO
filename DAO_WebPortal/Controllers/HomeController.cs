@@ -1,5 +1,7 @@
 ﻿using DAO_WebPortal.Models;
 using DAO_WebPortal.Providers;
+using DAO_WebPortal.Resources;
+using Helpers.Constants;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
 using Helpers.Models.SharedModels;
@@ -12,6 +14,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using static Helpers.Constants.Enums;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -53,14 +56,14 @@ namespace DAO_WebPortal.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
                 return View(new GetDashBoardViewModel());
             }
 
             return View(dashModel);
         }
-
 
         /// <summary>
         /// User's Job Page
@@ -80,7 +83,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(myJobsModel);
         }
@@ -103,9 +106,8 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-
             return View(allJobsModel);
         }
 
@@ -127,7 +129,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(auctionModel);
         }
@@ -153,7 +155,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(AuctionDetailModel);
         }
@@ -177,7 +179,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(votesModel);
         }
@@ -200,7 +202,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(ReputationHistoryModel);
         }
@@ -234,7 +236,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
             return View(profileModel);
@@ -270,13 +272,12 @@ namespace DAO_WebPortal.Controllers
 
                 //Parse response
                 model.JobPostCommentModel = Helpers.Serializers.DeserializeJson<List<JobPostCommentModel>>(url1);
-
-
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
+
             return View(model);
         }
 
@@ -299,11 +300,9 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(voteDetailModel);
-
-
         }
 
         /// <summary>
@@ -331,29 +330,25 @@ namespace DAO_WebPortal.Controllers
             SimpleResponse result = new SimpleResponse();
             try
             {
+                //Create JobPost model
+                model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, ProgressType = Enums.JobProgressTypes.AdminApprovalPending, Status = Enums.JobStatusTypes.Pending };
+
                 //Post model to ApiGateway
-                //Add new job
-                model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(new JobPostDto { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title }), HttpContext.Session.GetString("Token")));
-                if (model.JobID == 0 || model.JobID == null)
-                {
-                    result.Success = false;
-                    result.Message = "Kayıt esnasında hata oluştu.";
-                    result.Content = model;
-                }
-                else
+                model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
+
+                if (model != null && model.JobID > 0)
                 {
                     result.Success = true;
-                    result.Message = "Kayıt yapıldı.";
+                    result.Message = "Job posted successfully and will be available after admin review.";
                     result.Content = model;
                 }
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = model;
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
         #endregion
 
@@ -374,12 +369,12 @@ namespace DAO_WebPortal.Controllers
 
                 //Parse response
                 jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDto>(url);
-
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
+
             return View(jobDetailModel);
         }
 
@@ -397,26 +392,19 @@ namespace DAO_WebPortal.Controllers
             {
                 //Put model to ApiGateway
                 model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(Model), HttpContext.Session.GetString("Token")));
-                if (model.JobID == 0 || model.JobID == null)
+                if (model != null && model.JobID > 0)
                 {
                     result.Success = false;
-                    result.Message = "Güncelleme esnasında hata oluştu.";
-                    result.Content = model;
-                }
-                else
-                {
-                    result.Success = true;
-                    result.Message = "Güncelleme yapıldı.";
+                    result.Message = "Job updated succesfully.";
                     result.Content = model;
                 }
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = model;
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
         /// <summary>
@@ -427,8 +415,9 @@ namespace DAO_WebPortal.Controllers
         [HttpGet]
         public JsonResult UpVote(int JobPostCommentId)
         {
-            int[] res = { 0, 0 };
+
             SimpleResponse result = new SimpleResponse();
+
             try
             {
                 var userid = HttpContext.Session.GetInt32("UserID");
@@ -442,7 +431,9 @@ namespace DAO_WebPortal.Controllers
                 //Get downvote comment count
                 int DownCount = model.Count(x => x.IsUpVote == false);
 
-                //UpVote control 
+                int[] res = { 0, 0 };
+
+                //If user upvoted same comment in the past
                 if (model.Count(x => x.UserId == userid && x.IsUpVote == true) > 0)
                 {
                     var CommentModel = model.First(x => x.UserId == userid);
@@ -457,7 +448,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "";
                     result.Content = res;
                 }
-                //DownVote control 
+                //If user downvoted same comment in the past
                 else if (model.Count(x => x.UserId == userid && x.IsUpVote == false) > 0)
                 {
                     //Set CommentModel.IsUpVote
@@ -495,14 +486,15 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "";
                     result.Content = res;
                 }
+
+                return Json(result);
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = res;
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
         /// <summary>
@@ -513,7 +505,6 @@ namespace DAO_WebPortal.Controllers
         [HttpGet]
         public JsonResult DownVote(int JobPostCommentId)
         {
-            int[] res = { 0, 0 };
             SimpleResponse result = new SimpleResponse();
             try
             {
@@ -528,7 +519,9 @@ namespace DAO_WebPortal.Controllers
                 //Get downvote comment count
                 int DownCount = model.Count(x => x.IsUpVote == false);
 
-                //DownVote control
+                int[] res = { 0, 0 };
+
+                //If user downvoted same comment in the past
                 if (model.Count(x => x.UserId == userid && x.IsUpVote == false) > 0)
                 {
                     var CommentModel = model.First(x => x.UserId == userid);
@@ -543,7 +536,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "";
                     result.Content = res;
                 }
-                //UpVote control
+                //If user upvoted same comment in the past
                 else if (model.Count(x => x.UserId == userid && x.IsUpVote == true) > 0)
                 {
                     //Set CommentModel.IsUpVote
@@ -581,14 +574,15 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "";
                     result.Content = res;
                 }
+
+                return Json(result);
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = res;
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
         /// <summary>
@@ -597,7 +591,7 @@ namespace DAO_WebPortal.Controllers
         /// <param name="Model">AuctionBidDto Model</param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult Auction_Add(AuctionBidDto Model)
+        public JsonResult Auction_Bid_Add(AuctionBidDto Model)
         {
             AuctionBidDto model = new AuctionBidDto();
             SimpleResponse result = new SimpleResponse();
@@ -618,26 +612,23 @@ namespace DAO_WebPortal.Controllers
                 //Post model to ApiGateway
                 model = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
 
-                if (model.AuctionBidID == 0 || model.AuctionBidID == null)
-                {
-                    result.Success = false;
-                    result.Message = "Ekleme esnasında hata oluştu.";
-                    result.Content = model;
-                }
-                else
+                if (model != null && model.AuctionBidID > 0)
                 {
                     result.Success = true;
-                    result.Message = "Ekleme yapıldı.";
+                    result.Message = "Bid succesffully submitted.";
                     result.Content = model;
                 }
+
+                return Json(result);
+
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = model;
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
         }
 
         /// <summary>
@@ -651,12 +642,11 @@ namespace DAO_WebPortal.Controllers
         public JsonResult AddNewComment(int JobId, int CommentId, string Comment)
         {
             SimpleResponse result = new SimpleResponse();
-            JobPostCommentDto model = new JobPostCommentDto();
 
             try
             {
                 //Create new comment
-                model = new JobPostCommentDto()
+                JobPostCommentDto model = new JobPostCommentDto()
                 {
                     Comment = Comment,
                     Date = DateTime.Now,
@@ -670,27 +660,25 @@ namespace DAO_WebPortal.Controllers
                 //Post model to ApiGateway
                 //Add new job
                 model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
-                if (model.JobPostCommentID == 0 || model.JobPostCommentID == null)
-                {
-                    result.Success = false;
-                    result.Message = "Kayıt esnasında hata oluştu.";
-                    result.Content = model;
-                }
-                else
+
+                if (model != null && model.JobPostCommentID > 0)
                 {
                     result.Success = true;
-                    result.Message = "Kayıt yapıldı.";
+                    result.Message = "Comment succesfully posted.";
                     result.Content = model;
                 }
+
+                return Json(result);
+
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = model;
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
+
         #region UserSerttings
 
         /// <summary>
@@ -704,33 +692,38 @@ namespace DAO_WebPortal.Controllers
             SimpleResponse result = new SimpleResponse();
             try
             {
-                //Delete model from ApiGateway              
-                var DeleteModel = Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Delete?ID="+ CommentId , HttpContext.Session.GetString("Token"));
+                JobPostCommentDto model = new JobPostCommentDto();
 
-                //Delete model from ApiGateway
-                var DeleteModelVote = Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/UserCommentVote/DeleteMultiple?ID=" + CommentId, HttpContext.Session.GetString("Token"));
+                //Get comment
+                var modelJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/GetId?id=" + CommentId, HttpContext.Session.GetString("Token"));
 
-                if (DeleteModel == "false" )
-                {
-                    result.Success = false;
-                    result.Message = "Silme işlemi esnasında hata oluştu.";
-                    result.Content = "";
-                }
-                else
+                //Parse result
+                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(modelJson);
+                model.Comment = "This comment is deleted by the owner.";
+
+                //Update comment as deleted        
+                var deleteModelJson = Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Update", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
+                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(deleteModelJson);
+
+                if (model != null && model.JobPostCommentID > 0)
                 {
                     result.Success = true;
-                    result.Message = "Silme işlemi yapıldı.";
+                    result.Message = "Comment succesfully deleted.";
                     result.Content = "";
                 }
+
+                return Json(result);
+
             }
             catch (Exception ex)
             {
-                result.Success = false;
-                result.Message = "İşlem esnasında hata oluştu.";
-                result.Content = "";
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return Json(result);
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
         }
+
         [HttpGet]
         public JsonResult SetCookie(string src)
         {

@@ -33,19 +33,19 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="~/Home/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!--Jquery-->
-    <script src="~/Home/js/jquery/dist/jquery.min.js"></script>
-    <!-- Vendors styles-->
-    <link href="~/Home/simplebar/css/simplebar.css" rel="stylesheet" />
-    <link href="~/Home/vendors/simplebar.css" rel="stylesheet" />
+
     <!-- Main styles for this application-->
     <link href="~/Home/css/style.css" rel="stylesheet" />
-    <link href="~/Home/css/examples.css" rel="stylesheet" />
-    <link href="~/Home/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
-    <link href="~/Home/css/toastr.css" rel="stylesheet" />
     <link href="~/Home/css/custom.css" rel="stylesheet" />
+
+    <!-- Library styles -->
+    <link href="~/Home/lib/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
+    <link href="~/Home/lib/toastr/toastr.css" rel="stylesheet" />
+    <link href="~/Home/lib/font-awesome/fontawesome-all.min.css" rel="stylesheet" />
+
 </head>
 <body class="@theme">
+
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
         <div class="sidebar-brand d-none d-md-flex">
             <img src="~/Home/images/logo118.png" class="sidebar-brand-full" width="118" height="46" alt="Services DAO" />
@@ -122,8 +122,6 @@
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
 
-
-
     <div class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
         <header class="header header-sticky mb-4">
             <div class="container-fluid">
@@ -149,7 +147,7 @@
                         </label>
                     </div>
                 </nav>
-           
+
                 <ul class="header-nav">
                     <li class="nav-item dropdown d-md-down-none">
                         <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -170,7 +168,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg pt-0">
-                           
+
                             <div class="message">
                                 <div class="dropdown-header bg-light py-2">
                                     <strong>Account</strong>
@@ -182,7 +180,7 @@
                                     Logout
                                 </a>
                             </div>
-                            
+
                         </div>
                     </li>
                 </ul>
@@ -205,22 +203,25 @@
         </footer>
     </div>
 
+
+    <script src="~/Home/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/Home/js/coreui.bundle.min.js"></script>
-    <script src="~/Home/simplebar/js/simplebar.min.js"></script>
-    <script src="~/Home/chartjs/js/coreui-chartjs.js"></script>
-    <script src="~/Home/chartjs/js/chart.min.js"></script>
-    <script src="~/Home/chartjs/js/coreui-utils.js"></script>
-    <script src="~/Home/js/MutualJs.js"></script>
-    <script src="~/Home/js/toastr.js"></script>
+    <script src="~/Home/lib/chartjs/js/coreui-chartjs.js"></script>
+    <script src="~/Home/lib/chartjs/js/chart.min.js"></script>
+    <script src="~/Home/lib/chartjs/js/coreui-utils.js"></script>
+    <script src="~/Home/lib/toastr/toastr.js"></script>
+
+
     <script>
 
         $(document).ready(function () {
 
+            //Toastr options
             toastr.options = {
                 "closeButton": true,
                 "debug": false,
                 "newestOnTop": true,
-                "progressBar": false,
+                "progressBar": true,
                 "positionClass": "toast-bottom-right",
                 "preventDuplicates": false,
                 "onclick": null,
@@ -233,19 +234,22 @@
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             };
-        });
 
-        if (document.body.classList.contains('dark-theme')) {
-            var element = document.getElementById('btn-dark-theme');
-            if (typeof (element) != 'undefined' && element != null) {
-                document.getElementById('btn-dark-theme').checked = true;
+            //Dark theme toggle check
+            if (document.body.classList.contains('dark-theme')) {
+                var element = document.getElementById('btn-dark-theme');
+                if (typeof (element) != 'undefined' && element != null) {
+                    document.getElementById('btn-dark-theme').checked = true;
+                }
             }
-        } else {
-            var element = document.getElementById('btn-light-theme');
-            if (typeof (element) != 'undefined' && element != null) {
-                document.getElementById('btn-light-theme').checked = true;
+            else {
+                var element = document.getElementById('btn-light-theme');
+                if (typeof (element) != 'undefined' && element != null) {
+                    document.getElementById('btn-light-theme').checked = true;
+                }
             }
-        }
+
+        });
 
         function handleThemeChange(src) {
             var event = document.createEvent('Event');

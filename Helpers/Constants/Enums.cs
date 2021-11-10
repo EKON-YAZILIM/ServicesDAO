@@ -69,10 +69,13 @@
             AdminApprovalPending,
             DoSFeePending,
             KYCPending,
-            Auction,
-            Voting,
-            InProgress,
-            Completed
+            InternalAuction,
+            PublicAuction,
+            InformalVoting,
+            FormalVoting,            
+            Completed,
+            Failed,
+            Expired
         }
 
         /// <summary>
@@ -83,7 +86,8 @@
             Pending,
             Active,
             Waiting,
-            Completed
+            Completed,
+            Expired
         }
 
         /// <summary>

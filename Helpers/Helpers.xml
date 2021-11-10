@@ -34,7 +34,7 @@
              Predefined RabbitMQ feed names
             </summary>
         </member>
-        <member name="T:Helpers.Models.CommonModels.AjaxResponse">
+        <member name="T:Helpers.Models.CommonModels.SimpleResponse">
             <summary>
              Simple http response class
             </summary>

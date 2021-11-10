@@ -1,5 +1,157 @@
 ﻿
-/*USER PROFILE STARTS*/
+
+/********Scrollbar Style*******/
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #3e4ab1;
+}
+
+
+/********Forum Comment Design*******/
+
+.comment-thread {
+    max-width: 100%;
+    margin: auto;
+    border: 1px solid transparent; /* Removes margin collapse */
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Comment */
+
+.comment {
+    position: relative;
+    margin: 20px auto;
+}
+
+.comment-heading {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    font-size: 14px;
+}
+
+.comment-voting {
+    width: 34px;
+    height: 34px;
+}
+
+    .comment-voting button {
+        display: block;
+        width: 100%;
+        height: 50%;
+        padding: 0;
+        border: 0;
+        font-size: 10px;
+    }
+
+.comment-info {
+    margin-left: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .comment-author:hover {
+        text-decoration: underline;
+    }
+
+.replies {
+    margin-left: 20px;
+}
+
+/* Adjustments for the comment border links */
+
+.comment-border-link {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    width: 12px;
+    height: calc(100% - 50px);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    background-color: var(--cui-link-color, #c8c4f0);
+    background-clip: padding-box;
+}
+
+    .comment-border-link:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+.comment-body {
+    padding: 0 20px;
+    padding-left: 28px;
+}
+
+.replies {
+    margin-left: 28px;
+}
+
+
+/************Extras***********/
+.titleContainer h5,
+.titleContainer small {
+    display: inline;
+}
+
+.cursorp {
+    cursor: pointer !important
+}
+
+.highlighted {
+    background-color: #f9fafa !important;
+    border-radius: calc(0.5rem - 1px);
+}
+
+.dark-theme .highlighted {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.highlighted div:first-child {
+    padding: 1rem
+}
+
+.text-icon {
+    height: 1.25rem;
+    font-size: 1.25rem;
+    color: #A59AFB;
+    text-align: center;
+    width: 1.25rem;
+    margin-right: 0.5rem;
+}
+
+.accordion-header {
+    border: 1px solid rgb(74, 74, 83);
+}
+
+
+/*User profile view styles*/
 
 .last-btn, .next-btn {
     position: relative;
@@ -99,7 +251,6 @@
     }
 }
 
-/*USER PROFILE ENDS*/
 
 .avatar {
     vertical-align: top;
