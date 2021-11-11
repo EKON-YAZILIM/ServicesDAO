@@ -12,8 +12,6 @@ namespace DAO_DbService.Test
     {
         public UsersController usersControllers;
         public ActiveSessionController activeSessionController;
-        public AuctionBidController auctionBidController;
-        public AuctionController auctionController;
         public InfoController infoController;
         public JobPostCommentController jobPostCommentController;
         public JobPostController jobPostController;
@@ -39,8 +37,6 @@ namespace DAO_DbService.Test
             usersControllers = new UsersController();
             usersControllers = new UsersController();
             activeSessionController = new ActiveSessionController();
-            auctionBidController = new AuctionBidController();
-            auctionController = new AuctionController();
             infoController = new InfoController();
             jobPostCommentController = new JobPostCommentController();
             jobPostController = new JobPostController();

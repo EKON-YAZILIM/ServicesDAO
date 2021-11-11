@@ -245,28 +245,28 @@ namespace DAO_DbService.Controllers
             List<AuctionViewModel> result = new List<AuctionViewModel>();
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    result = (from act in db.Auctions
-                              join job in db.JobPosts on act.JobID equals job.JobID
-                              join user in db.Users on job.UserID equals user.UserId
-                              where status == null || act.Status == status
-                              select new AuctionViewModel
-                              {
-                                  JobID = act.JobID,
-                                  StartDate = act.StartDate,
-                                  EndDate = act.EndDate,
-                                  CreateDate = act.CreateDate,
-                                  JobPosterUserId = act.JobPosterUserId,
-                                  WinnerAuctionBidID = act.WinnerAuctionBidID,
-                                  UserName = user.UserName,
-                                  IsInternal = act.IsInternal,
-                                  Status = act.Status,
-                                  AuctionID = act.AuctionID,
-                                  Title = job.Title
+                //using (dao_maindb_context db = new dao_maindb_context())
+                //{
+                //    result = (from act in db.Auctions
+                //              join job in db.JobPosts on act.JobID equals job.JobID
+                //              join user in db.Users on job.UserID equals user.UserId
+                //              where status == null || act.Status == status
+                //              select new AuctionViewModel
+                //              {
+                //                  JobID = act.JobID,
+                //                  StartDate = act.StartDate,
+                //                  EndDate = act.EndDate,
+                //                  CreateDate = act.CreateDate,
+                //                  JobPosterUserId = act.JobPosterUserId,
+                //                  WinnerAuctionBidID = act.WinnerAuctionBidID,
+                //                  UserName = user.UserName,
+                //                  IsInternal = act.IsInternal,
+                //                  Status = act.Status,
+                //                  AuctionID = act.AuctionID,
+                //                  Title = job.Title
 
-                              }).ToList();
-                }
+                //              }).ToList();
+                //}
             }
             catch (Exception ex)
             {
@@ -289,19 +289,19 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    result = (from act in db.AuctionBids
-                              join user in db.Users on act.UserId equals user.UserId
-                              where act.AuctionID == auctionid
-                              select new AuctionBidViewModel
-                              {
-                                  AuctionID = act.AuctionID,
-                                  UserId = act.UserId,
-                                  Price = act.Price,
-                                  Time = act.Time,
-                                  ReputationStake = act.ReputationStake,
-                                  UserName = user.UserName
+                    //result = (from act in db.AuctionBids
+                    //          join user in db.Users on act.UserId equals user.UserId
+                    //          where act.AuctionID == auctionid
+                    //          select new AuctionBidViewModel
+                    //          {
+                    //              AuctionID = act.AuctionID,
+                    //              UserId = act.UserId,
+                    //              Price = act.Price,
+                    //              Time = act.Time,
+                    //              ReputationStake = act.ReputationStake,
+                    //              UserName = user.UserName
 
-                              }).ToList();
+                    //          }).ToList();
                 }
             }
             catch (Exception ex)
@@ -364,8 +364,8 @@ namespace DAO_DbService.Controllers
                         res.JobCount = JobsModel.Count();
 
                         //Get auction count
-                        var AuctionsModel = db.Auctions.ToList();
-                        res.AuctionCount = AuctionsModel.Count();
+                        //var AuctionsModel = db.Auctions.ToList();
+                        //res.AuctionCount = AuctionsModel.Count();
 
                         //Get voting count
                         //Get model from Voting_Engine_Url
@@ -387,9 +387,9 @@ namespace DAO_DbService.Controllers
                         if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
 
                         //Get auction ratio from the comparison of the last two months
-                        var AuctionPreviousCount = AuctionsModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
-                        var AuctionCount = AuctionsModel.Where(x => x.CreateDate > date).Count();
-                        if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
+                        //var AuctionPreviousCount = AuctionsModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        //var AuctionCount = AuctionsModel.Where(x => x.CreateDate > date).Count();
+                        //if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
 
                         //Get voting ratio from the comparison of the last two months
                         var VotingPreviousCount = Voting.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();

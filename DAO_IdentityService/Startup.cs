@@ -27,12 +27,19 @@ namespace DAO_IdentityService
             InitializeService();
         }
 
+        /// <summary>
+        ///  Loads application config from appsettings.json
+        /// </summary>
+        /// <param name="configuration"></param>
         public static void LoadConfig(IConfiguration configuration)
         {
             var config = configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
         }
 
+        /// <summary>
+        ///  Initializes application (Db migrations, connection check, timer construction)
+        /// </summary>
         public static void InitializeService()
         {
             Helpers.Encryption.EncryptionKey = Program._settings.EncryptionKey;

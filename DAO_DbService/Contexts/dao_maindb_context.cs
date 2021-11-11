@@ -29,8 +29,6 @@ namespace DAO_DbService.Contexts
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<AuctionBid> AuctionBids { get; set; }
-        public DbSet<Auction> Auctions { get; set; }
         public DbSet<JobPostComment> JobPostComments { get; set; }
         public DbSet<JobPost> JobPosts { get; set; }
         public DbSet<UserKYC> UserKYCs { get; set; }

@@ -34,12 +34,19 @@ namespace DAO_ApiGateway
             config.Bind(_settings);
         }
 
+        /// <summary>
+        ///  Loads application config from appsettings.json
+        /// </summary>
+        /// <param name="configuration"></param>
         public static void LoadConfig(IConfiguration configuration)
         {
             var config = configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
         }
 
+        /// <summary>
+        ///  Initializes application (Db migrations, connection check, timer construction)
+        /// </summary>
         public static void InitializeService()
         {
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);

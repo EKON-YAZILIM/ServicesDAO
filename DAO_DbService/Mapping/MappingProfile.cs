@@ -11,12 +11,6 @@ namespace DAO_DbService.Mapping
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
 
-            CreateMap<Auction, AuctionDto>();
-            CreateMap<AuctionDto, Auction>();
-
-            CreateMap<AuctionBid, AuctionBidDto>();
-            CreateMap<AuctionBidDto, AuctionBid>();
-
             CreateMap<JobPost, JobPostDto>();
             CreateMap<JobPostDto, JobPost>();
 

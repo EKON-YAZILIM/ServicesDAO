@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 using static Helpers.Constants.Enums;
 
-namespace DAO_DbService.Models
+namespace Helpers.Models.DtoModels.VoteDbDto
 {
-    public class Auction 
+    [Serializable]
+    public partial class AuctionDto
     {
-        [Key]
         public int AuctionID { get; set; }
         public int JobID { get; set; }
         public DateTime StartDate { get; set; }

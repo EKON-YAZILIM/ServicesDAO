@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
-namespace DAO_DbService.Models
+namespace Helpers.Models.DtoModels.VoteDbDto
 {
-    public class AuctionBid
+    [Serializable]
+    public partial class AuctionBidDto
     {
-        [Key]
         public int AuctionBidID { get; set; }
         public int AuctionID { get; set; }
         public int UserId { get; set; }
         public double Price { get; set; }
         public string Time { get; set; }
         public double ReputationStake { get; set; }
-
-
+  
     }
 }
