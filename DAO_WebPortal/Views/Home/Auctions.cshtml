@@ -46,7 +46,7 @@
                         @{int Count = 0;}
                         @foreach (var item in Model)
                         {
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Active && item.IsInternal == true)
+                            @if (item.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding && item.IsInternal == true)
                             {
                                 Count++;
                                 int TitleLenght = 0;
@@ -54,8 +54,8 @@
                                 <tr @*class=" auctionDetail" data-href="./Auction-Detail/@item.AuctionID"*@>
                                     <th scope="row">@Count</th>
                                     <td>@item.Title.Substring(0, TitleLenght)</td>
-                                    <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                    <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.InternalAuctionEndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.PublicAuctionEndDate.ToString("dd.MM.yyyy")</td>
                                     <td id="demo_@item.AuctionID"></td>
                                     <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
                                         <svg class="icon">
@@ -88,7 +88,7 @@
                         @{int Count2 = 0;}
                         @foreach (var item in Model)
                         {
-                            if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Active && item.IsInternal == false)
+                            if (item.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding && item.IsInternal == false)
                             {
                                 Count2++;
                                 int TitleLenght = 0;
@@ -96,8 +96,8 @@
                                 <tr @*class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID"*@>
                                     <th scope="row">@Count2</th>
                                     <td>@item.Title.Substring(0, TitleLenght)</td>
-                                    <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                    <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.InternalAuctionEndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.PublicAuctionEndDate.ToString("dd.MM.yyyy")</td>
                                     <td id="demo_@item.AuctionID"></td>
                                     <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
                                         <svg class="icon">
@@ -135,7 +135,7 @@
                         @{int Count3 = 0;}
                         @foreach (var item in Model)
                         {
-                            if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Completed && item.IsInternal == true)
+                            if (item.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed && item.IsInternal == true)
                             {
                                 Count3++;
                                 int TitleLenght = 0;
@@ -143,8 +143,8 @@
                                 <tr @*class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID"*@>
                                     <th scope="row">@Count3</th>
                                     <td>@item.Title.Substring(0, TitleLenght)</td>
-                                    <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                    <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.InternalAuctionEndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.PublicAuctionEndDate.ToString("dd.MM.yyyy")</td>
                                     <td id="demo_@item.AuctionID"></td>
                                     <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
                                         <svg class="icon">
@@ -176,7 +176,7 @@
                         @{int Count4 = 0;}
                         @foreach (var item in Model)
                         {
-                            if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Completed && item.IsInternal == false)
+                            if (item.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed && item.IsInternal == false)
                             {
                                 Count4++;
                                 int TitleLenght = 0;
@@ -184,8 +184,8 @@
                                 <tr @*class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID"*@>
                                     <th scope="row">@Count4</th>
                                     <td>@item.Title.Substring(0, TitleLenght)</td>
-                                    <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                    <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.InternalAuctionEndDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.PublicAuctionEndDate.ToString("dd.MM.yyyy")</td>
                                     <td id="demo_@item.AuctionID"></td>
                                     <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
                                         <svg class="icon">

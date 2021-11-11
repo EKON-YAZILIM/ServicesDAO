@@ -18,6 +18,5 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public string TimeFrame { get; set; }
         public DateTime LastUpdate { get; set; }
         public JobStatusTypes Status { get; set; }
-        public JobProgressTypes ProgressType { get; set; }
     }
 }

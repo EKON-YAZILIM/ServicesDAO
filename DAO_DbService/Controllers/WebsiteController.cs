@@ -48,7 +48,6 @@ namespace DAO_DbService.Controllers
                                   JobID = job.JobID,
                                   Status = job.Status,
                                   Amount = job.Amount,
-                                  ProgressType = job.ProgressType,
                                   CommentCount = count
                               }).ToList();
                 }
@@ -140,7 +139,6 @@ namespace DAO_DbService.Controllers
                         JobID = jobPost.JobID,
                         Status = jobPost.Status,
                         Amount = jobPost.Amount,
-                        ProgressType = jobPost.ProgressType,
                         CommentCount = count
                     };
                 }
@@ -181,7 +179,6 @@ namespace DAO_DbService.Controllers
                                   JobID = job.JobID,
                                   Status = job.Status,
                                   Amount = job.Amount,
-                                  ProgressType = job.ProgressType,
                                   CommentCount = count
 
                               }).ToList();
@@ -199,9 +196,9 @@ namespace DAO_DbService.Controllers
         /// </summary>
         /// <param name="ProgressType"></param>
         /// <returns></returns>
-        [Route("GetVoteJobsByProgressTypes")]
+        [Route("GetJobsByProgressTypes")]
         [HttpGet]
-        public List<JobPostDto> GetVoteJobsByProgressTypes(Helpers.Constants.Enums.JobProgressTypes? ProgressType)
+        public List<JobPostDto> GetJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
         {
             List<JobPostDto> res = new List<JobPostDto>();
 
@@ -210,7 +207,7 @@ namespace DAO_DbService.Controllers
                 res = (from job in db.JobPosts
                        join user in db.Users on job.UserID equals user.UserId
                        let explenation = job.JobDescription.Substring(0, 100)
-                       where job.ProgressType == ProgressType
+                       where job.Status == status
                        select new JobPostDto
                        {
                            JobID = job.JobID,
@@ -222,8 +219,7 @@ namespace DAO_DbService.Controllers
                            DosPaid = job.DosPaid,
                            TimeFrame = job.TimeFrame,
                            LastUpdate = job.LastUpdate,
-                           Status = job.Status,
-                           ProgressType = job.ProgressType
+                           Status = job.Status
                        }).ToList();
             }
             return res;
@@ -240,33 +236,35 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAuction")]
         [HttpGet]
-        public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.JobStatusTypes? status)
+        public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.AuctionStatusTypes? status)
         {
             List<AuctionViewModel> result = new List<AuctionViewModel>();
             try
             {
-                //using (dao_maindb_context db = new dao_maindb_context())
-                //{
-                //    result = (from act in db.Auctions
-                //              join job in db.JobPosts on act.JobID equals job.JobID
-                //              join user in db.Users on job.UserID equals user.UserId
-                //              where status == null || act.Status == status
-                //              select new AuctionViewModel
-                //              {
-                //                  JobID = act.JobID,
-                //                  StartDate = act.StartDate,
-                //                  EndDate = act.EndDate,
-                //                  CreateDate = act.CreateDate,
-                //                  JobPosterUserId = act.JobPosterUserId,
-                //                  WinnerAuctionBidID = act.WinnerAuctionBidID,
-                //                  UserName = user.UserName,
-                //                  IsInternal = act.IsInternal,
-                //                  Status = act.Status,
-                //                  AuctionID = act.AuctionID,
-                //                  Title = job.Title
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    string auctionsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/GetAuctionsByStatus?status=" + status);
+                    List<AuctionDto> model = Helpers.Serializers.DeserializeJson<List<AuctionDto>>(auctionsJson);
 
-                //              }).ToList();
-                //}
+                    result = (from act in model
+                              join job in db.JobPosts on act.JobID equals job.JobID
+                              join user in db.Users on job.UserID equals user.UserId
+                              where status == null || act.Status == status
+                              select new AuctionViewModel
+                              {
+                                  JobID = act.JobID,
+                                  InternalAuctionEndDate = act.InternalAuctionEndDate,
+                                  PublicAuctionEndDate = act.PublicAuctionEndDate,
+                                  CreateDate = act.CreateDate,
+                                  JobPosterUserId = act.JobPosterUserId,
+                                  WinnerAuctionBidID = act.WinnerAuctionBidID,
+                                  UserName = user.UserName,
+                                  Status = act.Status,
+                                  AuctionID = act.AuctionID,
+                                  Title = job.Title
+
+                              }).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -274,6 +272,7 @@ namespace DAO_DbService.Controllers
             }
             return result;
         }
+
 
         /// <summary>
         /// Get auctions bids
@@ -289,19 +288,21 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    //result = (from act in db.AuctionBids
-                    //          join user in db.Users on act.UserId equals user.UserId
-                    //          where act.AuctionID == auctionid
-                    //          select new AuctionBidViewModel
-                    //          {
-                    //              AuctionID = act.AuctionID,
-                    //              UserId = act.UserId,
-                    //              Price = act.Price,
-                    //              Time = act.Time,
-                    //              ReputationStake = act.ReputationStake,
-                    //              UserName = user.UserName
+                    string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/AuctionBid/GetByAuctionId?auctionid=" + auctionid);
+                    List<AuctionBidDto> model = Helpers.Serializers.DeserializeJson<List<AuctionBidDto>>(auctionBidJson);
+                    result = (from act in model
+                              join user in db.Users on act.UserId equals user.UserId
+                              where act.AuctionID == auctionid
+                              select new AuctionBidViewModel
+                              {
+                                  AuctionID = act.AuctionID,
+                                  UserId = act.UserId,
+                                  Price = act.Price,
+                                  Time = act.Time,
+                                  ReputationStake = act.ReputationStake,
+                                  UserName = user.UserName
 
-                    //          }).ToList();
+                              }).ToList();
                 }
             }
             catch (Exception ex)
@@ -320,9 +321,9 @@ namespace DAO_DbService.Controllers
         /// </summary>
         /// <param name="userid"></param>
         /// <returns></returns>
-        [Route("GetDashBoard")]
+        [Route("GetDashBoardAdmin")]
         [HttpGet]
-        public GetDashBoardViewModel GetDashBoard(int userid)
+        public GetDashBoardViewModel GetDashBoardAdmin(int userid)
         {
             GetDashBoardViewModel res = new GetDashBoardViewModel();
             try
@@ -335,13 +336,13 @@ namespace DAO_DbService.Controllers
                     if (userType == "Admin")
                     {
                         //Get job post model from GetVoteJobsByProgressTypes function
-                        res.JobPostDtos = GetVoteJobsByProgressTypes(Helpers.Constants.Enums.JobProgressTypes.AdminApprovalPending);
+                        res.JobPostDtos = GetJobsByStatus(Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending);
 
                         //Get auction model from GetAuctions function
-                        res.AuctionViewModels = GetAuctions(Helpers.Constants.Enums.JobStatusTypes.Active);
+                        res.AuctionViewModels = GetAuctions(Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding);
 
                         //Get auction model from GetVoteJobsByStatus function
-                        res.VotingViewModels = GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes.Active);
+                        res.VotingViewModels = GetVotingsByStatus(Helpers.Constants.Enums.VoteStatusTypes.Active);
 
                         //Get model from Service_Log_Url
                         res.ApplicationLogDtos = Helpers.Serializers.DeserializeJson<List<ApplicationLogDto>>(Helpers.Request.Get(Program._settings.Service_Log_Url + "/ApplicationLog/GetLastWithCount?count=" + 20));
@@ -352,25 +353,26 @@ namespace DAO_DbService.Controllers
                         //Get users registered in the last mounth
                         var date = DateTime.Now.AddMonths(-1);
                         var date2 = DateTime.Now.AddMonths(-2);
+
                         var usersModel = db.Users.Where(x => x.CreateDate > date).ToList();
                         res.UserDtos = _mapper.Map<List<User>, List<UserDto>>(usersModel).ToList();
 
-                        //Get users count
-                        var UsersModel = db.Users.ToList();
-                        res.UserCount = UsersModel.Count();
+                        //Get users count                    
+                        res.UserCount = db.Users.Count();
 
                         //Get job post count
-                        var JobsModel = db.JobPosts.ToList();
-                        res.JobCount = JobsModel.Count();
+
+                        res.JobCount = db.JobPosts.Count();
 
                         //Get auction count
-                        //var AuctionsModel = db.Auctions.ToList();
-                        //res.AuctionCount = AuctionsModel.Count();
+                        //Get model from Voting_Engine_Url
+                        var AuctionModel = Helpers.Serializers.DeserializeJson<List<AuctionDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/Get?"));
+                        res.AuctionCount = AuctionModel.Count();
 
                         //Get voting count
                         //Get model from Voting_Engine_Url
-                        var Voting = Helpers.Serializers.DeserializeJson<List<VotingDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get?"));
-                        res.VotingCount = Voting.Count();
+                        var VotingModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get?"));
+                        res.VotingCount = VotingModel.Count();
 
                         res.UserRatio = 0;
                         res.JobRatio = 0;
@@ -378,23 +380,94 @@ namespace DAO_DbService.Controllers
                         res.VotingRatio = 0;
 
                         //Get user ratio from the comparison of the last two months
-                        var UserPreviousCount = UsersModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var UserPreviousCount = db.Users.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
                         if (usersModel.Count() != 0) { res.UserRatio = ((usersModel.Count() * UserPreviousCount) / usersModel.Count()) * 100; }
 
                         //Get job ratio from the comparison of the last two months
-                        var JobPreviousCount = JobsModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
-                        var JobCount = JobsModel.Where(x => x.CreateDate > date).Count();
+                        var JobPreviousCount = db.JobPosts.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var JobCount = db.JobPosts.Where(x => x.CreateDate > date).Count();
                         if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
 
                         //Get auction ratio from the comparison of the last two months
-                        //var AuctionPreviousCount = AuctionsModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
-                        //var AuctionCount = AuctionsModel.Where(x => x.CreateDate > date).Count();
-                        //if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
+                        var AuctionPreviousCount = AuctionModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var AuctionCount = AuctionModel.Where(x => x.CreateDate > date).Count();
+                        if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
 
                         //Get voting ratio from the comparison of the last two months
-                        var VotingPreviousCount = Voting.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
-                        var VotingCount = Voting.Where(x => x.CreateDate > date).Count();
+                        var VotingPreviousCount = VotingModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var VotingCount = VotingModel.Where(x => x.CreateDate > date).Count();
                         if (VotingCount != 0) { res.VotingRatio = ((VotingCount * VotingPreviousCount) / VotingCount) * 100; }
+
+                        DateTime CardGraphDate = DateTime.Now.AddYears(-1);
+                        DateTime GraphDate = DateTime.Now.AddMonths(-6);
+
+                        //Function that gets user records for the last 1 year month by month.
+                        //User registration dates are grouped on a month by month using the group by method.
+                        res.UserCardGraph = db.Users.Where(x => x.CreateDate > CardGraphDate).ToList().GroupBy(
+                            User => User.CreateDate.Month,
+                            User => User.CreateDate,
+                                (Users, Counts) => new DashboardGraphModel
+                                {
+                                    Month = Users,
+                                    Count = Counts.Count(),
+                                }).OrderBy(x => x.Month).ToList();
+
+                        //Function that gets job records for the last 1 year month by month.
+                        //Job registration dates are grouped on a month by month using the group by method.
+                        res.JobCardGraph = db.JobPosts.Where(x => x.CreateDate > CardGraphDate).ToList().GroupBy(
+                            JobPost => JobPost.CreateDate.Month,
+                            JobPost => JobPost.CreateDate,
+                                (JobPosts, Counts) => new DashboardGraphModel
+                                {
+                                    Month = JobPosts,
+                                    Count = Counts.Count(),
+                                }).OrderBy(x => x.Month).ToList();
+
+                        //Function that gets auction records for the last 1 year month by month.
+                        //Auction registration dates are grouped on a month by month using the group by method.
+                        res.AuctionCardGraph = AuctionModel.Where(x => x.CreateDate > CardGraphDate).ToList().GroupBy(
+                            Auction => Auction.CreateDate.Month,
+                            Auction => Auction.CreateDate,
+                                (Auctions, Counts) => new DashboardGraphModel
+                                {
+                                    Month = Auctions,
+                                    Count = Counts.Count(),
+                                }).OrderBy(x => x.Month).ToList();
+
+                        //Function that gets voting records for the last 1 year month by month.
+                        //Voting registration dates are grouped on a month by month using the group by method.
+                        res.VotingCardGraph = VotingModel.Where(x => x.CreateDate > CardGraphDate).ToList().GroupBy(
+                            Voting => Voting.CreateDate.Month,
+                            Voting => Voting.CreateDate,
+                                (Voting, Counts) => new DashboardGraphModel
+                                {
+                                    Month = Voting,
+                                    Count = Counts.Count(),
+                                }).OrderBy(x => x.Month).ToList();
+
+                        //Function that gets auction records according to internal and public for the last 6 month.
+                        //Auction registration dates are grouped on a month by month using the group by method.
+                        res.AuctionGraph = AuctionModel.Where(x => x.CreateDate > GraphDate).ToList().GroupBy(
+                            Auction => Auction.CreateDate.Month,
+                            Auction => Auction,
+                            (Auctions, AuctionModel) => new AdminDashboardCardGraphModel
+                            {
+                                Month = Auctions,
+                                Count1 = AuctionModel.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding).Count(),
+                                Count2 = AuctionModel.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).Count(),
+                            }).OrderBy(x => x.Month).ToList();
+
+                        //Function that gets voting records according to formal and informal for the last 6 month.
+                        //Voting registration dates are grouped on a month by month using the group by method.
+                        res.VotingGraph = VotingModel.Where(x => x.CreateDate > GraphDate).ToList().GroupBy(
+                           Voting => Voting.CreateDate.Month,
+                           Voting => Voting,
+                           (Votings, VotingModel) => new AdminDashboardCardGraphModel
+                           {
+                               Month = Votings,
+                               Count1 = VotingModel.Where(x => x.IsFormal == true).Count(),
+                               Count2 = VotingModel.Where(x => x.IsFormal == false).Count(),
+                           }).OrderBy(x => x.MonthS).ToList();
 
                     }
                     else if (userType == "Associate")
@@ -423,16 +496,16 @@ namespace DAO_DbService.Controllers
         /// </summary>
         /// <param name="voteid"></param>
         /// <returns></returns>
-        [Route("GetVoteDetail")]
+        [Route("GetVotingDetail")]
         [HttpGet]
-        public List<VoteDto> GetVoteDetail(int voteid)
+        public List<VoteDto> GetVotingDetail(int votingid)
         {
             List<VoteDto> res = new List<VoteDto>();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    string voteJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVote?VoteJobID=" + voteid);
+                    string voteJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByVotingId?votingid=" + votingid);
                     res = Helpers.Serializers.DeserializeJson<List<VoteDto>>(voteJson);
                 }
             }
@@ -448,9 +521,9 @@ namespace DAO_DbService.Controllers
         /// </summary>
         /// <param name="status"></param>
         /// <returns></returns>
-        [Route("GetVoteJobsByStatus")]
+        [Route("GetVotingsByStatus")]
         [HttpGet]
-        public List<VotingViewModel> GetVoteJobsByStatus(Helpers.Constants.Enums.JobStatusTypes? status)
+        public List<VotingViewModel> GetVotingsByStatus(Helpers.Constants.Enums.VoteStatusTypes? status)
         {
             List<VotingViewModel> res = new List<VotingViewModel>();
             try
@@ -462,7 +535,7 @@ namespace DAO_DbService.Controllers
 
                     res = (from votejob in model
                            join job in db.JobPosts on votejob.JobID equals job.JobID
-                           where status == null || job.Status == status
+                           where status == null || votejob.Status == status
                            select new VotingViewModel
                            {
 

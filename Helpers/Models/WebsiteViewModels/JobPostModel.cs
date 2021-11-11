@@ -15,7 +15,6 @@ namespace Helpers.Models.WebsiteViewModels
         public int CommentCount { get; set; }
         public int JobID { get; set; }
         public JobStatusTypes Status { get; set; }
-        public JobProgressTypes ProgressType { get; set; }
         public double Amount { get; set; }
     }
 }

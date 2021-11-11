@@ -10,12 +10,12 @@ namespace Helpers.Models.WebsiteViewModels
         public int JobID { get; set; }
         public string Title { get; set; }
         public int AuctionID { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime InternalAuctionEndDate { get; set; }
+        public DateTime PublicAuctionEndDate { get; set; }
         public DateTime CreateDate { get; set; }
         public int JobPosterUserId { get; set; }
-        public int WinnerAuctionBidID { get; set; }
-        public JobStatusTypes Status { get; set; }
+        public int? WinnerAuctionBidID { get; set; }
+        public AuctionStatusTypes? Status { get; set; }
         public string UserName { get; set; }
         public bool IsInternal { get; set; }
     }

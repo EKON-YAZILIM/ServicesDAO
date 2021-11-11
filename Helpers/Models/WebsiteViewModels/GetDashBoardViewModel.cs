@@ -21,7 +21,13 @@ namespace Helpers.Models.WebsiteViewModels
         public double UserRatio { get; set; }
         public double JobRatio { get; set; }
         public double AuctionRatio { get; set; }
-        public double VotingRatio { get; set; }     
+        public double VotingRatio { get; set; }
+        public List<DashboardGraphModel> UserCardGraph { get; set; }
+        public List<DashboardGraphModel> JobCardGraph { get; set; }
+        public List<DashboardGraphModel> AuctionCardGraph { get; set; }
+        public List<DashboardGraphModel> VotingCardGraph { get; set; }
+        public List<AdminDashboardCardGraphModel> AuctionGraph { get; set; }
+        public List<AdminDashboardCardGraphModel> VotingGraph { get; set; }
 
     }
 }

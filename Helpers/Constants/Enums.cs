@@ -64,7 +64,7 @@
         /// <summary>
         ///  Enum of current progress of a job post
         /// </summary>
-        public enum JobProgressTypes
+        public enum JobStatusTypes
         {
             AdminApprovalPending,
             DoSFeePending,
@@ -79,13 +79,13 @@
         }
 
         /// <summary>
-        ///  Enum of current status of a job
+        ///  Enum of current status of an auction
         /// </summary>
-        public enum JobStatusTypes
+        public enum AuctionStatusTypes
         {
-            Pending,
-            Active,
-            Waiting,
+            AdminApproval,
+            InternalBidding,
+            PublicBidding,
             Completed,
             Expired
         }
@@ -98,7 +98,8 @@
             Pending,
             Active,
             Waiting,
-            Completed
+            Completed,
+            Expired
         }
     }
 }
