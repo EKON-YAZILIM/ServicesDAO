@@ -467,7 +467,7 @@ namespace DAO_DbService.Controllers
                                Month = Votings,
                                Count1 = VotingModel.Where(x => x.IsFormal == true).Count(),
                                Count2 = VotingModel.Where(x => x.IsFormal == false).Count(),
-                           }).OrderBy(x => x.MonthS).ToList();
+                           }).OrderBy(x => x.Month).ToList();
 
                     }
                     else if (userType == "Associate")
