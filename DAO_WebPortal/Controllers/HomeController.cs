@@ -145,13 +145,15 @@ namespace DAO_WebPortal.Controllers
             AuctionBidWebsiteModel AuctionDetailModel = new AuctionBidWebsiteModel();
             try
             {
-                //Get model from ApiGateway
+                //Get bids model from ApiGateway
                 var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
-
+                //Get auction model from ApiGateway
+                var url2 = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionByAuctionID?AuctionID=" + AuctionID, HttpContext.Session.GetString("Token"));
+                
                 //Parse response
                 AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(url);
-                //Set AuctionID
-                AuctionDetailModel.AuctionID = AuctionID;
+                //Parse response
+                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionViewModel>(url2); 
             }
             catch (Exception ex)
             {

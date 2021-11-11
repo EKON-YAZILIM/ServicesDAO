@@ -312,6 +312,31 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+
+        /// <summary>
+        /// Get auction by Auction id
+        /// </summary>
+        /// <param name="AuctionID"></param>
+        /// <returns></returns>
+        [Route("GetAuctionByAuctionID")] 
+        [HttpGet]
+        public AuctionViewModel GetAuctionByAuctionID(int AuctionID)
+        {
+            AuctionViewModel result = new AuctionViewModel();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/AuctionBid/GetId?id=" + AuctionID);
+                    result = Helpers.Serializers.DeserializeJson<AuctionViewModel>(auctionBidJson);             
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
         #endregion
 
         #region Dashboard
