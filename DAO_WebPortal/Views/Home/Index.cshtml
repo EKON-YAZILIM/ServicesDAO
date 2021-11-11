@@ -1,4 +1,6 @@
-﻿@{
+﻿@using DAO_WebPortal.Resources
+
+@{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
     ViewData["Title"] = "Page Title";
 }
@@ -10,7 +12,7 @@
             <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                 <div>
                     <div class="fs-4 fw-semibold">
-                       @Model.UserCount  <span class="fs-6 fw-normal">
+                        @Model.UserCount  <span class="fs-6 fw-normal">
                             (@Model.UserRatio%
                             @if (@Model.UserRatio > 0)
                             {
@@ -207,9 +209,8 @@
                                                 </svg>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Info</a>
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item text-danger" href="#">Delete</a>
+                                                <a class="dropdown-item" href="./Job-Detail/@item.JobID">Go to Detail</a>
+                                                <a class="dropdown-item" onclick="JobSubmit(@item.JobID)">Submit</a>
                                             </div>
                                         </div>
                                     </td>
@@ -422,5 +423,35 @@
 }
 
 
+<script>
 
+    function JobSubmit(id) {
+       
+            //Ajax put action
+        $.ajax({
+            type: "GET",
+            url: "../Home/AdminJobApproval",
+            data: {"JobId":id},
+                success: function (result) {
+                    console.log(result);
+                    if (result.success) {
+                        toastr.success(result.message);
+                        //setTimeout(function () {
+                        //    window.location.href = "./../My-Jobs";
+                        //}, 1000);
+                    }
+                    else {
+                        toastr.warning(result.message);
+                    }
+                },
+                  failure: function (response) {
+                        toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                     toastr.error("@Lang.UnexpectedError");
+                }
+            });
+    }
+
+</script>
 
