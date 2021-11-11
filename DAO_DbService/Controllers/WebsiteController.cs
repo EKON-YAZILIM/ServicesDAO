@@ -585,34 +585,6 @@ namespace DAO_DbService.Controllers
 
         #endregion
 
-        #region Reputation
-
-        /// <summary>
-        /// Get user reputation history
-        /// </summary>
-        /// <param name="userid"></param>
-        /// <returns></returns>
-        [Route("ReputationHistory")]
-        [HttpGet]
-        public List<UserReputationHistoryDto> ReputationHistory(int userid)
-        {
-            List<UserReputationHistoryDto> res = new List<UserReputationHistoryDto>();
-            try
-            {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    var url = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/UserReputationHistory/GetUserId?userid=" + userid);
-                    res = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(url);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return res;
-        }
-
-        #endregion
     }
 }
 

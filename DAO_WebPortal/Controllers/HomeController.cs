@@ -3,6 +3,7 @@ using DAO_WebPortal.Providers;
 using DAO_WebPortal.Resources;
 using Helpers.Constants;
 using Helpers.Models.DtoModels.MainDbDto;
+using Helpers.Models.DtoModels.ReputationDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
 using Helpers.Models.SharedModels;
 using Helpers.Models.WebsiteViewModels;
@@ -197,7 +198,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/ReputationHistory?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
 
                 //Parse response
                 ReputationHistoryModel = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(url);

@@ -101,5 +101,47 @@
             Completed,
             Expired
         }
+
+        /// <summary>
+        ///  Enum of type of a voting
+        /// </summary>
+        public enum VoteTypes
+        {
+            Simple,
+            Governance,
+            Admin,
+            JobCompletion,
+            JobRefund
+        }
+
+
+        /// <summary>
+        ///  Enum of vote directions
+        /// </summary>
+        public enum VoteDirection
+        {
+            For,
+            Against
+        }
+
+        /// <summary>
+        ///  Enum of current status of a reputation stake
+        /// </summary>
+        public enum ReputationStakeStatus
+        {
+            Staked,
+            Released
+        }
+
+
+        /// <summary>
+        ///  Enum of current status of a reputation stake
+        /// </summary>
+        public enum StakeReferenceType
+        {
+            Auction,
+            Voting
+        }
+
     }
 }

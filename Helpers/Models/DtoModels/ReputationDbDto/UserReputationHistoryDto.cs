@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Helpers.Models.DtoModels.VoteDbDto
+namespace Helpers.Models.DtoModels.ReputationDbDto
 {
     [Serializable]
     public partial class UserReputationHistoryDto

@@ -14,7 +14,7 @@
                     <div class="fs-4 fw-semibold">
                         @Model.UserCount  <span class="fs-6 fw-normal">
                             (@Model.UserRatio%
-                            @if (@Model.UserRatio > 0)
+                            @if (Model.UserRatio > 0)
                             {
                                 <svg class="icon">
                                     <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
@@ -53,7 +53,7 @@
                     <div class="fs-4 fw-semibold">
                         @Model.JobCount <span class="fs-6 fw-normal">
                             (@Model.JobRatio%
-                            @if (@Model.JobRatio > 0)
+                            @if (Model.JobRatio > 0)
                             {
                                 <svg class="icon">
                                     <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
@@ -91,7 +91,7 @@
                     <div class="fs-4 fw-semibold">
                         @Model.AuctionCount <span class="fs-6 fw-normal">
                             (@Model.AuctionRatio%
-                            @if (@Model.AuctionRatio > 0)
+                            @if (Model.AuctionRatio > 0)
                             {
                                 <svg class="icon">
                                     <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
@@ -129,7 +129,7 @@
                     <div class="fs-4 fw-semibold">
                         @Model.VotingCount <span class="fs-6 fw-normal">
                             (@Model.VotingRatio%
-                            @if (@Model.VotingRatio > 0)
+                            @if (Model.VotingRatio > 0)
                             {
                                 <svg class="icon">
                                     <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
@@ -420,14 +420,12 @@
 @section Scripts{
 
     <script src="~/Home/chartjs/js/main.js"></script>
-}
 
-
-<script>
+    <script>
 
     function JobSubmit(id) {
-       
-            //Ajax put action
+
+        //Ajax put action
         $.ajax({
             type: "GET",
             url: "../Home/AdminJobApproval",
@@ -453,5 +451,9 @@
             });
     }
 
-</script>
+    </script>
+
+}
+
+
 

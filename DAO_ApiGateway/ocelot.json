@@ -3,7 +3,6 @@
     //DbService API
     {
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
         "AllowedScopes": []
       },
       "DownstreamHostAndPorts": [
@@ -21,7 +20,6 @@
     //LogService API
     {
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
         "AllowedScopes": []
       },
       "DownstreamHostAndPorts": [
@@ -34,6 +32,23 @@
       "DownstreamScheme": "http",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "UpstreamPathTemplate": "/Log/{everything}",
+      "Priority": 1
+    },
+    //ReputationService API
+    {
+      "AuthenticationOptions": {
+        "AllowedScopes": []
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1095"
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamPathTemplate": "/Reputation/{everything}",
       "Priority": 1
     },
     //Public Actions
