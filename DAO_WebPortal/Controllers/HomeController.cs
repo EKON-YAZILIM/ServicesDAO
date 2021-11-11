@@ -38,7 +38,7 @@ namespace DAO_WebPortal.Controllers
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
                 {
                     //Get model from ApiGateway
-                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoard?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
                     dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
                     return View(dashModel);
@@ -145,13 +145,15 @@ namespace DAO_WebPortal.Controllers
             AuctionBidWebsiteModel AuctionDetailModel = new AuctionBidWebsiteModel();
             try
             {
-                //Get model from ApiGateway
+                //Get bids model from ApiGateway
                 var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
-
+                //Get auction model from ApiGateway
+                var url2 = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionByAuctionID?AuctionID=" + AuctionID, HttpContext.Session.GetString("Token"));
+                
                 //Parse response
                 AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(url);
-                //Set AuctionID
-                AuctionDetailModel.AuctionID = AuctionID;
+                //Parse response
+                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionViewModel>(url2); 
             }
             catch (Exception ex)
             {
@@ -171,7 +173,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVoteJobsByStatus", HttpContext.Session.GetString("Token"));
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVotingsByStatus", HttpContext.Session.GetString("Token"));
 
                 //Parse response
                 votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(url);

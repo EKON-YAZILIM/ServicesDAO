@@ -4,18 +4,36 @@
 }
 @model Helpers.Models.WebsiteViewModels.AuctionBidWebsiteModel
 
+
+@if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding)
+{
+    <div class="row d-flex m-2">
+        <div class="col-md-6 d-flex">
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+            <a class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
+                <svg class="icon me-2">
+                    <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
+                </svg>New Bid
+            </a>
+        </div>
+    </div>
+}
+
+
+
 <!--Tab list-->
 <div class="tab-content rounded-bottom mt-2">
-    <div class="tab-pane p-3 active" role="tabpanel" id="preview-924">
+    <div class="tab-pane p-2 active" role="tabpanel" id="preview-924">
         <div class="card m-2">
             <div class="card-header">
                 <!-- .header -->
                 <span class="small ms-1">Auction Bids Table</span>
-                <a style="float: right;" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
-                    <svg class="icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
-                    </svg> Add Bids
-                </a>
+                @*<a style="float: right;" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
+                        </svg> Add Bids
+                    </a>*@
             </div><!-- .header -->
             <div class="card-body">
                 <!-- Card Body -->
@@ -27,6 +45,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Time</th>
                             <th scope="col">Reputation Stake</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,6 +60,8 @@
                                 <td>@item.Price</td>
                                 <td>@item.Time</td>
                                 <td>@item.ReputationStake</td>
+                                <td>
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -74,7 +95,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" onclick="AuctionAdd(@Model.AuctionID);">Submit Auction</button>
+                <button type="submit" class="btn btn-primary" onclick="AuctionAdd(@Model.Auction.AuctionID);">Submit Auction</button>
             </div>
         </div>
     </div>

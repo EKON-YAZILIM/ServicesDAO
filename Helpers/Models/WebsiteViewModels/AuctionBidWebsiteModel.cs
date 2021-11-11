@@ -7,6 +7,6 @@ namespace Helpers.Models.WebsiteViewModels
    public class AuctionBidWebsiteModel
     {
         public List<AuctionBidViewModel> AuctionBidViewModels { get; set; }
-        public int AuctionID { get; set; } 
+        public AuctionViewModel Auction { get; set; } 
     }
 }
