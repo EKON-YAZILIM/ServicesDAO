@@ -19,6 +19,13 @@ namespace DAO_WebPortal
             public string RabbitMQPassword { get; set; }
             public string Service_ApiGateway_Url { get; set; }
             public string EncryptionKey { get; set; }
+
+            //DAO PARAMETERS
+            public int InternalAuctionDays { get; set; }
+            public int PublicAuctionDays { get; set; }
+            public int InformalVotingDays { get; set; }
+            public int FormalVotingDays { get; set; }
+            public double QuorumRatio { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();

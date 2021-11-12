@@ -25,6 +25,13 @@ namespace DAO_DbService.Mapping
 
             CreateMap<UserCommentVote, UserCommentVoteDto>();
             CreateMap<UserCommentVoteDto, UserCommentVote>();
+
+            CreateMap<Auction, AuctionDto>();
+            CreateMap<AuctionDto, Auction>();
+
+            CreateMap<AuctionBid, AuctionBidDto>();
+            CreateMap<AuctionBidDto, AuctionBid>();
+
         }
     }
 }

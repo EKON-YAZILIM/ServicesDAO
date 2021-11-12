@@ -74,24 +74,25 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    result = (from job in db.JobPostComments
-                              join user in db.Users on job.UserID equals user.UserId
-                              let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == job.JobPostCommentID)
-                              let downvote = db.UserCommentVotes.Count(x => x.IsUpVote == false && x.JobPostCommentID == job.JobPostCommentID)
-                              let isComment = job.UserID == userid ? true : false
-                              where job.JobID == jobid
+                    result = (from comment in db.JobPostComments
+                              join user in db.Users on comment.UserID equals user.UserId
+                              let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == comment.JobPostCommentID)
+                              let downvote = db.UserCommentVotes.Count(x => x.IsUpVote == false && x.JobPostCommentID == comment.JobPostCommentID)
+                              let isComment = comment.UserID == userid ? true : false
+                              where comment.JobID == jobid
                               select new JobPostCommentModel
                               {
-                                  JobPostCommentID = job.JobPostCommentID,
+                                  JobPostCommentID = comment.JobPostCommentID,
                                   ProfileImage = user.ProfileImage,
                                   UserName = user.UserName,
-                                  Date = job.Date,
-                                  Comment = job.Comment,
-                                  SubCommentID = job.SubCommentID,
+                                  Date = comment.Date,
+                                  Comment = comment.Comment,
+                                  SubCommentID = comment.SubCommentID,
                                   UpVote = upvote,
                                   DownVote = downvote,
-                                  IsComment = isComment,
-                                  Points = 0
+                                  IsUsersComment = isComment,
+                                  Points = 0,
+                                  IsPinned = comment.IsPinned
                               }).ToList();
 
                     var commentIds = result.Select(x => x.JobPostCommentID).ToList();
@@ -318,7 +319,7 @@ namespace DAO_DbService.Controllers
         /// </summary>
         /// <param name="AuctionID"></param>
         /// <returns></returns>
-        [Route("GetAuctionByAuctionID")] 
+        [Route("GetAuctionByAuctionID")]
         [HttpGet]
         public AuctionDto GetAuctionByAuctionID(int AuctionID)
         {
@@ -328,7 +329,7 @@ namespace DAO_DbService.Controllers
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
                     string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/GetId?id=" + AuctionID);
-                    result = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionBidJson);             
+                    result = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionBidJson);
                 }
             }
             catch (Exception ex)

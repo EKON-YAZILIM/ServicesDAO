@@ -222,5 +222,28 @@ namespace DAO_DbService.Controllers
             }
 
         }
+
+        [Route("ChangeJobStatus")]
+        [HttpGet]
+        public JobPostDto ChangeJobStatus(int jobid, JobStatusTypes status)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    JobPost item = db.JobPosts.Find(jobid);
+                    item.Status = status;
+                    db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+                    return _mapper.Map<JobPost, JobPostDto>(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return new JobPostDto();
+        }
     }
 }

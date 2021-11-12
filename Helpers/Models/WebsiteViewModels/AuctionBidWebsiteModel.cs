@@ -1,4 +1,4 @@
-﻿using Helpers.Models.DtoModels.VoteDbDto;
+﻿using Helpers.Models.DtoModels.MainDbDto;
 using System;
 using System.Collections.Generic;
 using System.Text;

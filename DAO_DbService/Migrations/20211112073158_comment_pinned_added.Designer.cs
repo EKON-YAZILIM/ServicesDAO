@@ -3,14 +3,16 @@ using System;
 using DAO_DbService.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAO_DbService.Migrations
 {
     [DbContext(typeof(dao_maindb_context))]
-    partial class dao_maindb_contextModelSnapshot : ModelSnapshot
+    [Migration("20211112073158_comment_pinned_added")]
+    partial class comment_pinned_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,64 +37,6 @@ namespace DAO_DbService.Migrations
                     b.HasKey("ActiveSessionID");
 
                     b.ToTable("ActiveSessions");
-                });
-
-            modelBuilder.Entity("DAO_DbService.Models.Auction", b =>
-                {
-                    b.Property<int>("AuctionID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int?>("DAOMemberCount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("InternalAuctionEndDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int?>("JobID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("JobPosterUserID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("PublicAuctionEndDate")
-                        .HasColumnType("datetime");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("WinnerAuctionBidID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AuctionID");
-
-                    b.ToTable("Auctions");
-                });
-
-            modelBuilder.Entity("DAO_DbService.Models.AuctionBid", b =>
-                {
-                    b.Property<int>("AuctionBidID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("AuctionID")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("double");
-
-                    b.Property<string>("Time")
-                        .HasColumnType("text");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("AuctionBidID");
-
-                    b.ToTable("AuctionBids");
                 });
 
             modelBuilder.Entity("DAO_DbService.Models.JobPost", b =>

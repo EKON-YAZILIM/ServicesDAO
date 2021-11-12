@@ -34,6 +34,23 @@
       "UpstreamPathTemplate": "/Log/{everything}",
       "Priority": 1
     },
+    //VotingEngine API
+    {
+      "AuthenticationOptions": {
+        "AllowedScopes": []
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1096"
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamPathTemplate": "/Voting/{everything}",
+      "Priority": 1
+    },
     //ReputationService API
     {
       "AuthenticationOptions": {

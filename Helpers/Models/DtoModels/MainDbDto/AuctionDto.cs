@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using static Helpers.Constants.Enums;
 
-namespace Helpers.Models.DtoModels.VoteDbDto
+namespace Helpers.Models.DtoModels.MainDbDto
 {
     [Serializable]
     public partial class AuctionDto

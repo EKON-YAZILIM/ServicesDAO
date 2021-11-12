@@ -1,4 +1,7 @@
 ﻿@using DAO_WebPortal.Resources
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+
 @{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
@@ -34,11 +37,35 @@
                         <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                     </svg> Share
                 </a>
+                <!-- New comment click -->
+                <a onclick="CreateReplyBox(this, 0)" class="card-text me-5 cA cursorp">
+                    <svg class="icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+                    </svg> Reply
+                </a>
+
+                <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
+                @if (Model.Auction != null && Model.Auction.WinnerAuctionBidID != null && Model.WinnerBid.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID") && Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed && Model.Voting == null)
+                {
+                    <!-- New comment click -->
+                    <button onclick="StartInformalVoting();" class="btn btn-sm btn-primary float-right">
+                        Start Informal Voting
+                    </button>
+                }
+
             </div><!-- Footer -->
             <!-- Comments footer -->
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
                     @{
+                        //Set the index of the pinned comments to first index
+                        var pinnedComments = Model.JobPostCommentModel.Where(x => x.IsPinned == true).ToList();
+                        Model.JobPostCommentModel.RemoveAll(x => x.IsPinned == true);
+                        foreach (var cmt in pinnedComments)
+                        {
+                            Model.JobPostCommentModel.Insert(0, cmt);
+                        }
+
                         ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList());
                     }
                 </div>
@@ -96,6 +123,10 @@
                                         <p>@commentItem.Comment</p>
                                     }
 
+                                    @if (Convert.ToBoolean(commentItem.IsPinned) == true)
+                                    {
+                                        <i class="fas fa-thumbtack"></i><i> <small>Pinned comment</small>  </i>
+                                    }
                                     <!--Upvote click -->
                                     <a onclick="UpVote(@commentItem.JobPostCommentID);" class="card-text me-2 ms-2 cA cursorp">
                                         <!-- IsUpVote check-->
@@ -130,7 +161,7 @@
                                         </svg> Reply
                                     </a>
 
-                                    @if (commentItem.IsComment == true && commentItem.Comment != "This comment is deleted by the owner.")
+                                    @if (commentItem.IsUsersComment == true && commentItem.Comment != "This comment is deleted by the owner.")
                                     {
                                         <a onclick="DeleteComment(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp" id="delete_@commentItem.JobPostCommentID">
                                             <svg class="icon">
@@ -162,142 +193,180 @@
 @section Scripts{
     <script>
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
 
-    });
-
-    //Upvote function
-    function UpVote(id) {
-        //Ajax get action
-        $.ajax({
-            type: "GET",
-            url: "../Home/UpVote",
-            data: { "JobPostCommentId": id },
-            success: function (result) {
-
-                //Update upvote and downvote count
-                document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
-                document.getElementById("voteDownCount_" + id).innerHTML = result.content[1];
-
-                //Add and remove myClass
-                //Checking for existence of myClass
-                if ($("#voteUp_" + id).hasClass("fas")) {
-                    $("#voteUp_" + id).removeClass("fas");
-                    $("#voteUp_" + id).addClass("far");
-                }
-                else if ($("#voteDown_" + id).hasClass("fas")) {
-                    $("#voteDown_" + id).removeClass("fas");
-                    $("#voteDown_" + id).addClass("far");
-
-                    $("#voteUp_" + id).removeClass("far");
-                    $("#voteUp_" + id).addClass("fas");
-                }
-                else {
-                    $("#voteUp_" + id).removeClass("far");
-                    $("#voteUp_" + id).addClass("fas");
-                }
-            }
         });
-    }
 
-    //Downvote function
-    function DownVote(id) {
-        //Ajax get action
-        $.ajax({
-            type: "GET",
-            url: "../Home/DownVote",
-            data: { "JobPostCommentId": id },
-            success: function (result) {
+        //Upvote function
+        function UpVote(id) {
+            //Ajax get action
+            $.ajax({
+                type: "GET",
+                url: "../Home/UpVote",
+                data: { "JobPostCommentId": id },
+                success: function (result) {
 
-                //Update upvote and downvote count
-                document.getElementById("voteDownCount_" + id).innerHTML =  result.content[1];
-                document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
+                    //Update upvote and downvote count
+                    document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
+                    document.getElementById("voteDownCount_" + id).innerHTML = result.content[1];
 
-                //Add and remove myClass
-                //Checking for existence of myClass
-                if ($("#voteDown_" + id).hasClass("fas")) {
-                    $("#voteDown_" + id).removeClass("fas");
-                    $("#voteDown_" + id).addClass("far");
-                }
-                else if ($("#voteUp_" + id).hasClass("fas")) {
-                    $("#voteUp_" + id).removeClass("fas");
-                    $("#voteUp_" + id).addClass("far");
+                    //Add and remove myClass
+                    //Checking for existence of myClass
+                    if ($("#voteUp_" + id).hasClass("fas")) {
+                        $("#voteUp_" + id).removeClass("fas");
+                        $("#voteUp_" + id).addClass("far");
+                    }
+                    else if ($("#voteDown_" + id).hasClass("fas")) {
+                        $("#voteDown_" + id).removeClass("fas");
+                        $("#voteDown_" + id).addClass("far");
 
-                    $("#voteDown_" + id).removeClass("far");
-                    $("#voteDown_" + id).addClass("fas");
-                }
-                else {
-                    $("#voteDown_" + id).removeClass("far");
-                    $("#voteDown_" + id).addClass("fas");
-                }
-            }
-        });
-    }
-
-    //Creates reply textbox below the comment
-    function CreateReplyBox(e, commentid) {
-        $(e).parent().append("<div class='comment-body mt-2'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary' onclick='AddNewComment("+@Model.JobPostWebsiteModel.JobID+","+commentid+");'>Reply</button></div></div>")
-
-    }
-
-    //Add new Comment
-    function AddNewComment(jobid, commentid) {
-
-        $.ajax({
-            type: "POST",
-            url: "../Home/AddNewComment",
-            data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
-            success: function (result) {
-               console.log(result);
-                    if (result.success) {
-                        toastr.success(result.message);
+                        $("#voteUp_" + id).removeClass("far");
+                        $("#voteUp_" + id).addClass("fas");
                     }
                     else {
-                        toastr.warning(result.message);
+                        $("#voteUp_" + id).removeClass("far");
+                        $("#voteUp_" + id).addClass("fas");
                     }
-                },
-                  failure: function (response) {
-                        toastr.warning("@Lang.ConnectionError");
-                },
-                error: function (response) {
-                     toastr.error("@Lang.UnexpectedError");
+                }
+            });
+        }
 
-            }
-        });
-    }
+        //Downvote function
+        function DownVote(id) {
+            //Ajax get action
+            $.ajax({
+                type: "GET",
+                url: "../Home/DownVote",
+                data: { "JobPostCommentId": id },
+                success: function (result) {
 
-    //Delete Comment
-    function DeleteComment(commentid) {
+                    //Update upvote and downvote count
+                    document.getElementById("voteDownCount_" + id).innerHTML =  result.content[1];
+                    document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
 
-        $.ajax({
-            type: "DELETE",
-            url: "../Home/DeleteComment",
-            data: {  "CommentId": commentid },
-            success: function (result) {
-               console.log(result);
-                    if (result.success) {
-                        toastr.success(result.message);
-                        //setTimeout(function () {
-                        //    window.location.href = "./../Auction-Detail/"+id;
-                        //}, 1000);
+                    //Add and remove myClass
+                    //Checking for existence of myClass
+                    if ($("#voteDown_" + id).hasClass("fas")) {
+                        $("#voteDown_" + id).removeClass("fas");
+                        $("#voteDown_" + id).addClass("far");
+                    }
+                    else if ($("#voteUp_" + id).hasClass("fas")) {
+                        $("#voteUp_" + id).removeClass("fas");
+                        $("#voteUp_" + id).addClass("far");
+
+                        $("#voteDown_" + id).removeClass("far");
+                        $("#voteDown_" + id).addClass("fas");
                     }
                     else {
-                        toastr.warning(result.message);
+                        $("#voteDown_" + id).removeClass("far");
+                        $("#voteDown_" + id).addClass("fas");
                     }
-                },
-                  failure: function (response) {
-                        toastr.warning("@Lang.ConnectionError");
-                },
-                error: function (response) {
-                     toastr.error("@Lang.UnexpectedError");
-            }
-        });
-    }
+                }
+            });
+        }
 
-    //Share Job Post
-    function ShareJobPost() {
-        toastr.warning("This feature will be available in the next version.");
-    }
+        //Creates reply textbox below the comment
+        function CreateReplyBox(e, commentid) {
+            $(e).parent().append("<div class='comment-body mt-3'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2' onclick='AddNewComment("+@Model.JobPostWebsiteModel.JobID+","+commentid+");'>Reply</button></div></div>")
+
+        }
+
+        //Add new Comment
+        function AddNewComment(jobid, commentid) {
+
+            $.ajax({
+                type: "POST",
+                url: "../Home/AddNewComment",
+                data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
+                success: function (result) {
+                   console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                      failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+
+                }
+            });
+        }
+
+        //Delete Comment
+        function DeleteComment(commentid) {
+
+            $.ajax({
+                type: "DELETE",
+                url: "../Home/DeleteComment",
+                data: {  "CommentId": commentid },
+                success: function (result) {
+                   console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                            //setTimeout(function () {
+                            //    window.location.href = "./../Auction-Detail/"+id;
+                            //}, 1000);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                      failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+                }
+            });
+        }
+
+        //Share Job Post
+        function ShareJobPost() {
+            toastr.warning("This feature will be available in the next version.");
+            }
+
+        //Start informal voting process, only job doer is authorized for this action
+        function StartInformalVoting() {
+             $.confirm({
+                title: 'Confirmation',
+                content: 'Are you confirming that you submitted a valid evidence for job completion and start informal voting process ?',
+                buttons: {
+                    cancel: {
+                        text: 'Cancel'
+                    },
+                    confirm: {
+                        text: 'Continue',
+                        btnClass: 'btn btn-primary',
+                        action: function () {
+                            $.ajax({
+                                url: "../StartInformalVoting/"+@Model.JobPostWebsiteModel.JobID,
+                                type: "GET",
+                                dataType: 'json',
+                                success: function (result) {
+                                    if (result.success) {
+                                        toastr.success(result.message);
+                                    }
+                                    else {
+                                        toastr.warning(result.message);
+                                    }
+                                },
+                                failure: function (response) {
+                                    toastr.warning("@Lang.ConnectionError");
+                                },
+                                error: function (response) {
+                                    toastr.error("@Lang.UnexpectedError");
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        }
     </script>
 }

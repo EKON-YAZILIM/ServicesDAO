@@ -17,5 +17,6 @@ namespace DAO_DbService.Models
         public int SubCommentID { get; set; }
         public int UpVote { get; set; }
         public int DownVote { get; set; }
+        public bool? IsPinned { get; set; }
     }
 }

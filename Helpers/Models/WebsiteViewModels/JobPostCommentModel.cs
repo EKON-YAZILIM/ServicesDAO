@@ -16,6 +16,8 @@ namespace Helpers.Models.WebsiteViewModels
         public int DownVote { get; set; }
         public int Points { get; set; }
         public bool? IsUpVote { get; set; }
-        public bool IsComment { get; set; }
+        public bool IsUsersComment { get; set; }
+        public bool? IsPinned { get; set; }
+
     }
 }

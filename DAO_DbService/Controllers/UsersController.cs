@@ -282,5 +282,39 @@ namespace DAO_DbService.Controllers
             }
             return model;
         }
+
+        [Route("GetCount")]
+        [HttpGet]
+        public int? GetCount(UserIdentityType? type)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    if(type == UserIdentityType.Admin)
+                    {
+                        return db.Users.Count(x=>x.UserType == UserIdentityType.Admin.ToString());
+                    }
+                    else if (type == UserIdentityType.Associate)
+                    {
+                        return db.Users.Count(x => x.UserType == UserIdentityType.Associate.ToString());
+                    }
+                    else if (type == UserIdentityType.VotingAssociate)
+                    {
+                        return db.Users.Count(x => x.UserType == UserIdentityType.VotingAssociate.ToString());
+                    }
+                    else
+                    {
+                        return db.Users.Count();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return null;
+        }
     }
 }

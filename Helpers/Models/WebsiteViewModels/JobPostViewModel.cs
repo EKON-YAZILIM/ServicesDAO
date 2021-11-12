@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Helpers.Models.DtoModels.VoteDbDto;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using static Helpers.Constants.Enums;
