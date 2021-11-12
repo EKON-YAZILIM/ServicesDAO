@@ -123,7 +123,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuction", HttpContext.Session.GetString("Token"));
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions", HttpContext.Session.GetString("Token"));
 
                 //Parse response
                 auctionModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(url);
@@ -149,7 +149,7 @@ namespace DAO_WebPortal.Controllers
                 //Get bids model from ApiGateway
                 var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
                 //Get auction model from ApiGateway
-                var url2 = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionByAuctionID?AuctionID=" + AuctionID, HttpContext.Session.GetString("Token"));
+                var url2 = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + AuctionID, HttpContext.Session.GetString("Token"));
 
                 //Parse response
                 AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(url);
@@ -603,8 +603,9 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        #region Auction
         /// <summary>
-        /// Add new auction
+        /// Add new bid for auction
         /// </summary>
         /// <param name="Model">AuctionBidDto Model</param>
         /// <returns></returns>
@@ -648,6 +649,41 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
 
         }
+
+        /// <summary>
+        /// Add new bid for auction
+        /// </summary>
+        /// <param name="Model">AuctionBidDto Model</param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult Auction_Bid_Delete(int id)
+        {
+            SimpleResponse result = new SimpleResponse();
+            try
+            {
+                var userid = HttpContext.Session.GetInt32("UserID");
+
+                //Post model to ApiGateway
+                var model = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id="+id,  HttpContext.Session.GetString("Token")));
+
+                if (model)
+                {
+                    result.Success = true;
+                    result.Message = "Bid succesffully deleted.";
+                }
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
+        }
+        #endregion
 
         /// <summary>
         /// Add new comment
