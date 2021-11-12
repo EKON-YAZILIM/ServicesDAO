@@ -397,8 +397,7 @@ namespace DAO_DbService.Controllers
 
                         //Get auction count
                         //Get model from Voting_Engine_Url
-                        var AuctionModel = Helpers.Serializers.DeserializeJson<List<AuctionDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/Get?"));
-                        res.AuctionCount = AuctionModel.Count();
+                        res.AuctionCount = db.Auctions.Count();
 
                         //Get voting count
                         //Get model from Voting_Engine_Url
@@ -420,8 +419,8 @@ namespace DAO_DbService.Controllers
                         if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
 
                         //Get auction ratio from the comparison of the last two months
-                        var AuctionPreviousCount = AuctionModel.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
-                        var AuctionCount = AuctionModel.Where(x => x.CreateDate > date).Count();
+                        var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date).Count();
+                        var AuctionCount = db.Auctions.Where(x => x.CreateDate > date).Count();
                         if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
 
                         //Get voting ratio from the comparison of the last two months
@@ -456,7 +455,7 @@ namespace DAO_DbService.Controllers
 
                         //Function that gets auction records for the last 1 year month by month.
                         //Auction registration dates are grouped on a month by month using the group by method.
-                        res.AuctionCardGraph = AuctionModel.Where(x => x.CreateDate > CardGraphDate).ToList().GroupBy(
+                        res.AuctionCardGraph = db.Auctions.Where(x => x.CreateDate > CardGraphDate).ToList().GroupBy(
                             Auction => Auction.CreateDate.Month,
                             Auction => Auction.CreateDate,
                                 (Auctions, Counts) => new DashboardGraphModel
@@ -478,7 +477,7 @@ namespace DAO_DbService.Controllers
 
                         //Function that gets auction records according to internal and public for the last 6 month.
                         //Auction registration dates are grouped on a month by month using the group by method.
-                        res.AuctionGraph = AuctionModel.Where(x => x.CreateDate > GraphDate).ToList().GroupBy(
+                        res.AuctionGraph = db.Auctions.Where(x => x.CreateDate > GraphDate).ToList().GroupBy(
                             Auction => Auction.CreateDate.Month,
                             Auction => Auction,
                             (Auctions, AuctionModel) => new AdminDashboardCardGraphModel
@@ -501,13 +500,21 @@ namespace DAO_DbService.Controllers
                            }).OrderBy(x => x.Month).ToList();
 
                     }
-                    else if (userType == "Associate")
+                    else if (userType == "VotingAssociate")
                     {
+                        //Get job post model from GetVoteJobsByProgressTypes function
+                        res.JobPostDtos = GetJobsByProgressTypes(Helpers.Constants.Enums.JobStatusTypes.InternalAuction);
 
+                        //Get auction model from GetVoteJobsByStatus function
+                        res.VotingViewModels = GetVotingsByStatus(Helpers.Constants.Enums.VoteStatusTypes.Active);
                     }
                     else
                     {
+                        //Get job post model from GetVoteJobsByProgressTypes function
+                        res.JobPostDtos = GetJobsByProgressTypes(Helpers.Constants.Enums.JobStatusTypes.PublicAuction);
 
+                        //Get auction model from GetVoteJobsByStatus function
+                        res.VotingViewModels = GetVotingsByStatus(Helpers.Constants.Enums.VoteStatusTypes.Active);
                     }
                 }
             }
