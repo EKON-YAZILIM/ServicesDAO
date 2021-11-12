@@ -235,7 +235,7 @@ namespace DAO_DbService.Controllers
         /// </summary>
         /// <param name="status"></param>
         /// <returns></returns>
-        [Route("GetAuction")]
+        [Route("GetAuctions")]
         [HttpGet]
         public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.AuctionStatusTypes? status)
         {
@@ -244,20 +244,17 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    string auctionsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/GetAuctionsByStatus?status=" + status);
-                    List<AuctionDto> model = Helpers.Serializers.DeserializeJson<List<AuctionDto>>(auctionsJson);
-
-                    result = (from act in model
+                    result = (from act in db.Auctions
                               join job in db.JobPosts on act.JobID equals job.JobID
                               join user in db.Users on job.UserID equals user.UserId
                               where status == null || act.Status == status
                               select new AuctionViewModel
                               {
-                                  JobID = act.JobID,
-                                  InternalAuctionEndDate = act.InternalAuctionEndDate,
-                                  PublicAuctionEndDate = act.PublicAuctionEndDate,
+                                  JobID = Convert.ToInt32(act.JobID),
+                                  InternalAuctionEndDate = Convert.ToDateTime(act.InternalAuctionEndDate),
+                                  PublicAuctionEndDate = Convert.ToDateTime(act.PublicAuctionEndDate),
                                   CreateDate = act.CreateDate,
-                                  JobPosterUserId = act.JobPosterUserId,
+                                  JobPosterUserId = Convert.ToInt32(act.JobPosterUserID),
                                   WinnerAuctionBidID = act.WinnerAuctionBidID,
                                   UserName = user.UserName,
                                   Status = act.Status,
@@ -289,18 +286,16 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/AuctionBid/GetByAuctionId?auctionid=" + auctionid);
-                    List<AuctionBidDto> model = Helpers.Serializers.DeserializeJson<List<AuctionBidDto>>(auctionBidJson);
-                    result = (from act in model
-                              join user in db.Users on act.UserId equals user.UserId
+                    result = (from act in db.AuctionBids
+                              join user in db.Users on act.UserID equals user.UserId
                               where act.AuctionID == auctionid
                               select new AuctionBidViewModel
                               {
                                   AuctionID = act.AuctionID,
-                                  UserId = act.UserId,
+                                  UserId = Convert.ToInt32(act.UserID),
                                   Price = act.Price,
                                   Time = act.Time,
-                                  ReputationStake = act.ReputationStake,
+                                  ReputationStake = Convert.ToDouble(act.ReputationStake),
                                   UserName = user.UserName
 
                               }).ToList();
@@ -313,31 +308,6 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
-
-        /// <summary>
-        /// Get auction by Auction id
-        /// </summary>
-        /// <param name="AuctionID"></param>
-        /// <returns></returns>
-        [Route("GetAuctionByAuctionID")]
-        [HttpGet]
-        public AuctionDto GetAuctionByAuctionID(int AuctionID)
-        {
-            AuctionDto result = new AuctionDto();
-            try
-            {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/GetId?id=" + AuctionID);
-                    result = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionBidJson);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return result;
-        }
         #endregion
 
         #region Dashboard

@@ -742,11 +742,15 @@ namespace DAO_WebPortal.Controllers
                 {
                     JobID = JobId,
                     JobPosterUserId = JobModel.UserID,
+                    CreateDate = DateTime.Now,
+                    Status = AuctionStatusTypes.InternalBidding,
+                    InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
+                    PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)                    
                 };
 
                 //Post model to ApiGateway
                 //Add new auction
-                AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/StartNewAuction", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+                AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
 
                 if (AuctionModel != null && AuctionModel.AuctionID > 0)
                 {
