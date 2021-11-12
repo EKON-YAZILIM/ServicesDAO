@@ -167,8 +167,8 @@ namespace DAO_WebPortal.Controllers
         /// Votes Page
         /// </summary>
         /// <returns></returns>
-        [Route("Votes")]
-        public IActionResult Votes()
+        [Route("Voting")]
+        public IActionResult Voting()
         {
             List<VotingViewModel> votesModel = new List<VotingViewModel>();
             try

@@ -67,6 +67,8 @@ namespace DAO_DbService
                 monitizer.AddException(mysqlcontrol.Exception, LogTypes.ApplicationError, true);
             }
 
+            TimedEvents.StartTimers();
+
             if (monitizer.startSuccesful != -1)
             {
                 monitizer.startSuccesful = 1;

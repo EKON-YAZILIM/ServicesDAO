@@ -16,7 +16,37 @@
                         <div class="titleContainer">
                             <h5 class="card-title" title="Services DAO Portal Scoping Grant">@item.Title </h5>
                             <small class="text-medium-emphasis">@item.CreateDate.ToString("dd.MM.yyyy") , @item.UserName</small>
-                        </div>
+
+                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || item.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || item.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
+                            {
+                                <span class="badge bg-warning float-right mt-1">Pending</span>
+                            }
+
+                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction || item.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction)
+                            {
+                                <a href="../Auctions" class="badge bg-primary float-right mt-1">Auction Continues</a>
+                            }
+
+                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
+                            {
+                                <a href="../Voting" class="badge bg-success float-right mt-1">Informal Voting</a>
+                            }
+
+                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
+                            {
+                                <span href="../Voting" class="badge bg-success float-right mt-1">Formal Voting</span>
+                            }
+
+                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
+                            {
+                                <span class="badge bg-success float-right mt-1">Completed</span>
+                            }
+
+                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || item.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
+                            {
+                                <span class="badge bg-danger float-right">@item.Status.ToString()</span>
+                            }
+                        </div>                      
                     </div><!-- .header -->
                     <!-- Card Body -->
                     <div class="card-body cursorp" onclick="window.location.href='./Job-Detail/' + @item.JobID">

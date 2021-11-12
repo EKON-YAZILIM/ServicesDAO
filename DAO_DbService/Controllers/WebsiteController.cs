@@ -158,31 +158,55 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetUserJobs")]
         [HttpGet]
-        public List<JobPostViewModel> GetUserJobs(int userid)
+        public MyJobsViewModel GetUserJobs(int userid)
         {
-            List<JobPostViewModel> result = new List<JobPostViewModel>();
+            MyJobsViewModel result = new MyJobsViewModel();
+            result.ownedJobs = new List<JobPostViewModel>();
+            result.doerJobs = new List<JobPostViewModel>();
+
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    result = (from job in db.JobPosts
-                              join user in db.Users on job.UserID equals user.UserId
-                              let explenation = job.JobDescription.Substring(0, 100)
-                              let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
-                              where job.UserID == userid
-                              select new JobPostViewModel
-                              {
-                                  Title = job.Title,
-                                  UserName = user.UserName,
-                                  CreateDate = job.CreateDate,
-                                  JobDescription = job.JobDescription,
-                                  LastUpdate = job.LastUpdate,
-                                  JobID = job.JobID,
-                                  Status = job.Status,
-                                  Amount = job.Amount,
-                                  CommentCount = count
+                    result.ownedJobs = (from job in db.JobPosts
+                                        join user in db.Users on job.UserID equals user.UserId
+                                        let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
+                                        let explanation = job.JobDescription.Substring(0, 150)
+                                        where job.UserID == userid
+                                        select new JobPostViewModel
+                                        {
+                                            Title = job.Title,
+                                            UserName = user.UserName,
+                                            CreateDate = job.CreateDate,
+                                            JobDescription = explanation,
+                                            LastUpdate = job.LastUpdate,
+                                            JobID = job.JobID,
+                                            Status = job.Status,
+                                            Amount = job.Amount,
+                                            CommentCount = count
 
-                              }).ToList();
+                                        }).ToList();
+
+                    result.doerJobs = (from job in db.JobPosts
+                                       join user in db.Users on job.UserID equals user.UserId
+                                       join auction in db.Auctions on job.JobID equals auction.JobID
+                                       join auctionbid in db.AuctionBids on auction.AuctionID equals auctionbid.AuctionID
+                                       let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
+                                       let explanation = job.JobDescription.Substring(0, 150)
+                                       where auctionbid.UserID == userid && auctionbid.AuctionBidID == auction.WinnerAuctionBidID
+                                       select new JobPostViewModel
+                                       {
+                                           Title = job.Title,
+                                           UserName = user.UserName,
+                                           CreateDate = job.CreateDate,
+                                           JobDescription = explanation,
+                                           LastUpdate = job.LastUpdate,
+                                           JobID = job.JobID,
+                                           Status = job.Status,
+                                           Amount = job.Amount,
+                                           CommentCount = count
+
+                                       }).ToList();
                 }
             }
             catch (Exception ex)

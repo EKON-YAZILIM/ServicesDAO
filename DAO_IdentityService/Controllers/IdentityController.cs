@@ -224,7 +224,7 @@ namespace DAO_IdentityService.Controllers
 
                     //Set email title and content
                     string emailTitle = "Welcome to ServicesDAO";
-                    string emailContent = "<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete the registration.</a>";
+                    string emailContent = "Greetings "+ userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to complete your registration. <br><br>"+"<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete the registration.</a>";
 
                     //Send email
                     SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
@@ -312,7 +312,7 @@ namespace DAO_IdentityService.Controllers
 
                     //Set password renewal email title and content
                     string emailTitle = "ServicesDAO Password Renewal";
-                    string emailContent = "<a href='" + Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc + "'>Click here to reset your password.</a>";
+                    string emailContent = "Greetings " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to reset your password. <br><br>" + "<a href='" + Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc + "'>Click here to reset your password.</a>";
 
                     //Send password renewal email
                     SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { model.email } };
