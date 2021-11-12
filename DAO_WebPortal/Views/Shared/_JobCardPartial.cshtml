@@ -1,0 +1,93 @@
+﻿@model Helpers.Models.WebsiteViewModels.JobPostViewModel
+
+@using DAO_WebPortal.Resources
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+
+
+<div class="card-header">
+    <!-- .header -->
+    <div class="titleContainer">
+        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title </h5>
+        <small class="text-medium-emphasis">@Model.CreateDate.ToString("dd.MM.yyyy") , @Model.UserName</small>
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
+        {
+            <span class="badge bg-warning float-right mt-1">Pending</span>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction || Model.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction)
+        {
+            <a href="../Auctions" class="badge bg-primary float-right mt-1">Auction Continues</a>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
+        {
+            <a href="../Voting" class="badge bg-success float-right mt-1">Informal Voting</a>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
+        {
+            <span href="../Voting" class="badge bg-success float-right mt-1">Formal Voting</span>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
+        {
+            <span class="badge bg-success float-right mt-1">Completed</span>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
+        {
+            <span class="badge bg-danger float-right">@Model.Status.ToString()</span>
+        }
+
+    </div>
+</div><!-- .header -->
+<!-- Card Body -->
+<div class="card-body cursorp" onclick="window.location.href='../Job-Detail/' + @Model.JobID">
+    <p class="p-3 card-text">
+        @Model.JobDescription
+    </p>
+    <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate.ToString("dd.MM.yyyy")</small></p>
+</div><!-- Card Body -->
+<!-- Footer -->
+<div class="card-footer">
+    <a class="card-text me-2 cA" href="../Job-Detail/@Model.JobID">
+        <svg class="icon">
+            <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+        </svg> @Model.CommentCount Comment
+    </a>
+    <a class="card-text cA" href="#" onclick="ShareJobPost();">
+        <svg class="icon">
+            <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
+        </svg> Share
+    </a>
+
+
+    <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
+    @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted && Model.JobDoerUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+    {
+        <!-- New comment click -->
+        <button onclick="StartInformalVoting(@Model.JobID);" class="btn btn-sm btn-primary float-right">
+            Start Informal Voting
+        </button>
+    }
+
+    <!-- Display "Submit KYC" button for job poster if auction is completed -->
+    @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+    {
+        <!-- New comment click -->
+        <button onclick="KYCModal();" class="btn btn-sm btn-primary float-right">
+            Submit KYC
+        </button>
+    }
+
+    <!-- Display "Pay DoS Fee" button for job poster if auction is completed -->
+    @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+    {
+        <!-- New comment click -->
+        <button onclick="PayDosFeeModal(@Model.JobID);" class="btn btn-sm btn-primary float-right">
+            Pay DoS Fee
+        </button>
+    }
+</div> <!-- Footer -->

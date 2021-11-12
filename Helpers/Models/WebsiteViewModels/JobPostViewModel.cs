@@ -17,5 +17,9 @@ namespace Helpers.Models.WebsiteViewModels
         public int JobID { get; set; }
         public JobStatusTypes Status { get; set; }
         public double Amount { get; set; }
+        public bool? DosFeePaid { get; set; }
+        public int JobDoerUserID { get; set; }
+        public int JobPosterUserID { get; set; }
+
     }
 }

@@ -10,80 +10,10 @@
 <!-- Row -->
 <div class="row">
     <div class="col-md-12">
+
         <div class="card mb-3">
-            <!-- Header -->
-            <div class="card-header">
-                <div class="titleContainer">
-                    <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.JobPostWebsiteModel.Title</h5>
-                    <small class="text-medium-emphasis">@Model.JobPostWebsiteModel.CreateDate.ToString("dd.MM.yyyy") , @Model.JobPostWebsiteModel.UserName</small>
+            <partial name="~/Views/Shared/_JobCardPartial.cshtml" model="Model.JobPostWebsiteModel" />
 
-                    @if (Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
-                    {
-                        <span class="badge bg-warning float-right mt-1">Pending</span>
-                    }
-
-                    @if (Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction || Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction)
-                    {
-                        <a href="../Auctions" class="badge bg-primary float-right mt-1">Auction Continues</a>
-                    }
-
-                    @if (Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
-                    {
-                        <a href="../Votings" class="badge bg-success float-right mt-1">Informal Voting</a>
-                    }
-
-                    @if (Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
-                    {
-                        <span href="../Voting" class="badge bg-success float-right mt-1">Formal Voting</span>
-                    }
-
-                    @if (Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
-                    {
-                        <span class="badge bg-success float-right mt-1">Completed</span>
-                    }
-
-                    @if (Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || Model.JobPostWebsiteModel.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
-                    {
-                        <span class="badge bg-danger float-right mt-1">@Model.JobPostWebsiteModel.Status.ToString()</span>
-                    }
-                </div>
-            </div><!-- Header -->
-            <!-- Body -->
-            <div class="card-body">
-                <p class="p-3 card-text">
-                    @Model.JobPostWebsiteModel.JobDescription
-                </p>
-                <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.JobPostWebsiteModel.LastUpdate.ToString("dd.MM.yyyy")</small></p>
-            </div><!-- Body -->
-            <!-- Footer -->
-            <div class="card-footer">
-                <a class="card-text me-2 cA" data-coreui-toggle="collapse" href="#commentsx" aria-expanded="true" aria-controls="commentsx">
-                    <svg class="icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                    </svg> @Model.JobPostWebsiteModel.CommentCount Comment
-                </a>
-                <a class="card-text me-2 cA" href="#" onclick="ShareJobPost();">
-                    <svg class="icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                    </svg> Share
-                </a>
-                <!-- New comment click -->
-                <a onclick="CreateReplyBox(this, 0)" class="card-text me-5 cA cursorp">
-                    <svg class="icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                    </svg> Reply
-                </a>
-
-                <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
-                @if (Model.Auction != null && Model.Auction.WinnerAuctionBidID != null && Model.WinnerBid.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID") && Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed && Model.Voting == null)
-                {
-                    <!-- New comment click -->
-                    <button onclick="StartInformalVoting();" class="btn btn-sm btn-primary float-right">
-                        Start Informal Voting
-                    </button>
-                }
-
-            </div><!-- Footer -->
             <!-- Comments footer -->
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
@@ -216,7 +146,9 @@
                     }
                 }
             </div>
+
         </div>
+
     </div>
 </div>
 
@@ -356,47 +288,6 @@
             });
         }
 
-        //Share Job Post
-        function ShareJobPost() {
-            toastr.warning("This feature will be available in the next version.");
-            }
-
-        //Start informal voting process, only job doer is authorized for this action
-        function StartInformalVoting() {
-             $.confirm({
-                title: 'Confirmation',
-                content: 'Are you confirming that you submitted a valid evidence for job completion and start informal voting process ?',
-                buttons: {
-                    cancel: {
-                        text: 'Cancel'
-                    },
-                    confirm: {
-                        text: 'Continue',
-                        btnClass: 'btn btn-primary',
-                        action: function () {
-                            $.ajax({
-                                url: "../StartInformalVoting/"+@Model.JobPostWebsiteModel.JobID,
-                                type: "GET",
-                                dataType: 'json',
-                                success: function (result) {
-                                    if (result.success) {
-                                        toastr.success(result.message);
-                                    }
-                                    else {
-                                        toastr.warning(result.message);
-                                    }
-                                },
-                                failure: function (response) {
-                                    toastr.warning("@Lang.ConnectionError");
-                                },
-                                error: function (response) {
-                                    toastr.error("@Lang.UnexpectedError");
-                                }
-                            });
-                        }
-                    }
-                }
-            });
-        }
+  
     </script>
 }

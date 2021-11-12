@@ -31,6 +31,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Home")]
         public IActionResult Index()
         {
+            ViewBag.Title = "Dashboard";
+
             GetDashBoardViewModel dashModel = new GetDashBoardViewModel();
             try
             {
@@ -47,19 +49,12 @@ namespace DAO_WebPortal.Controllers
                 //User type control for associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Associate.ToString())
                 {
-                    //Get model from ApiGateway
-                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-                    //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
+
                     return View("Index_Associate", dashModel);
                 }
                 //User type control for voting associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                 {
-                    //Get model from ApiGateway
-                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-                    //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
                     return View("Index_VotingAssociate", dashModel);
                 }
 
@@ -80,14 +75,16 @@ namespace DAO_WebPortal.Controllers
         [Route("My-Jobs")]
         public IActionResult My_Jobs()
         {
-            List<JobPostViewModel> myJobsModel = new List<JobPostViewModel>();
+            ViewBag.Title = "My Jobs";
+
+            MyJobsViewModel myJobsModel = new MyJobsViewModel();
             try
             {
                 //Get model from ApiGateway
                 var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
 
                 //Parse response
-                myJobsModel = Helpers.Serializers.DeserializeJson<List<JobPostViewModel>>(url);
+                myJobsModel = Helpers.Serializers.DeserializeJson<MyJobsViewModel>(url);
             }
             catch (Exception ex)
             {
@@ -103,6 +100,8 @@ namespace DAO_WebPortal.Controllers
         [Route("All-Jobs")]
         public IActionResult All_Jobs()
         {
+            ViewBag.Title = "All Jobs";
+
             List<JobPostViewModel> allJobsModel = new List<JobPostViewModel>();
             try
             {
@@ -126,6 +125,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Auctions")]
         public IActionResult Auctions()
         {
+            ViewBag.Title = "Auctions";
+
             List<AuctionViewModel> auctionModel = new List<AuctionViewModel>();
             try
             {
@@ -150,6 +151,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Auction-Detail/{AuctionID}")]
         public IActionResult Auction_Detail(int AuctionID)
         {
+            ViewBag.Title = "Auction Details";
+
             AuctionBidWebsiteModel AuctionDetailModel = new AuctionBidWebsiteModel();
             try
             {
@@ -177,6 +180,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Voting")]
         public IActionResult Voting()
         {
+            ViewBag.Title = "Votings";
+
             List<VotingViewModel> votesModel = new List<VotingViewModel>();
             try
             {
@@ -201,6 +206,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Reputation-History")]
         public IActionResult Reputation_History()
         {
+            ViewBag.Title = "Reputation History";
+
             List<UserReputationHistoryDto> ReputationHistoryModel = new List<UserReputationHistoryDto>();
             try
             {
@@ -224,6 +231,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Payments-History")]
         public IActionResult Payments_History()
         {
+            ViewBag.Title = "Payment History";
+
             return View();
         }
 
@@ -234,6 +243,8 @@ namespace DAO_WebPortal.Controllers
         [Route("User-Profile")]
         public IActionResult User_Profile()
         {
+            ViewBag.Title = "User Profile";
+
             UserDto profileModel = new UserDto();
 
             try
@@ -255,6 +266,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Contact-Help")]
         public IActionResult Contact_Help()
         {
+            ViewBag.Title = "Contact";
+
             return View();
         }
 
@@ -266,6 +279,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Job-Detail/{JobID}")]
         public IActionResult Job_Detail(int JobID)
         {
+            ViewBag.Title = "Job Details";
+
             JobPostDetailModel model = new JobPostDetailModel();
 
             try
@@ -314,6 +329,8 @@ namespace DAO_WebPortal.Controllers
         [Route("Vote-Detail/{VoteID}")]
         public IActionResult Vote_Detail(int VoteID)
         {
+            ViewBag.Title = "Voting Details";
+
             List<VoteDto> voteDetailModel = new List<VoteDto>();
             try
             {
@@ -337,6 +354,8 @@ namespace DAO_WebPortal.Controllers
         [Route("New-Job")]
         public IActionResult New_Job()
         {
+            ViewBag.Title = "Post New Job";
+
             return View();
         }
 
@@ -366,6 +385,7 @@ namespace DAO_WebPortal.Controllers
                     result.Success = true;
                     result.Message = "Job posted successfully and will be available after admin review.";
                     result.Content = model;
+                    return Json(result);
                 }
             }
             catch (Exception ex)
@@ -385,6 +405,8 @@ namespace DAO_WebPortal.Controllers
         [Route("My-Job-Edit/{Job}")]
         public IActionResult My_Job_Edit(int Job)
         {
+            ViewBag.Title = "Edit Job";
+
             JobPostDto jobDetailModel = new JobPostDto();
 
             try
@@ -671,7 +693,7 @@ namespace DAO_WebPortal.Controllers
                 var userid = HttpContext.Session.GetInt32("UserID");
 
                 //Post model to ApiGateway
-                var model = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id="+id,  HttpContext.Session.GetString("Token")));
+                var model = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));
 
                 if (model)
                 {
@@ -771,36 +793,62 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get Model from ApiGateway          
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + JobId, HttpContext.Session.GetString("Token"));
+                var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + JobId, HttpContext.Session.GetString("Token"));
                 //Parse result
-                var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(url);
-                //Set JobPost Model
-                JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.InternalAuction;
+                var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
 
-                //Update Model 
-                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
+                //Get job poster user object 
+                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + JobModel.UserID, HttpContext.Session.GetString("Token"));
+                //Parse result
+                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
-                //Set Auction model
-                AuctionDto AuctionModel = new AuctionDto()
+                //If job poster is admin or VA start auction immediately
+                if (userModel.UserType == UserIdentityType.VotingAssociate.ToString() || userModel.UserType == UserIdentityType.Admin.ToString())
                 {
-                    JobID = JobId,
-                    JobPosterUserId = JobModel.UserID,
-                    CreateDate = DateTime.Now,
-                    Status = AuctionStatusTypes.InternalBidding,
-                    InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
-                    PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)                    
-                };
+                    //Set JobPost Model
+                    JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.InternalAuction;
 
-                //Post model to ApiGateway
-                //Add new auction
-                AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+                    //Set Auction model
+                    AuctionDto AuctionModel = new AuctionDto()
+                    {
+                        JobID = JobId,
+                        JobPosterUserId = JobModel.UserID,
+                        CreateDate = DateTime.Now,
+                        Status = AuctionStatusTypes.InternalBidding,
+                        InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
+                        PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
+                    };
 
-                if (AuctionModel != null && AuctionModel.AuctionID > 0)
-                {
-                    result.Success = true;
-                    result.Message = "Submit succesfully.";
-                    result.Content = AuctionModel;
+                    //Post model to ApiGateway
+                    //Add new auction
+                    AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+
+                    if (AuctionModel != null && AuctionModel.AuctionID > 0)
+                    {
+                        result.Success = true;
+                        result.Message = "Job approved. Internal auction process started for the job.";
+                        result.Content = AuctionModel;
+                    }
                 }
+                //If job poster is not admin or VA check for KYC
+                else
+                {
+                    if (userModel.KYCStatus == false)
+                    {
+                        JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.KYCPending;
+                        result.Success = true;
+                        result.Message = "Job approved. User needs to complete KYC.";
+                    }
+                    else
+                    {
+                        JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.DoSFeePending;
+                        result.Success = true;
+                        result.Message = "Job approved. User needs to pay DoS fee.";
+                    }
+                }
+
+                //Update job status 
+                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
 
                 return Json(result);
 
@@ -856,9 +904,108 @@ namespace DAO_WebPortal.Controllers
                 res.Content = null;
 
                 //Change job status 
-                Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid="+jobid+"&status="+ JobStatusTypes.InformalVoting, HttpContext.Session.GetString("Token"));
+                Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + JobStatusTypes.InformalVoting, HttpContext.Session.GetString("Token"));
 
                 return Json(res);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        [HttpGet]
+        [Route("SubmitKYC")]
+        public JsonResult SubmitKYC()
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get Model from ApiGateway          
+                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                //Parse result
+                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
+                userModel.KYCStatus = true;
+                //Update Model 
+                var userResponse = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(userModel), HttpContext.Session.GetString("Token")));
+
+                if (userResponse != null && userResponse.UserId >= 0 && userResponse.KYCStatus == true)
+                {
+                    //Get Model from ApiGateway          
+                    var jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    //Parse result
+                    var JobsModel = Helpers.Serializers.DeserializeJson<List<JobPostDto>>(jobsJson);
+
+                    //Update users KYC Pending jobs to DoSFeePending
+                    foreach (var pendingJob in JobsModel)
+                    {
+                        if (pendingJob.Status == JobStatusTypes.KYCPending)
+                        {
+                            pendingJob.Status = JobStatusTypes.DoSFeePending;
+                            //Update Model 
+                            var jobUpdatResponse = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(pendingJob), HttpContext.Session.GetString("Token")));
+                        }
+                    }
+                }
+
+                result.Success = true;
+                result.Message = "KYC completed successfully.";
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        [HttpGet]
+        [Route("PayDosFee/{JobId}")]
+        public JsonResult PayDosFee(int JobId)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get Model from ApiGateway          
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + JobId, HttpContext.Session.GetString("Token"));
+                //Parse result
+                var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(url);
+                //Set JobPost Model
+                JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.InternalAuction;
+
+                //Update Model 
+                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
+
+                //Set Auction model
+                AuctionDto AuctionModel = new AuctionDto()
+                {
+                    JobID = JobId,
+                    JobPosterUserId = JobModel.UserID,
+                    CreateDate = DateTime.Now,
+                    Status = AuctionStatusTypes.InternalBidding,
+                    InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
+                    PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
+                };
+
+                //Post model to ApiGateway
+                //Add new auction
+                AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+
+                if (AuctionModel != null && AuctionModel.AuctionID > 0)
+                {
+                    result.Success = true;
+                    result.Message = "DoS fee successfully paid. Internal auction process started for the job.";
+                    result.Content = AuctionModel;
+                }
+
+                return Json(result);
             }
             catch (Exception ex)
             {

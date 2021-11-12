@@ -352,13 +352,8 @@
 
         //Login function
         function Login() {
-            //Disable submit button
-            $('.submitFormButton').prop('disabled', true);
-
-            //Display loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeIn(300);
-            $('.preloader').fadeIn(300);
+            //Show loader and disable submit button
+            ShowLoader();
 
             //Create login model
             var code = $('#securityCodeLogin').val();
@@ -396,18 +391,14 @@
                 },
                 failure: function (response) {
                     toastr.warning("@Lang.ConnectionError");
+                    HideLoader();
                 },
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
+                    HideLoader();
                 }
             }).done(function () {
-                //Enable submit button
-                $('.submitFormButton').removeAttr("disabled");
-
-                //Hide loading
-                $(".spinner").removeClass("load-done");
-                $('.spinner').fadeOut(300);
-                $('.preloader').delay(300).fadeOut(300);
+                HideLoader();
             });
         }
 
@@ -419,13 +410,8 @@
                 return;
             }
 
-            //Disable submit button
-            $('.submitFormButton').prop('disabled', true);
-
-            //Display loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeIn(300);
-            $('.preloader').fadeIn(300);
+            //Show loader and disable submit button
+            ShowLoader();
 
             //Create register model
             var email = $('#emailregister').val()
@@ -459,30 +445,21 @@
                 },
                 failure: function (response) {
                     toastr.warning("@Lang.ConnectionError");
+                    HideLoader();
                 },
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
+                    HideLoader();
                 }
             }).done(function () {
-                //Enable submit button
-                $('.submitFormButton').removeAttr("disabled");
-
-                //Hide loading
-                $(".spinner").removeClass("load-done");
-                $('.spinner').fadeOut(300);
-                $('.preloader').delay(300).fadeOut(300);
+                HideLoader();
             });
         }
 
         //Reset password function
         function ResetPassword() {
-            //Disable submit button
-            $('.submitFormButton').prop('disabled', true);
-
-            //Display loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeIn(300);
-            $('.preloader').fadeIn(300);
+            //Show loader and disable submit button
+            ShowLoader();
 
             //Create reset password model
             var email = $('#emailforgot').val()
@@ -511,32 +488,21 @@
                     }
                 },
                 failure: function (response) {
-                    toastr.warning("@Lang.ConnectionError");
+                    HideLoader();
                 },
                 error: function (response) {
-                    toastr.error("@Lang.UnexpectedError");
+                    HideLoader();
                 }
             }).done(function () {
-                //Enable submit button
-                $('.submitFormButton').removeAttr("disabled");
-
-                //Hide loading
-                $(".spinner").removeClass("load-done");
-                $('.spinner').fadeOut(300);
-                $('.preloader').delay(300).fadeOut(300);
+                HideLoader();
             });
 
         }
 
         //Reset password complete function
         function ResetPasswordComplete() {
-            //Disable submit button
-            $('.submitFormButton').prop('disabled', true);
-
-            //Display loading
-            $(".spinner").removeClass("load-done");
-            $('.spinner').fadeIn(300);
-            $('.preloader').fadeIn(300);
+            //Show loader and disable submit button
+            ShowLoader();
 
             //Create new password model
             var pass1 = $('#passreset').val()
@@ -570,21 +536,35 @@
                 },
                 failure: function (response) {
                     toastr.warning("@Lang.ConnectionError");
+                    HideLoader();
                 },
                 error: function (response) {
                     toastr.error("@Lang.UnexpectedError");
+                    HideLoader();
                 }
             }).done(function () {
-                //Enable submit button
-                $('.submitFormButton').removeAttr("disabled");
-
-                //Hide loading
-                $(".spinner").removeClass("load-done");
-                $('.spinner').fadeOut(300);
-                $('.preloader').delay(300).fadeOut(300);
+                HideLoader();
             });
         }
 
+        //Shows spinner and disables submit buttons
+        function ShowLoader() {
+            //Disable submit button
+            $('.submitFormButton').prop('disabled', true);
+            //Display loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeIn(300);
+            $('.preloader').fadeIn(300);
+        }
+
+        //Hides spinner and enables submit buttons
+        function HideLoader() {
+            //Hide loading
+            $('.spinner').fadeOut(300);
+            $('.preloader').delay(300).fadeOut(300);
+            //Enable submit button
+            $('.submitFormButton').removeAttr("disabled");
+        }
     </script>
 
     @RenderSection("Scripts", required: false)

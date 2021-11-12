@@ -131,7 +131,7 @@
                         <use xlink:href="/Home/images/svg/free.svg#cil-menu"></use>
                     </svg>
                 </button>
-
+                <h4 class="d-none d-md-block">@ViewBag.Title</h4>
                 <nav class="header-nav ms-auto me-4">
                     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
                         <input class="btn-check" id="btn-light-theme" type="radio" name="theme-switch" autocomplete="off" value="light-theme" onchange="handleThemeChange(this.value)">
@@ -204,6 +204,41 @@
         </footer>
     </div>
 
+    <!-- Modal KYC -->
+    <div class="modal" tabindex="-1" role="dialog" id="KYCModal" data-target="#KYCModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">KYC</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Please submit KYC information</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitKYC();">Submit KYC</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal DOS Fee -->
+    <div class="modal" tabindex="-1" role="dialog" id="DosFeeModal" data-target="#DosFeeModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">DoS Fee Payment</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Please pay DOS fee</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="PayDosFee();">Make Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="~/Home/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/Home/js/coreui.bundle.min.js"></script>
@@ -212,6 +247,7 @@
     <script src="~/Home/lib/chartjs/js/coreui-utils.js"></script>
     <script src="~/Home/lib/toastr/toastr.js"></script>
     <script src="~/Home/lib/jquery-confirm/jquery-confirm.js"></script>
+    <script src="~/Home/js/daofunctions.js"></script>
 
     <script>
 

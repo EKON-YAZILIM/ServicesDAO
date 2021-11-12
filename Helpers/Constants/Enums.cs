@@ -71,11 +71,12 @@
             KYCPending,
             InternalAuction,
             PublicAuction,
+            AuctionCompleted,
             InformalVoting,
             FormalVoting,            
             Completed,
             Failed,
-            Expired
+            Expired,
         }
 
         /// <summary>

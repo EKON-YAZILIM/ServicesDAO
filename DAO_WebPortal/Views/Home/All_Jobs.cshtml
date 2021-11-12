@@ -11,63 +11,7 @@
             @foreach (var item in Model)
             {
                 <div class="card mb-3">
-                    <div class="card-header">
-                        <!-- .header -->
-                        <div class="titleContainer">
-                            <h5 class="card-title" title="Services DAO Portal Scoping Grant">@item.Title </h5>
-                            <small class="text-medium-emphasis">@item.CreateDate.ToString("dd.MM.yyyy") , @item.UserName</small>
-
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || item.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || item.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
-                            {
-                                <span class="badge bg-warning float-right mt-1">Pending</span>
-                            }
-
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction || item.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction)
-                            {
-                                <a href="../Auctions" class="badge bg-primary float-right mt-1">Auction Continues</a>
-                            }
-
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
-                            {
-                                <a href="../Voting" class="badge bg-success float-right mt-1">Informal Voting</a>
-                            }
-
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
-                            {
-                                <span href="../Voting" class="badge bg-success float-right mt-1">Formal Voting</span>
-                            }
-
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
-                            {
-                                <span class="badge bg-success float-right mt-1">Completed</span>
-                            }
-
-                            @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || item.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
-                            {
-                                <span class="badge bg-danger float-right">@item.Status.ToString()</span>
-                            }
-                        </div>                      
-                    </div><!-- .header -->
-                    <!-- Card Body -->
-                    <div class="card-body cursorp" onclick="window.location.href='./Job-Detail/' + @item.JobID">
-                        <p class="p-3 card-text">
-                            @item.JobDescription
-                        </p>
-                        <p class="card-text"><small class="text-medium-emphasis">Last updated @item.LastUpdate.ToString("dd.MM.yyyy")</small></p>
-                    </div><!-- Card Body -->
-                    <!-- Footer -->
-                    <div class="card-footer">
-                        <a class="card-text me-2 cA" href="./Job-Detail/@item.JobID">
-                            <svg class="icon">
-                                <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                            </svg> @item.CommentCount Comment
-                        </a>
-                        <a class="card-text cA" href="#" onclick="ShareJobPost();">
-                            <svg class="icon">
-                                <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                            </svg> Share
-                        </a>
-                    </div> <!-- Footer -->
+                    <partial name="~/Views/Shared/_JobCardPartial.cshtml" model="item" />
                 </div>
             }
         }
@@ -82,10 +26,6 @@
 @section Scripts{
     <script>
 
-        //Share Job Post
-        function ShareJobPost() {
-            toastr.warning("This feature will be available in the next version.");
-        }
 
     </script>
 }

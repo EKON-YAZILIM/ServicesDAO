@@ -245,5 +245,26 @@ namespace DAO_DbService.Controllers
 
             return new JobPostDto();
         }
+
+        [Route("GetByUserId")]
+        [HttpGet]
+        public List<JobPostDto> GetByUserId(int userid)
+        {
+            List<JobPost> model = new List<JobPost>();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = db.JobPosts.Where(x=>x.UserID == userid).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return _mapper.Map<List<JobPost>, List<JobPostDto>>(model);
+        }
     }
 }

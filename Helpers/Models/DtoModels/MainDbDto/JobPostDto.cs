@@ -11,12 +11,13 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public int JobID { get; set; }
         public DateTime CreateDate { get; set; }
         public int UserID { get; set; }
+        public int JobDoerUserID { get; set; }
         public string Title { get; set; }
         public string JobDescription { get; set; }
         public double Amount { get; set; }
-        public double DosPaid { get; set; }
         public string TimeFrame { get; set; }
         public DateTime LastUpdate { get; set; }
         public JobStatusTypes Status { get; set; }
+        public bool? DosFeePaid { get; set; }
     }
 }
