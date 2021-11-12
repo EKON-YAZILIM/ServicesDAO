@@ -47,12 +47,19 @@ namespace DAO_WebPortal.Controllers
                 //User type control for associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Associate.ToString())
                 {
-
+                    //Get model from ApiGateway
+                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    //Parse response
+                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
                     return View("Index_Associate", dashModel);
                 }
                 //User type control for voting associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                 {
+                    //Get model from ApiGateway
+                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    //Parse response
+                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
                     return View("Index_VotingAssociate", dashModel);
                 }
 

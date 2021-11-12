@@ -199,7 +199,7 @@
                                         @item.Amount
                                     </td>
                                     <td>
-                                        @item.Status
+                                        Admin Approval Pending
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -225,6 +225,7 @@
     <!-- /.col-->
 </div>
 <!-- /.row-->
+
 <div class="row">
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
@@ -258,7 +259,7 @@
                                         @item.PublicAuctionEndDate.ToString("dd.MM.yyyy")
                                     </td>
                                     <td>
-                                        @item.Status
+                                        Internal Bidding
                                     </td>
                                 </tr>
                             }
@@ -304,7 +305,7 @@
                                             <span>Formal</span>}
                                         else
                                         { <span>InFormal</span>}
-                                        }
+
 
                                     </td>
                                 </tr>
@@ -318,6 +319,7 @@
     <!-- /.col-->
 </div>
 <!-- /.row-->
+
 <div class="row">
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
@@ -340,6 +342,8 @@
         </div>
     </div>
 </div>
+<!-- /.row-->
+
 <div class="row">
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
@@ -419,12 +423,11 @@
 
 @section Scripts{
 
-    <script src="~/Home/chartjs/js/main.js"></script>
+    @*<script src="~/Home/chartjs/js/main.js"></script>*@
 
     <script>
 
-    function JobSubmit(id) {
-
+        function JobSubmit(id) {
         //Ajax put action
         $.ajax({
             type: "GET",
@@ -434,9 +437,6 @@
                     console.log(result);
                     if (result.success) {
                         toastr.success(result.message);
-                        //setTimeout(function () {
-                        //    window.location.href = "./../My-Jobs";
-                        //}, 1000);
                     }
                     else {
                         toastr.warning(result.message);
@@ -449,7 +449,362 @@
                      toastr.error("@Lang.UnexpectedError");
                 }
             });
-    }
+        }
+
+        var MonthDictionary = {
+            1: "January",
+            2: "February",
+            3: "March",
+            4: "April",
+            5: "May",
+            6: "June",
+            7: "July",
+            8: "August",
+            9: "September",
+            10: "October",
+            11: "November",
+            12: "December",
+
+        }
+
+        var DataModel = @Html.Raw(Json.Serialize(Model));
+
+        UserCardDatalabels = [];
+        UserCardLabels = [];
+        for (var i = 0; i < DataModel.userCardGraph.length; i++) {
+            UserCardDatalabels.push(MonthDictionary[DataModel.userCardGraph[i].month]);
+            UserCardLabels.push(DataModel.userCardGraph[i].count);
+        }
+        const cardChart1 = new Chart(document.getElementById('card-chart1'), {
+            type: 'line',
+            data: {
+                labels: UserCardDatalabels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    pointBackgroundColor: coreui.Utils.getStyle('--cui-primary'),
+                    data: UserCardLabels
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        display: false,
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 1,
+                        tension: 0.4
+                    },
+                    point: {
+                        radius: 4,
+                        hitRadius: 10,
+                        hoverRadius: 4
+                    }
+                }
+            }
+        });
+
+        JobCardDatalabels = [];
+        JobCardLabels = [];
+        for (var i = 0; i < DataModel.jobCardGraph.length; i++) {
+            JobCardDatalabels.push(MonthDictionary[DataModel.jobCardGraph[i].month]);
+            JobCardLabels.push(DataModel.jobCardGraph[i].count);
+        }
+        const cardChart2 = new Chart(document.getElementById('card-chart2'), {
+            type: 'line',
+            data: {
+                labels: JobCardDatalabels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    pointBackgroundColor: coreui.Utils.getStyle('--cui-info'),
+                    data: JobCardLabels
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                            drawBorder: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        display: false,
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 1
+                    },
+                    point: {
+                        radius: 4,
+                        hitRadius: 10,
+                        hoverRadius: 4
+                    }
+                }
+            }
+        }); // eslint-disable-next-line no-unused-vars
+
+        AuctionCardDatalabels = [];
+        AuctionCardLabels = [];
+        for (var i = 0; i < DataModel.auctionCardGraph.length; i++) {
+            AuctionCardDatalabels.push(MonthDictionary[DataModel.auctionCardGraph[i].month]);
+            AuctionCardLabels.push(DataModel.auctionCardGraph[i].count);
+        }
+        const cardChart3 = new Chart(document.getElementById('card-chart3'), {
+            type: 'line',
+            data: {
+                labels: AuctionCardDatalabels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgba(255,255,255,.2)',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    data: AuctionCardLabels,
+                    fill: true
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: false
+                    },
+                    y: {
+                        display: false
+                    }
+                },
+                elements: {
+                    line: {
+                        borderWidth: 2,
+                        tension: 0.4
+                    },
+                    point: {
+                        radius: 0,
+                        hitRadius: 10,
+                        hoverRadius: 4
+                    }
+                }
+            }
+        }); // eslint-disable-next-line no-unused-vars
+
+        VotingCardDatalabels = [];
+        VotingCardLabels = [];
+        for (var i = 0; i < DataModel.votingCardGraph.length; i++) {
+            VotingCardDatalabels.push(MonthDictionary[DataModel.votingCardGraph[i].month]);
+            VotingCardLabels.push(DataModel.votingCardGraph[i].count);
+        }
+        const cardChart4 = new Chart(document.getElementById('card-chart4'), {
+            type: 'bar',
+            data: {
+                labels: VotingCardDatalabels,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: 'rgba(255,255,255,.2)',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    data: VotingCardLabels,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false,
+                            drawTicks: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                            drawTicks: false
+                        },
+                        ticks: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        AuctionDatalabels = [];
+        AuctionLabels1 = [];
+        AuctionLabels2 = [];
+        for (var i = 0; i < DataModel.auctionGraph.length; i++) {
+            AuctionDatalabels.push(MonthDictionary[DataModel.auctionGraph[i].month]);
+            AuctionLabels1.push(DataModel.auctionGraph[i].count1);
+            AuctionLabels2.push(DataModel.auctionGraph[i].count1);
+        }
+        const auctionChart = new Chart(document.getElementById('main-chart'), {
+            type: 'line',
+            data: {
+                labels: AuctionDatalabels,
+                datasets: [{
+                    label: 'Internal',
+                    backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10),
+                    borderColor: coreui.Utils.getStyle('--cui-info'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: AuctionLabels1,
+                    fill: true
+                }, {
+                    label: 'Public',
+                    borderColor: coreui.Utils.getStyle('--cui-success'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: AuctionLabels2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: true
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    },
+                    point: {
+                        radius: 0,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                        hoverBorderWidth: 3
+                    }
+                }
+            }
+        });
+
+        VotingDatalabels = [];
+        VotingLabels1 = [];
+        VotingLabels2 = [];
+        for (var i = 0; i < DataModel.votingGraph.length; i++) {
+            VotingDatalabels.push(MonthDictionary[DataModel.votingGraph[i].month]);
+            VotingLabels1.push(DataModel.votingGraph[i].count1);
+            VotingLabels2.push(DataModel.votingGraph[i].count2);
+        }
+        const votingChart = new Chart(document.getElementById('main-chart2'), {
+            type: 'line',
+            data: {
+                labels: VotingDatalabels,
+                datasets: [{
+                    label: 'Formal',
+                    backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10),
+                    borderColor: coreui.Utils.getStyle('--cui-info'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: VotingLabels1,
+                    fill: true
+                }, {
+                    label: 'Informal',
+                    borderColor: coreui.Utils.getStyle('--cui-success'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: VotingLabels2,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: true
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    },
+                    point: {
+                        radius: 0,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                        hoverBorderWidth: 3
+                    }
+                }
+            }
+        });
 
     </script>
 
