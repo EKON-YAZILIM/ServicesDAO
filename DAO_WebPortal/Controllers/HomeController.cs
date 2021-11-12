@@ -154,7 +154,7 @@ namespace DAO_WebPortal.Controllers
                 //Parse response
                 AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(url);
                 //Parse response
-                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionViewModel>(url2); 
+                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(url2); 
             }
             catch (Exception ex)
             {

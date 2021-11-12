@@ -4,8 +4,11 @@
 }
 @model Helpers.Models.WebsiteViewModels.AuctionBidWebsiteModel
 
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
 
-@if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding)
+@if ((Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()) ||
+ (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Associate.ToString()))
 {
     <div class="row d-flex m-2">
         <div class="col-md-6 d-flex">
@@ -19,8 +22,6 @@
         </div>
     </div>
 }
-
-
 
 <!--Tab list-->
 <div class="tab-content rounded-bottom mt-2">
@@ -71,68 +72,89 @@
     </div>
 </div>
 
-<!-- Modal Auction -->
-<div class="modal fade" id="Auction-Modal" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Modal title</h5>
-                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label class="form-label" for="price">Price</label>
-                    <input class="form-control" id="price" type="text" placeholder="Price">
+@if ((Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()) ||
+ (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Associate.ToString()))
+{
+    <!--New Bid Modal  -->
+    <div class="modal fade" id="Auction-Modal" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Modal title</h5>
+                    <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="time">Time</label>
-                    <input class="form-control" id="time" type="text" placeholder="Time">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Price</label>
+                        <input class="form-control" id="price" type="text" placeholder="Price">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="time">Time</label>
+                        <input class="form-control" id="time" type="text" placeholder="Time">
+                    </div>
+                    @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)
+                    {
+                        <div class="mb-3">
+                            <label class="form-label" for="reputation">ReputationStake</label>
+                            <input class="form-control" id="reputation" type="text" placeholder="Reputation">
+                        </div>
+                    }
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="reputation">ReputationStake</label>
-                    <input class="form-control" id="reputation" type="text" placeholder="Reputation">
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="AuctionAdd(@Model.Auction.AuctionID);">Submit Auction</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" onclick="AuctionAdd(@Model.Auction.AuctionID);">Submit Auction</button>
             </div>
         </div>
     </div>
-</div>
+}
 
-<script>
+@section Scripts{
 
-    //Auction bids adding function
-    function AuctionAdd(id) {
+    @if ((Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()) ||
+  (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Associate.ToString()))
+    {
 
-        //Create auction bid model
-        var price = $('#price').val()
-        var time = $('#time').val();
-        var reputation = $('#reputation').val();
-            //Ajax post action
-            $.ajax({
-                type: "POST",
-                url: "../Home/Auction_Bid_Add",
-                data: { "price": price, "time": time, "reputationStake": reputation, "auctionid": id },
-                success: function (result) {
-                    console.log(result);
-                    if (result.success) {
-                        toastr.success(result.message);
-                        setTimeout(function () {
-                            window.location.href = "./../Auction-Detail/"+id;
-                        }, 1000);
+        <script>
+             //Auction bids adding function
+            function AuctionAdd(id) {
+                //Create auction bid model
+                var price = $('#price').val()
+                var time = $('#time').val();
+                 //Ajax post action
+                $.ajax({
+                    type: "POST",
+                    url: "../Home/Auction_Bid_Add",
+                    data: {
+                        "price": price,
+                        "time": time,
+                        "auctionid": id,
+                        @(Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)? "reputationStake": $('#reputation').val(),
+                    },
+                    success: function (result) {
+                            console.log(result);
+                            if (result.success) {
+                                toastr.success(result.message);
+                                setTimeout(function () {
+                                    window.location.href = "./../Auction-Detail/"+id;
+                                }, 1000);
+                            }
+                            else {
+                                toastr.warning(result.message);
+                            }
+                        },
+                    failure: function (response) {
+                         toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
                     }
-                    else {
-                        toastr.warning(result.message);
-                    }
-                },
-                  failure: function (response) {
-                        toastr.warning("@Lang.ConnectionError");
-                },
-                error: function (response) {
-                     toastr.error("@Lang.UnexpectedError");
-                }
-            });
+                });
+            }
+        </script>
+
     }
-</script>
+
+
+}
+

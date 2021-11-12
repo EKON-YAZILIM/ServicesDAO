@@ -320,15 +320,15 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAuctionByAuctionID")] 
         [HttpGet]
-        public AuctionViewModel GetAuctionByAuctionID(int AuctionID)
+        public AuctionDto GetAuctionByAuctionID(int AuctionID)
         {
-            AuctionViewModel result = new AuctionViewModel();
+            AuctionDto result = new AuctionDto();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/AuctionBid/GetId?id=" + AuctionID);
-                    result = Helpers.Serializers.DeserializeJson<AuctionViewModel>(auctionBidJson);             
+                    string auctionBidJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Auction/GetId?id=" + AuctionID);
+                    result = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionBidJson);             
                 }
             }
             catch (Exception ex)
