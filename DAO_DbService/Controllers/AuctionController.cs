@@ -268,5 +268,27 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+
+        [Route("SetWinnerBid")]
+        [HttpGet]
+        public bool SetWinnerBid(int bidId, int auctionId)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    Auction item = db.Auctions.FirstOrDefault(s => s.AuctionID == auctionId);
+                    item.WinnerAuctionBidID = bidId;
+                    db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return false;
+            }
+        }
     }
 }

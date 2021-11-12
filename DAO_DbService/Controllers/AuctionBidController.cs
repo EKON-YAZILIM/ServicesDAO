@@ -197,5 +197,7 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(model).ToList();
         }
+
+      
     }
 }

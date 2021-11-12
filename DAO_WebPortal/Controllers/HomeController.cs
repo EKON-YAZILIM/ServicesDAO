@@ -687,9 +687,9 @@ namespace DAO_WebPortal.Controllers
         }
 
         /// <summary>
-        /// Add new bid for auction
+        /// Delete Auction Bid
         /// </summary>
-        /// <param name="Model">AuctionBidDto Model</param>
+        /// <param name="id">Auction Bid ID</param>
         /// <returns></returns>
         [HttpGet]
         public JsonResult Auction_Bid_Delete(int id)
@@ -719,6 +719,95 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
 
         }
+
+        /// <summary>
+        /// Edit Auction Bid
+        /// </summary>
+        /// <param name="Model">AuctionBidDto Model</param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult Auction_Bid_Edit(AuctionBidDto Model)
+        {
+            AuctionBidDto model = new AuctionBidDto();
+            SimpleResponse result = new SimpleResponse();
+            try
+            {
+                var userid = HttpContext.Session.GetInt32("UserID");
+
+                //Create model
+                model = new AuctionBidDto()
+                {
+                    AuctionID = Model.AuctionID,
+                    Price = Model.Price,
+                    Time = Model.Time,
+                    ReputationStake = Model.ReputationStake,
+                    UserId = Convert.ToInt32(userid),
+                    AuctionBidID = Model.AuctionBidID
+                };
+
+                //Post model to ApiGateway
+                model = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Update", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
+
+                if (model != null && model.AuctionBidID > 0)
+                {
+                    result.Success = true;
+                    result.Message = "Bid succesffully edited.";
+                    result.Content = model;
+                }
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
+        }
+
+
+
+        [HttpGet]
+        public JsonResult ChooseWinnerBid(int bidId , int auctionId, int jobid)
+        {
+            SimpleResponse result = new SimpleResponse();
+            try
+            {
+                var userid = HttpContext.Session.GetInt32("UserID");
+
+                //Post model to ApiGateway
+                bool model = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/SetWinnerBid?bidId="+ bidId + "&auctionId="+ auctionId, HttpContext.Session.GetString("Token")));
+                if (model)
+                {
+                    JobPostDto model2 = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted, HttpContext.Session.GetString("Token")));
+
+                    if(model2.JobID > 0)
+                    {
+                        SimpleResponse model3 = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/UserReputationStake/ReleaseStakes?referenceProcessID=" + auctionId + "&reftype=" + Helpers.Constants.Enums.StakeReferenceType.Auction, HttpContext.Session.GetString("Token")));
+
+                        if (model3.Success)
+                        {
+                            result.Success = true;
+                            result.Message = "Winner bid selected.";
+                            result.Content = model;
+                        }
+                    }
+
+                }
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
         #endregion
 
         /// <summary>
