@@ -111,7 +111,7 @@
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
                                         <td id="counter_@item.VotingID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VotingID">
+                                        <td>
                                             <a class="btn btn-sm btn-primary me-2" onclick="OpenVoteModal(@item.VotingID)">
                                                 <svg class="icon">
                                                     <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
@@ -166,10 +166,12 @@
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
                                         <td id="counter_@item.VotingID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VotingID">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                                            </svg> Show Results
+                                        <td>
+                                            <a class="btn btn-sm btn-primary me-2" href="../Vote-Detail/@item.VotingID">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-bar-chart"></use>
+                                                </svg> Show Results
+                                            </a>
                                         </td>
                                     </tr>
                                 }
@@ -213,10 +215,12 @@
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
                                         <td id="counter_@item.VotingID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VotingID">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                                            </svg> Show Results
+                                        <td>
+                                            <a class="btn btn-sm btn-primary me-2" href="../Vote-Detail/@item.VotingID">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-bar-chart"></use>
+                                                </svg> Show Results
+                                            </a>
                                         </td>
                                     </tr>
                                 }

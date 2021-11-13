@@ -994,7 +994,8 @@ namespace DAO_WebPortal.Controllers
                 informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.InformalVotingDays);
                 //Get total dao member count
                 int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount", HttpContext.Session.GetString("Token")));
-                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount));
+                //Quorum count is calculated with total user count - 2(job poster, job doer)
+                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount - 2));
 
                 string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/StartInformalVoting", Helpers.Serializers.SerializeJson(informalVoting), HttpContext.Session.GetString("Token"));
                 res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResult);

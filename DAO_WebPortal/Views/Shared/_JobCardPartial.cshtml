@@ -8,7 +8,7 @@
 <div class="card-header">
     <!-- .header -->
     <div class="titleContainer">
-        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title </h5>
+        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title.Substring(0, Math.Min(35, Model.Title.Length))</h5>
         <small class="text-medium-emphasis">@Model.CreateDate.ToString("dd.MM.yyyy") , @Model.UserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
@@ -46,7 +46,7 @@
             <span class="badge bg-success float-right mt-1">Completed</span>
         }
 
-        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
         {
             <span class="badge bg-danger float-right">@Model.Status.ToString()</span>
         }

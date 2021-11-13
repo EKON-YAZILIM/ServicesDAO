@@ -237,7 +237,11 @@
 
         //Creates reply textbox below the comment
         function CreateReplyBox(e, commentid) {
-            $(e).parent().append("<div class='comment-body mt-3'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2' onclick='AddNewComment("+@Model.JobPostWebsiteModel.JobID+","+commentid+");'>Reply</button></div></div>")
+            var inputExists = $('#textarea-input-' + commentid).length;
+
+            if (!inputExists) {
+                $(e).parent().append("<div class='comment-body mt-3'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2' onclick='AddNewComment(" +@Model.JobPostWebsiteModel.JobID+"," + commentid + ");'>Reply</button></div></div>");
+            }
 
         }
 

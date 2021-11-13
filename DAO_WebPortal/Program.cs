@@ -21,11 +21,18 @@ namespace DAO_WebPortal
             public string EncryptionKey { get; set; }
 
             //DAO PARAMETERS
+            public List<string> DosCurrencies { get; set; }
+            public List<double> DosFees { get; set; }
+            public double DefaultPolicingRate { get; set; }
+            public double MinPolicingRate { get; set; }
+            public double MaxPolicingRate { get; set; }
+            public bool ForumKYCRequired { get; set; }
+            public double QuorumRatio { get; set; }
             public int InternalAuctionDays { get; set; }
             public int PublicAuctionDays { get; set; }
             public int InformalVotingDays { get; set; }
             public int FormalVotingDays { get; set; }
-            public double QuorumRatio { get; set; }
+            public double ReputationConversionRate { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();
