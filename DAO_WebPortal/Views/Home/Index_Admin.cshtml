@@ -5,6 +5,49 @@
 }
 @model Helpers.Models.WebsiteViewModels.GetDashBoardViewModel;
 
+<style>
+    .cardy {
+        border-radius: 4px;
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 80px 18px 36px;
+        cursor: pointer;
+        max-width: 500px;
+        border: 1px solid #dfdfdf17;
+    }
+
+.cardy:hover{
+     transform: scale(1.01);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.cardy h3{
+  font-weight: 600;
+}
+
+.cardy img{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  max-height: 120px;
+
+}
+
+.card-1{
+  background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
+      background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
+}
+
+
+@*@media(max-width: 990px){
+  .card{
+    margin: 20px;
+  }
+}*@
+</style>
+
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card mb-4 text-white bg-primary-gradient">
@@ -162,74 +205,70 @@
 </div>
 <!-- /.row-->
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card mb-4">
-            <div class="card-header">Jobs Admin Approval</div>
-            <div class="card-body">
-                <div class="table-responsive" style="height:350px">
-                    <table class="table border mb-0">
-                        <thead class="table-light fw-semibold">
-                            <tr class="align-middle">
-                                <th>Title</th>
-                                <th>Time Frame</th>
-                                <th>Job Description</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
+@if (Model.JobPostDtos.Count() > 0)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="mb-4">
+                <div class="card-header">Jobs Admin Approval</div>
+                <div class="card-body">
+                    <div id="JobFlipster" class="flipster">
+                        <ul class="flip-items">
                             @foreach (var item in Model.JobPostDtos)
                             {
-                                <tr class="align-middle">
-                                    <td>
-                                        <div>@item.Title</div>
-                                        <div class="small text-medium-emphasis"><span>New</span> | Registered: @item.CreateDate.ToString("dd.MM.yyyy")</div>
-                                    </td>
-                                    <td>
-                                        @item.TimeFrame
-                                    </td>
-                                    <td title="@item.JobDescription">
+                                <li>
+                                    <div class="cardy card-1">
+                                        <h3 class="fs-6">@item.Title</h3>
+                                        <p>@item.CreateDate.ToString("dd.MM.yyyy")</p>
 
-                                        @item.JobDescription
-                                    </td>
-                                    <td>
-                                        @item.Amount
-                                    </td>
-                                    <td>
-                                        Admin Approval Pending
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-transparent p-0 dark:text-high-emphasis" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
-                                                </svg>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="./Job-Detail/@item.JobID">Go to Detail</a>
-                                                <a class="dropdown-item" onclick="JobSubmit(@item.JobID)">Approve Job</a>
+                                        @if (item.JobDescription.Length > 150)
+                                        {
+                                            <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) ..</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription</p>
+                                        }
+
+                                        <p>
+                                            @item.Amount €
+                                            <span class="badge bg-warning float-right mt-1">Admin Approval Pending</span>
+                                        </p>
+
+                                        <div class="mt-5 d-flex justify-content-between">
+                                            <div>
+                                                <button class="btn btn-outline-secondary btn-sm" type="button" onclick="window.location.href='./Job-Detail/@item.JobID'" disabled="">
+                                                    Go to Detail
+                                                </button>
+                                            </div>
+                                            <div>
+                                                <button class="btn btn-outline-danger btn-sm me-2" type="button" onclick="JobDisapprove(@item.JobID)" disabled="">
+                                                    Disapprove
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm" type="button" onclick="JobApprove(@item.JobID)" disabled="">
+                                                    Approve
+                                                </button>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </li>
                             }
-                        </tbody>
-                    </table>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- /.col-->
     </div>
-    <!-- /.col-->
-</div>
+}
+
 <!-- /.row-->
 
 <div class="row">
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
             <div class="card-header">Auction</div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
@@ -271,7 +310,7 @@
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
             <div class="card-header">Voting</div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
@@ -347,7 +386,7 @@
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
             <div class="card-header">User Log</div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
@@ -383,7 +422,7 @@
     <div class="col-lg-6 col-md-12 ">
         <div class="card mb-4">
             <div class="card-header">Application Logs</div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive" style="height:350px">
                     <table class="table border mb-0">
                         <thead class="table-light fw-semibold">
@@ -424,31 +463,67 @@
 
     @*<script src="~/Home/chartjs/js/main.js"></script>*@
 
-    <script>
+<script>
 
-        function JobSubmit(id) {
+        $('#JobFlipster').flipster({
+            spacing: -0.5,
+            onItemSwitch: (current, prev) => {
+                $(current).find("button").prop('disabled', false);
+                $(prev).find("button").prop('disabled', true);
+            },
+            start: $(".flip-items li").length - 1,
+        });
+        $(".flip-items li:last-child").find("button").prop('disabled', false);
+
+        function JobApprove(id) {
         //Ajax put action
-        $.ajax({
-            type: "GET",
-            url: "../Home/AdminJobApproval",
-            data: {"JobId":id},
-                success: function (result) {
-                    console.log(result);
-                    if (result.success) {
-                        toastr.success(result.message);
+            $.ajax({
+                type: "GET",
+                url: "../Home/AdminJobApproval",
+                data: {"JobId":id},
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                    failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
                     }
-                    else {
-                        toastr.warning(result.message);
-                    }
-                },
-                  failure: function (response) {
-                        toastr.warning("@Lang.ConnectionError");
-                },
-                error: function (response) {
-                     toastr.error("@Lang.UnexpectedError");
-                }
             });
         }
+
+       
+    function JobDisapprove(id) {
+        //Ajax put action
+            $.ajax({
+                type: "GET",
+                url: "../Home/AdminJobDisapproval",
+                data: {"JobId":id},
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                    failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+                    }
+            });
+        }
+
 
         var MonthDictionary = {
             1: "January",
@@ -468,6 +543,75 @@
 
         var DataModel = @Html.Raw(Json.Serialize(Model));
 
+        var LineChartOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                },
+                y: {
+                    display: false,
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 1,
+                    tension: 0.4
+                },
+                point: {
+                    radius: 4,
+                    hitRadius: 10,
+                    hoverRadius: 4
+                }
+            }
+        }
+        var BarChartOptions = {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                        drawTicks: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawTicks: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                }
+            }
+        }
+
         UserCardDatalabels = [];
         UserCardLabels = [];
         for (var i = 0; i < DataModel.userCardGraph.length; i++) {
@@ -479,52 +623,14 @@
             data: {
                 labels: UserCardDatalabels,
                 datasets: [{
-                    label: 'My First dataset',
+                    label: 'User',
                     backgroundColor: 'transparent',
                     borderColor: 'rgba(255,255,255,.55)',
                     pointBackgroundColor: coreui.Utils.getStyle('--cui-primary'),
                     data: UserCardLabels
                 }]
             },
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        grid: {
-                            display: false,
-                            drawBorder: false
-                        },
-                        ticks: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        display: false,
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            display: false
-                        }
-                    }
-                },
-                elements: {
-                    line: {
-                        borderWidth: 1,
-                        tension: 0.4
-                    },
-                    point: {
-                        radius: 4,
-                        hitRadius: 10,
-                        hoverRadius: 4
-                    }
-                }
-            }
+            options: LineChartOptions
         });
 
         JobCardDatalabels = [];
@@ -538,52 +644,15 @@
             data: {
                 labels: JobCardDatalabels,
                 datasets: [{
-                    label: 'My First dataset',
+                    label: 'Job',
                     backgroundColor: 'transparent',
                     borderColor: 'rgba(255,255,255,.55)',
                     pointBackgroundColor: coreui.Utils.getStyle('--cui-info'),
                     data: JobCardLabels
                 }]
             },
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        grid: {
-                            display: false,
-                            drawBorder: false
-                        },
-                        ticks: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        display: false,
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            display: false
-                        }
-                    }
-                },
-                elements: {
-                    line: {
-                        borderWidth: 1
-                    },
-                    point: {
-                        radius: 4,
-                        hitRadius: 10,
-                        hoverRadius: 4
-                    }
-                }
-            }
-        }); // eslint-disable-next-line no-unused-vars
+            options: LineChartOptions
+        });
 
         AuctionCardDatalabels = [];
         AuctionCardLabels = [];
@@ -596,41 +665,15 @@
             data: {
                 labels: AuctionCardDatalabels,
                 datasets: [{
-                    label: 'My First dataset',
+                    label: 'Auction',
                     backgroundColor: 'rgba(255,255,255,.2)',
                     borderColor: 'rgba(255,255,255,.55)',
                     data: AuctionCardLabels,
                     fill: true
                 }]
             },
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                maintainAspectRatio: false,
-                scales: {
-                    x: {
-                        display: false
-                    },
-                    y: {
-                        display: false
-                    }
-                },
-                elements: {
-                    line: {
-                        borderWidth: 2,
-                        tension: 0.4
-                    },
-                    point: {
-                        radius: 0,
-                        hitRadius: 10,
-                        hoverRadius: 4
-                    }
-                }
-            }
-        }); // eslint-disable-next-line no-unused-vars
+            options: LineChartOptions
+        });
 
         VotingCardDatalabels = [];
         VotingCardLabels = [];
@@ -643,42 +686,14 @@
             data: {
                 labels: VotingCardDatalabels,
                 datasets: [{
-                    label: 'My First dataset',
+                    label: 'Voting',
                     backgroundColor: 'rgba(255,255,255,.2)',
                     borderColor: 'rgba(255,255,255,.55)',
                     data: VotingCardLabels,
                     barPercentage: 0.6
                 }]
             },
-            options: {
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false,
-                            drawTicks: false
-                        },
-                        ticks: {
-                            display: false
-                        }
-                    },
-                    y: {
-                        grid: {
-                            display: false,
-                            drawBorder: false,
-                            drawTicks: false
-                        },
-                        ticks: {
-                            display: false
-                        }
-                    }
-                }
-            }
+            options: BarChartOptions
         });
 
         AuctionDatalabels = [];
@@ -805,7 +820,7 @@
             }
         });
 
-    </script>
+</script>
 
 }
 

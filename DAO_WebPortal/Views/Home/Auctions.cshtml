@@ -30,7 +30,7 @@
             <div class="card-header">
                 <span class="small ms-1">Active Internal Auctions</span>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding).Count() > 0)
                     {
@@ -78,7 +78,7 @@
         <!-- .card -->
         <div class="card m-2">
             <div class="card-header"><span class="small ms-1">Active Public Auctions</span></div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).Count() > 0)
                     {
@@ -131,7 +131,7 @@
             <div class="card-header">
                 <span class="small ms-1">Completed Auctions</span>
             </div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed).Count() > 0)
                     {
@@ -179,7 +179,7 @@
         <!-- .card -->
         <div class="card m-2">
             <div class="card-header"><span class="small ms-1">Expired Auctions</span></div>
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="table-responsive">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Expired).Count() > 0)
                     {

@@ -161,7 +161,7 @@ namespace DAO_WebPortal.Controllers
                 JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
                 //Post model to ApiGateway
-                string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));          
+                string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
                 //Parse reponse
                 model = Helpers.Serializers.DeserializeJson<JobPostDto>(jobPostResponseJson);
 
@@ -435,7 +435,7 @@ namespace DAO_WebPortal.Controllers
                         TempData["toastr-type"] = "success";
                     }
                 }
-                
+
 
                 return Json(result);
 
@@ -741,11 +741,11 @@ namespace DAO_WebPortal.Controllers
 
                         //Post model to ApiGateway
                         string reputationJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/SubmitStake", Helpers.Serializers.SerializeJson(stake), HttpContext.Session.GetString("Token"));
-    
+
                         SimpleResponse reputationResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(reputationJson);
 
                         //Delete bid from db if reputation stake is unsuccesful
-                        if(reputationResponse.Success == false)
+                        if (reputationResponse.Success == false)
                         {
                             var deleteModel = Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?ID=" + Model.AuctionBidID, HttpContext.Session.GetString("Token"));
 
@@ -917,14 +917,14 @@ namespace DAO_WebPortal.Controllers
 
                 //Get votes model from ApiGateway
                 var votesJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Vote/GetAllVotesByVotingId?votingid=" + VotingID, HttpContext.Session.GetString("Token"));
-                var votes = Helpers.Serializers.DeserializeJson<List<VoteDto>>(votesJson); 
+                var votes = Helpers.Serializers.DeserializeJson<List<VoteDto>>(votesJson);
 
                 //Get reputation stakes from reputation service
-                var reputationsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByProcessId?referenceProcessID=" + VotingID+ "&reftype="+StakeType.For, HttpContext.Session.GetString("Token"));
+                var reputationsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByProcessId?referenceProcessID=" + VotingID + "&reftype=" + StakeType.For, HttpContext.Session.GetString("Token"));
                 var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
 
                 //Get usernames of voters
-                var usernamesJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUsernamesByUserIds", Helpers.Serializers.SerializeJson(votes.Select(x=>x.UserID)), HttpContext.Session.GetString("Token"));
+                var usernamesJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUsernamesByUserIds", Helpers.Serializers.SerializeJson(votes.Select(x => x.UserID)), HttpContext.Session.GetString("Token"));
                 var usernames = Helpers.Serializers.DeserializeJson<List<string>>(usernamesJson);
 
 
@@ -1044,13 +1044,13 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Check if user trying to submit bid for his/her own job
-                if (voting.Type ==  VoteTypes.JobCompletion && (ReputationStake == null || ReputationStake <= 0))
+                if (voting.Type == VoteTypes.JobCompletion && (ReputationStake == null || ReputationStake <= 0))
                 {
                     return Json(new SimpleResponse { Success = false, Message = "You must stake reputation greater than 0 for this voting type." });
                 }
 
                 //Post model to ApiGateway
-                string jsonResponse = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Vote/SubmitVote?VotingID=" + VotingID + "&UserID=" + Convert.ToInt32(HttpContext.Session.GetInt32("UserID")) + "&Direction=" + Direction + "&ReputationStake=" + ReputationStake.ToString().Replace(",","."), HttpContext.Session.GetString("Token"));
+                string jsonResponse = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Vote/SubmitVote?VotingID=" + VotingID + "&UserID=" + Convert.ToInt32(HttpContext.Session.GetInt32("UserID")) + "&Direction=" + Direction + "&ReputationStake=" + ReputationStake.ToString().Replace(",", "."), HttpContext.Session.GetString("Token"));
                 result = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
 
                 if (result.Success)
@@ -1309,6 +1309,43 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        [HttpGet]
+        public JsonResult AdminJobDisapproval(int JobId)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get Model from ApiGateway          
+                var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + JobId, HttpContext.Session.GetString("Token"));
+                //Parse result
+                var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
+
+                //Get job poster user object 
+                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + JobModel.UserID, HttpContext.Session.GetString("Token"));
+                //Parse result
+                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
+
+                //Set JobPost Model
+                JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.Rejected;
+
+                //Update job status 
+                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
+                if(JobModel.JobID>0 && JobModel.Status == JobStatusTypes.Rejected)
+                {
+                    result.Success = true;
+                    result.Message = "Job disapproved.";
+                }
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
         #endregion
 
         #region Utility
