@@ -60,7 +60,7 @@
                     </svg> Dashboard
                 </a>
             </li>
-            <li class="nav-title">Pages</li>
+            <li class="nav-title">MENU</li>
 
             <li class="nav-item">
                 <a class="nav-link" href="../My-Jobs">
@@ -98,26 +98,41 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../Payments-History">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-cash"></use>
-                    </svg> Payments History
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="../User-Profile">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-user"></use>
                     </svg> User Profile
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Contact-Help">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-contact"></use>
-                    </svg> Contact / Help
-                </a>
-            </li>
+
+            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
+            {
+                <li class="nav-title">ADMIN PAGES</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../User-Logs">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-wc"></use>
+                        </svg>Users List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Application-Logs">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-storage"></use>
+                        </svg>Application Logs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Reputation-Logs">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-calculator"></use>
+                        </svg>Reputation Logs
+                    </a>
+                </li>
+
+            }
+
         </ul>
         @*<button class="sidebar-toggler mb-2 sidebar-exit" type="button"></button>*@
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
@@ -286,6 +301,21 @@
                 }
             }
 
+            //Display toastr message from server side
+            var toastrMessage = '@TempData["toastr-message"]';
+            var toastrType = '@TempData["toastr-type"]';
+
+            if (toastrMessage.length > 0) {
+                if (toastrType == "warning") {
+                    toastr.warning(toastrMessage);
+                }
+                else if (toastrType == "error") {
+                    toastr.error(toastrMessage);
+                }
+                else if (toastrType == "success") {
+                    toastr.success(toastrMessage);
+                }
+            }
         });
 
         function handleThemeChange(src) {

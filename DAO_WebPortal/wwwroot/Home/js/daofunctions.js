@@ -96,3 +96,9 @@ function PayDosFee() {
         }
     });
 }
+
+function GoToJobDetail(pageurl, jobid) {
+    if (pageurl.indexOf("Job-Detail") == -1) {
+        window.location.href = '../Job-Detail/' + jobid;
+    }
+}

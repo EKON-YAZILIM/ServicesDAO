@@ -1,26 +1,37 @@
 ﻿@using DAO_WebPortal.Resources
+@using Helpers.Constants
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@model Helpers.Models.WebsiteViewModels.AuctionBidWebsiteModel
+
 @{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-@model Helpers.Models.WebsiteViewModels.AuctionBidWebsiteModel
 
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor httpContextAccessor
+@{
+    string userType = httpContextAccessor.HttpContext.Session.GetString("UserType");
 
-@if (((Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()) ||
-(Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Associate.ToString())) && httpContextAccessor.HttpContext.Session.GetInt32("UserID") != Model.Auction.JobPosterUserId)
-{
-    <div class="row d-flex m-2">
-        <div class="col-md-6 d-flex">
-        </div>
-        <div class="col-md-6 d-flex justify-content-end">
-            <a class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
-                <svg class="icon me-2">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
-                </svg>New Bid
-            </a>
-        </div>
-    </div>
+    //New bid button will be active for only authorized members
+    if ((Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding && userType == Enums.UserIdentityType.VotingAssociate.ToString()) ||
+        (Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding && userType == Enums.UserIdentityType.Associate.ToString()))
+    {
+        //If user is not job poster display new bid button
+        if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != Model.Auction.JobPosterUserId)
+        {
+            <div class="row d-flex m-2">
+                <div class="col-md-6 d-flex">
+                </div>
+                <div class="col-md-6 d-flex justify-content-end">
+                    <a class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
+                        <svg class="icon me-2">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
+                        </svg>New Bid
+                    </a>
+                </div>
+            </div>
+        }
+    }
+
 }
 
 <!--Tab list-->
@@ -30,6 +41,7 @@
             <div class="card-header">
                 <!-- .header -->
                 <span class="small ms-1">Auction Bids Table</span>
+                <a href="../Job-Detail/@Model.Auction.JobID" class="float-right">Go to job details</a>
             </div><!-- .header -->
             <div class="card-body">
                 <!-- Card Body -->
@@ -40,7 +52,7 @@
                             <th scope="col">Username</th>
                             <th scope="col">Price</th>
                             <th scope="col">Time</th>
-                            @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)
+                            @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
                             {
                                 <th scope="col">Reputation Stake</th>
                             }
@@ -59,38 +71,38 @@
                                 <td>@item.Price</td>
                                 <td>@item.Time</td>
 
-                                @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)
+                                @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
                                 {
                                     <td>@item.ReputationStake</td>
                                 }
 
                                 <td>
-                                    @*If user has bid,user can edit and delete bid *@
 
-                                    @if ((Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding) &&
-(item.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID")))
+                                    @*If bidding continues, show buttons *@
+                                    @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding)
                                     {
-                                        <div class="cursorp">
-                                            <a data-coreui-toggle="modal" data-coreui-target="#DeleteBidModal">
-                                                <i class="far fa-trash-alt mr-1"></i><span>Delete</span>
+                                        @*If user is job poster , show select winner bid button *@
+                                        if (Model.Auction.JobPosterUserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+                                        {
+                                            <a class="btn btn-sm btn-primary me-2 cursorp" onclick="ChooseAsWinnerBidModal(@item.AuctionBidID)">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
+                                                </svg> Select Winner
                                             </a>
-                                        </div>
-                                        <div>
-                                            <a data-coreui-toggle="modal" data-coreui-target="#EditBidModal">
-                                                <i class="far fa-edit"></i><span>Edit</span>
+                                        }
+
+                                        @*If user already have bid, show delete bid button *@
+                                        if (item.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+                                        {
+                                            <a class="btn btn-sm btn-primary me-2" data-coreui-toggle="modal" data-coreui-target="#DeleteBidModal">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                                </svg> Delete Bid
                                             </a>
-                                        </div>
-                                    }
-
-                                    @*If user is job poster , user can select winner bid *@
-
-                                    @if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") == Model.Auction.JobPosterUserId)
-                                    {
-                                        <i class="far fa-star cursorp" title="Choose as Winner" onclick="ChooseAsWinnerBidModal(@item.AuctionBidID)"></i>
+                                        }
                                     }
 
                                     @*Show winner bid icon*@
-
                                     @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
                                     {
                                         <i style="color:#FFD700" class="fas fa-star cursorp" title="Winner Bid"></i>
@@ -122,7 +134,7 @@
                     <label class="form-label" for="time">Time</label>
                     <input class="form-control" id="time" type="text" placeholder="Time">
                 </div>
-                @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)
+                @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
                 {
                     <div class="mb-3">
                         <label class="form-label" for="reputation">ReputationStake</label>
@@ -138,63 +150,30 @@
     </div>
 </div>
 
-
-@if (Model.AuctionBidViewModels.Where(x => x.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID")).Count() > 0)
-{
-
+@{
     var userBid = Model.AuctionBidViewModels.SingleOrDefault(x => x.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"));
 
-    <!--Edit Bid Modal  -->
-    <div class="modal fade" id="EditBidModal" tabindex="-1" aria-labelledby="EditAuction" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="EditAuction">Edit Bid</h5>
-                    <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label" for="editPrice">Price</label>
-                        <input class="form-control" id="editPrice" type="text" placeholder="Price" value="@userBid.Price">
+    if (userBid != null)
+    {
+        <!--Delete Bid Modal  -->
+        <div class="modal fade" id="DeleteBidModal" tabindex="-1" aria-labelledby="AddAuction" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AddAuction">Delete Bid</h5>
+                        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="editTime">Time</label>
-                        <input class="form-control" id="editTime" type="text" placeholder="Time" value="@userBid.Time">
+                    <div class="modal-body">
+                        Are you sure you want to delete the bid?
                     </div>
-                    @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)
-                    {
-                        <div class="mb-3">
-                            <label class="form-label" for="editReputation">ReputationStake</label>
-                            <input class="form-control" id="editReputation" type="text" placeholder="Reputation" value="@userBid.ReputationStake">
-                        </div>
-                    }
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" onclick="EditBid(this,@userBid.AuctionBidID ,@Model.Auction.AuctionID);">Edit Bid</button>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" onclick="DeleteBid(this,@userBid.AuctionBidID);">Delete Bid</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--Delete Bid Modal  -->
-    <div class="modal fade" id="DeleteBidModal" tabindex="-1" aria-labelledby="AddAuction" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="AddAuction">Delete Bid</h5>
-                    <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete the bid?
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" onclick="DeleteBid(this,@userBid.AuctionBidID);">Delete Bid</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    }
 }
 
 <!--Select Winner Bid Modal  -->
@@ -219,163 +198,132 @@
 @section Scripts{
 
     <script>
-        //Auction bids adding function
-        function AuctionBidAdd(e, id) {
-            $(e).prop("disabled", true);
-            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
-                //Create auction bid model
-                var price = $('#price').val()
-                var time = $('#time').val();
-                 //Ajax post action
-                $.ajax({
-                    type: "POST",
-                    url: "../Home/Auction_Bid_Add",
-                    data: {
-                        "price": price,
-                        "time": time,
-                        "auctionid": id,
-                        @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding) { <text> "reputationStake": $('#reputation').val() </text> }
-                    },
-                    success: function (result) {
-                            console.log(result);
+
+            //Auction bids adding function
+            function AuctionBidAdd(e, id) {
+                $(e).prop("disabled", true);
+                $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
+                    //Create auction bid model
+                    var price = $('#price').val()
+                    var time = $('#time').val();
+                     //Ajax post action
+                    $.ajax({
+                        type: "POST",
+                        url: "../Home/Auction_Bid_Add",
+                        data: {
+                            "price": price,
+                            "time": time,
+                            "auctionid": id,
+                            @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding) { <text> "reputationStake": $('#reputation').val() </text> }
+                        },
+                        success: function (result) {
                             if (result.success) {
-                                toastr.success(result.message);
-                                setTimeout(function () {
-                                    window.location.href = "./../Auction-Detail/"+id;
-                                }, 1000);
+                                window.location.reload();
                             }
                             else {
                                 toastr.warning(result.message);
                             }
+                            $(e).prop("disabled", false);
+                            $(e).html('Submit Bid');
                         },
-                    failure: function (response) {
-                         toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
+                        failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                            $(e).prop("disabled", false);
+                            $(e).html('Submit Bid');
+                        },
+                        error: function (response) {
+                            toastr.error("@Lang.UnexpectedError");
+                            $(e).prop("disabled", false);
+                            $(e).html('Submit Bid');
+                        }
+                    });
+
+                }
+
+            //Bid delete function
+            function DeleteBid(e, bidId) {
+                $.confirm({
+                    title: 'Confirmation',
+                    content: 'Are you sure you want to delete your bid ?',
+                    buttons: {
+                        cancel: {
+                            text: 'Cancel'
+                        },
+                        confirm: {
+                            text: 'Continue',
+                            btnClass: 'btn btn-primary',
+                            action: function () {
+                                $(e).prop("disabled", true);
+                                $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Deleting Bid..');
+                                    //Ajax get action
+                                    $.ajax({
+                                        type: "GET",
+                                        url: "../Home/Auction_Bid_Delete",
+                                        data: {
+                                            "id": bidId,
+                                        },
+                                        success: function (result) {
+                                            if (result.success) {
+                                                window.location.reload();
+                                            }
+                                            else {
+                                                toastr.warning(result.message);
+                                            }
+                                        },
+                                        failure: function (response) {
+                                             toastr.warning("@Lang.ConnectionError");
+                                        },
+                                        error: function (response) {
+                                             toastr.error("@Lang.UnexpectedError");
+                                        }
+                                    });
+                                $(e).prop("disabled", false);
+                                $(e).html('Delete Bid');
+                            }
+                        }
                     }
                 });
-            $(e).prop("disabled", false);
-            $(e).html('Submit Bid');
             }
-    </script>
 
-    <script>
-        //Bid delete function
-        function DeleteBid(e, bidId) {
-            $(e).prop("disabled", true);
-            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Deleting Bid..');
-                 //Ajax post action
-                $.ajax({
-                    type: "GET",
-                    url: "../Home/Auction_Bid_Delete",
-                    data: {
-                        "id": bidId,
-                    },
-                    success: function (result) {
-                        if (result.success) {
-                            $("#DeleteBidModal").modal("toggle");
-                                toastr.success(result.message);
-                                setTimeout(function () {
-                                    window.location.href = "./../Auction-Detail/"+ @Model.Auction.AuctionID;
-                                }, 1000);
-                            }
-                            else {
-                                toastr.warning(result.message);
-                            }
-                        },
-                    failure: function (response) {
-                         toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
-                    }
-                });
-            $(e).prop("disabled", false);
-            $(e).html('Delete Bid');
-        }
-        //Bid edit function
-        function EditBid(e,bidId, auctionId) {
-            $(e).prop("disabled", true);
-            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Editing Bid..');
-                //Create auction bid model
-                var price = $('#editPrice').val()
-                var time = $('#editTime').val();
-                 //Ajax post action
-                $.ajax({
-                    type: "POST",
-                    url: "../Home/Auction_Bid_Edit",
-                    data: {
-                        "price": price,
-                        "time": time,
-                        "AuctionBidID": bidId,
-                        "AuctionID": auctionId,
-                        @if (Model.Auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding) { <text> "ReputationStake": $('#editReputation').val() </text> }
-                    },
-                    success: function (result) {
-                            if (result.success) {
-                                toastr.success(result.message);
-                                setTimeout(function () {
-                                    window.location.href = "./../Auction-Detail/" + auctionId;
-                                }, 1000);
-                            }
-                            else {
-                                toastr.warning(result.message);
-                            }
-                        },
-                    failure: function (response) {
-                         toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
-                    }
-                });
-            $(e).prop("disabled", false);
-            $(e).html('Edit Bid');
-         }
-    </script>
+            //Opens confirmation modal
+            function ChooseAsWinnerBidModal(id) {
+                $("#winnerBidNo").text(id);
+                $("#winnerButtons button:nth-of-type(2)").attr("id", id);
+                $("#SelectWinnerBidModal").modal("toggle");
+            }
 
-    <script>
-        function ChooseAsWinnerBidModal(id) {
-            $("#winnerBidNo").text(id);
-            $("#winnerButtons button:nth-of-type(2)").attr("id", id);
-            $("#SelectWinnerBidModal").modal("toggle");
-        }
-        //Select winner bid function
-        function ChooseAsWinnerBid(e, bidId, auctionId) {
-            $(e).prop("disabled", true);
-            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Selecting Bid..');
-                 //Ajax post action
-                $.ajax({
-                    type: "GET",
-                    url: "../Home/ChooseWinnerBid",
-                    data: {
-                        "bidId": bidId,
-                        "auctionId": auctionId,
-                        "jobid":@Model.Auction.JobID
-                    },
-                    success: function (result) {
-                            if (result.success) {
-                                toastr.success(result.message);
-                                setTimeout(function () {
-                                    window.location.href = "./../Auction-Detail/" + auctionId;
-                                }, 1000);
-                            }
-                            else {
-                                toastr.warning(result.message);
-                            }
+            //Select winner bid function
+            function ChooseAsWinnerBid(e, bidId, auctionId) {
+                $(e).prop("disabled", true);
+                $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Selecting Bid..');
+                     //Ajax post action
+                    $.ajax({
+                        type: "GET",
+                        url: "../Home/ChooseWinnerBid",
+                        data: {
+                            "bidId": bidId,
+                            "auctionId": auctionId,
+                            "jobid":@Model.Auction.JobID
                         },
-                    failure: function (response) {
-                         toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
-                    }
-                });
-            $(e).prop("disabled", false);
-            $(e).html('Select Bid');
-        }
-    </script>
+                        success: function (result) {
+                                if (result.success) {
+                                    window.location.reload();
+                                }
+                                else {
+                                    toastr.warning(result.message);
+                                }
+                            },
+                        failure: function (response) {
+                             toastr.warning("@Lang.ConnectionError");
+                        },
+                        error: function (response) {
+                             toastr.error("@Lang.UnexpectedError");
+                        }
+                    });
+                $(e).prop("disabled", false);
+                $(e).html('Select Bid');
+            }
 
+    </script>
 }
 

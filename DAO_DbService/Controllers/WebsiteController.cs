@@ -19,6 +19,7 @@ namespace DAO_DbService.Controllers
     {
 
         #region Jobs
+
         /// <summary>
         /// Get all jobs
         /// </summary>
@@ -35,7 +36,7 @@ namespace DAO_DbService.Controllers
                 {
                     result = (from job in db.JobPosts
                               join user in db.Users on job.UserID equals user.UserId
-                              let explanation = job.JobDescription.Substring(0, 100)
+                              let explanation = job.JobDescription.Substring(0, 250)
                               let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                               where status == null || job.Status == status
                               select new JobPostViewModel
@@ -177,7 +178,7 @@ namespace DAO_DbService.Controllers
                     result.ownedJobs = (from job in db.JobPosts
                                         join user in db.Users on job.UserID equals user.UserId
                                         let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
-                                        let explanation = job.JobDescription.Substring(0, 150)
+                                        let explanation = job.JobDescription.Substring(0, 250)
                                         where job.UserID == userid
                                         select new JobPostViewModel
                                         {
@@ -200,7 +201,7 @@ namespace DAO_DbService.Controllers
                                        join auction in db.Auctions on job.JobID equals auction.JobID
                                        join auctionbid in db.AuctionBids on auction.AuctionID equals auctionbid.AuctionID
                                        let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
-                                       let explanation = job.JobDescription.Substring(0, 150)
+                                       let explanation = job.JobDescription.Substring(0, 250)
                                        where auctionbid.UserID == userid && auctionbid.AuctionBidID == auction.WinnerAuctionBidID
                                        select new JobPostViewModel
                                        {
@@ -241,7 +242,7 @@ namespace DAO_DbService.Controllers
             {
                 res = (from job in db.JobPosts
                        join user in db.Users on job.UserID equals user.UserId
-                       let explanation = job.JobDescription.Substring(0, 100)
+                       let explanation = job.JobDescription.Substring(0, 250)
                        where job.Status == status
                        select new JobPostDto
                        {

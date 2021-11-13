@@ -13,7 +13,7 @@ namespace Helpers.Models.DtoModels.ReputationDbDto
         public int? ReferenceID { get; set; } //Id of the bid or the vote (can be anything else), ReputationStakeTypes indicates the type of this stake
         public int? ReferenceProcessID { get; set; } //Id of the auction or the voting (can be anything else), indicates the process which this stake belongs to
         public double Amount { get; set; }
-        public VoteDirection Direction { get; set; }
+        public StakeType Type { get; set; }
         public ReputationStakeStatus Status { get; set; }
 
     }

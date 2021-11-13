@@ -44,10 +44,7 @@
                 success: function (result) {
                     console.log(result);
                     if (result.success) {
-                        toastr.success(result.message);
-                        setTimeout(function () {
-                            window.location.href = "./My-Jobs";
-                        }, 1000);
+                        window.location.href = "./My-Jobs";
                     }
                     else {
                         toastr.warning(result.message);

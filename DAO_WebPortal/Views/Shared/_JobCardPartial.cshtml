@@ -16,9 +16,19 @@
             <span class="badge bg-warning float-right mt-1">Pending</span>
         }
 
-        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction || Model.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction)
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction)
         {
-            <a href="../Auctions" class="badge bg-primary float-right mt-1">Auction Continues</a>
+            <a href="../Auctions" class="badge bg-success float-right mt-1">Internal Auction</a>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction)
+        {
+            <a href="../Auctions" class="badge bg-success float-right mt-1">Public Auction</a>
+        }
+
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted)
+        {
+            <a href="../Auctions" class="badge bg-primary float-right mt-1">Auction Completed</a>
         }
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
@@ -43,26 +53,39 @@
 
     </div>
 </div><!-- .header -->
+
 <!-- Card Body -->
-<div class="card-body cursorp" onclick="window.location.href='../Job-Detail/' + @Model.JobID">
+<div class="card-body cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
     <p class="p-3 card-text">
         @Model.JobDescription
     </p>
     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate.ToString("dd.MM.yyyy")</small></p>
-</div><!-- Card Body -->
+</div>
+<!-- Card Body -->
+
 <!-- Footer -->
 <div class="card-footer">
-    <a class="card-text me-2 cA" href="../Job-Detail/@Model.JobID">
+    <a class="card-text me-2 cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
         <svg class="icon">
             <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
         </svg> @Model.CommentCount Comment
     </a>
-    <a class="card-text cA" href="#" onclick="ShareJobPost();">
+
+    <a class="card-text  me-2" href="#" onclick="ShareJobPost();">
         <svg class="icon">
             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
         </svg> Share
     </a>
 
+    @if (httpContextAccessor.HttpContext.Request.Path.Value.ToString().Contains("Job-Detail"))
+    {
+        <!-- New comment click -->
+        <a onclick="CreateReplyBox(this, 0)" class="card-text me-2 cursorp">
+            <svg class="icon">
+                <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+            </svg> Reply
+        </a>
+    }
 
     <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted && Model.JobDoerUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))

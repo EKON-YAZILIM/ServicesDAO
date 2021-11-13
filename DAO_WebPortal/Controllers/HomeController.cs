@@ -22,13 +22,13 @@ namespace DAO_WebPortal.Controllers
     [AuthorizeUser]
     public class HomeController : Controller
     {
-        #region Views
 
         /// <summary>
         /// Dashboard Page
         /// </summary>
         /// <returns></returns>
         [Route("Home")]
+        [Route("Dashboard")]
         public IActionResult Index()
         {
             ViewBag.Title = "Dashboard";
@@ -36,32 +36,34 @@ namespace DAO_WebPortal.Controllers
             GetDashBoardViewModel dashModel = new GetDashBoardViewModel();
             try
             {
-                var userType = HttpContext.Session.GetString("UserType");
+                //Get user type from session
+                string userType = HttpContext.Session.GetString("UserType");
+
                 //User type control for admin
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
                 {
-                    //Get model from ApiGateway
-                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    //Get dashboard data from ApiGateway
+                    string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
-                    return View(dashModel);
+                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(dashboardJson);
+                    return View("Index_Admin", dashModel);
                 }
                 //User type control for associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Associate.ToString())
                 {
-                    //Get model from ApiGateway
-                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    //Get dashboard data from ApiGateway
+                    string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
+                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(dashboardJson);
                     return View("Index_Associate", dashModel);
                 }
                 //User type control for voting associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                 {
-                    //Get model from ApiGateway
-                    var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    //Get dashboard data from ApiGateway
+                    string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(url);
+                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(dashboardJson);
                     return View("Index_VotingAssociate", dashModel);
                 }
 
@@ -69,11 +71,12 @@ namespace DAO_WebPortal.Controllers
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return View(new GetDashBoardViewModel());
             }
 
-            return View(dashModel);
+            return View("../Shared/Error.cshtml");
         }
+
+        #region Job Post
 
         /// <summary>
         /// User's Job Page
@@ -85,18 +88,19 @@ namespace DAO_WebPortal.Controllers
             ViewBag.Title = "My Jobs";
 
             MyJobsViewModel myJobsModel = new MyJobsViewModel();
+
             try
             {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-
+                //Get jobs data from ApiGateway
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                 //Parse response
-                myJobsModel = Helpers.Serializers.DeserializeJson<MyJobsViewModel>(url);
+                myJobsModel = Helpers.Serializers.DeserializeJson<MyJobsViewModel>(jobsJson);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
+
             return View(myJobsModel);
         }
 
@@ -110,173 +114,157 @@ namespace DAO_WebPortal.Controllers
             ViewBag.Title = "All Jobs";
 
             List<JobPostViewModel> allJobsModel = new List<JobPostViewModel>();
+
             try
             {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs", HttpContext.Session.GetString("Token"));
-
+                //Get jobs data from ApiGateway
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs", HttpContext.Session.GetString("Token"));
                 //Parse response
-                allJobsModel = Helpers.Serializers.DeserializeJson<List<JobPostViewModel>>(url);
+                allJobsModel = Helpers.Serializers.DeserializeJson<List<JobPostViewModel>>(jobsJson);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
+
             return View(allJobsModel);
         }
 
         /// <summary>
-        /// Auctions Page
+        /// New Job Page
         /// </summary>
         /// <returns></returns>
-        [Route("Auctions")]
-        public IActionResult Auctions()
+        [Route("New-Job")]
+        public IActionResult New_Job()
         {
-            ViewBag.Title = "Auctions";
-
-            List<AuctionViewModel> auctionModel = new List<AuctionViewModel>();
-            try
-            {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions", HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                auctionModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(url);
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-            return View(auctionModel);
-        }
-
-        /// <summary>
-        /// Auction Detail Page
-        /// </summary>
-        /// <param name="AuctionID">Auction Id</param>
-        /// <returns></returns>
-        [Route("Auction-Detail/{AuctionID}")]
-        public IActionResult Auction_Detail(int AuctionID)
-        {
-            ViewBag.Title = "Auction Details";
-
-            AuctionBidWebsiteModel AuctionDetailModel = new AuctionBidWebsiteModel();
-            try
-            {
-                //Get bids model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
-                //Get auction model from ApiGateway
-                var url2 = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + AuctionID, HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(url);
-                //Parse response
-                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(url2);
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-            return View(AuctionDetailModel);
-        }
-
-        /// <summary>
-        /// Votes Page
-        /// </summary>
-        /// <returns></returns>
-        [Route("Voting")]
-        public IActionResult Voting()
-        {
-            ViewBag.Title = "Votings";
-
-            List<VotingViewModel> votesModel = new List<VotingViewModel>();
-            try
-            {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVotingsByStatus", HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(url);
-
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-            return View(votesModel);
-        }
-
-        /// <summary>
-        /// User Reputation History Page
-        /// </summary>
-        /// <returns></returns>
-        [Route("Reputation-History")]
-        public IActionResult Reputation_History()
-        {
-            ViewBag.Title = "Reputation History";
-
-            List<UserReputationHistoryDto> ReputationHistoryModel = new List<UserReputationHistoryDto>();
-            try
-            {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                ReputationHistoryModel = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(url);
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-            return View(ReputationHistoryModel);
-        }
-
-        /// <summary>
-        /// User Payments History Page
-        /// </summary>
-        /// <returns></returns>
-        [Route("Payments-History")]
-        public IActionResult Payments_History()
-        {
-            ViewBag.Title = "Payment History";
+            ViewBag.Title = "Post A New Job";
 
             return View();
         }
 
         /// <summary>
-        /// User Profile Page
+        ///  New job post registration function
         /// </summary>
+        /// <param name="title">Title</param>
+        /// <param name="amount">Amount</param>
+        /// <param name="time">Time</param>
+        /// <param name="description">Description</param>
         /// <returns></returns>
-        [Route("User-Profile")]
-        public IActionResult User_Profile()
+        [HttpPost]
+        public JsonResult New_Job_Post(string title, double amount, string time, string description)
         {
-            ViewBag.Title = "User Profile";
-
-            UserDto profileModel = new UserDto();
+            SimpleResponse result = new SimpleResponse();
 
             try
             {
-                //Get model from ApiGateway
-                var json = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                //Create JobPost model
+                JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
-                //Parse response
-                profileModel = Helpers.Serializers.DeserializeJson<UserDto>(json);
+                //Post model to ApiGateway
+                string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));          
+                //Parse reponse
+                model = Helpers.Serializers.DeserializeJson<JobPostDto>(jobPostResponseJson);
+
+                if (model != null && model.JobID > 0)
+                {
+                    result.Success = true;
+                    result.Message = "Job posted successfully and will be available after admin review.";
+                    result.Content = model;
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+
+                    return Json(result);
+                }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return View(profileModel);
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
-        [Route("Contact-Help")]
-        public IActionResult Contact_Help()
+        /// <summary>
+        ///  Job Edit Page
+        /// </summary>
+        /// <param name="Job">Job Id</param>     
+        /// <returns></returns>
+        [Route("My-Job-Edit/{Job}")]
+        public IActionResult My_Job_Edit(int Job)
         {
-            ViewBag.Title = "Contact";
+            ViewBag.Title = "Edit Job";
 
-            return View();
+            JobPostDto jobDetailModel = new JobPostDto();
+
+            try
+            {
+                //Get model from ApiGateway
+                string jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + Job, HttpContext.Session.GetString("Token"));
+                //Parse response
+                jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
+
+                //Check if user trying to edit job for another user
+                if (jobDetailModel.UserID != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
+                {
+                    return View("../Shared/Error.cshtml");
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(jobDetailModel);
         }
+
+        /// <summary>
+        /// Edit user Job post 
+        /// </summary>
+        /// <param name="Model">JobPostDto Model</param>
+        /// <returns></returns>
+        [HttpPut]
+        public JsonResult My_Job_Update(JobPostDto Model)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get model from ApiGateway
+                string jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + Model.JobID, HttpContext.Session.GetString("Token"));
+                //Parse response
+                JobPostDto jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
+
+                //Check if user trying to edit job for another user
+                if (jobDetailModel.UserID != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
+                {
+                    return Json(new SimpleResponse { Success = false, Message = Lang.UnauthorizedAccess });
+                }
+
+                //Put model to ApiGateway
+                string updateResponseJson = Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(Model), HttpContext.Session.GetString("Token"));
+                //Parse response
+                JobPostDto model = Helpers.Serializers.DeserializeJson<JobPostDto>(updateResponseJson);
+
+                if (model != null && model.JobID > 0)
+                {
+                    result.Success = false;
+                    result.Message = "Job updated succesfully.";
+                    result.Content = model;
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        #endregion
+
+        #region Job Post Detail & Forum
 
         /// <summary>
         /// Job Detail Page
@@ -329,71 +317,72 @@ namespace DAO_WebPortal.Controllers
         }
 
         /// <summary>
-        /// Vote Detail Page
+        /// Add new comment
         /// </summary>
-        /// <param name="VoteID">Vote Id</param>
-        /// <returns></returns>
-        [Route("Vote-Detail/{VoteID}")]
-        public IActionResult Vote_Detail(int VoteID)
-        {
-            ViewBag.Title = "Voting Details";
-
-            List<VoteDto> voteDetailModel = new List<VoteDto>();
-            try
-            {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVoteDetail?voteid=" + VoteID, HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                voteDetailModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(url);
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-            return View(voteDetailModel);
-        }
-
-        /// <summary>
-        /// New Job Page
-        /// </summary>
-        /// <returns></returns>
-        [Route("New-Job")]
-        public IActionResult New_Job()
-        {
-            ViewBag.Title = "Post New Job";
-
-            return View();
-        }
-
-        /// <summary>
-        ///  New job post registration function
-        /// </summary>
-        /// <param name="title">Title</param>
-        /// <param name="amount">Amount</param>
-        /// <param name="time">Time</param>
-        /// <param name="description">Description</param>
+        /// <param name="JobId">Job id</param>
+        /// <param name="CommentId">Main comment id</param>
+        /// <param name="Comment">Comment</param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult New_Job_Post(string title, double amount, string time, string description)
+        public JsonResult AddNewComment(int JobId, int CommentId, string Comment)
         {
-            JobPostDto model = new JobPostDto();
             SimpleResponse result = new SimpleResponse();
+
             try
             {
-                //Create JobPost model
-                model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Status = Enums.JobStatusTypes.AdminApprovalPending };
+                //Create new comment model
+                JobPostCommentDto model = new JobPostCommentDto()
+                {
+                    Comment = Comment,
+                    Date = DateTime.Now,
+                    JobID = JobId,
+                    SubCommentID = CommentId,
+                    UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")),
+                    DownVote = 0,
+                    UpVote = 0,
+                };
+
+                //If user posting comment to main topic
+                if (CommentId == 0)
+                {
+                    //Get related auction if exists
+                    AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetByJobId?jobid=" + JobId, HttpContext.Session.GetString("Token")));
+
+                    //Check if auction have a winner bid
+                    if (auction != null && auction.AuctionID > 0 && auction.WinnerAuctionBidID != null)
+                    {
+                        //Get winner bid
+                        AuctionBidDto auctionbid = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/GetId?id=" + auction.WinnerAuctionBidID, HttpContext.Session.GetString("Token")));
+
+                        //Set user comment as "Pinned" if the user is the owner of winner bid
+                        //This indicates job doer posting a comment as "Work of evidence" so it will be pinned comment
+                        if (auctionbid != null && auctionbid.AuctionBidID > 0 && auctionbid.UserId == model.UserID)
+                        {
+                            model.IsPinned = true;
+                        }
+                        else
+                        {
+                            model.IsPinned = false;
+                        }
+                    }
+                }
 
                 //Post model to ApiGateway
-                model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
+                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
 
-                if (model != null && model.JobID > 0)
+                if (model != null && model.JobPostCommentID > 0)
                 {
                     result.Success = true;
-                    result.Message = "Job posted successfully and will be available after admin review.";
+                    result.Message = "Comment succesfully posted.";
                     result.Content = model;
-                    return Json(result);
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
                 }
+
+                return Json(result);
+
             }
             catch (Exception ex)
             {
@@ -402,56 +391,54 @@ namespace DAO_WebPortal.Controllers
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
-        #endregion
 
         /// <summary>
-        ///  Job Edit Page
+        /// Delete user comment and comments upvote and downvote
         /// </summary>
-        /// <param name="Job">Job Id</param>     
+        /// <param name="CommentId">JobPostCommentID</param>
         /// <returns></returns>
-        [Route("My-Job-Edit/{Job}")]
-        public IActionResult My_Job_Edit(int Job)
+        [HttpDelete]
+        public JsonResult DeleteComment(int CommentId)
         {
-            ViewBag.Title = "Edit Job";
-
-            JobPostDto jobDetailModel = new JobPostDto();
-
-            try
-            {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + Job, HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                jobDetailModel = Helpers.Serializers.DeserializeJson<JobPostDto>(url);
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-
-            return View(jobDetailModel);
-        }
-
-        /// <summary>
-        /// Edit user Job post 
-        /// </summary>
-        /// <param name="Model">JobPostDto Model</param>
-        /// <returns></returns>
-        [HttpPut]
-        public JsonResult My_Job_Update(JobPostDto Model)
-        {
-            JobPostDto model = new JobPostDto();
             SimpleResponse result = new SimpleResponse();
             try
             {
-                //Put model to ApiGateway
-                model = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(Model), HttpContext.Session.GetString("Token")));
-                if (model != null && model.JobID > 0)
+                JobPostCommentDto model = new JobPostCommentDto();
+
+                //Get comment
+                var modelJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/GetId?id=" + CommentId, HttpContext.Session.GetString("Token"));
+                //Parse result
+                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(modelJson);
+
+                //Check if user trying to delete comment for another user
+                if (model.UserID != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
                 {
-                    result.Success = false;
-                    result.Message = "Job updated succesfully.";
-                    result.Content = model;
+                    return Json(new SimpleResponse { Success = false, Message = Lang.UnauthorizedAccess });
                 }
+                else
+                {
+                    model.Comment = "This comment is deleted by the owner.";
+
+                    //Update comment as deleted        
+                    var deleteModelJson = Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Update", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
+                    //Parse result
+                    model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(deleteModelJson);
+
+                    if (model != null && model.JobPostCommentID > 0)
+                    {
+                        result.Success = true;
+                        result.Message = "Comment succesfully deleted.";
+                        result.Content = "";
+
+                        //Set server side toastr because page will be redirected
+                        TempData["toastr-message"] = result.Message;
+                        TempData["toastr-type"] = "success";
+                    }
+                }
+                
+
+                return Json(result);
+
             }
             catch (Exception ex)
             {
@@ -459,6 +446,7 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
         }
 
         /// <summary>
@@ -639,7 +627,66 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
-        #region Auction
+        #endregion
+
+        #region Auctions
+
+        /// <summary>
+        /// Auctions Page
+        /// </summary>
+        /// <returns></returns>
+        [Route("Auctions")]
+        public IActionResult Auctions()
+        {
+            ViewBag.Title = "Auctions";
+
+            List<AuctionViewModel> auctionsModel = new List<AuctionViewModel>();
+
+            try
+            {
+                //Get model from ApiGateway
+                var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions", HttpContext.Session.GetString("Token"));
+                //Parse response
+                auctionsModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(auctionsJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(auctionsModel);
+        }
+
+        /// <summary>
+        /// Auction Detail Page
+        /// </summary>
+        /// <param name="AuctionID">Auction Id</param>
+        /// <returns></returns>
+        [Route("Auction-Detail/{AuctionID}")]
+        public IActionResult Auction_Detail(int AuctionID)
+        {
+            ViewBag.Title = "Auction Details";
+
+            AuctionBidWebsiteModel AuctionDetailModel = new AuctionBidWebsiteModel();
+
+            try
+            {
+                //Get bids model from ApiGateway
+                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
+                //Get auction model from ApiGateway
+                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + AuctionID, HttpContext.Session.GetString("Token"));
+
+                //Parse response
+                AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(auctionBidsJson);
+                //Parse response
+                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(AuctionDetailModel);
+        }
+
         /// <summary>
         /// Add new bid for auction
         /// </summary>
@@ -648,34 +695,73 @@ namespace DAO_WebPortal.Controllers
         [HttpPost]
         public JsonResult Auction_Bid_Add(AuctionBidDto Model)
         {
-            AuctionBidDto model = new AuctionBidDto();
             SimpleResponse result = new SimpleResponse();
+
             try
             {
-                var userid = HttpContext.Session.GetInt32("UserID");
+                //Get auction model from ApiGateway
+                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + Model.AuctionID, HttpContext.Session.GetString("Token"));
+                //Parse response
+                AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
 
-                //Create model
-                model = new AuctionBidDto()
+                //Check if public user trying to submit bid for expired or completed auction
+                if (auction.Status == Enums.AuctionStatusTypes.Completed || auction.Status == Enums.AuctionStatusTypes.Expired)
                 {
-                    AuctionID = Model.AuctionID,
-                    Price = Model.Price,
-                    Time = Model.Time,
-                    ReputationStake = Model.ReputationStake,
-                    UserId = Convert.ToInt32(userid)
-                };
+                    return Json(new SimpleResponse { Success = false, Message = "You can't submit bid to a closed auction" });
+                }
+
+                //Check if user trying to submit bid for his/her own job
+                if (auction.JobPosterUserId == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "You can't submit bid to your own job." });
+                }
+
+                //Check if public user trying to submit bid for internal auction
+                if (auction.Status == Enums.AuctionStatusTypes.InternalBidding && HttpContext.Session.GetString("UserType") == Enums.UserIdentityType.Associate.ToString())
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "This auction is opened for internal members." });
+                }
+
+                Model.UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserID"));
 
                 //Post model to ApiGateway
-                model = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
+                Model = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Post", Helpers.Serializers.SerializeJson(Model), HttpContext.Session.GetString("Token")));
 
-                if (model != null && model.AuctionBidID > 0)
+                if (Model != null && Model.AuctionBidID > 0)
                 {
                     result.Success = true;
                     result.Message = "Bid succesffully submitted.";
-                    result.Content = model;
+                    result.Content = Model;
+
+                    //Stake bid if internal auction
+                    if (auction.Status == Enums.AuctionStatusTypes.InternalBidding)
+                    {
+                        UserReputationStakeDto stake = new UserReputationStakeDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = Model.ReputationStake, CreateDate = DateTime.Now, Type = StakeType.Bid, ReferenceID = Model.AuctionBidID, ReferenceProcessID = Model.AuctionID, Status = ReputationStakeStatus.Staked };
+
+                        //Post model to ApiGateway
+                        string reputationJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/SubmitStake", Helpers.Serializers.SerializeJson(stake), HttpContext.Session.GetString("Token"));
+    
+                        SimpleResponse reputationResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(reputationJson);
+
+                        //Delete bid from db if reputation stake is unsuccesful
+                        if(reputationResponse.Success == false)
+                        {
+                            var deleteModel = Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?ID=" + Model.AuctionBidID, HttpContext.Session.GetString("Token"));
+
+                            return Json(reputationResponse);
+                        }
+                    }
+                    else
+                    {
+                        Model.ReputationStake = 0;
+                    }
                 }
 
-                return Json(result);
+                //Set server side toastr because page will be redirected
+                TempData["toastr-message"] = result.Message;
+                TempData["toastr-type"] = "success";
 
+                return Json(result);
             }
             catch (Exception ex)
             {
@@ -697,15 +783,22 @@ namespace DAO_WebPortal.Controllers
             SimpleResponse result = new SimpleResponse();
             try
             {
+
                 var userid = HttpContext.Session.GetInt32("UserID");
 
-                //Post model to ApiGateway
-                var model = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));
+                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/UserReputationStake/ReleaseSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
-                if (model)
+                //Post model to ApiGateway
+                var deleteBidResponse = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));
+
+                if (deleteBidResponse)
                 {
                     result.Success = true;
                     result.Message = "Bid succesffully deleted.";
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
                 }
 
                 return Json(result);
@@ -719,79 +812,44 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
 
         }
-
-        /// <summary>
-        /// Edit Auction Bid
-        /// </summary>
-        /// <param name="Model">AuctionBidDto Model</param>
-        /// <returns></returns>
-        [HttpPost]
-        public JsonResult Auction_Bid_Edit(AuctionBidDto Model)
-        {
-            AuctionBidDto model = new AuctionBidDto();
-            SimpleResponse result = new SimpleResponse();
-            try
-            {
-                var userid = HttpContext.Session.GetInt32("UserID");
-
-                //Create model
-                model = new AuctionBidDto()
-                {
-                    AuctionID = Model.AuctionID,
-                    Price = Model.Price,
-                    Time = Model.Time,
-                    ReputationStake = Model.ReputationStake,
-                    UserId = Convert.ToInt32(userid),
-                    AuctionBidID = Model.AuctionBidID
-                };
-
-                //Post model to ApiGateway
-                model = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Update", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
-
-                if (model != null && model.AuctionBidID > 0)
-                {
-                    result.Success = true;
-                    result.Message = "Bid succesffully edited.";
-                    result.Content = model;
-                }
-
-                return Json(result);
-
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-
-            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
-
-        }
-
-
 
         [HttpGet]
-        public JsonResult ChooseWinnerBid(int bidId , int auctionId, int jobid)
+        public JsonResult ChooseWinnerBid(int bidId, int auctionId, int jobid)
         {
             SimpleResponse result = new SimpleResponse();
             try
             {
-                var userid = HttpContext.Session.GetInt32("UserID");
+                //Get auction model from ApiGateway
+                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + auctionId, HttpContext.Session.GetString("Token"));
+                //Parse response
+                AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
 
-                //Post model to ApiGateway
-                bool model = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/SetWinnerBid?bidId="+ bidId + "&auctionId="+ auctionId, HttpContext.Session.GetString("Token")));
-                if (model)
+                //Check if user is authorized to choose winner (Must be job poster)
+                if (auction.JobPosterUserId != HttpContext.Session.GetInt32("UserID"))
                 {
-                    JobPostDto model2 = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted, HttpContext.Session.GetString("Token")));
+                    return Json(new SimpleResponse { Success = false, Message = Lang.UnauthorizedAccess });
+                }
 
-                    if(model2.JobID > 0)
+                //Post bid
+                bool bidChooseResult = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/SetWinnerBid?bidId=" + bidId, HttpContext.Session.GetString("Token")));
+                if (bidChooseResult)
+                {
+                    //Change job status to Auction Completed
+                    JobPostDto jobStatusResult = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted, HttpContext.Session.GetString("Token")));
+
+                    if (jobStatusResult.JobID > 0)
                     {
-                        SimpleResponse model3 = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/UserReputationStake/ReleaseStakes?referenceProcessID=" + auctionId + "&reftype=" + Helpers.Constants.Enums.StakeReferenceType.Auction, HttpContext.Session.GetString("Token")));
+                        //Release staked reputations for auction
+                        SimpleResponse model3 = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseStakes?referenceProcessID=" + auctionId + "&reftype=" + Helpers.Constants.Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
                         if (model3.Success)
                         {
                             result.Success = true;
                             result.Message = "Winner bid selected.";
-                            result.Content = model;
+
+                            //Set server side toastr because page will be redirected
+                            TempData["toastr-message"] = result.Message;
+                            TempData["toastr-type"] = "success";
                         }
                     }
 
@@ -810,151 +868,58 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
-        /// <summary>
-        /// Add new comment
-        /// </summary>
-        /// <param name="JobId">Job id</param>
-        /// <param name="CommentId">Main comment id</param>
-        /// <param name="Comment">Comment</param>
-        /// <returns></returns>
-        [HttpPost]
-        public JsonResult AddNewComment(int JobId, int CommentId, string Comment)
-        {
-            SimpleResponse result = new SimpleResponse();
+        #region Voting
 
+        /// <summary>
+        /// Votes Page
+        /// </summary>
+        /// <returns></returns>
+        [Route("Votings")]
+        public IActionResult Votings()
+        {
+            ViewBag.Title = "Votings";
+
+            List<VotingViewModel> votesModel = new List<VotingViewModel>();
             try
             {
-                //Create new comment
-                JobPostCommentDto model = new JobPostCommentDto()
-                {
-                    Comment = Comment,
-                    Date = DateTime.Now,
-                    JobID = JobId,
-                    SubCommentID = CommentId,
-                    UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")),
-                    DownVote = 0,
-                    UpVote = 0,
-                };
+                //Get model from ApiGateway
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVotingsByStatus", HttpContext.Session.GetString("Token"));
 
-                //If user posting comment to main topic
-                if (CommentId == 0)
-                {
-                    //Get related auction if exists
-                    AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetByJobId?jobid=" + JobId, HttpContext.Session.GetString("Token")));
-
-                    //Check if auction have a winner bid
-                    if (auction != null && auction.AuctionID > 0 && auction.WinnerAuctionBidID != null)
-                    {
-                        //Get winner bid
-                        AuctionBidDto auctionbid = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/GetId?id=" + auction.WinnerAuctionBidID, HttpContext.Session.GetString("Token")));
-                        //Set user comment as "Pinned" if the user is the owner of winner bid
-                        if (auctionbid != null && auctionbid.AuctionBidID > 0 && auctionbid.UserId == model.UserID)
-                        {
-                            model.IsPinned = true;
-                        }
-                        else
-                        {
-                            model.IsPinned = false;
-                        }
-                    }
-                }
-
-                //Post model to ApiGateway
-                //Add new job
-                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
-
-                if (model != null && model.JobPostCommentID > 0)
-                {
-                    result.Success = true;
-                    result.Message = "Comment succesfully posted.";
-                    result.Content = model;
-                }
-
-                return Json(result);
+                //Parse response
+                votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(url);
 
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-
-            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+            return View(votesModel);
         }
 
-        [HttpGet]
-        public JsonResult AdminJobApproval(int JobId)
+        /// <summary>
+        /// Vote Detail Page
+        /// </summary>
+        /// <param name="VoteID">Vote Id</param>
+        /// <returns></returns>
+        [Route("Vote-Detail/{VoteID}")]
+        public IActionResult Vote_Detail(int VoteID)
         {
-            SimpleResponse result = new SimpleResponse();
+            ViewBag.Title = "Voting Details";
 
+            List<VoteDto> voteDetailModel = new List<VoteDto>();
             try
             {
-                //Get Model from ApiGateway          
-                var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + JobId, HttpContext.Session.GetString("Token"));
-                //Parse result
-                var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
+                //Get model from ApiGateway
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVoteDetail?voteid=" + VoteID, HttpContext.Session.GetString("Token"));
 
-                //Get job poster user object 
-                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + JobModel.UserID, HttpContext.Session.GetString("Token"));
-                //Parse result
-                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
-
-                //If job poster is admin or VA start auction immediately
-                if (userModel.UserType == UserIdentityType.VotingAssociate.ToString() || userModel.UserType == UserIdentityType.Admin.ToString())
-                {
-                    //Set JobPost Model
-                    JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.InternalAuction;
-
-                    //Set Auction model
-                    AuctionDto AuctionModel = new AuctionDto()
-                    {
-                        JobID = JobId,
-                        JobPosterUserId = JobModel.UserID,
-                        CreateDate = DateTime.Now,
-                        Status = AuctionStatusTypes.InternalBidding,
-                        InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
-                        PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
-                    };
-
-                    //Post model to ApiGateway
-                    //Add new auction
-                    AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
-
-                    if (AuctionModel != null && AuctionModel.AuctionID > 0)
-                    {
-                        result.Success = true;
-                        result.Message = "Job approved. Internal auction process started for the job.";
-                        result.Content = AuctionModel;
-                    }
-                }
-                //If job poster is not admin or VA check for KYC
-                else
-                {
-                    if (userModel.KYCStatus == false)
-                    {
-                        JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.KYCPending;
-                        result.Success = true;
-                        result.Message = "Job approved. User needs to complete KYC.";
-                    }
-                    else
-                    {
-                        JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.DoSFeePending;
-                        result.Success = true;
-                        result.Message = "Job approved. User needs to pay DoS fee.";
-                    }
-                }
-
-                //Update job status 
-                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
-
-                return Json(result);
-
+                //Parse response
+                voteDetailModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(url);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-
-            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+            return View(voteDetailModel);
         }
 
         /// <summary>
@@ -1010,6 +975,66 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        #endregion
+
+        #region Reputation
+
+        /// <summary>
+        /// User Reputation History Page
+        /// </summary>
+        /// <returns></returns>
+        [Route("Reputation-History")]
+        public IActionResult Reputation_History()
+        {
+            ViewBag.Title = "Reputation History";
+
+            List<UserReputationHistoryDto> ReputationHistoryModel = new List<UserReputationHistoryDto>();
+            try
+            {
+                //Get model from ApiGateway
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+
+                //Parse response
+                ReputationHistoryModel = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(url);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(ReputationHistoryModel);
+        }
+
+        #endregion
+
+        #region User Views & Methods
+
+        /// <summary>
+        /// User Profile Page
+        /// </summary>
+        /// <returns></returns>
+        [Route("User-Profile")]
+        public IActionResult User_Profile()
+        {
+            ViewBag.Title = "User Profile";
+
+            UserDto profileModel = new UserDto();
+
+            try
+            {
+                //Get model from ApiGateway
+                var json = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+
+                //Parse response
+                profileModel = Helpers.Serializers.DeserializeJson<UserDto>(json);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(profileModel);
         }
 
         [HttpGet]
@@ -1111,38 +1136,74 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
-        #region UserSerttings
+        #endregion
 
-        /// <summary>
-        /// Delete user comment and comments upvote and downvote
-        /// </summary>
-        /// <param name="CommentId">JobPostCommentID</param>
-        /// <returns></returns>
-        [HttpDelete]
-        public JsonResult DeleteComment(int CommentId)
+        #region Admin Views & Methods
+
+        [HttpGet]
+        public JsonResult AdminJobApproval(int JobId)
         {
             SimpleResponse result = new SimpleResponse();
+
             try
             {
-                JobPostCommentDto model = new JobPostCommentDto();
-
-                //Get comment
-                var modelJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/GetId?id=" + CommentId, HttpContext.Session.GetString("Token"));
-
+                //Get Model from ApiGateway          
+                var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + JobId, HttpContext.Session.GetString("Token"));
                 //Parse result
-                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(modelJson);
-                model.Comment = "This comment is deleted by the owner.";
+                var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
 
-                //Update comment as deleted        
-                var deleteModelJson = Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Update", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
-                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(deleteModelJson);
+                //Get job poster user object 
+                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + JobModel.UserID, HttpContext.Session.GetString("Token"));
+                //Parse result
+                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
-                if (model != null && model.JobPostCommentID > 0)
+                //If job poster is admin or VA start auction immediately
+                if (userModel.UserType == UserIdentityType.VotingAssociate.ToString() || userModel.UserType == UserIdentityType.Admin.ToString())
                 {
-                    result.Success = true;
-                    result.Message = "Comment succesfully deleted.";
-                    result.Content = "";
+                    //Set JobPost Model
+                    JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.InternalAuction;
+
+                    //Set Auction model
+                    AuctionDto AuctionModel = new AuctionDto()
+                    {
+                        JobID = JobId,
+                        JobPosterUserId = JobModel.UserID,
+                        CreateDate = DateTime.Now,
+                        Status = AuctionStatusTypes.InternalBidding,
+                        InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
+                        PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
+                    };
+
+                    //Post model to ApiGateway
+                    //Add new auction
+                    AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+
+                    if (AuctionModel != null && AuctionModel.AuctionID > 0)
+                    {
+                        result.Success = true;
+                        result.Message = "Job approved. Internal auction process started for the job.";
+                        result.Content = AuctionModel;
+                    }
                 }
+                //If job poster is not admin or VA check for KYC
+                else
+                {
+                    if (userModel.KYCStatus == false)
+                    {
+                        JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.KYCPending;
+                        result.Success = true;
+                        result.Message = "Job approved. User needs to complete KYC.";
+                    }
+                    else
+                    {
+                        JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.DoSFeePending;
+                        result.Success = true;
+                        result.Message = "Job approved. User needs to pay DoS fee.";
+                    }
+                }
+
+                //Update job status 
+                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
 
                 return Json(result);
 
@@ -1153,8 +1214,11 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
-
         }
+
+        #endregion
+
+        #region Utility
 
         [HttpGet]
         public JsonResult SetCookie(string src)
@@ -1164,7 +1228,7 @@ namespace DAO_WebPortal.Controllers
             Response.Cookies.Append("theme", src, cookies);
             return Json("");
         }
-        #endregion
 
+        #endregion
     }
 }

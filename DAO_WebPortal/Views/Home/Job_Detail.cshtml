@@ -26,7 +26,14 @@
                             Model.JobPostCommentModel.Insert(0, cmt);
                         }
 
-                        ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList());
+                        if (Model.JobPostCommentModel.Count > 0)
+                        {
+                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList());
+                        }
+                        else
+                        {
+                            <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no comments in this topic" }, { "Icon", "frown-open" }, { "HtmlContent", "<button class=\"btn btn-primary mt-3\" onclick=\"CreateReplyBox(this, 0)\">Make New Comment</button>" } }' />
+                        }
                     }
                 </div>
                 <!-- Job comment recursive function -->
@@ -244,7 +251,7 @@
                 success: function (result) {
                    console.log(result);
                         if (result.success) {
-                            toastr.success(result.message);
+                            window.location.reload();
                         }
                         else {
                             toastr.warning(result.message);
@@ -270,10 +277,7 @@
                 success: function (result) {
                    console.log(result);
                         if (result.success) {
-                            toastr.success(result.message);
-                            //setTimeout(function () {
-                            //    window.location.href = "./../Auction-Detail/"+id;
-                            //}, 1000);
+                            window.location.reload();
                         }
                         else {
                             toastr.warning(result.message);

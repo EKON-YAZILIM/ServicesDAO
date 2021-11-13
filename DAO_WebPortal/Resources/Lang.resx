@@ -189,6 +189,9 @@
   <data name="SuccessLogin" xml:space="preserve">
     <value>Login successful.</value>
   </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>You are unauthorized to perform this action.</value>
+  </data>
   <data name="UnexpectedError" xml:space="preserve">
     <value>An unexpected error has occurred. Please try again later</value>
   </data>

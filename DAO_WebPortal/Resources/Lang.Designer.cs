@@ -277,6 +277,15 @@ namespace DAO_WebPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are unauthorized to perform this action..
+        /// </summary>
+        public static string UnauthorizedAccess {
+            get {
+                return ResourceManager.GetString("UnauthorizedAccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unexpected error has occurred. Please try again later.
         /// </summary>
         public static string UnexpectedError {

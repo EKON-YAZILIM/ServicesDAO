@@ -271,15 +271,23 @@ namespace DAO_DbService.Controllers
 
         [Route("SetWinnerBid")]
         [HttpGet]
-        public bool SetWinnerBid(int bidId, int auctionId)
+        public bool SetWinnerBid(int bidId)
         {
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    Auction item = db.Auctions.FirstOrDefault(s => s.AuctionID == auctionId);
-                    item.WinnerAuctionBidID = bidId;
-                    db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    AuctionBid auctionBid = db.AuctionBids.Find(bidId);
+
+                    Auction auction = db.Auctions.Find(auctionBid.AuctionID);
+                    auction.WinnerAuctionBidID = bidId;
+                    auction.Status = AuctionStatusTypes.Completed;
+                    db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    db.SaveChanges();
+
+                    JobPost job = db.JobPosts.Find(auction.JobID);
+                    job.JobDoerUserID = auctionBid.UserID;
+                    db.Entry(job).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                     db.SaveChanges();
                 }
                 return true;

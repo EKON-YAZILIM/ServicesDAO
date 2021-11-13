@@ -1,0 +1,22 @@
+﻿
+
+<div class="p-5 text-center">
+
+    @{
+        string icon = "exclamation-triangle";
+        if (ViewData["Icon"] != null)
+        {
+            icon = ViewData["Icon"].ToString();
+        }
+    }
+
+    <i class="fas fa-@icon text-secondary mb-3" style="font-size:60px"></i>
+
+    <h4 class="text-secondary">@ViewData["Message"].ToString()</h4>
+    @if (ViewData["HtmlContent"] != null)
+    {
+        <div>@Html.Raw(ViewData["HtmlContent"].ToString())</div>
+    }
+
+</div>
+

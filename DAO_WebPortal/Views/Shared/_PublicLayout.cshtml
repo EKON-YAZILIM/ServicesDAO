@@ -376,18 +376,19 @@
                 data: { "email": email, "password": password, "usercode": code, "__RequestVerificationToken": token },
                 async: true,
                 success: function (result) {
-                      if (result.success) {
-                          window.location.href = "./Home";
-                      }
-                      else {
-                          failCount++;
-                          toastr.warning(result.message);
-                          //Show captcha image after failed request attempts
-                          if (failCount > 3) {
-                              resetCaptchaImage("#img-captcha-login", "securityCodeLogin");
-                              $(".captchaDiv").removeClass("d-none");
-                          }
-                      }
+                    if (result.success) {
+                        window.location.href = "./Home";
+                    }
+                    else {
+                        failCount++;
+                        toastr.warning(result.message);
+                        //Show captcha image after failed request attempts
+                        if (failCount > 3) {
+                            resetCaptchaImage("#img-captcha-login", "securityCodeLogin");
+                            $(".captchaDiv").removeClass("d-none");
+                        }
+                        HideLoader();
+                    }
                 },
                 failure: function (response) {
                     toastr.warning("@Lang.ConnectionError");
@@ -397,8 +398,6 @@
                     toastr.error("@Lang.UnexpectedError");
                     HideLoader();
                 }
-            }).done(function () {
-                HideLoader();
             });
         }
 
