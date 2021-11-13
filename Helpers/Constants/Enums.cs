@@ -77,6 +77,7 @@
             Completed,
             Failed,
             Expired,
+            Rejected
         }
 
         /// <summary>

@@ -2,7 +2,7 @@
 @using Helpers.Constants
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor httpContextAccessor
-@model Helpers.Models.WebsiteViewModels.AuctionBidWebsiteModel
+@model Helpers.Models.WebsiteViewModels.AuctionDetailViewModel
 
 @{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -34,87 +34,83 @@
 
 }
 
-<!--Tab list-->
-<div class="tab-content rounded-bottom mt-2">
-    <div class="tab-pane p-2 active" role="tabpanel" id="preview-924">
-        <div class="card m-2">
-            <div class="card-header">
-                <!-- .header -->
-                <span class="small ms-1">Auction Bids Table</span>
-                <a href="../Job-Detail/@Model.Auction.JobID" class="float-right">Go to job details</a>
-            </div><!-- .header -->
-            <div class="card-body">
-                <!-- Card Body -->
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Time</th>
-                            @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
-                            {
-                                <th scope="col">Reputation Stake</th>
-                            }
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{int Count = 0;}
-                        @foreach (var item in Model.AuctionBidViewModels)
+<!--Bids-->
+<div class="card m-2">
+    <div class="card-header">
+        <!-- .header -->
+        <span class="small ms-1">Auction Bids Table</span>
+        <a href="../Job-Detail/@Model.Auction.JobID" class="float-right">Go to job details</a>
+    </div><!-- .header -->
+    <div class="card-body">
+        <!-- Card Body -->
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Time</th>
+                    @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
+                    {
+                        <th scope="col">Reputation Stake</th>
+                    }
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int Count = 0;}
+                @foreach (var item in Model.BidItems)
+                {
+                    Count++;
+
+                    <tr>
+                        <th scope="row">@Count</th>
+                        <td>@item.UserName</td>
+                        <td>@item.Price</td>
+                        <td>@item.Time</td>
+
+                        @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
                         {
-                            Count++;
+                            <td>@item.ReputationStake</td>
+                        }
 
-                            <tr>
-                                <th scope="row">@Count</th>
-                                <td>@item.UserName</td>
-                                <td>@item.Price</td>
-                                <td>@item.Time</td>
+                        <td>
 
-                                @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
+                            @*If bidding continues, show buttons *@
+                            @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding)
+                            {
+                                @*If user is job poster , show select winner bid button *@
+                                if (Model.Auction.JobPosterUserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
                                 {
-                                    <td>@item.ReputationStake</td>
+                                    <a class="btn btn-sm btn-primary me-2 cursorp" onclick="ChooseAsWinnerBidModal(@item.AuctionBidID)">
+                                        <svg class="icon">
+                                            <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
+                                        </svg> Select Winner
+                                    </a>
                                 }
 
-                                <td>
+                                @*If user already have bid, show delete bid button *@
+                                if (item.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+                                {
+                                    <a class="btn btn-sm btn-primary me-2" data-coreui-toggle="modal" data-coreui-target="#DeleteBidModal">
+                                        <svg class="icon">
+                                            <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                        </svg> Delete Bid
+                                    </a>
+                                }
+                            }
 
-                                    @*If bidding continues, show buttons *@
-                                    @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding)
-                                    {
-                                        @*If user is job poster , show select winner bid button *@
-                                        if (Model.Auction.JobPosterUserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
-                                        {
-                                            <a class="btn btn-sm btn-primary me-2 cursorp" onclick="ChooseAsWinnerBidModal(@item.AuctionBidID)">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
-                                                </svg> Select Winner
-                                            </a>
-                                        }
-
-                                        @*If user already have bid, show delete bid button *@
-                                        if (item.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
-                                        {
-                                            <a class="btn btn-sm btn-primary me-2" data-coreui-toggle="modal" data-coreui-target="#DeleteBidModal">
-                                                <svg class="icon">
-                                                    <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
-                                                </svg> Delete Bid
-                                            </a>
-                                        }
-                                    }
-
-                                    @*Show winner bid icon*@
-                                    @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
-                                    {
-                                        <i style="color:#FFD700" class="fas fa-star cursorp" title="Winner Bid"></i>
-                                    }
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div><!-- Card Body -->
-        </div>
-    </div>
+                            @*Show winner bid icon*@
+                            @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
+                            {
+                                <i style="color:#FFD700" class="fas fa-star cursorp" title="Winner Bid"></i>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div><!-- Card Body -->
 </div>
 
 <!--New Bid Modal  -->
@@ -151,7 +147,7 @@
 </div>
 
 @{
-    var userBid = Model.AuctionBidViewModels.SingleOrDefault(x => x.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"));
+    var userBid = Model.BidItems.SingleOrDefault(x => x.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"));
 
     if (userBid != null)
     {

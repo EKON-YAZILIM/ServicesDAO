@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-    public class AuctionBidViewModel
+    public class AuctionBidItemModel
     {
         public int AuctionID { get; set; }
         public int AuctionBidID { get; set; }

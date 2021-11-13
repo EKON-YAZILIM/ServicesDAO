@@ -666,7 +666,7 @@ namespace DAO_WebPortal.Controllers
         {
             ViewBag.Title = "Auction Details";
 
-            AuctionBidWebsiteModel AuctionDetailModel = new AuctionBidWebsiteModel();
+            AuctionDetailViewModel AuctionDetailModel = new AuctionDetailViewModel();
 
             try
             {
@@ -676,7 +676,7 @@ namespace DAO_WebPortal.Controllers
                 var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + AuctionID, HttpContext.Session.GetString("Token"));
 
                 //Parse response
-                AuctionDetailModel.AuctionBidViewModels = Helpers.Serializers.DeserializeJson<List<AuctionBidViewModel>>(auctionBidsJson);
+                AuctionDetailModel.BidItems = Helpers.Serializers.DeserializeJson<List<AuctionBidItemModel>>(auctionBidsJson);
                 //Parse response
                 AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
             }
@@ -723,6 +723,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 Model.UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserID"));
+                Model.CreateDate = DateTime.Now;
 
                 //Post model to ApiGateway
                 Model = Helpers.Serializers.DeserializeJson<AuctionBidDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Post", Helpers.Serializers.SerializeJson(Model), HttpContext.Session.GetString("Token")));
@@ -883,10 +884,10 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVotingsByStatus", HttpContext.Session.GetString("Token"));
+                var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVotingsByStatus", HttpContext.Session.GetString("Token"));
 
                 //Parse response
-                votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(url);
+                votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(votingJson);
 
             }
             catch (Exception ex)
@@ -901,24 +902,59 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <param name="VoteID">Vote Id</param>
         /// <returns></returns>
-        [Route("Vote-Detail/{VoteID}")]
-        public IActionResult Vote_Detail(int VoteID)
+        [Route("Vote-Detail/{VotingID}")]
+        public IActionResult Vote_Detail(int VotingID)
         {
             ViewBag.Title = "Voting Details";
 
-            List<VoteDto> voteDetailModel = new List<VoteDto>();
+            VoteDetailViewModel voteDetailModel = new VoteDetailViewModel();
+
             try
             {
-                //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVoteDetail?voteid=" + VoteID, HttpContext.Session.GetString("Token"));
+                //Get voting model from ApiGateway
+                var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetId?id=" + VotingID, HttpContext.Session.GetString("Token"));
+                var voting = Helpers.Serializers.DeserializeJson<VotingDto>(votingJson);
+
+                //Get votes model from ApiGateway
+                var votesJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Vote/GetAllVotesByVotingId?votingid=" + VotingID, HttpContext.Session.GetString("Token"));
+                var votes = Helpers.Serializers.DeserializeJson<List<VoteDto>>(votesJson); 
+
+                //Get reputation stakes from reputation service
+                var reputationsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByProcessId?referenceProcessID=" + VotingID+ "&reftype="+StakeType.For, HttpContext.Session.GetString("Token"));
+                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+
+                //Get usernames of voters
+                var usernamesJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUsernamesByUserIds", Helpers.Serializers.SerializeJson(votes.Select(x=>x.UserID)), HttpContext.Session.GetString("Token"));
+                var usernames = Helpers.Serializers.DeserializeJson<List<string>>(usernamesJson);
+
+
+                //Combine results into VoteItemModel
+                List<VoteItemModel> voteItems = new List<VoteItemModel>();
+                votes = votes.OrderBy(x => x.UserID).ToList();
+                for (int i = 0; i < votes.Count; i++)
+                {
+                    VoteItemModel vt = new VoteItemModel();
+                    vt.UserID = votes[i].UserID;
+                    vt.Date = votes[i].Date;
+                    vt.Direction = votes[i].Direction;
+                    vt.VoteID = votes[i].VoteID;
+                    vt.VotingID = votes[i].VotingID;
+                    vt.UserName = usernames[i];
+                    vt.ReputationStake = reputations.First(x => x.UserID == vt.UserID).Amount;
+                    voteItems.Add(vt);
+                }
 
                 //Parse response
-                voteDetailModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(url);
+                voteDetailModel.VoteItems = voteItems;
+                //Parse response
+                voteDetailModel.Voting = Helpers.Serializers.DeserializeJson<VotingDto>(votingJson);
+
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
+
             return View(voteDetailModel);
         }
 
@@ -977,6 +1013,62 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        [HttpPost]
+        public JsonResult SubmitVote(int VotingID, StakeType Direction, double? ReputationStake)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get voting model from ApiGateway
+                var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetId?id=" + VotingID, HttpContext.Session.GetString("Token"));
+                //Parse response
+                VotingDto voting = Helpers.Serializers.DeserializeJson<VotingDto>(votingJson);
+
+                //Get job post model from ApiGateway
+                var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + voting.JobID, HttpContext.Session.GetString("Token"));
+                //Parse response
+                JobPostDto job = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
+
+                //Check if public user trying to submit bid for expired or completed auction
+                if (voting.Status != Enums.VoteStatusTypes.Active)
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "You can't submit vote to a closed voting." });
+                }
+
+                //Check if user trying to submit bid for his/her own job
+                if (job.UserID == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")) || job.JobDoerUserID == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "You can't submit vote to your own job." });
+                }
+
+                //Check if user trying to submit bid for his/her own job
+                if (voting.Type ==  VoteTypes.JobCompletion && (ReputationStake == null || ReputationStake <= 0))
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "You must stake reputation greater than 0 for this voting type." });
+                }
+
+                //Post model to ApiGateway
+                string jsonResponse = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Vote/SubmitVote?VotingID=" + VotingID + "&UserID=" + Convert.ToInt32(HttpContext.Session.GetInt32("UserID")) + "&Direction=" + Direction + "&ReputationStake=" + ReputationStake.ToString().Replace(",","."), HttpContext.Session.GetString("Token"));
+                result = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
+
+                if (result.Success)
+                {
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+                }
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
+        }
         #endregion
 
         #region Reputation

@@ -269,29 +269,44 @@
 
         //Delete Comment
         function DeleteComment(commentid) {
-
-            $.ajax({
-                type: "DELETE",
-                url: "../Home/DeleteComment",
-                data: {  "CommentId": commentid },
-                success: function (result) {
-                   console.log(result);
-                        if (result.success) {
-                            window.location.reload();
+            $.confirm({
+                    title: 'Confirmation',
+                    content: 'Are you sure you want to delete your comment ?',
+                    buttons: {
+                        cancel: {
+                            text: 'Cancel'
+                        },
+                        confirm: {
+                            text: 'Continue',
+                            btnClass: 'btn btn-primary',
+                            action: function () {
+                                $.ajax({
+                                    type: "DELETE",
+                                    url: "../Home/DeleteComment",
+                                    data: {  "CommentId": commentid },
+                                    success: function (result) {
+                                       console.log(result);
+                                            if (result.success) {
+                                                window.location.reload();
+                                            }
+                                            else {
+                                                toastr.warning(result.message);
+                                            }
+                                        },
+                                          failure: function (response) {
+                                                toastr.warning("@Lang.ConnectionError");
+                                        },
+                                        error: function (response) {
+                                             toastr.error("@Lang.UnexpectedError");
+                                    }
+                                });
+                            }
                         }
-                        else {
-                            toastr.warning(result.message);
-                        }
-                    },
-                      failure: function (response) {
-                            toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
-                }
+                    }
             });
+
         }
 
-  
+
     </script>
 }

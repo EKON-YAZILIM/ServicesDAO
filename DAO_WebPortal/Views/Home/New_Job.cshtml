@@ -7,20 +7,27 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
-            <label for="title">Title</label>
+            <label class="mb-2" for="title">Title</label>
             <input type="text" class="form-control" id="title" placeholder="Title">
         </div>
-        <div class="form-group mb-4">
-            <label for="amount">Amount</label>
-            <input type="text" class="form-control" id="amount" placeholder="Amount">
+        <div class="row">
+            <div class="col-md-6">
+                <label class="mb-2" for="title">Total Budget</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">€</span>
+                    <input class="form-control" type="text" aria-label="Amount" placeholder="Amount" id="amount"><span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="mb-2" for="title">Expected Time Frame</label>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" aria-label="Time Frame" placeholder="Time Frame" id="time"><span class="input-group-text">days</span>
+                </div>
+            </div>
         </div>
         <div class="form-group mb-4">
-            <label for="time">Time Frame</label>
-            <input type="text" class="form-control" id="time" placeholder="Time Frame">
-        </div>
-        <div class="form-group mb-4">
-            <label for="description">Job Description</label>
-            <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="5"></textarea>
+            <label class="mb-2" for="description">Job Description</label>
+            <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="10"></textarea>
         </div>
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary" onclick="NewJob();">Submit Job</button>

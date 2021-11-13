@@ -1,7 +1,12 @@
-﻿@{
+﻿@using DAO_WebPortal.Resources
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@model List<Helpers.Models.WebsiteViewModels.VotingViewModel>
+
+@{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-@model List<Helpers.Models.WebsiteViewModels.VotingViewModel>
+
 <!--Tab list-->
 <ul class="nav nav-underline border-0" role="tablist">
     <li class="nav-item">
@@ -44,37 +49,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @{int Count = 0;}
-                            @foreach (var item in Model)
-                            {
-                                //VoteStatusTypes type and IsFormal check
-                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && item.IsFormal == false)
+                            @{
+                                var informalVotings = Model.Where(x => x.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && x.IsFormal == false).ToList();
+
+                                @foreach (var item in informalVotings)
                                 {
-                                    Count++;
-                                    int TitleLenght = 0;
-                                    //TitleLenght check
-                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
-                                    <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
-                                        <th scope="row">@Count</th>
-                                        <td>@item.Title.Substring(0, TitleLenght)</td>
+                                    <tr>
+                                        <td>@item.VotingID</td>
+                                        <td>@item.Title.Substring(0, Math.Min(35, item.Title.Length))</td>
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
-                                        <td id="demo_@item.VoteID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                                            </svg> Detail
+                                        <td id="counter_@item.VotingID"></td>
+                                        <td>
+                                            <a class="btn btn-sm btn-primary me-2" onclick="OpenVoteModal(@item.VotingID)">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                </svg> Submit Vote
+                                            </a>
                                         </td>
                                     </tr>
                                 }
-
                             }
+
                         </tbody>
                     </table>
                 }
                 else
                 {
-                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Vote not found." } }' />
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Voting not found." } }' />
                 }
 
             </div>
@@ -98,39 +100,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @{int Count2 = 0;}
-                            @foreach (var item in Model)
-                            {
-                                //VoteStatusTypes type and IsFormal check
-                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && item.IsFormal == true)
+                            @{
+                                var formalVotings = Model.Where(x => x.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && x.IsFormal == true).ToList();
+
+                                @foreach (var item in formalVotings)
                                 {
-                                    Count2++;
-                                    int TitleLenght = 0;
-                                    //TitleLenght Check
-                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
-                                    <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
-                                        <th scope="row">@Count2</th>
-                                        <td>@item.Title.Substring(0, TitleLenght)</td>
+                                    <tr>
+                                        <td>@item.VotingID</td>
+                                        <td>@item.Title.Substring(0, Math.Min(35, item.Title.Length))</td>
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
-                                        <td id="demo_@item.VoteID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                                            </svg> Detail
+                                        <td id="counter_@item.VotingID"></td>
+                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VotingID">
+                                            <a class="btn btn-sm btn-primary me-2" onclick="OpenVoteModal(@item.VotingID)">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                </svg> Submit Vote
+                                            </a>
                                         </td>
                                     </tr>
                                 }
                             }
-
-
 
                         </tbody>
                     </table>
                 }
                 else
                 {
-                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Vote not found." } }' />
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Voting not found." } }' />
                 }
             </div>
         </div><!--card-->
@@ -158,26 +155,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @{int Count3 = 0;}
-                            @foreach (var item in Model)
-                            {
-                                //VoteStatusTypes type and IsFormal check
-                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed && item.IsFormal == false)
+                            @{
+                                var informalVotings = Model.Where(x => x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed && x.IsFormal == false).ToList();
+
+                                @foreach (var item in informalVotings)
                                 {
-                                    Count3++;
-                                    int TitleLenght = 0;
-                                    //TitleLenght check
-                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
-                                    <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
-                                        <th scope="row">@Count3</th>
-                                        <td>@item.Title.Substring(0, TitleLenght)</td>
+                                    <tr>
+                                        <td>@item.VotingID</td>
+                                        <td>@item.Title.Substring(0, Math.Min(35, item.Title.Length))</td>
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
-                                        <td id="demo_@item.VoteID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
+                                        <td id="counter_@item.VotingID"></td>
+                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VotingID">
                                             <svg class="icon">
                                                 <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                                            </svg> Detail
+                                            </svg> Show Results
                                         </td>
                                     </tr>
                                 }
@@ -187,7 +179,7 @@
                 }
                 else
                 {
-                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Vote not found." } }' />
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Voting not found." } }' />
                 }
             </div>
         </div>  <!--card-->
@@ -210,26 +202,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @{int Count4 = 0;}
-                            @foreach (var item in Model)
-                            {
-                                //VoteStatusTypes type and IsFormal check
-                                if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed && item.IsFormal == true)
+                            @{
+                                var formalVotings = Model.Where(x => x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed && x.IsFormal == true).ToList();
+
+                                @foreach (var item in formalVotings)
                                 {
-                                    Count4++;
-                                    int TitleLenght = 0;
-                                    //TitleLenght check
-                                    if (item.Title != null) { TitleLenght = item.Title.Length; if (TitleLenght > 35) { TitleLenght = 35; } } else { item.Title = ""; }
-                                    <tr @*class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID"*@>
-                                        <th scope="row">@Count4</th>
-                                        <td>@item.Title.Substring(0, TitleLenght)</td>
+                                    <tr>
+                                        <td>@item.VotingID</td>
+                                        <td>@item.Title.Substring(0, Math.Min(35, item.Title.Length))</td>
                                         <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                         <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
-                                        <td id="demo_@item.VoteID"></td>
-                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VoteID">
+                                        <td id="counter_@item.VotingID"></td>
+                                        <td class="cursorp voteDetail" data-href="./Vote-Detail/@item.VotingID">
                                             <svg class="icon">
                                                 <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
-                                            </svg> Detail
+                                            </svg> Show Results
                                         </td>
                                     </tr>
                                 }
@@ -239,7 +226,7 @@
                 }
                 else
                 {
-                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Vote not found." } }' />
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Voting not found." } }' />
 
                 }
 
@@ -249,42 +236,140 @@
     </div>
 </div>
 
-<script>
-    dataModel = @Html.Raw(Json.Serialize(Model));
+<!-- Submit Vote Modal  -->
+<div class="modal fade" id="VoteModal" tabindex="-1" aria-labelledby="VoteModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Submit Vote For Voting #<span id="votingIdSpan"></span></h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="btn-check mr-3" id="btn-check-outlined" type="checkbox" autocomplete="off" onclick="SelectVoteDirection(0)">
+                        <label class="btn btn-outline-success w-100 mb-3" for="btn-check-outlined">FOR</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="btn-check" id="btn-check-outlined2" type="checkbox" autocomplete="off" onclick="SelectVoteDirection(1)">
+                        <label class="btn btn-outline-danger w-100 mb-3" for="btn-check-outlined2">AGAINST</label>
+                    </div>
+                </div>
+                <p>How much reputation do you want to stake for this vote ?</p>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" placeholder="Reputation stake" id="reputationStake"><span class="input-group-text" id="basic-addon2"> Reputation Points</span>
+                </div>
+            </div>
+            <div id="winnerButtons" class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" onclick="SubmitVote();">Submit Vote</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    //Send all VoteID CountDown function
-    function StartInterval(index, frequency) {
-        setInterval(function () {
-            CountDown(index.voteID, countDownDate);
-        }, frequency);
-    }
-    //Send StartInterval function all votes
-    for (i = 0; i < dataModel.length; i++) {
-        var countDownDate = new Date(dataModel[i].endDate).getTime();
-        CountDown(dataModel[i].voteID, countDownDate);
-        StartInterval(dataModel[i], 1000)
-    }
+@section Scripts{
 
-    function CountDown(id, countDownDate) {
-        var now = new Date().getTime();
+    <script>
+        dataModel = @Html.Raw(Json.Serialize(Model.Where(x=>x.Status == Helpers.Constants.Enums.VoteStatusTypes.Active).ToList()));
 
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+        var votingCountdownDictionary = {};
+        var selectedVotingId = 0;
+        var selectedDirection = 0;
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        $(document).ready(function () {
 
-        // Output the result in an element with id="demo_id"
-        document.getElementById("demo_"+id).innerHTML = "<span>" + days + "</span>" + " days <span>" + hours + "</span> hours <span> "
-            + minutes + "</span> min <span>" + seconds + "</span> sec ";
+            $(".votingDetail").click(function () {
+                window.location = $(this).data("href");
+            });
 
-        // If the count down is over, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo_" + id).innerHTML = "EXPIRED";
+            //Start voting countdowns
+            for (i = 0; i < dataModel.length; i++) {
+                var countDownDate = new Date(dataModel[i].endDate).getTime();
+                votingCountdownDictionary[dataModel[i].votingID] = countDownDate;
+                CountDown(dataModel[i].votingID, countDownDate);
+                StartInterval(dataModel[i], 1000)
+            }
+
+        });
+
+        //Send votingIDs to CountDown function
+        function StartInterval(index, frequency) {
+            setInterval(function () {
+                CountDown(index.votingID, votingCountdownDictionary[index.votingID]);
+            }, frequency);
         }
-    }
-</script>
+
+        //Countdown method
+        function CountDown(id, countDownDate) {
+
+            var now = new Date().getTime();
+            countDownDate = votingCountdownDictionary[id];
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="counter_id"
+            document.getElementById("counter_"+id).innerHTML = "<span>" + days + "</span>" + "D <span>" + hours + "</span>:<span>"
+                + minutes + "</span>:<span>" + seconds + "</span>";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("counter_" + id).innerHTML = "EXPIRED";
+            }
+        }
+
+        function OpenVoteModal(votingId) {
+            selectedVotingId = votingId;
+            $("#votingIdSpan").text(votingId);
+            $("#VoteModal").modal("toggle");
+        }
+
+        function SelectVoteDirection(direction) {
+            selectedDirection = direction;
+        }
+
+        function SubmitVote(direction) {
+             $.confirm({
+                    title: 'Confirmation',
+                    content: 'Are you sure you want to submit your vote ?',
+                    buttons: {
+                        cancel: {
+                            text: 'Cancel'
+                        },
+                        confirm: {
+                            text: 'Continue',
+                            btnClass: 'btn btn-primary',
+                            action: function () {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "../Home/SubmitVote",
+                                    data: { "VotingID": selectedVotingId, "Direction": selectedDirection, "ReputationStake": $("#reputationStake").val() },
+                                    success: function (result) {
+                                       console.log(result);
+                                            if (result.success) {
+                                                window.location.reload();
+                                            }
+                                            else {
+                                                toastr.warning(result.message);
+                                            }
+                                        },
+                                          failure: function (response) {
+                                                toastr.warning("@Lang.ConnectionError");
+                                        },
+                                        error: function (response) {
+                                             toastr.error("@Lang.UnexpectedError");
+                                    }
+                                });
+                            }
+                        }
+                    }
+            });
+        }
+    </script>
+}

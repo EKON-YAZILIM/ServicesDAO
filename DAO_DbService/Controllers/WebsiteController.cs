@@ -315,9 +315,9 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAuctionBids")]
         [HttpGet]
-        public List<AuctionBidViewModel> GetAuctionBids(int auctionid)
+        public List<AuctionBidItemModel> GetAuctionBids(int auctionid)
         {
-            List<AuctionBidViewModel> result = new List<AuctionBidViewModel>();
+            List<AuctionBidItemModel> result = new List<AuctionBidItemModel>();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
@@ -325,7 +325,7 @@ namespace DAO_DbService.Controllers
                     result = (from act in db.AuctionBids
                               join user in db.Users on act.UserID equals user.UserId
                               where act.AuctionID == auctionid
-                              select new AuctionBidViewModel
+                              select new AuctionBidItemModel
                               {
                                   AuctionID = act.AuctionID,
                                   UserId = Convert.ToInt32(act.UserID),
@@ -579,7 +579,7 @@ namespace DAO_DbService.Controllers
                            {
 
                                JobID = job.JobID,
-                               VoteID = votejob.VotingID,
+                               VotingID = votejob.VotingID,
                                IsFormal = votejob.IsFormal,
                                CreateDate = votejob.CreateDate,
                                StartDate = votejob.StartDate,

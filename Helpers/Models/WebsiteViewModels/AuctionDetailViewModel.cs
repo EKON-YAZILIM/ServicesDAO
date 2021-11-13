@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-   public class AuctionBidWebsiteModel
+   public class AuctionDetailViewModel
     {
-        public List<AuctionBidViewModel> AuctionBidViewModels { get; set; }
+        public List<AuctionBidItemModel> BidItems { get; set; }
         public AuctionDto Auction { get; set; } 
     }
 }

@@ -316,5 +316,24 @@ namespace DAO_DbService.Controllers
 
             return null;
         }
+
+        [Route("GetUsernamesByUserIds")]
+        [HttpPost]
+        public List<string> GetUsernamesByUserIds(List<int> userids)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                   return db.Users.Where(x => userids.Contains(x.UserId)).Select(x=>x.UserName).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return null;
+        }
     }
 }

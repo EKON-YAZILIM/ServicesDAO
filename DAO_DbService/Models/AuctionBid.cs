@@ -15,6 +15,7 @@ namespace DAO_DbService.Models
         public double Price { get; set; }
         public string Time { get; set; }
         public double ReputationStake { get; set; }
+        public DateTime CreateDate { get; set; }
 
     }
 }
