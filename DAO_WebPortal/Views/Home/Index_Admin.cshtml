@@ -5,49 +5,6 @@
 }
 @model Helpers.Models.WebsiteViewModels.GetDashBoardViewModel;
 
-<style>
-    .cardy {
-        border-radius: 4px;
-        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-        padding: 14px 80px 18px 36px;
-        cursor: pointer;
-        max-width: 500px;
-        border: 1px solid #dfdfdf17;
-    }
-
-.cardy:hover{
-     transform: scale(1.01);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-}
-
-.cardy h3{
-  font-weight: 600;
-}
-
-.cardy img{
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  max-height: 120px;
-
-}
-
-.card-1{
-  background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
-      background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
-}
-
-
-@*@media(max-width: 990px){
-  .card{
-    margin: 20px;
-  }
-}*@
-</style>
-
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card mb-4 text-white bg-primary-gradient">
@@ -262,100 +219,7 @@
     </div>
 }
 
-<!-- /.row-->
 
-<div class="row">
-    <div class="col-lg-6 col-md-12 ">
-        <div class="card mb-4">
-            <div class="card-header">Auction</div>
-            <div class="card-body p-0">
-                <div class="table-responsive" style="height:350px">
-                    <table class="table border mb-0">
-                        <thead class="table-light fw-semibold">
-                            <tr class="align-middle">
-                                <th>Job Name</th>
-                                <th>Create Date</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.AuctionViewModels)
-                            {
-                                <tr class="align-middle">
-                                    <td>
-                                        @item.Title
-                                    </td>
-                                    <td>
-                                        @item.CreateDate.ToString("dd.MM.yyyy")
-                                    </td>
-                                    <td>
-                                        @item.InternalAuctionEndDate.ToString("dd.MM.yyyy")
-                                    </td>
-                                    <td>
-                                        @item.PublicAuctionEndDate.ToString("dd.MM.yyyy")
-                                    </td>
-                                    <td>
-                                        Internal Bidding
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-12 ">
-        <div class="card mb-4">
-            <div class="card-header">Voting</div>
-            <div class="card-body p-0">
-                <div class="table-responsive" style="height:350px">
-                    <table class="table border mb-0">
-                        <thead class="table-light fw-semibold">
-                            <tr class="align-middle">
-                                <th>JobID</th>
-                                <th>Create Date</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>Is Formal</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.VotingViewModels)
-                            {
-                                <tr class="align-middle">
-                                    <td>@item.JobID</td>
-                                    <td>
-                                        @item.CreateDate.ToString("dd.MM.yyyy")
-                                    </td>
-                                    <td>
-                                        @item.StartDate.ToString("dd.MM.yyyy")
-                                    </td>
-                                    <td>
-                                        @item.EndDate.ToString("dd.MM.yyyy")
-                                    </td>
-                                    <td>
-                                        @if (item.IsFormal == true)
-                                        {
-
-                                            <span>Formal</span>}
-                                        else
-                                        { <span>InFormal</span>}
-
-
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.col-->
-</div>
 <!-- /.row-->
 
 <div class="row">
@@ -393,8 +257,8 @@
                             <tr class="align-middle">
                                 <th>User ID</th>
                                 <th>Date</th>
-                                <th>Type</th>
                                 <th>Explanation</th>
+                                <th>Type</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -405,11 +269,22 @@
                                     <td>
                                         @item.Date
                                     </td>
-                                    <td>
+                                    @if (item.Explanation.Length > 30)
+                                    {
+                                        <td nowrap="nowrap" class="trSlider">
+                                            <span>
+                                                @item.Explanation
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td nowrap="nowrap">
+                                            @item.Explanation
+                                        </td>
+                                    }
+                                    <td class="ps-3">
                                         @item.Type
-                                    </td>
-                                    <td>
-                                        @item.Explanation
                                     </td>
                                 </tr>
                             }
@@ -429,8 +304,8 @@
                             <tr class="align-middle">
                                 <th>Application</th>
                                 <th>Date</th>
-                                <th>Type</th>
                                 <th>Explanation</th>
+                                <th>Type</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -441,11 +316,22 @@
                                     <td>
                                         @item.Date
                                     </td>
-                                    <td>
+                                    @if (item.Explanation.Length > 30)
+                                    {
+                                        <td nowrap="nowrap" class="trSlider">
+                                            <span >
+                                                @item.Explanation
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td nowrap="nowrap">
+                                            @item.Explanation
+                                        </td>
+                                    }
+                                    <td class="ps-3">
                                         @item.Type
-                                    </td>
-                                    <td>
-                                        @item.Explanation
                                     </td>
                                 </tr>
                             }
@@ -460,20 +346,30 @@
 <!-- /.row-->
 
 @section Scripts{
-
-    @*<script src="~/Home/chartjs/js/main.js"></script>*@
-
+    @if (Model.JobPostDtos.Count() > 1)
+    {
+        <script>
+            $('#JobFlipster').flipster({
+                spacing: -0.5,
+                onItemSwitch: (current, prev) => {
+                    $(current).find("button").prop('disabled', false);
+                    $(prev).find("button").prop('disabled', true);
+                },
+                start: $(".flip-items li").length - 1,
+            });
+            $(".flip-items li:last-child").find("button").prop('disabled', false);
+        </script>
+    }
+    else if (Model.JobPostDtos.Count() == 1)
+    {
+        <script>
+            $(".flip-items li").find("button").prop('disabled', false);
+            $(".flip-items li").addClass("d-flex justify-content-center");
+        </script>
+    }
 <script>
 
-        $('#JobFlipster').flipster({
-            spacing: -0.5,
-            onItemSwitch: (current, prev) => {
-                $(current).find("button").prop('disabled', false);
-                $(prev).find("button").prop('disabled', true);
-            },
-            start: $(".flip-items li").length - 1,
-        });
-        $(".flip-items li:last-child").find("button").prop('disabled', false);
+
 
         function JobApprove(id) {
         //Ajax put action
@@ -499,7 +395,7 @@
             });
         }
 
-       
+
     function JobDisapprove(id) {
         //Ajax put action
             $.ajax({
@@ -542,6 +438,7 @@
         }
 
         var DataModel = @Html.Raw(Json.Serialize(Model));
+        console.log(@Html.Raw(Json.Serialize(Model)));
 
         var LineChartOptions = {
             plugins: {

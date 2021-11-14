@@ -269,3 +269,104 @@
     top: 5px;
     right: 5px;
 }
+
+/*********Admin Dashboard Job Card**********/
+
+.cardy {
+    border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 14px 80px 18px 36px;
+    cursor: pointer;
+    max-width: 500px;
+    border: 1px solid #dfdfdf17;
+}
+
+    .cardy:hover {
+        transform: scale(1.01);
+        box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    }
+
+    .cardy h3 {
+        font-weight: 600;
+    }
+
+    .cardy img {
+        position: absolute;
+        top: 20px;
+        right: 15px;
+        max-height: 120px;
+    }
+
+.card-1 {
+    background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
+}
+
+@media(max-width: 990px) {
+    .card {
+        margin: 20px;
+    }
+}
+
+/*******Table Row Slider*********/
+
+
+
+.trSlider {
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+tbody tr:hover .trSlider span {
+    display: inline-block;
+    line-height: 0 !important;
+    padding: 0;
+    position: absolute;
+    /*margin-top: -7px;*/
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: trSlider 5s linear infinite;
+    -webkit-animation: trSlider 5s linear infinite;
+    animation: trSlider 5s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes trSlider {
+    0% {
+        -moz-transform: translateX(0%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes trSlider {
+    0% {
+        -webkit-transform: translateX(0%);
+    }
+
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyframes trSlider {
+    0% {
+        -moz-transform: translateX(0%); /* Firefox bug fix */
+        -webkit-transform: translateX(0%); /* Firefox bug fix */
+        transform: translateX(0%);
+    }
+
+    100% {
+        -moz-transform: translateX(-100%); /* Firefox bug fix */
+        -webkit-transform: translateX(-100%); /* Firefox bug fix */
+        transform: translateX(-100%);
+    }
+}

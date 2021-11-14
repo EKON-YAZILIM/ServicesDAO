@@ -370,12 +370,6 @@ namespace DAO_DbService.Controllers
                         //Get job post model from GetVoteJobsByProgressTypes function
                         res.JobPostDtos = GetJobsByProgressTypes(Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending);
 
-                        //Get auction model from GetAuctions function
-                        res.AuctionViewModels = GetAuctions(Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding);
-
-                        //Get auction model from GetVoteJobsByStatus function
-                        res.VotingViewModels = GetVotingsByStatus(Helpers.Constants.Enums.VoteStatusTypes.Active);
-
                         //Get model from Service_Log_Url
                         res.ApplicationLogDtos = Helpers.Serializers.DeserializeJson<List<ApplicationLogDto>>(Helpers.Request.Get(Program._settings.Service_Log_Url + "/ApplicationLog/GetLastWithCount?count=" + 20));
 

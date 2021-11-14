@@ -330,6 +330,7 @@ th {
     border-style: solid;
     border-width: 0;
     vertical-align: middle;
+    max-width: 120px;
 }
 
 label {

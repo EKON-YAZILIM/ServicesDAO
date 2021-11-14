@@ -51,7 +51,6 @@
          var title = $('#title').val()
          var amount = $('#amount').val();
          var time = $('#time').val();
-         var price = $('#price').val();
         var description = $('#description').val();
            //Ajax post action
             $.ajax({
@@ -59,7 +58,6 @@
                 url: "../Home/New_Job_Post",
                 data: { "title": title, "amount": amount, "time": time, "description": description },
                 success: function (result) {
-                    console.log(result);
                     if (result.success) {
                         window.location.href = "./My-Jobs";
                     }
