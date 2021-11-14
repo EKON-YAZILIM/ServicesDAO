@@ -66,6 +66,8 @@ namespace DAO_DbService
 
                     foreach (var auction in publicAuctions)
                     {
+                        string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
+
                         auction.Status = Enums.AuctionStatusTypes.PublicBidding;
                         db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                         db.SaveChanges();
