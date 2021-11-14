@@ -3,30 +3,40 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 
 }
+<div class="row my-3">
+    <div class="col-md-12">
+        <h4 class="mb-3">Job Posting Rules</h4>
+        <p><small>1. The job description should be written in a way that is comprehensive and describes the details of the job.</small></p>
+        <p><small>2. The completion criteria for the work should be clearly stated and should not allow any misunderstanding.</small></p>
+        <p><small>3. Job posts will be available in forum after system admin approval.</small></p>
+        <p><small>4. If no bids are received at the end of the internal auction and public auction period, the job post will be marked as expired.</small></p>
+    </div>
+</div>
+
 <!--Row-->
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
-            <label class="mb-2" for="title">Title</label>
+            <label class="mb-2" for="title"><b>Title</b></label>
             <input type="text" class="form-control" id="title" placeholder="Title">
         </div>
         <div class="row">
             <div class="col-md-6">
-                <label class="mb-2" for="title">Total Budget</label>
+                <label class="mb-2" for="title"><b>Total Budget</b></label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">€</span>
                     <input class="form-control" type="text" aria-label="Amount" placeholder="Amount" id="amount"><span class="input-group-text">.00</span>
                 </div>
             </div>
             <div class="col-md-6">
-                <label class="mb-2" for="title">Expected Time Frame</label>
+                <label class="mb-2" for="title"><b>Expected Time Frame</b></label>
                 <div class="input-group mb-3">
                     <input class="form-control" type="text" aria-label="Time Frame" placeholder="Time Frame" id="time"><span class="input-group-text">days</span>
                 </div>
             </div>
         </div>
-        <div class="form-group mb-4">
-            <label class="mb-2" for="description">Job Description</label>
+        <div class="form-group mb-3">
+            <label class="mb-2" for="description"><b>Job Description</b></label>
             <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="10"></textarea>
         </div>
         <div class="d-flex justify-content-end">

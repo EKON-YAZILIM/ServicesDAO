@@ -1,6 +1,6 @@
 ﻿//Share Job Post
 function ShareJobPost() {
-    toastr.warning("This feature will be available in the next version.");
+    ComingSoon();
 }
 
 //Start informal voting process, only job doer is authorized for this action
@@ -101,4 +101,9 @@ function GoToJobDetail(pageurl, jobid) {
     if (pageurl.indexOf("Job-Detail") == -1) {
         window.location.href = '../Job-Detail/' + jobid;
     }
+}
+
+//Features which are not available at the moment should call this methods
+function ComingSoon() {
+    toastr.warning("This feature will be available in the next version.");
 }

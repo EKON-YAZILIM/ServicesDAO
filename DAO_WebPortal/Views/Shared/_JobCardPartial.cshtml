@@ -8,7 +8,7 @@
 <div class="card-header">
     <!-- .header -->
     <div class="titleContainer">
-        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title.Substring(0, Math.Min(35, Model.Title.Length))</h5>
+        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
         <small class="text-medium-emphasis">@Model.CreateDate.ToString("dd.MM.yyyy") , @Model.UserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
@@ -33,12 +33,12 @@
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
         {
-            <a href="../Voting" class="badge bg-success float-right mt-1">Informal Voting</a>
+            <a href="../Votings" class="badge bg-success float-right mt-1">Informal Voting</a>
         }
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
         {
-            <span href="../Voting" class="badge bg-success float-right mt-1">Formal Voting</span>
+            <span href="../Votings" class="badge bg-success float-right mt-1">Formal Voting</span>
         }
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
@@ -56,7 +56,7 @@
 
 <!-- Card Body -->
 <div class="card-body cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
-    <p class="p-3 card-text">
+    <p class="p-3 pt-0 card-text text-justify" style="white-space: pre-line">
         @Model.JobDescription
     </p>
     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate.ToString("dd.MM.yyyy")</small></p>

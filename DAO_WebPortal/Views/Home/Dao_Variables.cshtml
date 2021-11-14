@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card p-5">
+            <h3>Variable List</h3>
+
+            <table class="table table-striped table-hover mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Default Policing Rate</td>
+                        <td>@Program._settings.DefaultPolicingRate</td>
+                    </tr>
+                    <tr>
+                        <td>Max Policing Rate</td>
+                        <td>@Program._settings.MaxPolicingRate</td>
+                    </tr>
+                    <tr>
+                        <td>Min Policing Rate</td>
+                        <td>@Program._settings.MinPolicingRate</td>
+                    </tr>
+                    <tr>
+                        <td>Forum KYC Required</td>
+                        <td>@Program._settings.ForumKYCRequired</td>
+                    </tr>
+                    <tr>
+                        <td>Quorum Ratio</td>
+                        <td>@Program._settings.QuorumRatio</td>
+                    </tr>
+                    <tr>
+                        <td>Internal Auction Days</td>
+                        <td>@Program._settings.InternalAuctionDays</td>
+                    </tr>
+                    <tr>
+                        <td>Public Auction Days</td>
+                        <td>@Program._settings.PublicAuctionDays</td>
+                    </tr>
+                    <tr>
+                        <td>Informal Voting Days</td>
+                        <td>@Program._settings.InformalVotingDays</td>
+                    </tr>
+                    <tr>
+                        <td>Formal Voting Days</td>
+                        <td>@Program._settings.FormalVotingDays</td>
+                    </tr>
+                    <tr>
+                        <td>Reputation Conversion Rate</td>
+                        <td>@Program._settings.ReputationConversionRate</td>
+                    </tr>
+                    <tr>
+                        <td>Reputation Distribution Ratio</td>
+                        <td>@Program._settings.ReputationDistributionRatio</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

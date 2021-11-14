@@ -33,6 +33,7 @@ namespace DAO_WebPortal
             public int InformalVotingDays { get; set; }
             public int FormalVotingDays { get; set; }
             public double ReputationConversionRate { get; set; }
+            public double ReputationDistributionRatio { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();

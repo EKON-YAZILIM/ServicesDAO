@@ -146,8 +146,9 @@ h6, .h6 {
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    line-height: 1.7;
 }
 
 abbr[title],
@@ -325,9 +326,10 @@ tfoot,
 tr,
 td,
 th {
-  border-color: inherit;
-  border-style: solid;
-  border-width: 0;
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    vertical-align: middle;
 }
 
 label {
@@ -2204,7 +2206,7 @@ html:not([dir=rtl]) .offset-11 {
     color: var(--cui-table-color);
     vertical-align: top;
     border-color: var(--cui-table-border-color);
-    font-size: var(--cui-font-size-base, 0.8rem);
+    font-size: var(--cui-font-size-base, 0.9rem);
 }
 .table > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;

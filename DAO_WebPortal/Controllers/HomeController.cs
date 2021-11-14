@@ -704,6 +704,11 @@ namespace DAO_WebPortal.Controllers
                 //Parse response
                 AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
 
+                //Get bids model from ApiGateway
+                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/GetByAuctionId?auctionid=" + auction.AuctionID, HttpContext.Session.GetString("Token"));
+                //Parse response
+                List<AuctionBidDto> bids = Helpers.Serializers.DeserializeJson<List<AuctionBidDto>>(auctionBidsJson);
+
                 //Check if public user trying to submit bid for expired or completed auction
                 if (auction.Status == Enums.AuctionStatusTypes.Completed || auction.Status == Enums.AuctionStatusTypes.Expired)
                 {
@@ -720,6 +725,12 @@ namespace DAO_WebPortal.Controllers
                 if (auction.Status == Enums.AuctionStatusTypes.InternalBidding && HttpContext.Session.GetString("UserType") == Enums.UserIdentityType.Associate.ToString())
                 {
                     return Json(new SimpleResponse { Success = false, Message = "This auction is opened for internal members." });
+                }
+
+                //Check if user already submitted bid to this auction
+                if (bids.Count(x=>x.UserId == Convert.ToInt32(HttpContext.Session.GetInt32("UserID"))) > 0)
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "You already have an existing bid for this auction." });
                 }
 
                 Model.UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserID"));
@@ -782,12 +793,22 @@ namespace DAO_WebPortal.Controllers
         public JsonResult Auction_Bid_Delete(int id)
         {
             SimpleResponse result = new SimpleResponse();
+
             try
             {
+                //Get auction bid model from ApiGateway
+                var auctionBidJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/GetId?id=" + id, HttpContext.Session.GetString("Token"));
+                //Parse response
+                AuctionBidDto auctionBid = Helpers.Serializers.DeserializeJson<AuctionBidDto>(auctionBidJson);
 
-                var userid = HttpContext.Session.GetInt32("UserID");
+                //Check if this bid belongs to user
+                if (auctionBid.UserId != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
+                {
+                    return Json(new SimpleResponse { Success = false, Message = Lang.UnauthorizedAccess });
+                }
 
-                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/UserReputationStake/ReleaseSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
+                //Release staked reputation for the bid.
+                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/UserReputationStake/DeleteSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
                 //Post model to ApiGateway
                 var deleteBidResponse = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));
@@ -803,7 +824,6 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 return Json(result);
-
             }
             catch (Exception ex)
             {
@@ -814,14 +834,27 @@ namespace DAO_WebPortal.Controllers
 
         }
 
+        /// <summary>
+        ///  This method chooses winner bid and changes the status of the auction as completed. 
+        ///  Only job poster is authorized to call the method
+        /// </summary>
+        /// <param name="bidId"></param>
+        /// <param name="auctionId"></param>
+        /// <param name="jobid"></param>
+        /// <returns></returns>
         [HttpGet]
-        public JsonResult ChooseWinnerBid(int bidId, int auctionId, int jobid)
+        public JsonResult ChooseWinnerBid(int bidId)
         {
             SimpleResponse result = new SimpleResponse();
             try
-            {
+            {                
+                //Get auction bid model from ApiGateway
+                var auctionBidJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/GetId?id=" + bidId, HttpContext.Session.GetString("Token"));
+                //Parse response
+                AuctionBidDto auctionBid = Helpers.Serializers.DeserializeJson<AuctionBidDto>(auctionBidJson);
+
                 //Get auction model from ApiGateway
-                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + auctionId, HttpContext.Session.GetString("Token"));
+                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + auctionBid.AuctionID, HttpContext.Session.GetString("Token"));
                 //Parse response
                 AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
 
@@ -836,14 +869,21 @@ namespace DAO_WebPortal.Controllers
                 if (bidChooseResult)
                 {
                     //Change job status to Auction Completed
-                    JobPostDto jobStatusResult = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted, HttpContext.Session.GetString("Token")));
+                    JobPostDto jobStatusResult = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + auction.JobID + "&status=" + Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted, HttpContext.Session.GetString("Token")));
 
                     if (jobStatusResult.JobID > 0)
                     {
                         //Release staked reputations for auction
-                        SimpleResponse model3 = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseStakes?referenceProcessID=" + auctionId + "&reftype=" + Helpers.Constants.Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
+                        SimpleResponse stakeReleaseResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Helpers.Constants.Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
-                        if (model3.Success)
+                        //Mint new reputation with (ReputationConversionRate(DAO Variable) * Bid Price)
+                        UserReputationStakeDto stake = new UserReputationStakeDto() { UserID = auctionBid.UserId, Amount = auctionBid.Price * Program._settings.ReputationConversionRate, CreateDate = DateTime.Now, Type = StakeType.Mint, ReferenceID = auctionBid.UserId, ReferenceProcessID = auction.JobID, Status = ReputationStakeStatus.Staked };
+                        //Post model to ApiGateway
+                        string mintJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/SubmitStake", Helpers.Serializers.SerializeJson(stake), HttpContext.Session.GetString("Token"));
+                        //Parse response
+                        SimpleResponse mintReponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(mintJson);
+
+                        if (stakeReleaseResponse.Success && mintReponse.Success)
                         {
                             result.Success = true;
                             result.Message = "Winner bid selected.";
@@ -992,8 +1032,14 @@ namespace DAO_WebPortal.Controllers
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
                 informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.InformalVotingDays);
+                informalVoting.ReputationDistributionRatio = Program._settings.ReputationDistributionRatio;
+
+                //Get related job post
+                var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + jobid, HttpContext.Session.GetString("Token"));
+                JobPostDto job = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
+
                 //Get total dao member count
-                int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount", HttpContext.Session.GetString("Token")));
+                int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type="+UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
                 //Quorum count is calculated with total user count - 2(job poster, job doer)
                 informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount - 2));
 
@@ -1233,6 +1279,7 @@ namespace DAO_WebPortal.Controllers
 
         #region Admin Views & Methods
 
+        [AuthorizeAdmin]
         [HttpGet]
         public JsonResult AdminJobApproval(int JobId)
         {
@@ -1309,6 +1356,7 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        [AuthorizeAdmin]
         [HttpGet]
         public JsonResult AdminJobDisapproval(int JobId)
         {
@@ -1345,6 +1393,18 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        /// <summary>
+        ///  This view shows global parameters of the DAO
+        /// </summary>
+        /// <returns></returns>
+        [Route("Dao-Variables")]
+        public IActionResult Dao_Variables()
+        {
+            ViewBag.Title = "DAO Variables";
+
+            return View();
         }
         #endregion
 

@@ -3,6 +3,13 @@
     float:right !important;
 }
 
+.text-justify {
+    text-align: justify !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
 /********Scrollbar Style*******/
 
 ::-webkit-scrollbar-track {

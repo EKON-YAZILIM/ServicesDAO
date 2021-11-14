@@ -4,16 +4,16 @@
 }
 @model List<Helpers.Models.WebsiteViewModels.AuctionViewModel>
 <!-- Tab list -->
-<ul class="nav nav-underline border-0" role="tablist">
+<ul class="nav nav-underline border-0 mb-3" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" data-coreui-toggle="tab" href="#preview-924" role="tab" aria-selected="false">
+        <a class="nav-link active" data-coreui-toggle="tab" href="#activeAuctionsTab" role="tab" aria-selected="false">
             <svg class="icon me-2">
                 <use xlink:href="/Home/images/svg/free.svg#cil-media-play"></use>
             </svg>Active
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-coreui-toggle="tab" href="#code-924" role="tab" aria-selected="true">
+        <a class="nav-link" data-coreui-toggle="tab" href="#completedAuctionsTab" role="tab" aria-selected="true">
             <svg class="icon me-2">
                 <use xlink:href="/Home/images/svg/free.svg#cil-check"></use>
             </svg>Completed
@@ -24,11 +24,11 @@
 <!-- Content -->
 <div class="tab-content rounded-bottom mt-2">
     <!-- Tab panel -->
-    <div class="tab-pane p-3 active" role="tabpanel" id="preview-924">
+    <div class="tab-pane active" role="tabpanel" id="activeAuctionsTab">
         <!-- .card -->
-        <div class="card m-2">
+        <div class="card mb-4">
             <div class="card-header">
-                <span class="small ms-1">Active Internal Auctions</span>
+                <span class="small ms-1"><b>Active Internal Auctions</b></span>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -57,7 +57,7 @@
                                             <td>@item.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@item.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td id="counter_@item.AuctionID"></td>
-                                            <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
+                                            <td class="cursorp auctionDetail text-primary" data-href="./Auction-Detail/@item.AuctionID">
                                                 <svg class="icon">
                                                     <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                                                 </svg> Show Bids
@@ -76,8 +76,8 @@
             </div>
         </div> <!-- .card -->
         <!-- .card -->
-        <div class="card m-2">
-            <div class="card-header"><span class="small ms-1">Active Public Auctions</span></div>
+        <div class="card">
+            <div class="card-header"><span class="small ms-1"><b>Active Public Auctions</b></span></div>
             <div class="card-body p-0">
                 <div class="table-responsive">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).Count() > 0)
@@ -105,7 +105,7 @@
                                             <td>@item.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@item.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td id="counter_@item.AuctionID"></td>
-                                            <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
+                                            <td class="cursorp auctionDetail text-primary" data-href="./Auction-Detail/@item.AuctionID">
                                                 <svg class="icon">
                                                     <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                                                 </svg> Show Bids
@@ -125,11 +125,11 @@
         </div> <!-- .card -->
     </div>
     <!-- Tab panel -->
-    <div class="tab-pane p-3" role="tabpanel" id="code-924">
+    <div class="tab-pane" role="tabpanel" id="completedAuctionsTab">
         <!-- .card -->
-        <div class="card m-2">
+        <div class="card mb-4">
             <div class="card-header">
-                <span class="small ms-1">Completed Auctions</span>
+                <span class="small ms-1"><b>Completed Auctions</b></span>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -158,7 +158,7 @@
                                             <td>@item.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@item.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td id="counter_@item.AuctionID"></td>
-                                            <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
+                                            <td class="cursorp auctionDetail text-primary" data-href="./Auction-Detail/@item.AuctionID">
                                                 <svg class="icon">
                                                     <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                                                 </svg> Show Bids
@@ -177,8 +177,8 @@
             </div>
         </div><!-- .card -->
         <!-- .card -->
-        <div class="card m-2">
-            <div class="card-header"><span class="small ms-1">Expired Auctions</span></div>
+        <div class="card">
+            <div class="card-header"><span class="small ms-1"><b>Expired Auctions</b></span></div>
             <div class="card-body p-0">
                 <div class="table-responsive">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Expired).Count() > 0)
@@ -206,7 +206,7 @@
                                             <td>@item.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@item.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td id="counter_@item.AuctionID"></td>
-                                            <td class="cursorp auctionDetail" data-href="./Auction-Detail/@item.AuctionID">
+                                            <td class="cursorp auctionDetail text-primary" data-href="./Auction-Detail/@item.AuctionID">
                                                 <svg class="icon">
                                                     <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
                                                 </svg> Show Bids

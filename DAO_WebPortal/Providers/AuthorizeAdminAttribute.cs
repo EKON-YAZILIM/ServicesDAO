@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DAO_WebPortal.Providers
 {
-    public class AuthorizeUserAttribute : ActionFilterAttribute
+    public class AuthorizeAdminAttribute : ActionFilterAttribute
     {
-        public AuthorizeUserAttribute()
+        public AuthorizeAdminAttribute()
         {
         }
 
@@ -19,6 +22,11 @@ namespace DAO_WebPortal.Providers
 
 
                 if (context.HttpContext.Session.GetInt32("UserID") == null)
+                {
+                    control = false;
+                }
+
+                if (context.HttpContext.Session.GetString("UserType") != Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
                 {
                     control = false;
                 }
