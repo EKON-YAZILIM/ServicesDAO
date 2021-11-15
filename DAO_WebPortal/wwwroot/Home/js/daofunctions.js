@@ -107,3 +107,7 @@ function GoToJobDetail(pageurl, jobid) {
 function ComingSoon() {
     toastr.warning("This feature will be available in the next version.");
 }
+
+function CheckNumbers(e) {
+    $(e).val($(e).val().replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1'));
+}

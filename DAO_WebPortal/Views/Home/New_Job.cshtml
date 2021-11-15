@@ -25,13 +25,13 @@
                 <label class="mb-2" for="title"><b>Total Budget</b></label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">€</span>
-                    <input class="form-control" type="text" aria-label="Amount" placeholder="Amount" id="amount"><span class="input-group-text">.00</span>
+                    <input class="form-control" type="text" aria-label="Amount" placeholder="Amount" id="amount"  oninput="CheckNumbers(this)"><span class="input-group-text">.00</span>
                 </div>
             </div>
             <div class="col-md-6">
                 <label class="mb-2" for="title"><b>Expected Time Frame</b></label>
                 <div class="input-group mb-3">
-                    <input class="form-control" type="text" aria-label="Time Frame" placeholder="Time Frame" id="time"><span class="input-group-text">days</span>
+                    <input class="form-control" type="text" aria-label="Time Frame" placeholder="Time Frame" id="time"  oninput="CheckNumbers(this)"><span class="input-group-text">days</span>
                 </div>
             </div>
         </div>

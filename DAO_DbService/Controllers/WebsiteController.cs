@@ -349,7 +349,7 @@ namespace DAO_DbService.Controllers
         #region Dashboard
 
         /// <summary>
-        /// Get dashboard by user type
+        /// Get dashboard for admin 
         /// </summary>
         /// <param name="userid"></param>
         /// <returns></returns>
@@ -520,6 +520,60 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+
+        /// <summary>
+        /// Get dashboard for voting associate
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        [Route("GetDashBoardVA")]
+        [HttpGet]
+        public GetDashBoardViewModelVA GetDashBoardVA(int userid)
+        {
+            GetDashBoardViewModelVA res = new GetDashBoardViewModelVA();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+
+                    //Get job post model from GetVoteJobsByProgressTypes function
+                    res.MyJobs = GetUserJobs(userid);
+
+                    //Get users registered in the last mounth
+                    var date = DateTime.Now.AddMonths(-1);
+                    var date2 = DateTime.Now.AddMonths(-2);
+
+                    //Get job post count
+                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid).Count();
+
+                    //Get auction count
+                    //Get model from Voting_Engine_Url
+                    res.MyAuctionCount = db.Auctions.Where(x => x.JobPosterUserID == userid).Count();
+
+                    //Get voting count
+                    //Get model from Voting_Engine_Url
+                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Votes/Get?"));
+                    res.MyVotes = VotingModel.Where(x => x.UserID == userid).ToList();
+                    res.MyVotesCount = VotingModel.Where(x => x.UserID == userid).Count();
+
+                    //Get job ratio from the comparison of the last two months
+                    var JobPreviousCount = db.JobPosts.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.UserID == userid).Count();
+                    var JobCount = db.JobPosts.Where(x => x.CreateDate > date && x.UserID == userid).Count();
+                    if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
+
+                    //Get auction ratio from the comparison of the last two months
+                    var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid).Count();
+                    var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
+                    if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
+          
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
+        }
         #endregion
 
         #region Vote

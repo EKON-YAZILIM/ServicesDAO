@@ -431,12 +431,10 @@
             10: "October",
             11: "November",
             12: "December",
-
         }
 
         var DataModel = @Html.Raw(Json.Serialize(Model));
-        console.log(@Html.Raw(Json.Serialize(Model)));
-
+       
         var LineChartOptions = {
             plugins: {
                 legend: {
