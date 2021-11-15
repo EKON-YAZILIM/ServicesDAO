@@ -279,7 +279,7 @@
     padding: 14px 80px 18px 36px;
     cursor: pointer;
     max-width: 500px;
-    border: 1px solid #dfdfdf17;
+    border: 1px solid #83838354;
 }
 
     .cardy:hover {
@@ -303,6 +303,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 80px;
+    min-width: 400px;
 }
 
 @media(max-width: 990px) {

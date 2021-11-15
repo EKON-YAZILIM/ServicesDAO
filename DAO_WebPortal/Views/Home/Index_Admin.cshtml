@@ -165,54 +165,50 @@
 @if (Model.JobPostDtos.Count() > 0)
 {
     <div class="row">
-        <div class="col-md-12">
-            <div class="mb-4">
-                <div class="card-header">Jobs Admin Approval</div>
-                <div class="card-body">
-                    <div id="JobFlipster" class="flipster">
-                        <ul class="flip-items">
-                            @foreach (var item in Model.JobPostDtos)
-                            {
-                                <li>
-                                    <div class="cardy card-1">
-                                        <h3 class="fs-6">@item.Title</h3>
-                                        <p>@item.CreateDate.ToString("dd.MM.yyyy")</p>
+        <div class="col-md-12 mt-4">
+            <h4></h4>
+            <div id="JobFlipster" class="flipster">
+                <ul class="flip-items">
+                    @foreach (var item in Model.JobPostDtos)
+                    {
+                        <li>
+                            <div class="cardy card-1">
+                                <h4>@item.Title</h4>
+                                <p class="fs-7">@item.CreateDate.ToString("MM.dd.yyyy HH:mm")</p>
 
-                                        @if (item.JobDescription.Length > 150)
-                                        {
-                                            <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) ..</p>
-                                        }
-                                        else
-                                        {
-                                            <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription</p>
-                                        }
+                                @if (item.JobDescription.Length > 150)
+                                {
+                                    <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) ..</p>
+                                }
+                                else
+                                {
+                                    <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription</p>
+                                }
 
-                                        <p>
-                                            @item.Amount €
-                                            <span class="badge bg-warning float-right mt-1">Admin Approval Pending</span>
-                                        </p>
+                                <p>
+                                    <b>@item.Amount Euros</b>
+                                    <span class="badge bg-warning float-right mt-1">Admin Approval Pending</span>
+                                </p>
 
-                                        <div class="mt-5 d-flex justify-content-between">
-                                            <div>
-                                                <button class="btn btn-outline-secondary btn-sm" type="button" onclick="window.location.href='./Job-Detail/@item.JobID'" disabled="">
-                                                    Go to Detail
-                                                </button>
-                                            </div>
-                                            <div>
-                                                <button class="btn btn-outline-danger btn-sm me-2" type="button" onclick="JobDisapprove(@item.JobID)" disabled="">
-                                                    Disapprove
-                                                </button>
-                                                <button class="btn btn-outline-success btn-sm" type="button" onclick="JobApprove(@item.JobID)" disabled="">
-                                                    Approve
-                                                </button>
-                                            </div>
-                                        </div>
+                                <div class="mt-5 d-flex justify-content-between">
+                                    <div>
+                                        <button class="btn btn-outline-secondary btn-sm" type="button" onclick="window.location.href='./Job-Detail/@item.JobID'" disabled="">
+                                            Go to Detail
+                                        </button>
                                     </div>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                </div>
+                                    <div>
+                                        <button class="btn btn-outline-danger btn-sm me-2" type="button" onclick="JobDisapprove(@item.JobID)" disabled="">
+                                            Disapprove
+                                        </button>
+                                        <button class="btn btn-outline-success btn-sm" type="button" onclick="JobApprove(@item.JobID)" disabled="">
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
             </div>
         </div>
         <!-- /.col-->
@@ -355,9 +351,10 @@
                     $(current).find("button").prop('disabled', false);
                     $(prev).find("button").prop('disabled', true);
                 },
-                start: $(".flip-items li").length - 1,
+                start: $(".flip-items li").length - 2,
             });
-            $(".flip-items li:last-child").find("button").prop('disabled', false);
+            var indx = $(".flip-items li").length - 2;
+            $(".flip-items li").eq(indx).find("button").prop('disabled', false);
         </script>
     }
     else if (Model.JobPostDtos.Count() == 1)

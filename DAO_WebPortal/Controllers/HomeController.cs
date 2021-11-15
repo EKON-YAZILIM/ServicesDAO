@@ -1177,6 +1177,27 @@ namespace DAO_WebPortal.Controllers
         }
 
         [HttpGet]
+        [Route("ProfileUpdate")]
+        public JsonResult ProfileUpdate()
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+            
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        [HttpGet]
         [Route("SubmitKYC")]
         public JsonResult SubmitKYC()
         {
