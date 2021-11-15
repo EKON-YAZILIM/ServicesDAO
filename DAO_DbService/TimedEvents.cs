@@ -175,6 +175,8 @@ namespace DAO_DbService
 
                             if (winnerSide == Enums.StakeType.For)
                             {
+                                //Create payment
+
                                 var job = db.JobPosts.Find(voting.JobID);
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();

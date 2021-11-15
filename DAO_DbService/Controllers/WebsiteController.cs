@@ -333,7 +333,8 @@ namespace DAO_DbService.Controllers
                                   Time = act.Time,
                                   ReputationStake = Convert.ToDouble(act.ReputationStake),
                                   UserName = user.UserName,
-                                  AuctionBidID = act.AuctionBidID
+                                  AuctionBidID = act.AuctionBidID,
+                                  NameSurname = user.NameSurname
                               }).ToList();
                 }
             }
