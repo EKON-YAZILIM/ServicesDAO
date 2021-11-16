@@ -82,8 +82,6 @@
 
 
             var form = $('#bodys');
-            var token = $('input[name="__RequestVerificationToken"]', form).val();
-            formData.append("__RequestVerificationToken", token);
 
             $.ajax({
                 type: "POST",
@@ -136,7 +134,7 @@
         //DEFINITIONS
         var upload = document.getElementById("upload");
         var preview = document.getElementById("preview");
-        var avatar = document.getElementById("avatar");
+        var avatar = document.getElementById("avatar-image");
         var avatar_name = document.getElementById("name");
         var avatar_name_change_box =
             document.getElementById("change-name-box");

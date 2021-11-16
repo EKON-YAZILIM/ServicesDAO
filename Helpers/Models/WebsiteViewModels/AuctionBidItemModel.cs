@@ -14,5 +14,6 @@ namespace Helpers.Models.WebsiteViewModels
         public double ReputationStake { get; set; }
         public string UserName { get; set; }
         public string NameSurname { get; set; }
+        public string UserNote { get; set; }
     }
 }

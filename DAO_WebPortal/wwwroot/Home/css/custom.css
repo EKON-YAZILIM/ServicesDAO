@@ -10,6 +10,15 @@
 .text-right {
     text-align: right !important;
 }
+
+.h-250{
+    height:250px !important;
+}
+
+.h-500 {
+    height: 500px !important;
+}
+
 /********Scrollbar Style*******/
 
 ::-webkit-scrollbar-track {
@@ -370,4 +379,16 @@ tbody tr:hover .trSlider span {
         -webkit-transform: translateX(-100%); /* Firefox bug fix */
         transform: translateX(-100%);
     }
+}
+
+.cardGreen {
+    background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgba(46,184,92,1) 100%, rgba(0,212,255,1) 100%)
+}
+
+.cardBlue {
+    background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(46 184 184) 100%, rgba(0,212,255,1) 100%)
+}
+
+.cardYellow {
+    background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(184 97 46) 100%, rgba(0,212,255,1) 100%);
 }

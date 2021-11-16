@@ -17,6 +17,10 @@ namespace Helpers.Models.WebsiteViewModels
         public string Title { get; set; }
         public VoteStatusTypes Status { get; set; }
         public int VotingID { get; set; }
+        public double? StakedFor { get; set; }
+        public double? StakedAgainst { get; set; }
+        public int VoteCount { get; set; }
+        public int? QuorumCount { get; set; }
 
     }
 }

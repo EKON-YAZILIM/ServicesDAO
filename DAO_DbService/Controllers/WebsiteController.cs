@@ -39,6 +39,7 @@ namespace DAO_DbService.Controllers
                               let explanation = job.JobDescription.Substring(0, 250)
                               let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                               where status == null || job.Status == status
+                              orderby job.CreateDate descending
                               select new JobPostViewModel
                               {
                                   Title = job.Title,
@@ -180,6 +181,7 @@ namespace DAO_DbService.Controllers
                                         let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                                         let explanation = job.JobDescription.Substring(0, 250)
                                         where job.UserID == userid
+                                        orderby job.CreateDate descending
                                         select new JobPostViewModel
                                         {
                                             Title = job.Title,
@@ -244,6 +246,7 @@ namespace DAO_DbService.Controllers
                        join user in db.Users on job.UserID equals user.UserId
                        let explanation = job.JobDescription.Substring(0, 250)
                        where job.Status == status
+                       orderby job.CreateDate descending
                        select new JobPostDto
                        {
                            JobID = job.JobID,
@@ -282,8 +285,13 @@ namespace DAO_DbService.Controllers
                 {
                     result = (from act in db.Auctions
                               join job in db.JobPosts on act.JobID equals job.JobID
-                              join user in db.Users on job.UserID equals user.UserId
+                              join bid in db.AuctionBids on act.WinnerAuctionBidID equals bid.AuctionBidID into ps
+                              from bidRes in ps.DefaultIfEmpty()
+                              join user in db.Users on bidRes.UserID equals user.UserId into ps2
+                              from userRes in ps2.DefaultIfEmpty()
+                              let bidcount = db.AuctionBids.Count(x => x.AuctionID == act.AuctionID)
                               where status == null || act.Status == status
+                              orderby act.CreateDate descending
                               select new AuctionViewModel
                               {
                                   JobID = Convert.ToInt32(act.JobID),
@@ -292,12 +300,12 @@ namespace DAO_DbService.Controllers
                                   CreateDate = act.CreateDate,
                                   JobPosterUserId = Convert.ToInt32(act.JobPosterUserID),
                                   WinnerAuctionBidID = act.WinnerAuctionBidID,
-                                  UserName = user.UserName,
+                                  WinnerUserName = userRes.UserName,
                                   Status = act.Status,
                                   AuctionID = act.AuctionID,
-                                  Title = job.Title
-
-                              }).ToList();
+                                  Title = job.Title,
+                                  BidCount = bidcount
+                              }).Take(100).ToList();
                 }
             }
             catch (Exception ex)
@@ -322,19 +330,20 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    result = (from act in db.AuctionBids
-                              join user in db.Users on act.UserID equals user.UserId
-                              where act.AuctionID == auctionid
+                    result = (from actbid in db.AuctionBids
+                              join user in db.Users on actbid.UserID equals user.UserId
+                              where actbid.AuctionID == auctionid
                               select new AuctionBidItemModel
                               {
-                                  AuctionID = act.AuctionID,
-                                  UserId = Convert.ToInt32(act.UserID),
-                                  Price = act.Price,
-                                  Time = act.Time,
-                                  ReputationStake = Convert.ToDouble(act.ReputationStake),
+                                  AuctionID = actbid.AuctionID,
+                                  UserId = Convert.ToInt32(actbid.UserID),
+                                  Price = actbid.Price,
+                                  Time = actbid.Time,
+                                  ReputationStake = Convert.ToDouble(actbid.ReputationStake),
                                   UserName = user.UserName,
-                                  AuctionBidID = act.AuctionBidID,
-                                  NameSurname = user.NameSurname
+                                  AuctionBidID = actbid.AuctionBidID,
+                                  NameSurname = user.NameSurname,
+                                  UserNote = actbid.AssociateUserNote
                               }).ToList();
                 }
             }
@@ -580,31 +589,6 @@ namespace DAO_DbService.Controllers
         #region Vote
 
         /// <summary>
-        /// Get vote detail
-        /// </summary>
-        /// <param name="voteid"></param>
-        /// <returns></returns>
-        [Route("GetVotingDetail")]
-        [HttpGet]
-        public List<VoteDto> GetVotingDetail(int votingid)
-        {
-            List<VoteDto> res = new List<VoteDto>();
-            try
-            {
-                using (dao_maindb_context db = new dao_maindb_context())
-                {
-                    string voteJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByVotingId?votingid=" + votingid);
-                    res = Helpers.Serializers.DeserializeJson<List<VoteDto>>(voteJson);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return res;
-        }
-
-        /// <summary>
         /// Get voting
         /// </summary>
         /// <param name="status"></param>
@@ -621,21 +605,24 @@ namespace DAO_DbService.Controllers
                     string votingsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/GetVotingByStatus?status=" + status);
                     List<VotingDto> model = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingsJson);
 
-                    res = (from votejob in model
-                           join job in db.JobPosts on votejob.JobID equals job.JobID
-                           where status == null || votejob.Status == status
+                    res = (from voting in model
+                           join job in db.JobPosts on voting.JobID equals job.JobID
+                           where status == null || voting.Status == status
+                           orderby voting.CreateDate descending
                            select new VotingViewModel
                            {
-
                                JobID = job.JobID,
-                               VotingID = votejob.VotingID,
-                               IsFormal = votejob.IsFormal,
-                               CreateDate = votejob.CreateDate,
-                               StartDate = votejob.StartDate,
-                               EndDate = votejob.EndDate,
+                               VotingID = voting.VotingID,
+                               IsFormal = voting.IsFormal,
+                               CreateDate = voting.CreateDate,
+                               StartDate = voting.StartDate,
+                               EndDate = voting.EndDate,
                                Title = job.Title,
-                               Status = votejob.Status
-
+                               Status = voting.Status,
+                               StakedAgainst = voting.StakedAgainst,
+                               StakedFor = voting.StakedFor,
+                               VoteCount = voting.VoteCount,
+                               QuorumCount = voting.QuorumCount
                            }).ToList();
                 }
             }

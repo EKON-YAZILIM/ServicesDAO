@@ -315,7 +315,7 @@
                                     @if (item.Explanation.Length > 30)
                                     {
                                         <td nowrap="nowrap" class="trSlider">
-                                            <span >
+                                            <span>
                                                 @item.Explanation
                                             </span>
                                         </td>
@@ -364,9 +364,7 @@
             $(".flip-items li").addClass("d-flex justify-content-center");
         </script>
     }
-<script>
-
-
+    <script>
 
         function JobApprove(id) {
         //Ajax put action
@@ -392,31 +390,29 @@
             });
         }
 
-
-    function JobDisapprove(id) {
-        //Ajax put action
-            $.ajax({
-                type: "GET",
-                url: "../Home/AdminJobDisapproval",
-                data: {"JobId":id},
-                    success: function (result) {
-                        console.log(result);
-                        if (result.success) {
-                            toastr.success(result.message);
+        function JobDisapprove(id) {
+            //Ajax put action
+                $.ajax({
+                    type: "GET",
+                    url: "../Home/AdminJobDisapproval",
+                    data: {"JobId":id},
+                        success: function (result) {
+                            console.log(result);
+                            if (result.success) {
+                                toastr.success(result.message);
+                            }
+                            else {
+                                toastr.warning(result.message);
+                            }
+                        },
+                        failure: function (response) {
+                                toastr.warning("@Lang.ConnectionError");
+                        },
+                        error: function (response) {
+                             toastr.error("@Lang.UnexpectedError");
                         }
-                        else {
-                            toastr.warning(result.message);
-                        }
-                    },
-                    failure: function (response) {
-                            toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
-                    }
-            });
-        }
-
+                });
+            }
 
         var MonthDictionary = {
             1: "January",
@@ -434,7 +430,7 @@
         }
 
         var DataModel = @Html.Raw(Json.Serialize(Model));
-       
+
         var LineChartOptions = {
             plugins: {
                 legend: {
@@ -712,7 +708,7 @@
             }
         });
 
-</script>
+    </script>
 
 }
 

@@ -5593,15 +5593,15 @@ html:not([dir=rtl]) .alert-dismissible .btn-close {
 }
 
 .progress-bar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-  color: var(--cui-progress-bar-color, rgba(255, 255, 255, 0.87));
-  text-align: center;
-  white-space: nowrap;
-  background-color: var(--cui-progress-bar-bg, #321fdb);
-  transition: width 0.6s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--cui-progress-bar-color, rgba(255, 255, 255, 0.87));
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--cui-progress-bar-bg, #1fdb80);
+    transition: width 0.6s ease;
 }
 @media (prefers-reduced-motion: reduce) {
   .progress-bar {

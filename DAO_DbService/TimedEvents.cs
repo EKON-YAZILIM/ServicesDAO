@@ -160,20 +160,8 @@ namespace DAO_DbService
                         //Formal voting completed -> Set job status according to vote result
                         else if (voting.Status == Enums.VoteStatusTypes.Completed)
                         {
-                            //Get reputation stakes
-                            string reputationStakesJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + Enums.StakeType.For);
-                            List<UserReputationStakeDto> stakeList = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationStakesJson);
-
                             //Find winning side
-                            Enums.StakeType winnerSide = Enums.StakeType.For;
-                            double forReps = stakeList.Where(x => x.Type == Enums.StakeType.For).Sum(x => x.Amount);
-                            double againstReps = stakeList.Where(x => x.Type == Enums.StakeType.Against).Sum(x => x.Amount);
-                            if (againstReps > forReps)
-                            {
-                                winnerSide = Enums.StakeType.Against;
-                            }
-
-                            if (winnerSide == Enums.StakeType.For)
+                            if (voting.StakedFor > voting.StakedAgainst)
                             {
                                 //Create payment
 
@@ -181,7 +169,7 @@ namespace DAO_DbService
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
                             }
-                            else if (winnerSide == Enums.StakeType.Against)
+                            else
                             {
                                 var job = db.JobPosts.Find(voting.JobID);
                                 job.Status = Enums.JobStatusTypes.Failed;

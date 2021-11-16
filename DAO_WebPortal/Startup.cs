@@ -122,6 +122,8 @@ namespace DAO_WebPortal
 
             app.UseSession();
 
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using static Helpers.Constants.Enums;
@@ -983,7 +984,10 @@ namespace DAO_WebPortal.Controllers
                     vt.VoteID = votes[i].VoteID;
                     vt.VotingID = votes[i].VotingID;
                     vt.UserName = usernames[i];
-                    vt.ReputationStake = reputations.First(x => x.UserID == vt.UserID).Amount;
+                    if(reputations.Count(x => x.UserID == vt.UserID) > 0)
+                    {
+                        vt.ReputationStake = reputations.First(x => x.UserID == vt.UserID).Amount;
+                    }
                     voteItems.Add(vt);
                 }
 
@@ -1063,6 +1067,13 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        /// <summary>
+        ///  User submit vote action.
+        /// </summary>
+        /// <param name="VotingID"></param>
+        /// <param name="Direction"></param>
+        /// <param name="ReputationStake"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult SubmitVote(int VotingID, StakeType Direction, double? ReputationStake)
         {
@@ -1087,7 +1098,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Check if user trying to submit bid for his/her own job
-                if (job.UserID == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")) || job.JobDoerUserID == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
+                if (job.JobDoerUserID == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
                 {
                     return Json(new SimpleResponse { Success = false, Message = "You can't submit vote to your own job." });
                 }
@@ -1151,7 +1162,6 @@ namespace DAO_WebPortal.Controllers
         #endregion
 
         #region User Views & Methods
-
         /// <summary>
         /// User Profile Page
         /// </summary>
@@ -1179,18 +1189,67 @@ namespace DAO_WebPortal.Controllers
             return View(profileModel);
         }
 
-        [HttpGet]
+        /// <summary>
+        ///  Profile save changes action
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="File"></param>
+        /// <returns></returns>
+        [HttpPost]
         [Route("ProfileUpdate")]
-        public JsonResult ProfileUpdate()
+        public JsonResult ProfileUpdate(string image, IFormFile File)
         {
             SimpleResponse result = new SimpleResponse();
 
             try
             {
-            
+                //If custom image uploaded
+                if (File != null)
+                {
+                    var file = File;
+                    var ext = (Path.GetExtension(file.FileName).ToLower());
+
+                    //File extension control
+                    if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif")
+                    {
+                        return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
+                    }
+
+                    //Photo must be lower than 2 MB
+                    if (file.Length > 2 * 1024 * 1024)
+                    {
+                        return Json(new SimpleResponse { Success = true, Message = "Profile photo must be smaller than 2MB." });
+                    }
+
+                    //Generate file name
+                    var newfilename = HttpContext.Session.GetInt32("UserID").ToString() + "-" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ext;
+
+                    image = Directory.GetCurrentDirectory() + "\\wwwroot\\Home\\images\\avatars\\" + newfilename;
+
+                    using (var fileStream = new FileStream(image, FileMode.Create))
+                    {
+                        file.CopyToAsync(fileStream);
+                    }
+                }
+
+                //Get user
+                UserDto modeluser = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID")));
+
+                if (modeluser != null && modeluser.UserId > 0)
+                {
+                    modeluser.ProfileImage = Path.GetFileName(image);
+
+                    //Update user
+                    var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser)));
+
+                    if (updatemodel != null && updatemodel.UserId > 0)
+                    {
+                        HttpContext.Session.SetString("ProfileImage", modeluser.ProfileImage);
+                        return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
+                    }
+                }
 
                 return Json(result);
-
             }
             catch (Exception ex)
             {
@@ -1200,6 +1259,10 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        /// <summary>
+        ///  New user submit KYC action
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("SubmitKYC")]
         public JsonResult SubmitKYC()
@@ -1249,6 +1312,10 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        /// <summary>
+        ///  Public user pay dos fee action
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Route("PayDosFee/{JobId}")]
         public JsonResult PayDosFee(int JobId)
@@ -1301,8 +1368,30 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
+        #region Payment History
+
+        /// <summary>
+        ///  Payment History view
+        /// </summary>
+        /// <returns></returns>
+        [Route("Payment-History")]
+        public IActionResult Payment_History()
+        {
+            ViewBag.Title = "Payment History";
+
+            
+            return View();
+        }
+
+        #endregion
+
         #region Admin Views & Methods
 
+        /// <summary>
+        ///  Approves job with "AdminApprovalPending" status
+        /// </summary>
+        /// <param name="JobId"></param>
+        /// <returns></returns>
         [AuthorizeAdmin]
         [HttpGet]
         public JsonResult AdminJobApproval(int JobId)
@@ -1380,6 +1469,11 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        /// <summary>
+        ///  Disapproves job with "AdminApprovalPending" status
+        /// </summary>
+        /// <param name="JobId"></param>
+        /// <returns></returns>
         [AuthorizeAdmin]
         [HttpGet]
         public JsonResult AdminJobDisapproval(int JobId)
@@ -1430,6 +1524,7 @@ namespace DAO_WebPortal.Controllers
 
             return View();
         }
+
         #endregion
 
         #region Utility
