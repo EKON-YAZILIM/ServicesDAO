@@ -36,12 +36,7 @@ namespace DAO_DbService.Contexts
         public DbSet<UserKYC> UserKYCs { get; set; }
         public DbSet<ActiveSession> ActiveSessions { get; set; }
         public DbSet<UserCommentVote> UserCommentVotes { get; set; }
-
-
-
-
-
-
+        public DbSet<PaymentHistory> PaymentHistories { get; set; }
 
 
     }

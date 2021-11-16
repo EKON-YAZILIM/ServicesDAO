@@ -22,6 +22,8 @@ namespace DAO_DbService.Models
         public int? FailedLoginCount { get; set; }
         public string ProfileImage { get; set; }
         public string UserName { get; set; }
-     
+        public string WalletAddress { get; set; }
+        public string IBAN { get; set; }
+
     }
 }

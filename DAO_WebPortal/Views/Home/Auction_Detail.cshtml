@@ -134,7 +134,7 @@
                     <label class="form-label" for="price"><b>Price</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">€</span>
-                        <input class="form-control" type="text" aria-label="price" placeholder="Price" id="price"><span class="input-group-text"  oninput="CheckNumbers(this)">.00</span>
+                        <input class="form-control" type="text" aria-label="price" placeholder="Price" id="price"><span class="input-group-text" oninput="CheckNumbers(this)">.00</span>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -143,6 +143,16 @@
                         <input class="form-control" type="text" aria-label="Time" placeholder="Time" id="time" oninput="CheckNumbers(this)"><span class="input-group-text">days</span>
                     </div>
                 </div>
+                @if (userType == Enums.UserIdentityType.Associate.ToString())
+                {
+                    <div class="mb-3">
+                        <label class="form-label" for="Note"><b>Note</b></label>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" aria-label="Note" placeholder="Note" id="note" >
+                        </div>
+                    </div>
+                }
+
                 @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding)
                 {
                     <div class="mb-3">
@@ -217,6 +227,7 @@
                     //Create auction bid model
                     var price = $('#price').val()
                     var time = $('#time').val();
+                    var note = $('#note').val();
                      //Ajax post action
                     $.ajax({
                         type: "POST",
@@ -225,7 +236,9 @@
                             "price": price,
                             "time": time,
                             "auctionid": id,
+                            "associateUserNote": note,
                             @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding) { <text> "reputationStake": $('#reputation').val() </text> }
+                           
                         },
                         success: function (result) {
                             if (result.success) {
