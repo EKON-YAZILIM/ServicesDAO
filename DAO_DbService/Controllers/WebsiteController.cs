@@ -575,7 +575,7 @@ namespace DAO_DbService.Controllers
                     var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid).Count();
                     var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
                     if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
-          
+
                 }
             }
             catch (Exception ex)
@@ -635,6 +635,48 @@ namespace DAO_DbService.Controllers
 
         #endregion
 
+        #region Payment History
+        /// <summary>
+        /// Get user payment history
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns>List<PaymentHistoryViewModel></returns>
+        [Route("PaymentHistoryByUserId")]
+        [HttpGet]
+        public PaymentHistoryViewModel PaymentHistoryByUserId(int userid)
+        {
+            PaymentHistoryViewModel result = new PaymentHistoryViewModel();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result.UserPaymentHistoryList = (from payment in db.PaymentHistories
+                                                     join job in db.JobPosts on payment.JobID equals job.JobID
+                                                     where payment.UserID == userid
+                                                     select new UserPaymentHistoryItem
+                                                     {
+                                                         Title = job.Title,
+                                                         IBAN = payment.IBAN,
+                                                         JobID = payment.JobID,
+                                                         JobAmount = job.Amount,
+                                                         WalletAddress = payment.WalletAddress,
+                                                         CreateDate = payment.CreateDate
+                                                     }).ToList();
+
+                    //Calculation of the user's total amount
+                    foreach (var item in result.UserPaymentHistoryList)
+                    {
+                        result.TotalAmount = result.TotalAmount + item.JobAmount;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+        #endregion
     }
 }
 

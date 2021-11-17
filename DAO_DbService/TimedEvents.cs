@@ -1,5 +1,8 @@
 ﻿using DAO_DbService.Contexts;
+using DAO_DbService.Controllers;
+using DAO_DbService.Models;
 using Helpers.Constants;
+using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.DtoModels.ReputationDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
 using System;
@@ -164,8 +167,22 @@ namespace DAO_DbService
                             if (voting.StakedFor > voting.StakedAgainst)
                             {
                                 //Create payment
+                                var auction = db.Auctions.First(x=>x.JobID == voting.JobID);
+                                var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+                                var user = db.Users.Find(auctionWinnerBid.UserID);
+                                var job = db.JobPosts.Find(auction.JobID);
 
-                                var job = db.JobPosts.Find(voting.JobID);
+                                //Create Payment History model
+                                PaymentHistory model = new PaymentHistory
+                                {
+                                    JobID = job.JobID,
+                                    Amount = job.Amount,
+                                    CreateDate = DateTime.Now,
+                                    IBAN = user.IBAN,
+                                    UserID = user.UserId,
+                                    WalletAddress = user.WalletAddress,
+                                };
+                                db.PaymentHistories.Add(model);                               
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
                             }

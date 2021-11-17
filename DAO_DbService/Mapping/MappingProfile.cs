@@ -32,6 +32,9 @@ namespace DAO_DbService.Mapping
             CreateMap<AuctionBid, AuctionBidDto>();
             CreateMap<AuctionBidDto, AuctionBid>();
 
+            CreateMap<PaymentHistory, PaymentHistoryDto>();
+            CreateMap<PaymentHistoryDto, PaymentHistory>();
+
         }
     }
 }

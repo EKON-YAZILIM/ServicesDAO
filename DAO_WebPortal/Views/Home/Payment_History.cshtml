@@ -3,10 +3,10 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-
+@model Helpers.Models.WebsiteViewModels.PaymentHistoryViewModel
 <div>
-    <h2>Total Payments:  0.00000</h2>
-    <h5>Waiting Total: 0.00000</h5>
+    <h2>Total Payments:  @Model.TotalAmount.ToString("0.00000")</h2>
+    @*<h5>Waiting Total: 0.00000*</h5>*@
 </div>
 
 
@@ -21,7 +21,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Job Title</th>
-                            <th scope="col">Status</th>
+                            @*<th scope="col">Status</th>*@
                             <th scope="col">Amount</th>
                             <th scope="col">IBAN</th>
                             <th scope="col">CSPR Wallet</th>
@@ -29,14 +29,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Job Example</td>
-                            <td>Waiting</td>
-                            <td>1000€</td>
-                            <td>TR23 0003 0001 0002 2345 42</td>
-                            <td>...7d825702a7915e</td>
-                            <td>11.15.2021 13:00</td>
-                        </tr>
+                        @foreach (var item in Model.UserPaymentHistoryList)
+                        {
+                            <tr>
+                                <td>@item.Title</td>
+                                @*<td>Waiting*</td>*@
+                                <td>@item.JobAmount €</td>
+                                <td>@item.IBAN</td>
+                                <td>@item.WalletAddress</td>
+                                <td>@item.CreateDate.ToString("MM.dd.yyyy HH:mm")</td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
             </div>

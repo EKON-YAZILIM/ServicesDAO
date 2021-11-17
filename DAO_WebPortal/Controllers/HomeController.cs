@@ -1379,10 +1379,23 @@ namespace DAO_WebPortal.Controllers
         {
             ViewBag.Title = "Payment History";
 
-            
-            return View();
-        }
+            PaymentHistoryViewModel model = new PaymentHistoryViewModel();
 
+            try
+            {
+                //Get payment history data from ApiGateway
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/PaymentHistoryByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                //Parse response
+                model = Helpers.Serializers.DeserializeJson<PaymentHistoryViewModel>(jobsJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(model);
+        }
+     
         #endregion
 
         #region Admin Views & Methods
