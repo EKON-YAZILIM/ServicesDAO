@@ -1039,7 +1039,7 @@ namespace DAO_WebPortal.Controllers
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
                 informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.InformalVotingDays);
-                informalVoting.ReputationDistributionRatio = Program._settings.ReputationDistributionRatio;
+                informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
 
                 //Get related job post
                 var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + jobid, HttpContext.Session.GetString("Token"));
