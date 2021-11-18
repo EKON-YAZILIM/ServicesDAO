@@ -91,7 +91,7 @@
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted && Model.JobDoerUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
         <!-- New comment click -->
-        <button onclick="StartInformalVoting(@Model.JobID);" class="btn btn-sm btn-primary float-right">
+        <button onclick="StartInformalVoting(@Model.JobID);" class="btn btn-sm btn-primary btn-shine float-right">
             Start Informal Voting
         </button>
     }
@@ -100,7 +100,7 @@
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
         <!-- New comment click -->
-        <button onclick="KYCModal();" class="btn btn-sm btn-primary float-right">
+        <button onclick="KYCModal();" class="btn btn-sm btn-primary btn-shine float-right">
             Submit KYC
         </button>
     }
@@ -109,7 +109,7 @@
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
         <!-- New comment click -->
-        <button onclick="PayDosFeeModal(@Model.JobID);" class="btn btn-sm btn-primary float-right">
+        <button onclick="PayDosFeeModal(@Model.JobID);" class="btn btn-sm btn-primary btn-shine float-right">
             Pay DoS Fee
         </button>
     }

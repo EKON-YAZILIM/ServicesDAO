@@ -381,14 +381,60 @@ tbody tr:hover .trSlider span {
     }
 }
 
+/* Reputation History Page cards */
 .cardGreen {
+    border-radius: 10px;
     background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgba(46,184,92,1) 100%, rgba(0,212,255,1) 100%)
 }
 
 .cardBlue {
+    border-radius: 10px;
     background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(46 184 184) 100%, rgba(0,212,255,1) 100%)
 }
 
 .cardYellow {
+    border-radius: 10px;
     background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(184 97 46) 100%, rgba(0,212,255,1) 100%);
+}
+
+/* Shinning Button  */
+.btn-shine {
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-shine:after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        bottom: -50%;
+        left: -50%;
+        background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255,255,255,0.5) 50%, rgba(229, 172, 142, 0));
+        transform: rotateZ(60deg) translate(-5em, 7.5em);
+    }
+
+@keyframes moveBg {
+    from {
+        background-position: right;
+    }
+
+    to {
+        background-position: left;
+    }
+}
+
+@keyframes moveAfter {
+    100% {
+        transform: rotateZ(60deg) translate(1em, -9em);
+    }
+}
+
+.btn-shine:after {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-name: moveAfter;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
 }
