@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<div class="nk-wrap ov-h">
+    <div class="container">
+        <main class="nk-pages nk-pages-centered tc-light px-0 text-center">
+            <header class="pt-5">
+                <a href="./" class="d-inline-block logo-lg"><img src="../Public/images/logo-light2x.png" srcset="../Public/images/logo-light2x.png 2x" alt="logo"></a>
+            </header>
+            <div class="my-auto py-5">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-md-7 col-sm-9">
+                        <div class="position-relative">
+                            <h2 class="title-xxl-grad">404</h2>
+                            <h5 class="pb-2">Opps! Why you’re here?</h5>
+                            <p class="">The page you are looking for does not exists or you don't have the authorization to view this page.</p>
+                            <a href="../Public/Index" class="btn btn-grad btn-md btn-round">Back to home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="pb-5 tc-light">
+
+                <p class="copyright-text copyright-text-s3">Copyright © @DateTime.Now.Year ServicesDAO</p>
+            </footer>
+        </main>
+    </div>
+    <div class="nk-ovm shape-z4"></div>
+</div>
+<div class="preloader"><span class="spinner spinner-round"></span></div>
+
+
+@section Scripts {
+    <script>
+
+        $("body").addClass("theme-dark");
+
+    </script>
+}

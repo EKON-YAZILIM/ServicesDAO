@@ -1,0 +1,716 @@
+﻿@using DAO_WebPortal.Resources
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@model Helpers.Models.WebsiteViewModels.GetDashBoardViewModel;
+
+<div class="row">
+    <div class="col-sm-6 col-lg-3">
+        <div class="card mb-4 text-white bg-primary-gradient">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.UserCount  <span class="fs-6 fw-normal">
+                            (@Model.UserRatio%
+                            @if (Model.UserRatio > 0)
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                                </svg>
+                            }
+                            )
+                        </span>
+                    </div>
+                    <div>Users</div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                </div>
+            </div>
+            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart1" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+        <div class="card mb-4 text-white bg-info-gradient">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.JobCount <span class="fs-6 fw-normal">
+                            (@Model.JobRatio%
+                            @if (Model.JobRatio > 0)
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                                </svg>
+                            })
+                        </span>
+                    </div>
+                    <div>Jobs</div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                </div>
+            </div>
+            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart2" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+        <div class="card mb-4 text-white bg-warning-gradient">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.AuctionCount <span class="fs-6 fw-normal">
+                            (@Model.AuctionRatio%
+                            @if (Model.AuctionRatio > 0)
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                                </svg>
+                            })
+                        </span>
+                    </div>
+                    <div>Auctions</div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                </div>
+            </div>
+            <div class="c-chart-wrapper mt-3" style="height:70px;">
+                <canvas class="chart" id="card-chart3" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-->
+    <div class="col-sm-6 col-lg-3">
+        <div class="card mb-4 text-white bg-danger-gradient">
+            <div class="card-body pb-0 d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.VotingCount <span class="fs-6 fw-normal">
+                            (@Model.VotingRatio%
+                            @if (Model.VotingRatio > 0)
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                                </svg>
+                            })
+                        </span>
+                    </div>
+                    <div>Votings</div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-transparent text-white p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-options"></use>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a></div>
+                </div>
+            </div>
+            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
+                <canvas class="chart" id="card-chart4" height="70"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-->
+</div>
+<!-- /.row-->
+
+@if (Model.JobPostDtos.Count() > 0)
+{
+    <div class="row">
+        <div class="col-md-12 mt-4">
+            <h4></h4>
+            <div id="JobFlipster" class="flipster">
+                <ul class="flip-items">
+                    @foreach (var item in Model.JobPostDtos)
+                    {
+                        <li>
+                            <div class="cardy card-1">
+                                <h4>@item.Title</h4>
+                                <p class="fs-7">@item.CreateDate.ToString("MM.dd.yyyy HH:mm")</p>
+
+                                @if (item.JobDescription.Length > 150)
+                                {
+                                    <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) ..</p>
+                                }
+                                else
+                                {
+                                    <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription</p>
+                                }
+
+                                <p>
+                                    <b>@item.Amount Euros</b>
+                                    <span class="badge bg-warning float-right mt-1">Admin Approval Pending</span>
+                                </p>
+
+                                <div class="mt-5 d-flex justify-content-between">
+                                    <div>
+                                        <button class="btn btn-outline-secondary btn-sm" type="button" onclick="window.location.href='./Job-Detail/@item.JobID'" disabled="">
+                                            Go to Detail
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-outline-danger btn-sm me-2" type="button" onclick="JobDisapprove(@item.JobID)" disabled="">
+                                            Disapprove
+                                        </button>
+                                        <button class="btn btn-outline-success btn-sm" type="button" onclick="JobApprove(@item.JobID)" disabled="">
+                                            Approve
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <!-- /.col-->
+    </div>
+}
+
+
+<!-- /.row-->
+
+<div class="row">
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Auction</div>
+            <div class="card-body">
+                <div class="c-chart-wrapper" style="height:300px">
+                    <canvas class="chart" id="main-chart" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Voting</div>
+            <div class="card-body">
+                <div class="c-chart-wrapper" style="height:300px">
+                    <canvas class="chart" id="main-chart2" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row-->
+
+<div class="row">
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">User Log</div>
+            <div class="card-body p-0">
+                <div class="table-responsive" style="height:350px">
+                    <table class="table border mb-0">
+                        <thead class="table-light fw-semibold">
+                            <tr class="align-middle">
+                                <th>User ID</th>
+                                <th>Date</th>
+                                <th>Explanation</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.UserLogDtos)
+                            {
+                                <tr class="align-middle">
+                                    <td>@item.UserId</td>
+                                    <td>
+                                        @item.Date
+                                    </td>
+                                    @if (item.Explanation.Length > 30)
+                                    {
+                                        <td nowrap="nowrap" class="trSlider">
+                                            <span>
+                                                @item.Explanation
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td nowrap="nowrap">
+                                            @item.Explanation
+                                        </td>
+                                    }
+                                    <td class="ps-3">
+                                        @item.Type
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Application Logs</div>
+            <div class="card-body p-0">
+                <div class="table-responsive" style="height:350px">
+                    <table class="table border mb-0">
+                        <thead class="table-light fw-semibold">
+                            <tr class="align-middle">
+                                <th>Application</th>
+                                <th>Date</th>
+                                <th>Explanation</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ApplicationLogDtos)
+                            {
+                                <tr class="align-middle">
+                                    <td>@item.Application</td>
+                                    <td>
+                                        @item.Date
+                                    </td>
+                                    @if (item.Explanation.Length > 30)
+                                    {
+                                        <td nowrap="nowrap" class="trSlider">
+                                            <span>
+                                                @item.Explanation
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td nowrap="nowrap">
+                                            @item.Explanation
+                                        </td>
+                                    }
+                                    <td class="ps-3">
+                                        @item.Type
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-->
+</div>
+<!-- /.row-->
+
+@section Scripts{
+    @if (Model.JobPostDtos.Count() > 1)
+    {
+        <script>
+            $('#JobFlipster').flipster({
+                spacing: -0.5,
+                onItemSwitch: (current, prev) => {
+                    $(current).find("button").prop('disabled', false);
+                    $(prev).find("button").prop('disabled', true);
+                },
+                start: $(".flip-items li").length - 2,
+            });
+            var indx = $(".flip-items li").length - 2;
+            $(".flip-items li").eq(indx).find("button").prop('disabled', false);
+        </script>
+    }
+    else if (Model.JobPostDtos.Count() == 1)
+    {
+        <script>
+            $(".flip-items li").find("button").prop('disabled', false);
+            $(".flip-items li").addClass("d-flex justify-content-center");
+        </script>
+    }
+    <script>
+
+        function JobApprove(id) {
+        //Ajax put action
+            $.ajax({
+                type: "GET",
+                url: "../Home/AdminJobApproval",
+                data: {"JobId":id},
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                    failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+                    }
+            });
+        }
+
+        function JobDisapprove(id) {
+            //Ajax put action
+                $.ajax({
+                    type: "GET",
+                    url: "../Home/AdminJobDisapproval",
+                    data: {"JobId":id},
+                        success: function (result) {
+                            console.log(result);
+                            if (result.success) {
+                                toastr.success(result.message);
+                            }
+                            else {
+                                toastr.warning(result.message);
+                            }
+                        },
+                        failure: function (response) {
+                                toastr.warning("@Lang.ConnectionError");
+                        },
+                        error: function (response) {
+                             toastr.error("@Lang.UnexpectedError");
+                        }
+                });
+            }
+
+        var MonthDictionary = {
+            1: "January",
+            2: "February",
+            3: "March",
+            4: "April",
+            5: "May",
+            6: "June",
+            7: "July",
+            8: "August",
+            9: "September",
+            10: "October",
+            11: "November",
+            12: "December",
+        }
+
+        var DataModel = @Html.Raw(Json.Serialize(Model));
+
+        var LineChartOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                },
+                y: {
+                    display: false,
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                }
+            },
+            elements: {
+                line: {
+                    borderWidth: 1,
+                    tension: 0.4
+                },
+                point: {
+                    radius: 4,
+                    hitRadius: 10,
+                    hoverRadius: 4
+                }
+            }
+        }
+        var BarChartOptions = {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                        drawTicks: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false,
+                        drawBorder: false,
+                        drawTicks: false
+                    },
+                    ticks: {
+                        display: false
+                    }
+                }
+            }
+        }
+
+        UserCardDatalabels = [];
+        UserCardLabels = [];
+        for (var i = 0; i < DataModel.userCardGraph.length; i++) {
+            UserCardDatalabels.push(MonthDictionary[DataModel.userCardGraph[i].month]);
+            UserCardLabels.push(DataModel.userCardGraph[i].count);
+        }
+        const cardChart1 = new Chart(document.getElementById('card-chart1'), {
+            type: 'line',
+            data: {
+                labels: UserCardDatalabels,
+                datasets: [{
+                    label: 'User',
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    pointBackgroundColor: coreui.Utils.getStyle('--cui-primary'),
+                    data: UserCardLabels
+                }]
+            },
+            options: LineChartOptions
+        });
+
+        JobCardDatalabels = [];
+        JobCardLabels = [];
+        for (var i = 0; i < DataModel.jobCardGraph.length; i++) {
+            JobCardDatalabels.push(MonthDictionary[DataModel.jobCardGraph[i].month]);
+            JobCardLabels.push(DataModel.jobCardGraph[i].count);
+        }
+        const cardChart2 = new Chart(document.getElementById('card-chart2'), {
+            type: 'line',
+            data: {
+                labels: JobCardDatalabels,
+                datasets: [{
+                    label: 'Job',
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    pointBackgroundColor: coreui.Utils.getStyle('--cui-info'),
+                    data: JobCardLabels
+                }]
+            },
+            options: LineChartOptions
+        });
+
+        AuctionCardDatalabels = [];
+        AuctionCardLabels = [];
+        for (var i = 0; i < DataModel.auctionCardGraph.length; i++) {
+            AuctionCardDatalabels.push(MonthDictionary[DataModel.auctionCardGraph[i].month]);
+            AuctionCardLabels.push(DataModel.auctionCardGraph[i].count);
+        }
+        const cardChart3 = new Chart(document.getElementById('card-chart3'), {
+            type: 'line',
+            data: {
+                labels: AuctionCardDatalabels,
+                datasets: [{
+                    label: 'Auction',
+                    backgroundColor: 'rgba(255,255,255,.2)',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    data: AuctionCardLabels,
+                    fill: true
+                }]
+            },
+            options: LineChartOptions
+        });
+
+        VotingCardDatalabels = [];
+        VotingCardLabels = [];
+        for (var i = 0; i < DataModel.votingCardGraph.length; i++) {
+            VotingCardDatalabels.push(MonthDictionary[DataModel.votingCardGraph[i].month]);
+            VotingCardLabels.push(DataModel.votingCardGraph[i].count);
+        }
+        const cardChart4 = new Chart(document.getElementById('card-chart4'), {
+            type: 'bar',
+            data: {
+                labels: VotingCardDatalabels,
+                datasets: [{
+                    label: 'Voting',
+                    backgroundColor: 'rgba(255,255,255,.2)',
+                    borderColor: 'rgba(255,255,255,.55)',
+                    data: VotingCardLabels,
+                    barPercentage: 0.6
+                }]
+            },
+            options: BarChartOptions
+        });
+
+        AuctionDatalabels = [];
+        AuctionLabels1 = [];
+        AuctionLabels2 = [];
+        for (var i = 0; i < DataModel.auctionGraph.length; i++) {
+            AuctionDatalabels.push(MonthDictionary[DataModel.auctionGraph[i].month]);
+            AuctionLabels1.push(DataModel.auctionGraph[i].count1);
+            AuctionLabels2.push(DataModel.auctionGraph[i].count1);
+        }
+        const auctionChart = new Chart(document.getElementById('main-chart'), {
+            type: 'line',
+            data: {
+                labels: AuctionDatalabels,
+                datasets: [{
+                    label: 'Internal',
+                    backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10),
+                    borderColor: coreui.Utils.getStyle('--cui-info'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: AuctionLabels1,
+                    fill: true
+                }, {
+                    label: 'Public',
+                    borderColor: coreui.Utils.getStyle('--cui-success'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: AuctionLabels2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: true
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    },
+                    point: {
+                        radius: 0,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                        hoverBorderWidth: 3
+                    }
+                }
+            }
+        });
+
+        VotingDatalabels = [];
+        VotingLabels1 = [];
+        VotingLabels2 = [];
+        for (var i = 0; i < DataModel.votingGraph.length; i++) {
+            VotingDatalabels.push(MonthDictionary[DataModel.votingGraph[i].month]);
+            VotingLabels1.push(DataModel.votingGraph[i].count1);
+            VotingLabels2.push(DataModel.votingGraph[i].count2);
+        }
+        const votingChart = new Chart(document.getElementById('main-chart2'), {
+            type: 'line',
+            data: {
+                labels: VotingDatalabels,
+                datasets: [{
+                    label: 'Formal',
+                    backgroundColor: coreui.Utils.hexToRgba(coreui.Utils.getStyle('--cui-info'), 10),
+                    borderColor: coreui.Utils.getStyle('--cui-info'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: VotingLabels1,
+                    fill: true
+                }, {
+                    label: 'Informal',
+                    borderColor: coreui.Utils.getStyle('--cui-success'),
+                    pointHoverBackgroundColor: '#fff',
+                    borderWidth: 2,
+                    data: VotingLabels2,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            drawOnChartArea: true
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
+                        }
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 0.4
+                    },
+                    point: {
+                        radius: 0,
+                        hitRadius: 10,
+                        hoverRadius: 4,
+                        hoverBorderWidth: 3
+                    }
+                }
+            }
+        });
+
+    </script>
+
+}
+
+
+

@@ -1,0 +1,43 @@
+﻿
+@model Helpers.Models.WebsiteViewModels.MyJobsViewModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<!-- Row -->
+<div class="row d-flex mb-3">
+    <div class="col-md-6 d-flex">
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+        <button class="btn btn-primary" type="button" onclick="window.location.href='./New-Job';">
+            <svg class="icon me-2">
+                <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
+            </svg>Post New Job
+        </button>
+    </div>
+</div>
+<!-- Row -->
+<div class="row">
+    <div class="col-md-12">
+        @if (Model.ownedJobs.Count > 0 || Model.doerJobs.Count > 0)
+        {
+            Model.ownedJobs.AddRange(Model.doerJobs);
+
+            @foreach (var item in Model.ownedJobs)
+            {
+                <div class="card mb-3">
+                    <partial name="~/Views/Shared/_JobCardPartial.cshtml" model="item" />
+                </div>
+            }
+
+        }
+        else
+        {
+            <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any active jobs." } }' />
+        }
+
+    </div>
+</div>
+

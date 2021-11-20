@@ -1,0 +1,358 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    string theme = httpContextAccessor.HttpContext.Request.Cookies["theme"];
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+
+    <title>DAO WebPortal</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/Home/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/Home/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/Home/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Home/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="~/Home/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Home/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="~/Home/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Home/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/Home/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="~/Home/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/Home/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/Home/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Home/favicon/favicon-16x16.png">
+    <link rel="manifest" href="~/Home/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/Home/assets/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Main styles for this application-->
+    <link href="~/Home/css/style.css" rel="stylesheet" />
+    <link href="~/Home/css/custom.css" rel="stylesheet" />
+
+    <!-- Library styles -->
+    <link href="~/Home/lib/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
+    <link href="~/Home/lib/toastr/toastr.css" rel="stylesheet" />
+    <link href="~/Home/lib/font-awesome/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/Home/lib/jquery-confirm/jquery-confirm.css" rel="stylesheet" />
+    <link href="~/Home/css/jquery.flipster.min.css" rel="stylesheet" />
+
+</head>
+<body class="@theme">
+
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+        <div class="sidebar-brand d-none d-md-flex">
+            <img src="~/Home/images/logo118.png" class="sidebar-brand-full" width="118" height="46" alt="Services DAO" />
+            <img src="~/Home/images/logo48.png" class="sidebar-brand-narrow" width="46" height="46" alt="Services DAO" />
+        </div>
+        <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+            <li class="nav-item">
+                <a class="nav-link" href="../Home">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-speedometer"></use>
+                    </svg> Dashboard
+                </a>
+            </li>
+            <li class="nav-title">MENU</li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="../My-Jobs">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
+                    </svg>My Jobs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../All-Jobs">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-library"></use>
+                    </svg> All Jobs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Auctions">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-auction"></use>
+                    </svg> Auctions
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Votings">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-thumb-up"></use>
+                    </svg> Votings
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Reputation-History">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
+                    </svg> Reputation History
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Payment-History">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-wallet"></use>
+                    </svg> Payment History
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../User-Profile">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-user"></use>
+                    </svg> User Profile
+                </a>
+            </li>
+
+            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
+            {
+                <li class="nav-title">ADMIN PAGES</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="ComingSoon()">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-wc"></use>
+                        </svg>Users List
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="ComingSoon()">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-storage"></use>
+                        </svg>Application Logs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="ComingSoon()">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-calculator"></use>
+                        </svg>Reputation Logs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Dao-Variables">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-settings"></use>
+                        </svg>DAO Variables
+                    </a>
+                </li>
+            }
+
+        </ul>
+        @*<button class="sidebar-toggler mb-2 sidebar-exit" type="button"></button>*@
+        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
+
+    <div class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
+        <header class="header header-sticky mb-4">
+            <div class="container-fluid">
+                <button class="header-toggler px-md-0 me-md-3" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+                    <svg class="icon icon-lg">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-menu"></use>
+                    </svg>
+                </button>
+                <h4 class="d-none d-md-block">@ViewBag.Title</h4>
+                <nav class="header-nav ms-auto me-4">
+                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                        <input class="btn-check" id="btn-light-theme" type="radio" name="theme-switch" autocomplete="off" value="light-theme" onchange="handleThemeChange(this.value)">
+                        <label class="btn btn-primary" for="btn-light-theme">
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-sun"></use>
+                            </svg>
+                        </label>
+                        <input class="btn-check" id="btn-dark-theme" type="radio" name="theme-switch" autocomplete="off" value="dark-theme" onchange="handleThemeChange(this.value)">
+                        <label class="btn btn-primary" for="btn-dark-theme">
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-moon"></use>
+                            </svg>
+                        </label>
+                    </div>
+                </nav>
+
+                <ul class="header-nav">
+                    <li class="nav-item dropdown d-md-down-none">
+                        <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+
+                            <div class="avatar avatar-md d-inline-block" style="vertical-align:top">
+                                @if (!string.IsNullOrEmpty(httpContextAccessor.HttpContext.Session.GetString("ProfileImage")))
+                                {
+                                    <img class="avatar-img" src="../Home/images/avatars/@httpContextAccessor.HttpContext.Session.GetString("ProfileImage")">
+                                }
+                                else
+                                {
+                                    <img class="avatar-img" src="../Home/images/avatars/default.png">
+                                }
+                            </div>
+                            <div class="d-inline-block">
+                                <small class="mb-0">@httpContextAccessor.HttpContext.Session.GetString("NameSurname")</small><br />
+                                <small><b>Type:</b> @httpContextAccessor.HttpContext.Session.GetString("UserType")</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg pt-0">
+
+                            <div class="message">
+                                <div class="dropdown-header bg-light py-2">
+                                    <strong>Account</strong>
+                                </div>
+                                <a class="dropdown-item" href="../User-Profile">
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="../Public/Logout">
+                                    Logout
+                                </a>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+
+        <div class="body flex-grow-1 px-3">
+            <div class="container-lg">
+
+                @RenderBody()
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div><a href="#">Services DAO</a> © @DateTime.Now.Year</div>
+            <div class="ms-auto">Powered by&nbsp;<a href="#">Services DAO</a></div>
+        </footer>
+    </div>
+
+    <!-- Modal KYC -->
+    <div class="modal" tabindex="-1" role="dialog" id="KYCModal" data-target="#KYCModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">KYC</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Please submit KYC information</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SubmitKYC();">Submit KYC</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal DOS Fee -->
+    <div class="modal" tabindex="-1" role="dialog" id="DosFeeModal" data-target="#DosFeeModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">DoS Fee Payment</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Please pay DOS fee</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="PayDosFee();">Make Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Home/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Home/js/coreui.bundle.min.js"></script>
+    <script src="~/Home/lib/chartjs/js/coreui-chartjs.js"></script>
+    <script src="~/Home/lib/chartjs/js/chart.min.js"></script>
+    <script src="~/Home/lib/chartjs/js/coreui-utils.js"></script>
+    <script src="~/Home/lib/toastr/toastr.js"></script>
+    <script src="~/Home/lib/jquery-confirm/jquery-confirm.js"></script>
+    <script src="~/Home/js/jquery.flipster.js"></script>
+    <script src="~/Home/js/daofunctions.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            //Toastr options
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-bottom-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            //Dark theme toggle check
+            if (document.body.classList.contains('dark-theme')) {
+                var element = document.getElementById('btn-dark-theme');
+                if (typeof (element) != 'undefined' && element != null) {
+                    document.getElementById('btn-dark-theme').checked = true;
+                }
+            }
+            else {
+                var element = document.getElementById('btn-light-theme');
+                if (typeof (element) != 'undefined' && element != null) {
+                    document.getElementById('btn-light-theme').checked = true;
+                }
+            }
+
+            //Display toastr message from server side
+            var toastrMessage = '@TempData["toastr-message"]';
+            var toastrType = '@TempData["toastr-type"]';
+
+            if (toastrMessage.length > 0) {
+                if (toastrType == "warning") {
+                    toastr.warning(toastrMessage);
+                }
+                else if (toastrType == "error") {
+                    toastr.error(toastrMessage);
+                }
+                else if (toastrType == "success") {
+                    toastr.success(toastrMessage);
+                }
+            }
+        });
+
+        function handleThemeChange(src) {
+            var event = document.createEvent('Event');
+            event.initEvent('themeChange', true, true);
+
+            if (src === 'light-theme') {
+                document.body.classList.remove('dark-theme');
+            }
+            if (src === 'dark-theme') {
+                document.body.classList.add('dark-theme');
+            }
+            document.body.dispatchEvent(event);
+            changeThemeCookie(src);
+
+        }
+
+        function changeThemeCookie(src) {
+            $.ajax({ type: "GET", url: './Home/SetCookie', data: { "src": src }, cache: false, async: true });
+        }
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

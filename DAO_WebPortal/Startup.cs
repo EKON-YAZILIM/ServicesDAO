@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,9 +21,17 @@ namespace DAO_WebPortal
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
-            Configuration = configuration;
+            //Get related appsettings.json file (Development or Production)
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
+
+            Configuration = builder.Build();
+
             LoadConfig(configuration);
             InitializeService();
 
@@ -69,7 +78,18 @@ namespace DAO_WebPortal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages().AddRazorRuntimeCompilation();  
+            //Changes default Views folder
+            if (!string.IsNullOrEmpty(Program._settings.ViewFolder))
+            {
+                services.Configure<RazorViewEngineOptions>(o =>
+                {
+                    o.ViewLocationFormats.Clear();
+                    o.ViewLocationFormats.Add("/" + Program._settings.ViewFolder + "/{1}/{0}" + RazorViewEngine.ViewExtension);
+                    o.ViewLocationFormats.Add("/" + Program._settings.ViewFolder + "/Shared/{0}" + RazorViewEngine.ViewExtension);
+                });
+            }
+
+            services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddControllersWithViews();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddLocalization(o => o.ResourcesPath = "Resources");

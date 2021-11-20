@@ -1,0 +1,129 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewData["Title"] = "Page Title";
+}
+@model Helpers.Models.WebsiteViewModels.GetDashBoardViewModelVA;
+<!--Row-->
+<div class="row">
+    <!--.col-->
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Owner Jobs</div>
+            <div class="card-body">
+                <div class="table-responsive" style="height:350px">
+                    <!--Table-->
+                    <table class="table border mb-0">
+                        <thead class="table-light fw-semibold">
+                            <tr class="align-middle">
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Create Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.MyJobs.ownedJobs)
+                            {
+                                <tr class="align-middle">
+
+                                    <td>
+                                        @item.Title
+                                    </td>
+                                    @if (item.JobDescription.Length > 30)
+                                    {
+                                        <td class="trSlider"  nowrap="nowrap">
+                                            <span>
+                                                @item.JobDescription
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        @item.JobDescription
+                                    }
+
+                                    <td>
+                                        @item.CreateDate
+                                    </td>
+                                    <td>
+                                        @item.Amount
+                                    </td>
+                                    <td>
+                                        @item.Status
+                                    </td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /.col-->
+    <!-- /.col-->
+    <div class="col-lg-6 col-md-12 ">
+        <div class="card mb-4">
+            <div class="card-header">Doer Jobs</div>
+            <div class="card-body">
+                <div class="table-responsive" style="height:350px">
+                    <table class="table border mb-0">
+                        <thead class="table-light fw-semibold">
+                            <tr class="align-middle">
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Create Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.MyJobs.doerJobs)
+                            {
+                                <tr class="align-middle">
+
+                                    <td>
+                                        @item.Title
+                                    </td>
+                                    @if (item.JobDescription.Length > 30)
+                                    {
+                                        <td class="trSlider" nowrap="nowrap">
+                                            <span>
+                                                @item.JobDescription
+                                            </span>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        @item.JobDescription
+                                    }
+
+                                    <td>
+                                        @item.CreateDate
+                                    </td>
+                                    <td>
+                                        @item.Amount
+                                    </td>
+                                    <td>
+                                        @item.Status
+                                    </td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-->
+</div>
+
+
+
+
+
+

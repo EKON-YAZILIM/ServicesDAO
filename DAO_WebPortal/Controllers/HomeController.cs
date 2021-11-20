@@ -1038,7 +1038,7 @@ namespace DAO_WebPortal.Controllers
                 VotingDto informalVoting = new VotingDto();
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
-                informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.InformalVotingDays);
+                informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingDays);
                 informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
 
                 //Get related job post

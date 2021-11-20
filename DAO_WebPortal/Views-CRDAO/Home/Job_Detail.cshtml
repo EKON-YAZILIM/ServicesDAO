@@ -1,0 +1,316 @@
+﻿@using DAO_WebPortal.Resources
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+@model Helpers.Models.WebsiteViewModels.JobPostDetailModel
+<!-- Row -->
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card mb-3">
+            <partial name="~/Views/Shared/_JobCardPartial.cshtml" model="Model.JobPostWebsiteModel" />
+
+            <!-- Comments footer -->
+            <div id="commentsx" class="card-footer collapse show">
+                <div id="comments" class="comment-thread">
+                    @{
+                        //Set the index of the pinned comments to first index
+                        var pinnedComments = Model.JobPostCommentModel.Where(x => x.IsPinned == true).ToList();
+                        Model.JobPostCommentModel.RemoveAll(x => x.IsPinned == true);
+                        foreach (var cmt in pinnedComments)
+                        {
+                            Model.JobPostCommentModel.Insert(0, cmt);
+                        }
+
+                        if (Model.JobPostCommentModel.Count > 0)
+                        {
+                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList());
+                        }
+                        else
+                        {
+                            <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no comments in this topic" }, { "Icon", "frown-open" }, { "HtmlContent", "<button class=\"btn btn-primary mt-3\" onclick=\"CreateReplyBox(this, 0)\">Make New Comment</button>" } }' />
+                        }
+                    }
+                </div>
+                <!-- Job comment recursive function -->
+                @functions{
+                    int Count = 0;
+
+                    public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments)
+                    {
+                        int SubCommentCount = 0;
+
+                        @foreach (var commentItem in currentcomments)
+                        {
+                            Count = Count + 1;
+                            SubCommentCount = SubCommentCount + 1;
+
+                            <!-- Comment -->
+                            <div class="comment" id="comment-@Count">
+
+                                <!-- Add comment-border-link class-->
+                                @if (currentcomments.Count() > SubCommentCount)
+                                {
+                                    <a href="#comment-@Count" class="comment-border-link">
+                                        <span class="sr-only">Jump to comment-@Count</span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#comment-@Count">
+                                        <span class="sr-only">Jump to comment-@Count</span>
+                                    </a>
+                                }
+
+                                <!-- Heading -->
+                                <div class="comment-heading">
+                                    <div class="comment-voting">
+                                        <img class="avatar-img" src="../Home/images/avatars/@commentItem.ProfileImage" alt="somebody1">
+                                    </div>
+                                    <div class="comment-info">
+                                        <a href="#" class="comment-author">@commentItem.UserName</a>
+                                        <p class="m-0">
+                                            @commentItem.Date.ToString("dd.MM.yyyy")
+                                        </p>
+                                    </div>
+                                </div> <!-- Heading -->
+                                <!-- Comment body -->
+                                <div class="comment-body">
+
+                                    @if (commentItem.Comment == "This comment is deleted by the owner.")
+                                    {
+                                        <p><i>@commentItem.Comment</i></p>
+                                    }
+                                    else
+                                    {
+                                        <p style="white-space: pre-line">@commentItem.Comment</p>
+                                    }
+
+                                    @if (Convert.ToBoolean(commentItem.IsPinned) == true)
+                                    {
+                                        <i class="fas fa-thumbtack"></i><i> <small>Pinned comment</small>  </i>
+                                    }
+                                    <!--Upvote click -->
+                                    <a onclick="UpVote(@commentItem.JobPostCommentID);" class="card-text me-2 ms-2 cA cursorp">
+                                        <!-- IsUpVote check-->
+                                        @if (commentItem.IsUpVote == true)
+                                        {
+                                            <i class="fas fa-caret-square-up" id="voteUp_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-caret-square-up" id="voteUp_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        <span id="voteUpCount_@commentItem.JobPostCommentID">@commentItem.UpVote</span>
+                                    </a>
+                                    <!--Downvote click -->
+                                    <a onclick="DownVote(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp">
+                                        @if (commentItem.IsUpVote == false)
+                                        {
+                                            <i class="fas fa-caret-square-down" id="voteDown_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="far fa-caret-square-down" id="voteDown_@commentItem.JobPostCommentID"></i>
+                                        }
+                                        <span id="voteDownCount_@commentItem.JobPostCommentID">@commentItem.DownVote</span>
+
+                                    </a>
+
+                                    <!-- New comment click -->
+                                    <a onclick="CreateReplyBox(this, @commentItem.JobPostCommentID)" class="card-text me-2 cA cursorp">
+                                        <svg class="icon">
+                                            <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+                                        </svg> Reply
+                                    </a>
+
+                                    @if (commentItem.IsUsersComment == true && commentItem.Comment != "This comment is deleted by the owner.")
+                                    {
+                                        <a onclick="DeleteComment(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp" id="delete_@commentItem.JobPostCommentID">
+                                            <svg class="icon">
+                                                <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                            </svg> Delete
+                                        </a>
+                                    }
+
+                                </div>
+
+                                <!-- Comment body -->
+                                <div class="replies">
+                                    @{
+                                        if (Model.JobPostCommentModel.Count(x => x.SubCommentID == commentItem.JobPostCommentID) > 0)
+                                        {
+                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == commentItem.JobPostCommentID).ToList());
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        $(document).ready(function () {
+
+
+        });
+
+        //Upvote function
+        function UpVote(id) {
+            //Ajax get action
+            $.ajax({
+                type: "GET",
+                url: "../Home/UpVote",
+                data: { "JobPostCommentId": id },
+                success: function (result) {
+
+                    //Update upvote and downvote count
+                    document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
+                    document.getElementById("voteDownCount_" + id).innerHTML = result.content[1];
+
+                    //Add and remove myClass
+                    //Checking for existence of myClass
+                    if ($("#voteUp_" + id).hasClass("fas")) {
+                        $("#voteUp_" + id).removeClass("fas");
+                        $("#voteUp_" + id).addClass("far");
+                    }
+                    else if ($("#voteDown_" + id).hasClass("fas")) {
+                        $("#voteDown_" + id).removeClass("fas");
+                        $("#voteDown_" + id).addClass("far");
+
+                        $("#voteUp_" + id).removeClass("far");
+                        $("#voteUp_" + id).addClass("fas");
+                    }
+                    else {
+                        $("#voteUp_" + id).removeClass("far");
+                        $("#voteUp_" + id).addClass("fas");
+                    }
+                }
+            });
+        }
+
+        //Downvote function
+        function DownVote(id) {
+            //Ajax get action
+            $.ajax({
+                type: "GET",
+                url: "../Home/DownVote",
+                data: { "JobPostCommentId": id },
+                success: function (result) {
+
+                    //Update upvote and downvote count
+                    document.getElementById("voteDownCount_" + id).innerHTML =  result.content[1];
+                    document.getElementById("voteUpCount_" + id).innerHTML = result.content[0];
+
+                    //Add and remove myClass
+                    //Checking for existence of myClass
+                    if ($("#voteDown_" + id).hasClass("fas")) {
+                        $("#voteDown_" + id).removeClass("fas");
+                        $("#voteDown_" + id).addClass("far");
+                    }
+                    else if ($("#voteUp_" + id).hasClass("fas")) {
+                        $("#voteUp_" + id).removeClass("fas");
+                        $("#voteUp_" + id).addClass("far");
+
+                        $("#voteDown_" + id).removeClass("far");
+                        $("#voteDown_" + id).addClass("fas");
+                    }
+                    else {
+                        $("#voteDown_" + id).removeClass("far");
+                        $("#voteDown_" + id).addClass("fas");
+                    }
+                }
+            });
+        }
+
+        //Creates reply textbox below the comment
+        function CreateReplyBox(e, commentid) {
+            var inputExists = $('#textarea-input-' + commentid).length;
+
+            if (!inputExists) {
+                $(e).parent().append("<div class='comment-body mt-3'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2' onclick='AddNewComment(" +@Model.JobPostWebsiteModel.JobID+"," + commentid + ");'>Reply</button></div></div>");
+            }
+
+        }
+
+        //Add new Comment
+        function AddNewComment(jobid, commentid) {
+
+            $.ajax({
+                type: "POST",
+                url: "../Home/AddNewComment",
+                data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
+                success: function (result) {
+                   console.log(result);
+                        if (result.success) {
+                            window.location.reload();
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                      failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+
+                }
+            });
+        }
+
+        //Delete Comment
+        function DeleteComment(commentid) {
+            $.confirm({
+                    title: 'Confirmation',
+                    content: 'Are you sure you want to delete your comment ?',
+                    buttons: {
+                        cancel: {
+                            text: 'Cancel'
+                        },
+                        confirm: {
+                            text: 'Continue',
+                            btnClass: 'btn btn-primary',
+                            action: function () {
+                                $.ajax({
+                                    type: "DELETE",
+                                    url: "../Home/DeleteComment",
+                                    data: {  "CommentId": commentid },
+                                    success: function (result) {
+                                       console.log(result);
+                                            if (result.success) {
+                                                window.location.reload();
+                                            }
+                                            else {
+                                                toastr.warning(result.message);
+                                            }
+                                        },
+                                          failure: function (response) {
+                                                toastr.warning("@Lang.ConnectionError");
+                                        },
+                                        error: function (response) {
+                                             toastr.error("@Lang.UnexpectedError");
+                                    }
+                                });
+                            }
+                        }
+                    }
+            });
+
+        }
+
+
+    </script>
+}

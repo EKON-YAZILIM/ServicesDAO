@@ -1,0 +1,158 @@
+﻿@using DAO_WebPortal.Resources
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<partial name="../Shared/_PublicHeaderPartial" />
+
+<main class="nk-pages">
+    <section class="section section-contact bg-transparent">
+
+        <div class="container">
+            <!-- Block  -->
+            <div class="nk-block block-contact" id="contact">
+                <div class="row justify-content-center no-gutters">
+                    <div class="col-lg-6">
+                        <div class="contact-wrap round split split-left split-lg-left bg-white">
+                            <h5 class="title title-md">Contact Us</h5>
+                            <div class="nk-form-submit">
+                                <div class="field-item">
+                                    <input id="contactnamesurname" name="contact-name" type="text" class="input-line required" aria-required="true" onfocus="this.removeAttribute('readonly');" readonly>
+                                    <label class="field-label field-label-line">Your Name</label>
+                                </div>
+                                <div class="field-item">
+                                    <input id="contactemail" name="contact-email" type="email" class="input-line required email" aria-required="true" onfocus="this.removeAttribute('readonly');" readonly>
+                                    <label class="field-label field-label-line">Your Email</label>
+                                </div>
+                                <div class="field-item">
+                                    <textarea id="contactmessage" name="contact-message" class="input-line input-textarea required" aria-required="true" onfocus="this.removeAttribute('readonly');" readonly></textarea>
+                                    <label class="field-label field-label-line">Your Message</label>
+                                </div>
+                                <input type="text" class="d-none" name="form-anti-honeypot" value="">
+
+                                <!-- Captcha -->
+                                <div class="input-group inpcapthca mt-2 captchaDiv">
+                                    <div class="input-group-prepend">
+                                        <img id="img-captcha-contact" src="../get-captcha-image?code=securityCodeResetPassComplete" style="width: 120px; height: 40px;" />
+                                    </div>
+                                    <input oninput="this.value = this.value.toUpperCase()" autocomplete="off" type="text" name="code2" class="form-control frmcapthca" id="securityCodeContact" placeholder="@Lang.SecureNote" maxlength="5" style="margin-left: 10px; height:40px;" />
+                                </div>
+
+                                <div class="field-item mt-3">
+                                    <button type="button" onclick="SubmitContactForm();" class="btn btn-lg btn-grad submitFormButton float-right">Submit</button>
+                                </div>
+                                  
+                                </div>
+                            </div>
+                    </div><!-- .col -->
+                    <div class="col-lg-4">
+                        <div class="contact-wrap split split-right split-lg-right bg-genitian bg-theme tc-light">
+                            <div class="d-flex flex-column justify-content-between h-100">
+                                <ul class="contact-list">
+                                    <li>
+                                        <em class="contact-icon fas fa-building"></em>
+                                        <div class="contact-text">
+                                            <h6>ServicesDAO</h6>
+                                            <span>15211 Dooley Branch <br> Beckershire, LA 121212</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <em class="contact-icon fas fa-envelope"></em>
+                                        <div class="contact-text">
+                                            <span>info@company.com</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <em class="contact-icon fas fa-paper-plane"></em>
+                                        <div class="contact-text">
+                                            <span><a href="https://t.me/devxdao/">Join us on Telegram</a></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="contact-social">
+                                    <h6>Be a part of our community</h6>
+                                    <ul class="social-links">
+                                        <li><a href="https://www.facebook.com/Devxdao-552347902364862" target="_blank"><em class="social-icon social-icon-transparent fab fa-facebook-f"></em></a></li>
+                                        <li><a href="https://twitter.com/DEVXDAO" target="_blank"><em class="social-icon social-icon-transparent fab fa-twitter"></em></a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCLP738SNZ9u6JLq9anVnj0Q" target="_blank"><em class="social-icon social-icon-transparent fab fa-youtube"></em></a></li>
+                                        <li><a href="https://github.com/EKON-YAZILIM/ServicesDAO" target="_blank"><em class="social-icon social-icon-transparent fab fa-github"></em></a></li>
+                                        <li><a href="https://t.me/devxdao/" target="_blank"><em class="social-icon social-icon-transparent fab fa-telegram"></em></a></li>
+                                        <li><a href="https://www.linkedin.com/company/devxdao/about/" target="_blank"><em class="social-icon social-icon-transparent fab fa-linkedin"></em></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .block  -->
+        </div>
+    </section>
+</main>
+
+<partial name="../Shared/_PublicFooterPartial" />
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //Create Captcha image
+            resetCaptchaImage("#img-captcha-contact", "securityCodeContact");
+        });
+
+        //Submit contact form function
+        function SubmitContactForm() {
+
+            //Disable submit button
+            $('.submitFormButton').prop('disabled', true);
+
+            //Display loading
+            $(".spinner").removeClass("load-done");
+            $('.spinner').fadeIn(300);
+            $('.preloader').fadeIn(300);
+
+            //Create contact model
+            var code = $('#securityCodeContact').val();
+            var email = $('#contactemail').val()
+            var namesurname = $('#contactnamesurname').val();
+            var message = $('#contactmessage').val();
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
+
+            //Ajax post action
+            $.ajax({
+                type: "POST",
+                url: "../Public/SubmitContactForm",
+                data: { "namesurname": namesurname, "email": email, "message": message, "usercode": code, "__RequestVerificationToken": token },
+                async: true,
+                success: function (result) {
+                      if (result.success) {
+                          toastr.success(result.message);
+                      }
+                      else {
+                          toastr.warning(result.message);
+                      }
+                },
+                failure: function (response) {
+                    toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                    toastr.error("@Lang.UnexpectedError");
+                }
+            }).done(function () {
+                //Enable submit button
+                $('.submitFormButton').removeAttr("disabled");
+
+                //Hide loading
+                $(".spinner").removeClass("load-done");
+                $('.spinner').fadeOut(300);
+                $('.preloader').delay(300).fadeOut(300);
+
+                //Reset captcha image
+                resetCaptchaImage("#img-captcha-contact", "securityCodeContact");
+                $(".captchaDiv").removeClass("d-none");
+            });
+
+        }
+
+    </script>
+}

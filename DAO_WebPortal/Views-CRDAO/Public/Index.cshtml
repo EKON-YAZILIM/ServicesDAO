@@ -1,0 +1,355 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+
+@{
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+
+<header class="nk-header page-header is-transparent is-sticky is-shrink" id="header">
+    <!-- Header  -->
+    <div class="header-main">
+        <div class="header-container container">
+            <div class="header-wrap">
+                <!-- Logo -->
+                <div class="header-logo logo animated" data-animate="fadeInDown" data-delay=".6">
+                    <a href="./" class="logo-link">
+                        <img class="logo-dark" src="../Public/images/logo-dark.png" srcset="../Public/images/logo-dark.png 2x" alt="logo">
+                        <img class="logo-light" src="../Public/images/logo-light.png" srcset="../Public/images/logo-light.png 2x" alt="logo">
+                    </a>
+                </div>
+
+                <!-- Menu Toogle  -->
+                <div class="header-nav-toggle">
+                    <a href="#" class="navbar-toggle" data-menu-toggle="header-menu">
+                        <div class="toggle-line">
+                            <span></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Menu  -->
+                <div class="header-navbar animated" data-animate="fadeInDown" data-delay=".75">
+                    <nav class="header-menu" id="header-menu">
+                        <ul class="menu">
+
+                            <li class="menu-item">
+                                <a class="menu-link nav-link" href="../Privacy-Policy">Privacy Policy</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link nav-link" href="../Contact">Contact</a>
+                            </li>
+
+                        </ul>
+
+                        @if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != null)
+                        {
+                            <ul class="menu-btns">
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" onclick="window.location.href='../Home'"><span>Dashboard</span></button></li>
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul class="menu-btns">
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-login"><span>Login</span></button></li>
+                                <li><button class=" btn btn-md btn-auto btn-outline btn-primary" data-toggle="modal" data-target="#modal-signUp"><span>Sign Up</span></button></li>
+                            </ul>
+                        }
+                    </nav>
+                    <div class="header-navbar-overlay"></div>
+                </div><!-- .header-navbar  -->
+            </div>
+        </div>
+    </div><!-- .header-main  -->
+    <!-- Banner  -->
+    <div class="header-banner bg-theme-grad">
+        <div class="nk-banner">
+            <div class="banner banner-fs banner-pd-lg">
+                <div class="banner-wrap">
+                    <div class="container">
+                        <div class="row gutter-vr-30px align-items-center justify-content-lg-between justify-content-center">
+                            <div class="col-lg-5 col-sm-9 order-lg-last">
+                                <div class="banner-gfx-re-s3 my-0 animated" data-animate="fadeInUp" data-delay="1">
+                                    <img src="../Public/images/gfx3.png" alt="header">
+                                </div>
+                            </div><!-- .col -->
+                            <div class="col-lg-7 col-xl-6 col-sm-10 text-center text-lg-left">
+                                <div class="banner-caption cpn tc-light">
+                                    <div class="cpn-head">
+                                        <h1 class="title title-md animated" data-animate="fadeInUp" data-delay="1.1">Decentralized Code Reviews For Your Business</h1>
+                                    </div>
+                                    <div class="cpn-text cpn-text-light">
+                                        <p class="lead animated" data-animate="fadeInUp" data-delay="1.2">Use decentralized autonomous code review jobs to carry your bussiness to the next step.</p>
+                                    </div>
+                                    <div class="cpn-action mt-0">
+                                        <div class="cpn-btns pt-4 animated" data-animate="fadeInUp" data-delay="1.3">
+                                            <ul class="btn-grp">
+                                                <li><button href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-signUp">Get Started</button></li>
+                                                <li><a href="./Contact" class="btn btn-outline btn-primary on-bg-theme-alt btn-lg">Contact Us</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                        </div><!-- .row -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- .nk-banner -->
+        <div class="nk-ovm mask-f mask-contain-bottom shape-a2"></div>
+
+        <!-- Place Particle Js -->
+        <div id="particles-bg" class="particles-container particles-bg"></div>
+    </div>
+    <!-- .header-banner  -->
+</header>
+
+<main class="nk-pages">
+    <section class="section bg-transparent over-up over-up-xl-s2 pdt-0">
+        <div class="ui-mask-right ui-mask-s8"></div>
+        <div class="container">
+            <!-- Block  -->
+            <div class="nk-block nk-block-features-s3">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-10">
+                        <div class="feature feature-center card card-lg-y animated" data-animate="fadeInUp" data-delay="1.5">
+                            <div class="feature-icon feature-icon-bg-grd feature-icon-bg-grd-s2">
+                                <em class="icon ikon ikon-lock icon-grd icon-lg-s2"></em>
+                            </div>
+                            <div class="feature-text">
+                                <h4 class="title title-md title-dark mb-4">Security</h4>
+                                <p>As it is said; <i>"The internet is programmable information. The blockchain is programmable security."</i></p>
+                            </div>
+                        </div>
+                    </div><!-- .col -->
+                    <div class="col-lg-4 col-md-10">
+                        <div class="feature feature-center card card-lg-y animated" data-animate="fadeInUp" data-delay="1.4">
+                            <div class="feature-icon feature-icon-bg-grd feature-icon-bg-grd-s1">
+                                <em class="icon ikon ikon-user icon-grd icon-lg-s2"></em>
+                            </div>
+                            <div class="feature-text">
+                                <h4 class="title title-md title-dark mb-4">Equality</h4>
+                                <p>Create a fair working environment with blockchain technologies. No need for central authorities!</p>
+                            </div>
+                        </div>
+                    </div><!-- .col -->
+                    <div class="col-lg-4 col-md-10">
+                        <div class="feature feature-center card card-lg-y animated" data-animate="fadeInUp" data-delay="1.6">
+                            <div class="feature-icon feature-icon-bg-grd feature-icon-bg-grd-s3">
+                                <em class="icon ikon ikon-shiled-3 icon-grd icon-lg-s2"></em>
+                            </div>
+                            <div class="feature-text">
+                                <h4 class="title title-md title-dark mb-4">Efficiency</h4>
+                                <p>Build efficient apps and empower your bussiness. Increase effciency in your bussiness with tech of the future. </p>
+                            </div>
+                        </div>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div><!-- .block  -->
+        </div>
+    </section>
+    <!-- // -->
+    <section id="about-us" class="section pdt-0 ov-v">
+        <div class="ui-mask-left ui-mask-s9"></div>
+        <div class="container">
+            <!-- Block  -->
+            <div class="nk-block nk-block-text-wrap">
+                <div class="row align-items-center gutter-vr-30px justify-content-between gutter-vr-30px">
+                    <div class="col-lg-5 col-mb-9 m-auto order-first order-lg-last">
+                        <div class="nk-block-img animated" data-animate="fadeInUp" data-delay=".3">
+                            <img src="../Public/images/gfx-z-g.png" alt="app">
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="nk-block-text animated" data-animate="fadeInUp" data-delay=".2">
+                            <div class="nk-block-shade"></div>
+                            <h3 class="title title-dark title-regular">ServicesDAO aims to create a software infastructure for decentralized organizations.</h3>
+                            <p>ServicesDAO is the open-source web platform for decentralizing bussiness across many fields. </p>
+                            <p>We created an infastructure for decentralized organizations. ServicesDAO has a strong architecture with micro-services. Also it supports containerization to ease up the scalability.</p>
+                            <div class="nk-block-note nk-block-note-s2">
+                                <em class="icon ti ti-rocket"></em>
+                                <p>ServicesDAO is supported by Emerging Technology Association</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .row -->
+            </div><!-- .block  -->
+        </div>
+    </section>
+    <!-- // -->
+    <section id="faqs" class="section pdt-0 ov-v">
+        <div class="ui-mask-right ui-mask-s11"></div>
+        <div class="container">
+            <!-- Section Head  -->
+            <div class="section-head text-center wide-sm animated" data-animate="fadeInUp" data-delay=".1">
+                <h2 class="title title-dark title-regular">FAQs</h2>
+                <p>If you have any other questions, please get in touch via email.</p>
+            </div>
+            <!-- Section Head  -->
+            <div class="nk-block">
+                <div class="row">
+                    <div class="col-md-4 col-lg-3 mb-4 mb-lg-0">
+                        <ul class="nav tab-nav tab-nav-vr tab-nav-bdr mr-lg-3 bg-white animated" data-animate="fadeInUp" data-delay=".2">
+                            <li><a class="active" data-toggle="tab" href="#general-questions-01"><em class="fas fa-caret-right"></em>General Questions</a></li>
+                            <li><a data-toggle="tab" href="#tech-questions-01"><em class="fas fa-caret-right"></em>Technical Questions</a></li>
+                            <li><a data-toggle="tab" href="#legal-questions-01"><em class="fas fa-caret-right"></em>Legal Questions</a></li>
+                        </ul>
+                    </div><!-- .col -->
+                    <div class="col-md-8 col-lg-9">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active animated" id="general-questions-01" data-animate="fadeInUp" data-delay=".3">
+                                <div class="accordion accordion-faq" id="faq-1">
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm" data-toggle="collapse" data-target="#faq-1-1">What is ServicesDAO? <span class="accordion-icon"></span></h5>
+                                        <div id="faq-1-1" class="collapse show" data-parent="#faq-1">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm collapsed" data-toggle="collapse" data-target="#faq-1-2">What cryptocurrencies can I use in ServicesDAO ? <span class="accordion-icon"></span></h5>
+                                        <div id="faq-1-2" class="collapse" data-parent="#faq-1">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm collapsed" data-toggle="collapse" data-target="#faq-1-3">How can I participate in the ServicesDAO? <span class="accordion-icon"></span></h5>
+                                        <div id="faq-1-3" class="collapse" data-parent="#faq-1">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm collapsed" data-toggle="collapse" data-target="#faq-1-4">How do I benefit from the ServicesDAO? <span class="accordion-icon"></span></h5>
+                                        <div id="faq-1-4" class="collapse" data-parent="#faq-1">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade animated" id="tech-questions-01" data-animate="fadeInUp" data-delay=".4">
+                                <div class="accordion accordion-faq" id="faq-2">
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm" data-toggle="collapse" data-target="#faq-2-1">What is the system architecture used in ServicesDAO?<span class="accordion-icon"></span></h5>
+                                        <div id="faq-2-1" class="collapse show" data-parent="#faq-2">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm collapsed" data-toggle="collapse" data-target="#faq-2-2">Which languages were used in development of ServiceDAO?<span class="accordion-icon"></span></h5>
+                                        <div id="faq-2-2" class="collapse" data-parent="#faq-2">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm collapsed" data-toggle="collapse" data-target="#faq-2-3">Which depedencies does ServicesDAO have?<span class="accordion-icon"></span></h5>
+                                        <div id="faq-2-3" class="collapse" data-parent="#faq-2">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade animated" id="legal-questions-01" data-animate="fadeInUp" data-delay=".5">
+                                <div class="accordion accordion-faq" id="faq-3">
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm" data-toggle="collapse" data-target="#faq-3-1">Is ServicesDAO open-source?<span class="accordion-icon"></span></h5>
+                                        <div id="faq-3-1" class="collapse show" data-parent="#faq-3">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h5 class="accordion-title accordion-title-sm collapsed" data-toggle="collapse" data-target="#faq-3-2">What license is ServicesDAO published under?<span class="accordion-icon"></span></h5>
+                                        <div id="faq-3-2" class="collapse" data-parent="#faq-3">
+                                            <div class="accordion-content">
+                                                <p>Answer will be posted soon.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- .col -->
+                </div><!-- .row -->
+            </div>
+        </div>
+    </section>
+    <!-- // -->
+</main>
+
+<footer class="nk-footer bg-theme-grad ov-h">
+    <section class="section section-t-xl tc-light pdb-0 animated" data-animate="fadeInUp" data-delay=".1">
+        <div class="container">
+            <!-- Block  -->
+            <div class="nk-block">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8 col-mb-9">
+                        <div class="section-head section-head-sm wide-auto-sm text-center">
+                            <h4 class="title">Subscribe to Us</h4>
+                            <p>If you want to get update news please subscribe to us.</p>
+                        </div>
+                        <form action="form/subscribe.php" class="nk-form-submit" method="post">
+                            <div class="field-inline field-split bg-white shadow-soft">
+                                <div class="field-wrap d-flex align-items-center">
+                                    <label class="label-inline mb-0 d-none d-sm-block"><i class="mt-1 icon fas fa-envelope"></i></label>
+                                    <input class="input-solid input-solid-lg required email" type="text" name="contact-email" placeholder="Enter your email">
+                                    <input type="text" class="d-none" name="form-anti-honeypot" value="">
+                                </div>
+                                <div class="submit-wrap">
+                                    <button class="btn btn-primary">Subscribe</button>
+                                </div>
+                            </div>
+                            <div class="form-results"></div>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- .block  -->
+        </div>
+    </section>
+    <section class="section tc-light animated" data-animate="fadeInUp" data-delay=".2">
+        <div class="container">
+            <div class="nk-block">
+                <div class="gutter-vr-15px px row justify-content-between align-items-center text-center text-sm-left">
+                    <div class="col-lg-4">
+                        <ul class="social justify-content-center ml-n2">
+                            <li><a href="https://www.facebook.com/Devxdao-552347902364862" target="_blank"><em class="social-icon social-icon-transparent fab fa-facebook-f"></em></a></li>
+                            <li><a href="https://twitter.com/DEVXDAO" target="_blank"><em class="social-icon social-icon-transparent fab fa-twitter"></em></a></li>
+                            <li><a href="https://www.youtube.com/channel/UCLP738SNZ9u6JLq9anVnj0Q" target="_blank"><em class="social-icon social-icon-transparent fab fa-youtube"></em></a></li>
+                            <li><a href="https://github.com/EKON-YAZILIM/ServicesDAO" target="_blank"><em class="social-icon social-icon-transparent fab fa-github"></em></a></li>
+                            <li><a href="https://t.me/devxdao/" target="_blank"><em class="social-icon social-icon-transparent fab fa-telegram"></em></a></li>
+                            <li><a href="https://www.linkedin.com/company/devxdao/about/" target="_blank"><em class="social-icon social-icon-transparent fab fa-linkedin"></em></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 col-sm-8">
+                        <div class="copyright-text copyright-text-s4">
+                            <p>© Copyright 2021, ServicesDAO. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-4 text-sm-right">
+                        <ul class="footer-links">
+                            <li><a href="./Privacy-Policy">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="nk-ovm mask-f-footer shape-z3"></div>
+</footer>
+
+<!-- preloader -->
+@*<div class="preloader"><span class="spinner spinner-round"></span></div>*@
+<div class="preloader preloader-alt no-split"><span class="spinner spinner-alt"><img class="spinner-brand" src="../Public/images/logo-light.png" alt=""></span></div>
+

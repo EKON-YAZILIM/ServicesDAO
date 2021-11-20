@@ -57,3 +57,9 @@
 /DAO_RFPService/bin/Debug/netcoreapp3.1
 /DAO_RFPService/bin/Release/netcoreapp3.1
 /DAO_RFPService/Properties/PublishProfiles
+/DAO_ApiGateway/appsettings.Production.json
+/DAO_DbService/appsettings.Production.json
+/DAO_IdentityService/appsettings.Production.json
+/DAO_LogService/appsettings.Prodcution.json
+/DAO_NotificationService/appsettings.Production.json
+/DAO_WebPortal/appsettings.Production.json
