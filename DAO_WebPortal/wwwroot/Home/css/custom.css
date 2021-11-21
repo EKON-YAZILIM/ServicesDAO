@@ -438,3 +438,105 @@ tbody tr:hover .trSlider span {
     animation-iteration-count: infinite;
     animation-direction: forward;
 }
+
+/*******Progress bar*********/
+
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    color: #929292;
+    height: 4rem;
+}
+
+    .steps > .step {
+        position: relative;
+        display: table-cell;
+        text-align: center;
+        font-size: 0.875rem;
+        color: #6D6875;
+    }
+
+        .steps > .step:before {
+            content: attr(data-step);
+            display: block;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 2px solid #e6e6e6;
+            color: #e6e6e6;
+            width: 2rem;
+            height: 2rem;
+            text-align: center;
+      /*      margin-bottom: -4.2rem;*/
+            line-height: 1.9rem;
+            border-radius: 100%;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .steps > .step:after {
+            content: "";
+            position: absolute;
+            display: block;
+            background: #e6e6e6;
+            width: 100%;
+            height: 0.125rem;
+            top: 1rem;
+            left: 50%;
+        }
+
+        .steps > .step:last-child:after {
+            display: none;
+        }
+
+        .steps > .step.is-complete {
+            color: #6D6875;
+        }
+
+            .steps > .step.is-complete:before {
+                content: "✓";
+                color: #1A236F;
+                background: #fff;
+                border: 2px solid #1A236F;
+            }
+
+        .steps > .step.is-inactive:before {
+            content: "X";
+            color: #9d0000;
+            background: #fff;
+            border: 2px solid #9d0000;
+        }
+        .steps > .step.is-inactive:after {
+            background: #9d0000;
+        }
+
+            .steps > .step.is-complete:after {
+                background: #1A236F;
+            }
+
+        .steps > .step.is-uncomplete:before {
+            color: #9d0000;
+            background: #fff;
+            border: 2px solid #9d0000;
+        }
+
+        .steps > .step.is-uncomplete:after {
+            background: #9d0000;
+        }
+
+     /*   .steps > .step.is-active {
+            font-size: 1.5rem;
+        }*/
+
+        .steps > .step.is-active:before {
+            color: #FFF;
+            border: 2px solid #1A236F;
+            background: #1A236F;
+            /*margin-bottom: -4.9rem;*/
+        }
+

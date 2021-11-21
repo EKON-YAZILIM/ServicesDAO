@@ -1,4 +1,5 @@
-﻿using Helpers.Models.DtoModels.VoteDbDto;
+﻿using Helpers.Models.DtoModels.MainDbDto;
+using Helpers.Models.DtoModels.VoteDbDto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,7 @@ namespace Helpers.Models.WebsiteViewModels
 
         public int MyVotesCount { get; set; }
         public List<VoteDto> MyVotes { get; set; }
-
+        public List<JobPostCommentDto> LastComments { get; set; }
+        public List<JobPostDto> PopularJobs { get; set; }
     }
 }

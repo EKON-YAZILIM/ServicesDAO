@@ -549,9 +549,31 @@ namespace DAO_DbService.Controllers
                     //Get job post model from GetVoteJobsByProgressTypes function
                     res.MyJobs = GetUserJobs(userid);
 
+                    //Get Last 10 Comments
+                    var LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10).ToList();
+                    res.LastComments = _mapper.Map<List<JobPostComment>, List<JobPostCommentDto>>(LastComments);
+
                     //Get users registered in the last mounth
                     var date = DateTime.Now.AddMonths(-1);
                     var date2 = DateTime.Now.AddMonths(-2);
+
+                    //Get Trend Jobs
+                    res.PopularJobs = db.JobPostComments.Where(x => x.Date > date)
+                        .GroupBy(x => x.JobID)
+                        .Select(g => new { name = g.Key, count = g.Count() })
+                        .OrderByDescending(g => g.count)
+                        .Take(5)
+                        .Join(db.JobPosts,
+                            c => c.name,
+                            cm => cm.JobID,
+                            (c, cm) => new JobPostDto
+                            {
+                                Title = cm.Title,
+                                JobDescription = cm.JobDescription,
+                                JobID = cm.JobID,
+                                Status = cm.Status
+                            }
+                        ).ToList();
 
                     //Get job post count
                     res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid).Count();
@@ -575,6 +597,8 @@ namespace DAO_DbService.Controllers
                     var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid).Count();
                     var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
                     if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
+
+
 
                 }
             }
