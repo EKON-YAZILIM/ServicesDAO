@@ -3,8 +3,10 @@ using DAO_DbService.Models;
 using Helpers.Models.DtoModels.LogDbDto;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
+using Helpers.Models.SharedModels;
 using Helpers.Models.WebsiteViewModels;
 using Microsoft.AspNetCore.Mvc;
+using PagedList.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,41 +29,46 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAllJobs")]
         [HttpGet]
-        public List<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status)
+        public PaginationEntity<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status, int page = 1, int pageCount = 30)
         {
-            List<JobPostViewModel> result = new List<JobPostViewModel>();
+            PaginationEntity<JobPostViewModel> res = new PaginationEntity<JobPostViewModel>();
+
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    result = (from job in db.JobPosts
-                              join user in db.Users on job.UserID equals user.UserId
-                              let explanation = job.JobDescription.Substring(0, 250)
-                              let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
-                              where status == null || job.Status == status
-                              orderby job.CreateDate descending
-                              select new JobPostViewModel
-                              {
-                                  Title = job.Title,
-                                  UserName = user.UserName,
-                                  CreateDate = job.CreateDate,
-                                  JobDescription = explanation,
-                                  LastUpdate = job.LastUpdate,
-                                  JobID = job.JobID,
-                                  Status = job.Status,
-                                  Amount = job.Amount,
-                                  CommentCount = count,
-                                  JobDoerUserID = job.JobDoerUserID,
-                                  DosFeePaid = job.DosFeePaid,
-                                  JobPosterUserID = job.UserID
-                              }).ToList();
+                    IPagedList<JobPostViewModel> lst = (from job in db.JobPosts
+                                                        join user in db.Users on job.UserID equals user.UserId
+                                                        let explanation = job.JobDescription.Substring(0, 250)
+                                                        let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
+                                                        where status == null || job.Status == status
+                                                        orderby job.CreateDate descending
+                                                        select new JobPostViewModel
+                                                        {
+                                                            Title = job.Title,
+                                                            UserName = user.UserName,
+                                                            CreateDate = job.CreateDate,
+                                                            JobDescription = explanation,
+                                                            LastUpdate = job.LastUpdate,
+                                                            JobID = job.JobID,
+                                                            Status = job.Status,
+                                                            Amount = job.Amount,
+                                                            CommentCount = count,
+                                                            JobDoerUserID = job.JobDoerUserID,
+                                                            DosFeePaid = job.DosFeePaid,
+                                                            JobPosterUserID = job.UserID
+                                                        }).ToPagedList(page, pageCount);
+
+                    res.Items = lst;
+                    res.MetaData = new PaginationMetaData() { Count = lst.Count, FirstItemOnPage = lst.FirstItemOnPage, HasNextPage = lst.HasNextPage, HasPreviousPage = lst.HasPreviousPage, IsFirstPage = lst.IsFirstPage, IsLastPage = lst.IsLastPage, LastItemOnPage = lst.LastItemOnPage, PageCount = lst.PageCount, PageNumber = lst.PageNumber, PageSize = lst.PageSize, TotalItemCount = lst.TotalItemCount };
                 }
             }
             catch (Exception ex)
             {
 
             }
-            return result;
+
+            return res;
         }
 
         /// <summary>
