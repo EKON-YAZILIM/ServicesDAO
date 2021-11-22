@@ -17,6 +17,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using static Helpers.Constants.Enums;
+using Newtonsoft.Json;
+using PagedList.Core;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -113,25 +115,37 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("All-Jobs")]
-        public IActionResult All_Jobs()
+        [Route("Home/All-Jobs")]
+        public IActionResult All_Jobs(int page = 1, int pageCount = 10)
         {
             ViewBag.Title = "All Jobs";
 
-            List<JobPostViewModel> allJobsModel = new List<JobPostViewModel>();
+            IPagedList<JobPostViewModel> pagedModel = new PagedList<JobPostViewModel>(null, 1, 1);
 
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs", HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
                 //Parse response
-                allJobsModel = Helpers.Serializers.DeserializeJson<List<JobPostViewModel>>(jobsJson);
+                var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<JobPostViewModel>>(jobsJson);
+
+                pagedModel = new StaticPagedList<JobPostViewModel>(
+                    jobsListPaged.Items,
+                    jobsListPaged.MetaData.PageNumber,
+                    jobsListPaged.MetaData.PageSize,
+                    jobsListPaged.MetaData.TotalItemCount
+                    );
+
+                //var result = JsonConvert.DeserializeObject<PagedList<JobPostViewModel>>(jobsJson);
+
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return View(allJobsModel);
+            return View(pagedModel);
+
         }
 
         /// <summary>
