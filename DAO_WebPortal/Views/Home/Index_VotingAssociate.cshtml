@@ -3,25 +3,197 @@
     ViewData["Title"] = "Page Title";
 }
 @model Helpers.Models.WebsiteViewModels.GetDashBoardViewModelVA;
-@if (Model.MyJobs.ownedJobs.Count() > 0)
-{
-    <!--Row-->
-    <div class="row">
-        <!--.col-->
-        <div class="col-lg-12">
-            <div class="card mb-4">
-                <div class="card-header">Owner Jobs</div>
-                <div class="card-body p-0">
+
+<div class="row">
+    <div class="col-md-6 col-lg-2">
+        <h5>Info</h5>
+        <div class="cardy mb-2 p-2">
+            <div class="pb-0 d-flex justify-content-between align-items-start">
+                <div style="display: flex; width: min-content;">
+                    <svg class="DashIcon" style="color: #9d9d9d;">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
+                    </svg>
+                </div>
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.MyJobCount
+                        <span class="fs-6 fw-normal">
+                            (@Model.JobRatio%
+                            @if (Model.JobRatio > 0)
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                                </svg>
+                            })
+                        </span>
+                    </div>
+                    <div>Jobs</div>
+                </div>
+            </div>
+        </div>
+        <div class="cardy mb-2 p-2">
+            <div class="pb-0 d-flex justify-content-between align-items-start">
+                <div style="display: flex; width: min-content;">
+                    <svg class="DashIcon" style="color: #9d9d9d;">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-auction"></use>
+                    </svg>
+                </div>
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.MyAuctionCount
+                        <span class="fs-6 fw-normal">
+                            (@Model.AuctionRatio%
+                            @if (Model.AuctionRatio > 0)
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                                </svg>
+                            })
+                        </span>
+                    </div>
+                    <div>Auctions</div>
+                </div>
+            </div>
+        </div>
+        <div class="cardy mb-2 p-2">
+            <div class="pb-0 d-flex justify-content-between align-items-start">
+                <div style="display: flex; width: min-content;">
+                    <svg class="DashIcon" style="color: #9d9d9d;">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-thumb-up"></use>
+                    </svg>
+                </div>
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @Model.MyVotesCount
+                        <span class="fs-6 fw-normal">
+                            (%
+                            @*@if (Model.VotingRatio > 0)
+                    {
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                        </svg>
+                    }
+                    else
+                    {
+                        <svg class="icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                        </svg>
+                    }*@)
+                        </span>
+                    </div>
+                    <div>My Votes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-5">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-lg-12">
+                <h5>Last Comments</h5>
+                <div class="cardz" style="max-height: 275px;overflow: auto;">
+                    @if (Model.LastComments.Count > 0)
+                    {
+                        @foreach (var item in Model.LastComments)
+                        {
+                            <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
+                                <svg style="color: #31AF91;" class="comment-icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+                                </svg>
+                                <h5>Jhon Doe</h5> <span>- @item.Date</span> <br>
+                                <p class="comment-p mb-1">
+                                    @if (item.Comment.Length > 150)
+                                    {
+                                        @item.Comment.Substring(0, Math.Min(item.Comment.Length, 150)) <span>..</span>
+                                    }
+                                    else
+                                    {
+                                        @item.Comment
+                                    }
+                                </p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No comments yet." } }' />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-lg-5">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-lg-12">
+                <h5>Popular Jobs</h5>
+                <div class="cardz" style="max-height: 275px;overflow: auto;">
+                    @if (Model.PopularJobs.Count > 0)
+                    {
+                        @foreach (var item in Model.PopularJobs)
+                        {
+                            <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
+                                <svg style="color: #D8B944;" class="comment-icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
+                                </svg>
+                                <h5>Jhon Doe</h5> <span>- @item.CreateDate</span> <br>
+                                <p class="comment-p mb-1">
+                                    @if (item.JobDescription.Length > 150)
+                                    {
+                                        @item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) <span>..</span>
+                                    }
+                                    else
+                                    {
+                                        @item.JobDescription
+                                    }
+                                </p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No popular jobs yet." } }' />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row-->
+<!--Row-->
+<div class="row mt-4">
+    <!--.col-->
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header">Owner Jobs</div>
+            <div class="card-body p-0">
+                @if (Model.MyJobs.ownedJobs.Count() > 0)
+                {
                     <div class="table-responsive" style="max-height:500px">
                         <!--Table-->
                         <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.ownedJobs" />
                     </div>
-                </div>
+                }
+                else
+                {
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any owner jobs." } }' />
+                }
             </div>
         </div>
-        <!-- /.col-->
     </div>
-}
+    <!-- /.col-->
+</div>
+
 
 
 @if (Model.MyJobs.doerJobs.Count() > 0)
@@ -33,9 +205,16 @@
             <div class="card mb-4">
                 <div class="card-header">Doer Jobs</div>
                 <div class="card-body p-0">
-                    <div class="table-responsive" style="max-height: 500px">
-                        <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.doerJobs" />
-                    </div>
+                    @if (Model.MyJobs.ownedJobs.Count() > 0)
+                    {
+                        <div class="table-responsive" style="max-height: 500px">
+                            <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.doerJobs" />
+                        </div>
+                    }
+                    else
+                    {
+                        <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any doer jobs." } }' />
+                    }
                 </div>
             </div>
         </div>
