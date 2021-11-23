@@ -60,6 +60,9 @@
     height: 1px;
     overflow: hidden;
 }
+.invalidInput {
+    border: 1px solid #ff3e3e70;
+}
 
 /* Comment */
 

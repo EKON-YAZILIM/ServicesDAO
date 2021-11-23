@@ -68,7 +68,7 @@
 
                         <tr>
                             <th scope="row">@Count</th>
-                            <td>@item.NameSurname</td>
+                            <td id="name_@item.AuctionBidID" >@item.NameSurname</td>
                             <td>@item.UserName</td>
                             <td>@item.Price</td>
                             <td>@item.Time</td>
@@ -203,7 +203,7 @@
                 <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to select bid #<span id="winnerBidNo"></span> as winner?
+                Are you sure you want to select bid #<span id="winnerBidName"></span> as winner?
             </div>
             <div id="winnerButtons" class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
@@ -235,7 +235,6 @@
                             "auctionid": id,
                             "associateUserNote": note,
                             @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding) { <text> "reputationStake": $('#reputation').val() </text> }
-
                         },
                         success: function (result) {
                             if (result.success) {
@@ -308,7 +307,7 @@
 
             //Opens confirmation modal
             function ChooseAsWinnerBidModal(id) {
-                $("#winnerBidNo").text(id);
+                $("#winnerBidName").text($("#name_"+id).text());
                 $("#winnerButtons button:nth-of-type(2)").attr("id", id);
                 $("#SelectWinnerBidModal").modal("toggle");
             }
