@@ -115,18 +115,19 @@
     <div class="col-md-6 col-lg-5">
         <div class="row">
             <div class="col-sm-5 col-md-6 col-lg-12">
-                <div class="card-header">Last Comments</div>
+                <div class="card-header">
+                    <svg style="color: #31AF91;" class="comment-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+                    </svg>Last Comments
+                </div>
                 <div class="cardz" style="max-height: 275px;overflow: auto;">
                     @if (Model.LastComments.Count > 0)
                     {
                         @foreach (var item in Model.LastComments)
                         {
                             <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
-                                <svg style="color: #31AF91;" class="comment-icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                </svg>
-
-                                <h5>Jhon Doe</h5> <span>- @item.Date</span> <br>
+                                <img src="~/Home/images/avatars/@item.ProfileImage" alt="" class="rounded-circle" width="40" height="40">
+                                <h5>@item.UserName</h5> <span>- @item.Date</span> <br>
                                 <p class="comment-p mb-1">
                                     @if (item.Comment.Length > 150)
                                     {
@@ -166,9 +167,9 @@
                                 <img src="~/Home/images/avatars/@item.ProfileImage" alt="" class="rounded-circle" width="40" height="40">
                                 <h5>@item.UserName</h5> <span>- @item.CreateDate</span> <br>
                                 <p class="comment-p mb-1">
-                                     @if (item.Title.Length > 50)
+                                    @if (item.Title.Length > 50)
                                     {
-                                        <span>&#8226;</span>   @item.Title.Substring(0, Math.Min(item.Title.Length, 50)) <span>..</span>
+                                        <span>&#8226;</span> @item.Title.Substring(0, Math.Min(item.Title.Length, 50)) <span>..</span>
                                     }
                                     else
                                     {

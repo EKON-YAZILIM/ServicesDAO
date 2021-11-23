@@ -557,8 +557,20 @@ namespace DAO_DbService.Controllers
                     res.MyJobs = GetUserJobs(userid);
 
                     //Get Last 10 Comments
-                    var LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10).ToList();
-                    res.LastComments = _mapper.Map<List<JobPostComment>, List<JobPostCommentDto>>(LastComments);
+                    res.LastComments  = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10)
+                        .Join(db.Users,
+                            c => c.UserID,
+                            cm => cm.UserId,
+                            (c, cm) => new LastCommentsDto
+                            {
+                                UserName = cm.NameSurname,
+                                ProfileImage =cm.ProfileImage,
+                                Comment = c.Comment,
+                                Date = c.Date,
+                                JobID = c.JobID
+                            }
+                        )
+                        .ToList();
 
                     //Get users registered in the last mounth
                     var date = DateTime.Now.AddMonths(-1);
@@ -653,8 +665,20 @@ namespace DAO_DbService.Controllers
                     res.MyJobs = GetUserJobs(userid);
 
                     //Get Last 10 Comments
-                    var LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10).ToList();
-                    res.LastComments = _mapper.Map<List<JobPostComment>, List<JobPostCommentDto>>(LastComments);
+                    res.LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10)
+                       .Join(db.Users,
+                           c => c.UserID,
+                           cm => cm.UserId,
+                           (c, cm) => new LastCommentsDto
+                           {
+                               UserName = cm.NameSurname,
+                               ProfileImage = cm.ProfileImage,
+                               Comment = c.Comment,
+                               Date = c.Date,
+                               JobID = c.JobID
+                           }
+                       )
+                       .ToList();
 
                     //Get users registered in the last mounth
                     var date = DateTime.Now.AddMonths(-1);

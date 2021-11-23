@@ -18,7 +18,7 @@ namespace Helpers.Models.WebsiteViewModels
 
         public int MyVotesCount { get; set; }
         public List<VoteDto> MyVotes { get; set; }
-        public List<JobPostCommentDto> LastComments { get; set; }
+        public List<LastCommentsDto> LastComments { get; set; }
         public List<PopularJobsDto> PopularJobs { get; set; }
         public UserReputationHistoryDto UserReputation { get; set; }
     }
