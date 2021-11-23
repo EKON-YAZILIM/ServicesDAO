@@ -60,6 +60,13 @@ namespace DAO_WebPortal.Controllers
                     string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAssociate?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
                     dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModelVA>(dashboardJson);
+
+                    //Get model from ApiGateway
+                    var ReputationUrl = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+
+                    //Parse response
+                    dashModel.UserReputation = Helpers.Serializers.DeserializeJson<UserReputationHistoryDto>(ReputationUrl);
+
                     return View("Index_Associate", dashModel);
                 }
                 //User type control for voting associate
