@@ -52,52 +52,12 @@ namespace DAO_WebPortal.Controllers
             return View();
         }
 
-        #endregion
-
-        /// <summary>
-        ///  Sends user's message as email to system admins
-        /// </summary>
-        /// <param name="namesurname">User's name surname</param>
-        /// <param name="email">User's email</param>
-        /// <param name="message">User's message</param>
-        /// <returns></returns>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public JsonResult SubmitContactForm(string namesurname, string email, string message, string usercode)
+        [Route("Price-Discovery")]
+        public IActionResult Price_Discovery()
         {
-            try
-            {
-                // Check captcha
-                if (!Utility.Captcha.ValidateCaptchaCode("securityCodeContact", usercode, HttpContext))
-                {
-                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
-                }
-
-                //Create email model
-                SendEmailModel model = new SendEmailModel();
-                model.Subject = "Contact form submission from anonymous user";
-                model.Content = "Name surname: " + namesurname + ", Email:" + email + ", Message:" + message;
-
-                //Send email to system Admin
-                string jsonResponse = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Notification/SendPublicContactEmail", Helpers.Serializers.SerializeJson(model));
-
-                //Parse response
-                SimpleResponse res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
-
-                if(res.Success == false)
-                {
-                    res.Message = "Currently we are unable to send your message. Please try again later.";
-                }
-
-                return Json(res);
-
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-                return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
-            }
+            return View(new List<Helpers.Models.WebsiteViewModels.AuctionViewModel>());
         }
+        #endregion
 
         #region Login & Register Methods
 
@@ -463,6 +423,51 @@ namespace DAO_WebPortal.Controllers
         }
 
         #endregion
+
+        /// <summary>
+        ///  Sends user's message as email to system admins
+        /// </summary>
+        /// <param name="namesurname">User's name surname</param>
+        /// <param name="email">User's email</param>
+        /// <param name="message">User's message</param>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult SubmitContactForm(string namesurname, string email, string message, string usercode)
+        {
+            try
+            {
+                // Check captcha
+                if (!Utility.Captcha.ValidateCaptchaCode("securityCodeContact", usercode, HttpContext))
+                {
+                    return base.Json(new SimpleResponse { Success = false, Message = Lang.WrongErrorCodeEntered });
+                }
+
+                //Create email model
+                SendEmailModel model = new SendEmailModel();
+                model.Subject = "Contact form submission from anonymous user";
+                model.Content = "Name surname: " + namesurname + ", Email:" + email + ", Message:" + message;
+
+                //Send email to system Admin
+                string jsonResponse = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Notification/SendPublicContactEmail", Helpers.Serializers.SerializeJson(model));
+
+                //Parse response
+                SimpleResponse res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
+
+                if (res.Success == false)
+                {
+                    res.Message = "Currently we are unable to send your message. Please try again later.";
+                }
+
+                return Json(res);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return base.Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+            }
+        }
 
         /// <summary>
         /// Creates captcha image for public forms
