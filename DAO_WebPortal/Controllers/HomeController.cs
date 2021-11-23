@@ -203,6 +203,8 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "Job posted successfully and will be available after admin review.";
                     result.Content = model;
 
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")),Helpers.Constants.Enums.UserLogType.Request,"User added a new job.",Utility.IpHelper.GetClientIpAddress(HttpContext),Utility.IpHelper.GetClientPort(HttpContext));
+
                     //Set server side toastr because page will be redirected
                     TempData["toastr-message"] = result.Message;
                     TempData["toastr-type"] = "success";
