@@ -273,6 +273,8 @@ namespace DAO_WebPortal.Controllers
                 //Check if user trying to edit job for another user
                 if (jobDetailModel.UserID != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
                 {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User tried to edit job that is not yours.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                     return Json(new SimpleResponse { Success = false, Message = Lang.UnauthorizedAccess });
                 }
 
@@ -283,6 +285,8 @@ namespace DAO_WebPortal.Controllers
 
                 if (model != null && model.JobID > 0)
                 {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User updated job.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                     result.Success = false;
                     result.Message = "Job updated succesfully.";
                     result.Content = model;
@@ -406,6 +410,8 @@ namespace DAO_WebPortal.Controllers
 
                 if (model != null && model.JobPostCommentID > 0)
                 {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User commented.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                     result.Success = true;
                     result.Message = "Comment succesfully posted.";
                     result.Content = model;
@@ -460,6 +466,8 @@ namespace DAO_WebPortal.Controllers
 
                     if (model != null && model.JobPostCommentID > 0)
                     {
+                        Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User deleted their own comment.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                         result.Success = true;
                         result.Message = "Comment succesfully deleted.";
                         result.Content = "";
@@ -561,6 +569,8 @@ namespace DAO_WebPortal.Controllers
                     result.Success = true;
                     result.Message = "";
                     result.Content = res;
+
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User upvoted to Comment #"+JobPostCommentId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
                 }
 
                 return Json(result);
@@ -649,6 +659,8 @@ namespace DAO_WebPortal.Controllers
                     result.Success = true;
                     result.Message = "";
                     result.Content = res;
+
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "user downvoted to Comment #" + JobPostCommentId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
                 }
 
                 return Json(result);
@@ -803,6 +815,8 @@ namespace DAO_WebPortal.Controllers
                     }
                 }
 
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "The user has bid on the auction. Auction #"+Model.AuctionID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                 //Set server side toastr because page will be redirected
                 TempData["toastr-message"] = result.Message;
                 TempData["toastr-type"] = "success";
@@ -855,6 +869,8 @@ namespace DAO_WebPortal.Controllers
                     //Set server side toastr because page will be redirected
                     TempData["toastr-message"] = result.Message;
                     TempData["toastr-type"] = "success";
+
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "The user deleted bid on the auction. Auction #" + auctionBid.AuctionID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
                 }
 
                 return Json(result);
@@ -925,6 +941,8 @@ namespace DAO_WebPortal.Controllers
                             //Set server side toastr because page will be redirected
                             TempData["toastr-message"] = result.Message;
                             TempData["toastr-type"] = "success";
+
+                            Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Job poster selected the winner bid. Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
                         }
                     }
 
@@ -1061,6 +1079,8 @@ namespace DAO_WebPortal.Controllers
 
                 if (winnerBid.UserId != HttpContext.Session.GetInt32("UserID"))
                 {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User tried to start informal voting for job that is not yours. Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                     return Json(new SimpleResponse { Success = false, Message = "User is not authorized to start informal voting for this job." });
                 }
 
@@ -1086,6 +1106,8 @@ namespace DAO_WebPortal.Controllers
 
                 //Change job status 
                 Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + JobStatusTypes.InformalVoting, HttpContext.Session.GetString("Token"));
+
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User started informal voting . Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                 return Json(res);
             }
@@ -1124,12 +1146,16 @@ namespace DAO_WebPortal.Controllers
                 //Check if public user trying to submit bid for expired or completed auction
                 if (voting.Status != Enums.VoteStatusTypes.Active)
                 {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User tried to submit vote for closed job. Voting #" + VotingID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                     return Json(new SimpleResponse { Success = false, Message = "You can't submit vote to a closed voting." });
                 }
 
                 //Check if user trying to submit bid for his/her own job
                 if (job.JobDoerUserID == Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
                 {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User tried to submit vote for her/his own job. Voting #" + VotingID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                     return Json(new SimpleResponse { Success = false, Message = "You can't submit vote to your own job." });
                 }
 
@@ -1148,6 +1174,8 @@ namespace DAO_WebPortal.Controllers
                     //Set server side toastr because page will be redirected
                     TempData["toastr-message"] = result.Message;
                     TempData["toastr-type"] = "success";
+
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User voted job. Voting #" + VotingID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
                 }
 
                 return Json(result);
@@ -1274,6 +1302,8 @@ namespace DAO_WebPortal.Controllers
 
                     if (updatemodel != null && updatemodel.UserId > 0)
                     {
+                        Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User updated their profile photo.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                         HttpContext.Session.SetString("ProfileImage", modeluser.ProfileImage);
                         return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
                     }
@@ -1331,6 +1361,8 @@ namespace DAO_WebPortal.Controllers
                 result.Success = true;
                 result.Message = "KYC completed successfully.";
 
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User submitted KYC.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                 return Json(result);
 
             }
@@ -1384,6 +1416,9 @@ namespace DAO_WebPortal.Controllers
                     result.Success = true;
                     result.Message = "DoS fee successfully paid. Internal auction process started for the job.";
                     result.Content = AuctionModel;
+
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User paid DoS fee. Job # "+JobModel.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
                 }
 
                 return Json(result);
