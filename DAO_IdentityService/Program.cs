@@ -14,6 +14,8 @@ namespace DAO_IdentityService
     {
         public class Settings
         {
+            public string DAOName { get; set; }
+
             public string DbConnectionString { get; set; }
 
             public string RabbitMQUrl { get; set; }

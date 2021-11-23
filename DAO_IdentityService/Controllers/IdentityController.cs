@@ -210,7 +210,7 @@ namespace DAO_IdentityService.Controllers
                 userModel.IsBlocked = false;
                 userModel.FailedLoginCount = 0;
                 userModel.CreateDate = DateTime.Now;
-                userModel.IsActive = true;   //Should be false in the production environment for email approval.
+                userModel.IsActive = false;   //Should be false in the production environment for email approval.
                 userModel.UserType = UserIdentityType.Associate.ToString();
                 userModel.ProfileImage = "default.png";
 
@@ -223,8 +223,8 @@ namespace DAO_IdentityService.Controllers
                     string enc = Helpers.Encryption.EncryptString(registerInput.email + "|" + DateTime.Now.ToString());
 
                     //Set email title and content
-                    string emailTitle = "Welcome to ServicesDAO";
-                    string emailContent = "Greetings "+ userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to complete your registration. <br><br>"+"<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete the registration.</a>";
+                    string emailTitle = "Welcome to " + Program._settings.DAOName;
+                    string emailContent = "Greetings " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to complete your registration. <br><br>" + "<a href='" + Program._settings.WebPortal_Url + "/Public/RegisterCompleteView?str=" + enc + "'>Click here to complete the registration.</a>";
 
                     //Send email
                     SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
@@ -311,7 +311,7 @@ namespace DAO_IdentityService.Controllers
                     string enc = Helpers.Encryption.EncryptString(model.email + "|" + DateTime.Now.ToString());
 
                     //Set password renewal email title and content
-                    string emailTitle = "ServicesDAO Password Renewal";
+                    string emailTitle = Program._settings.DAOName + " Password Renewal";
                     string emailContent = "Greetings " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to reset your password. <br><br>" + "<a href='" + Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc + "'>Click here to reset your password.</a>";
 
                     //Send password renewal email
@@ -397,7 +397,7 @@ namespace DAO_IdentityService.Controllers
                 int userId = Convert.ToInt32(tokenObj.Claims.First(c => c.Type == "UserId").Value);
 
                 //Delete all active sessions of the user from database
-                Helpers.Request.Delete(Program._settings.Service_Db_Url + "/ActiveSession/DeleteByUserId?userid="+userId);
+                Helpers.Request.Delete(Program._settings.Service_Db_Url + "/ActiveSession/DeleteByUserId?userid=" + userId);
 
                 //Logging
                 Program.monitizer.AddUserLog(userId, Helpers.Constants.Enums.UserLogType.Auth, "User requested logout.");

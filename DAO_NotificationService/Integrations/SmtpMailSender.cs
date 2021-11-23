@@ -56,11 +56,11 @@ namespace DAO_NotificationService.Integrations
         public static string WrapToMailTemplate(string content)
         {
             string all =
-            "<style>.btnspecial{text-decoration:none;padding:10px 20px;border-radius:5px;background:#334d80;color:#f3f3f3;}</style>"+
+            "<style>.btnspecial{text-decoration:none;padding:10px 20px;border-radius:5px;background:#334d80;color:#f3f3f3;}</style>" +
 
             "<div style=\"width:100%;height:100px;background:#353847 !important;border-bottom: 5px solid #334d80;\">" +
                 "<center>" +
-                    "<img style=\"margin-top:30px;width: 160px;\" src=\"https://www.ekonteknoloji.com/logodao.png\">" +
+                    "<img style=\"margin-top:30px;width: 160px;\" src=\"" + Program._settings.WebPortal_Url + "/Public/images/" + Program._settings.DAOName + "-Logo-Mail.png\">" +
                 "</center>" +
             "</div>" +
 

@@ -25,12 +25,12 @@ namespace DAO_WebPortal.Providers
 
                 if (!control)
                 {
-                    context.Result = new RedirectResult("../Error");
+                    context.Result = new RedirectResult("../");
                 }
             }
             catch
             {
-                context.Result = new RedirectResult("../Error");
+                context.Result = new RedirectResult("../");
             }
 
         }

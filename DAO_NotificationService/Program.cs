@@ -14,10 +14,13 @@ namespace DAO_NotificationService
     {
         public class Settings
         {
+            public string DAOName { get; set; }
+
             public string RabbitMQUrl { get; set; }
             public string RabbitMQUsername { get; set; }
             public string RabbitMQPassword { get; set; }
             public string Service_Db_Url { get; set; }
+            public string WebPortal_Url { get; set; }
 
             public string EmailChannel { get; set; }
 

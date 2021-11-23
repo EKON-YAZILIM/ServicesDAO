@@ -83,7 +83,14 @@
                                     <div class="cpn-action mt-0">
                                         <div class="cpn-btns pt-4 animated" data-animate="fadeInUp" data-delay="1.3">
                                             <ul class="btn-grp">
-                                                <li><button href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-signUp">Get Started</button></li>
+                                                @if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != null)
+                                                {
+                                                    <li><button href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-signUp">Get Started</button></li>
+                                                }
+                                                else
+                                                {
+                                                    <li><button href="#" class="btn btn-primary btn-lg" onclick="window.location.href='../Home'">Get Started</button></li>
+                                                }
                                                 <li><a href="./Contact" class="btn btn-outline btn-primary on-bg-theme-alt btn-lg">Contact Us</a></li>
                                             </ul>
                                         </div>
@@ -165,10 +172,6 @@
                             <h3 class="title title-dark title-regular">ServicesDAO aims to create a software infastructure for decentralized organizations.</h3>
                             <p>ServicesDAO is the open-source web platform for decentralizing bussiness across many fields. </p>
                             <p>We created an infastructure for decentralized organizations. ServicesDAO has a strong architecture with micro-services. Also it supports containerization to ease up the scalability.</p>
-                            <div class="nk-block-note nk-block-note-s2">
-                                <em class="icon ti ti-rocket"></em>
-                                <p>ServicesDAO is supported by Emerging Technology Association</p>
-                            </div>
                         </div>
                     </div>
                 </div><!-- .row -->
