@@ -12,7 +12,7 @@
     <div class="col-md-12">
 
         <div class="card mb-3">
-            <partial name="~/Views/Shared/_JobCardPartial.cshtml" model="Model.JobPostWebsiteModel" />
+            <partial name="../Shared/_JobCardPartial.cshtml" model="Model.JobPostWebsiteModel" />
 
             <!-- Comments footer -->
             <div id="commentsx" class="card-footer collapse show">
@@ -32,7 +32,7 @@
                         }
                         else
                         {
-                            <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no comments in this topic" }, { "Icon", "frown-open" }, { "HtmlContent", "<button class=\"btn btn-primary mt-3\" onclick=\"CreateReplyBox(this, 0)\">Make New Comment</button>" } }' />
+                            <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no comments in this topic" }, { "Icon", "frown-open" }, { "HtmlContent", "<button class=\"btn btn-primary mt-3\" onclick=\"CreateReplyBox(this, 0)\">Make New Comment</button>" } }' />
                         }
                     }
                 </div>

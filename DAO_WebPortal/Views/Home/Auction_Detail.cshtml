@@ -103,8 +103,9 @@
                                 @*Show winner bid icon*@
                                 @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
                                 {
-                                    <i class="fas fa-star cursorp" title="Winner Bid"></i><span> Selected as winner</span>
+                                    <i class="fas fa-star" title="Winner Bid"></i><span> Selected as winner</span>
                                 }
+
                             </td>
                         </tr>
                     }
@@ -113,7 +114,7 @@
         }
         else
         {
-            <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no bids in this auction" }, { "Icon", "frown-open" } }' />
+            <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no bids in this auction" }, { "Icon", "frown-open" } }' />
         }
     </div><!-- Card Body -->
 </div>

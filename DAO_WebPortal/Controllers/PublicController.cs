@@ -13,6 +13,7 @@ using static Helpers.Constants.Enums;
 using System.Text.RegularExpressions;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.NotificationModels;
+using Helpers.Models.WebsiteViewModels;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -55,7 +56,74 @@ namespace DAO_WebPortal.Controllers
         [Route("Price-Discovery")]
         public IActionResult Price_Discovery()
         {
-            return View(new List<Helpers.Models.WebsiteViewModels.AuctionViewModel>());
+            ViewBag.HeaderTitle = "Price Discovery";
+            ViewBag.HeaderSubTitle = "Ongoing and completed biddings.";
+
+            List<AuctionViewModel> auctionsModel = new List<AuctionViewModel>();
+
+            try
+            {
+                //Get model from ApiGateway
+                var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetAuctions");
+                //Parse response
+                auctionsModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(auctionsJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(auctionsModel);
+        }
+
+        [Route("Price-Discovery-Detail/{AuctionID}")]
+        public IActionResult Price_Discovery_Detail(int AuctionID)
+        {
+            ViewBag.HeaderTitle = "Auction Bids";
+            ViewBag.HeaderSubTitle = "Bids given by the DAO users for Auction #" + AuctionID;
+
+            AuctionDetailViewModel AuctionDetailModel = new AuctionDetailViewModel();
+
+            try
+            {
+                //Get bids model from ApiGateway
+                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetAuctionBids?auctionid=" + AuctionID);
+                //Get auction model from ApiGateway
+                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetAuctionDetail?id=" + AuctionID);
+
+                //Parse response
+                AuctionDetailModel.BidItems = Helpers.Serializers.DeserializeJson<List<AuctionBidItemModel>>(auctionBidsJson);
+                //Parse response
+                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(AuctionDetailModel);
+        }
+
+        [Route("Public-Job-Detail/{JobID}")]
+        public IActionResult Public_Job_Detail(int JobID)
+        {
+            ViewBag.HeaderTitle = "Job Detail";
+            ViewBag.HeaderSubTitle = "Detailed explanation of the Job #" + JobID;
+
+            JobPostViewModel model = new JobPostViewModel();
+
+            try
+            {
+                //Get model from ApiGateway
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetJobDetail?jobid=" + JobID);
+                //Parse response
+                model = Helpers.Serializers.DeserializeJson<JobPostViewModel>(url);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(model);
         }
         #endregion
 

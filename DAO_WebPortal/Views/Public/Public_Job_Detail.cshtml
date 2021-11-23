@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "../Shared/_PublicLayout.cshtml";
+}
+@model Helpers.Models.WebsiteViewModels.JobPostViewModel
+
+<partial name="../Shared/_PublicHeaderPartial" />
+
+<main class="nk-pages">
+    <section class="section-contact bg-transparent section pt-5">
+        <div class="container">
+            <div class="row d-flex mb-3">
+                <div class="col-md-6 d-flex">
+                    <button class="btn btn-primary" onclick="window.location.href='../Price-Discovery'">
+                        <i class="fas fa-arrow-left mr-2"></i>  Go Back
+                    </button>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end">
+                   
+                </div>
+            </div>
+
+            <div class="card">
+                <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
+
+                <div class="card-body">
+                    <p class="p-3 py-0 card-text text-justify" style="white-space: pre-line">
+                        @Model.JobDescription
+                    </p>
+                    <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate.ToString("MM.dd.yyyy HH:mm")</small></p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<partial name="../Shared/_PublicFooterPartial" />

@@ -856,7 +856,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Release staked reputation for the bid.
-                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/UserReputationStake/DeleteSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
+                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
                 //Post model to ApiGateway
                 var deleteBidResponse = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));

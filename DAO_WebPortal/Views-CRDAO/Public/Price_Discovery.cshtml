@@ -1,3 +1,233 @@
 ﻿@{
     Layout = "../Shared/_PublicLayout.cshtml";
 }
+@model List<Helpers.Models.WebsiteViewModels.AuctionViewModel>
+
+<partial name="../Shared/_PublicHeaderPartial" />
+
+<main class="nk-pages">
+    <section class="section-contact bg-transparent section pt-5">
+        <div class="container">
+            <ul class="nav tab-nav tab-nav-line tab-nav-center">
+                <li><a class="active" data-toggle="tab" href="#activeAuctionsTab"><i class="fas fa-gavel"></i> Active Auctions</a></li>
+                <li><a data-toggle="tab" href="#completedAuctionsTab"><i class="fas fa-trophy"></i> Completed Auctions</a></li>
+            </ul>
+
+            <!-- Content -->
+            <div class="tab-content rounded-bottom mt-2">
+                <!-- Tab panel -->
+                <div class="tab-pane active" role="tabpanel" id="activeAuctionsTab">
+                    <!-- .card -->
+                    <div class="card mb-4 p-0">
+                        <div class="card-header">
+                            <span class="small ms-1"><b>Active Internal Auctions</b></span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive h-250">
+                                @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding).Count() > 0)
+                                {
+                                    <table class="table table-striped table-hover auctionsTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Job Name</th>
+                                                <th scope="col">Auction Start Date</th>
+                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Time Left</th>
+                                                <th scope="col">Bid Count</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var internalAuctions = Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding).ToList();
+
+                                                @foreach (var auction in internalAuctions)
+                                                {
+                                                    <tr>
+                                                        <th scope="row">@auction.AuctionID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td><b id="counter_@auction.AuctionID"></b></td>
+                                                        <td>@auction.BidCount</td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-primary me-2" href="../Price-Discovery-Detail/@auction.AuctionID">
+                                                                <i class="fas fa-list-ul mr-2"></i> Show Bids
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Auction not found." } }' />
+                                }
+                            </div>
+                        </div>
+                    </div> <!-- .card -->
+                    <!-- .card -->
+                    <div class="card  p-0">
+                        <div class="card-header"><span class="small ms-1"><b>Active Public Auctions</b></span></div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive h-250">
+                                @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).Count() > 0)
+                                {
+                                    <table class="table table-striped table-hover auctionsTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Job Name</th>
+                                                <th scope="col">Auction Start Date</th>
+                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Time Left</th>
+                                                <th scope="col">Bid Count</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var publicAuctions = Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).ToList();
+
+                                                @foreach (var auction in publicAuctions)
+                                                {
+                                                    <tr>
+                                                        <th scope="row">@auction.AuctionID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td><b id="counter_@auction.AuctionID"></b></td>
+                                                        <td>@auction.BidCount</td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-primary me-2" href="../Price-Discovery-Detail/@auction.AuctionID">
+                                                                <i class="fas fa-list-ul mr-2"></i> Show Bids
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Auction not found." } }' />
+                                }
+                            </div>
+                        </div>
+                    </div> <!-- .card -->
+                </div>
+                <!-- Tab panel -->
+                <div class="tab-pane" role="tabpanel" id="completedAuctionsTab">
+                    <!-- .card -->
+                    <div class="card mb-4 p-0">
+                        <div class="card-header">
+                            <span class="small ms-1"><b>Completed Auctions</b></span>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive h-250">
+                                @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed).Count() > 0)
+                                {
+                                    <table class="table table-striped table-hover auctionsTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Job Name</th>
+                                                <th scope="col">Auction Start Date</th>
+                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Winner User</th>
+                                                <th scope="col">Bid Count</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var completedAuctions = Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Completed).ToList();
+
+                                                @foreach (var auction in completedAuctions)
+                                                {
+                                                    <tr>
+                                                        <th scope="row">@auction.AuctionID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.WinnerUserName</td>
+                                                        <td>@auction.BidCount</td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-primary me-2" href="../Price-Discovery-Detail/@auction.AuctionID">
+                                                                <i class="fas fa-list-ul mr-2"></i> Show Bids
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Auction not found." } }' />
+                                }
+                            </div>
+                        </div>
+                    </div><!-- .card -->
+                    <!-- .card -->
+                    <div class="card p-0">
+                        <div class="card-header"><span class="small ms-1"><b>Expired Auctions</b></span></div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive h-250">
+                                @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Expired).Count() > 0)
+                                {
+                                    <table class="table table-striped table-hover auctionsTable">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Job Name</th>
+                                                <th scope="col">Auction Start Date</th>
+                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Winner User</th>
+                                                <th scope="col">Bid Count</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                var expiredAuctions = Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Expired).ToList();
+
+                                                @foreach (var auction in expiredAuctions)
+                                                {
+                                                    <tr>
+                                                        <th scope="row">@auction.AuctionID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>-</td>
+                                                        <td>@auction.BidCount</td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-primary me-2" href="../Price-Discovery-Detail/@auction.AuctionID">
+                                                                <i class="fas fa-list-ul mr-2"></i> Show Bids
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Auction not found." } }' />
+                                }
+                            </div>
+                        </div>
+                    </div><!-- .card -->
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<partial name="../Shared/_PublicFooterPartial" />

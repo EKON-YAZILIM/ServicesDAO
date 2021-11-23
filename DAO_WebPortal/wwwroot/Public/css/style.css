@@ -31,3 +31,20 @@
 .theme-dark {
     background: #0c195a !important;
 }
+
+.auctionsTable td {
+    padding: 10px;
+    line-height: 2rem;
+    font-size:14px
+}
+.auctionsTable th {
+    font-size: 14px
+}
+
+.h-250 {
+    height: 250px !important;
+}
+
+.h-500 {
+    height: 500px !important;
+}

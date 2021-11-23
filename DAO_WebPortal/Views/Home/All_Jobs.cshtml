@@ -14,13 +14,13 @@
             @foreach (var item in Model)
             {
                 <div class="card mb-3">
-                    <partial name="~/Views/Shared/_JobCardPartial.cshtml" model="item" />
+                    <partial name="../Shared/_JobCardPartial.cshtml" model="item" />
                 </div>
             }
         }
         else
         {
-            <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Job not found." } }' />
+            <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "Job not found." } }' />
         }
     </div>
 </div>

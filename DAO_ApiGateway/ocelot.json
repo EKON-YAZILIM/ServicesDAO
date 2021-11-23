@@ -148,7 +148,7 @@
       "Priority": 2
     },
     {
-      "DownstreamPathTemplate": "/Db/Website/PriceDiscovery",
+      "DownstreamPathTemplate": "/Website/GetAuctions",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -156,7 +156,46 @@
           "Port": "1091"
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/PriceDiscovery",
+      "UpstreamPathTemplate": "/PublicActions/GetAuctions",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Website/GetAuctionBids",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1091"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/GetAuctionBids",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Website/GetJobDetail",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1091"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/GetJobDetail",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Auction/GetId",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1091"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/GetAuctionDetail",
       "UpstreamHttpMethod": [ "GET" ],
       "Priority": 2
     }

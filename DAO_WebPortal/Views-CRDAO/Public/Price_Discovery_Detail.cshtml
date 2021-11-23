@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "../Shared/_PublicLayout.cshtml";
+}
+
+@model Helpers.Models.WebsiteViewModels.AuctionDetailViewModel
+
+    <partial name="../Shared/_PublicHeaderPartial" />
+
+    <main class="nk-pages">
+        <section class="section-contact bg-transparent section pt-5">
+            <div class="container">
+                <!--Bids-->
+                <div class="card m-2 p-0">
+                    <div class="card-header">
+                        <!-- .header -->
+                        <span class="small ms-1"><b>Auction Bids Table</b></span>
+                    </div><!-- .header -->
+                    <!-- Card Body -->
+                    <div class="card-body p-0">
+                        @if (Model.BidItems.Count > 0)
+                        {
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Time (days)</th>
+                                        <th scope="col">User Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{int Count = 0;}
+                                    @foreach (var item in Model.BidItems)
+                                    {
+                                        Count++;
+
+                                        <tr>
+                                            <th scope="row">@Count</th>
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.Price</td>
+                                            <td>@item.Time</td>
+                                            <td>@item.UserNote</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no bids in this auction" }, { "Icon", "frown-open" } }' />
+                        }
+                    </div><!-- Card Body -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <partial name="../Shared/_PublicFooterPartial" />
