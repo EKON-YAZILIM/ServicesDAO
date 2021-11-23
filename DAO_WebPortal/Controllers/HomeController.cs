@@ -1256,7 +1256,7 @@ namespace DAO_WebPortal.Controllers
 
                     using (var fileStream = new FileStream(image, FileMode.Create))
                     {
-                        file.CopyToAsync(fileStream);
+                        file.CopyTo(fileStream);
                     }
                 }
 

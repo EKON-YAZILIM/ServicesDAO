@@ -1001,3 +1001,9 @@ DaoApp = function (DaoApp, $, window, document) {
 	
 	return DaoApp;
 }(DaoApp, jQuery, window, document);
+
+
+//Features which are not available at the moment should call this methods
+function ComingSoon() {
+    toastr.warning("This feature will be available in the next version.");
+}

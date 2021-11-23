@@ -146,6 +146,19 @@
       "UpstreamPathTemplate": "/PublicActions/Notification/SendPublicContactEmail",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Db/Website/PriceDiscovery",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "192.168.250.10",
+          "Port": "1091"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/PriceDiscovery",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
     }
   ]
 }
