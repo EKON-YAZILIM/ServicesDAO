@@ -10,7 +10,7 @@
             <div class="card text-white cardGreen mb-3">
                 <div class="card-body">
                     <h5 class="card-title mb-0">Available Reputation</h5>
-                    <h2 class="text-right mb-0">@String.Format("{0:0.00000}", Math.Round(Model.Last().LastUsableTotal, 5))</h2>
+                    <h2 class="text-right mb-0">@String.Format("{0:0.00000}", Math.Round(Model.First().LastUsableTotal, 5))</h2>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
             <div class="card text-white cardBlue mb-3">
                 <div class="card-body">
                     <h5 class="card-title mb-0">Total Reputation</h5>
-                    <h2 class="text-right mb-0">@String.Format("{0:0.00000}", Math.Round(Model.Last().LastTotal, 5))</h2>
+                    <h2 class="text-right mb-0">@String.Format("{0:0.00000}", Math.Round(Model.First().LastTotal, 5))</h2>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="card text-white cardYellow mb-3">
                 <div class="card-body">
                     <h5 class="card-title mb-0">Staked Reputation</h5>
-                    <h2 class="text-right mb-0">@String.Format("{0:0.00000}", Math.Round(Model.Last().LastStakedTotal, 5))</h2>
+                    <h2 class="text-right mb-0">@String.Format("{0:0.00000}", Math.Round(Model.First().LastStakedTotal, 5))</h2>
                 </div>
             </div>
         </div>

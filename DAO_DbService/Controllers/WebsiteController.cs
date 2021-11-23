@@ -566,21 +566,38 @@ namespace DAO_DbService.Controllers
 
                     //Get Trend Jobs
                     res.PopularJobs = db.JobPostComments.Where(x => x.Date > date)
-                        .GroupBy(x => x.JobID)
-                        .Select(g => new { name = g.Key, count = g.Count() })
-                        .OrderByDescending(g => g.count)
-                        .Take(5)
-                        .Join(db.JobPosts,
-                            c => c.name,
-                            cm => cm.JobID,
-                            (c, cm) => new JobPostDto
-                            {
-                                Title = cm.Title,
-                                JobDescription = cm.JobDescription,
-                                JobID = cm.JobID,
-                                Status = cm.Status
-                            }
-                        ).ToList();
+                                         .GroupBy(x => x.JobID)
+                                         .Select(g => new { name = g.Key, count = g.Count() })
+                                         .OrderByDescending(g => g.count)
+                                         .Take(5)
+                                         .Join(db.JobPosts,
+                                             c => c.name,
+                                             cm => cm.JobID,
+                                             (c, cm) => new
+                                             {
+                                                 Title = cm.Title,
+                                                 JobDescription = cm.JobDescription,
+                                                 JobID = cm.JobID,
+                                                 Status = cm.Status,
+                                                 userID = cm.UserID,
+                                                 CreateDate = cm.CreateDate
+                                             }
+                                         )
+                                         .Join(db.Users,
+                                         cx => cx.userID,
+                                         cmx => cmx.UserId,
+                                         (cx, cmx) => new PopularJobsDto
+                                         {
+                                             ProfileImage = cmx.ProfileImage,
+                                             UserName = cmx.UserName,
+                                             JobDescription = cx.JobDescription,
+                                             Status = cx.Status,
+                                             Title = cx.Title,
+                                             CreateDate = cx.CreateDate,
+                                             JobID = cx.JobID,
+                                         }
+                                         )
+                                         .ToList();
 
                     //Get job post count
                     res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid && x.JobDoerUserID == userid).Count();
@@ -652,14 +669,31 @@ namespace DAO_DbService.Controllers
                         .Join(db.JobPosts,
                             c => c.name,
                             cm => cm.JobID,
-                            (c, cm) => new JobPostDto
+                            (c, cm) => new
                             {
                                 Title = cm.Title,
                                 JobDescription = cm.JobDescription,
                                 JobID = cm.JobID,
-                                Status = cm.Status
+                                Status = cm.Status,
+                                userID = cm.UserID,
+                                CreateDate = cm.CreateDate
                             }
-                        ).ToList();
+                        )
+                        .Join(db.Users,
+                        cx => cx.userID,
+                        cmx => cmx.UserId,
+                        (cx, cmx) => new PopularJobsDto
+                        {
+                            ProfileImage = cmx.ProfileImage,
+                            UserName = cmx.UserName,
+                            JobDescription = cx.JobDescription,
+                            Status = cx.Status,
+                            Title = cx.Title,
+                            CreateDate = cx.CreateDate,
+                            JobID = cx.JobID,
+                        }
+                        )
+                        .ToList();
 
                     //Get job post count
                     res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid && x.JobDoerUserID == userid).Count();
