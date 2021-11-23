@@ -15,7 +15,10 @@
                 </div>
                 <div>
                     <div class="fs-4 fw-semibold">
-                        @String.Format("{0:0.00000}", Math.Round(Model.UserReputation.LastUsableTotal, 5))
+                        @if (Model.UserReputation != null)
+                        {
+                            @String.Format("{0:0.00000}", Math.Round(Model.UserReputation.LastUsableTotal, 5))
+                        }
                     </div>
                     <div>Reputation</div>
                 </div>
