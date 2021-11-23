@@ -5,10 +5,25 @@
 
 <div class="row">
     <div class="col-md-6 col-lg-2">
-        <h5>Info</h5>
+        <div class="card-header">Info</div>
+        <div class="cardy mt-2 mb-2 p-2">
+            <div class="pb-0 d-flex justify-content-between align-items-start">
+                <div style="display: flex; width:0">
+                    <svg class="DashIcon" style="color: #9d9d9d;">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
+                    </svg>
+                </div>
+                <div>
+                    <div class="fs-4 fw-semibold">
+                        @String.Format("{0:0.00000}", Math.Round(Model.UserReputation.LastUsableTotal, 5))
+                    </div>
+                    <div>Reputation</div>
+                </div>
+            </div>
+        </div>
         <div class="cardy mb-2 p-2">
             <div class="pb-0 d-flex justify-content-between align-items-start">
-                <div style="display: flex; width: 0;">
+                <div style="display: flex; width:0">
                     <svg class="DashIcon" style="color: #9d9d9d;">
                         <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
                     </svg>
@@ -20,15 +35,15 @@
                             (@Model.JobRatio%
                             @if (Model.JobRatio > 0)
                             {
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
-                                </svg>
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
+                            </svg>
                             }
                             else
                             {
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
-                                </svg>
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                            </svg>
                             })
                         </span>
                     </div>
@@ -38,7 +53,7 @@
         </div>
         <div class="cardy mb-2 p-2">
             <div class="pb-0 d-flex justify-content-between align-items-start">
-                <div style="display: flex; width:0;">
+                <div style="display: flex; width:0">
                     <svg class="DashIcon" style="color: #9d9d9d;">
                         <use xlink:href="/Home/images/svg/free.svg#cil-auction"></use>
                     </svg>
@@ -50,15 +65,15 @@
                             (@Model.AuctionRatio%
                             @if (Model.AuctionRatio > 0)
                             {
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
-                                </svg>
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-arrow-top"></use>
+                            </svg>
                             }
                             else
                             {
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
-                                </svg>
+                            <svg class="icon">
+                                <use xlink:href="/Home/images/svg/free.svg#cil-arrow-bottom"></use>
+                            </svg>
                             })
                         </span>
                     </div>
@@ -68,7 +83,7 @@
         </div>
         <div class="cardy mb-2 p-2">
             <div class="pb-0 d-flex justify-content-between align-items-start">
-                <div style="display: flex; width:0;">
+                <div style="display: flex; width:0">
                     <svg class="DashIcon" style="color: #9d9d9d;">
                         <use xlink:href="/Home/images/svg/free.svg#cil-thumb-up"></use>
                     </svg>
@@ -100,33 +115,35 @@
     <div class="col-md-6 col-lg-5">
         <div class="row">
             <div class="col-sm-5 col-md-6 col-lg-12">
-                <h5>Last Comments</h5>
-                <div class="cardz" style="max-height: 275px;overflow: auto;">
+                <div class="card-header">
+                    <svg style="color: #31AF91;" class="comment-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
+                    </svg>Last Comments
+                </div>
+                <div class="cardz" style="max-height: 310px;overflow: auto;">
                     @if (Model.LastComments.Count > 0)
                     {
-                        @foreach (var item in Model.LastComments)
+                    @foreach (var item in Model.LastComments)
                         {
-                            <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
-                                <svg style="color: #31AF91;" class="comment-icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                                </svg>
-                                <h5>Jhon Doe</h5> <span>- @item.Date</span> <br>
-                                <p class="comment-p mb-1">
-                                    @if (item.Comment.Length > 150)
+                    <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
+                        <img src="~/Home/images/avatars/@item.ProfileImage" alt="" class="rounded-circle" width="40" height="40" onerror="this.src='../Home/images/avatars/default.png'">
+                        <h5>@item.UserName</h5> <span>- @item.Date</span> <br>
+                        <p class="comment-p mb-1">
+                            @if (item.Comment.Length > 150)
                                     {
-                                        @item.Comment.Substring(0, Math.Min(item.Comment.Length, 150)) <span>..</span>
+                            @item.Comment.Substring(0, Math.Min(item.Comment.Length, 150))  <span>..</span>
                                     }
                                     else
                                     {
-                                        @item.Comment
+                            @item.Comment
                                     }
-                                </p>
-                            </div>
+                        </p>
+                    </div>
                         }
                     }
                     else
                     {
-                        <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No comments yet." } }' />
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No comments yet." } }' />
                     }
                 </div>
             </div>
@@ -135,36 +152,46 @@
     <div class="col-md-12 col-lg-5">
         <div class="row">
             <div class="col-sm-5 col-md-6 col-lg-12">
-                <h5>
+                <div class="card-header">
                     <svg style="color: #D8B944;" class="comment-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
                     </svg>Popular Jobs
-                </h5>
-                <div class="cardz" style="max-height: 275px;overflow: auto;">
+                </div>
+                <div class="cardz" style="max-height: 310px;overflow: auto;">
                     @if (Model.PopularJobs.Count > 0)
                     {
-                        @foreach (var item in Model.PopularJobs)
+                    @foreach (var item in Model.PopularJobs)
                         {
-                            <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
-                                <img src="~/Home/images/avatars/@item.ProfileImage" alt="" class="rounded-circle" width="40" height="40">
+                    <div onclick="window.location.href = '../Job-Detail/@item.JobID'" class="TopComment mt-1 text-justify float-left">
 
-                                <h5>Jhon Doe</h5> <span>- @item.CreateDate</span> <br>
-                                <p class="comment-p mb-1">
-                                    @if (item.JobDescription.Length > 150)
+                        <img src="~/Home/images/avatars/@item.ProfileImage" alt="" class="rounded-circle" width="40" height="40" onerror="this.src='../Home/images/avatars/default.png'">
+                        <h5>@item.UserName</h5> <span>- @item.CreateDate</span> <br>
+                        <p class="comment-p mb-1">
+                            @if (item.Title.Length > 50)
                                     {
-                                        @item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) <span>..</span>
+                            <span>&#8226;</span>  @item.Title.Substring(0, Math.Min(item.Title.Length, 50))  <span>..</span>
                                     }
                                     else
                                     {
-                                        @item.JobDescription
+                            <span>&#8226;</span>  @item.Title
                                     }
-                                </p>
-                            </div>
+                        </p>
+                        <p class="comment-p mb-1">
+                            @if (item.JobDescription.Length > 150)
+                                    {
+                            @item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150))  <span>..</span>
+                                    }
+                                    else
+                                    {
+                            @item.JobDescription
+                                    }
+                        </p>
+                    </div>
                         }
                     }
                     else
                     {
-                        <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No popular jobs yet." } }' />
+                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No popular jobs yet." } }' />
                     }
                 </div>
             </div>
@@ -181,14 +208,14 @@
             <div class="card-body p-0">
                 @if (Model.MyJobs.ownedJobs.Count() > 0)
                 {
-                    <div class="table-responsive" style="max-height:500px">
-                        <!--Table-->
-                        <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.ownedJobs" />
-                    </div>
+                <div class="table-responsive" style="max-height:500px">
+                    <!--Table-->
+                    <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.ownedJobs" />
+                </div>
                 }
                 else
                 {
-                    <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any owner jobs." } }' />
+                <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any owner jobs." } }' />
                 }
             </div>
         </div>
@@ -201,27 +228,27 @@
 @if (Model.MyJobs.doerJobs.Count() > 0)
 {
     <!--Row-->
-    <div class="row">
-        <!-- /.col-->
-        <div class="col-lg-12">
-            <div class="card mb-4">
-                <div class="card-header">Doer Jobs</div>
-                <div class="card-body p-0">
-                    @if (Model.MyJobs.ownedJobs.Count() > 0)
+<div class="row">
+    <!-- /.col-->
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header">Doer Jobs</div>
+            <div class="card-body p-0">
+                @if (Model.MyJobs.ownedJobs.Count() > 0)
                     {
-                        <div class="table-responsive" style="max-height: 500px">
-                            <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.doerJobs" />
-                        </div>
+                <div class="table-responsive" style="max-height: 500px">
+                    <partial name="~/Views/Shared/_JobTablePartial.cshtml" model="Model.MyJobs.doerJobs" />
+                </div>
                     }
                     else
                     {
-                        <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any doer jobs." } }' />
+                <partial name="~/Views/Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any doer jobs." } }' />
                     }
-                </div>
             </div>
         </div>
-        <!-- /.col-->
     </div>
+    <!-- /.col-->
+</div>
 }
 
 

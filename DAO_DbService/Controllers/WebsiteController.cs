@@ -563,7 +563,7 @@ namespace DAO_DbService.Controllers
                             cm => cm.UserId,
                             (c, cm) => new LastCommentsDto
                             {
-                                UserName = cm.NameSurname,
+                                UserName = cm.UserName,
                                 ProfileImage =cm.ProfileImage,
                                 Comment = c.Comment,
                                 Date = c.Date,
@@ -671,7 +671,7 @@ namespace DAO_DbService.Controllers
                            cm => cm.UserId,
                            (c, cm) => new LastCommentsDto
                            {
-                               UserName = cm.NameSurname,
+                               UserName = cm.UserName,
                                ProfileImage = cm.ProfileImage,
                                Comment = c.Comment,
                                Date = c.Date,
