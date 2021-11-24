@@ -53,9 +53,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Username</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Time (days)</th>
-                        <th scope="col">Reputation Stake</th>
+                        <th class="cursorp thSort" scope="col">Price <i class="fas fa-sort"></i></th>
+                        <th class="cursorp thSort" scope="col">Time (days) <i class="fas fa-sort"></i></th>
+                        <th class="cursorp thSort" scope="col">Reputation Stake <i class="fas fa-sort"></i></th>
                         <th scope="col">User Note</th>
                         <th scope="col"></th>
                     </tr>
@@ -66,7 +66,14 @@
                     {
                         Count++;
 
-                        <tr>
+                        //Set green border for winner bid
+                        string borderStyle = "";
+                        if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
+                        {
+                            borderStyle = "border: 3px solid #77c97a";
+                        }
+
+                        <tr style="@borderStyle">
                             <th scope="row">@Count</th>
                             <td id="name_@item.AuctionBidID" >@item.NameSurname</td>
                             <td>@item.UserName</td>
@@ -218,131 +225,150 @@
 
     <script>
 
-            //Auction bids adding function
-            function AuctionBidAdd(e, id) {
-                $(e).prop("disabled", true);
-                $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
-                    //Create auction bid model
-                    var price = $('#price').val()
-                    var time = $('#time').val();
-                    var note = $('#note').val();
-                     //Ajax post action
-                    $.ajax({
-                        type: "POST",
-                        url: "../Home/Auction_Bid_Add",
-                        data: {
-                            "price": price,
-                            "time": time,
-                            "auctionid": id,
-                            "associateUserNote": note,
-                            @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding) { <text> "reputationStake": $('#reputation').val() </text> }
-                        },
-                        success: function (result) {
+        //Auction bids adding function
+        function AuctionBidAdd(e, id) {
+            $(e).prop("disabled", true);
+            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
+                //Create auction bid model
+                var price = $('#price').val()
+                var time = $('#time').val();
+                var note = $('#note').val();
+                    //Ajax post action
+                $.ajax({
+                    type: "POST",
+                    url: "../Home/Auction_Bid_Add",
+                    data: {
+                        "price": price,
+                        "time": time,
+                        "auctionid": id,
+                        "associateUserNote": note,
+                        @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding) { <text> "reputationStake": $('#reputation').val() </text> }
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            window.location.reload();
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                        $(e).prop("disabled", false);
+                        $(e).html('Submit Bid');
+                    },
+                    failure: function (response) {
+                        toastr.warning("@Lang.ConnectionError");
+                        $(e).prop("disabled", false);
+                        $(e).html('Submit Bid');
+                    },
+                    error: function (response) {
+                        toastr.error("@Lang.UnexpectedError");
+                        $(e).prop("disabled", false);
+                        $(e).html('Submit Bid');
+                    }
+                });
+
+            }
+
+        //Bid delete function
+        function DeleteBid(e, bidId) {
+            $.confirm({
+                title: 'Confirmation',
+                content: 'Are you sure you want to delete your bid ?',
+                buttons: {
+                    cancel: {
+                        text: 'Cancel'
+                    },
+                    confirm: {
+                        text: 'Continue',
+                        btnClass: 'btn btn-primary',
+                        action: function () {
+                            $(e).prop("disabled", true);
+                            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Deleting Bid..');
+                                //Ajax get action
+                                $.ajax({
+                                    type: "GET",
+                                    url: "../Home/Auction_Bid_Delete",
+                                    data: {
+                                        "id": bidId,
+                                    },
+                                    success: function (result) {
+                                        if (result.success) {
+                                            window.location.reload();
+                                        }
+                                        else {
+                                            toastr.warning(result.message);
+                                        }
+                                    },
+                                    failure: function (response) {
+                                            toastr.warning("@Lang.ConnectionError");
+                                    },
+                                    error: function (response) {
+                                            toastr.error("@Lang.UnexpectedError");
+                                    }
+                                });
+                            $(e).prop("disabled", false);
+                            $(e).html('Delete Bid');
+                        }
+                    }
+                }
+            });
+        }
+
+        //Opens confirmation modal
+        function ChooseAsWinnerBidModal(id) {
+            $("#winnerBidName").text($("#name_"+id).text());
+            $("#winnerButtons button:nth-of-type(2)").attr("id", id);
+            $("#SelectWinnerBidModal").modal("toggle");
+        }
+
+        //Select winner bid function
+        function ChooseAsWinnerBid(e, bidId) {
+            $(e).prop("disabled", true);
+            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Selecting Bid..');
+                    //Ajax post action
+                $.ajax({
+                    type: "GET",
+                    url: "../Home/ChooseWinnerBid",
+                    data: {
+                        "bidId": bidId
+                    },
+                    success: function (result) {
                             if (result.success) {
                                 window.location.reload();
                             }
                             else {
                                 toastr.warning(result.message);
                             }
-                            $(e).prop("disabled", false);
-                            $(e).html('Submit Bid');
                         },
-                        failure: function (response) {
+                    failure: function (response) {
                             toastr.warning("@Lang.ConnectionError");
-                            $(e).prop("disabled", false);
-                            $(e).html('Submit Bid');
-                        },
-                        error: function (response) {
+                    },
+                    error: function (response) {
                             toastr.error("@Lang.UnexpectedError");
-                            $(e).prop("disabled", false);
-                            $(e).html('Submit Bid');
-                        }
-                    });
-
-                }
-
-            //Bid delete function
-            function DeleteBid(e, bidId) {
-                $.confirm({
-                    title: 'Confirmation',
-                    content: 'Are you sure you want to delete your bid ?',
-                    buttons: {
-                        cancel: {
-                            text: 'Cancel'
-                        },
-                        confirm: {
-                            text: 'Continue',
-                            btnClass: 'btn btn-primary',
-                            action: function () {
-                                $(e).prop("disabled", true);
-                                $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Deleting Bid..');
-                                    //Ajax get action
-                                    $.ajax({
-                                        type: "GET",
-                                        url: "../Home/Auction_Bid_Delete",
-                                        data: {
-                                            "id": bidId,
-                                        },
-                                        success: function (result) {
-                                            if (result.success) {
-                                                window.location.reload();
-                                            }
-                                            else {
-                                                toastr.warning(result.message);
-                                            }
-                                        },
-                                        failure: function (response) {
-                                             toastr.warning("@Lang.ConnectionError");
-                                        },
-                                        error: function (response) {
-                                             toastr.error("@Lang.UnexpectedError");
-                                        }
-                                    });
-                                $(e).prop("disabled", false);
-                                $(e).html('Delete Bid');
-                            }
-                        }
                     }
                 });
-            }
+            $(e).prop("disabled", false);
+            $(e).html('Select Bid');
+        }
 
-            //Opens confirmation modal
-            function ChooseAsWinnerBidModal(id) {
-                $("#winnerBidName").text($("#name_"+id).text());
-                $("#winnerButtons button:nth-of-type(2)").attr("id", id);
-                $("#SelectWinnerBidModal").modal("toggle");
-            }
+        //Table sorting functions
+        $('.thSort').click(function () {
+            var table = $(this).parents('table').eq(0)
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+            this.asc = !this.asc
+            if (!this.asc) { rows = rows.reverse() }
+            for (var i = 0; i < rows.length; i++) { table.append(rows[i]) }
+        })
 
-            //Select winner bid function
-            function ChooseAsWinnerBid(e, bidId) {
-                $(e).prop("disabled", true);
-                $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Selecting Bid..');
-                     //Ajax post action
-                    $.ajax({
-                        type: "GET",
-                        url: "../Home/ChooseWinnerBid",
-                        data: {
-                            "bidId": bidId
-                        },
-                        success: function (result) {
-                                if (result.success) {
-                                    window.location.reload();
-                                }
-                                else {
-                                    toastr.warning(result.message);
-                                }
-                            },
-                        failure: function (response) {
-                             toastr.warning("@Lang.ConnectionError");
-                        },
-                        error: function (response) {
-                             toastr.error("@Lang.UnexpectedError");
-                        }
-                    });
-                $(e).prop("disabled", false);
-                $(e).html('Select Bid');
+        function comparer(index) {
+            return function (a, b) {
+                var valA = getCellValue(a, index), valB = getCellValue(b, index)
+                return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
             }
+        }
 
+        function getCellValue(row, index) {
+            return $(row).children('td').eq(index).text()
+        }
     </script>
 }
 

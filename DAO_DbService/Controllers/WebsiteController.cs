@@ -830,11 +830,15 @@ namespace DAO_DbService.Controllers
                                                          CreateDate = payment.CreateDate
                                                      }).ToList();
 
-                    //Calculation of the user's total amount
-                    foreach (var item in result.UserPaymentHistoryList)
+                    result.TotalAmount = result.UserPaymentHistoryList.Sum(x => x.JobAmount);
+
+                    //Get last months payments
+                    result.LastMonthAmount = 0;
+                    DateTime lastMonth = DateTime.Now.AddMonths(-1);
+                    if (result.UserPaymentHistoryList.Count(x=>x.CreateDate >= lastMonth) > 0)
                     {
-                        result.TotalAmount = result.TotalAmount + item.JobAmount;
-                    }
+                        result.LastMonthAmount = result.UserPaymentHistoryList.Where(x => x.CreateDate >= lastMonth).Sum(x => x.JobAmount);
+                    }                  
                 }
             }
             catch (Exception ex)

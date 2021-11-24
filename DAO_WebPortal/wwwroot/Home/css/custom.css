@@ -452,7 +452,7 @@ tbody tr:hover .trSlider span {
     }
 }
 
-/* Reputation History Page cards */
+/* Reputation History & Payment History Page cards */
 .cardGreen {
     border-radius: 10px;
     background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgba(46,184,92,1) 100%, rgba(0,212,255,1) 100%)
@@ -466,6 +466,24 @@ tbody tr:hover .trSlider span {
 .cardYellow {
     border-radius: 10px;
     background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(184 97 46) 100%, rgba(0,212,255,1) 100%);
+}
+
+.cardCyan {
+    border-radius: 10px;
+    background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(46 184 139) 100%, rgba(0,212,255,1) 100%);
+}
+
+.cardPurple {
+    border-radius: 10px;
+    background: linear-gradient( 138deg, rgba(27,36,111,1) 0%, rgb(40 48 104) 51%, rgb(86 46 184) 100%, rgba(0,212,255,1) 100%);
+}
+
+.cardIcon {
+    position: absolute;
+    font-size: 50px;
+    top: 20px;
+    left: 25px;
+    color: #3e488f;
 }
 
 /* Shinning Button  */

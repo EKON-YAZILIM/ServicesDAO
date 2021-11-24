@@ -8,5 +8,7 @@ namespace Helpers.Models.WebsiteViewModels
     {
         public List<UserPaymentHistoryItem> UserPaymentHistoryList { get; set; } 
         public double TotalAmount { get; set; }
+        public double LastMonthAmount { get; set; }
+
     }
 }

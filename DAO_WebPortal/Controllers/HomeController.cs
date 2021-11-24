@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using static Helpers.Constants.Enums;
 using Newtonsoft.Json;
 using PagedList.Core;
+using Helpers.Models.NotificationModels;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -36,7 +37,7 @@ namespace DAO_WebPortal.Controllers
         {
             ViewBag.Title = "Dashboard";
 
-            
+
             try
             {
                 //Get user type from session
@@ -203,7 +204,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "Job posted successfully and will be available after admin review.";
                     result.Content = model;
 
-                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")),Helpers.Constants.Enums.UserLogType.Request,"User added a new job.",Utility.IpHelper.GetClientIpAddress(HttpContext),Utility.IpHelper.GetClientPort(HttpContext));
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User added a new job.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                     //Set server side toastr because page will be redirected
                     TempData["toastr-message"] = result.Message;
@@ -570,7 +571,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "";
                     result.Content = res;
 
-                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User upvoted to Comment #"+JobPostCommentId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User upvoted to Comment #" + JobPostCommentId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
                 }
 
                 return Json(result);
@@ -774,7 +775,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Check if user already submitted bid to this auction
-                if (bids.Count(x=>x.UserId == Convert.ToInt32(HttpContext.Session.GetInt32("UserID"))) > 0)
+                if (bids.Count(x => x.UserId == Convert.ToInt32(HttpContext.Session.GetInt32("UserID"))) > 0)
                 {
                     return Json(new SimpleResponse { Success = false, Message = "You already have an existing bid for this auction." });
                 }
@@ -815,7 +816,7 @@ namespace DAO_WebPortal.Controllers
                     }
                 }
 
-                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "The user has bid on the auction. Auction #"+Model.AuctionID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "The user has bid on the auction. Auction #" + Model.AuctionID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                 //Set server side toastr because page will be redirected
                 TempData["toastr-message"] = result.Message;
@@ -897,7 +898,7 @@ namespace DAO_WebPortal.Controllers
         {
             SimpleResponse result = new SimpleResponse();
             try
-            {                
+            {
                 //Get auction bid model from ApiGateway
                 var auctionBidJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/GetId?id=" + bidId, HttpContext.Session.GetString("Token"));
                 //Parse response
@@ -1032,7 +1033,7 @@ namespace DAO_WebPortal.Controllers
                     vt.VoteID = votes[i].VoteID;
                     vt.VotingID = votes[i].VotingID;
                     vt.UserName = usernames[i];
-                    if(reputations.Count(x => x.UserID == vt.UserID) > 0)
+                    if (reputations.Count(x => x.UserID == vt.UserID) > 0)
                     {
                         vt.ReputationStake = reputations.First(x => x.UserID == vt.UserID).Amount;
                     }
@@ -1096,7 +1097,7 @@ namespace DAO_WebPortal.Controllers
                 JobPostDto job = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
 
                 //Get total dao member count
-                int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type="+UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
+                int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type=" + UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
                 //Quorum count is calculated with total user count - 2(job poster, job doer)
                 informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount - 2));
 
@@ -1291,14 +1292,14 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Get user
-                UserDto modeluser = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID")));
+                UserDto modeluser = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
 
                 if (modeluser != null && modeluser.UserId > 0)
                 {
                     modeluser.ProfileImage = Path.GetFileName(image);
 
                     //Update user
-                    var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser)));
+                    var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser), HttpContext.Session.GetString("Token")));
 
                     if (updatemodel != null && updatemodel.UserId > 0)
                     {
@@ -1417,7 +1418,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "DoS fee successfully paid. Internal auction process started for the job.";
                     result.Content = AuctionModel;
 
-                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User paid DoS fee. Job # "+JobModel.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User paid DoS fee. Job # " + JobModel.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                 }
 
@@ -1449,9 +1450,9 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get payment history data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/PaymentHistoryByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/PaymentHistoryByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                 //Parse response
-                model = Helpers.Serializers.DeserializeJson<PaymentHistoryViewModel>(jobsJson);
+                model = Helpers.Serializers.DeserializeJson<PaymentHistoryViewModel>(paymentsJson);
             }
             catch (Exception ex)
             {
@@ -1460,7 +1461,7 @@ namespace DAO_WebPortal.Controllers
 
             return View(model);
         }
-     
+
         #endregion
 
         #region Admin Views & Methods
@@ -1536,6 +1537,28 @@ namespace DAO_WebPortal.Controllers
                 //Update job status 
                 JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
 
+                //Send notification email to job poster
+
+                //Set email title and content
+                string emailTitle = "Your job is approved by system administrator (Job #" + JobId + ")";
+                string emailContent = "";
+
+                if (JobModel.Status == Enums.JobStatusTypes.InternalAuction)
+                {
+                     emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Your job is approved by system administrator<br><br> Internal auction process started for the job.";
+                }
+                else if (JobModel.Status == Enums.JobStatusTypes.KYCPending)
+                {
+                    emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Your job is approved by system administrator<br><br> You have to complete KYC before auction phase. Please complete your KYC from job detail.";
+                }
+                else if (JobModel.Status == Enums.JobStatusTypes.DoSFeePending)
+                {
+                    emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Your job is approved by system administrator<br><br> Please pay the Dos fee to start internal auction process.";
+                }
+
+                SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
+                Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
+
                 return Json(result);
 
             }
@@ -1575,11 +1598,21 @@ namespace DAO_WebPortal.Controllers
 
                 //Update job status 
                 JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
-                if(JobModel.JobID>0 && JobModel.Status == JobStatusTypes.Rejected)
+                if (JobModel.JobID > 0 && JobModel.Status == JobStatusTypes.Rejected)
                 {
                     result.Success = true;
                     result.Message = "Job disapproved.";
                 }
+
+                //Send notification email to job poster
+
+                //Set email title and content
+                string emailTitle = "Your job is disapproved by system administrator (Job #" + JobId + ")";
+                string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Your job is disapproved by system administrator.<br><br> Please read the job posting rules and contact with system administrator.";
+
+                SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
+                Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
+
                 return Json(result);
 
             }

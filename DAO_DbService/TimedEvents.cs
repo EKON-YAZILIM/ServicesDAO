@@ -5,6 +5,7 @@ using Helpers.Constants;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.DtoModels.ReputationDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
+using Helpers.Models.NotificationModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,17 @@ namespace DAO_DbService
                         auction.Status = Enums.AuctionStatusTypes.PublicBidding;
                         db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                         db.SaveChanges();
+
+
+                        //Send notification email to job poster
+                        var jobPoster = db.Users.Find(auction.JobPosterUserID);
+
+                        //Set email title and content
+                        string emailTitle = "Your job is in public bidding phase.";
+                        string emailContent = "Greetings, " + jobPoster.NameSurname.Split(' ')[0] + ", <br><br> Internal auction phase is finished for your job. There are no winning bids selected. <br><br> Your job will be in public bidding phase until " + Convert.ToDateTime(auction.PublicAuctionEndDate).ToString("MM.dd.yyyy HH:mm");
+                        //Send email
+                        SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { jobPoster.Email } };
+                        Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
                     }
 
 
@@ -85,6 +97,8 @@ namespace DAO_DbService
                         //No winners selected. Auction expired. -> Set auction and job status to Expired
                         if (auction.WinnerAuctionBidID == null)
                         {
+                            string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Mint);
+
                             auction.Status = Enums.AuctionStatusTypes.Expired;
                             db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                             db.SaveChanges();
@@ -93,6 +107,16 @@ namespace DAO_DbService
                             job.Status = Enums.JobStatusTypes.Expired;
                             db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                             db.SaveChanges();
+
+                            //Send notification email to job poster
+                            var jobPoster = db.Users.Find(auction.JobPosterUserID);
+
+                            //Set email title and content
+                            string emailTitle = "Your job is expired.";
+                            string emailContent = "Greetings, " + jobPoster.NameSurname.Split(' ')[0] + ", <br><br> Public auction phase is finished for your job. There are no winning bids selected. <br><br> Your job status is now expired and won't be listed in the active auctions anymore.";
+                            //Send email
+                            SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { jobPoster.Email } };
+                            Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
                         }
                     }
                 }
@@ -131,6 +155,19 @@ namespace DAO_DbService
                             var job = db.JobPosts.Find(voting.JobID);
                             job.Status = Enums.JobStatusTypes.Expired;
                             db.SaveChanges();
+
+                            //Send notification email to job poster and job doer
+                            var jobPoster = db.Users.Find(job.UserID);
+                            var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                            //Set email title and content
+                            string emailTitle = "Informal voting finished without quorum for job #" + job.JobID;
+                            string emailContent = "Greetings, {name}, <br><br> Informal voting process for your job finished without the quorum. <br><br> Your job status is now expired. Please contact with system admin.";
+
+                            //Send email to job poster
+                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                            //Send email to job doer
+                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
                         }
                         //Informal voting completed -> Set job status according to vote result
                         else
@@ -138,6 +175,19 @@ namespace DAO_DbService
                             var job = db.JobPosts.Find(voting.JobID);
                             job.Status = Enums.JobStatusTypes.FormalVoting;
                             db.SaveChanges();
+
+                            //Send notification email to job poster and job doer
+                            var jobPoster = db.Users.Find(job.UserID);
+                            var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                            //Set email title and content
+                            string emailTitle = "Formal voting started for your job #" + job.JobID;
+                            string emailContent = "Greetings, {name}, <br><br> Informal voting process for your job completed successfully. <br><br> Your job is now on formal voting.";
+
+                            //Send email to job poster
+                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                            //Send email to job doer
+                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
                         }
                     }
 
@@ -167,7 +217,7 @@ namespace DAO_DbService
                             if (voting.StakedFor > voting.StakedAgainst)
                             {
                                 //Create payment
-                                var auction = db.Auctions.First(x=>x.JobID == voting.JobID);
+                                var auction = db.Auctions.First(x => x.JobID == voting.JobID);
                                 var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
                                 var user = db.Users.Find(auctionWinnerBid.UserID);
                                 var job = db.JobPosts.Find(auction.JobID);
@@ -182,15 +232,42 @@ namespace DAO_DbService
                                     UserID = user.UserId,
                                     WalletAddress = user.WalletAddress,
                                 };
-                                db.PaymentHistories.Add(model);                               
+                                db.PaymentHistories.Add(model);
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
+
+
+                                //Send notification email to job poster and job doer
+                                var jobPoster = db.Users.Find(job.UserID);
+                                var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                                //Set email title and content
+                                string emailTitle = "Formal voting finished successfully for job #" + job.JobID;
+                                string emailContent = "Greetings, {name}, <br><br> Congratulations, your job passed the formal voting and job is completed successfully. <br><br> Payment for the job will be visible on the 'Payment History' for job doer.";
+
+                                //Send email to job poster
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                //Send email to job doer
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
                             }
                             else
                             {
                                 var job = db.JobPosts.Find(voting.JobID);
                                 job.Status = Enums.JobStatusTypes.Failed;
                                 db.SaveChanges();
+
+                                //Send notification email to job poster and job doer
+                                var jobPoster = db.Users.Find(job.UserID);
+                                var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                                //Set email title and content
+                                string emailTitle = "Formal voting finished AGAINST for job #" + job.JobID;
+                                string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job failed to pass formal voting. Job amount will be refunded to job poster.";
+
+                                //Send email to job poster
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                //Send email to job doer
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
                             }
                         }
 
@@ -201,6 +278,15 @@ namespace DAO_DbService
             {
                 Program.monitizer.AddConsole("Exception in timer CheckJobStatus. Ex: " + ex.Message);
             }
+        }
+
+        /// <summary>
+        ///  Helper function for sending notification emails
+        /// </summary>
+        public static void SendNotificationEmail(string title, string content, string email)
+        {
+            SendEmailModel emailModel = new SendEmailModel() { Subject = title, Content = content, To = new List<string> { email } };
+            Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
         }
     }
 }

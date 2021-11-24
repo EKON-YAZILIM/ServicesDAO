@@ -3,6 +3,7 @@
     //DbService API
     {
       "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
         "AllowedScopes": []
       },
       "DownstreamHostAndPorts": [
@@ -20,6 +21,7 @@
     //LogService API
     {
       "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
         "AllowedScopes": []
       },
       "DownstreamHostAndPorts": [
@@ -37,6 +39,7 @@
     //VotingEngine API
     {
       "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
         "AllowedScopes": []
       },
       "DownstreamHostAndPorts": [
@@ -54,6 +57,7 @@
     //ReputationService API
     {
       "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
         "AllowedScopes": []
       },
       "DownstreamHostAndPorts": [

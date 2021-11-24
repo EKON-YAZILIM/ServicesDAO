@@ -21,7 +21,7 @@ function StartInformalVoting(JobId) {
 
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm6"><label class="form-check-label" for="flexCheckDefault">I hereby declare that I do not intend to use the Developer Grants for illegal market manipulation.</label></div>' +
 
-            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm7"><label class="form-check-label" for="flexCheckDefault">I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier grant agreement between myself and the ETA and/or the DEVxDAO.</label></div>'
+            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm7"><label class="form-check-label" for="flexCheckDefault">I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier grant agreement between myself and the CRDAO.</label></div>'
         ,
         columnClass: 'col-md-8 col-md-offset-2',
         buttons: {
