@@ -1641,6 +1641,146 @@ namespace DAO_WebPortal.Controllers
             return View();
         }
 
+        /// <summary>
+        ///  This view shows users of the DAO
+        /// </summary>
+        /// <returns></returns>
+        [Route("Users-List")]
+        [Route("Home/Users-List")]
+        public IActionResult Users_List(int page = 1, int pageCount = 20)
+        {
+            ViewBag.Title = "Users List";
+
+            IPagedList<UserDto> pagedModel = new PagedList<UserDto>(null, 1, 1);
+
+            try
+            {
+                //Get users data from ApiGateway
+                string usersJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetPaged?page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                //Parse response
+                var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<UserDto>>(usersJson);
+
+                pagedModel = new StaticPagedList<UserDto>(
+                    jobsListPaged.Items,
+                    jobsListPaged.MetaData.PageNumber,
+                    jobsListPaged.MetaData.PageSize,
+                    jobsListPaged.MetaData.TotalItemCount
+                    );
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(pagedModel);
+        }
+        /// <summary>
+        ///  Finds user info from query
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult UserSearch(string searchText)
+        {
+            List<UserDto> userList = new List<UserDto>();
+            try
+            {
+                string usersJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/UserSearch?query=" + searchText, HttpContext.Session.GetString("Token"));
+                //Parse response
+                 userList = Helpers.Serializers.DeserializeJson<List<UserDto>>(usersJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+          
+            return Json(userList);
+        }
+        /// <summary>
+        ///  This view shows reputation logs of the DAO
+        /// </summary>
+        /// <returns></returns>
+        [Route("Reputation-Logs")]
+        [Route("Home/Reputation-Logs")]
+        public IActionResult Reputation_Logs(int page = 1, int pageCount = 20)
+        {
+            ViewBag.Title = "Reputation Logs";
+
+            IPagedList<ReputationLogsDto> pagedModel = new PagedList<ReputationLogsDto>(null, 1, 1);
+
+            try
+            {
+                //Get jobs data from ApiGateway
+                string usersJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetPaged?page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                //Parse response
+                var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<ReputationLogsDto>>(usersJson);
+
+                pagedModel = new StaticPagedList<ReputationLogsDto>(
+                    jobsListPaged.Items,
+                    jobsListPaged.MetaData.PageNumber,
+                    jobsListPaged.MetaData.PageSize,
+                    jobsListPaged.MetaData.TotalItemCount
+                    );
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(pagedModel);
+        }
+
+        /// <summary>
+        ///  Finds user reputations from user id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult ReputationSearch(string searchText)
+        {
+            List<ReputationLogsDto> repList = new List<ReputationLogsDto>();
+            try
+            {
+                string repJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetByUserId?userid=" + searchText, HttpContext.Session.GetString("Token"));
+                //Parse response
+                repList = Helpers.Serializers.DeserializeJson<List<ReputationLogsDto>>(repJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(repList);
+        }
+        /// <summary>
+        ///  This view shows application logs of the DAO
+        /// </summary>
+        /// <returns></returns>
+        [Route("Application-Logs")]
+        [Route("Home/Application-Logs")]
+        public IActionResult Application_Logs(int page = 1, int pageCount = 20)
+        {
+            ViewBag.Title = "Application Logs";
+
+            IPagedList<Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto> pagedModel = new PagedList<Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto>(null, 1, 1);
+
+            try
+            {
+                //Get jobs data from ApiGateway
+                string usersJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Log/ApplicationLog/GetPaged?page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                //Parse response
+                var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto>>(usersJson);
+
+                pagedModel = new StaticPagedList<Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto>(
+                    jobsListPaged.Items,
+                    jobsListPaged.MetaData.PageNumber,
+                    jobsListPaged.MetaData.PageSize,
+                    jobsListPaged.MetaData.TotalItemCount
+                    );
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return View(pagedModel);
+        }
+
         #endregion
 
         #region Utility
