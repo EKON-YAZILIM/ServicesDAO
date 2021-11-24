@@ -286,13 +286,13 @@
 /*********Admin Dashboard Job Card**********/
 
 .cardy {
-    border-radius: 4px;
+    /*border-radius: 4px;*/
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-    padding: 14px 80px 18px 36px;
+    /*padding: 14px 80px 18px 36px;*/
     cursor: pointer;
-    max-width: 500px;
-    border: 1px solid #83838354;
+    /*max-width: 500px;*/
+    /*border: 1px solid #83838354;*/
 }
 
     .TopComment:hover, .cardy:hover {
@@ -338,7 +338,6 @@
 }
 
 .TopComment {
-    border: 1px solid #83838354;
     background-color: transparent;
     float: left;
     border-radius: 4px;
@@ -347,22 +346,36 @@
     padding-top: 5px;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     width: 100%;
-    margin: 0
+    margin: 0;
+    background: linear-gradient( 138deg, rgb(27, 36, 111) 0%, rgb(40 48 104) 51%, #31AF91 100%, rgb(0, 212, 255) 100%);
 }
 
-.TopComment h5 {
-    display: inline
+.TopJob {
+    background-color: transparent;
+    float: left;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 5px;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    width: 100%;
+    margin: 0;
+    background: linear-gradient( 138deg, rgb(27, 36, 111) 0%, rgb(40 48 104) 51%, #574A18 100%, rgb(0, 212, 255) 100%);
 }
 
-.TopComment span {
-    display: inline;
-    font-size: smaller
-}
+    .TopComment h5, .TopJob h5 {
+        display: inline
+    }
+
+    .TopComment span, .TopJob span {
+        display: inline;
+        font-size: smaller
+    }
 
 .comment-icon {
-    height: 1.25rem;
-    font-size: 1.25rem;
-    width: 1.25rem;
+    height: 1rem;
+    font-size: 1rem;
+    width: 1rem;
     margin-right: 0.5rem;
 }
 
@@ -383,14 +396,16 @@
 }
 
 .DashIcon {
-    flex: 0 0 4rem;
-    height: 3.25rem;
-    font-size: 1.25rem;
-    color: var(--cui-sidebar-nav-link-icon-color, rgba(255, 255, 255, 0.6));
+    height: 1rem;
+    font-size: 1rem;
+    /*color: var(--cui-sidebar-nav-link-icon-color, rgba(255, 255, 255, 0.6));*/
     text-align: center;
     fill: currentColor;
     transition: inherit;
+    width: 1rem;
+    color: rgba(46,184,92,1);
 }
+
 
 /*******Table Row Slider*********/
 
