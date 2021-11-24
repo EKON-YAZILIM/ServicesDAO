@@ -973,21 +973,36 @@ namespace DAO_WebPortal.Controllers
         {
             ViewBag.Title = "Votings";
 
-            List<VotingViewModel> votesModel = new List<VotingViewModel>();
+            List<VotingViewModel> votingsModel = new List<VotingViewModel>();
             try
             {
                 //Get model from ApiGateway
                 var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVotingsByStatus", HttpContext.Session.GetString("Token"));
 
                 //Parse response
-                votesModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(votingJson);
+                votingsModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(votingJson);
 
+                //Get user's votes
+                string stakesJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                List<UserReputationStakeDto> stakesModel = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(stakesJson);
+
+                foreach (var voting in votingsModel)
+                {
+                    if (stakesModel.Count(x => x.ReferenceProcessID == voting.VotingID) > 0)
+                    {
+                        var stake = stakesModel.First(x => x.ReferenceProcessID == voting.VotingID);
+                        if (stake.Type == Helpers.Constants.Enums.StakeType.For || stake.Type == Helpers.Constants.Enums.StakeType.Against)
+                        {
+                            voting.UserVote = stake.Type;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-            return View(votesModel);
+            return View(votingsModel);
         }
 
         /// <summary>

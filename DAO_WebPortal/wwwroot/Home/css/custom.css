@@ -15,8 +15,16 @@
     height: 250px !important;
 }
 
+.h-300 {
+    height: 300px !important;
+}
+
 .h-500 {
     height: 500px !important;
+}
+
+.overflowy {
+    overflow-y: scroll;
 }
 
 /********Scrollbar Style*******/
@@ -332,45 +340,10 @@
     background-color: black
 }
 
-.TopComments {
-    margin-top: 5%;
-    margin-left: 20px
+.smallDate {
+    font-size: 0.7rem;
+    font-weight: normal;
 }
-
-.TopComment {
-    background-color: transparent;
-    float: left;
-    border-radius: 4px;
-    padding-left: 20px;
-    padding-right: 10px;
-    padding-top: 5px;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-    width: 100%;
-    margin: 0;
-    background: linear-gradient( 138deg, rgb(27, 36, 111) 0%, rgb(40 48 104) 51%, #31AF91 100%, rgb(0, 212, 255) 100%);
-}
-
-.TopJob {
-    background-color: transparent;
-    float: left;
-    border-radius: 4px;
-    padding-left: 20px;
-    padding-right: 10px;
-    padding-top: 5px;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-    width: 100%;
-    margin: 0;
-    background: linear-gradient( 138deg, rgb(27, 36, 111) 0%, rgb(40 48 104) 51%, #574A18 100%, rgb(0, 212, 255) 100%);
-}
-
-    .TopComment h5, .TopJob h5 {
-        display: inline
-    }
-
-    .TopComment span, .TopJob span {
-        display: inline;
-        font-size: smaller
-    }
 
 .comment-icon {
     height: 1rem;
@@ -395,15 +368,18 @@
     scrollbar-width: thin !important;
 }
 
-.DashIcon {
-    height: 1rem;
-    font-size: 1rem;
-    /*color: var(--cui-sidebar-nav-link-icon-color, rgba(255, 255, 255, 0.6));*/
-    text-align: center;
+.dashIcon {
     fill: currentColor;
     transition: inherit;
-    width: 1rem;
-    color: rgba(46,184,92,1);
+    position: absolute;
+    top: 38px;
+    height: 25px;
+    width: 30px;
+}
+
+.dashboarAvatar {
+    position: relative;
+    top: -1px;
 }
 
 
@@ -569,12 +545,12 @@ tbody tr:hover .trSlider span {
             display: block;
             margin: 0 auto;
             background: #ffffff;
-            border: 2px solid #e6e6e6;
+            border: 1px solid #e6e6e6;
             color: #e6e6e6;
             width: 2rem;
             height: 2rem;
             text-align: center;
-            /*      margin-bottom: -4.2rem;*/
+            margin-bottom: 10px;
             line-height: 1.9rem;
             border-radius: 100%;
             position: relative;
@@ -582,6 +558,11 @@ tbody tr:hover .trSlider span {
             font-weight: 700;
             font-size: 1rem;
         }
+
+.dark-theme .steps > .step:before {
+    background: #72769d;
+    border: 1px solid #a9a9a9
+}
 
         .steps > .step:after {
             content: "";
@@ -593,6 +574,10 @@ tbody tr:hover .trSlider span {
             top: 1rem;
             left: 50%;
         }
+
+.dark-theme .steps > .step:after {
+    background: #a9a9a9;
+}
 
         .steps > .step:last-child:after {
             display: none;

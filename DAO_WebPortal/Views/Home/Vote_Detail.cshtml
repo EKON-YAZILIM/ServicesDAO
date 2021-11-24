@@ -19,7 +19,7 @@
                 <div class="table-responsive">
                     @if (Model.VoteItems.Count > 0)
                     {
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover mb-0">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -59,6 +59,14 @@
                                         <td>@item.Date.ToString("MM.dd.yyyy HH:mm")</td>
                                     </tr>
                                 }
+
+                                <tr>
+                                    <td>#</td>
+                                    <td><b>Staked Total</b></td>
+                                    <td><b>@Model.VoteItems.Where(x => x.Direction == Helpers.Constants.Enums.StakeType.For).Sum(x => x.ReputationStake)</b></td>
+                                    <td><b>@Model.VoteItems.Where(x => x.Direction == Helpers.Constants.Enums.StakeType.Against).Sum(x => x.ReputationStake)</b></td>
+                                    <td></td>
+                                </tr>
                             </tbody>
                         </table>
                     }

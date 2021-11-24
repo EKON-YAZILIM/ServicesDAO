@@ -756,9 +756,9 @@ namespace DAO_DbService.Controllers
         #region Vote
 
         /// <summary>
-        /// Get voting
+        /// Get votings by status
         /// </summary>
-        /// <param name="status"></param>
+        /// <param name="status">Voting status enum</param>
         /// <returns></returns>
         [Route("GetVotingsByStatus")]
         [HttpGet]

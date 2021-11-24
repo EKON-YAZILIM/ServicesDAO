@@ -47,7 +47,7 @@
                                     <th scope="col">End Date</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Quorum</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">My Vote</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,13 +63,25 @@
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
                                             <td>@item.VoteCount / @item.QuorumCount</td>
-                                            <td>
-                                                <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID)">
-                                                    <svg class="icon">
-                                                        <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
-                                                    </svg> Submit Vote
-                                                </a>
-                                            </td>
+                                            @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
+                                            {
+                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
+                                            }
+                                            else if (item.UserVote == Helpers.Constants.Enums.StakeType.Against)
+                                            {
+                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID)">
+                                                        <svg class="icon">
+                                                            <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                        </svg> Submit Vote
+                                                    </a>
+                                                </td>
+                                            }
+
                                         </tr>
                                     }
                                 }
@@ -100,8 +112,7 @@
                                     <th scope="col">End Date</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Quorum</th>
-                                    <th scope="col"></th>
-
+                                    <th scope="col">My Vote</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,13 +128,24 @@
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
                                             <td>@item.VoteCount / @item.QuorumCount</td>
-                                            <td>
-                                                <a class="btn btn-sm btn-primary me-2" onclick="OpenVoteModal(@item.VotingID)">
-                                                    <svg class="icon">
-                                                        <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
-                                                    </svg> Submit Vote
-                                                </a>
-                                            </td>
+                                            @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
+                                            {
+                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
+                                            }
+                                            else if (item.UserVote == Helpers.Constants.Enums.StakeType.Against)
+                                            {
+                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
+                                            }
+                                            else
+                                            {
+                                                <td>
+                                                    <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID)">
+                                                        <svg class="icon">
+                                                            <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                        </svg> Submit Vote
+                                                    </a>
+                                                </td>
+                                            }
                                         </tr>
                                     }
                                 }
@@ -157,7 +179,8 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
-                                    <th scope="col">Result</th>
+                                    <th scope="col">My Vote</th>
+                                    <th scope="col">Voting Result</th>
                                     <th scope="col"></th>
 
                                 </tr>
@@ -173,23 +196,40 @@
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
-                                            @if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired)
+
+                                            @*User's Vote*@
+                                            @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
-                                                <td><b class="text-warning">EXPIRED</b></td>
+                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
                                             }
-                                            else if (item.StakedFor > item.StakedAgainst)
+                                            else if (item.UserVote == Helpers.Constants.Enums.StakeType.Against)
                                             {
-                                                <td><b class="text-success">FOR</b></td>
+                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
                                             }
                                             else
                                             {
-                                                <td><b class="text-danger">AGAINST</b></td>
+                                                <td><button class="btn btn-sm btn-secondary disabled text-white w-100"><b>NONE</b></button></td>
                                             }
+
+                                            @*Voting Result*@
+                                            @if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired)
+                                            {
+                                                <td><button class="btn btn-sm btn-warning disabled text-white w-100"><b>EXPIRED</b></button></td>
+                                            }
+                                            else if (item.StakedFor > item.StakedAgainst)
+                                            {
+                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
+                                            }
+                                            else
+                                            {
+                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
+                                            }
+
                                             <td>
                                                 <a class="btn btn-sm btn-primary me-2" href="../Vote-Detail/@item.VotingID">
                                                     <svg class="icon">
                                                         <use xlink:href="/Home/images/svg/free.svg#cil-bar-chart"></use>
-                                                    </svg> Show Results
+                                                    </svg> Show Votes
                                                 </a>
                                             </td>
                                         </tr>
@@ -219,7 +259,8 @@
                                     <th scope="col">Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
-                                    <th scope="col">Result</th>
+                                    <th scope="col">My Vote</th>
+                                    <th scope="col">Voting Result</th>
                                     <th scope="col"></th>
 
                                 </tr>
@@ -236,23 +277,40 @@
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
-                                            @if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired)
+
+                                            @*User's Vote*@
+                                            @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
-                                                <td><b class="text-warning">EXPIRED</b></td>
+                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
                                             }
-                                            else if (item.StakedFor > item.StakedAgainst)
+                                            else if (item.UserVote == Helpers.Constants.Enums.StakeType.Against)
                                             {
-                                                <td><b class="text-success">FOR</b></td>
+                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
                                             }
                                             else
                                             {
-                                                <td><b class="text-danger">AGAINST</b></td>
+                                                <td><button class="btn btn-sm btn-secondary disabled text-white w-100"><b>NONE</b></button></td>
                                             }
+
+                                            @*Voting Result*@
+                                            @if (item.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired)
+                                            {
+                                                <td><button class="btn btn-sm btn-warning disabled text-white w-100"><b>EXPIRED</b></button></td>
+                                            }
+                                            else if (item.StakedFor > item.StakedAgainst)
+                                            {
+                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
+                                            }
+                                            else
+                                            {
+                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
+                                            }
+
                                             <td>
                                                 <a class="btn btn-sm btn-primary me-2" href="../Vote-Detail/@item.VotingID">
                                                     <svg class="icon">
                                                         <use xlink:href="/Home/images/svg/free.svg#cil-bar-chart"></use>
-                                                    </svg> Show Results
+                                                    </svg> Show Votes
                                                 </a>
                                             </td>
                                         </tr>
@@ -346,12 +404,11 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Output the result in an element with id="counter_id"
-            document.getElementById("counter_"+id).innerHTML = "<span>" + days + "</span>" + "D <span>" + hours + "</span>:<span>"
-                + minutes + "</span>:<span>" + seconds + "</span>";
+            document.getElementById("counter_" + id).innerHTML = "<span>" + days.toString() + "</span>" + "D <span>" + hours.toString().padStart(2, '0') + "</span>:<span>"
+                + minutes.toString().padStart(2, '0') + "</span>:<span>" + seconds.toString().padStart(2, '0') + "</span>";
 
             // If the count down is over, write some text
             if (distance < 0) {
-                clearInterval(x);
                 document.getElementById("counter_" + id).innerHTML = "EXPIRED";
             }
         }

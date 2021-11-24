@@ -21,6 +21,7 @@ namespace Helpers.Models.WebsiteViewModels
         public double? StakedAgainst { get; set; }
         public int VoteCount { get; set; }
         public int? QuorumCount { get; set; }
+        public StakeType? UserVote { get; set; }
 
     }
 }

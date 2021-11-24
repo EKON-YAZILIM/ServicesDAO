@@ -1,132 +1,144 @@
 ﻿
 @model List<Helpers.Models.WebsiteViewModels.JobPostViewModel>
 
-<table class="table border mb-0">
-    <thead class="table-light fw-semibold">
-        <tr class="align-middle">
-            <th width="70%">Title</th>
-            <th width="15%">Create Date</th>
-            <th width="15%"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr class="align-middle">
-                <td class="border-bottom-0">
-                    @item.Title
-                </td>
 
-                <td class="border-bottom-0">
-                    @item.CreateDate
-                </td>
-                <td class="border-bottom-0">
 
-                    <a class="btn btn-sm btn-outline-primary" href="../Job-Detail/@item.JobID">
-                        <svg class="icon">
-                            <use xlink:href="/Home/images/svg/free.svg#cil-excerpt"></use>
-                        </svg> Go to Detail
-                    </a>
-                </td>
+@foreach (var item in Model)
+{
+    <div class="card bg-light mb-3">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <h6><a href="../Job-Detail/@item.JobID">@item.Title</a> <b><small>@item.UserName</small></b></h6>
+                </div>
+                <div class="col-md-6">
+                    <span class="float-right"> @item.CreateDate</span>
+                </div>
+            </div>
+           
 
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <ol class="steps">
-                        @{
-                            string approvalStatus = "", dosFeeApproval = "", auction = "", auctionCompleted = "", InformalVoting = "", completed = "", FormalVoting = "";
-                        }
+            <ol class="steps">
+                @{
+                    string approvalStatus = "", dosFeeApproval = "", auction = "", auctionCompleted = "", InformalVoting = "", completed = "", FormalVoting = "";
+                }
 
-                        @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending)
-                        {
-                            approvalStatus = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || item.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
-                        {
-                            approvalStatus = "is-complete";
-                            dosFeeApproval = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction || item.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction)
-                        {
-                            approvalStatus = dosFeeApproval = "is-complete";
-                            auction = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted)
-                        {
-                            approvalStatus = dosFeeApproval = auction = "is-complete";
-                            auctionCompleted = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
-                        {
-                            approvalStatus = dosFeeApproval = auction = auctionCompleted = "is-complete";
-                            InformalVoting = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
-                        {
-                            approvalStatus = dosFeeApproval = auction = auctionCompleted = InformalVoting = "is-complete";
-                            FormalVoting = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
-                        {
-                            approvalStatus = dosFeeApproval = auction = auctionCompleted = InformalVoting = FormalVoting = "is-complete";
-                            completed = "is-active";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Failed)
-                        {
-                            approvalStatus = dosFeeApproval = auction = auctionCompleted = InformalVoting = "is-complete";
-                            FormalVoting = "is-inactive";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
-                        {
-                            approvalStatus = dosFeeApproval = "is-complete";
-                            InformalVoting = FormalVoting = auction = auctionCompleted = "is-inactive";
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
-                        {
-                            approvalStatus = "is-complete";
-                            dosFeeApproval = auction = auctionCompleted = InformalVoting = FormalVoting = "is-inactive";
-                        }
+                @if (item.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending)
+                {
+                    approvalStatus = "is-active";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || item.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
+                {
+                    approvalStatus = "is-complete";
+                    dosFeeApproval = "is-active";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction || item.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction)
+                {
+                    approvalStatus = dosFeeApproval = "is-complete";
+                    auction = "is-active";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted)
+                {
+                    approvalStatus = dosFeeApproval = auction = "is-complete";
+                    auctionCompleted = "is-active";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.InformalVoting)
+                {
+                    approvalStatus = dosFeeApproval = auction = auctionCompleted = "is-complete";
+                    InformalVoting = "is-active";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.FormalVoting)
+                {
+                    approvalStatus = dosFeeApproval = auction = auctionCompleted = InformalVoting = "is-complete";
+                    FormalVoting = "is-active";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Completed)
+                {
+                    approvalStatus = dosFeeApproval = auction = auctionCompleted = InformalVoting = FormalVoting = "is-complete";
+                    completed = "is-complete";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Failed)
+                {
+                    approvalStatus = dosFeeApproval = auction = auctionCompleted = InformalVoting = "is-complete";
+                    FormalVoting = "is-inactive";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
+                {
+                    approvalStatus = dosFeeApproval = "is-complete";
+                    InformalVoting = FormalVoting = auction = auctionCompleted = "is-inactive";
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
+                {
+                    approvalStatus = "is-complete";
+                    dosFeeApproval = auction = auctionCompleted = InformalVoting = FormalVoting = "is-inactive";
+                }
 
-                        <li class="@approvalStatus step" data-step="1">
-                            Admin Approval Pending
-                        </li>
-                        <li class="@dosFeeApproval step" data-step="2">
-                            DoS Fee Pending
-                        </li>
-                        <li class="@auction step" data-step="3">
-                            Auction
-                        </li>
-                        <li class="@auctionCompleted step" data-step="4">
-                            Auction Completed
-                        </li>
-                        <li class="@InformalVoting step" data-step="5">
-                            Informal Voting
-                        </li>
-                        <li class="@FormalVoting step" data-step="6">
-                            Formal Voting
-                        </li>
-                        @if (item.Status != Helpers.Constants.Enums.JobStatusTypes.Expired && item.Status != Helpers.Constants.Enums.JobStatusTypes.Failed && item.Status != Helpers.Constants.Enums.JobStatusTypes.Rejected)
-                        {
-                            <li class="@completed step" data-step="7">
-                                Completed
-                            </li>
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
-                        {
-                            <li class="is-uncomplete step" data-step="7">
-                                Expired
-                            </li>
-                        }
-                        else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
-                        {
-                            <li class="is-uncomplete step" data-step="7">
-                                Rejected
-                            </li>
-                        }
-                    </ol>
-                </td>
-            </tr>
-        }
+                <li class="@approvalStatus step text-secondary" data-step="1">
+                    Admin Approval Pending
+                </li>
+                <li class="@dosFeeApproval step text-secondary" data-step="2">
+                    DoS Fee Pending
+                </li>
+                <li class="@auction step text-secondary" data-step="3">
+                    Auction
+                </li>
+                <li class="@auctionCompleted step text-secondary" data-step="4">
+                    Auction Completed
+                </li>
+                <li class="@InformalVoting step text-secondary" data-step="5">
+                    Informal Voting
+                </li>
+                <li class="@FormalVoting step text-secondary" data-step="6">
+                    Formal Voting
+                </li>
+                @if (item.Status != Helpers.Constants.Enums.JobStatusTypes.Expired && item.Status != Helpers.Constants.Enums.JobStatusTypes.Failed && item.Status != Helpers.Constants.Enums.JobStatusTypes.Rejected)
+                {
+                    <li class="@completed step" data-step="7">
+                        Completed
+                    </li>
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Expired)
+                {
+                    <li class="is-uncomplete step" data-step="7">
+                        Expired
+                    </li>
+                }
+                else if (item.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
+                {
+                    <li class="is-uncomplete step" data-step="7">
+                        Rejected
+                    </li>
+                }
+            </ol>
+        </div>
+    </div>
 
-    </tbody>
-</table>
+    @*<tr class="align-middle">
+            <td class="border-bottom-0">
+                @item.Title
+            </td>
+
+            <td class="border-bottom-0">
+                @item.CreateDate
+            </td>
+            <td class="border-bottom-0">
+
+                <a class="btn btn-sm btn-outline-primary" href="../Job-Detail/@item.JobID">
+                    <svg class="icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-excerpt"></use>
+                    </svg> Go to Detail
+                </a>
+            </td>
+
+        </tr>*@
+    @*<tr>
+            <td colspan="4">
+
+            </td>
+        </tr>*@
+
+
+
+}
+
+
+
