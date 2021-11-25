@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-   public class AdminDashboardCardGraphModel
+   public class AdminDashboardCardModel
     {
         public int Month { get; set; }
         public int Count1 { get; set; }

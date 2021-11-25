@@ -34,6 +34,8 @@ namespace DAO_NotificationService
                 emailSender.SendEmail(notif);
 
                 Program.monitizer.AddConsole("Notification received : " + Helpers.Serializers.SerializeJson(notif));
+
+                Program.monitizer.AddApplicationLog(LogTypes.ApplicationLog, "Email notification sent. " + Helpers.Serializers.SerializeJson(notif));
             }
             catch (Exception ex)
             {

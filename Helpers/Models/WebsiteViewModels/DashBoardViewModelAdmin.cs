@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-    public class GetDashBoardViewModel
+    public class DashBoardViewModelAdmin
     {
         public List<JobPostDto> JobPostDtos { get; set; }
         public List<AuctionViewModel> AuctionViewModels { get; set; }
@@ -26,8 +26,8 @@ namespace Helpers.Models.WebsiteViewModels
         public List<DashboardGraphModel> JobCardGraph { get; set; }
         public List<DashboardGraphModel> AuctionCardGraph { get; set; }
         public List<DashboardGraphModel> VotingCardGraph { get; set; }
-        public List<AdminDashboardCardGraphModel> AuctionGraph { get; set; }
-        public List<AdminDashboardCardGraphModel> VotingGraph { get; set; }
+        public List<AdminDashboardCardModel> AuctionGraph { get; set; }
+        public List<AdminDashboardCardModel> VotingGraph { get; set; }
 
     }
 }

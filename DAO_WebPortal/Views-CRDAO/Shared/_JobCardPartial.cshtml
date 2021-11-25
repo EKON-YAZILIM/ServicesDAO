@@ -9,7 +9,7 @@
     <!-- .header -->
     <div class="titleContainer">
         <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
-        <small class="text-medium-emphasis">@Model.CreateDate.ToString("dd.MM.yyyy") , @Model.UserName</small>
+        <small class="text-medium-emphasis">@Model.CreateDate.ToShortDateString() , @Model.UserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
         {
@@ -59,7 +59,7 @@
     <p class="p-3 py-0 card-text text-justify" style="white-space: pre-line">
         @Model.JobDescription
     </p>
-    <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate.ToString("MM.dd.yyyy HH:mm")</small></p>
+    <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate</small></p>
 </div>
 <!-- Card Body -->
 

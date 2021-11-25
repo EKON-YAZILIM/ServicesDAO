@@ -27,6 +27,19 @@
     overflow-y: scroll;
 }
 
+
+.pagination {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+    .pagination li {
+        display: list-item;
+        color: white;
+    }
+
+
 /********Scrollbar Style*******/
 
 ::-webkit-scrollbar-track {
@@ -68,6 +81,7 @@
     height: 1px;
     overflow: hidden;
 }
+
 .invalidInput {
     border: 1px solid #ff3e3e70;
 }
@@ -354,18 +368,7 @@
 
 .comment-p {
     line-height: 1.2;
-    font-size: 0.8rem
-}
-
-.cardz {
-    display: inline-block;
-    padding: 1rem;
-    border-radius: 4px;
-    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
-    cursor: pointer;
-    border: 1px solid #83838354;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin !important;
+    font-size: 0.85rem
 }
 
 .dashIcon {
@@ -564,68 +567,68 @@ tbody tr:hover .trSlider span {
     border: 1px solid #a9a9a9
 }
 
-        .steps > .step:after {
-            content: "";
-            position: absolute;
-            display: block;
-            background: #e6e6e6;
-            width: 100%;
-            height: 0.125rem;
-            top: 1rem;
-            left: 50%;
-        }
+.steps > .step:after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #e6e6e6;
+    width: 100%;
+    height: 0.125rem;
+    top: 1rem;
+    left: 50%;
+}
 
 .dark-theme .steps > .step:after {
     background: #a9a9a9;
 }
 
-        .steps > .step:last-child:after {
-            display: none;
-        }
+.steps > .step:last-child:after {
+    display: none;
+}
 
-        .steps > .step.is-complete {
-            color: #6D6875;
-        }
+.steps > .step.is-complete {
+    color: #6D6875;
+}
 
-            .steps > .step.is-complete:before {
-                content: "✓";
-                color: #1A236F;
-                background: #fff;
-                border: 2px solid #1A236F;
-            }
+    .steps > .step.is-complete:before {
+        content: "✓";
+        color: #1A236F;
+        background: #fff;
+        border: 2px solid #1A236F;
+    }
 
-        .steps > .step.is-inactive:before {
-            content: "X";
-            color: #9d0000;
-            background: #fff;
-            border: 2px solid #9d0000;
-        }
+.steps > .step.is-inactive:before {
+    content: "X";
+    color: #9d0000;
+    background: #fff;
+    border: 2px solid #9d0000;
+}
 
-        .steps > .step.is-inactive:after {
-            background: #9d0000;
-        }
+.steps > .step.is-inactive:after {
+    background: #9d0000;
+}
 
-        .steps > .step.is-complete:after {
-            background: #1A236F;
-        }
+.steps > .step.is-complete:after {
+    background: #1A236F;
+}
 
-        .steps > .step.is-uncomplete:before {
-            color: #9d0000;
-            background: #fff;
-            border: 2px solid #9d0000;
-        }
+.steps > .step.is-uncomplete:before {
+    color: #9d0000;
+    background: #fff;
+    border: 2px solid #9d0000;
+}
 
-        .steps > .step.is-uncomplete:after {
-            background: #9d0000;
-        }
+.steps > .step.is-uncomplete:after {
+    background: #9d0000;
+}
 
-        /*   .steps > .step.is-active {
+/*   .steps > .step.is-active {
             font-size: 1.5rem;
         }*/
 
-        .steps > .step.is-active:before {
-            color: #FFF;
-            border: 2px solid #1A236F;
-            background: #1A236F;
-            /*margin-bottom: -4.9rem;*/
-        }
+.steps > .step.is-active:before {
+    color: #FFF;
+    border: 2px solid #1A236F;
+    background: #1A236F;
+    /*margin-bottom: -4.9rem;*/
+}

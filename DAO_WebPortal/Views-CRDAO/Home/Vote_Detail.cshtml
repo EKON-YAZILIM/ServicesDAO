@@ -3,23 +3,8 @@
 
 @{
     Layout = "../Shared/_MainLayout.cshtml";
-}
 
-@*@{ 
-    double perc = 100;
-    if (Model.Voting.StakedAgainst > 0)
-    {
-        perc = (Convert.ToDouble(Model.Voting.StakedFor) / Convert.ToDouble(Model.Voting.StakedAgainst) * 100);
-    }
 }
-
-<div class="row">
-    <div class="col-md-12 px-5 py-3">
-        <div class="progress bg-danger" style="height:35px">
-            <div class="progress-bar" role="progressbar" style="width:@Html.Raw(perc+"%")" aria-valuenow="@perc" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-    </div>
-</div>*@
 
 <div class="row">
     <div class="col-md-12">
@@ -32,50 +17,64 @@
             </div><!-- .header -->
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <!-- Card Body -->
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Username</th>
-                                <th scope="col">Stake For</th>
-                                <th scope="col">Stake Against</th>
-                                <th scope="col">Vote Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @{int Count = 0;}
+                    @if (Model.VoteItems.Count > 0)
+                    {
+                        <table class="table table-striped table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Stake For</th>
+                                    <th scope="col">Stake Against</th>
+                                    <th scope="col">Vote Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{int Count = 0;}
 
-                            @foreach (var item in Model.VoteItems.OrderBy(x => x.Date))
-                            {
-                                Count++;
+                                @foreach (var item in Model.VoteItems.OrderBy(x => x.Date))
+                                {
+                                    Count++;
+
+                                    <tr>
+                                        <th scope="row">@Count</th>
+                                        <td>@item.UserName</td>
+                                        @if (item.Direction == Helpers.Constants.Enums.StakeType.For)
+                                        {
+                                            <td>@item.ReputationStake</td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
+                                        @if (item.Direction == Helpers.Constants.Enums.StakeType.Against)
+                                        {
+                                            <td>@item.ReputationStake</td>
+                                        }
+                                        else
+                                        {
+                                            <td></td>
+                                        }
+
+                                        <td>@item.Date</td>
+                                    </tr>
+                                }
 
                                 <tr>
-                                    <th scope="row">@Count</th>
-                                    <td>@item.UserName</td>
-                                    @if (item.Direction == Helpers.Constants.Enums.StakeType.For)
-                                    {
-                                        <td>@item.ReputationStake</td>
-                                    }
-                                    else
-                                    {
-                                        <td></td>
-                                    }
-                                    @if (item.Direction == Helpers.Constants.Enums.StakeType.Against)
-                                    {
-                                        <td>@item.ReputationStake</td>
-                                    }
-                                    else
-                                    {
-                                        <td></td>
-                                    }
-
-                                    <td>@item.Date.ToString("MM.dd.yyyy HH:mm")</td>
+                                    <td>#</td>
+                                    <td><b>Staked Total</b></td>
+                                    <td><b>@Model.VoteItems.Where(x => x.Direction == Helpers.Constants.Enums.StakeType.For).Sum(x => x.ReputationStake)</b></td>
+                                    <td><b>@Model.VoteItems.Where(x => x.Direction == Helpers.Constants.Enums.StakeType.Against).Sum(x => x.ReputationStake)</b></td>
+                                    <td></td>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div><!-- Card Body -->
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no votes in this voting" }, { "Icon", "frown-open" } }' />
+                    }
+                </div>
             </div>
         </div>
     </div>

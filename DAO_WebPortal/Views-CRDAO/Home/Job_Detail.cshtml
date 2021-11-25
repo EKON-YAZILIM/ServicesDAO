@@ -4,8 +4,8 @@
 
 @{
     Layout = "../Shared/_MainLayout.cshtml";
-}
 
+}
 @model Helpers.Models.WebsiteViewModels.JobPostDetailModel
 <!-- Row -->
 <div class="row">
@@ -69,7 +69,7 @@
                                 <!-- Heading -->
                                 <div class="comment-heading">
                                     <div class="comment-voting">
-                                        <img class="avatar-img" src="../Home/images/avatars/@commentItem.ProfileImage" alt="somebody1">
+                                        <img class="avatar-img" src="../Home/images/avatars/@commentItem.ProfileImage" alt="@commentItem.UserName" onerror="this.src='../Home/images/avatars/default.png'">
                                     </div>
                                     <div class="comment-info">
                                         <a href="#" class="comment-author">@commentItem.UserName</a>
@@ -241,34 +241,41 @@
 
             if (!inputExists) {
                 $(e).parent().append("<div class='comment-body mt-3'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2' onclick='AddNewComment(" +@Model.JobPostWebsiteModel.JobID+"," + commentid + ");'>Reply</button></div></div>");
+            } else {
+                $('#textarea-input-' + commentid).parent().remove();
             }
 
         }
 
         //Add new Comment
         function AddNewComment(jobid, commentid) {
+            if ($("#textarea-input-" + commentid).val().trim() == "") {
+                $("#textarea-input-" + commentid).addClass("invalidInput");
+                $("#textarea-input-" + commentid).attr("placeholder", "Comment cannot be empty.");
+            } else {
+                $("#textarea-input-" + commentid).removeClass("invalidInput");
+                    $.ajax({
+                    type: "POST",
+                    url: "../Home/AddNewComment",
+                    data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
+                    success: function (result) {
+                       console.log(result);
+                            if (result.success) {
+                                window.location.reload();
+                            }
+                            else {
+                                toastr.warning(result.message);
+                            }
+                        },
+                          failure: function (response) {
+                                toastr.warning("@Lang.ConnectionError");
+                        },
+                        error: function (response) {
+                             toastr.error("@Lang.UnexpectedError");
 
-            $.ajax({
-                type: "POST",
-                url: "../Home/AddNewComment",
-                data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
-                success: function (result) {
-                   console.log(result);
-                        if (result.success) {
-                            window.location.reload();
-                        }
-                        else {
-                            toastr.warning(result.message);
-                        }
-                    },
-                      failure: function (response) {
-                            toastr.warning("@Lang.ConnectionError");
-                    },
-                    error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
-
-                }
-            });
+                    }
+                });
+            }
         }
 
         //Delete Comment

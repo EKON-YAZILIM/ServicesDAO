@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "../Shared/_MainLayout.cshtml";
-}
 
+}
 @model List<Helpers.Models.WebsiteViewModels.AuctionViewModel>
 <!-- Tab list -->
 <ul class="nav nav-underline border-0 mb-3" role="tablist">
@@ -291,12 +291,11 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Output the result in an element with id="counter_id"
-            document.getElementById("counter_"+id).innerHTML = "<span>" + days + "</span>" + "D <span>" + hours + "</span>:<span>"
-                + minutes + "</span>:<span>" + seconds + "</span>";
+            document.getElementById("counter_" + id).innerHTML = "<span>" + days.toString() + "</span>" + "D <span>" + hours.toString().padStart(2, '0') + "</span>:<span>"
+                + minutes.toString().padStart(2, '0') + "</span>:<span>" + seconds.toString().padStart(2, '0') + "</span>";
 
             // If the count down is over, write some text
             if (distance < 0) {
-                clearInterval(x);
                 document.getElementById("counter_" + id).innerHTML = "EXPIRED";
             }
         }

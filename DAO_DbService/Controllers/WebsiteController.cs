@@ -372,9 +372,9 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetDashBoardAdmin")]
         [HttpGet]
-        public GetDashBoardViewModel GetDashBoardAdmin(int userid)
+        public DashBoardViewModelAdmin GetDashBoardAdmin(int userid)
         {
-            GetDashBoardViewModel res = new GetDashBoardViewModel();
+            DashBoardViewModelAdmin res = new DashBoardViewModelAdmin();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
@@ -492,7 +492,7 @@ namespace DAO_DbService.Controllers
                         res.AuctionGraph = db.Auctions.Where(x => x.CreateDate > GraphDate).ToList().GroupBy(
                             Auction => Auction.CreateDate.Month,
                             Auction => Auction,
-                            (Auctions, AuctionModel) => new AdminDashboardCardGraphModel
+                            (Auctions, AuctionModel) => new AdminDashboardCardModel
                             {
                                 Month = Auctions,
                                 Count1 = AuctionModel.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding).Count(),
@@ -504,7 +504,7 @@ namespace DAO_DbService.Controllers
                         res.VotingGraph = VotingModel.Where(x => x.CreateDate > GraphDate).ToList().GroupBy(
                            Voting => Voting.CreateDate.Month,
                            Voting => Voting,
-                           (Votings, VotingModel) => new AdminDashboardCardGraphModel
+                           (Votings, VotingModel) => new AdminDashboardCardModel
                            {
                                Month = Votings,
                                Count1 = VotingModel.Where(x => x.IsFormal == true).Count(),
@@ -545,9 +545,9 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetDashBoardVA")]
         [HttpGet]
-        public GetDashBoardViewModelVA GetDashBoardVA(int userid)
+        public DashBoardViewModelVA GetDashBoardVA(int userid)
         {
-            GetDashBoardViewModelVA res = new GetDashBoardViewModelVA();
+            DashBoardViewModelVA res = new DashBoardViewModelVA();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
@@ -653,9 +653,9 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetDashBoardAssociate")]
         [HttpGet]
-        public GetDashBoardViewModelVA GetDashBoardAssociate(int userid)
+        public DashBoardViewModelVA GetDashBoardAssociate(int userid)
         {
-            GetDashBoardViewModelVA res = new GetDashBoardViewModelVA();
+            DashBoardViewModelVA res = new DashBoardViewModelVA();
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())

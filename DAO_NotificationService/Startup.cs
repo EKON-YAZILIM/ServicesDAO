@@ -15,6 +15,8 @@ using static DAO_NotificationService.Program;
 using Helpers;
 using Helpers.Models.SharedModels;
 using System.Text.Json.Serialization;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace DAO_NotificationService
 {
@@ -93,6 +95,22 @@ namespace DAO_NotificationService
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseStaticFiles();
+
+            var defaultDateCulture = "en-US";
+            var ci = new CultureInfo(defaultDateCulture);
+            ci.NumberFormat.NumberDecimalSeparator = ".";
+            ci.NumberFormat.CurrencyDecimalSeparator = ".";
+            ci.NumberFormat.NumberGroupSeparator = ",";
+
+            // Configure the Localization middleware
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(ci),
+                SupportedCultures = new List<CultureInfo> { ci, },
+                SupportedUICultures = new List<CultureInfo> { ci, }
             });
 
             DefaultFilesOptions DefaultFile = new DefaultFilesOptions();

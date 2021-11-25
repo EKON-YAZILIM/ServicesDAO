@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-    public class GetDashBoardViewModelVA
+    public class DashBoardViewModelVA
     {
         public MyJobsViewModel MyJobs { get; set; }
         public int MyJobCount { get; set; }

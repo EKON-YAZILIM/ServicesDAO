@@ -1,10 +1,10 @@
-﻿@{
-    Layout = "../Shared/_MainLayout.cshtml";
-}
-
-@using PagedList.Core.Mvc
+﻿@using PagedList.Core.Mvc
 @using PagedList.Core
 @model StaticPagedList<Helpers.Models.WebsiteViewModels.JobPostViewModel>
+
+@{
+    Layout = "../Shared/_MainLayout.cshtml";
+}
 
 <!-- Row -->
 <div class="row">
@@ -28,14 +28,15 @@
 @if (Model.Count() > 0)
 {
     @*############ PAGINATION ############*@
-    <center>
-        <table class="mb-5">
-            <tr>
-                <td colspan="3" align="center">
-                    <pager class="pager-container" list="@Model" options="@PagedListRenderOptions.Bootstrap4Full" asp-action="All-Jobs" asp-controller="Home" />
-
-                </td>
-            </tr>
-        </table>
-    </center>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="my-3 w-100">
+                <tr>
+                    <td colspan="3" align="center">
+                        <pager class="pager-container" list="@Model" options="@PagedListRenderOptions.Bootstrap4Full" asp-action="All-Jobs" asp-controller="Home" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 }

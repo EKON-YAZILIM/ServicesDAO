@@ -46,21 +46,21 @@ namespace DAO_WebPortal.Controllers
                 //User type control for admin
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
                 {
-                    GetDashBoardViewModel dashModel = new GetDashBoardViewModel();
+                    DashBoardViewModelAdmin dashModel = new DashBoardViewModelAdmin();
                     //Get dashboard data from ApiGateway
                     string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAdmin?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModel>(dashboardJson);
+                    dashModel = Helpers.Serializers.DeserializeJson<DashBoardViewModelAdmin>(dashboardJson);
                     return View("Index_Admin", dashModel);
                 }
                 //User type control for associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.Associate.ToString())
                 {
-                    GetDashBoardViewModelVA dashModel = new GetDashBoardViewModelVA();
+                    DashBoardViewModelVA dashModel = new DashBoardViewModelVA();
                     //Get dashboard data from ApiGateway
                     string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardAssociate?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModelVA>(dashboardJson);
+                    dashModel = Helpers.Serializers.DeserializeJson<DashBoardViewModelVA>(dashboardJson);
 
                     //Get model from ApiGateway
                     var ReputationUrl = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
@@ -73,11 +73,11 @@ namespace DAO_WebPortal.Controllers
                 //User type control for voting associate
                 if (userType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                 {
-                    GetDashBoardViewModelVA dashModel = new GetDashBoardViewModelVA();
+                    DashBoardViewModelVA dashModel = new DashBoardViewModelVA();
                     //Get dashboard data from ApiGateway
                     string dashboardJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetDashBoardVA?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                     //Parse response
-                    dashModel = Helpers.Serializers.DeserializeJson<GetDashBoardViewModelVA>(dashboardJson);
+                    dashModel = Helpers.Serializers.DeserializeJson<DashBoardViewModelVA>(dashboardJson);
 
                     //Get model from ApiGateway
                     var ReputationUrl = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));

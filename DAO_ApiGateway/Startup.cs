@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,7 @@ using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,11 +124,26 @@ namespace DAO_ApiGateway
                 endpoints.MapControllers();
             });
 
+            app.UseStaticFiles();
+
+            var defaultDateCulture = "en-US";
+            var ci = new CultureInfo(defaultDateCulture);
+            ci.NumberFormat.NumberDecimalSeparator = ".";
+            ci.NumberFormat.CurrencyDecimalSeparator = ".";
+            ci.NumberFormat.NumberGroupSeparator = ",";
+
+            // Configure the Localization middleware
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(ci),
+                SupportedCultures = new List<CultureInfo> { ci, },
+                SupportedUICultures = new List<CultureInfo> { ci, }
+            });
+
             DefaultFilesOptions DefaultFile = new DefaultFilesOptions();
             DefaultFile.DefaultFileNames.Clear();
             DefaultFile.DefaultFileNames.Add("Index.html");
             app.UseDefaultFiles(DefaultFile);
-            app.UseStaticFiles();
 
             app.UseOcelot();
         }
