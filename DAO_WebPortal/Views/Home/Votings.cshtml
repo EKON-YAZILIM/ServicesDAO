@@ -276,7 +276,6 @@
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
-                                            <td><b id="counter_@item.VotingID"></b></td>
 
                                             @*User's Vote*@
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)

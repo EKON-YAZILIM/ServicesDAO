@@ -612,7 +612,7 @@ namespace DAO_DbService.Controllers
                                          .ToList();
 
                     //Get job post count
-                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid && x.JobDoerUserID == userid).Count();
+                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid || x.JobDoerUserID == userid).Count();
 
                     //Get auction count
                     //Get model from Voting_Engine_Url
@@ -720,7 +720,7 @@ namespace DAO_DbService.Controllers
                         .ToList();
 
                     //Get job post count
-                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid && x.JobDoerUserID == userid).Count();
+                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid || x.JobDoerUserID == userid).Count();
 
                     //Get auction count
                     //Get model from Voting_Engine_Url

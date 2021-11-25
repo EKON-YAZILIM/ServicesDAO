@@ -136,18 +136,40 @@ namespace DAO_DbService
         {
             try
             {
-                using (dao_maindb_context db = new dao_maindb_context())
+                //Check completed informal votings and update job status accordingly
+                CheckCompletedInformalVotings();
+
+                //Check completed formal votings and update job status accordingly
+                CheckCompletedFormalVotings();
+
+                //Check job doer does not provided job evidence and started informal voting within expected time frame
+                CheckJobFail();
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddConsole("Exception in timer CheckJobStatus. Ex: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        ///  Checks completed informal votings and updates job status accordingly
+        /// </summary>
+        private static void CheckCompletedInformalVotings()
+        {
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                //Check completed informal votings and update job status accordingly
+                var informalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.InformalVoting).ToList();
+
+                //Get completed informal votes from ApiGateway
+                string informalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(informalVotingJobs.Select(x => x.JobID)));
+
+                //Parse result
+                List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson);
+
+                foreach (var voting in completedInformalModel)
                 {
-                    //Check completed informal votings and update job status accordingly
-                    var informalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.InformalVoting).ToList();
-
-                    //Get completed informal votes from ApiGateway
-                    string informalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(informalVotingJobs.Select(x => x.JobID)));
-
-                    //Parse result
-                    List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson);
-
-                    foreach (var voting in completedInformalModel)
+                    try
                     {
                         //Informal voting finished without quorum -> Set job status to Expired
                         if (voting.Status == Enums.VoteStatusTypes.Expired)
@@ -167,7 +189,7 @@ namespace DAO_DbService
                             //Send email to job poster
                             SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
                             //Send email to job doer
-                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
+                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
                         }
                         //Informal voting completed -> Set job status according to vote result
                         else
@@ -187,21 +209,36 @@ namespace DAO_DbService
                             //Send email to job poster
                             SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
                             //Send email to job doer
-                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
+                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        Program.monitizer.AddConsole("Exception in timer CheckCompletedInformalVotings. Ex: " + ex.Message);
+                    }
+                }
+            }
+        }
 
+        /// <summary>
+        ///  Checks completed formal votings and updates job status accordingly
+        /// </summary>
+        private static void CheckCompletedFormalVotings()
+        {
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                //Check completed formal votings and update job status accordingly
+                var formalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.FormalVoting).ToList();
 
-                    //Check completed formal votings and update job status accordingly
-                    var formalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.FormalVoting).ToList();
+                //Get completed formal votes from ApiGateway
+                string formalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(formalVotingJobs.Select(x => x.JobID)));
 
-                    //Get completed formal votes from ApiGateway
-                    string formalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(formalVotingJobs.Select(x => x.JobID)));
+                //Parse result
+                List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson);
 
-                    //Parse result
-                    List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson);
-
-                    foreach (var voting in completedFormalModel)
+                foreach (var voting in completedFormalModel)
+                {
+                    try
                     {
                         //Formal voting finished without quorum -> Set job status to Expired
                         if (voting.Status == Enums.VoteStatusTypes.Expired)
@@ -236,6 +273,12 @@ namespace DAO_DbService
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
 
+                                //If job doer is Associate, change the user type to  VA
+                                if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                {
+                                    user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
+                                    db.SaveChanges();
+                                }
 
                                 //Send notification email to job poster and job doer
                                 var jobPoster = db.Users.Find(job.UserID);
@@ -248,7 +291,7 @@ namespace DAO_DbService
                                 //Send email to job poster
                                 SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
                                 //Send email to job doer
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
                             }
                             else
                             {
@@ -270,13 +313,67 @@ namespace DAO_DbService
                                 SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobPoster.Email);
                             }
                         }
-
+                    }
+                    catch(Exception ex)
+                    {
+                        Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
                     }
                 }
             }
-            catch (Exception ex)
+        }
+
+        /// <summary>
+        ///  Checks if job doer does not provided job evidence and started informal voting within expected time frame
+        /// </summary>
+        private static void CheckJobFail()
+        {
+            using (dao_maindb_context db = new dao_maindb_context())
             {
-                Program.monitizer.AddConsole("Exception in timer CheckJobStatus. Ex: " + ex.Message);
+                //Get current active jobs
+                var activeJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.AuctionCompleted).ToList();
+
+                foreach (var job in activeJobs)
+                {
+                    try
+                    {
+                        var auction = db.Auctions.Where(x => x.JobID == job.JobID).OrderByDescending(x => x.CreateDate).First();
+                        var winnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+
+                        int expectedDays = Convert.ToInt32(winnerBid.Time);
+
+                        if(expectedDays > 0)
+                        {
+                            //Job doer didn't post valid evidence and started informal voting within expected time range -> Set job status to Failed
+                            if(Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
+                            {
+                                string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + job.JobID + "&reftype=" + Enums.StakeType.Mint);
+
+                                job.Status = Enums.JobStatusTypes.Failed;
+                                db.SaveChanges();
+
+
+                                //Send notification email to job poster and job doer
+                                var jobPoster = db.Users.Find(job.UserID);
+                                var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                                //Set email title and content
+                                string emailTitle = "Job failed #" + job.JobID;
+                                string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job is failed because job doer didn't post a valid evidence of work and started informal voting process within the expected time frame.";
+
+                                //Send email to job poster
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                //Send email to job doer
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Program.monitizer.AddConsole("Exception in timer CheckJobFail. Ex: " + ex.Message);
+                    }
+
+                }
             }
         }
 

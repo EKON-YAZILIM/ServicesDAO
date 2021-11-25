@@ -756,6 +756,12 @@ namespace DAO_WebPortal.Controllers
                 //Parse response
                 List<AuctionBidDto> bids = Helpers.Serializers.DeserializeJson<List<AuctionBidDto>>(auctionBidsJson);
 
+                //Check inputs
+                if (Model.Price <= 0 || string.IsNullOrEmpty(Model.Time))
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields" });
+                }
+
                 //Check if public user trying to submit bid for expired or completed auction
                 if (auction.Status == Enums.AuctionStatusTypes.Completed || auction.Status == Enums.AuctionStatusTypes.Expired)
                 {
@@ -934,7 +940,7 @@ namespace DAO_WebPortal.Controllers
                         //Parse response
                         SimpleResponse mintReponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(mintJson);
 
-                        if (stakeReleaseResponse.Success && mintReponse.Success)
+                        if (mintReponse.Success)
                         {
                             result.Success = true;
                             result.Message = "Winner bid selected.";
@@ -944,6 +950,21 @@ namespace DAO_WebPortal.Controllers
                             TempData["toastr-type"] = "success";
 
                             Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Job poster selected the winner bid. Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                            //Send notification email to winner
+
+                            //Get winner user object 
+                            var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + auctionBid.UserId, HttpContext.Session.GetString("Token"));
+                            //Parse result
+                            var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
+
+                            //Set email title and content
+                            string emailTitle = "You won the auction #" + auction.AuctionID + ")";
+                            string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> You won the auction of '"+ jobStatusResult.Title + "'.<br><br> Please post your job completion evidence as a comment to the related job and start informal voting process within expected timeframe";
+
+                            SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
+                            Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
+
                         }
                     }
 

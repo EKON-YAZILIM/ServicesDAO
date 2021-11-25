@@ -10,30 +10,38 @@
 
 @{
     string userType = httpContextAccessor.HttpContext.Session.GetString("UserType");
-
-    //New bid button will be active for only authorized members
-    if ((Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding && userType == Enums.UserIdentityType.VotingAssociate.ToString()) ||
-        (Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding && userType == Enums.UserIdentityType.Associate.ToString()))
-    {
-        //If user is not job poster display new bid button
-        if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != Model.Auction.JobPosterUserId)
-        {
-            <div class="row d-flex m-2 mb-3">
-                <div class="col-md-6 d-flex">
-       
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <a class="btn btn-primary btn-shine" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
-                        <svg class="icon me-2">
-                            <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
-                        </svg>New Bid
-                    </a>
-                </div>
-            </div>
-        }
-    }
-
 }
+
+<div class="row d-flex m-2 mb-3">
+    <div class="col-md-6 d-flex">
+        <a class="btn btn-primary" href="../Auctions">
+            <svg class="icon me-2">
+                <use xlink:href="/Home/images/svg/free.svg#cil-chevron-circle-left-alt"></use>
+            </svg> Go Back
+        </a>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+        @*New bid button will be active for only authorized members*@
+        @if ((Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding && userType == Enums.UserIdentityType.VotingAssociate.ToString()) ||
+    (Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding && userType == Enums.UserIdentityType.Associate.ToString()))
+        {
+            //If user is not job poster display new bid button
+            if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != Model.Auction.JobPosterUserId)
+            {
+
+                <a class="btn btn-primary btn-shine" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
+                    <svg class="icon me-2">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-plus"></use>
+                    </svg>New Bid
+                </a>
+
+            }
+        }
+    </div>
+</div>
+
+
+
 
 
 <!--Bids-->
@@ -75,7 +83,7 @@
 
                         <tr style="@borderStyle">
                             <th scope="row">@Count</th>
-                            <td id="name_@item.AuctionBidID" >@item.NameSurname</td>
+                            <td id="name_@item.AuctionBidID">@item.NameSurname</td>
                             <td>@item.UserName</td>
                             <td>@item.Price</td>
                             <td>@item.Time</td>
@@ -139,21 +147,21 @@
                     <label class="form-label" for="price"><b>Price</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">€</span>
-                        <input class="form-control" type="text" aria-label="price" placeholder="Price" id="price"><span class="input-group-text" oninput="CheckNumbers(this)">.00</span>
+                        <input class="form-control" type="number" aria-label="price" placeholder="Price" id="price"><span class="input-group-text">.00</span>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="time"><b>Time</b></label>
                     <div class="input-group mb-3">
-                        <input class="form-control" type="text" aria-label="Time" placeholder="Time" id="time" oninput="CheckNumbers(this)"><span class="input-group-text">days</span>
+                        <input class="form-control" type="number" aria-label="Time" placeholder="Time" id="time"><span class="input-group-text">days</span>
                     </div>
                 </div>
                 @if (userType == Enums.UserIdentityType.Associate.ToString())
                 {
                     <div class="mb-3">
-                        <label class="form-label" for="Note"><b>Note</b></label>
+                        <label class="form-label" for="Note"><b>Note</b> <br /><small>(Please put your resume or portfolio into the notes area if you are not a known member of this DAO)</small></label>
                         <div class="input-group mb-3">
-                            <input class="form-control" type="text" aria-label="Note" placeholder="Note" id="note">
+                            <textarea class="form-control" type="text" aria-label="Note" placeholder="Note" id="note"></textarea>
                         </div>
                     </div>
                 }
@@ -231,9 +239,9 @@
             $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
                 //Create auction bid model
                 var price = $('#price').val()
-                var time = $('#time').val();
-                var note = $('#note').val();
-                    //Ajax post action
+                var time = $('#time').val().toString();
+                var note = $('#note').val().toString();
+                //Ajax post action
                 $.ajax({
                     type: "POST",
                     url: "../Home/Auction_Bid_Add",

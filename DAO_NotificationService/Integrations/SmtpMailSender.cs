@@ -66,7 +66,7 @@ namespace DAO_NotificationService.Integrations
 
             "<div style=\"width:100%;min-height:300px;background:#f3f3f3 !important;padding:50px;color:#25262f;font-family:Arial\">" +
                          content +
-                         "<br><br> Regards," + Program._settings.DAOName + " Team" +
+                         "<br><br><br> Regards,<br>" + Program._settings.DAOName + " Team" +
             "</div>" +
 
             "<div style=\"width:100%;height:100px;background:#353847 !important;border-top: 5px solid #334d80;\">" +
