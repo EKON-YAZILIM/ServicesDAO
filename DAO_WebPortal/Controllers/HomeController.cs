@@ -1056,6 +1056,20 @@ namespace DAO_WebPortal.Controllers
                 var usernamesJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUsernamesByUserIds", Helpers.Serializers.SerializeJson(votes.Select(x => x.UserID)), HttpContext.Session.GetString("Token"));
                 var usernames = Helpers.Serializers.DeserializeJson<List<string>>(usernamesJson);
 
+                //Get informal voting results
+                if (voting.IsFormal)
+                {
+                    var informalVotingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetInformalVotingByJobId?jobid=" + voting.JobID, HttpContext.Session.GetString("Token"));
+                    var informalVoting = Helpers.Serializers.DeserializeJson<VotingDto>(informalVotingJson);
+
+                    //Get reputation stakes of informal voting from reputation service
+                    var informalReputationsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByProcessId?referenceProcessID=" + informalVoting.VotingID + "&reftype=" + StakeType.For, HttpContext.Session.GetString("Token"));
+                    var informalReputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(informalReputationsJson);
+
+                    //Get total reputations staked for both sides in informal voting
+                    voteDetailModel.InformalFor = informalReputations.Where(x => x.Type == StakeType.For).Sum(x => x.Amount);
+                    voteDetailModel.InformalAgainst = informalReputations.Where(x => x.Type == StakeType.Against).Sum(x => x.Amount);
+                }
 
                 //Combine results into VoteItemModel
                 List<VoteItemModel> voteItems = new List<VoteItemModel>();
@@ -1225,6 +1239,7 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
 
         }
+
         #endregion
 
         #region Reputation

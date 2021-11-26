@@ -3,7 +3,29 @@
 
 @{
     Layout = "../Shared/_MainLayout.cshtml";
+}
 
+
+@if (Model.Voting.IsFormal && Model.InformalFor != null && Model.InformalAgainst != null)
+{
+    double forRatio = Convert.ToDouble(Model.InformalFor) / Convert.ToDouble(Model.InformalFor + Model.InformalAgainst);
+    string forPerc = Math.Round(forRatio * 100, 2) + "%";
+    double againstRatio = 1 - forRatio;
+    string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
+
+    <div class="row mt-3 mb-5">
+        <div class="col-md-12">
+            <h5>Informal Voting Results</h5>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width:@forPerc" aria-valuenow="@forRatio" aria-valuemin="0" aria-valuemax="100">@forPerc</div>
+                <div class="progress-bar bg-danger" role="progressbar" style="width:@againstPerc" aria-valuenow="@againstRatio" aria-valuemin="0" aria-valuemax="100">@againstPerc</div>
+            </div>
+            <div class="mt-2">
+                <b class="float-left">For @forPerc</b>
+                <b class="float-right">Against @againstPerc</b>
+            </div>   
+        </div>
+    </div>
 }
 
 <div class="row">

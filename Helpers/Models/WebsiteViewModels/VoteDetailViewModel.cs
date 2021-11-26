@@ -9,5 +9,8 @@ namespace Helpers.Models.WebsiteViewModels
     {
         public List<VoteItemModel> VoteItems { get; set; }
         public VotingDto Voting { get; set; }
+        public double? InformalFor { get; set; }
+        public double? InformalAgainst { get; set; }
+
     }
 }
