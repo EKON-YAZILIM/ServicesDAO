@@ -142,3 +142,9 @@ function GoToJobDetail(pageurl, jobid) {
 function ComingSoon() {
     toastr.warning("This feature will be available in the next version.");
 }
+
+
+$('input.number').on("input", function (e) {
+    $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+})
+

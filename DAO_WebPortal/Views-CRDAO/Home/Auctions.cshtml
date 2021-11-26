@@ -55,8 +55,8 @@
                                         <tr>
                                             <th scope="row">@auction.AuctionID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                            <td>@auction.CreateDate.ToString("MM/dd/yyyy")</td>
                                             <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td><b id="counter_@auction.AuctionID"></b></td>
                                             <td>@auction.BidCount</td>
                                             <td>

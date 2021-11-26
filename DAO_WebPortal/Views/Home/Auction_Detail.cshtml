@@ -151,13 +151,13 @@
                     <label class="form-label" for="price"><b>Price</b></label>
                     <div class="input-group mb-3">
                         <span class="input-group-text">€</span>
-                        <input class="form-control" type="number" aria-label="price" placeholder="Price" id="price"><span class="input-group-text" oninput="CheckNumbers(this)">.00</span>
+                        <input class="form-control number" type="text" aria-label="price" placeholder="Price" id="price"><span class="input-group-text">.00</span>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="time"><b>Time</b></label>
                     <div class="input-group mb-3">
-                        <input class="form-control" type="number" aria-label="Time" placeholder="Time" id="time" oninput="CheckNumbers(this)"><span class="input-group-text">days</span>
+                        <input class="form-control number" type="text" aria-label="Time" placeholder="Time" id="time"><span class="input-group-text">days</span>
                     </div>
                 </div>
                 @if (userType == Enums.UserIdentityType.Associate.ToString())
