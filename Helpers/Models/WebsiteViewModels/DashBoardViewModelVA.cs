@@ -9,15 +9,11 @@ namespace Helpers.Models.WebsiteViewModels
 {
     public class DashBoardViewModelVA
     {
-        public MyJobsViewModel MyJobs { get; set; }
+        public List<DashboardJobCardModel> MyDoerJobs { get; set; }
+        public List<DashboardJobCardModel> MyOwnerJobs { get; set; }
         public int MyJobCount { get; set; }
-        public double JobRatio { get; set; }
-
         public int MyAuctionCount { get; set; }
-        public double AuctionRatio { get; set; }
-
         public int MyVotesCount { get; set; }
-        public List<VoteDto> MyVotes { get; set; }
         public List<LastCommentsDto> LastComments { get; set; }
         public List<PopularJobsDto> PopularJobs { get; set; }
         public UserReputationHistoryDto UserReputation { get; set; }

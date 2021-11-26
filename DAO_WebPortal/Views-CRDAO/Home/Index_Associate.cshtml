@@ -151,11 +151,11 @@
                 </svg> My Jobs As Owner
             </div>
             <div class="card-body h-300 overflowy">
-                @if (Model.MyJobs.ownedJobs.Count() > 0)
+                @if (Model.MyOwnerJobs.Count() > 0)
                 {
                     <div class="table-responsive" style="max-height:500px">
                         <!--Table-->
-                        <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyJobs.ownedJobs" />
+                        <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyOwnerJobs" />
                     </div>
                 }
                 else
@@ -179,10 +179,10 @@
                 </svg> My Jobs As Doer
             </div>
             <div class="card-body h-300 overflowy">
-                @if (Model.MyJobs.doerJobs.Count() > 0)
+                @if (Model.MyDoerJobs.Count() > 0)
                 {
                     <div class="table-responsive">
-                        <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyJobs.doerJobs" />
+                        <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyDoerJobs" />
                     </div>
                 }
                 else

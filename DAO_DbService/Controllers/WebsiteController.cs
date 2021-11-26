@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using static DAO_DbService.Mapping.AutoMapperBase;
+using static Helpers.Models.WebsiteViewModels.MyJobsViewModel;
 
 namespace DAO_DbService.Controllers
 {
@@ -554,17 +555,50 @@ namespace DAO_DbService.Controllers
                 {
 
                     //Get job post model from GetVoteJobsByProgressTypes function
-                    res.MyJobs = GetUserJobs(userid);
+                    res.MyDoerJobs = (from job in db.JobPosts
+                                           join Auction in db.Auctions on job.JobID equals Auction.JobID
+                                           join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
+                                           join User in db.Users on job.UserID equals User.UserId
+                                           where job.JobDoerUserID == userid && AuctionBid.UserID == userid
+                                           orderby job.CreateDate descending
+                                           select new DashboardJobCardModel
+                                           {
+                                               JobID = job.JobID,
+                                               CreateDate = job.CreateDate,
+                                               UserName = User.UserName,
+                                               Title = job.Title,
+                                               Amount = AuctionBid.Price,
+                                               Status = job.Status,
+                                               EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
+                                           }).ToList();
+
+
+                    res.MyOwnerJobs = (from job in db.JobPosts
+                                            join Auction in db.Auctions on job.JobID equals Auction.JobID
+                                            join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
+                                            join User in db.Users on job.UserID equals User.UserId
+                                            where job.UserID == userid && AuctionBid.UserID == userid
+                                            orderby job.CreateDate descending
+                                            select new DashboardJobCardModel
+                                            {
+                                                JobID = job.JobID,
+                                                CreateDate = job.CreateDate,
+                                                UserName = User.UserName,
+                                                Title = job.Title,
+                                                Amount = AuctionBid.Price,
+                                                Status = job.Status,
+                                                EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
+                                            }).ToList();
 
                     //Get Last 10 Comments
-                    res.LastComments  = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10)
+                    res.LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10)
                         .Join(db.Users,
                             c => c.UserID,
                             cm => cm.UserId,
                             (c, cm) => new LastCommentsDto
                             {
                                 UserName = cm.UserName,
-                                ProfileImage =cm.ProfileImage,
+                                ProfileImage = cm.ProfileImage,
                                 Comment = c.Comment,
                                 Date = c.Date,
                                 JobID = c.JobID
@@ -621,18 +655,18 @@ namespace DAO_DbService.Controllers
                     //Get voting count
                     //Get model from Voting_Engine_Url
                     var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Votes/Get?"));
-                    res.MyVotes = VotingModel.Where(x => x.UserID == userid).ToList();
+
                     res.MyVotesCount = VotingModel.Where(x => x.UserID == userid).Count();
 
                     //Get job ratio from the comparison of the last two months
                     var JobPreviousCount = db.JobPosts.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.UserID == userid).Count();
                     var JobCount = db.JobPosts.Where(x => x.CreateDate > date && x.UserID == userid).Count();
-                    if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
+
 
                     //Get auction ratio from the comparison of the last two months
                     var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid).Count();
                     var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
-                    if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
+
 
 
 
@@ -644,7 +678,7 @@ namespace DAO_DbService.Controllers
             }
             return res;
         }
-        #endregion
+
 
         /// <summary>
         /// Get dashboard for associate
@@ -660,9 +694,42 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-
                     //Get job post model from GetVoteJobsByProgressTypes function
-                    res.MyJobs = GetUserJobs(userid);
+
+                    res.MyDoerJobs = (from job in db.JobPosts
+                                      join Auction in db.Auctions on job.JobID equals Auction.JobID
+                                      join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
+                                      join User in db.Users on job.UserID equals User.UserId
+                                      where job.JobDoerUserID == userid && AuctionBid.UserID == userid
+                                      orderby job.CreateDate descending
+                                      select new DashboardJobCardModel
+                                      {
+                                          JobID = job.JobID,
+                                          CreateDate = job.CreateDate,
+                                          UserName = User.UserName,
+                                          Title = job.Title,
+                                          Amount = AuctionBid.Price,
+                                          Status = job.Status,
+                                          EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
+                                      }).ToList();
+
+
+                    res.MyOwnerJobs = (from job in db.JobPosts
+                                       join Auction in db.Auctions on job.JobID equals Auction.JobID
+                                       join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
+                                       join User in db.Users on job.UserID equals User.UserId
+                                       where job.UserID == userid && AuctionBid.UserID == userid
+                                       orderby job.CreateDate descending
+                                       select new DashboardJobCardModel
+                                       {
+                                           JobID = job.JobID,
+                                           CreateDate = job.CreateDate,
+                                           UserName = User.UserName,
+                                           Title = job.Title,
+                                           Amount = AuctionBid.Price,
+                                           Status = job.Status,
+                                           EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
+                                       }).ToList();
 
                     //Get Last 10 Comments
                     res.LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10)
@@ -729,21 +796,14 @@ namespace DAO_DbService.Controllers
                     //Get voting count
                     //Get model from Voting_Engine_Url
                     var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Votes/Get?"));
-                    res.MyVotes = VotingModel.Where(x => x.UserID == userid).ToList();
                     res.MyVotesCount = VotingModel.Where(x => x.UserID == userid).Count();
 
-                    //Get job ratio from the comparison of the last two months
-                    var JobPreviousCount = db.JobPosts.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.UserID == userid).Count();
+                    //Get job ratio from the comparison of the last two months                   
                     var JobCount = db.JobPosts.Where(x => x.CreateDate > date && x.UserID == userid).Count();
-                    if (JobCount != 0) { res.JobRatio = ((JobCount * JobPreviousCount) / JobCount) * 100; }
 
-                    //Get auction ratio from the comparison of the last two months
-                    var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid).Count();
+
+                    //Get auction ratio from the comparison of the last two months                    
                     var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
-                    if (AuctionCount != 0) { res.AuctionRatio = ((AuctionCount * AuctionPreviousCount) / AuctionCount) * 100; }
-
-
-
                 }
             }
             catch (Exception ex)
@@ -752,6 +812,8 @@ namespace DAO_DbService.Controllers
             }
             return res;
         }
+
+        #endregion
 
         #region Vote
 
@@ -835,10 +897,10 @@ namespace DAO_DbService.Controllers
                     //Get last months payments
                     result.LastMonthAmount = 0;
                     DateTime lastMonth = DateTime.Now.AddMonths(-1);
-                    if (result.UserPaymentHistoryList.Count(x=>x.CreateDate >= lastMonth) > 0)
+                    if (result.UserPaymentHistoryList.Count(x => x.CreateDate >= lastMonth) > 0)
                     {
                         result.LastMonthAmount = result.UserPaymentHistoryList.Where(x => x.CreateDate >= lastMonth).Sum(x => x.JobAmount);
-                    }                  
+                    }
                 }
             }
             catch (Exception ex)

@@ -1,5 +1,5 @@
 ﻿
-@model List<Helpers.Models.WebsiteViewModels.JobPostViewModel>
+@model List<Helpers.Models.WebsiteViewModels.DashboardJobCardModel>
 
 
 
@@ -8,14 +8,20 @@
     <div class="card bg-light mb-3">
         <div class="card-body">
             <div class="row mb-3">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <h6><a href="../Job-Detail/@item.JobID">@item.Title</a> <b><small>@item.UserName</small></b></h6>
                 </div>
-                <div class="col-md-6">
-                    <span class="float-right"> @item.CreateDate</span>
+                <div class="col-md-4">
+                    <div class="justify-content-between d-flex">
+                        <div>
+                            @item.CreateDate 
+                        </div>
+                        <div>
+                            <span id="counter_@item.JobID"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
-           
 
             <ol class="steps">
                 @{
@@ -115,4 +121,54 @@
 }
 
 
+    <script>
 
+           //Get auctions json model for time left counter
+        dataModel = @Html.Raw(Json.Serialize(Model));
+
+        var auctionCountdownDictionary = {};
+
+      
+            //Start auction countdowns
+            for (i = 0; i < dataModel.length; i++) {
+                debugger;
+                    var countDownDate = new Date(dataModel[i].endDate).getTime();
+
+                auctionCountdownDictionary[dataModel[i].jobID] = countDownDate;
+                CountDown(dataModel[i].jobID, countDownDate);
+                StartInterval(dataModel[i], 1000)
+            }
+
+        
+
+        //Send auctionIDs to CountDown function
+        function StartInterval(index, frequency) {
+            setInterval(function () {
+                CountDown(index.jobID, auctionCountdownDictionary[index.jobID]);
+            }, frequency);
+        }
+
+        //Countdown method
+        function CountDown(id, countDownDate) {
+
+            var now = new Date().getTime();
+            countDownDate = auctionCountdownDictionary[id];
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="counter_id"
+            document.getElementById("counter_" + id).innerHTML = "<span>" + days.toString() + "</span>" + "D <span>" + hours.toString() + "</span>:<span>"
+                + minutes.toString() + "</span>:<span>" + seconds.toString() + "</span>";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                document.getElementById("counter_" + id).innerHTML = "EXPIRED";
+            }
+        }
+    </script>

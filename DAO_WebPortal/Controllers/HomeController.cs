@@ -959,7 +959,7 @@ namespace DAO_WebPortal.Controllers
                             var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
                             //Set email title and content
-                            string emailTitle = "You won the auction #" + auction.AuctionID + ")";
+                            string emailTitle = "You won the auction #" + auction.AuctionID ;
                             string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> You won the auction of '"+ jobStatusResult.Title + "'.<br><br> Please post your job completion evidence as a comment to the related job and start informal voting process within expected timeframe";
 
                             SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };

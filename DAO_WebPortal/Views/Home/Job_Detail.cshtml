@@ -28,7 +28,7 @@
 
                         if (Model.JobPostCommentModel.Count > 0)
                         {
-                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).ToList());
+                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).OrderByDescending(x=>x.UpVote).ToList());
                         }
                         else
                         {
@@ -144,7 +144,7 @@
                                     @{
                                         if (Model.JobPostCommentModel.Count(x => x.SubCommentID == commentItem.JobPostCommentID) > 0)
                                         {
-                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == commentItem.JobPostCommentID).ToList());
+                                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == commentItem.JobPostCommentID).OrderByDescending(x => x.UpVote).ToList());
                                         }
                                     }
                                 </div>
