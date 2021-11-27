@@ -8,8 +8,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1091"
+          "Host": "dao_dbservice",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -26,8 +26,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1093"
+          "Host": "dao_logservice",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -44,8 +44,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1096"
+          "Host": "dao_votingengine",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -62,8 +62,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1095"
+          "Host": "dao_reputationservice",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -78,8 +78,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1092"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/Login",
@@ -91,8 +91,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1092"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/Register",
@@ -104,8 +104,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1092"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/RegisterComplete",
@@ -117,8 +117,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1092"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPassword",
@@ -130,8 +130,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1092"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",
@@ -143,8 +143,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1094"
+          "Host": "dao_notificationservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Notification/SendPublicContactEmail",
@@ -156,8 +156,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1091"
+          "Host": "dao_dbservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/GetAuctions",
@@ -169,8 +169,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1091"
+          "Host": "dao_dbservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/GetAuctionBids",
@@ -182,8 +182,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1091"
+          "Host": "dao_dbservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/GetJobDetail",
@@ -195,8 +195,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "192.168.250.10",
-          "Port": "1091"
+          "Host": "dao_dbservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/GetAuctionDetail",

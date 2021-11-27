@@ -113,8 +113,6 @@ namespace DAO_ApiGateway
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthorization();
@@ -123,8 +121,6 @@ namespace DAO_ApiGateway
             {
                 endpoints.MapControllers();
             });
-
-            app.UseStaticFiles();
 
             var defaultDateCulture = "en-US";
             var ci = new CultureInfo(defaultDateCulture);
@@ -144,6 +140,8 @@ namespace DAO_ApiGateway
             DefaultFile.DefaultFileNames.Clear();
             DefaultFile.DefaultFileNames.Add("Index.html");
             app.UseDefaultFiles(DefaultFile);
+            app.UseStaticFiles();
+
 
             app.UseOcelot();
         }

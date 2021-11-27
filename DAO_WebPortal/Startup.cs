@@ -131,10 +131,6 @@ namespace DAO_WebPortal
         {
             app.UseExceptionHandler("/Error");
 
-            app.UseHsts();
-
-            app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseRouting();

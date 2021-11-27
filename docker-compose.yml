@@ -18,7 +18,7 @@ services:
         - 15672:15672
     volumes:
         - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
-        - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+        - ~/.docker-conf/rabbitmq/log/:/var/lib/log
     healthcheck:
         test: rabbitmq-diagnostics -q status
         interval: 10s
