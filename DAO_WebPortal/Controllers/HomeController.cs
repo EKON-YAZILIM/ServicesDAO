@@ -1313,6 +1313,9 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
+                //Profile photo path
+                string newfilename = "";
+
                 //If custom image uploaded
                 if (File != null)
                 {
@@ -1332,9 +1335,9 @@ namespace DAO_WebPortal.Controllers
                     }
 
                     //Generate file name
-                    var newfilename = HttpContext.Session.GetInt32("UserID").ToString() + "-" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ext;
+                    newfilename = HttpContext.Session.GetInt32("UserID").ToString() + "-" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ext;
 
-                    image = Directory.GetCurrentDirectory() + "\\wwwroot\\Home\\images\\avatars\\" + newfilename;
+                    image = ".\\wwwroot\\Home\\images\\avatars\\" + newfilename;
 
                     using (var fileStream = new FileStream(image, FileMode.Create))
                     {
@@ -1347,7 +1350,7 @@ namespace DAO_WebPortal.Controllers
 
                 if (modeluser != null && modeluser.UserId > 0)
                 {
-                    modeluser.ProfileImage = Path.GetFileName(image);
+                    modeluser.ProfileImage = newfilename;
 
                     //Update user
                     var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser), HttpContext.Session.GetString("Token")));

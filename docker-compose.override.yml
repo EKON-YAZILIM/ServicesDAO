@@ -3,7 +3,7 @@ version: '3.4'
 services:
   dao_dbservice: 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8889:80"
@@ -21,7 +21,7 @@ services:
 
   dao_identityservice: 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8890:80"
@@ -31,7 +31,7 @@ services:
 
   dao_logservice: 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8891:80"
@@ -41,7 +41,7 @@ services:
 
   dao_notificationservice: 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8892:80"
@@ -51,7 +51,7 @@ services:
 
   dao_webportal: 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8895:80"
@@ -61,7 +61,7 @@ services:
 
   dao_apigateway: 
     environment:
-      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8896:80"
