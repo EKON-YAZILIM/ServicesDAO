@@ -63,3 +63,6 @@
 /DAO_LogService/appsettings.Prodcution.json
 /DAO_NotificationService/appsettings.Production.json
 /DAO_WebPortal/appsettings.Production.json
+/docker-compose-production.yml
+/DAO_LogService/appsettings.Production.json
+/docker-compose-production.override.yml

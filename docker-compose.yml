@@ -2,7 +2,6 @@ version: '3.4'
 
 volumes:
   datafiles: 
-  # votes_datafiles:
   logs_datafiles:
 
 services:
@@ -44,8 +43,6 @@ services:
     volumes:
       - logs_datafiles:/var/lib/mysql      
     restart: always
-    ports:
-      - "3311:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=secred
       - MYSQL_DATABASE=daologsdb
