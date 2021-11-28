@@ -28,7 +28,7 @@
 
                         if (Model.JobPostCommentModel.Count > 0)
                         {
-                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).OrderByDescending(x=>x.UpVote).ToList());
+                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).OrderByDescending(x => x.UpVote).ToList());
                         }
                         else
                         {
@@ -43,6 +43,18 @@
                     public void ShowCommentTree(IList<Helpers.Models.WebsiteViewModels.JobPostCommentModel> currentcomments)
                     {
                         int SubCommentCount = 0;
+
+                        //Show pinned comments firstly
+                        if (currentcomments.Count(x => Convert.ToBoolean(x.IsPinned)) > 0)
+                        {
+                            var pinnnedComments = currentcomments.Where(x => Convert.ToBoolean(x.IsPinned)).ToList();
+
+                            foreach (var pinnedItem in pinnnedComments)
+                            {
+                                currentcomments.RemoveAt(currentcomments.IndexOf(pinnedItem));
+                                currentcomments.Insert(0, pinnedItem);
+                            }
+                        }
 
                         @foreach (var commentItem in currentcomments)
                         {
@@ -69,15 +81,23 @@
                                 <!-- Heading -->
                                 <div class="comment-heading">
                                     <div class="comment-voting">
-                                        <img class="avatar-img" src="../Home/images/avatars/@commentItem.ProfileImage" alt="@commentItem.UserName" onerror="this.src='../Home/images/avatars/default.png'">
+                                        @if (commentItem.ProfileImage.Length > 50)
+                                        {
+                                            <img class="avatar-img" src="data:image;base64,@commentItem.ProfileImage" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'" />
+                                        }
+                                        else
+                                        {
+                                            <img class="avatar-img" src="../Home/images/avatars/@commentItem.ProfileImage" alt="@commentItem.UserName" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'">
+                                        }
                                     </div>
                                     <div class="comment-info">
                                         <a href="#" class="comment-author">@commentItem.UserName</a>
                                         <p class="m-0">
-                                            @commentItem.Date.ToString("dd.MM.yyyy")
+                                            @commentItem.Date.ToShortDateString() @commentItem.Date.ToShortTimeString()
                                         </p>
                                     </div>
-                                </div> <!-- Heading -->
+                                </div>
+                                <!-- Heading -->
                                 <!-- Comment body -->
                                 <div class="comment-body">
 

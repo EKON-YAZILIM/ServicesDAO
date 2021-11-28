@@ -183,14 +183,7 @@
                         <a class="nav-link" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 
                             <div class="avatar avatar-md d-inline-block" style="vertical-align:top">
-                                @if (!string.IsNullOrEmpty(httpContextAccessor.HttpContext.Session.GetString("ProfileImage")))
-                                {
-                                    <img class="avatar-img" src="../Home/images/avatars/@httpContextAccessor.HttpContext.Session.GetString("ProfileImage")">
-                                }
-                                else
-                                {
-                                    <img class="avatar-img" src="../Home/images/avatars/default.png">
-                                }
+                                <img class="avatar-img" src="@Url.Action("GetProfileImage", "Home")">
                             </div>
                             <div class="d-inline-block">
                                 <small class="mb-0">@httpContextAccessor.HttpContext.Session.GetString("NameSurname")</small><br />

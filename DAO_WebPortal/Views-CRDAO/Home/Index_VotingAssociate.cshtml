@@ -81,7 +81,15 @@
                 <div class="card bg-light mb-3">
                     <div class="card-body">
                         <h6 class="mb-1">
-                            <img src="~/Home/images/avatars/@item.ProfileImage" alt="" class="rounded-circle dashboardAvatar" width="25" height="25" onerror="this.src='../Home/images/avatars/default.png'"> @item.UserName <small class="smallDate">@item.Date</small>
+                            @if (item.ProfileImage.Length > 50)
+                            {
+                                <img class="rounded-circle dashboardAvatar" width="25" height="25" src="data:image;base64,@item.ProfileImage" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'" />
+                            }
+                            else
+                            {
+                                <img class="rounded-circle dashboardAvatar" width="25" height="25" src="../Home/images/avatars/@item.ProfileImage" alt="@item.UserName" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'">
+                            }
+                            @item.UserName <small class="smallDate">@item.Date</small>
 
                             <a class="float-right font-weight-normal" href="../Job-Detail/@item.JobID"><small>Go to job detail</small></a>
                         </h6>

@@ -959,8 +959,8 @@ namespace DAO_WebPortal.Controllers
                             var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
                             //Set email title and content
-                            string emailTitle = "You won the auction #" + auction.AuctionID ;
-                            string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> You won the auction of '"+ jobStatusResult.Title + "'.<br><br> Please post your job completion evidence as a comment to the related job and start informal voting process within expected timeframe";
+                            string emailTitle = "You won the auction #" + auction.AuctionID;
+                            string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> You won the auction of '" + jobStatusResult.Title + "'.<br><br> Please post your job completion evidence as a comment to the related job and start informal voting process within expected timeframe";
 
                             SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
                             Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
@@ -1334,15 +1334,16 @@ namespace DAO_WebPortal.Controllers
                         return Json(new SimpleResponse { Success = true, Message = "Profile photo must be smaller than 2MB." });
                     }
 
+                    //PROFILE PHOTO WILL BE STORED IN DB 
                     //Generate file name
-                    newfilename = HttpContext.Session.GetInt32("UserID").ToString() + "-" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ext;
+                    //newfilename = HttpContext.Session.GetInt32("UserID").ToString() + "-" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ext;
 
-                    image = ".\\wwwroot\\Home\\images\\avatars\\" + newfilename;
+                    //image = ".\\wwwroot\\Home\\images\\avatars\\" + newfilename;
 
-                    using (var fileStream = new FileStream(image, FileMode.Create))
-                    {
-                        file.CopyTo(fileStream);
-                    }
+                    //using (var fileStream = new FileStream(image, FileMode.Create))
+                    //{
+                    //    file.CopyTo(fileStream);
+                    //}
                 }
 
                 //Get user
@@ -1350,7 +1351,14 @@ namespace DAO_WebPortal.Controllers
 
                 if (modeluser != null && modeluser.UserId > 0)
                 {
-                    modeluser.ProfileImage = newfilename;
+                    using (var ms = new MemoryStream())
+                    {
+                        File.CopyTo(ms);
+                        var fileBytes = ms.ToArray();
+                        string s = Convert.ToBase64String(fileBytes);
+
+                        modeluser.ProfileImage = s;
+                    }
 
                     //Update user
                     var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser), HttpContext.Session.GetString("Token")));
@@ -1591,7 +1599,7 @@ namespace DAO_WebPortal.Controllers
                 //Update job status 
                 JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
 
-                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Admin approved the job.Job #"+ JobId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Admin approved the job.Job #" + JobId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                 //Send notification email to job poster
 
@@ -1601,7 +1609,7 @@ namespace DAO_WebPortal.Controllers
 
                 if (JobModel.Status == Enums.JobStatusTypes.InternalAuction)
                 {
-                     emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Your job is approved by system administrator<br><br> Internal auction process started for the job.";
+                    emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Your job is approved by system administrator<br><br> Internal auction process started for the job.";
                 }
                 else if (JobModel.Status == Enums.JobStatusTypes.KYCPending)
                 {
@@ -1739,13 +1747,13 @@ namespace DAO_WebPortal.Controllers
             {
                 string usersJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/UserSearch?query=" + searchText, HttpContext.Session.GetString("Token"));
                 //Parse response
-                 userList = Helpers.Serializers.DeserializeJson<List<UserDto>>(usersJson);
+                userList = Helpers.Serializers.DeserializeJson<List<UserDto>>(usersJson);
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
-          
+
             return Json(userList);
         }
         /// <summary>
@@ -1848,6 +1856,38 @@ namespace DAO_WebPortal.Controllers
             return Json("");
         }
 
+        [HttpGet]
+        public ActionResult GetProfileImage()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(HttpContext.Session.GetString("ProfileImage")))
+                {
+                    string image = HttpContext.Session.GetString("ProfileImage");
+
+                    //User's profile image is one of the stock images
+                    if (image.Length < 50)
+                    {
+                        byte[] img = System.IO.File.ReadAllBytes("./wwwroot/Home/images/avatars/" + image);
+                        return this.File(img, "image/png", "image.png");
+                    }
+                    //User's profile image is custom uploaded image
+                    else
+                    {
+                        var arr = Convert.FromBase64String(image);
+                        return this.File(arr, "image/png", "image.png");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            //Return default profile image
+            byte[] defaultImage = System.IO.File.ReadAllBytes("./wwwroot/Home/images/avatars/default.png");
+            return this.File(defaultImage, "image/png", "image.png");
+        }
         #endregion
     }
 }
