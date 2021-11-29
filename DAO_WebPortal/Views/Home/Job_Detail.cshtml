@@ -28,7 +28,7 @@
 
                         if (Model.JobPostCommentModel.Count > 0)
                         {
-                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).OrderByDescending(x => x.UpVote).ToList());
+                            ShowCommentTree(Model.JobPostCommentModel.Where(x => x.SubCommentID == 0).OrderByDescending(x => x.UpVote).ThenBy(x=>x.Date).ToList());
                         }
                         else
                         {

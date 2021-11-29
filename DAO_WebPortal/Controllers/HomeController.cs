@@ -1313,51 +1313,41 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
-                //Profile photo path
-                string newfilename = "";
-
-                //If custom image uploaded
-                if (File != null)
-                {
-                    var file = File;
-                    var ext = (Path.GetExtension(file.FileName).ToLower());
-
-                    //File extension control
-                    if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif")
-                    {
-                        return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
-                    }
-
-                    //Photo must be lower than 2 MB
-                    if (file.Length > 2 * 1024 * 1024)
-                    {
-                        return Json(new SimpleResponse { Success = true, Message = "Profile photo must be smaller than 2MB." });
-                    }
-
-                    //PROFILE PHOTO WILL BE STORED IN DB 
-                    //Generate file name
-                    //newfilename = HttpContext.Session.GetInt32("UserID").ToString() + "-" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day + ext;
-
-                    //image = ".\\wwwroot\\Home\\images\\avatars\\" + newfilename;
-
-                    //using (var fileStream = new FileStream(image, FileMode.Create))
-                    //{
-                    //    file.CopyTo(fileStream);
-                    //}
-                }
-
                 //Get user
                 UserDto modeluser = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
 
                 if (modeluser != null && modeluser.UserId > 0)
                 {
-                    using (var ms = new MemoryStream())
+                    //If custom image uploaded
+                    if (File != null)
                     {
-                        File.CopyTo(ms);
-                        var fileBytes = ms.ToArray();
-                        string s = Convert.ToBase64String(fileBytes);
+                        var file = File;
+                        var ext = (Path.GetExtension(file.FileName).ToLower());
 
-                        modeluser.ProfileImage = s;
+                        //File extension control
+                        if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif")
+                        {
+                            return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
+                        }
+
+                        //Photo must be lower than 2 MB
+                        if (file.Length > 2 * 1024 * 1024)
+                        {
+                            return Json(new SimpleResponse { Success = true, Message = "Profile photo must be smaller than 2MB." });
+                        }
+
+                        using (var ms = new MemoryStream())
+                        {
+                            File.CopyTo(ms);
+                            var fileBytes = ms.ToArray();
+                            string s = Convert.ToBase64String(fileBytes);
+
+                            modeluser.ProfileImage = s;
+                        }
+                    }
+                    else
+                    {
+                        modeluser.ProfileImage = Path.GetFileName(image);
                     }
 
                     //Update user

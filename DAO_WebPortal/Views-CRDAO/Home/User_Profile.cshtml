@@ -24,12 +24,13 @@
                 </div>
                 <div class="avatar-profile">
                     <div id="preview">
-                        @if (!string.IsNullOrEmpty(Model.ProfileImage))
+                        @if (Model.ProfileImage.Length > 50)
                         {
-                            <img src="../Home/images/avatars/@Model.ProfileImage" id="avatar-image" class="avatar_img"> }
+                            <img id="avatar-image" class="avatar_img" width="25" height="25" src="data:image;base64,@Model.ProfileImage" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'" />
+                        }
                         else
                         {
-                            <img src="../Home/images/avatars/default.png" id="avatar-image" class="avatar_img">
+                            <img id="avatar-image" class="avatar_img" width="25" height="25" src="../Home/images/avatars/@Model.ProfileImage" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'">
                         }
                     </div>
                     <div class="avatar_upload">
