@@ -1460,9 +1460,20 @@ namespace DAO_WebPortal.Controllers
                     PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
                 };
 
+                //Check existing auction related with this job
+                var AuctionModelByJobid = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetByJobId?jobid="+ JobId, HttpContext.Session.GetString("Token")));
+                if (AuctionModelByJobid != null && AuctionModelByJobid.AuctionID > 0)
+                {
+                    result.Success = false;
+                    result.Message = "There is an existing auction related with this job.";
+                    result.Content = AuctionModel;
+
+                    return Json(result);
+                }
+
                 //Post model to ApiGateway
                 //Add new auction
-                AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+                    AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
 
                 if (AuctionModel != null && AuctionModel.AuctionID > 0)
                 {
@@ -1557,6 +1568,17 @@ namespace DAO_WebPortal.Controllers
                         InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
                         PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
                     };
+
+                    //Check existing auction related with this job
+                    var AuctionModelByJobid = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetByJobId?jobid=" + JobId, HttpContext.Session.GetString("Token")));
+                    if (AuctionModelByJobid != null && AuctionModelByJobid.AuctionID > 0)
+                    {
+                        result.Success = false;
+                        result.Message = "There is an existing auction related with this job.";
+                        result.Content = AuctionModel;
+
+                        return Json(result);
+                    }
 
                     //Post model to ApiGateway
                     //Add new auction

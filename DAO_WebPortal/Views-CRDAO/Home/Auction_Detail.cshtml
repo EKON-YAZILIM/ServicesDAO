@@ -23,7 +23,7 @@
     <div class="col-md-6 d-flex justify-content-end">
         @*New bid button will be active for only authorized members*@
         @if ((Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding && userType == Enums.UserIdentityType.VotingAssociate.ToString()) ||
-    (Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding && userType == Enums.UserIdentityType.Associate.ToString()))
+(Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding && userType == Enums.UserIdentityType.Associate.ToString()))
         {
             //If user is not job poster display new bid button
             if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != Model.Auction.JobPosterUserId)
@@ -179,7 +179,16 @@
                         </div>
                     </div>
                 }
+
+                <div class="form-check m-2">
+                    <input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label" for="flexCheckDefault">
+                            <span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content=" you unconditionally and irrevocably agree to be legally bound by the terms and conditions stated in the job posting and your submitted bid in case your bid is selected; that a binding legal relationship is established between the job poster and yourself as submitter of the winning bid; to perform the work as requested by the job poster and offered by yourself in your bid if selected as winning bid; that the amount deposited with an escrow smart contract provided by CRDAO for the purpose of securing remuneration payment for the winning bid will be distributed as set forth in the applicable governance protocol; and that unless specified otherwise in the job posting or your winning bid, the relationship between the job poster, you, and CRDAO is exclusively governed by the general terms and conditions of CRDAO." data-coreui-original-title="" title="">
+                                <i disabled=""> By submitting a bid on a job posting:</i>
+                            </span>                                                                   
+                    </label>
+                </div>
             </div>
+
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary" onclick="AuctionBidAdd(this,@Model.Auction.AuctionID);">Submit Bid</button>
@@ -236,15 +245,21 @@
 @section Scripts{
 
     <script>
-
+       
         //Auction bids adding function
         function AuctionBidAdd(e, id) {
+            if (!$("#checkConfirm1").is(":checked")) {
+                toastr.warning("You must confirm agreements before submit new bid.");
+                return;
+            }
             $(e).prop("disabled", true);
             $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
                 //Create auction bid model
                 var price = $('#price').val()
                 var time = $('#time').val();
                 var note = $('#note').val();
+
+
                 //Ajax post action
                 $.ajax({
                     type: "POST",

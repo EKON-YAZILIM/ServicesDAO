@@ -326,6 +326,11 @@
             }
         });
 
+        document.querySelectorAll('[data-coreui-toggle="popover"]').forEach(element => {
+            // eslint-disable-next-line no-new
+            new coreui.Popover(element);
+        });
+
         function handleThemeChange(src) {
             var event = document.createEvent('Event');
             event.initEvent('themeChange', true, true);
