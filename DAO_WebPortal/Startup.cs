@@ -141,6 +141,8 @@ namespace DAO_WebPortal
 
             app.UseStaticFiles();
 
+            //app.UseHttpsRedirection();
+
             var defaultDateCulture = "en-US";
             var ci = new CultureInfo(defaultDateCulture);
             ci.NumberFormat.NumberDecimalSeparator = ".";

@@ -253,7 +253,13 @@
 
         var auctionCountdownDictionary = {};
 
+        var now = new Date(@DateTime.Now.Year, @(DateTime.Now.Month-1), @DateTime.Now.Day, @DateTime.Now.Hour, @DateTime.Now.Minute, @DateTime.Now.Second);
+
         $(document).ready(function () {
+
+            setInterval(function () {
+                now.setSeconds(now.getSeconds() + 1);
+            }, 1000);
 
             //Start auction countdowns
             for (i = 0; i < dataModel.length; i++) {
@@ -279,10 +285,9 @@
         //Countdown method
         function CountDown(id, countDownDate) {
 
-            var now = new Date().getTime();
             countDownDate = auctionCountdownDictionary[id];
             // Find the distance between now and the count down date
-            var distance = countDownDate - now;
+            var distance = countDownDate - now.getTime();
 
             // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
