@@ -365,7 +365,7 @@
         </script>
     }
     <script>
-
+    
         function JobApprove(id) {
         //Ajax put action
             $.ajax({
@@ -376,6 +376,7 @@
                         console.log(result);
                         if (result.success) {
                             toastr.success(result.message);
+                            setTimeout(function () { window.location.reload() },5000)
                         }
                         else {
                             toastr.warning(result.message);
