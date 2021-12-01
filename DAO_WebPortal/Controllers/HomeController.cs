@@ -1139,7 +1139,7 @@ namespace DAO_WebPortal.Controllers
                 VotingDto informalVoting = new VotingDto();
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
-                informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingDays);
+                informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingDays);
                 informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
 
                 //Get related job post
@@ -1456,8 +1456,8 @@ namespace DAO_WebPortal.Controllers
                     JobPosterUserId = JobModel.UserID,
                     CreateDate = DateTime.Now,
                     Status = AuctionStatusTypes.InternalBidding,
-                    InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
-                    PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
+                    InternalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionDays),
+                    PublicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
                 };
 
                 //Check existing auction related with this job
