@@ -95,6 +95,7 @@ function SubmitKYC() {
             if (result.success) {
                 toastr.success(result.message);
                 $("#KYCModal").modal("toggle");
+                setTimeout(function () { window.location.reload() }, 5000)
             }
             else {
                 toastr.warning(result.message);
@@ -118,6 +119,7 @@ function PayDosFee() {
             if (result.success) {
                 toastr.success(result.message);
                 $("#DosFeeModal").modal("toggle");
+                setTimeout(function () { window.location.reload() }, 5000)
             }
             else {
                 toastr.warning(result.message);
