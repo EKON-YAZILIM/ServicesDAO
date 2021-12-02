@@ -180,13 +180,6 @@
                     </div>
                 }
 
-                <div class="form-check m-2">
-                    <input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label" for="flexCheckDefault">
-                            <span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content=" You unconditionally and irrevocably agree to be legally bound by the terms and conditions stated in the job posting and your submitted bid in case your bid is selected; that a binding legal relationship is established between the job poster and yourself as submitter of the winning bid; to perform the work as requested by the job poster and offered by yourself in your bid if selected as winning bid; that the amount deposited with an escrow smart contract provided by CRDAO for the purpose of securing remuneration payment for the winning bid will be distributed as set forth in the applicable governance protocol; and that unless specified otherwise in the job posting or your winning bid, the relationship between the job poster, you, and CRDAO is exclusively governed by the general terms and conditions of CRDAO." data-coreui-original-title="" title="">
-                                <i disabled="" class="cursorp"> By submitting a bid on a job posting:</i>
-                            </span>                                                                   
-                    </label>
-                </div>
             </div>
 
             <div class="modal-footer">
@@ -245,15 +238,49 @@
 @section Scripts{
 
     <script>
-       
+
         //Auction bids adding function
         function AuctionBidAdd(e, id) {
-            if (!$("#checkConfirm1").is(":checked")) {
-                toastr.warning("You must confirm agreements before submitting a new bid.");
-                return;
-            }
-            $(e).prop("disabled", true);
-            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
+
+
+             $.confirm({
+            title: 'Confirmation',
+            content: '<b>By posting a job, you unconditionally and irrevocably agree: </b>' +
+
+                '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that all results, work product, etc. associated with my bid and associated work product will be made available under an open-source license. I acknowledge that I am legally responsible to ensure that all parts of this project are open-source. </label></div>'
+                + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm2"><label class="form-check-label text-justify" for="flexCheckDefault">     I hereby declare that my bid and associated work product will benefit decentralization and open-source projects generally, pursuant to the mission statement of OSSA, which is to support open source and transparent scientific research of emerging technologies for community building by way of submitting grants to developers and scientists in Switzerland and abroad. </label></div>'
+                + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm3"><label class="form-check-label text-justify" for="flexCheckDefault">            I hereby declare that my bid and associated work product is in line with international transparency standards; will be published on Github under the CRDAO repo, and my team and I have sufficient qualifications, experience and capacity to actually finish my bid and associated work product. </label></div>'
+                + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm4"><label class="form-check-label text-justify" for="flexCheckDefault">    I hereby declare that I have not built tools and do not intend to build tools to attack the CRDAO and OSSA. </label></div>'
+                + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">   I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>'
+            ,
+            columnClass: 'col-md-8 col-md-offset-2',
+            buttons: {
+                cancel: {
+                    text: 'Cancel'
+                },
+                confirm: {
+                    text: 'Continue',
+                    btnClass: 'btn btn-primary',
+                    action: function () {
+
+                        var confirmationControl = true;
+
+                        for (var i = 1; i < 6; i++) {
+                            var checked = $("#checkConfirm" + i).is(':checked');
+
+                            if (checked == false) {
+                                confirmationControl = false;
+                            }
+                        }
+
+                        if (confirmationControl == false) {
+                            toastr.warning("You must confirm agreements.");
+
+                            return false;
+                        }
+
+                     $(e).prop("disabled", true);
+                    $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
                 //Create auction bid model
                 var price = $('#price').val()
                 var time = $('#time').val();
@@ -292,6 +319,16 @@
                         $(e).html('Submit Bid');
                     }
                 });
+
+
+
+
+                    }
+
+                }
+            }
+        });
+
 
             }
 

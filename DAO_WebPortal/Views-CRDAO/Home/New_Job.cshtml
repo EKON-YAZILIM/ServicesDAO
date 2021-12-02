@@ -39,7 +39,6 @@
             <label class="mb-2" for="description"><b>Job Description</b></label>
             <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="10"></textarea>
         </div>
-
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary" onclick="NewJob();">Submit Job</button>
         </div>
@@ -54,6 +53,7 @@
             content: '<b>By posting a job, you unconditionally and irrevocably agree: </b>' +
 
                 '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label text-justify" for="flexCheckDefault">To be legally bound by the terms and conditions stated in your job posting and the winning bid selected by yourself; that a binding legal relationship is established between you and the winning bidder selected by yourself; to deposit the amount offered by the selected winning bid as remuneration into an escrow smart contract provided by CRDAO; and that unless specified otherwise in your job posting or the winning bid selected by yourself, the relationship between you, the winning bidder, and CRDAO is exclusively governed by the general terms and conditions of CRDAO</label></div>'
+                +'<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm2"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby acknowledge that any work product created by a bidder will be open source and never is or will be the sole property of the job poster.</label></div>'
             ,
             columnClass: 'col-md-8 col-md-offset-2',
             buttons: {
@@ -65,8 +65,19 @@
                     btnClass: 'btn btn-primary',
                     action: function () {
 
-                        if (!$("#checkConfirm1").is(":checked")) {
+                        var confirmationControl = true;
+
+                        for (var i = 1; i < 3; i++) {
+                            var checked = $("#checkConfirm" + i).is(':checked');
+
+                            if (checked == false) {
+                                confirmationControl = false;
+                            }
+                        }
+
+                        if (confirmationControl == false) {
                             toastr.warning("You must confirm agreements.");
+
                             return false;
                         }
 

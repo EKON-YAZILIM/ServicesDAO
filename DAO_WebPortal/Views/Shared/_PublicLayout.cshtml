@@ -428,9 +428,10 @@
                 async: true,
                 data: { "email": email, "namesurname": namesurname, "username": username, "password": pass, "repass": pass2, "usercode": code2, "__RequestVerificationToken": token },
                 success: function (result) {
-                    if (result.Success) {
+                    if (result.success) {
                         toastr.success(result.message);
                         $("#modal-signUp").modal("toggle");
+                        $("#modal-login").modal("toggle");
                     }
                     else {
                         failCount++;
