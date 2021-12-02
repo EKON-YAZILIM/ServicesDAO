@@ -14,7 +14,7 @@
 
 <div class="row d-flex m-2 mb-3">
     <div class="col-md-6">
-        <a class="btn btn-primary btn-shine" href="../Auctions">
+        <a class="btn btn-primary" href="../Auctions">
             <svg class="icon me-2">
                 <use xlink:href="/Home/images/svg/free.svg#cil-chevron-circle-left-alt"></use>
             </svg> Go Back
@@ -28,7 +28,7 @@
             //If user is not job poster display new bid button
             if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != Model.Auction.JobPosterUserId)
             {
-                <div class="row d-flex m-2 mb-3">
+                <div class="row d-flex mb-3">
                     <div class="col-md-12 d-flex justify-content-end">
                         <a class="btn btn-primary btn-shine" data-coreui-toggle="modal" data-coreui-target="#Auction-Modal">
                             <svg class="icon me-2">
@@ -182,8 +182,8 @@
 
                 <div class="form-check m-2">
                     <input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label" for="flexCheckDefault">
-                            <span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content=" you unconditionally and irrevocably agree to be legally bound by the terms and conditions stated in the job posting and your submitted bid in case your bid is selected; that a binding legal relationship is established between the job poster and yourself as submitter of the winning bid; to perform the work as requested by the job poster and offered by yourself in your bid if selected as winning bid; that the amount deposited with an escrow smart contract provided by CRDAO for the purpose of securing remuneration payment for the winning bid will be distributed as set forth in the applicable governance protocol; and that unless specified otherwise in the job posting or your winning bid, the relationship between the job poster, you, and CRDAO is exclusively governed by the general terms and conditions of CRDAO." data-coreui-original-title="" title="">
-                                <i disabled=""> By submitting a bid on a job posting:</i>
+                            <span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content=" You unconditionally and irrevocably agree to be legally bound by the terms and conditions stated in the job posting and your submitted bid in case your bid is selected; that a binding legal relationship is established between the job poster and yourself as submitter of the winning bid; to perform the work as requested by the job poster and offered by yourself in your bid if selected as winning bid; that the amount deposited with an escrow smart contract provided by CRDAO for the purpose of securing remuneration payment for the winning bid will be distributed as set forth in the applicable governance protocol; and that unless specified otherwise in the job posting or your winning bid, the relationship between the job poster, you, and CRDAO is exclusively governed by the general terms and conditions of CRDAO." data-coreui-original-title="" title="">
+                                <i disabled="" class="cursorp"> By submitting a bid on a job posting:</i>
                             </span>                                                                   
                     </label>
                 </div>
@@ -249,7 +249,7 @@
         //Auction bids adding function
         function AuctionBidAdd(e, id) {
             if (!$("#checkConfirm1").is(":checked")) {
-                toastr.warning("You must confirm agreements before submit new bid.");
+                toastr.warning("You must confirm agreements before submitting a new bid.");
                 return;
             }
             $(e).prop("disabled", true);

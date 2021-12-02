@@ -190,6 +190,14 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
+                //Empty fields control
+                if(string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description))
+                {
+                    result.Success = false;
+                    result.Message = "You must fill all the fields to post a job.";
+                    return Json(result);
+                }
+
                 //Create JobPost model
                 JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
@@ -745,7 +753,7 @@ namespace DAO_WebPortal.Controllers
             SimpleResponse result = new SimpleResponse();
 
             try
-            {
+            {                
                 //Get auction model from ApiGateway
                 var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + Model.AuctionID, HttpContext.Session.GetString("Token"));
                 //Parse response
