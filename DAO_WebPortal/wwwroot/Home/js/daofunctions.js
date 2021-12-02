@@ -56,6 +56,7 @@ function StartInformalVoting(JobId) {
                         success: function (result) {
                             if (result.success) {
                                 toastr.success(result.message);
+                                setTimeout(function () { window.location.reload() }, 5000)
                             }
                             else {
                                 toastr.warning(result.message);
