@@ -1,4 +1,5 @@
 using Helpers;
+using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.SharedModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +49,8 @@ namespace DAO_WebPortal
         {
             var config = configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
+
+            LoadDaoSettings();
         }
 
 
@@ -71,6 +74,82 @@ namespace DAO_WebPortal
             {
                 monitizer.startSuccesful = 1;
                 monitizer.AddApplicationLog(LogTypes.ApplicationLog, monitizer.appName + " application started successfully.");
+            }
+        }
+
+        /// <summary>
+        ///  Loads platform settings from db if exists.
+        /// </summary>
+        public static void LoadDaoSettings()
+        {
+            //Get latest platform settings (DAO variables from db)
+            string settingsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetLatestSetting");
+            //If custom settings found
+            if (!string.IsNullOrEmpty(settingsJson))
+            {
+                PlatformSettingDto settings = Serializers.DeserializeJson<PlatformSettingDto>(settingsJson);
+
+                if (!string.IsNullOrEmpty(settings.DosCurrencies))
+                {
+                    Program._settings.DosCurrencies = settings.DosCurrencies.Split(',').ToList();
+                }
+
+                if (!string.IsNullOrEmpty(settings.DosFees))
+                {
+                    Program._settings.DosFees = settings.DosFees.Split(',').ToList().Select(x => double.Parse(x)).ToList();
+                }
+
+                if (settings.DefaultPolicingRate != null)
+                {
+                    Program._settings.DefaultPolicingRate = Convert.ToDouble(settings.DefaultPolicingRate);
+                }
+
+                if (settings.MinPolicingRate != null)
+                {
+                    Program._settings.MinPolicingRate = Convert.ToDouble(settings.MinPolicingRate);
+                }
+
+                if (settings.MaxPolicingRate != null)
+                {
+                    Program._settings.MaxPolicingRate = Convert.ToDouble(settings.MaxPolicingRate);
+                }
+
+                Program._settings.ForumKYCRequired = settings.ForumKYCRequired;
+
+                if (settings.QuorumRatio != null)
+                {
+                    Program._settings.QuorumRatio = Convert.ToDouble(settings.QuorumRatio);
+                }
+
+                if (settings.InternalAuctionTime != null)
+                {
+                    Program._settings.InternalAuctionTime = Convert.ToInt32(settings.InternalAuctionTime);
+                }
+
+                if (settings.PublicAuctionTime != null)
+                {
+                    Program._settings.PublicAuctionTime = Convert.ToInt32(settings.PublicAuctionTime);
+                }
+
+                if (!string.IsNullOrEmpty(settings.AuctionTimeType))
+                {
+                    Program._settings.AuctionTimeType = settings.AuctionTimeType;
+                }
+
+                if (settings.VotingTime != null)
+                {
+                    Program._settings.VotingTime = Convert.ToInt32(settings.VotingTime);
+                }
+
+                if (!string.IsNullOrEmpty(settings.VotingTimeType))
+                {
+                    Program._settings.VotingTimeType = settings.VotingTimeType;
+                }
+
+                if (settings.ReputationConversionRate != null)
+                {
+                    Program._settings.ReputationConversionRate = Convert.ToDouble(settings.ReputationConversionRate);
+                }
             }
         }
 
@@ -153,8 +232,8 @@ namespace DAO_WebPortal
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture(ci),
-                SupportedCultures = new List<CultureInfo>{ci,},
-                SupportedUICultures = new List<CultureInfo>{ci,}
+                SupportedCultures = new List<CultureInfo> { ci, },
+                SupportedUICultures = new List<CultureInfo> { ci, }
             });
 
             app.UseEndpoints(endpoints =>

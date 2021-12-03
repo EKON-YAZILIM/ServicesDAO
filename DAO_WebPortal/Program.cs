@@ -48,14 +48,21 @@ namespace DAO_WebPortal
             //Quorum ratio (% of quorum needed to pass informal and formal votes)
             public double QuorumRatio { get; set; }
 
-            //Timeframe for internal auction (Days)
-            public int InternalAuctionDays { get; set; }
+            //Timeframe for internal auction
+            public int InternalAuctionTime { get; set; }
 
-            //Timeframe for external auction (Days)
-            public int PublicAuctionDays { get; set; }
+            //Timeframe for external auction
+            public int PublicAuctionTime { get; set; }
 
-            //Timeframe for votings (Days)
-            public int VotingDays { get; set; }
+            //Time type for auction (Weeks, days, minutes)
+            public string AuctionTimeType { get; set; }
+
+            //Timeframe for votings
+            public int VotingTime { get; set; }
+
+            //Time type for votings (Weeks, days, minutes)
+            public string VotingTimeType { get; set; }
+
             //Cost -> Reputation conversion rate (Specifies the conversion rate from a job’s bid price amount when minting reputation for a proposal to the system)
             public double ReputationConversionRate { get; set; }
         }

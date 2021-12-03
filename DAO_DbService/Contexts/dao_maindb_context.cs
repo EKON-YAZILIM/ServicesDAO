@@ -37,6 +37,7 @@ namespace DAO_DbService.Contexts
         public DbSet<ActiveSession> ActiveSessions { get; set; }
         public DbSet<UserCommentVote> UserCommentVotes { get; set; }
         public DbSet<PaymentHistory> PaymentHistories { get; set; }
+        public DbSet<PlatformSetting> PlatformSettings { get; set; }
 
 
     }

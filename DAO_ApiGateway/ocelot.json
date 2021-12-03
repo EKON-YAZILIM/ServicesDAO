@@ -202,6 +202,19 @@
       "UpstreamPathTemplate": "/PublicActions/GetAuctionDetail",
       "UpstreamHttpMethod": [ "GET" ],
       "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/PlatformSetting/GetLatestSetting",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "dao_dbservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/GetLatestSetting",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Priority": 2
     }
   ]
 }

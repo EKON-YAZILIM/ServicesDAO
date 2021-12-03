@@ -191,7 +191,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Empty fields control
-                if(string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description))
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description))
                 {
                     result.Success = false;
                     result.Message = "You must fill all the fields to post a job.";
@@ -753,7 +753,7 @@ namespace DAO_WebPortal.Controllers
             SimpleResponse result = new SimpleResponse();
 
             try
-            {                
+            {
                 //Get auction model from ApiGateway
                 var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + Model.AuctionID, HttpContext.Session.GetString("Token"));
                 //Parse response
@@ -1147,8 +1147,9 @@ namespace DAO_WebPortal.Controllers
                 VotingDto informalVoting = new VotingDto();
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
-                informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingDays);
+                informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingTime);
                 informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
+                informalVoting.QuorumRatio = Program._settings.QuorumRatio;
 
                 //Get related job post
                 var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + jobid, HttpContext.Session.GetString("Token"));
@@ -1157,7 +1158,7 @@ namespace DAO_WebPortal.Controllers
                 //Get total dao member count
                 int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type=" + UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
                 //Quorum count is calculated with total user count - 2(job poster, job doer)
-                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount - 2));
+                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount - 1));
 
                 string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/StartInformalVoting", Helpers.Serializers.SerializeJson(informalVoting), HttpContext.Session.GetString("Token"));
                 res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResult);
@@ -1464,12 +1465,12 @@ namespace DAO_WebPortal.Controllers
                     JobPosterUserId = JobModel.UserID,
                     CreateDate = DateTime.Now,
                     Status = AuctionStatusTypes.InternalBidding,
-                    InternalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionDays),
-                    PublicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
+                    InternalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime),
+                    PublicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime)
                 };
 
                 //Check existing auction related with this job
-                var AuctionModelByJobid = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetByJobId?jobid="+ JobId, HttpContext.Session.GetString("Token")));
+                var AuctionModelByJobid = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetByJobId?jobid=" + JobId, HttpContext.Session.GetString("Token")));
                 if (AuctionModelByJobid != null && AuctionModelByJobid.AuctionID > 0)
                 {
                     result.Success = false;
@@ -1481,7 +1482,7 @@ namespace DAO_WebPortal.Controllers
 
                 //Post model to ApiGateway
                 //Add new auction
-                    AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+                AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
 
                 if (AuctionModel != null && AuctionModel.AuctionID > 0)
                 {
@@ -1573,8 +1574,8 @@ namespace DAO_WebPortal.Controllers
                         JobPosterUserId = JobModel.UserID,
                         CreateDate = DateTime.Now,
                         Status = AuctionStatusTypes.InternalBidding,
-                        InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays),
-                        PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionDays + Program._settings.PublicAuctionDays)
+                        InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime),
+                        PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime)
                     };
 
                     //Check existing auction related with this job
@@ -1716,6 +1717,7 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("Dao-Variables")]
+        [AuthorizeAdmin]
         public IActionResult Dao_Variables()
         {
             ViewBag.Title = "DAO Variables";
@@ -1724,11 +1726,59 @@ namespace DAO_WebPortal.Controllers
         }
 
         /// <summary>
+        ///  DAO Variables save changes
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("DaoVariablesPost")]
+        public JsonResult DaoVariablesPost(PlatformSettingDto model)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                model.CreateDate = DateTime.Now;
+                model.UserID = HttpContext.Session.GetInt32("UserID");
+
+                //Post model to ApiGateway
+                string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/PlatformSetting/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
+                //Parse result
+                PlatformSettingDto resultParsed = Helpers.Serializers.DeserializeJson<PlatformSettingDto>(jsonResult);
+
+                if (resultParsed.PlatformSettingID > 0)
+                {
+                    result.Success = true;
+                    result.Message = "DAO Variables changed successfully.";
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+
+                    Startup.LoadDaoSettings();
+                }
+                else
+                {
+                    result.Success = false;
+                    result.Message = "Error occured while changing DAO variables.";
+                }
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        /// <summary>
         ///  This view shows users of the DAO
         /// </summary>
         /// <returns></returns>
         [Route("Users-List")]
         [Route("Home/Users-List")]
+        [AuthorizeAdmin]
         public IActionResult Users_List(int page = 1, int pageCount = 20)
         {
             ViewBag.Title = "Users List";
@@ -1755,11 +1805,13 @@ namespace DAO_WebPortal.Controllers
             }
             return View(pagedModel);
         }
+
         /// <summary>
         ///  Finds user info from query
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AuthorizeAdmin]
         public JsonResult UserSearch(string searchText)
         {
             List<UserDto> userList = new List<UserDto>();
@@ -1776,12 +1828,14 @@ namespace DAO_WebPortal.Controllers
 
             return Json(userList);
         }
+
         /// <summary>
         ///  This view shows reputation logs of the DAO
         /// </summary>
         /// <returns></returns>
         [Route("Reputation-Logs")]
         [Route("Home/Reputation-Logs")]
+        [AuthorizeAdmin]
         public IActionResult Reputation_Logs(int page = 1, int pageCount = 20)
         {
             ViewBag.Title = "Reputation Logs";
@@ -1814,6 +1868,7 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AuthorizeAdmin]
         public JsonResult ReputationSearch(string searchText)
         {
             List<ReputationLogsDto> repList = new List<ReputationLogsDto>();
@@ -1830,12 +1885,14 @@ namespace DAO_WebPortal.Controllers
 
             return Json(repList);
         }
+
         /// <summary>
         ///  This view shows application logs of the DAO
         /// </summary>
         /// <returns></returns>
         [Route("Application-Logs")]
         [Route("Home/Application-Logs")]
+        [AuthorizeAdmin]
         public IActionResult Application_Logs(int page = 1, int pageCount = 20)
         {
             ViewBag.Title = "Application Logs";

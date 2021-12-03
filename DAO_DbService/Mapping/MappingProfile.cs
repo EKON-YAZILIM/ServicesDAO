@@ -35,6 +35,9 @@ namespace DAO_DbService.Mapping
             CreateMap<PaymentHistory, PaymentHistoryDto>();
             CreateMap<PaymentHistoryDto, PaymentHistory>();
 
+            CreateMap<PlatformSetting, PlatformSettingDto>();
+            CreateMap<PlatformSettingDto, PlatformSetting>();
+
         }
     }
 }
