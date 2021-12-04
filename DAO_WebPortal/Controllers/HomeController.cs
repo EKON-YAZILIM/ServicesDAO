@@ -20,6 +20,7 @@ using static Helpers.Constants.Enums;
 using Newtonsoft.Json;
 using PagedList.Core;
 using Helpers.Models.NotificationModels;
+using Helpers.Models.KYCModels;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -1434,6 +1435,47 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+
+        /// <summary>
+        /// User KYC Verification Page
+        /// </summary>
+        /// <returns></returns>
+
+        [Route("KYC-Verification")]
+        public IActionResult KYC_Verification()
+        {
+            return View();
+        }
+
+        [Route("UploadKYCDoc")]
+        public JsonResult UploadKYCDoc(KYCFileUpload File)
+        {
+            try
+            {
+                //Send files to Identity server          
+                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Identity/SubmitKYCFile", JsonConvert.SerializeObject(File), HttpContext.Session.GetString("Token"));
+                //Parse result
+                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
+            }
+            catch (Exception)
+            {
+            }
+            return Json("");
+        }
+
+        [Route("KycCallBack")]
+        public void KycCallBack(KYCCallBack Response)
+        {
+            try
+            {
+                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Identity/SubmitKYCFile", JsonConvert.SerializeObject(Response), HttpContext.Session.GetString("Token"));
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
         }
 
         /// <summary>

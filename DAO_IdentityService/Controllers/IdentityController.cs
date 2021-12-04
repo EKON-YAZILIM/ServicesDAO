@@ -1,6 +1,7 @@
 ﻿using Helpers.Constants;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.IdentityModels;
+using Helpers.Models.KYCModels;
 using Helpers.Models.NotificationModels;
 using Helpers.Models.SharedModels;
 using Microsoft.AspNetCore.Mvc;
@@ -219,6 +220,7 @@ namespace DAO_IdentityService.Controllers
                 userModel = Helpers.Serializers.DeserializeJson<UserDto>(json);
                 if (userModel != null && userModel.UserId != 0)
                 {
+
                     //Create encrypted activation key for email approval
                     string enc = Helpers.Encryption.EncryptString(registerInput.email + "|" + DateTime.Now.ToString());
 
@@ -230,8 +232,10 @@ namespace DAO_IdentityService.Controllers
                     SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
                     Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
 
+
                     //Logging
                     Program.monitizer.AddUserLog(userModel.UserId, Helpers.Constants.Enums.UserLogType.Auth, "User register successful.", registerInput.ip, registerInput.port);
+
 
                     return new SimpleResponse() { Success = true };
                 }
@@ -247,6 +251,105 @@ namespace DAO_IdentityService.Controllers
             }
 
         }
+
+        [HttpPost("SubmitKYCFile", Name = "SubmitKYCFile")]
+        public SimpleResponse SubmitKYCFile(KYCFileUpload File)
+        {
+            try
+            {
+                var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetUserId?id=" + File.UserID));
+
+                if (userModel == null || userModel.UserKYCID <= 0)
+                {
+                    //Create KYC applicant
+                    var Person = new KYCPerson() { type = "PERSON", first_name = File.Name, last_name = File.Surname, dob = File.DoB, residence_country = File.Country, email = File.Email };
+                    var model = Helpers.Serializers.DeserializeJson<KYCPersonResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/applicants", Helpers.Serializers.SerializeJson(Person), Program._settings.KYCID));
+
+                    //Create File Request
+                    var model2 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile1), Program._settings.KYCID, "multipart/form-data"));
+                    var model3 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile2), Program._settings.KYCID, "multipart/form-data"));
+
+                    //Create applicant document request
+                    var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = File.Type, document_number = File.DocumentNUmber, issue_date = File.IssueDate, expiry_date = File.ExpiryDate, front_side_id = model2.file_id, back_side_id = model3.file_id };
+                    var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
+
+                    //Create verification request
+
+                    var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse + "/KycCallBack" };
+                    var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
+
+                    //New KYC request for Db record
+                    var NewKYCObj = new UserKYCDto() { ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, FileId2 = model3.file_id };
+                    var NewKYC = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Post(Program._settings.Service_Db_Url + "/UserKYC/Post", Helpers.Serializers.SerializeJson(NewKYCObj)));
+
+                    if (NewKYC.UserKYCID <= 0)
+                    {
+                        return new SimpleResponse() { Success = false, Message = "KYC error" };
+                    }
+                }
+                else
+                {
+                    //update user Kyc
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
+                return new SimpleResponse() { Success = false, Message = "Unexpected error" };
+            }
+            return new SimpleResponse() { Success = true };
+        }
+
+        [HttpPost("KycCallBack", Name = "KycCallBack")]
+        public SimpleResponse KycCallBack(KYCCallBack Response)
+        {
+            try
+            {
+                var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetApplicantId?id=" + Response.applicant_id));
+                if (userModel == null || userModel.UserKYCID <= 0)
+                {
+                    userModel.Comment = Response.verifications.document.comment;
+                    userModel.Verified = Response.verified;
+                    userModel.KYCStatus = Response.status;
+
+                    var KYCModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/UserKYC/Update", Helpers.Serializers.SerializeJson(userModel)));
+                    if (KYCModel.UserKYCID <= 0)
+                    {
+                        return new SimpleResponse() { Success = false, Message = "KYC Update error" };
+                    }
+
+                    if (Response.verified)
+                    {
+                        var User = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetId?Id=" + userModel.UserID));
+                        if (User == null)
+                        {
+                            return new SimpleResponse() { Success = false, Message = "User not found" };
+                        }
+                        else
+                        {
+                            User.KYCStatus = true;
+                            var UserUpdate = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", Helpers.Serializers.SerializeJson(User)));
+                            if(UserUpdate != null && UserUpdate.UserId > 0)
+                            {
+                                return new SimpleResponse() { Success = true };
+                            }
+                            else
+                            {
+                                return new SimpleResponse() { Success = false, Message = "User failed to update" };
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
+                return new SimpleResponse() { Success = false, Message = "Unexpected error" };
+            }
+            return new SimpleResponse() { Success = true };
+
+        }
+
 
         /// <summary>
         ///  Email approval method after registration

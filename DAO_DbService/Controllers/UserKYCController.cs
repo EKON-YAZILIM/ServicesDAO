@@ -84,6 +84,50 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<UserKYC, UserKYCDto>(model);
         }
 
+        [Route("GetUserId")]
+        [HttpGet]
+        public UserKYCDto GetUserId(int id)
+        {
+            UserKYC model = new UserKYC();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = db.UserKYCs.FirstOrDefault(x => x.UserId == id);
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new UserKYC();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return _mapper.Map<UserKYC, UserKYCDto>(model);
+        }
+
+        [Route("GetApplicantId")]
+        [HttpGet]
+        public UserKYCDto GetApplicantId(string id)
+        {
+            UserKYC model = new UserKYC();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = db.UserKYCs.FirstOrDefault(x => x.ApplicantId == id);
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new UserKYC();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return _mapper.Map<UserKYC, UserKYCDto>(model);
+        }
+
         [Route("Post")]
         [HttpPost]
         public UserKYCDto Post([FromBody] UserKYCDto model)

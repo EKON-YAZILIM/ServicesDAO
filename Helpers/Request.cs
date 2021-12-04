@@ -70,6 +70,41 @@ namespace Helpers
 
             return result;
         }
+        public static string KYCPost(string url, string postData, string token = "", string contentType = "application/json")
+        {
+            string result = string.Empty;
+
+            try
+            {
+
+                var request = (HttpWebRequest)WebRequest.Create(url);
+
+                var data = Encoding.UTF8.GetBytes(postData);
+
+                request.Headers.Add("AcceptLanguage", System.Threading.Thread.CurrentThread.CurrentCulture.ToString());
+                if (!String.IsNullOrEmpty(token))
+                    request.Headers.Add("Authorization", "Token " + token);
+                request.ContentType = contentType;
+                request.Method = "POST";
+                request.Accept = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                result = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return result;
+        }
 
         public static string Put(string url, string postData, string token = "")
         {

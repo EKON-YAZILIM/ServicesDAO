@@ -16,11 +16,11 @@
                 <h3 class="text-right mb-0">
                     @if (Model.UserReputation != null)
                     {
-                    @String.Format("{0:0.00000}", Math.Round(Model.UserReputation.LastUsableTotal, 5))
+                        @String.Format("{0:0.00000}", Math.Round(Model.UserReputation.LastUsableTotal, 5))
                     }
                     else
                     {
-                    <span>-</span>
+                        <span>-</span>
                     }
                 </h3>
             </div>
@@ -76,35 +76,35 @@
 
                 @if (Model.LastComments.Count > 0)
                 {
-                @foreach (var item in Model.LastComments)
+                    @foreach (var item in Model.LastComments)
                     {
-                <div class="card bg-light mb-3">
-                    <div class="card-body">
-                        <h6 class="mb-1">
-                            @if (item.ProfileImage.Length > 50)
-                            {
-                                <img class="rounded-circle dashboardAvatar" width="25" height="25" src="data:image;base64,@item.ProfileImage" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'" />
-                            }
-                            else
-                            {
-                                <img class="rounded-circle dashboardAvatar" width="25" height="25" src="../Home/images/avatars/@item.ProfileImage" alt="@item.UserName" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'">
-                            }
-                            @item.UserName <small class="smallDate">@item.Date</small>
+                        <div class="card bg-light mb-3">
+                            <div class="card-body">
+                                <h6 class="mb-1">
+                                    @if (item.ProfileImage.Length > 50)
+                                    {
+                                        <img class="rounded-circle dashboardAvatar" width="25" height="25" src="data:image;base64,@item.ProfileImage" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'" />
+                                    }
+                                    else
+                                    {
+                                        <img class="rounded-circle dashboardAvatar" width="25" height="25" src="../Home/images/avatars/@item.ProfileImage" alt="@item.UserName" onerror="this.onerror=null; this.src='../Home/images/avatars/default.png'">
+                                    }
+                                    @item.UserName <small class="smallDate">@item.Date</small>
 
-                            <a class="float-right font-weight-normal" href="../Job-Detail/@item.JobID"><small>Go to job detail</small></a>
-                        </h6>
-                        <p class="comment-p mt-2 mb-0">
-                            @DAO_WebPortal.Utility.StringHelper.ShortenString(item.Comment, 150)
-                        </p>
-                    </div>
-                </div>
+                                    <a class="float-right font-weight-normal" href="../Job-Detail/@item.JobID"><small>Go to job detail</small></a>
+                                </h6>
+                                <p class="comment-p mt-2 mb-0">
+                                    @DAO_WebPortal.Utility.StringHelper.ShortenString(item.Comment, 150)
+                                </p>
+                            </div>
+                        </div>
 
 
                     }
                 }
                 else
                 {
-                <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No comments yet." } }' />
+                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No comments yet." } }' />
                 }
 
             </div>
@@ -121,26 +121,26 @@
             <div class="card-body mt-1 h-300 overflowy">
                 @if (Model.PopularJobs.Count > 0)
                 {
-                @foreach (var item in Model.PopularJobs)
+                    @foreach (var item in Model.PopularJobs)
                     {
-                <div class="card bg-light mb-3">
-                    <div class="card-body">
-                        <h6 class="mb-2">
-                            <a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 50)</a>
-                            <small class="smallDate float-right mt-1">@item.CreateDate</small>
-                        </h6>
+                        <div class="card bg-light mb-3">
+                            <div class="card-body">
+                                <h6 class="mb-2">
+                                    <a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 50)</a>
+                                    <small class="smallDate float-right mt-1">@item.CreateDate</small>
+                                </h6>
 
-                        <p class="comment-p mb-0">
-                            @DAO_WebPortal.Utility.StringHelper.ShortenString(item.JobDescription, 150)
-                        </p>
-                    </div>
-                </div>
+                                <p class="comment-p mb-0">
+                                    @DAO_WebPortal.Utility.StringHelper.ShortenString(item.JobDescription, 150)
+                                </p>
+                            </div>
+                        </div>
 
                     }
                 }
                 else
                 {
-                <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No popular jobs yet." } }' />
+                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "No popular jobs yet." } }' />
                 }
             </div>
         </div>
@@ -161,14 +161,14 @@
             <div class="card-body h-300 overflowy">
                 @if (Model.MyOwnerJobs.Count() > 0)
                 {
-                <div class="table-responsive" style="max-height:500px">
-                    <!--Table-->
-                    <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyOwnerJobs" />
-                </div>
+                    <div class="table-responsive" style="max-height:500px">
+                        <!--Table-->
+                        <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyOwnerJobs" />
+                    </div>
                 }
                 else
                 {
-                <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any owner jobs." } }' />
+                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any owner jobs." } }' />
                 }
             </div>
         </div>
@@ -189,13 +189,13 @@
             <div class="card-body h-300 overflowy">
                 @if (Model.MyDoerJobs.Count() > 0)
                 {
-                <div class="table-responsive">
-                    <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyDoerJobs" />
-                </div>
+                    <div class="table-responsive">
+                        <partial name="../Shared/_JobTablePartial.cshtml" model="Model.MyDoerJobs" />
+                    </div>
                 }
                 else
                 {
-                <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any doer jobs." } }' />
+                    <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "You don՚t have any doer jobs." } }' />
                 }
             </div>
         </div>

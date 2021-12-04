@@ -28,6 +28,10 @@ namespace DAO_IdentityService
 
             public string EncryptionKey { get; set; }
             public string JwtTokenKey { get; set; }
+            public string KYCID { get; set; }
+            public string KYCURL { get; set; }
+            public string WebURLforKYCResponse { get; set; }
+
         }
 
         public static Settings _settings { get; set; } = new Settings();
