@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\DAO_DbService\DAO_DbService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Util\Models\" />
+  </ItemGroup>
+
 </Project>
