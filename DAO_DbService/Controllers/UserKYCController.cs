@@ -94,7 +94,7 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    model = db.UserKYCs.FirstOrDefault(x => x.UserId == id);
+                    model = db.UserKYCs.FirstOrDefault(x => x.UserID == id);
                 }
             }
             catch (Exception ex)

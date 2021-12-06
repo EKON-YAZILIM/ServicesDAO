@@ -270,7 +270,7 @@ namespace DAO_IdentityService.Controllers
                     var model3 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile2), Program._settings.KYCID, "multipart/form-data"));
 
                     //Create applicant document request
-                    var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = File.Type, document_number = File.DocumentNUmber, issue_date = File.IssueDate, expiry_date = File.ExpiryDate, front_side_id = model2.file_id, back_side_id = model3.file_id };
+                    var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = File.Type, document_number = File.DocumentNumber, issue_date = File.IssueDate, expiry_date = File.ExpiryDate, front_side_id = model2.file_id, back_side_id = model3.file_id };
                     var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
 
                     //Create verification request
@@ -350,6 +350,22 @@ namespace DAO_IdentityService.Controllers
 
         }
 
+        [HttpPost("GetKycCountries", Name = "GetKycCountries")]
+        public List<KYCCountries> GetKycCountries()
+        {
+            List<KYCCountries> CountryList = new List<KYCCountries>();
+            try
+            {
+                CountryList = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.KYCGet(Program._settings.KYCURL + "/countries",Program._settings.KYCID));
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
+                return new List<KYCCountries>() ;
+            }
+            return CountryList;
+
+        }
 
         /// <summary>
         ///  Email approval method after registration

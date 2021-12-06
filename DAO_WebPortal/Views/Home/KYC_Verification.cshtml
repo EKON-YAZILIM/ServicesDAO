@@ -3,177 +3,255 @@
     Layout = "../Shared/_MainLayout.cshtml";
 }
 
+@model List<Helpers.Models.KYCModels.KYCCountries>
 
-
-<link href="~/Home/NewFolder/style.css" rel="stylesheet" />
+<link href="~/Home/css/KYCstyle.css" rel="stylesheet" />
+<link href="~/Home/css/jquery-ui.css" rel="stylesheet" />
 
 <div class="from-step-item">
     <div class="from-step-heading">
-        <div class="from-step-number">02</div>
-        <div class="from-step-head">
-            <h4>Step 2 : Indentity Verify</h4>
-            <p>Upload documents to verify your indentity.</p>
+        <div class="container">
+            <div class="from-step-head">
+                <h4>Indentity Verify</h4>
+                <p>Upload documents to verify your indentity.</p>
+            </div>
         </div>
     </div>
     <div class="from-step-content">
-        <div class="note note-md note-info note-plane">
-            <em class="fas fa-info-circle"></em>
-            <p>Please upload any of the following personal document.</p>
-        </div>
-        <div class="gaps-2x"></div>
-        <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#passport">
-                    <div class="nav-tabs-icon">
-                        <img src="/Home/images/icon-passport.png" alt="icon">
-                        <img src="/Home/images/icon-passport-color.png" alt="icon">
-                    </div>
-                    <span>Passport</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#national-card">
-                    <div class="nav-tabs-icon">
-                        <img src="/Home/images/icon-national-id.png" alt="icon">
-                        <img src="/Home/images/icon-national-id-color.png" alt="icon">
-                    </div>
-                    <span>National Card</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#driver-licence">
-                    <div class="nav-tabs-icon">
-                        <img src="/Home/images/icon-licence.png" alt="icon">
-                        <img src="/Home/images/icon-licence-color.png" alt="icon">
-                    </div>
-                    <span>Driver’s License</span>
-                </a>
-            </li>
-        </ul><!-- .nav-tabs-line -->
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="passport">
-                <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
-                <ul class="kyc-upload-list">
-                    <li>Chosen credential must not be expaired.</li>
-                    <li>Document should be good condition and clearly visible.</li>
-                    <li>Make sure that there is no light glare on the card.</li>
-                </ul>
-                <div class="gaps-4x"></div>
-                <span class="upload-title">Upload Here Your Passport Copy</span>
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="upload-box">
-                            <div class="upload-zone-passport">
-                                <div class="dz-message" data-dz-message>
-                                    <input type="file" id="UploadedFile1" name="UploadedFile1" accept="image/png, image/jpeg">
-                                </div>
+        <div class="row">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="mb-2" for="name"><b>Name</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" aria-label="Name" placeholder="Name" id="name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="mb-2" for="surname"><b>Surname</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" aria-label="Surname" placeholder="Surname" id="surname">
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="kyc-upload-img">
-                            <img src="/Home/images/vector-passport.png" alt="vector">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="mb-2" for="email"><b>Email</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="email" aria-label="Email" placeholder="Email" id="email">
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary" type="button" onclick="UploadVerDoc('Passport')">Upload</button>
-                <div class="gaps-1x"></div>
-            </div>
-            <div class="tab-pane fade" id="national-card">
-                <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
-                <ul class="kyc-upload-list">
-                    <li>Chosen credential must not be expaired.</li>
-                    <li>Document should be good condition and clearly visible.</li>
-                    <li>Make sure that there is no light glare on the card.</li>
-                </ul>
-                <div class="gaps-4x"></div>
-                <span class="upload-title">Upload Here Your National id Front Side</span>
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="upload-box">
-                            <div class="upload-zone">
-                                <div class="dz-message" data-dz-message>
-                                    <span class="dz-message-text">Drag and drop file</span>
-                                    <span class="dz-message-or">or</span>
-                                    <button class="btn btn-primary">SELECT</button>
-                                </div>
+                        <div class="col-md-6">
+                            <label class="mb-2" for="country"><b>Country</b></label>
+                            <div class="input-group mb-3">
+                                <select class="form-select" aria-label="Default select example" id="country">
+                                    @foreach (var item in Model)
+                                    {
+                                        foreach (var item2 in item.labels.Where(x => x.language_code == "EN").ToList())
+                                        {
+                                            <option value="@item.country_code">@item2.label</option>
+                                        }
+                                    }
+
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="kyc-upload-img">
-                            <img src="/Home/images/vector-id-front.png" alt="vector">
-                        </div>
-                    </div>
-                </div>
-                <div class="gaps-3x"></div>
-                <span class="upload-title">Upload Here Your National id Back Side</span>
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="upload-box">
-                            <div class="upload-zone">
-                                <div class="dz-message" data-dz-message>
-                                    <span class="dz-message-text">Drag and drop file</span>
-                                    <span class="dz-message-or">or</span>
-                                    <button class="btn btn-primary">SELECT</button>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="mb-2" for="documentNumber"><b>Document Number</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" type="text" aria-label="Document Number" placeholder="Document Number" id="documentNumber">
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="kyc-upload-img">
-                            <img src="/Home/images/vector-id-back.png" alt="vector">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="mb-2" for="Birthdate"><b>Birthdate</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" id="Birthdate">
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <button class="btn btn-primary" type="button" onclick="UploadVerDoc('NationalId')">Upload</button>
-                <div class="gaps-1x"></div>
-            </div>
-            <div class="tab-pane fade" id="driver-licence">
-                <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
-                <ul class="kyc-upload-list">
-                    <li>Chosen credential must not be expaired.</li>
-                    <li>Document should be good condition and clearly visible.</li>
-                    <li>Make sure that there is no light glare on the card.</li>
-                </ul>
-                <div class="gaps-4x"></div>
-                <span class="upload-title">Upload Here Your Driving Licence Copy</span>
-                <div class="row align-items-center">
-                    <div class="col-8">
-                        <div class="upload-box">
-                            <div class="upload-zone">
-                                <div class="dz-message" data-dz-message>
-                                    <span class="dz-message-text">Drag and drop file</span>
-                                    <span class="dz-message-or">or</span>
-                                    <button class="btn btn-primary">SELECT</button>
-                                </div>
+                        <div class="col-md-3">
+                            <label class="mb-2" for="IssueDate"><b>Document Issue Date</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" id="IssueDate">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="mb-2" for="ExpiryDate"><b>Document Expiry Date</b></label>
+                            <div class="input-group mb-3">
+                                <input class="form-control" id="ExpiryDate">
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="kyc-upload-img">
-                            <img src="/Home/images/vector-licence.png" alt="vector">
-                        </div>
-                    </div>
                 </div>
-                <button class="btn btn-primary" type="button" onclick="UploadVerDoc('DrivingLicence')" >Upload</button>
-                <div class="gaps-1x"></div>
             </div>
         </div>
-        <div class="gaps-2x"></div>
+    </div>
+    <div class="from-step-content">
+        <div class="container">
+            <div class="note note-md note-info note-plane">
+                <em class="fas fa-info-circle"></em>
+                <p>Please upload any of the following personal document.</p>
+            </div>
+            <div class="gaps-2x"></div>
+            <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#passport">
+                        <div class="nav-tabs-icon">
+                            <img src="/Home/images/icon-passport.png" alt="icon">
+                            <img src="/Home/images/icon-passport-color.png" alt="icon">
+                        </div>
+                        <span>Passport</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#national-card">
+                        <div class="nav-tabs-icon">
+                            <img src="/Home/images/icon-national-id.png" alt="icon">
+                            <img src="/Home/images/icon-national-id-color.png" alt="icon">
+                        </div>
+                        <span>National Card</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#driver-licence">
+                        <div class="nav-tabs-icon">
+                            <img src="/Home/images/icon-licence.png" alt="icon">
+                            <img src="/Home/images/icon-licence-color.png" alt="icon">
+                        </div>
+                        <span>Driver’s License</span>
+                    </a>
+                </li>
+            </ul><!-- .nav-tabs-line -->
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="passport">
+                    <!--Row-->
+                    <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                    <ul class="kyc-upload-list">
+                        <li>Chosen credential must not be expaired.</li>
+                        <li>Document should be good condition and clearly visible.</li>
+                        <li>Make sure that there is no light glare on the card.</li>
+                    </ul>
+                    <div class="gaps-4x"></div>
+                    <span class="upload-title">Upload Here Your Passport Copy</span>
+                    <div class="gaps-2x"></div>
+
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <div class="kyc-upload-img">
+                                <img src="/Home/images/vector-passport.png" alt="vector">
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="upload-box">
+                                <div class="upload-zone-passport">
+                                    <div class="dz-message" data-dz-message>
+                                        <input type="file" id="UploadedFile1" name="UploadedFile1" accept="image/png, image/jpeg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gaps-4x"></div>
+                    <button class="btn btn-primary" type="button" onclick="UploadVerDoc('PASSPORT')">Upload</button>
+                    <div class="gaps-1x"></div>
+                </div>
+                <div class="tab-pane fade" id="national-card">
+                    <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                    <ul class="kyc-upload-list">
+                        <li>Chosen credential must not be expaired.</li>
+                        <li>Document should be good condition and clearly visible.</li>
+                        <li>Make sure that there is no light glare on the card.</li>
+                    </ul>
+                    <div class="gaps-4x"></div>
+                    <span class="upload-title">Upload Here Your National id Front Side</span>
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <div class="kyc-upload-img">
+                                <img src="/Home/images/vector-id-front.png" alt="vector">
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="upload-box">
+                                <div class="upload-zone">
+                                    <div class="dz-message" data-dz-message>
+                                        <input type="file" id="UploadedFile2" name="UploadedFile2" accept="image/png, image/jpeg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gaps-3x"></div>
+                    <span class="upload-title">Upload Here Your National id Back Side</span>
+                    <div class="gaps-2x"></div>
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <div class="kyc-upload-img">
+                                <img src="/Home/images/vector-id-back.png" alt="vector">
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="upload-box">
+                                <div class="upload-zone">
+                                    <div class="dz-message" data-dz-message>
+                                        <input type="file" id="UploadedFile3" name="UploadedFile3" accept="image/png, image/jpeg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gaps-4x"></div>
+                    <button class="btn btn-primary" type="button" onclick="UploadVerDoc('NATIONALID')">Upload</button>
+                    <div class="gaps-1x"></div>
+                </div>
+                <div class="tab-pane fade" id="driver-licence">
+                    <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                    <ul class="kyc-upload-list">
+                        <li>Chosen credential must not be expaired.</li>
+                        <li>Document should be good condition and clearly visible.</li>
+                        <li>Make sure that there is no light glare on the card.</li>
+                    </ul>
+                    <div class="gaps-4x"></div>
+                    <span class="upload-title">Upload Here Your Driving Licence Copy</span>
+                    <div class="gaps-2x"></div>
+
+                    <div class="row align-items-center">
+                        <div class="col-3">
+                            <div class="kyc-upload-img">
+                                <img src="/Home/images/vector-licence.png" alt="vector">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="upload-box">
+                                <div class="upload-zone">
+                                    <div class="dz-message" data-dz-message>
+                                        <input type="file" id="UploadedFile4" name="UploadedFile4" accept="image/png, image/jpeg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gaps-4x"></div>
+                    <button class="btn btn-primary" type="button" onclick="UploadVerDoc('DRIVINGLICENCE')">Upload</button>
+                    <div class="gaps-1x"></div>
+                </div>
+            </div>
+            <div class="gaps-2x"></div>
+        </div>
     </div><!-- .from-step-content -->
 </div><!-- .from-step-item -->
 
 @section Scripts {
-    <script src="~/Home/NewFolder/jquery.bundle.js?ver=101"></script>
-
+    <script src="~/Home/js/bootstrap.js"></script>
+    <script src="~/Home/js/jquery-ui.min.js"></script>
 
     <script>
         $(document).ready(function () {
-          
-
+            $("#ExpiryDate,#IssueDate,#Birthdate").datepicker({ changeYear: true, yearRange: "-100:+100", dateFormat: 'yy-mm-dd' });
         })
-
     </script>
 
     <script>
@@ -181,8 +259,25 @@
         function UploadVerDoc(type) {
 
             var formData = new FormData();
-            formData.append('UploadedFile1', $('#UploadedFile1').prop("files")[0]);
+            if (type == "PASSPORT") {
+                formData.append('UploadedFile1', $('#UploadedFile1').prop("files")[0]);
+            }
+            else if (type == "NATIONALID") {
+                formData.append('UploadedFile1', $('#UploadedFile2').prop("files")[0]);
+                formData.append('UploadedFile2', $('#UploadedFile3').prop("files")[0]);
+            }
+            else {
+                formData.append('UploadedFile1', $('#UploadedFile4').prop("files")[0]);
+            }
             formData.append("Type", type);
+            formData.append('Name', $('#name').val());
+            formData.append('Surname', $('#surname').val());
+            formData.append('DoB', $('#Birthdate').val());
+            formData.append('Email', $('#email').val());
+            formData.append('Country', $('#country').val());
+            formData.append('DocumentNumber', $('#documentNumber').val());
+            formData.append('IssueDate', $('#IssueDate').val());
+            formData.append('ExpiryDate', $('#ExpiryDate').val());
 
             console.log(formData);
 
