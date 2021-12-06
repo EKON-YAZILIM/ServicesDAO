@@ -1360,7 +1360,7 @@ namespace DAO_WebPortal.Controllers
                         modeluser.ProfileImage = Path.GetFileName(image);
                     }
 
-                    //Update user
+                    //Update user  
                     var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser), HttpContext.Session.GetString("Token")));
 
                     if (updatemodel != null && updatemodel.UserId > 0)
@@ -1446,7 +1446,21 @@ namespace DAO_WebPortal.Controllers
         [Route("KYC-Verification")]
         public IActionResult KYC_Verification()
         {
-            return View();
+            List<KYCCountries> CountryList = new List<KYCCountries>();
+            try
+            {
+                CountryList = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycCountries", HttpContext.Session.GetString("Token")));
+
+                if (CountryList == null)
+                    CountryList = new List<KYCCountries>();
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
+                return View(new List<KYCCountries>());
+            }
+            
+            return View(CountryList);
         }
 
         [Route("UploadKYCDoc")]
@@ -1454,8 +1468,10 @@ namespace DAO_WebPortal.Controllers
         {
             try
             {
+                File.UserID = HttpContext.Session.GetInt32("UserID");
+
                 //Send files to Identity server          
-                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Identity/SubmitKYCFile", JsonConvert.SerializeObject(File), HttpContext.Session.GetString("Token"));
+                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/SubmitKYCFile", JsonConvert.SerializeObject(File), HttpContext.Session.GetString("Token"));
                 //Parse result
                 var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
             }

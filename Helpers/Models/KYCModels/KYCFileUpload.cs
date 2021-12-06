@@ -14,10 +14,10 @@ namespace Helpers.Models.KYCModels
         public string DoB { set; get; }
         public string Email { set; get; }
         public string Country { set; get; }
-        public string DocumentNUmber { set; get; }
+        public string DocumentNumber { set; get; }
         public string IssueDate { set; get; }
         public string ExpiryDate { set; get; }
-        public int UserID { set; get; }
+        public int? UserID { set; get; }
 
 
         public IFormFile UploadedFile1 { set; get; }
