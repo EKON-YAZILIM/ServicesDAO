@@ -312,7 +312,8 @@ namespace DAO_DbService.Controllers
                                   Status = act.Status,
                                   AuctionID = act.AuctionID,
                                   Title = job.Title,
-                                  BidCount = bidcount
+                                  BidCount = bidcount,
+                                  JobPrice = job.Amount
                               }).Take(100).ToList();
                 }
             }
@@ -322,7 +323,6 @@ namespace DAO_DbService.Controllers
             }
             return result;
         }
-
 
         /// <summary>
         /// Get auctions bids
@@ -362,6 +362,42 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get user's bids for active auctions
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        [Route("GetUserBids")]
+        [HttpGet]
+        public List<AuctionBidDto> GetUserBids(int userid)
+        {
+            List<AuctionBidDto> result = new List<AuctionBidDto>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result = (from actbid in db.AuctionBids
+                              join auction in db.Auctions on actbid.AuctionID equals auction.AuctionID
+                              where actbid.UserID == userid && (auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding || auction.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding)
+                              select new AuctionBidDto
+                              {
+                                  UserId = actbid.UserID,
+                                  AuctionBidID = actbid.AuctionBidID,
+                                  AuctionID = auction.AuctionID,
+                                  CreateDate = actbid.CreateDate,
+                                  Price = actbid.Price,
+                                  ReputationStake = actbid.ReputationStake,
+                                  Time = actbid.Time,
+                                  AssociateUserNote = actbid.AssociateUserNote
+                              }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
         #endregion
 
         #region Dashboard
@@ -556,39 +592,39 @@ namespace DAO_DbService.Controllers
 
                     //Get job post model from GetVoteJobsByProgressTypes function
                     res.MyDoerJobs = (from job in db.JobPosts
-                                           join Auction in db.Auctions on job.JobID equals Auction.JobID
-                                           join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
-                                           join User in db.Users on job.UserID equals User.UserId
-                                           where job.JobDoerUserID == userid && AuctionBid.UserID == userid
-                                           orderby job.CreateDate descending
-                                           select new DashboardJobCardModel
-                                           {
-                                               JobID = job.JobID,
-                                               CreateDate = job.CreateDate,
-                                               UserName = User.UserName,
-                                               Title = job.Title,
-                                               Amount = AuctionBid.Price,
-                                               Status = job.Status,
-                                               EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
-                                           }).ToList();
+                                      join Auction in db.Auctions on job.JobID equals Auction.JobID
+                                      join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
+                                      join User in db.Users on job.UserID equals User.UserId
+                                      where job.JobDoerUserID == userid && AuctionBid.UserID == userid
+                                      orderby job.CreateDate descending
+                                      select new DashboardJobCardModel
+                                      {
+                                          JobID = job.JobID,
+                                          CreateDate = job.CreateDate,
+                                          UserName = User.UserName,
+                                          Title = job.Title,
+                                          Amount = AuctionBid.Price,
+                                          Status = job.Status,
+                                          EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
+                                      }).ToList();
 
 
                     res.MyOwnerJobs = (from job in db.JobPosts
-                                            join Auction in db.Auctions on job.JobID equals Auction.JobID
-                                            join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
-                                            join User in db.Users on job.UserID equals User.UserId
-                                            where job.UserID == userid && AuctionBid.UserID == userid
-                                            orderby job.CreateDate descending
-                                            select new DashboardJobCardModel
-                                            {
-                                                JobID = job.JobID,
-                                                CreateDate = job.CreateDate,
-                                                UserName = User.UserName,
-                                                Title = job.Title,
-                                                Amount = AuctionBid.Price,
-                                                Status = job.Status,
-                                                EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
-                                            }).ToList();
+                                       join Auction in db.Auctions on job.JobID equals Auction.JobID
+                                       join AuctionBid in db.AuctionBids on Auction.AuctionID equals AuctionBid.AuctionID
+                                       join User in db.Users on job.UserID equals User.UserId
+                                       where job.UserID == userid && AuctionBid.UserID == userid
+                                       orderby job.CreateDate descending
+                                       select new DashboardJobCardModel
+                                       {
+                                           JobID = job.JobID,
+                                           CreateDate = job.CreateDate,
+                                           UserName = User.UserName,
+                                           Title = job.Title,
+                                           Amount = AuctionBid.Price,
+                                           Status = job.Status,
+                                           EndDate = Auction.PublicAuctionEndDate.Value.AddDays(Convert.ToInt32(AuctionBid.Time))
+                                       }).ToList();
 
                     //Get Last 10 Comments
                     res.LastComments = db.JobPostComments.OrderByDescending(x => x.JobPostCommentID).Take(10)

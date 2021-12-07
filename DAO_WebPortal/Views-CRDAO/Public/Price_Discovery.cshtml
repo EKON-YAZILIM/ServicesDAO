@@ -31,11 +31,10 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Job Name</th>
+                                                <th scope="col">Job Budget</th>
                                                 <th scope="col">Auction Start Date</th>
                                                 <th scope="col">Auction End Date</th>
-                                                <th scope="col">Time Left</th>
                                                 <th scope="col">Bid Count</th>
-                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -47,15 +46,10 @@
                                                     <tr>
                                                         <th scope="row">@auction.AuctionID</th>
                                                         <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                                        <td><b id="counter_@auction.AuctionID"></b></td>
+                                                        <td>@auction.JobPrice €</td>
+                                                        <td>@auction.CreateDate.ToString("MM/dd/yyyy") @auction.CreateDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
                                                         <td>@auction.BidCount</td>
-                                                        <td>
-                                                            <a class="btn btn-sm btn-primary me-2" href="../Price-Discovery-Detail/@auction.AuctionID">
-                                                                <i class="fas fa-list-ul mr-2"></i> Show Bids
-                                                            </a>
-                                                        </td>
                                                     </tr>
                                                 }
                                             }
@@ -81,11 +75,10 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Job Name</th>
+                                                <th scope="col">Job Budget</th>
                                                 <th scope="col">Auction Start Date</th>
                                                 <th scope="col">Auction End Date</th>
-                                                <th scope="col">Time Left</th>
                                                 <th scope="col">Bid Count</th>
-                                                <th scope="col"></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,15 +90,10 @@
                                                     <tr>
                                                         <th scope="row">@auction.AuctionID</th>
                                                         <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                                        <td><b id="counter_@auction.AuctionID"></b></td>
+                                                        <td>@auction.JobPrice €</td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy") @auction.PublicAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
                                                         <td>@auction.BidCount</td>
-                                                        <td>
-                                                            <a class="btn btn-sm btn-primary me-2" href="../Price-Discovery-Detail/@auction.AuctionID">
-                                                                <i class="fas fa-list-ul mr-2"></i> Show Bids
-                                                            </a>
-                                                        </td>
                                                     </tr>
                                                 }
                                             }
@@ -152,8 +140,8 @@
                                                     <tr>
                                                         <th scope="row">@auction.AuctionID</th>
                                                         <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.CreateDate.ToString("MM/dd/yyyy") @auction.CreateDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
                                                         <td>@auction.WinnerUserName</td>
                                                         <td>@auction.BidCount</td>
                                                         <td>
@@ -202,8 +190,8 @@
                                                     <tr>
                                                         <th scope="row">@auction.AuctionID</th>
                                                         <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy") @auction.PublicAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
                                                         <td>-</td>
                                                         <td>@auction.BidCount</td>
                                                         <td>

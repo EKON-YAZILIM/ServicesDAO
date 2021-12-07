@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using static DAO_WebPortal.Program;
 using static Helpers.Constants.Enums;
@@ -36,9 +37,6 @@ namespace DAO_WebPortal
 
             LoadConfig(configuration);
             InitializeService();
-
-            var config = Configuration.GetSection("PlatformSettings");
-            config.Bind(_settings);
         }
 
         /// <summary>
