@@ -24,6 +24,6 @@ namespace Helpers.Models.KYCModels
     {
         public bool verified { get; set; }
         public string comment { get; set; }
-        public List<object> decline_reasons { get; set; }
+        public List<string> decline_reasons { get; set; }
     }
 }

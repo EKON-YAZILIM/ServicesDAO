@@ -6,7 +6,7 @@ namespace Helpers.Models.KYCModels
 {
     public class KYCVerificationResponse
     {
-        public string response_url { get; set; }
+        public string applicant_id { get; set; }
         public string verification_id { get; set; }
     }
 }

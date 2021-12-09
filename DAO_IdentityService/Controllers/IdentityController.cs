@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -252,44 +253,148 @@ namespace DAO_IdentityService.Controllers
 
         }
 
+
         [HttpPost("SubmitKYCFile", Name = "SubmitKYCFile")]
-        public SimpleResponse SubmitKYCFile(KYCFileUpload File)
+        public SimpleResponse SubmitKYCFile([FromQuery] string Type, string Name, string Surname, string DoB, string Email, string Country, string DocumentNumber, string IssueDate, string ExpiryDate, string UserID)
         {
             try
             {
-                var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetUserId?id=" + File.UserID));
+                var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetUserId?id=" + UserID));
 
                 if (userModel == null || userModel.UserKYCID <= 0)
                 {
                     //Create KYC applicant
-                    var Person = new KYCPerson() { type = "PERSON", first_name = File.Name, last_name = File.Surname, dob = File.DoB, residence_country = File.Country, email = File.Email };
+                    var Person = new KYCPerson() { type = "PERSON", first_name = Name, last_name = Surname, dob = DoB, residence_country = Country, email = Email };
                     var model = Helpers.Serializers.DeserializeJson<KYCPersonResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/applicants", Helpers.Serializers.SerializeJson(Person), Program._settings.KYCID));
 
-                    //Create File Request
-                    var model2 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile1), Program._settings.KYCID, "multipart/form-data"));
-                    var model3 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile2), Program._settings.KYCID, "multipart/form-data"));
-
-                    //Create applicant document request
-                    var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = File.Type, document_number = File.DocumentNumber, issue_date = File.IssueDate, expiry_date = File.ExpiryDate, front_side_id = model2.file_id, back_side_id = model3.file_id };
-                    var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
-
-                    //Create verification request
-
-                    var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse + "/KycCallBack" };
-                    var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
-
-                    //New KYC request for Db record
-                    var NewKYCObj = new UserKYCDto() { ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, FileId2 = model3.file_id };
-                    var NewKYC = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Post(Program._settings.Service_Db_Url + "/UserKYC/Post", Helpers.Serializers.SerializeJson(NewKYCObj)));
-
-                    if (NewKYC.UserKYCID <= 0)
+                    if (model != null)
                     {
-                        return new SimpleResponse() { Success = false, Message = "KYC error" };
+                        if (Request.HasFormContentType)
+                        {
+                            Guid g = Guid.NewGuid();
+
+                            var form = Request.Form;
+
+                            if (form.Files.Count > 0)
+                            {
+                                //Create File Request
+                                var model2 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files", form.Files[0], Program._settings.KYCID);
+
+                                //Create applicant document request
+                                var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = Type, document_number = DocumentNumber, issue_date = IssueDate, expiry_date = ExpiryDate, front_side_id = model2.file_id };
+
+
+                                KYCFileResponse model3 = new KYCFileResponse();
+                                if (form.Files.Count > 1)
+                                {
+                                    model3 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files", form.Files[1], Program._settings.KYCID);
+
+                                    Doc.back_side_id = model3.file_id;
+                                }
+
+
+                                var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
+
+                                //Create verification request
+
+                                var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse };
+                                var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/verifications", Helpers.Serializers.SerializeJson(Verify), Program._settings.KYCID));
+
+                                //New KYC request for Db record
+                                var NewKYCObj = new UserKYCDto() { UserID = Convert.ToInt32(UserID), ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, KYCStatus = "pending" ,DocumentId=model4.document_id};
+
+                                if (form.Files.Count > 1)
+                                    NewKYCObj.FileId2 = model3.file_id;
+
+                                var NewKYC = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Post(Program._settings.Service_Db_Url + "/UserKYC/Post", Helpers.Serializers.SerializeJson(NewKYCObj)));
+
+                                if (NewKYC.UserKYCID <= 0)
+                                {
+                                    return new SimpleResponse() { Success = false, Message = "KYC error" };
+                                }
+                            }
+                            else
+                            {
+                                return new SimpleResponse() { Success = false, Message = "Please upload KYC Document." };
+                            }
+                        }
+                        else
+                        {
+                            return new SimpleResponse() { Success = false, Message = "Please upload KYC Document." };
+                        }
                     }
+                    else
+                    {
+                        Program.monitizer.AddConsole("KYCAID connection error.");
+                        return new SimpleResponse() { Success = false, Message = "An error occurred during operations. Please try again later." };
+                    }
+
                 }
                 else
                 {
-                    //update user Kyc
+                    //update applicant
+
+                    var Person = new KYCPerson() { first_name = Name, last_name = Surname, dob = DoB, residence_country = Country, email = Email };
+                    var model = Helpers.Serializers.DeserializeJson<KYCPersonResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/applicants/" + userModel.ApplicantId, Helpers.Serializers.SerializeJson(Person), Program._settings.KYCID));
+                    if (Request.HasFormContentType)
+                    {
+                        Guid g = Guid.NewGuid();
+
+                        var form = Request.Form;
+
+                        if (form.Files.Count > 0)
+                        {
+                            //Update File 
+                            var model2 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files/"+userModel.FileId1, form.Files[0], Program._settings.KYCID);
+
+                            //Update applicant document request
+                            var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = Type, document_number = DocumentNumber, issue_date = IssueDate, expiry_date = ExpiryDate, front_side_id = model2.file_id };
+
+
+                            KYCFileResponse model3 = new KYCFileResponse();
+                            if (form.Files.Count > 1)
+                            {
+                                if(userModel.FileId2 == null)
+                                {
+                                    model3 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files", form.Files[1], Program._settings.KYCID);
+                                }
+                                else
+                                {
+                                    model3 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files/" + userModel.FileId2, form.Files[0], Program._settings.KYCID);
+                                }
+
+                                Doc.back_side_id = model3.file_id;
+                            }
+
+                            var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents/"+userModel.DocumentId, Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
+
+                            var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse };
+                            var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/verifications", Helpers.Serializers.SerializeJson(Verify), Program._settings.KYCID));
+
+                            //Update KYC Db record
+                            var NewKYCObj = new UserKYCDto() { UserID = Convert.ToInt32(UserID), ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, KYCStatus = "pending", DocumentId = model4.document_id };
+
+                            if (form.Files.Count > 1)
+                                NewKYCObj.FileId2 = model3.file_id;
+
+                            var NewKYC = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/UserKYC/Update", Helpers.Serializers.SerializeJson(NewKYCObj)));
+
+                            if (NewKYC.UserKYCID <= 0)
+                            {
+                                return new SimpleResponse() { Success = false, Message = "KYC update error" };
+                            }
+                        }
+                        else
+                        {
+                            return new SimpleResponse() { Success = false, Message = "Please upload KYC Document." };
+                        }
+                    }
+                    else
+                    {
+                        return new SimpleResponse() { Success = false, Message = "Please upload KYC Document." };
+                    }
+
+
                 }
             }
             catch (Exception ex)
@@ -297,16 +402,18 @@ namespace DAO_IdentityService.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
                 return new SimpleResponse() { Success = false, Message = "Unexpected error" };
             }
-            return new SimpleResponse() { Success = true };
+            return new SimpleResponse() { Success = true , Message = "KYC completed successfully." };
         }
 
         [HttpPost("KycCallBack", Name = "KycCallBack")]
         public SimpleResponse KycCallBack(KYCCallBack Response)
         {
+            Program.monitizer.AddConsole(Response.applicant_id);
+
             try
             {
                 var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetApplicantId?id=" + Response.applicant_id));
-                if (userModel == null || userModel.UserKYCID <= 0)
+                if (userModel != null )
                 {
                     userModel.Comment = Response.verifications.document.comment;
                     userModel.Verified = Response.verified;
@@ -315,6 +422,7 @@ namespace DAO_IdentityService.Controllers
                     var KYCModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/UserKYC/Update", Helpers.Serializers.SerializeJson(userModel)));
                     if (KYCModel.UserKYCID <= 0)
                     {
+                        Program.monitizer.AddConsole("KYC Update error");
                         return new SimpleResponse() { Success = false, Message = "KYC Update error" };
                     }
 
@@ -323,13 +431,14 @@ namespace DAO_IdentityService.Controllers
                         var User = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetId?Id=" + userModel.UserID));
                         if (User == null)
                         {
+                            Program.monitizer.AddConsole("User not found");
                             return new SimpleResponse() { Success = false, Message = "User not found" };
                         }
                         else
                         {
                             User.KYCStatus = true;
                             var UserUpdate = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", Helpers.Serializers.SerializeJson(User)));
-                            if(UserUpdate != null && UserUpdate.UserId > 0)
+                            if (UserUpdate != null && UserUpdate.UserId > 0)
                             {
                                 return new SimpleResponse() { Success = true };
                             }
@@ -346,7 +455,7 @@ namespace DAO_IdentityService.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
                 return new SimpleResponse() { Success = false, Message = "Unexpected error" };
             }
-            return new SimpleResponse() { Success = true };
+            return new SimpleResponse() { Success = true  };
 
         }
 
@@ -356,15 +465,35 @@ namespace DAO_IdentityService.Controllers
             List<KYCCountries> CountryList = new List<KYCCountries>();
             try
             {
-                CountryList = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.KYCGet(Program._settings.KYCURL + "/countries",Program._settings.KYCID));
+                CountryList = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.KYCGet(Program._settings.KYCURL + "/countries", Program._settings.KYCID));
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new List<KYCCountries>() ;
+                return new List<KYCCountries>();
             }
             return CountryList;
 
+        }
+
+
+        [HttpGet("GetKycStatus", Name = "GetKycStatus")]
+        public UserKYCDto GetKycStatus(int id)
+        {
+   
+            UserKYCDto model = new UserKYCDto();
+            try
+            {
+               model = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetUserId?id=" + id, Helpers.Serializers.SerializeJson(User)));
+                if (model == null)
+                    model = new UserKYCDto();
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
+                return new UserKYCDto();
+            }
+            return model;
         }
 
         /// <summary>

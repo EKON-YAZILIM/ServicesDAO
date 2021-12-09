@@ -1,12 +1,28 @@
-﻿
+﻿@using DAO_WebPortal.Resources
 @{
     Layout = "../Shared/_MainLayout.cshtml";
 }
 
-@model List<Helpers.Models.KYCModels.KYCCountries>
+@model Helpers.Models.WebsiteViewModels.KYCViewModel
 
 <link href="~/Home/css/KYCstyle.css" rel="stylesheet" />
 <link href="~/Home/css/jquery-ui.css" rel="stylesheet" />
+
+
+@if (Model.Status.Verified)
+{
+
+    //Verified design
+}
+else if (!Model.Status.Verified && Model.Status.KYCStatus == "pending")
+{
+    //Pending design
+}
+else if(!Model.Status.Verified && Model.Status.KYCStatus=="completed"){
+    //Rejected design
+}
+
+
 
 <div class="from-step-item">
     <div class="from-step-heading">
@@ -25,13 +41,13 @@
                         <div class="col-md-6">
                             <label class="mb-2" for="name"><b>Name</b></label>
                             <div class="input-group mb-3">
-                                <input class="form-control" type="text" aria-label="Name" placeholder="Name" id="name">
+                                <input class="form-control" type="text" aria-label="Name" placeholder="Name" id="name" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="mb-2" for="surname"><b>Surname</b></label>
                             <div class="input-group mb-3">
-                                <input class="form-control" type="text" aria-label="Surname" placeholder="Surname" id="surname">
+                                <input class="form-control" type="text" aria-label="Surname" placeholder="Surname" id="surname" required>
                             </div>
                         </div>
                     </div>
@@ -39,14 +55,14 @@
                         <div class="col-md-6">
                             <label class="mb-2" for="email"><b>Email</b></label>
                             <div class="input-group mb-3">
-                                <input class="form-control" type="email" aria-label="Email" placeholder="Email" id="email">
+                                <input class="form-control" type="email" aria-label="Email" placeholder="Email" id="email" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label class="mb-2" for="country"><b>Country</b></label>
                             <div class="input-group mb-3">
                                 <select class="form-select" aria-label="Default select example" id="country">
-                                    @foreach (var item in Model)
+                                    @foreach (var item in Model.Countries)
                                     {
                                         foreach (var item2 in item.labels.Where(x => x.language_code == "EN").ToList())
                                         {
@@ -62,7 +78,7 @@
                         <div class="col-md-6">
                             <label class="mb-2" for="documentNumber"><b>Document Number</b></label>
                             <div class="input-group mb-3">
-                                <input class="form-control" type="text" aria-label="Document Number" placeholder="Document Number" id="documentNumber">
+                                <input class="form-control" type="text" aria-label="Document Number" placeholder="Document Number" id="documentNumber" required>
                             </div>
                         </div>
                     </div>
@@ -70,7 +86,7 @@
                         <div class="col-md-3">
                             <label class="mb-2" for="Birthdate"><b>Birthdate</b></label>
                             <div class="input-group mb-3">
-                                <input class="form-control" id="Birthdate">
+                                <input class="form-control" id="Birthdate" required>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -140,18 +156,26 @@
                     <div class="gaps-2x"></div>
 
                     <div class="row align-items-center">
+                        <div class="col-9">
+                            <div class="file-upload">
+
+                                <div class="image-upload-wrap UploadedFile1">
+                                    <input id="UploadedFile1" name="UploadedFile1" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content UploadedFile1">
+                                    <img class="file-upload-image UploadedFile1" src="#" alt="your image" />
+                                    <div class="image-title-wrap ">
+                                        <button type="button" onclick="removeUpload('UploadedFile1')" class="remove-image">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-3">
                             <div class="kyc-upload-img">
                                 <img src="/Home/images/vector-passport.png" alt="vector">
-                            </div>
-                        </div>
-                        <div class="col-9">
-                            <div class="upload-box">
-                                <div class="upload-zone-passport">
-                                    <div class="dz-message" data-dz-message>
-                                        <input type="file" id="UploadedFile1" name="UploadedFile1" accept="image/png, image/jpeg">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -169,18 +193,26 @@
                     <div class="gaps-4x"></div>
                     <span class="upload-title">Upload Here Your National id Front Side</span>
                     <div class="row align-items-center">
+                        <div class="col-9">
+                            <div class="file-upload">
+
+                                <div class="image-upload-wrap UploadedFile2">
+                                    <input id="UploadedFile2" name="UploadedFile2" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content UploadedFile2">
+                                    <img class="file-upload-image UploadedFile2" src="#" alt="your image" />
+                                    <div class="image-title-wrap ">
+                                        <button type="button" onclick="removeUpload('UploadedFile2')" class="remove-image">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-3">
                             <div class="kyc-upload-img">
                                 <img src="/Home/images/vector-id-front.png" alt="vector">
-                            </div>
-                        </div>
-                        <div class="col-9">
-                            <div class="upload-box">
-                                <div class="upload-zone">
-                                    <div class="dz-message" data-dz-message>
-                                        <input type="file" id="UploadedFile2" name="UploadedFile2" accept="image/png, image/jpeg">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -188,18 +220,26 @@
                     <span class="upload-title">Upload Here Your National id Back Side</span>
                     <div class="gaps-2x"></div>
                     <div class="row align-items-center">
+                        <div class="col-9">
+                            <div class="file-upload">
+
+                                <div class="image-upload-wrap UploadedFile3">
+                                    <input id="UploadedFile3" name="UploadedFile3" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content UploadedFile3">
+                                    <img class="file-upload-image UploadedFile3" src="#" alt="your image" />
+                                    <div class="image-title-wrap ">
+                                        <button type="button" onclick="removeUpload('UploadedFile3')" class="remove-image">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-3">
                             <div class="kyc-upload-img">
                                 <img src="/Home/images/vector-id-back.png" alt="vector">
-                            </div>
-                        </div>
-                        <div class="col-9">
-                            <div class="upload-box">
-                                <div class="upload-zone">
-                                    <div class="dz-message" data-dz-message>
-                                        <input type="file" id="UploadedFile3" name="UploadedFile3" accept="image/png, image/jpeg">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -217,20 +257,27 @@
                     <div class="gaps-4x"></div>
                     <span class="upload-title">Upload Here Your Driving Licence Copy</span>
                     <div class="gaps-2x"></div>
-
                     <div class="row align-items-center">
+
+                        <div class="col-md-9">
+                            <div class="file-upload">
+                                <div class="image-upload-wrap UploadedFile4">
+                                    <input id="UploadedFile4" name="UploadedFile4" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                    <div class="drag-text">
+                                        <h3>Drag and drop a file or select add Image</h3>
+                                    </div>
+                                </div>
+                                <div class="file-upload-content UploadedFile4">
+                                    <img class="file-upload-image UploadedFile4" src="#" alt="your image" />
+                                    <div class="image-title-wrap ">
+                                        <button type="button" onclick="removeUpload('UploadedFile4')" class="remove-image">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-3">
                             <div class="kyc-upload-img">
                                 <img src="/Home/images/vector-licence.png" alt="vector">
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="upload-box">
-                                <div class="upload-zone">
-                                    <div class="dz-message" data-dz-message>
-                                        <input type="file" id="UploadedFile4" name="UploadedFile4" accept="image/png, image/jpeg">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -249,6 +296,39 @@
     <script src="~/Home/js/jquery-ui.min.js"></script>
 
     <script>
+        function readURL(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    debugger;
+                    $('.image-upload-wrap.' + id).hide();
+                    $('.file-upload-image.' + id).attr('src', e.target.result);
+                    $('.file-upload-content.' + id).show();
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload(id);
+            }
+        }
+
+        function removeUpload(id) {
+            debugger;
+            $('.file-upload-input.' + id).replaceWith($('.file-upload-input.' + id).clone());
+            $('.file-upload-content.' + id).hide();
+            $('.image-upload-wrap.' + id).show();
+        }
+
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap.' + e.id).addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function (e) {
+            $('.image-upload-wrap.' + e.id).removeClass('image-dropping');
+        });
+    </script>
+
+    <script>
         $(document).ready(function () {
             $("#ExpiryDate,#IssueDate,#Birthdate").datepicker({ changeYear: true, yearRange: "-100:+100", dateFormat: 'yy-mm-dd' });
         })
@@ -257,40 +337,66 @@
     <script>
 
         function UploadVerDoc(type) {
+            control = true;
 
-            var formData = new FormData();
-            if (type == "PASSPORT") {
-                formData.append('UploadedFile1', $('#UploadedFile1').prop("files")[0]);
-            }
-            else if (type == "NATIONALID") {
-                formData.append('UploadedFile1', $('#UploadedFile2').prop("files")[0]);
-                formData.append('UploadedFile2', $('#UploadedFile3').prop("files")[0]);
-            }
-            else {
-                formData.append('UploadedFile1', $('#UploadedFile4').prop("files")[0]);
-            }
-            formData.append("Type", type);
-            formData.append('Name', $('#name').val());
-            formData.append('Surname', $('#surname').val());
-            formData.append('DoB', $('#Birthdate').val());
-            formData.append('Email', $('#email').val());
-            formData.append('Country', $('#country').val());
-            formData.append('DocumentNumber', $('#documentNumber').val());
-            formData.append('IssueDate', $('#IssueDate').val());
-            formData.append('ExpiryDate', $('#ExpiryDate').val());
-
-            console.log(formData);
-
-            $.ajax({
-                method: 'POST',
-                url: "../UploadKYCDoc",
-                data: formData,
-                processData: false, // required for FormData with jQuery
-                contentType: false, // required for FormData with jQuery
-                success: function (response) {
-                    // do something
+            $(':input[required]').each(function () {
+                debugger;
+                if ($(this).val() == "") {
+                    $(this).addClass("invalidInput");
+                    control = false;
                 }
             });
+            if (control) {
+                var formData = new FormData();
+                if (type == "PASSPORT") {
+                    formData.append('UploadedFile1', $('#UploadedFile1').prop("files")[0]);
+                }
+                else if (type == "NATIONALID") {
+                    formData.append('UploadedFile1', $('#UploadedFile2').prop("files")[0]);
+                    formData.append('UploadedFile2', $('#UploadedFile3').prop("files")[0]);
+                }
+                else {
+                    formData.append('UploadedFile1', $('#UploadedFile4').prop("files")[0]);
+                }
+                formData.append("Type", type);
+                formData.append('Name', $('#name').val());
+                formData.append('Surname', $('#surname').val());
+                formData.append('DoB', $('#Birthdate').val());
+                formData.append('Email', $('#email').val());
+                formData.append('Country', $('#country').val());
+                formData.append('DocumentNumber', $('#documentNumber').val());
+                formData.append('IssueDate', $('#IssueDate').val());
+                formData.append('ExpiryDate', $('#ExpiryDate').val());
+
+                console.log(formData);
+
+                $.ajax({
+                    method: 'POST',
+                    url: "../UploadKYCDoc",
+                    data: formData,
+                    processData: false, // required for FormData with jQuery
+                    contentType: false, // required for FormData with jQuery
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                    failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+                    }
+                });
+            }
+
         }
     </script>
 

@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Helpers.Models.KYCModels;
+using Helpers.Models.SharedModels;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml;
 
 namespace Helpers
@@ -128,6 +133,91 @@ namespace Helpers
             }
 
             return result;
+        }
+
+        public static SimpleResponse Upload(string url, IFormFile file, IFormFile file2 = null)
+        {
+            SimpleResponse res = new SimpleResponse();
+
+            try
+            {
+                if (file != null && file.Length > 0)
+                {
+                    using (var client = new HttpClient())
+                    {
+
+                        byte[] data;
+                        using (var br = new BinaryReader(file.OpenReadStream()))
+                            data = br.ReadBytes((int)file.OpenReadStream().Length);
+
+                        ByteArrayContent bytes = new ByteArrayContent(data);
+
+
+                        MultipartFormDataContent multiContent = new MultipartFormDataContent();
+
+                        multiContent.Add(bytes, "file", file.FileName);
+
+                        if(file2 != null && file2.Length > 0)
+                        {
+                            byte[] data2;
+                            using (var br2 = new BinaryReader(file2.OpenReadStream()))
+                                data2 = br2.ReadBytes((int)file2.OpenReadStream().Length);
+
+                            ByteArrayContent bytes2 = new ByteArrayContent(data2);
+
+                            multiContent.Add(bytes2, "file2", file2.FileName);
+                        }
+
+
+                        var result = client.PostAsync(url, multiContent).Result;
+
+                        res = Serializers.DeserializeJson<SimpleResponse>(result.Content.ReadAsStringAsync().Result);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return res;
+        }
+
+        public static KYCFileResponse UploadFiletoKYCAID(string url, IFormFile file, string token)
+        {
+            KYCFileResponse res = new KYCFileResponse();
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            try
+            {
+
+                if (file != null && file.Length > 0)
+                {
+                    using (var client = new HttpClient())
+                    {
+                       
+                        byte[] data;
+                        using (var br = new BinaryReader(file.OpenReadStream()))
+                            data = br.ReadBytes((int)file.OpenReadStream().Length);
+
+                        ByteArrayContent bytes = new ByteArrayContent(data);
+                        MultipartFormDataContent multiContent = new MultipartFormDataContent();
+                        multiContent.Add(bytes, "file", file.FileName);
+
+                        client.DefaultRequestHeaders.Add("Authorization", "Token " + token);
+                        var result = client.PostAsync(url, multiContent).Result;
+
+                        var res2 = result.Content.ReadAsStringAsync().Result;
+
+                        res = Serializers.DeserializeJson<KYCFileResponse>(result.Content.ReadAsStringAsync().Result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return res;
         }
 
         public static string Put(string url, string postData, string token = "")

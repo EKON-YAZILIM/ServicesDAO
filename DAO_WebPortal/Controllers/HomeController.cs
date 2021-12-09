@@ -1477,53 +1477,52 @@ namespace DAO_WebPortal.Controllers
         [Route("KYC-Verification")]
         public IActionResult KYC_Verification()
         {
-            List<KYCCountries> CountryList = new List<KYCCountries>();
+            KYCViewModel model = new KYCViewModel();
+
             try
             {
-                CountryList = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycCountries", HttpContext.Session.GetString("Token")));
+                model.Countries = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycCountries", HttpContext.Session.GetString("Token")));
 
-                if (CountryList == null)
-                    CountryList = new List<KYCCountries>();
+                if (model.Countries == null)
+                    model.Countries = new List<KYCCountries>();
+
+                var KYCStatus = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycStatus?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
+
+                if (KYCStatus == null)
+                    model.Status = new UserKYCDto();
+
             }
             catch (Exception ex)
             {
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return View(new List<KYCCountries>());
+                return View(new KYCViewModel());
             }
 
-            return View(CountryList);
+            return View(model);
         }
 
         [Route("UploadKYCDoc")]
         public JsonResult UploadKYCDoc(KYCFileUpload File)
         {
+            SimpleResponse model = new SimpleResponse();
             try
             {
-                File.UserID = HttpContext.Session.GetInt32("UserID");
-
                 //Send files to Identity server          
-                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/SubmitKYCFile", JsonConvert.SerializeObject(File), HttpContext.Session.GetString("Token"));
-                //Parse result
-                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
-            }
-            catch (Exception)
-            {
-            }
-            return Json("");
-        }
 
-        [Route("KycCallBack")]
-        public void KycCallBack(KYCCallBack Response)
-        {
-            try
-            {
-                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Identity/SubmitKYCFile", JsonConvert.SerializeObject(Response), HttpContext.Session.GetString("Token"));
+                model = Helpers.Request.Upload(Program._settings.Service_ApiGateway_Url1 + "/PublicActions/Identity/SubmitKYCFile?Type=" + File.Type + "&Name=" + File.Name + "&Surname=" + File.Surname + "&Dob=" + File.DoB + "&Email=" + File.Email + "&Country=" + File.Country + "&DocumentNumber=" + File.DocumentNumber + "&IssueDate=" + File.IssueDate + "&ExpiryDate=" + File.ExpiryDate + "&UserID=" + HttpContext.Session.GetInt32("UserID"), File.UploadedFile1, File.UploadedFile2);
+
+                //Parse result
+                //model = Helpers.Serializers.DeserializeJson<SimpleResponse>(kycJson);
             }
             catch (Exception ex)
             {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
+                return Json(new SimpleResponse());
             }
+            return Json(model);
         }
+
+
 
         /// <summary>
         ///  Public user pay dos fee action

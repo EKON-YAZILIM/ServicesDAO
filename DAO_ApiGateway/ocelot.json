@@ -8,8 +8,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "dao_dbservice",
-          "Port": 80
+          "Host": "localhost",
+          "Port": "44369"
         }
       ],
       "DownstreamPathTemplate": "/{everything}",
@@ -135,6 +135,32 @@
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/SubmitKYCFile",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44391"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/SubmitKYCFile",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/GetKycStatus",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44391"
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/GetKycStatus",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },

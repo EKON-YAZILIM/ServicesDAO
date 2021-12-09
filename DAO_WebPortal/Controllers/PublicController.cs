@@ -14,6 +14,8 @@ using System.Text.RegularExpressions;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.NotificationModels;
 using Helpers.Models.WebsiteViewModels;
+using Helpers.Models.KYCModels;
+using Newtonsoft.Json;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -561,6 +563,25 @@ namespace DAO_WebPortal.Controllers
             Stream s = new MemoryStream(result.CaptchaByteData);
             return new FileStreamResult(s, "image/png");
         }
+
+        [HttpPost("KycCallBack", Name = "KycCallBack")]
+        public SimpleResponse KycCallBack([FromBody] KYCCallBack Response)
+        {
+            SimpleResponse model = new SimpleResponse();
+            try
+            {
+                Program.monitizer.AddConsole(Response.ToString());
+
+                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/KycCallBack", JsonConvert.SerializeObject(Response), HttpContext.Session.GetString("Token"));
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return model;
+        }
+
 
     }
 }
