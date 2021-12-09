@@ -6,25 +6,25 @@
 Docker should be installed and configured.
 
 ## Install and run
-After installing and configuring Docker in your environment, you can run the below command from the /ServicesDAO/ directory for installation and run.
-docker-compose up --build
-
-After docker-compose is up, you can access the application from the below link.
-dao_webportal - https://localhost:9994
-
-Using below links, you can see the status, logs and/or erros of the belonging api
-dao_dbservice - https://localhost:9990
-dao_identityservice - https://localhost:9991
-dao_logservice - https://localhost:9992
-dao_notificationservice - https://localhost:9993
-dao_apigateway - https://localhost:9995
-
-dao_db is configured to be accessed from localhost port: 3309 as default
-dao_logsdb is configured to be accessed from localhost port: 3310 as default
-dao_rabbitmq user interface adress is http://localhost:15672
-
+After installing and configuring Docker in your environment, you can run the below command from the /ServicesDAO/ directory for installation and run.<br>
+docker-compose up --build<br>
+<br>
+After docker-compose is up, you can access the application from the below link.<br>
+dao_webportal - http://localhost:8895<br>
+<br>
+Using below links, you can see the status, logs and/or erros of the belonging api<br>
+dao_dbservice - http://localhost:9990<br>
+dao_identityservice - http://localhost:9991<br>
+dao_logservice - http://localhost:9992<br>
+dao_notificationservice - http://localhost:9993<br>
+dao_apigateway - http://localhost:9995<br>
+<br>
+dao_db is configured to be accessed from localhost port: 3309 as default<br>
+dao_logsdb is configured to be accessed from localhost port: 3310 as default<br>
+dao_rabbitmq user interface adress is http://localhost:15672<br>
+<br>
 ## Develop
-
+<br>
 All applications can be built and run in their own docker containers with the following command;
 
 docker build -f "./Dockerfile" -t [IMAGE_NAME]:dev "[SolutionPath]\ServicesDAO"
