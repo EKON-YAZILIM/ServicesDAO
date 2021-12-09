@@ -22,7 +22,7 @@ dao_apigateway - http://localhost:9995<br>
 dao_db is configured to be accessed from localhost port: 3309 as default<br>
 dao_logsdb is configured to be accessed from localhost port: 3310 as default<br>
 dao_rabbitmq user interface adress is http://localhost:15672<br>
-<br>
+
 ## Develop
 <br>
 All applications can be built and run in their own docker containers with the following command;
