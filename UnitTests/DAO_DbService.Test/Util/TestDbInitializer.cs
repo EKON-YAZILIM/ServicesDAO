@@ -126,7 +126,7 @@ namespace DAO_DbService.Tests.Util
             //Adding public users
             for (int i = 0; i < total_public_user_count; i++)
             {
-                string username = "public_username" + i;
+                string username = "public_user" + i;
                 context.Users.Add(new User
                 {
                     NameSurname = $"Username{i} UserSurname{i}",
