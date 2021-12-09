@@ -30,16 +30,16 @@ All applications can be built and run in their own docker containers with the fo
 docker build -f "./Dockerfile" -t [IMAGE_NAME]:dev "[SolutionPath]\ServicesDAO"
 docker run -p [application access port]:80 -name:[NAME]  [IMAGE_NAME]:dev --
 
-For the application to work, all containers should be created in the same network also database, rabbitmq and api endpoints can be redefined.
+For the application to work, all containers should be created in the same network also database, rabbitmq and api endpoints can be redefined.<br>
 
-After .NET core 3.1 and .NET SDK 3.1.20 are installed on the environment, all applications can be built individually by running the commands below under the project solution folder;
+After .NET core 3.1 and .NET SDK 3.1.20 are installed on the environment, all applications can be built individually by running the commands below under the project solution folder;<br>
 
-dotnet build ./DAO_ApiGateway/DAO_ApiGateway.csproj
-dotnet build ./DAO_DbService/DAO_DbService.csproj
-dotnet build ./DAO_IdentityService/DAO_IdentityService.csproj
-dotnet build ./DAO_LogService/DAO_LogService.csproj
-dotnet build ./DAO_NotificationService/DAO_NotificationService.csproj
-dotnet build ./DAO_WebPortal/DAO_WebPortal.csproj
+dotnet build ./DAO_ApiGateway/DAO_ApiGateway.csproj<br>
+dotnet build ./DAO_DbService/DAO_DbService.csproj<br>
+dotnet build ./DAO_IdentityService/DAO_IdentityService.csproj<br>
+dotnet build ./DAO_LogService/DAO_LogService.csproj<br>
+dotnet build ./DAO_NotificationService/DAO_NotificationService.csproj<br>
+dotnet build ./DAO_WebPortal/DAO_WebPortal.csproj<br>
 
 ## Information About Services
 dao_db:
@@ -50,31 +50,31 @@ dao_logsdb:
 MySQL
 Log database of exceptions and operations of the application.
 
-dao_rabbitmq:
+dao_rabbitmq:<br>
 RabbitMQ
 Serves as bus service, responsible for transmitting logs and notifications from every microservice to dao_logservice and dao_notificationservice.
 
-dao_dbservice:
-Shared data-access layer for application main database.
-Accessed by:
-Identity Service
-Notification Service
-Web Portal (Thru DAO_ApiGateway)
+dao_dbservice:<br>
+Shared data-access layer for application main database.<br>
+Accessed by:<br>
+Identity Service<br>
+Notification Service<br>
+Web Portal (Thru DAO_ApiGateway)<br>
 
-dao_logservice:
-Data-access layer for dao_logsdb.
+dao_logservice:<br>
+Data-access layer for dao_logsdb.<br>
 
-dao_notificationservice:
-Responsible for sending notifications via email.
+dao_notificationservice:<br>
+Responsible for sending notifications via email.<br>
 
-dao_webportal:
-Provides application and user interactions with user interface.
-- Registering to the application
+dao_webportal:<br>
+Provides application and user interactions with user interface.<br>
+- Registering to the application<br>
 - Job Posting
 - Voting
 - Forum
 
-Helpers Library:
+Helpers Library:<br>
 Contains application models, constants, application wide generic methods(MySQL connection, RabbitMQ subscription, Json Serializing, Encryption etc...) of the application.
 
 
