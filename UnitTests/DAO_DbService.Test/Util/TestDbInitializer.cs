@@ -99,7 +99,6 @@ namespace DAO_DbService.Tests.Util
         ///<returns>The list of users</returns>
         public static List<User> SeedUsers()
         {
-
             Random random = new Random();
             //generate random public users between 1 and 100
             int total_public_user_count = random.Next(1, 100);
@@ -127,7 +126,7 @@ namespace DAO_DbService.Tests.Util
             //Adding public users
             for (int i = 0; i < total_public_user_count; i++)
             {
-                string username = $"public_username{i}";
+                string username = "public_username" + i;
                 context.Users.Add(new User
                 {
                     NameSurname = $"Username{i} UserSurname{i}",
