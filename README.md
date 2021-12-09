@@ -140,11 +140,3 @@ Provides application and user interactions with user interface.<br>
 Helpers Library:<br>
 Contains application models, constants, application wide generic methods(MySQL connection, RabbitMQ subscription, Json Serializing, Encryption etc...) of the application.
 
-
-
-
-
-
-
-
-

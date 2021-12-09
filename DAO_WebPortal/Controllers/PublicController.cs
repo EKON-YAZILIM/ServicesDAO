@@ -85,15 +85,22 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
-                //Get bids model from ApiGateway
-                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetAuctionBids?auctionid=" + AuctionID);
                 //Get auction model from ApiGateway
                 var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetAuctionDetail?id=" + AuctionID);
+                //Parse response
+                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
+
+                //If auction isn't completed users can't see bids
+                if (AuctionDetailModel.Auction.Status == AuctionStatusTypes.PublicBidding || AuctionDetailModel.Auction.Status == AuctionStatusTypes.InternalBidding)
+                {
+                    return RedirectToAction("Price-Discovery");
+                }
+
+                //Get bids model from ApiGateway
+                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetAuctionBids?auctionid=" + AuctionID);
 
                 //Parse response
                 AuctionDetailModel.BidItems = Helpers.Serializers.DeserializeJson<List<AuctionBidItemModel>>(auctionBidsJson);
-                //Parse response
-                AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
             }
             catch (Exception ex)
             {

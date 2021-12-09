@@ -700,10 +700,22 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
-                //Get model from ApiGateway
+                //Get auctions from ApiGateway
                 var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions", HttpContext.Session.GetString("Token"));
                 //Parse response
                 auctionsModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(auctionsJson);
+
+                //Get user's bid for all active auctions from ApiGateway
+                var bidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserBids?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                //Parse response
+                List<AuctionBidDto> bidsModel = Helpers.Serializers.DeserializeJson<List<AuctionBidDto>>(bidsJson);
+
+                //Match users existing bids with auctions
+                foreach (var bid in bidsModel)
+                {
+                    var auction = auctionsModel.First(x => x.AuctionID == bid.AuctionID);
+                    auction.UsersBidId = bid.AuctionBidID;
+                }
             }
             catch (Exception ex)
             {
@@ -726,15 +738,24 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
-                //Get bids model from ApiGateway
-                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
                 //Get auction model from ApiGateway
                 var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + AuctionID, HttpContext.Session.GetString("Token"));
-
-                //Parse response
-                AuctionDetailModel.BidItems = Helpers.Serializers.DeserializeJson<List<AuctionBidItemModel>>(auctionBidsJson);
                 //Parse response
                 AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
+
+                //If auction isn't completed only job poster can see the bids
+                if (HttpContext.Session.GetInt32("UserID") != AuctionDetailModel.Auction.JobPosterUserId)
+                {
+                    if (AuctionDetailModel.Auction.Status == AuctionStatusTypes.PublicBidding || AuctionDetailModel.Auction.Status == AuctionStatusTypes.InternalBidding)
+                    {
+                        return RedirectToAction("Auctions");
+                    }
+                }
+
+                //Get bids model from ApiGateway
+                var auctionBidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctionBids?auctionid=" + AuctionID, HttpContext.Session.GetString("Token"));
+                //Parse response
+                AuctionDetailModel.BidItems = Helpers.Serializers.DeserializeJson<List<AuctionBidItemModel>>(auctionBidsJson);
             }
             catch (Exception ex)
             {
@@ -1148,9 +1169,19 @@ namespace DAO_WebPortal.Controllers
                 VotingDto informalVoting = new VotingDto();
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
-                informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingTime);
                 informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
                 informalVoting.QuorumRatio = Program._settings.QuorumRatio;
+
+                informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime);
+
+                if (Program._settings.AuctionTimeType == "week")
+                {
+                    informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime * 7);
+                }
+                else if (Program._settings.AuctionTimeType == "minute")
+                {
+                    informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingTime);
+                }
 
                 //Get related job post
                 var jobJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + jobid, HttpContext.Session.GetString("Token"));
@@ -1459,7 +1490,7 @@ namespace DAO_WebPortal.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError);
                 return View(new List<KYCCountries>());
             }
-            
+
             return View(CountryList);
         }
 
@@ -1517,14 +1548,30 @@ namespace DAO_WebPortal.Controllers
                 JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
 
                 //Set Auction model
+
+                //Set auction end dates
+                DateTime internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime);
+                DateTime publicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+
+                if (Program._settings.AuctionTimeType == "week")
+                {
+                    internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime * 7);
+                    publicAuctionEndDate = DateTime.Now.AddDays((Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime) * 7);
+                }
+                else if (Program._settings.AuctionTimeType == "minute")
+                {
+                    internalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime);
+                    publicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+                }
+
                 AuctionDto AuctionModel = new AuctionDto()
                 {
                     JobID = JobId,
                     JobPosterUserId = JobModel.UserID,
                     CreateDate = DateTime.Now,
                     Status = AuctionStatusTypes.InternalBidding,
-                    InternalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime),
-                    PublicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime)
+                    InternalAuctionEndDate = internalAuctionEndDate,
+                    PublicAuctionEndDate = publicAuctionEndDate
                 };
 
                 //Check existing auction related with this job
@@ -1626,14 +1673,30 @@ namespace DAO_WebPortal.Controllers
                     JobModel.Status = Helpers.Constants.Enums.JobStatusTypes.InternalAuction;
 
                     //Set Auction model
+
+                    //Set auction end dates
+                    DateTime internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime);
+                    DateTime publicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+
+                    if (Program._settings.AuctionTimeType == "week")
+                    {
+                        internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime * 7);
+                        publicAuctionEndDate = DateTime.Now.AddDays((Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime) * 7);
+                    }
+                    else if (Program._settings.AuctionTimeType == "minute")
+                    {
+                        internalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime);
+                        publicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+                    }
+
                     AuctionDto AuctionModel = new AuctionDto()
                     {
                         JobID = JobId,
                         JobPosterUserId = JobModel.UserID,
                         CreateDate = DateTime.Now,
                         Status = AuctionStatusTypes.InternalBidding,
-                        InternalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime),
-                        PublicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime)
+                        InternalAuctionEndDate = internalAuctionEndDate,
+                        PublicAuctionEndDate = publicAuctionEndDate
                     };
 
                     //Check existing auction related with this job

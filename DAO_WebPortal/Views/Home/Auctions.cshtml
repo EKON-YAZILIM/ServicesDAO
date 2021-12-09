@@ -1,8 +1,19 @@
-﻿@{
+﻿@using DAO_WebPortal.Resources
+@using Helpers.Constants
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@model List<Helpers.Models.WebsiteViewModels.AuctionViewModel>
+@{
     Layout = "../Shared/_MainLayout.cshtml";
 
 }
-@model List<Helpers.Models.WebsiteViewModels.AuctionViewModel>
+
+@{
+    string userType = httpContextAccessor.HttpContext.Session.GetString("UserType");
+    int userid = Convert.ToInt32(httpContextAccessor.HttpContext.Session.GetInt32("UserID"));
+}
+
+
 <!-- Tab list -->
 <ul class="nav nav-underline border-0 mb-3" role="tablist">
     <li class="nav-item mx-2">
@@ -39,6 +50,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
+                                    <th scope="col">Job Budget</th>
                                     <th scope="col">Auction Start Date</th>
                                     <th scope="col">Auction End Date</th>
                                     <th scope="col">Time Left</th>
@@ -55,16 +67,44 @@
                                         <tr>
                                             <th scope="row">@auction.AuctionID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                            <td>@auction.JobPrice €</td>
                                             <td>@auction.CreateDate.ToString("MM/dd/yyyy")</td>
                                             <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td><b id="counter_@auction.AuctionID"></b></td>
                                             <td>@auction.BidCount</td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary me-2" href="../Auction-Detail/@auction.AuctionID">
-                                                    <svg class="icon">
-                                                        <use xlink:href="/Home/images/svg/free.svg#cil-notes"></use>
-                                                    </svg> Show Bids
-                                                </a>
+                                                @*If user is job poster*@
+                                                @if (auction.JobPosterUserId == userid)
+                                                {
+                                                    <a class="btn btn-sm btn-primary me-2" href="../Auction-Detail/@auction.AuctionID">
+                                                        <svg class="icon">
+                                                            <use xlink:href="/Home/images/svg/free.svg#cil-notes"></use>
+                                                        </svg> Show Bids
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    @*If user doesn't have bid for this auction*@
+                                                    @if (auction.UsersBidId == null)
+                                                    {
+                                                        if (userType == Enums.UserIdentityType.VotingAssociate.ToString() || userType == Enums.UserIdentityType.Admin.ToString())
+                                                        {
+                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID)">
+                                                                <svg class="icon">
+                                                                    <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                                </svg> Submit Bid
+                                                            </a>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="btn btn-sm btn-danger text-white me-2" onclick="DeleteBid(this, @auction.UsersBidId)">
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                                            </svg> Delete Bid
+                                                        </a>
+                                                    }
+                                                }
                                             </td>
                                         </tr>
                                     }
@@ -91,6 +131,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
+                                    <th scope="col">Job Budget</th>
                                     <th scope="col">Auction Start Date</th>
                                     <th scope="col">Auction End Date</th>
                                     <th scope="col">Time Left</th>
@@ -107,16 +148,44 @@
                                         <tr>
                                             <th scope="row">@auction.AuctionID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                            <td>@auction.JobPrice €</td>
                                             <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td><b id="counter_@auction.AuctionID"></b></td>
                                             <td>@auction.BidCount</td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary me-2" href="../Auction-Detail/@auction.AuctionID">
-                                                    <svg class="icon">
-                                                        <use xlink:href="/Home/images/svg/free.svg#cil-notes"></use>
-                                                    </svg> Show Bids
-                                                </a>
+                                                @*If user is job poster*@
+                                                @if (auction.JobPosterUserId == userid)
+                                                {
+                                                    <a class="btn btn-sm btn-primary me-2" href="../Auction-Detail/@auction.AuctionID">
+                                                        <svg class="icon">
+                                                            <use xlink:href="/Home/images/svg/free.svg#cil-notes"></use>
+                                                        </svg> Show Bids
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    @*If user doesn't have bid for this auction*@
+                                                    @if (auction.UsersBidId == null)
+                                                    {
+                                                        if (userType == Enums.UserIdentityType.Associate.ToString())
+                                                        {
+                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID)">
+                                                                <svg class="icon">
+                                                                    <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                                </svg> Submit Bid
+                                                            </a>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="btn btn-sm btn-danger text-white me-2" onclick="DeleteBid(this, @auction.UsersBidId)">
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                                            </svg> Delete Bid
+                                                        </a>
+                                                    }
+                                                }
                                             </td>
                                         </tr>
                                     }
@@ -132,6 +201,7 @@
             </div>
         </div> <!-- .card -->
     </div>
+
     <!-- Tab panel -->
     <div class="tab-pane" role="tabpanel" id="completedAuctionsTab">
         <!-- .card -->
@@ -243,6 +313,58 @@
     </div>
 </div>
 
+<!--New Bid Modal  -->
+<div class="modal fade" id="AddBid-Modal" tabindex="-1" aria-labelledby="AddBid" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="AddBidModalTitle"></h5>
+                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label" for="price"><b>Price</b></label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">€</span>
+                        <input class="form-control number" type="text" aria-label="price" placeholder="Price" id="price"><span class="input-group-text">.00</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="time"><b>Time</b></label>
+                    <div class="input-group mb-3">
+                        <input class="form-control number" type="text" aria-label="Time" placeholder="Time" id="time"><span class="input-group-text">days</span>
+                    </div>
+                </div>
+
+                @if (userType == Enums.UserIdentityType.Associate.ToString())
+                {
+                    <div class="mb-3">
+                        <label class="form-label" for="Note"><b>Note</b> (Please put your resume or portfolio if you are not known member of this DAO)</label>
+                        <div class="input-group mb-3">
+                            <textarea class="form-control" type="text" aria-label="Note" placeholder="Note" id="note"></textarea>
+                        </div>
+                    </div>
+                }
+
+                @if (userType == Enums.UserIdentityType.VotingAssociate.ToString() || userType == Enums.UserIdentityType.Admin.ToString())
+                {
+                    <div class="mb-3">
+                        <label class="form-label" for="reputation"><b>Reputation Stake</b></label>
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" placeholder="Reputation" id="reputation"><span class="input-group-text" id="basic-addon2"> Reputation Points</span>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" onclick="AuctionBidAdd(this);">Submit Bid</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @section Scripts{
 
@@ -254,6 +376,8 @@
         var auctionCountdownDictionary = {};
 
         var now = new Date(@DateTime.Now.Year, @(DateTime.Now.Month-1), @DateTime.Now.Day, @DateTime.Now.Hour, @DateTime.Now.Minute, @DateTime.Now.Second);
+
+        var selectedAuctionId = 0;
 
         $(document).ready(function () {
 
@@ -305,5 +429,151 @@
             }
         }
 
+        //Opens submit bid modal
+        function OpenAddBidModal(auctionId) {
+            selectedAuctionId = auctionId;
+            $("#AddBid-Modal").modal("toggle");
+            $("#AddBidModalTitle").text("New Bid for Auction #"+auctionId);
+        }
+
+        //Auction bids adding function
+        function AuctionBidAdd(e) {
+
+            $.confirm({
+                title: 'Confirmation',
+                content: '<b>By posting a bid, you unconditionally and irrevocably agree: </b>' +
+
+                    '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that all results, work product, etc. associated with my bid and associated work product will be made available under an open-source license. I acknowledge that I am legally responsible to ensure that all parts of this project are open-source. </label></div>'
+                    + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm2"><label class="form-check-label text-justify" for="flexCheckDefault">     I hereby declare that my bid and associated work product will benefit decentralization and open-source projects generally, pursuant to the mission statement of OSSA, which is to support open source and transparent scientific research of emerging technologies for community building by way of submitting grants to developers and scientists in Switzerland and abroad. </label></div>'
+                    + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm3"><label class="form-check-label text-justify" for="flexCheckDefault">            I hereby declare that my bid and associated work product is in line with international transparency standards; will be published on Github under the CRDAO repo, and my team and I have sufficient qualifications, experience and capacity to actually finish my bid and associated work product. </label></div>'
+                    + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm4"><label class="form-check-label text-justify" for="flexCheckDefault">    I hereby declare that I have not built tools and do not intend to build tools to attack the CRDAO and OSSA. </label></div>'
+                    + '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">   I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>'
+                ,
+                columnClass: 'col-md-8 col-md-offset-2',
+                buttons: {
+                    cancel: {
+                        text: 'Cancel'
+                    },
+                    confirm: {
+                        text: 'Continue',
+                        btnClass: 'btn btn-primary',
+                        action: function () {
+
+                            var confirmationControl = true;
+
+                            for (var i = 1; i < 6; i++) {
+                                var checked = $("#checkConfirm" + i).is(':checked');
+
+                                if (checked == false) {
+                                    confirmationControl = false;
+                                }
+                            }
+
+                            if (confirmationControl == false) {
+                                toastr.warning("You must confirm agreements.");
+
+                                return false;
+                            }
+
+                            $(e).prop("disabled", true);
+                            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Bid..');
+
+
+                            //Create auction bid model
+                            var price = $('#price').val()
+                            var time = $('#time').val();
+                            var note = $('#note').val();
+                            var reputation = $('#reputation').val();
+
+                            //Ajax post action
+                            $.ajax({
+                                type: "POST",
+                                url: "../Home/Auction_Bid_Add",
+                                data: {
+                                    "price": price,
+                                    "time": time,
+                                    "auctionid": selectedAuctionId,
+                                    "associateUserNote": note,
+                                    "reputationStake": reputation
+                                },
+                                success: function (result) {
+                                    if (result.success) {
+                                        window.location.reload();
+                                    }
+                                    else {
+                                        toastr.warning(result.message);
+                                        $(e).prop("disabled", false);
+                                        $(e).html('Submit Bid');
+                                    }
+                                },
+                                failure: function (response) {
+                                    toastr.warning("@Lang.ConnectionError");
+                                    $(e).prop("disabled", false);
+                                    $(e).html('Submit Bid');
+                                },
+                                error: function (response) {
+                                    toastr.error("@Lang.UnexpectedError");
+                                    $(e).prop("disabled", false);
+                                    $(e).html('Submit Bid');
+                                }
+                            });
+
+                        }
+
+                    }
+                }
+            });
+
+        }
+
+        //Bid delete function
+        function DeleteBid(e, bidId) {
+            $.confirm({
+                title: 'Confirmation',
+                content: 'Are you sure you want to delete your bid ?',
+                buttons: {
+                    cancel: {
+                        text: 'Cancel'
+                    },
+                    confirm: {
+                        text: 'Continue',
+                        btnClass: 'btn btn-primary',
+                        action: function () {
+                            $(e).prop("disabled", true);
+                            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Deleting Bid..');
+                                //Ajax get action
+                                $.ajax({
+                                    type: "GET",
+                                    url: "../Home/Auction_Bid_Delete",
+                                    data: {
+                                        "id": bidId,
+                                    },
+                                    success: function (result) {
+                                        if (result.success) {
+                                            window.location.reload();
+                                        }
+                                        else {
+                                            toastr.warning(result.message);
+                                            $(e).prop("disabled", false);
+                                            $(e).html('Delete Bid');
+                                        }
+                                    },
+                                    failure: function (response) {
+                                        toastr.warning("@Lang.ConnectionError");
+                                        $(e).prop("disabled", false);
+                                        $(e).html('Delete Bid');
+                                    },
+                                    error: function (response) {
+                                        toastr.error("@Lang.UnexpectedError");
+                                        $(e).prop("disabled", false);
+                                        $(e).html('Delete Bid');
+                                    }
+                                });
+
+                        }
+                    }
+                }
+            });
+        }
     </script>
 }
