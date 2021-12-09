@@ -45,10 +45,6 @@ namespace DAO_IdentityService.Test
             userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + user1.email);
 
             r2.GetType().Should().NotBe(null);
-
-
-
-
         }
     }
 }
