@@ -1,0 +1,506 @@
+﻿@using DAO_WebPortal.Resources
+@{
+    Layout = "../Shared/_MainLayout.cshtml";
+}
+
+@model Helpers.Models.WebsiteViewModels.KYCViewModel
+
+<link href="~/Home/css/KYCstyle.css" rel="stylesheet" />
+<link href="~/Home/css/jquery-ui.css" rel="stylesheet" />
+
+
+@if (Model.Status.Verified)
+{
+    //Verified design
+
+    <div class="card text-center">
+        <div class="card-header">Congratulations!</div>
+        <div class="card-body">
+            <h5 class="card-title">Your KYC documents have been successfully verified.</h5>
+            <p class="card-text">
+                <svg id="success-check" data-name="success-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                    <path id="circle" fill="none" stroke="#709a4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px" d="M49.06,29.26A19.11,19.11,0,0,1,49.25,32,20,20,0,1,1,39.18,14.63" />
+                    <polyline id="check" fill="none" stroke="#709a4c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2px" points="17.75 30.5 26.75 40.5 54.75 12.5" />
+                </svg>
+            </p>@*<a class="btn btn-primary" href="#">Go somewhere</a>*@
+        </div>
+        <div class="card-footer text-medium-emphasis">Thank You!</div>
+    </div>
+
+}
+else if (!Model.Status.Verified && Model.Status.KYCStatus == "pending")
+{
+    //Pending design
+
+    <div class="card text-center">
+        <div class="card-header">Please wait!</div>
+        <div class="card-body">
+            <h5 class="card-title">Waiting for your Kyc documents to be approved.</h5>
+            <p class="card-text">
+                <svg version="1.1" class="delayed-icon iconClock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 143.7 143.7" style="enable-background:new 0 0 143.7 143.7;" xml:space="preserve">
+                <circle class="circle" fill="none" cx="71.8" cy="71.8" r="67.8" />
+                <line class="hand-hour hand" fill="none" x1="103.8" y1="71.8" x2="71.8" y2="71.8" />
+                <g class="hand-min hand">
+                <line class="st0" fill="none" x1="71.8" y1="19.8" x2="71.8" y2="71.8" />
+                <rect class="empty" fill="none" stroke="none" x="4" y="4" width="135.6" height="135.6" />
+	                </g>
+                <g class="hand-sec hand">
+                <line class="st0" fill="none" x1="71.8" y1="19.8" x2="71.8" y2="71.8" />
+                <rect class="empty" fill="none" stroke="none" x="4" y="4" transform="matrix(0.7071 0.7071 -0.7071 0.7071 71.8 -29.7405)" width="135.6" height="135.6" />
+	                </g>
+                </svg>
+            </p>@*<a class="btn btn-primary" href="#">Go somewhere</a>*@
+        </div>
+        <div class="card-footer text-medium-emphasis">Thank You!</div>
+    </div>
+
+}
+else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
+{
+    //Rejected design
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="fw-semibold">Your kyc verification has been denied!</div> @Model.Status.Comment
+        <button class="btn-close" type="button" data-coreui-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+@if (!Model.Status.Verified && Model.Status.KYCStatus != "pending")
+{
+    <div class="from-step-item">
+        <div class="from-step-heading">
+            <div class="container">
+                <div class="from-step-head">
+                    <h4>Indentity Verify</h4>
+                    <p>Upload documents to verify your indentity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="from-step-content">
+            <div class="row">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="mb-2" for="name"><b>Name</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="text" aria-label="Name" placeholder="Name" id="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="mb-2" for="surname"><b>Surname</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="text" aria-label="Surname" placeholder="Surname" id="surname" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="mb-2" for="email"><b>Email</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="email" aria-label="Email" placeholder="Email" id="email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="mb-2" for="country"><b>Country</b></label>
+                                <div class="input-group mb-3">
+                                    <select class="form-select" aria-label="Default select example" id="country">
+                                        @foreach (var item in Model.Countries)
+                                        {
+                                            foreach (var item2 in item.labels.Where(x => x.language_code == "EN").ToList())
+                                            {
+                                                <option value="@item.country_code">@item2.label</option>
+                                            }
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="mb-2" for="documentNumber"><b>Document Number</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" type="text" aria-label="Document Number" placeholder="Document Number" id="documentNumber" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="mb-2" for="Birthdate"><b>Birthdate</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" id="Birthdate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="mb-2" for="IssueDate"><b>Document Issue Date</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" id="IssueDate">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="mb-2" for="ExpiryDate"><b>Document Expiry Date</b></label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control" id="ExpiryDate">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="from-step-content">
+            <div class="container">
+                <div class="note note-md note-info note-plane">
+                    <p>Please upload any of the following personal document.</p>
+                </div>
+                <div class="gaps-2x"></div>
+                <ul class="nav nav-tabs nav-tabs-bordered" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#passport">
+                            <div class="nav-tabs-icon">
+                                <img src="/Home/images/icon-passport.png" alt="icon">
+                                <img src="/Home/images/icon-passport-color.png" alt="icon">
+                            </div>
+                            <span>Passport</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#national-card">
+                            <div class="nav-tabs-icon">
+                                <img src="/Home/images/icon-national-id.png" alt="icon">
+                                <img src="/Home/images/icon-national-id-color.png" alt="icon">
+                            </div>
+                            <span>National Card</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#driver-licence">
+                            <div class="nav-tabs-icon">
+                                <img src="/Home/images/icon-licence.png" alt="icon">
+                                <img src="/Home/images/icon-licence-color.png" alt="icon">
+                            </div>
+                            <span>Driver’s License</span>
+                        </a>
+                    </li>
+                </ul><!-- .nav-tabs-line -->
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="passport">
+                        <!--Row-->
+                        <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                        <ul class="kyc-upload-list">
+                            <li>Chosen credential must not be expaired.</li>
+                            <li>Document should be good condition and clearly visible.</li>
+                            <li>Make sure that there is no light glare on the card.</li>
+                        </ul>
+                        <div class="gaps-4x"></div>
+                        <span class="upload-title">Upload Here Your Passport Copy</span>
+                        <div class="gaps-2x"></div>
+
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <div class="file-upload">
+
+                                    <div class="image-upload-wrap UploadedFile1">
+                                        <input id="UploadedFile1" name="UploadedFile1" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content UploadedFile1">
+                                        <img class="file-upload-image UploadedFile1" src="#" alt="your image" />
+                                        <div class="image-title-wrap ">
+                                            <button type="button" onclick="removeUpload('UploadedFile1')" class="remove-image">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <i class="fas fa-exclamation-triangle"> File size should not exceed 3 megabytes.</i>
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <div class="kyc-upload-img">
+                                    <img src="/Home/images/vector-passport.png" alt="vector">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gaps-4x"></div>
+                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('PASSPORT')">Upload</button>
+                        <div class="gaps-1x"></div>
+                    </div>
+                    <div class="tab-pane fade" id="national-card">
+                        <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                        <ul class="kyc-upload-list">
+                            <li>Chosen credential must not be expaired.</li>
+                            <li>Document should be good condition and clearly visible.</li>
+                            <li>Make sure that there is no light glare on the card.</li>
+                        </ul>
+                        <div class="gaps-4x"></div>
+                        <span class="upload-title">Upload Here Your National id Front Side</span>
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <div class="file-upload">
+
+                                    <div class="image-upload-wrap UploadedFile2">
+                                        <input id="UploadedFile2" name="UploadedFile2" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content UploadedFile2">
+                                        <img class="file-upload-image UploadedFile2" src="#" alt="your image" />
+                                        <div class="image-title-wrap ">
+                                            <button type="button" onclick="removeUpload('UploadedFile2')" class="remove-image">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <i class="fas fa-exclamation-triangle"> File size should not exceed 3 megabytes.</i>
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <div class="kyc-upload-img">
+                                    <img src="/Home/images/vector-id-front.png" alt="vector">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gaps-3x"></div>
+                        <span class="upload-title">Upload Here Your National id Back Side</span>
+                        <div class="gaps-2x"></div>
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <div class="file-upload">
+
+                                    <div class="image-upload-wrap UploadedFile3">
+                                        <input id="UploadedFile3" name="UploadedFile3" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content UploadedFile3">
+                                        <img class="file-upload-image UploadedFile3" src="#" alt="your image" />
+                                        <div class="image-title-wrap ">
+                                            <button type="button" onclick="removeUpload('UploadedFile3')" class="remove-image">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <i class="fas fa-exclamation-triangle"> File size should not exceed 3 megabytes.</i>
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <div class="kyc-upload-img">
+                                    <img src="/Home/images/vector-id-back.png" alt="vector">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gaps-4x"></div>
+                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('GOVERNMENT_ID')">Upload</button>
+                        <div class="gaps-1x"></div>
+                    </div>
+                    <div class="tab-pane fade" id="driver-licence">
+                        <h5 class="kyc-upload-title">To avoid delays when verifying account, Please make sure bellow:</h5>
+                        <ul class="kyc-upload-list">
+                            <li>Chosen credential must not be expaired.</li>
+                            <li>Document should be good condition and clearly visible.</li>
+                            <li>Make sure that there is no light glare on the card.</li>
+                        </ul>
+              
+                        <div class="gaps-4x"></div>
+                        <span class="upload-title">Upload Here Your Driving Licence Front Side</span>
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <div class="file-upload">
+
+                                    <div class="image-upload-wrap UploadedFile4">
+                                        <input id="UploadedFile4" name="UploadedFile4" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content UploadedFile4">
+                                        <img class="file-upload-image UploadedFile4" src="#" alt="your image" />
+                                        <div class="image-title-wrap ">
+                                            <button type="button" onclick="removeUpload('UploadedFile4')" class="remove-image">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <i class="fas fa-exclamation-triangle"> File size should not exceed 3 megabytes.</i>
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <div class="kyc-upload-img">
+                                    <img src="/Home/images/vector-id-front.png" alt="vector">
+                                </div>
+                            </div>
+                           
+                           
+                        </div>
+                        <div class="gaps-3x"></div>
+                        <span class="upload-title">Upload Here Your Driving Licence Back Side</span>
+                        <div class="gaps-2x"></div>
+                        <div class="row align-items-center">
+                            <div class="col-9">
+                                <div class="file-upload">
+                                    <div class="image-upload-wrap UploadedFile5">
+                                        <input id="UploadedFile5" name="UploadedFile5" class="file-upload-input" type='file' onchange="readURL(this,this.id);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content UploadedFile5">
+                                        <img class="file-upload-image UploadedFile5" src="#" alt="your image" />
+                                        <div class="image-title-wrap ">
+                                            <button type="button" onclick="removeUpload('UploadedFile5')" class="remove-image">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <i class="fas fa-exclamation-triangle"> File size should not exceed 3 megabytes.</i>
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <div class="kyc-upload-img">
+                                    <img src="/Home/images/vector-id-back.png" alt="vector">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gaps-4x"></div>
+                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('DRIVERS_LICENSE')">Upload</button>
+                        <div class="gaps-1x"></div>
+                    </div>
+                </div>
+                <div class="gaps-2x"></div>
+            </div>
+        </div><!-- .from-step-content -->
+    </div><!-- .from-step-item -->
+}
+
+
+@section Scripts {
+    <script src="~/Home/js/bootstrap.js"></script>
+    <script src="~/Home/js/jquery-ui.min.js"></script>
+
+    <script>
+        function readURL(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.image-upload-wrap.' + id).hide();
+                    $('.file-upload-image.' + id).attr('src', e.target.result);
+                    $('.file-upload-content.' + id).show();
+                };
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                removeUpload(id);
+            }
+        }
+
+        function removeUpload(id) {
+            $('.file-upload-input.' + id).replaceWith($('.file-upload-input.' + id).clone());
+            $('.file-upload-content.' + id).hide();
+            $('.image-upload-wrap.' + id).show();
+        }
+
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap.' + e.id).addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function (e) {
+            $('.image-upload-wrap.' + e.id).removeClass('image-dropping');
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#ExpiryDate,#IssueDate,#Birthdate").datepicker({ changeYear: true, yearRange: "-100:+100", dateFormat: 'yy-mm-dd' });
+        })
+    </script>
+
+    <script>
+
+        function UploadVerDoc(type) {
+            control = true;
+
+            $(':input[required]').each(function () {
+                debugger;
+                if ($(this).val() == "") {
+                    $(this).addClass("invalidInput");
+                    control = false;
+                }
+            });
+            var formData = new FormData();
+            if (control) {
+                if (type == "PASSPORT") {
+                    formData.append('UploadedFile1', $('#UploadedFile1').prop("files")[0]);
+                    if ($('#UploadedFile1').prop("files")[0].size > 3000000) {
+                        toastr.warning("File size cannot exceed 3 megabytes");
+                        control = false;
+                    }
+                }
+                else if (type == "GOVERNMENT_ID") {
+                    formData.append('UploadedFile1', $('#UploadedFile2').prop("files")[0]);
+                    formData.append('UploadedFile2', $('#UploadedFile3').prop("files")[0]);
+
+                    if ($('#UploadedFile2').prop("files")[0].size > 3000000 || $('#UploadedFile3').prop("files")[0].size > 3000000) {
+                        toastr.warning("File size cannot exceed 3 megabytes");
+                        control = false;
+                    }
+
+                }
+                else {
+                    formData.append('UploadedFile1', $('#UploadedFile4').prop("files")[0]);
+                    formData.append('UploadedFile2', $('#UploadedFile5').prop("files")[0]);
+
+                    if ($('#UploadedFile4').prop("files")[0].size > 3000000 || $('#UploadedFile5').prop("files")[0].size > 3000000) {
+                        toastr.warning("File size cannot exceed 3 megabytes");
+                        control = false;
+                    }
+                }
+                formData.append("Type", type);
+                formData.append('Name', $('#name').val());
+                formData.append('Surname', $('#surname').val());
+                formData.append('DoB', $('#Birthdate').val());
+                formData.append('Email', $('#email').val());
+                formData.append('Country', $('#country').val());
+                formData.append('DocumentNumber', $('#documentNumber').val());
+                formData.append('IssueDate', $('#IssueDate').val());
+                formData.append('ExpiryDate', $('#ExpiryDate').val());
+            } else {
+                toastr.warning("Please fill in all required inputs.");
+            }
+            if (control) {
+
+                $.ajax({
+                    method: 'POST',
+                    url: "../UploadKYCDoc",
+                    data: formData,
+                    processData: false, // required for FormData with jQuery
+                    contentType: false, // required for FormData with jQuery
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            toastr.success(result.message);
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1000);
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                    failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                         toastr.error("@Lang.UnexpectedError");
+                    }
+                });
+            }
+
+        }
+    </script>
+
+}
