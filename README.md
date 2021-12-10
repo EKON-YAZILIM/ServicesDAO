@@ -32,11 +32,11 @@ After docker-compose is up, you can access the application from the below link.<
 dao_webportal - http://localhost:8895<br>
 <br>
 Using below links, you can see the status, logs and/or erros of the belonging microservice from localhost.<br>
-dao_dbservice - http://localhost:9990<br>
-dao_identityservice - http://localhost:9991<br>
-dao_logservice - http://localhost:9992<br>
-dao_notificationservice - http://localhost:9993<br>
-dao_apigateway - http://localhost:9995<br>
+dao_identityservice - http://localhost:8890<br>
+dao_dbservice - http://localhost:8889<br>
+dao_logservice - http://localhost:8891<br>
+dao_notificationservice - http://localhost:8892<br>
+dao_apigateway - http://localhost:8896<br>
 <br>
 The applciation databases can be accessed from within their own containers or from certain ports to localhost.<br>
 Example:
