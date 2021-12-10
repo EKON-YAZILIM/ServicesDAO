@@ -79,29 +79,29 @@ docker run -p [application access port]:80 -name:[NAME]  [IMAGE_NAME]:dev --
 
 For the application to work, all containers should be created in the same network also database, rabbitmq and api endpoints can be redefined.<br>
 
-After .NET core 3.1 and .NET SDK 3.1.20 are installed on the environment, all applications can be built individually by running the commands below under the project solution folder;<br>
+After .NET core 3.1 and .NET SDK 3.1.20 are installed on the environment, all applications can be built individually by running the commands below under the project solution folder;
 ```shell
-dotnet build ./DAO_ApiGateway/DAO_ApiGateway.csproj
+ dotnet build ./DAO_ApiGateway/DAO_ApiGateway.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_DbService/DAO_DbService.csproj
+ dotnet build ./DAO_DbService/DAO_DbService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_IdentityService/DAO_IdentityService.csproj
+ dotnet build ./DAO_IdentityService/DAO_IdentityService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_LogService/DAO_LogService.csproj
+ dotnet build ./DAO_LogService/DAO_LogService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_NotificationService/DAO_NotificationService.csproj
+ dotnet build ./DAO_NotificationService/DAO_NotificationService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_WebPortal/DAO_WebPortal.csproj
+ dotnet build ./DAO_WebPortal/DAO_WebPortal.csproj
 ```
 
 ## Information About Services
