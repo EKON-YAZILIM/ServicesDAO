@@ -1486,9 +1486,9 @@ namespace DAO_WebPortal.Controllers
                 if (model.Countries == null)
                     model.Countries = new List<KYCCountries>();
 
-                var KYCStatus = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycStatus?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
+                model.Status = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycStatus?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
 
-                if (KYCStatus == null)
+                if (model.Status == null)
                     model.Status = new UserKYCDto();
 
             }
@@ -1501,6 +1501,12 @@ namespace DAO_WebPortal.Controllers
             return View(model);
         }
 
+
+        /// <summary>
+        ///  Submits form data for the KYC verification
+        /// </summary>
+        /// <param>User information</param>
+        /// <returns>Generic Simple Response class</returns>
         [Route("UploadKYCDoc")]
         public JsonResult UploadKYCDoc(KYCFileUpload File)
         {

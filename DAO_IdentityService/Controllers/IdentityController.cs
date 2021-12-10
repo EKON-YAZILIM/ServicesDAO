@@ -253,7 +253,11 @@ namespace DAO_IdentityService.Controllers
 
         }
 
-
+        /// <summary>
+        ///  Submits form data for the KYC verification
+        /// </summary>
+        /// <param>User information</param>
+        /// <returns>Generic Simple Response class</returns>
         [HttpPost("SubmitKYCFile", Name = "SubmitKYCFile")]
         public SimpleResponse SubmitKYCFile([FromQuery] string Type, string Name, string Surname, string DoB, string Email, string Country, string DocumentNumber, string IssueDate, string ExpiryDate, string UserID)
         {
@@ -334,8 +338,8 @@ namespace DAO_IdentityService.Controllers
                 {
                     //update applicant
 
-                    var Person = new KYCPerson() { first_name = Name, last_name = Surname, dob = DoB, residence_country = Country, email = Email };
-                    var model = Helpers.Serializers.DeserializeJson<KYCPersonResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/applicants/" + userModel.ApplicantId, Helpers.Serializers.SerializeJson(Person), Program._settings.KYCID));
+                    var Person = new KYCPerson() { type = "PERSON", first_name = Name, last_name = Surname, dob = DoB, residence_country = Country, email = Email };
+                    var model = Helpers.Serializers.DeserializeJson<KYCPersonResponse>(Helpers.Request.KYCPatch(Program._settings.KYCURL + "/applicants/" + userModel.ApplicantId, Helpers.Serializers.SerializeJson(Person), Program._settings.KYCID));
                     if (Request.HasFormContentType)
                     {
                         Guid g = Guid.NewGuid();
@@ -345,7 +349,7 @@ namespace DAO_IdentityService.Controllers
                         if (form.Files.Count > 0)
                         {
                             //Update File 
-                            var model2 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files/"+userModel.FileId1, form.Files[0], Program._settings.KYCID);
+                            var model2 = Helpers.Request.PutFiletoKYCAID(Program._settings.KYCURL + "/files/"+userModel.FileId1, form.Files[0], Program._settings.KYCID);
 
                             //Update applicant document request
                             var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = Type, document_number = DocumentNumber, issue_date = IssueDate, expiry_date = ExpiryDate, front_side_id = model2.file_id };
@@ -360,19 +364,19 @@ namespace DAO_IdentityService.Controllers
                                 }
                                 else
                                 {
-                                    model3 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files/" + userModel.FileId2, form.Files[0], Program._settings.KYCID);
+                                    model3 = Helpers.Request.PutFiletoKYCAID(Program._settings.KYCURL + "/files/" + userModel.FileId2, form.Files[0], Program._settings.KYCID);
                                 }
 
                                 Doc.back_side_id = model3.file_id;
                             }
 
-                            var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents/"+userModel.DocumentId, Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
+                            var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPatch(Program._settings.KYCURL + "/documents/"+userModel.DocumentId, Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
 
                             var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse };
                             var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/verifications", Helpers.Serializers.SerializeJson(Verify), Program._settings.KYCID));
 
                             //Update KYC Db record
-                            var NewKYCObj = new UserKYCDto() { UserID = Convert.ToInt32(UserID), ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, KYCStatus = "pending", DocumentId = model4.document_id };
+                            var NewKYCObj = new UserKYCDto() { UserID = Convert.ToInt32(UserID), ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, KYCStatus = "pending", DocumentId = model4.document_id ,UserKYCID = userModel.UserKYCID};
 
                             if (form.Files.Count > 1)
                                 NewKYCObj.FileId2 = model3.file_id;
@@ -405,6 +409,12 @@ namespace DAO_IdentityService.Controllers
             return new SimpleResponse() { Success = true , Message = "KYC completed successfully." };
         }
 
+
+        /// <summary>
+        ///  Receives calllback from the KYC verification site
+        /// </summary>
+        /// <param name="Response">KYC information of the user</param>
+        /// <returns>KYCCallBack class</returns>
         [HttpPost("KycCallBack", Name = "KycCallBack")]
         public SimpleResponse KycCallBack(KYCCallBack Response)
         {
@@ -459,6 +469,10 @@ namespace DAO_IdentityService.Controllers
 
         }
 
+        /// <summary>
+        /// Brings countries for KYC form 
+        /// </summary>
+        /// <returns>List of KYCCountries class</returns>
         [HttpPost("GetKycCountries", Name = "GetKycCountries")]
         public List<KYCCountries> GetKycCountries()
         {
@@ -477,6 +491,11 @@ namespace DAO_IdentityService.Controllers
         }
 
 
+        /// <summary>
+        /// Brings KYC status of user 
+        /// </summary>
+        /// <param name="id">user id</param>
+        /// <returns>UserKYCDto class</returns>
         [HttpGet("GetKycStatus", Name = "GetKycStatus")]
         public UserKYCDto GetKycStatus(int id)
         {

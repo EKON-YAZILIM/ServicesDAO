@@ -111,6 +111,42 @@ namespace Helpers
             return result;
         }
 
+        public static string KYCPatch(string url, string postData, string token = "", string contentType = "application/json")
+        {
+            string result = string.Empty;
+
+            try
+            {
+
+                var request = (HttpWebRequest)WebRequest.Create(url);
+
+                var data = Encoding.UTF8.GetBytes(postData);
+
+                request.Headers.Add("AcceptLanguage", System.Threading.Thread.CurrentThread.CurrentCulture.ToString());
+                if (!String.IsNullOrEmpty(token))
+                    request.Headers.Add("Authorization", "Token " + token);
+                request.ContentType = contentType;
+                request.Method = "PATCH";
+                request.Accept = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                result = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return result;
+        }
+
         public static string KYCGet(string url, string token = "")
         {
             string result = string.Empty;
@@ -206,6 +242,41 @@ namespace Helpers
 
                         client.DefaultRequestHeaders.Add("Authorization", "Token " + token);
                         var result = client.PostAsync(url, multiContent).Result;
+
+                        var res2 = result.Content.ReadAsStringAsync().Result;
+
+                        res = Serializers.DeserializeJson<KYCFileResponse>(result.Content.ReadAsStringAsync().Result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return res;
+        }
+        public static KYCFileResponse PutFiletoKYCAID(string url, IFormFile file, string token)
+        {
+            KYCFileResponse res = new KYCFileResponse();
+            System.Net.ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            try
+            {
+
+                if (file != null && file.Length > 0)
+                {
+                    using (var client = new HttpClient())
+                    {
+
+                        byte[] data;
+                        using (var br = new BinaryReader(file.OpenReadStream()))
+                            data = br.ReadBytes((int)file.OpenReadStream().Length);
+
+                        ByteArrayContent bytes = new ByteArrayContent(data);
+                        MultipartFormDataContent multiContent = new MultipartFormDataContent();
+                        multiContent.Add(bytes, "file", file.FileName);
+
+                        client.DefaultRequestHeaders.Add("Authorization", "Token " + token);
+                        var result = client.PutAsync(url, multiContent).Result;
 
                         var res2 = result.Content.ReadAsStringAsync().Result;
 
