@@ -143,8 +143,8 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "44391"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/SubmitKYCFile",
@@ -156,11 +156,24 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "44391"
+          "Host": "dao_identityservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/PublicActions/Identity/GetKycStatus",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Priority": 2
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/KycCallBack",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "dao_identityservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/PublicActions/Identity/KycCallBack",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
