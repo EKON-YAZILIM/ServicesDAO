@@ -22,6 +22,8 @@ namespace Helpers.Models.WebsiteViewModels
         public int VoteCount { get; set; }
         public int? QuorumCount { get; set; }
         public StakeType? UserVote { get; set; }
+        public int JobDoerUserID { get; set; }
+        public int JobOwnerUserID { get; set; }
 
     }
 }

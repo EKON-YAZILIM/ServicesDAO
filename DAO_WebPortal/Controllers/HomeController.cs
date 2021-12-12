@@ -81,10 +81,10 @@ namespace DAO_WebPortal.Controllers
                     dashModel = Helpers.Serializers.DeserializeJson<DashBoardViewModelVA>(dashboardJson);
 
                     //Get model from ApiGateway
-                    var ReputationUrl = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                    var reputationJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
 
                     //Parse response
-                    dashModel.UserReputation = Helpers.Serializers.DeserializeJson<UserReputationHistoryDto>(ReputationUrl);
+                    dashModel.UserReputation = Helpers.Serializers.DeserializeJson<UserReputationHistoryDto>(reputationJson);
 
                     return View("Index_VotingAssociate", dashModel);
                 }
@@ -95,7 +95,7 @@ namespace DAO_WebPortal.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return View("../Shared/Error.cshtml");
+            return View("../Public/Error.cshtml");
         }
 
         #region Job Post
@@ -378,6 +378,13 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
+                //KYC Control
+                if(Program._settings.ForumKYCRequired && HttpContext.Session.GetString("KYCStatus") != "true")
+                {
+                    result.Success = false;
+                    result.Message = "Please complete the KYC from User Profile to add a new comment";
+                }
+
                 //Create new comment model
                 JobPostCommentDto model = new JobPostCommentDto()
                 {
@@ -725,6 +732,32 @@ namespace DAO_WebPortal.Controllers
         }
 
         /// <summary>
+        /// My Bids Page
+        /// </summary>
+        /// <returns></returns>
+        [Route("My-Bids")]
+        public IActionResult My_Bids()
+        {
+            ViewBag.Title = "My Bids";
+
+            List<MyBidsViewModel> bidsModel = new List<MyBidsViewModel>();
+
+            try
+            {
+                //Get auctions from ApiGateway
+                var mybidsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetMyBids?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                //Parse response
+                bidsModel = Helpers.Serializers.DeserializeJson<List<MyBidsViewModel>>(mybidsJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(bidsModel);
+        }
+
+        /// <summary>
         /// Auction Detail Page
         /// </summary>
         /// <param name="AuctionID">Auction Id</param>
@@ -1034,19 +1067,26 @@ namespace DAO_WebPortal.Controllers
                 votingsModel = Helpers.Serializers.DeserializeJson<List<VotingViewModel>>(votingJson);
 
                 //Get user's votes
-                string stakesJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-                List<UserReputationStakeDto> stakesModel = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(stakesJson);
+                string votesJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Vote/GetAllVotesByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                List<VoteDto> votesModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(votesJson);
 
                 foreach (var voting in votingsModel)
                 {
-                    if (stakesModel.Count(x => x.ReferenceProcessID == voting.VotingID) > 0)
+                    if (votesModel.Count(x => x.VotingID == voting.VotingID) > 0)
                     {
-                        var stake = stakesModel.First(x => x.ReferenceProcessID == voting.VotingID);
-                        if (stake.Type == Helpers.Constants.Enums.StakeType.For || stake.Type == Helpers.Constants.Enums.StakeType.Against)
+                        var vote = votesModel.First(x => x.VotingID == voting.VotingID);
+                        if (vote.Direction == Helpers.Constants.Enums.StakeType.For || vote.Direction == Helpers.Constants.Enums.StakeType.Against)
                         {
-                            voting.UserVote = stake.Type;
+                            voting.UserVote = vote.Direction;
                         }
                     }
+                }
+
+                //Get user's available reputation and save it to session
+                var reputationJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                if (!string.IsNullOrEmpty(reputationJson))
+                {
+                    HttpContext.Session.SetString("LastUsableReputation", Helpers.Serializers.DeserializeJson<UserReputationHistoryDto>(reputationJson).LastUsableTotal.ToString());
                 }
             }
             catch (Exception ex)
@@ -1198,6 +1238,10 @@ namespace DAO_WebPortal.Controllers
 
                 //Change job status 
                 Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/ChangeJobStatus?jobid=" + jobid + "&status=" + JobStatusTypes.InformalVoting, HttpContext.Session.GetString("Token"));
+
+                //Set server side toastr because page will be redirected
+                TempData["toastr-message"] = res.Message;
+                TempData["toastr-type"] = "success";
 
                 Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User started informal voting . Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
@@ -1430,6 +1474,8 @@ namespace DAO_WebPortal.Controllers
                 //Parse result
                 var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
                 userModel.KYCStatus = true;
+                HttpContext.Session.SetString("KYCStatus", true.ToString());
+
                 //Update Model 
                 var userResponse = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(userModel), HttpContext.Session.GetString("Token")));
 
@@ -1453,7 +1499,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 result.Success = true;
-                result.Message = "KYC completed successfully.";
+                result.Message = "KYC submitted successfully.";
 
                 Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User submitted KYC.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
@@ -1770,6 +1816,10 @@ namespace DAO_WebPortal.Controllers
                 SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
                 Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
 
+                //Set server side toastr because page will be redirected
+                TempData["toastr-message"] = result.Message;
+                TempData["toastr-type"] = "success";
+
                 return Json(result);
 
             }
@@ -1826,6 +1876,10 @@ namespace DAO_WebPortal.Controllers
 
 
                 Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Admin disapproved the job.Job #" + JobId, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                //Set server side toastr because page will be redirected
+                TempData["toastr-message"] = result.Message;
+                TempData["toastr-type"] = "success";
 
                 return Json(result);
 

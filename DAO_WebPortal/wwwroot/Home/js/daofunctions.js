@@ -47,8 +47,7 @@ function StartInformalVoting(JobId) {
                         dataType: 'json',
                         success: function (result) {
                             if (result.success) {
-                                toastr.success(result.message);
-                                setTimeout(function () { window.location.reload() }, 5000)
+                                window.location.reload();
                             }
                             else {
                                 toastr.warning(result.message);

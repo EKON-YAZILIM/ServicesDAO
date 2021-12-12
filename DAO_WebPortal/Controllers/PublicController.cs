@@ -185,6 +185,7 @@ namespace DAO_WebPortal.Controllers
                     HttpContext.Session.SetString("NameSurname", loginModel.NameSurname);
                     HttpContext.Session.SetString("UserType", loginModel.UserType.ToString());
                     HttpContext.Session.SetString("ProfileImage", loginModel.ProfileImage);
+                    HttpContext.Session.SetString("KYCStatus", loginModel.KYCStatus.ToString());
 
                     return base.Json(new SimpleResponse { Success = true, Message = Lang.SuccessLogin });
                 }

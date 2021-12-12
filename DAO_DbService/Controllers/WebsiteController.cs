@@ -325,6 +325,47 @@ namespace DAO_DbService.Controllers
         }
 
         /// <summary>
+        /// Get user's bids
+        /// </summary>
+        /// <returns></returns>
+        [Route("GetMyBids")]
+        [HttpGet]
+        public List<MyBidsViewModel> GetMyBids(int userid)
+        {
+            List<MyBidsViewModel> result = new List<MyBidsViewModel>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result = (from actbid in db.AuctionBids
+                              join act in db.Auctions on actbid.AuctionID equals act.AuctionID
+                              join job in db.JobPosts on act.JobID equals job.JobID
+                              where actbid.UserID == userid
+                              orderby actbid.CreateDate descending
+                              select new MyBidsViewModel
+                              {
+                                  JobID = Convert.ToInt32(act.JobID),
+                                  CreateDate = act.CreateDate,
+                                  WinnerAuctionBidID = act.WinnerAuctionBidID,
+                                  AuctionID = act.AuctionID,
+                                  Time = actbid.Time,
+                                  AuctionBidID = actbid.AuctionBidID,
+                                  AssociateUserNote = actbid.AssociateUserNote,
+                                  Price = actbid.Price,
+                                  ReputationStake = actbid.ReputationStake,
+                                  Status = act.Status,
+                                  JobName = job.Title
+                              }).Take(100).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        /// <summary>
         /// Get auctions bids
         /// </summary>
         /// <param name="auctionid"></param>
@@ -887,7 +928,9 @@ namespace DAO_DbService.Controllers
                                StakedAgainst = voting.StakedAgainst,
                                StakedFor = voting.StakedFor,
                                VoteCount = voting.VoteCount,
-                               QuorumCount = voting.QuorumCount
+                               QuorumCount = voting.QuorumCount,
+                               JobDoerUserID = job.JobDoerUserID,
+                               JobOwnerUserID = job.UserID
                            }).ToList();
                 }
             }

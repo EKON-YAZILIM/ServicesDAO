@@ -460,7 +460,6 @@ a {
 }
 
 .from-step-head p {
-    color: #304073;
     font-size: 13px;
 }
 
@@ -471,7 +470,7 @@ a {
 
 
 .file-upload {
-    width: 600px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
 }

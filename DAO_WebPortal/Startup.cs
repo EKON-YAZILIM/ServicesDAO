@@ -79,7 +79,10 @@ namespace DAO_WebPortal
         ///  Loads platform settings from db if exists.
         /// </summary>
         public static void LoadDaoSettings()
-        {
+        {            
+            //Ensure db service is up and running
+            Thread.Sleep(10000);
+
             //Get latest platform settings (DAO variables from db)
             string settingsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/GetLatestSetting");
             //If custom settings found

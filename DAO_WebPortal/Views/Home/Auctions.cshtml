@@ -65,7 +65,7 @@
                                     @foreach (var auction in internalAuctions)
                                     {
                                         <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                             <td>@auction.JobPrice €</td>
                                             <td>@auction.CreateDate.ToString("MM/dd/yyyy")</td>
@@ -89,7 +89,7 @@
                                                     {
                                                         if (userType == Enums.UserIdentityType.VotingAssociate.ToString() || userType == Enums.UserIdentityType.Admin.ToString())
                                                         {
-                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID)">
+                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID, @auction.JobID)">
                                                                 <svg class="icon">
                                                                     <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
                                                                 </svg> Submit Bid
@@ -146,7 +146,7 @@
                                     @foreach (var auction in publicAuctions)
                                     {
                                         <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                             <td>@auction.JobPrice €</td>
                                             <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
@@ -170,7 +170,7 @@
                                                     {
                                                         if (userType == Enums.UserIdentityType.Associate.ToString())
                                                         {
-                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID)">
+                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID, @auction.JobID)">
                                                                 <svg class="icon">
                                                                     <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
                                                                 </svg> Submit Bid
@@ -232,7 +232,7 @@
                                     @foreach (var auction in completedAuctions)
                                     {
                                         <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                             <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
@@ -284,7 +284,7 @@
                                     @foreach (var auction in expiredAuctions)
                                     {
                                         <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                             <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
                                             <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
@@ -430,10 +430,10 @@
         }
 
         //Opens submit bid modal
-        function OpenAddBidModal(auctionId) {
+        function OpenAddBidModal(auctionId, jobId) {
             selectedAuctionId = auctionId;
             $("#AddBid-Modal").modal("toggle");
-            $("#AddBidModalTitle").text("New Bid for Auction #"+auctionId);
+            $("#AddBidModalTitle").text("New Bid for Job #" + jobId);
         }
 
         //Auction bids adding function

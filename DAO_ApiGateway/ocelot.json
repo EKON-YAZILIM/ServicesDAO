@@ -8,8 +8,8 @@
       },
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "44369"
+          "Host": "dao_dbservice",
+          "Port": 80
         }
       ],
       "DownstreamPathTemplate": "/{everything}",

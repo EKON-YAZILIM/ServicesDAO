@@ -106,7 +106,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             <div class="col-md-6">
                                 <label class="mb-2" for="country"><b>Country</b></label>
                                 <div class="input-group mb-3">
-                                    <select class="form-select" aria-label="Default select example" id="country">
+                                    <select class="form-control form-select" aria-label="Default select example" id="country">
                                         @foreach (var item in Model.Countries)
                                         {
                                             foreach (var item2 in item.labels.Where(x => x.language_code == "EN").ToList())
@@ -173,7 +173,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                                 <img src="/Home/images/icon-national-id.png" alt="icon">
                                 <img src="/Home/images/icon-national-id-color.png" alt="icon">
                             </div>
-                            <span>National Card</span>
+                            <span>National Id Card</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -227,7 +227,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             </div>
                         </div>
                         <div class="gaps-4x"></div>
-                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('PASSPORT')">Upload</button>
+                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('PASSPORT')">Upload Documents</button>
                         <div class="gaps-1x"></div>
                     </div>
                     <div class="tab-pane fade" id="national-card">
@@ -297,7 +297,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             </div>
                         </div>
                         <div class="gaps-4x"></div>
-                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('GOVERNMENT_ID')">Upload</button>
+                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('GOVERNMENT_ID')">Upload Documents</button>
                         <div class="gaps-1x"></div>
                     </div>
                     <div class="tab-pane fade" id="driver-licence">
@@ -369,7 +369,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             </div>
                         </div>
                         <div class="gaps-4x"></div>
-                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('DRIVERS_LICENSE')">Upload</button>
+                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('DRIVERS_LICENSE')">Upload Documents</button>
                         <div class="gaps-1x"></div>
                     </div>
                 </div>

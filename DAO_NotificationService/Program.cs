@@ -34,6 +34,9 @@ namespace DAO_NotificationService
 
             //EMAIL API SETTINGS
             public string EmailApiUrl { get; set; }
+
+            //Email which will be used for contact/support forms
+            public string ContactEmail { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();

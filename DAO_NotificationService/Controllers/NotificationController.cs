@@ -55,14 +55,14 @@ namespace DAO_NotificationService.Controllers
             try
             {
                 //Get emails of Admins
-                string userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Db/Users/GetAdminUsers");
+                string userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetAdminUsers");
                 //Parse response
                 var usersObj = Helpers.Serializers.DeserializeJson<List<UserDto>>(userJson);
 
-                //Send email to first Admin (Can be changed to all admins)
+                //Send email to first Admin and pre defined contact email
                 if(usersObj.Count > 0)
                 {
-                    model.To = new List<string>() { usersObj[0].Email };
+                    model.To = new List<string>() { usersObj[0].Email, Program._settings.ContactEmail };
                 }
 
                 //Send with SMTP channel

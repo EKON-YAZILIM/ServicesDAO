@@ -57,7 +57,7 @@
                                     @foreach (var item in informalVotings)
                                     {
                                         <tr>
-                                            <td>@item.VotingID</td>
+                                            <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
@@ -73,13 +73,28 @@
                                             }
                                             else
                                             {
-                                                <td>
-                                                    <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID)">
-                                                        <svg class="icon">
-                                                            <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
-                                                        </svg> Submit Vote
-                                                    </a>
-                                                </td>
+
+                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID)
+                                                {
+                                                    <td>
+                                                        <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID, @item.JobID)">
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                            </svg> Submit Vote
+                                                        </a>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td>
+                                                        <a class="btn btn-sm btn-default me-2" disabled>
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-minus"></use>
+                                                            </svg>  Not Eligible
+                                                        </a>
+                                                    </td>
+                                                }
+
                                             }
 
                                         </tr>
@@ -122,7 +137,7 @@
                                     @foreach (var item in formalVotings)
                                     {
                                         <tr>
-                                            <td>@item.VotingID</td>
+                                            <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
@@ -138,13 +153,28 @@
                                             }
                                             else
                                             {
-                                                <td>
-                                                    <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID)">
-                                                        <svg class="icon">
-                                                            <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
-                                                        </svg> Submit Vote
-                                                    </a>
-                                                </td>
+
+                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID)
+                                                {
+                                                    <td>
+                                                        <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID, @item.JobID)">
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                            </svg> Submit Vote
+                                                        </a>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td>
+                                                        <a class="btn btn-sm btn-default me-2" disabled>
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-minus"></use>
+                                                            </svg>  Not Eligible
+                                                        </a>
+                                                    </td>
+                                                }
+
                                             }
                                         </tr>
                                     }
@@ -192,7 +222,7 @@
                                     @foreach (var item in informalVotings)
                                     {
                                         <tr>
-                                            <td>@item.VotingID</td>
+                                            <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
@@ -272,7 +302,7 @@
                                     @foreach (var item in formalVotings)
                                     {
                                         <tr>
-                                            <td>@item.VotingID</td>
+                                            <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
                                             <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
@@ -334,7 +364,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Submit Vote For Voting #<span id="votingIdSpan"></span></h5>
+                <h5 class="modal-title">Submit Vote For Job #<span id="jobIdSpan"></span></h5>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -348,9 +378,10 @@
                     </div>
                 </div>
                 <p>How much reputation do you want to stake for this vote ?</p>
-                <div class="input-group mb-3">
+                <div class="input-group mb-1">
                     <input class="form-control" type="text" placeholder="Reputation stake" id="reputationStake"><span class="input-group-text" id="basic-addon2"> Reputation Points</span>
                 </div>
+                <small class="mb-3">Available reputation: @httpContextAccessor.HttpContext.Session.GetString("LastUsableReputation")</small>
             </div>
             <div id="winnerButtons" class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
@@ -368,7 +399,7 @@
         var votingCountdownDictionary = {};
 
         var selectedVotingId = 0;
-        var selectedDirection = 0;
+        var selectedDirection = -1;
 
         var now = new Date(@DateTime.Now.Year, @(DateTime.Now.Month-1), @DateTime.Now.Day, @DateTime.Now.Hour, @DateTime.Now.Minute, @DateTime.Now.Second);
 
@@ -419,9 +450,10 @@
             }
         }
 
-        function OpenVoteModal(votingId) {
+        function OpenVoteModal(votingId, jobId) {
+            selectedDirection = -1;
             selectedVotingId = votingId;
-            $("#votingIdSpan").text(votingId);
+            $("#jobIdSpan").text(votingId);
             $("#VoteModal").modal("toggle");
         }
 
@@ -430,6 +462,11 @@
         }
 
         function SubmitVote(direction) {
+            if (selectedDirection == -1) {
+                toastr.warning("Please select a side for your vote.");
+                return;
+            }
+
              $.confirm({
                     title: 'Confirmation',
                     content: 'Are you sure you want to submit your vote ?',

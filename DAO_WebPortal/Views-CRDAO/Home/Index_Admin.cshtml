@@ -5,6 +5,7 @@
 }
 @model Helpers.Models.WebsiteViewModels.DashBoardViewModelAdmin;
 
+
 <div class="row">
     <div class="col-sm-6 col-lg-3">
         <div class="card mb-4 text-white bg-primary-gradient">
@@ -365,7 +366,7 @@
         </script>
     }
     <script>
-
+    
         function JobApprove(id) {
         //Ajax put action
             $.ajax({
@@ -375,8 +376,7 @@
                     success: function (result) {
                         console.log(result);
                         if (result.success) {
-                            toastr.success(result.message);
-                            setTimeout(function () { window.location.reload() }, 5000)
+                            window.location.reload();
                         }
                         else {
                             toastr.warning(result.message);
@@ -400,7 +400,7 @@
                         success: function (result) {
                             console.log(result);
                             if (result.success) {
-                                toastr.success(result.message);
+                                window.location.reload();
                             }
                             else {
                                 toastr.warning(result.message);
