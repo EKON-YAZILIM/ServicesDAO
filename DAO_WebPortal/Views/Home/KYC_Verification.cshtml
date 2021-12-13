@@ -405,7 +405,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
             $('.image-upload-wrap.' + id).show();
         }
 
-        $('.image-upload-wrap').bind('dragover', function () {
+        $('.image-upload-wrap').bind('dragover', function (e) {
             $('.image-upload-wrap.' + e.id).addClass('image-dropping');
         });
         $('.image-upload-wrap').bind('dragleave', function (e) {

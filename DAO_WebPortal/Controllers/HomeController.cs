@@ -21,6 +21,8 @@ using Newtonsoft.Json;
 using PagedList.Core;
 using Helpers.Models.NotificationModels;
 using Helpers.Models.KYCModels;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -1412,21 +1414,15 @@ namespace DAO_WebPortal.Controllers
                         //File extension control
                         if (ext != ".png" && ext != ".jpg" && ext != ".jpeg" && ext != ".gif")
                         {
-                            return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
+                            return Json(new SimpleResponse { Success = false, Message = "Please upload a supported format. (.png, .jpg, .gif)" });
                         }
 
-                        //Photo must be lower than 2 MB
-                        if (file.Length > 2 * 1024 * 1024)
-                        {
-                            return Json(new SimpleResponse { Success = true, Message = "Profile photo must be smaller than 2MB." });
-                        }
 
                         using (var ms = new MemoryStream())
                         {
                             File.CopyTo(ms);
                             var fileBytes = ms.ToArray();
-                            string s = Convert.ToBase64String(fileBytes);
-
+                            string s = ResizeImage(fileBytes, 150, 150);
                             modeluser.ProfileImage = s;
                         }
                     }
@@ -1458,62 +1454,36 @@ namespace DAO_WebPortal.Controllers
         }
 
         /// <summary>
-        ///  New user submit KYC action
+        ///  Resize uploaded profile image
         /// </summary>
+        /// <param name="data">Image as byte array</param>
+        /// <param name="w">Expected width</param>
+        /// <param name="h">Expected height</param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("SubmitKYC")]
-        public JsonResult SubmitKYC()
+        public static string ResizeImage(byte[] data, double w, double h)
         {
-            SimpleResponse result = new SimpleResponse();
-
-            try
+            using (var ms = new MemoryStream(data))
             {
-                //Get Model from ApiGateway          
-                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-                //Parse result
-                var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
-                userModel.KYCStatus = true;
-                HttpContext.Session.SetString("KYCStatus", true.ToString());
+                var image = Image.FromStream(ms);
 
-                //Update Model 
-                var userResponse = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(userModel), HttpContext.Session.GetString("Token")));
+                var ratioX = (double)w / image.Width;
+                var ratioY = (double)h / image.Height;
+                var ratio = Math.Min(ratioX, ratioY);
 
-                if (userResponse != null && userResponse.UserId >= 0 && userResponse.KYCStatus == true)
-                {
-                    //Get Model from ApiGateway          
-                    var jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
-                    //Parse result
-                    var JobsModel = Helpers.Serializers.DeserializeJson<List<JobPostDto>>(jobsJson);
+                var width = (int)(image.Width * ratio);
+                var height = (int)(image.Height * ratio);
 
-                    //Update users KYC Pending jobs to DoSFeePending
-                    foreach (var pendingJob in JobsModel)
-                    {
-                        if (pendingJob.Status == JobStatusTypes.KYCPending)
-                        {
-                            pendingJob.Status = JobStatusTypes.DoSFeePending;
-                            //Update Model 
-                            var jobUpdatResponse = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(pendingJob), HttpContext.Session.GetString("Token")));
-                        }
-                    }
-                }
+                var newImage = new Bitmap(width, height);
+                Graphics.FromImage(newImage).DrawImage(image, 0, 0, width, height);
+                Bitmap bmp = new Bitmap(newImage);
 
-                result.Success = true;
-                result.Message = "KYC submitted successfully.";
+                System.IO.MemoryStream ms2 = new MemoryStream();
+                bmp.Save(ms2, ImageFormat.Jpeg);
+                byte[] byteImage = ms2.ToArray();
 
-                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User submitted KYC.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
-
-                return Json(result);
-
+                return Convert.ToBase64String(byteImage); 
             }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
-            }
-
-            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
-
 
         /// <summary>
         /// User KYC Verification Page
@@ -1527,12 +1497,12 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
-                model.Countries = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycCountries", HttpContext.Session.GetString("Token")));
+                model.Countries = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Kyc/GetKycCountries", "", HttpContext.Session.GetString("Token")));
 
                 if (model.Countries == null)
                     model.Countries = new List<KYCCountries>();
 
-                model.Status = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/GetKycStatus?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
+                model.Status = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Identity/Kyc/GetKycStatus?id=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
 
                 if (model.Status == null)
                     model.Status = new UserKYCDto();
@@ -1547,7 +1517,6 @@ namespace DAO_WebPortal.Controllers
             return View(model);
         }
 
-
         /// <summary>
         ///  Submits form data for the KYC verification
         /// </summary>
@@ -1561,10 +1530,7 @@ namespace DAO_WebPortal.Controllers
             {
                 //Send files to Identity server          
 
-                model = Helpers.Request.Upload(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/SubmitKYCFile?Type=" + File.Type + "&Name=" + File.Name + "&Surname=" + File.Surname + "&Dob=" + File.DoB + "&Email=" + File.Email + "&Country=" + File.Country + "&DocumentNumber=" + File.DocumentNumber + "&IssueDate=" + File.IssueDate + "&ExpiryDate=" + File.ExpiryDate + "&UserID=" + HttpContext.Session.GetInt32("UserID"), File.UploadedFile1, File.UploadedFile2);
-
-                //Parse result
-                //model = Helpers.Serializers.DeserializeJson<SimpleResponse>(kycJson);
+                model = Helpers.Request.Upload(Program._settings.Service_ApiGateway_Url + "/Identity/Kyc/SubmitKYCFile?Type=" + File.Type + "&Name=" + File.Name + "&Surname=" + File.Surname + "&Dob=" + File.DoB + "&Email=" + File.Email + "&Country=" + File.Country + "&DocumentNumber=" + File.DocumentNumber + "&IssueDate=" + File.IssueDate + "&ExpiryDate=" + File.ExpiryDate + "&UserID=" + HttpContext.Session.GetInt32("UserID"), File.UploadedFile1, File.UploadedFile2);
             }
             catch (Exception ex)
             {
@@ -1573,8 +1539,6 @@ namespace DAO_WebPortal.Controllers
             }
             return Json(model);
         }
-
-
 
         /// <summary>
         ///  Public user pay dos fee action

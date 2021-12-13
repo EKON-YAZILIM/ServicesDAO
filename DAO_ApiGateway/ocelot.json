@@ -72,6 +72,24 @@
       "UpstreamPathTemplate": "/Reputation/{everything}",
       "Priority": 1
     },
+    //IdentityService API
+    {
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "56753253-tyuw-5769-0921-kdsafirox29zoxqLWERMAwdv",
+        "AllowedScopes": []
+      },
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "dao_identityservice",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamPathTemplate": "/Identity/{everything}",
+      "Priority": 1
+    },
     //Public Actions
     {
       "DownstreamPathTemplate": "/Identity/Login",
@@ -139,33 +157,7 @@
       "Priority": 2
     },
     {
-      "DownstreamPathTemplate": "/Identity/SubmitKYCFile",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "dao_identityservice",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/SubmitKYCFile",
-      "UpstreamHttpMethod": [ "POST" ],
-      "Priority": 2
-    },
-    {
-      "DownstreamPathTemplate": "/Identity/GetKycStatus",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "dao_identityservice",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/GetKycStatus",
-      "UpstreamHttpMethod": [ "POST" ],
-      "Priority": 2
-    },
-    {
-      "DownstreamPathTemplate": "/Identity/KycCallBack",
+      "DownstreamPathTemplate": "/Kyc/KycCallBack",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
