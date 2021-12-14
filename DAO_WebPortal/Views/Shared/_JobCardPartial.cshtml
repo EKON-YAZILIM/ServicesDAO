@@ -8,7 +8,7 @@
 <div class="card-header">
     <!-- .header -->
     <div class="titleContainer">
-        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
+        <h5 class="card-title" title="@Model.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.Title, 90)</h5>
         <small class="text-medium-emphasis">@Model.CreateDate.ToShortDateString() , @Model.UserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
@@ -56,9 +56,9 @@
 
 <!-- Card Body -->
 <div class="card-body cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
-    <p class="p-3 py-0 card-text text-justify" style="white-space: pre-line">
-        @Model.JobDescription
-    </p>
+    <div class="p-3 py-3 card-text text-justify">
+        @Html.Raw(Model.JobDescription)
+    </div>
     <p>Job Budget: @Model.Amount €</p>
     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate</small></p>
 </div>

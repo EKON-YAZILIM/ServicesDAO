@@ -3,6 +3,9 @@
     Layout = "../Shared/_MainLayout.cshtml";
 
 }
+
+<script src="../Home/lib/ckeditor/ckeditor.js"></script>
+
 <div class="row my-3">
     <div class="col-md-12">
         <h4 class="mb-3">Job Posting Rules</h4>
@@ -37,14 +40,21 @@
         </div>
         <div class="form-group mb-3">
             <label class="mb-2" for="description"><b>Job Description</b></label>
-            <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="10"></textarea>
+            <textarea type="text" id="description" class="ckeditor" name="description"  placeholder="Job Description" rows="10"></textarea>
         </div>
         <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-primary" onclick="NewJob();">Submit Job</button>
         </div>
     </div>
 </div>
-<script>
+
+@section Scripts{
+
+    <script>
+    $(document).ready(function () {
+        CKEDITOR.replace('description');
+    });
+
     //Add new job function
     function NewJob() {
 
@@ -85,7 +95,7 @@
                         var title = $('#title').val()
                         var amount = $('#amount').val();
                         var time = $('#time').val();
-                        var description = $('#description').val();
+                        var description = CKEDITOR.instances["description"].getData();
                         //Ajax post action
                         $.ajax({
                             type: "POST",
@@ -116,4 +126,6 @@
 
 
         }
-</script>
+    </script>
+
+}

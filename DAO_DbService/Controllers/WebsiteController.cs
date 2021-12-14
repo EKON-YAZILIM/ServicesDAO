@@ -293,6 +293,7 @@ namespace DAO_DbService.Controllers
                 {
                     result = (from act in db.Auctions
                               join job in db.JobPosts on act.JobID equals job.JobID
+                              join userPoster in db.Users on job.UserID equals userPoster.UserId
                               join bid in db.AuctionBids on act.WinnerAuctionBidID equals bid.AuctionBidID into ps
                               from bidRes in ps.DefaultIfEmpty()
                               join user in db.Users on bidRes.UserID equals user.UserId into ps2
@@ -313,7 +314,9 @@ namespace DAO_DbService.Controllers
                                   AuctionID = act.AuctionID,
                                   Title = job.Title,
                                   BidCount = bidcount,
-                                  JobPrice = job.Amount
+                                  JobPrice = job.Amount,
+                                  JobPosterUsername = userPoster.UserName,
+                                  ExpectedTimeframe = job.TimeFrame
                               }).Take(100).ToList();
                 }
             }

@@ -137,6 +137,14 @@ function ComingSoon() {
     toastr.warning("This feature will be available in the next version.");
 }
 
+function getQueryParameter(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
 $('input.number').on("input", function (e) {
     $(this).val($(this).val().replace(/[^0-9\.]/g, ''));

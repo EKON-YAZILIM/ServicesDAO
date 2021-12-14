@@ -179,6 +179,10 @@
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
+.dark-theme select {
+    background-color: #2d2e38 !important;
+}
+
 .highlighted div:first-child {
     padding: 1rem
 }
@@ -196,9 +200,11 @@
     border: 1px solid rgb(74, 74, 83);
 }
 
+.cke_dialog_body, .cke_dialog_contents {
+    width: 400px !important;
+}
 
 /*User profile view styles*/
-
 .last-btn, .next-btn {
     position: relative;
     font-size: 22px;

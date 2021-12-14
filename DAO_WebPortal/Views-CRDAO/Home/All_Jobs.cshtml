@@ -6,6 +6,33 @@
     Layout = "../Shared/_MainLayout.cshtml";
 }
 
+<div class="row mb-3">
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-6">
+        <div class="input-group mb-2 float-right" style="max-width: 300px;">
+            <span class="input-group-text"><i class="fas fa-filter"></i></span>
+            <select class="form-select" id="jobStatusSelect">
+                <option value="*" selected>All Jobs</option>
+                <option value="AdminApprovalPending">Admin Approval Pending</option>
+                <option value="DoSFeePending">DoS Fee Pending</option>
+                <option value="KYCPending">KYC Pending</option>
+                <option value="InternalAuction">Internal Auction</option>
+                <option value="PublicAuction">Public Auction</option>
+                <option value="AuctionCompleted">Auction Completed</option>
+                <option value="InformalVoting">Informal Voting</option>
+                <option value="FormalVoting">Formal Voting</option>
+                <option value="Completed">Completed</option>
+                <option value="Failed">Failed</option>
+                <option value="Expired">Expired</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+
+    </div>
+</div>
+
 <!-- Row -->
 <div class="row">
     <div class="col-md-12">
@@ -39,4 +66,29 @@
             </table>
         </div>
     </div>
+}
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            //Check if filter selected
+            if (getQueryParameter("status") != null && getQueryParameter("status") != "") {
+                $("#jobStatusSelect").val(getQueryParameter("status")).change();
+
+                //Change pagination links according to status filter
+                $('.page-link').each(function (i, obj) {
+                    $(obj).attr("href", $(obj).attr("href") + "&status=" + getQueryParameter("status"))
+                });
+            }
+
+            //Job status filter event
+            $('#jobStatusSelect').on('change', function () {
+                window.location.href = "../All-Jobs?status=" + this.value;
+            });
+
+
+        });
+    </script>
+
 }

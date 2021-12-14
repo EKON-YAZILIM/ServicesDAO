@@ -76,6 +76,9 @@ namespace DAO_DbService
                         db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                         db.SaveChanges();
 
+                        var job = db.JobPosts.Find(auction.JobID);
+                        job.Status = Enums.JobStatusTypes.PublicAuction;
+                        db.SaveChanges();
 
                         //Send notification email to job poster
                         var jobPoster = db.Users.Find(auction.JobPosterUserID);
@@ -314,7 +317,7 @@ namespace DAO_DbService
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
                     }
@@ -341,10 +344,10 @@ namespace DAO_DbService
 
                         int expectedDays = Convert.ToInt32(winnerBid.Time);
 
-                        if(expectedDays > 0)
+                        if (expectedDays > 0)
                         {
                             //Job doer didn't post valid evidence and started informal voting within expected time range -> Set job status to Failed
-                            if(Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
+                            if (Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
                             {
                                 string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + job.JobID + "&reftype=" + Enums.StakeType.Mint);
 

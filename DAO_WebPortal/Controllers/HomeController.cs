@@ -134,7 +134,7 @@ namespace DAO_WebPortal.Controllers
         /// <returns></returns>
         [Route("All-Jobs")]
         [Route("Home/All-Jobs")]
-        public IActionResult All_Jobs(int page = 1, int pageCount = 10)
+        public IActionResult All_Jobs(JobStatusTypes? status, int page = 1, int pageCount = 10)
         {
             ViewBag.Title = "All Jobs";
 
@@ -143,7 +143,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
                 //Parse response
                 var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<JobPostViewModel>>(jobsJson);
 
@@ -194,7 +194,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Empty fields control
-                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description))
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description) || amount <= 0)
                 {
                     result.Success = false;
                     result.Message = "You must fill all the fields to post a job.";
@@ -381,7 +381,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //KYC Control
-                if(Program._settings.ForumKYCRequired && HttpContext.Session.GetString("KYCStatus") != "true")
+                if (Program._settings.ForumKYCRequired && HttpContext.Session.GetString("KYCStatus") != "true")
                 {
                     result.Success = false;
                     result.Message = "Please complete the KYC from User Profile to add a new comment";
@@ -1481,7 +1481,7 @@ namespace DAO_WebPortal.Controllers
                 bmp.Save(ms2, ImageFormat.Jpeg);
                 byte[] byteImage = ms2.ToArray();
 
-                return Convert.ToBase64String(byteImage); 
+                return Convert.ToBase64String(byteImage);
             }
         }
 

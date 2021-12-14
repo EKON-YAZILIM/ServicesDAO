@@ -32,7 +32,12 @@
         <!--card-->
         <div class="card mb-4">
             <div class="card-header">
-                <span class="small ms-1"><b>Active Informal Votes</b></span>
+                <span class="small ms-1 d-inline-block"><b>Active Informal Votes</b></span>
+
+                <div class="form-check form-switch d-inline-block float-right">
+                    <input class="form-check-input" type="checkbox" id="informalEligibleSwitch">
+                    <small class="form-check-label" for="informalEligibleSwitch">Show only eligible</small>
+                </div>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive h-250">
@@ -42,7 +47,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Job Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">Time Left</th>
@@ -65,11 +70,11 @@
                                             <td>@item.VoteCount / @item.QuorumCount</td>
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
-                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
+                                                <td class="informal-noneligible"><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
                                             }
                                             else if (item.UserVote == Helpers.Constants.Enums.StakeType.Against)
                                             {
-                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
+                                                <td  class="informal-noneligible"><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
                                             }
                                             else
                                             {
@@ -86,11 +91,11 @@
                                                 }
                                                 else
                                                 {
-                                                    <td>
+                                                    <td class="informal-noneligible">
                                                         <a class="btn btn-sm btn-default me-2" disabled>
                                                             <svg class="icon">
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-minus"></use>
-                                                            </svg>  Not Eligible
+                                                            </svg> Not Eligible
                                                         </a>
                                                     </td>
                                                 }
@@ -113,7 +118,13 @@
         </div><!--card-->
         <!--card-->
         <div class="card">
-            <div class="card-header"><span class="small ms-1"><b>Active Formal Votes</b></span></div>
+            <div class="card-header">
+                <span class="small ms-1"><b>Active Formal Votes</b></span>
+                <div class="form-check form-switch d-inline-block float-right">
+                    <input class="form-check-input" type="checkbox" id="formalEligibleSwitch">
+                    <small class="form-check-label" for="formalEligibleSwitch">Show only eligible</small>
+                </div>
+            </div>
             <div class="card-body p-0">
                 <div class="table-responsive h-250">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.VoteStatusTypes.Active && x.IsFormal == true).Count() > 0)
@@ -122,7 +133,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Job Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">Time Left</th>
@@ -145,11 +156,11 @@
                                             <td>@item.VoteCount / @item.QuorumCount</td>
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
-                                                <td><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
+                                                <td class="formal-noneligible"><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
                                             }
                                             else if (item.UserVote == Helpers.Constants.Enums.StakeType.Against)
                                             {
-                                                <td><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
+                                                <td class="formal-noneligible"><button class="btn btn-sm btn-danger disabled text-white w-100"><b>AGAINST</b></button></td>
                                             }
                                             else
                                             {
@@ -166,11 +177,11 @@
                                                 }
                                                 else
                                                 {
-                                                    <td>
+                                                    <td class="formal-noneligible">
                                                         <a class="btn btn-sm btn-default me-2" disabled>
                                                             <svg class="icon">
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-minus"></use>
-                                                            </svg>  Not Eligible
+                                                            </svg> Not Eligible
                                                         </a>
                                                     </td>
                                                 }
@@ -206,7 +217,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Job Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">My Vote</th>
@@ -256,7 +267,7 @@
                                             }
 
                                             <td>
-                                                <a class="btn btn-sm btn-primary me-2" href="../Vote-Detail/@item.VotingID">
+                                                <a class="btn btn-sm btn-primary me-2 float-right" href="../Vote-Detail/@item.VotingID">
                                                     <svg class="icon">
                                                         <use xlink:href="/Home/images/svg/free.svg#cil-bar-chart"></use>
                                                     </svg> Show Votes
@@ -286,7 +297,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Title</th>
+                                    <th scope="col">Job Title</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">My Vote</th>
@@ -336,7 +347,7 @@
                                             }
 
                                             <td>
-                                                <a class="btn btn-sm btn-primary me-2" href="../Vote-Detail/@item.VotingID">
+                                                <a class="btn btn-sm btn-primary me-2 float-right" href="../Vote-Detail/@item.VotingID">
                                                     <svg class="icon">
                                                         <use xlink:href="/Home/images/svg/free.svg#cil-bar-chart"></use>
                                                     </svg> Show Votes
@@ -417,6 +428,33 @@
                 StartInterval(dataModel[i], 1000)
             }
 
+            //Show only eligible switch events
+            $("#informalEligibleSwitch").change(function () {
+                if (this.checked) {
+                    $('.informal-noneligible').each(function (i, obj) {
+                        $(obj).parent().addClass("d-none");
+                    });
+                }
+                else {
+                    $('.informal-noneligible').each(function (i, obj) {
+                        $(obj).parent().removeClass("d-none");
+                    });
+                }
+            });
+
+            //Show only eligible switch events
+            $("#formalEligibleSwitch").change(function () {
+                if (this.checked) {
+                    $('.formal-noneligible').each(function (i, obj) {
+                        $(obj).parent().addClass("d-none");
+                    });
+                }
+                else {
+                    $('.formal-noneligible').each(function (i, obj) {
+                        $(obj).parent().removeClass("d-none");
+                    });
+                }
+            });
         });
 
         //Send votingIDs to CountDown function

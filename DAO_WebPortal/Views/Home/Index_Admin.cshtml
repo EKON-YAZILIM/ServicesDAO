@@ -173,17 +173,10 @@
                     {
                         <li>
                             <div class="cardy card-1">
-                                <h4>@item.Title</h4>
+                                <h4>@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 50)</h4>
                                 <p class="fs-7">@item.CreateDate</p>
 
-                                @if (item.JobDescription.Length > 150)
-                                {
-                                    <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription.Substring(0, Math.Min(item.JobDescription.Length, 150)) ..</p>
-                                }
-                                else
-                                {
-                                    <p class="fs-7 fw-normal lh-2" title="@item.JobDescription">@item.JobDescription</p>
-                                }
+                                <p>TimeFrame: @item.TimeFrame days</p>
 
                                 <p>
                                     <b>@item.Amount Euros</b>
