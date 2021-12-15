@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
+using static Helpers.Constants.Enums;
 
 namespace DAO_DbService
 {
@@ -168,7 +169,7 @@ namespace DAO_DbService
                 string informalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(informalVotingJobs.Select(x => x.JobID)));
 
                 //Parse result
-                List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson);
+                List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson).Where(x => x.IsFormal == false).ToList();
 
                 foreach (var voting in completedInformalModel)
                 {
@@ -237,7 +238,7 @@ namespace DAO_DbService
                 string formalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(formalVotingJobs.Select(x => x.JobID)));
 
                 //Parse result
-                List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson);
+                List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson).Where(x => x.IsFormal == true).ToList();
 
                 foreach (var voting in completedFormalModel)
                 {
@@ -262,19 +263,50 @@ namespace DAO_DbService
                                 var user = db.Users.Find(auctionWinnerBid.UserID);
                                 var job = db.JobPosts.Find(auction.JobID);
 
-                                //Create Payment History model
-                                PaymentHistory model = new PaymentHistory
+                                //Get reputation stakes from reputation service
+                                var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
+                                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+
+                                double forReps = reputations.Where(x => x.Type == Enums.StakeType.For).Sum(x => x.Amount);
+
+                                double jobDoerPayment = auctionWinnerBid.Price * voting.PolicingRate;
+                                double daoPayment = auctionWinnerBid.Price - jobDoerPayment;
+
+                                //Create Payment History model for job doer
+                                PaymentHistory paymentJobDoer = new PaymentHistory
                                 {
                                     JobID = job.JobID,
-                                    Amount = job.Amount,
+                                    Amount = jobDoerPayment,
                                     CreateDate = DateTime.Now,
                                     IBAN = user.IBAN,
                                     UserID = user.UserId,
                                     WalletAddress = user.WalletAddress,
                                 };
-                                db.PaymentHistories.Add(model);
+                                db.PaymentHistories.Add(paymentJobDoer);
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
+
+                                //Create Payment History model for dao members who participated into voting
+                                foreach (var group in reputations.Where(x => x.Type == Enums.StakeType.For).GroupBy(x => x.UserID))
+                                {
+                                    double usersStakePerc = group.Sum(x=>x.Amount) / forReps;
+                                    double memberPayment = daoPayment * usersStakePerc;
+
+                                    var daouser = db.Users.Find(group.First().UserID);
+
+                                    PaymentHistory paymentDaoMember = new PaymentHistory
+                                    {
+                                        JobID = job.JobID,
+                                        Amount = memberPayment,
+                                        CreateDate = DateTime.Now,
+                                        IBAN = daouser.IBAN,
+                                        UserID = daouser.UserId,
+                                        WalletAddress = daouser.WalletAddress,
+                                    };
+
+                                    db.PaymentHistories.Add(paymentDaoMember);
+                                    db.SaveChanges();
+                                }
 
                                 //If job doer is Associate, change the user type to  VA
                                 if (user.UserType == Enums.UserIdentityType.Associate.ToString())

@@ -1247,6 +1247,7 @@ namespace DAO_WebPortal.Controllers
 
                 Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User started informal voting . Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
+
                 return Json(res);
             }
             catch (Exception ex)

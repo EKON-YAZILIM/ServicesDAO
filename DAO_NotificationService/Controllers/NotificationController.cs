@@ -26,8 +26,13 @@ namespace DAO_NotificationService.Controllers
         {
             try
             {
+                if (model.TargetGroup != null)
+                {
+
+                }
+
                 //Send with SMTP channel
-                if(Program._settings.EmailChannel.ToLower() == "smtp")
+                if (Program._settings.EmailChannel.ToLower() == "smtp")
                 {
                     string res = DAO_NotificationService.Integrations.SmtpMailSender.SendEmail(model);
                     Program.monitizer.AddConsole("Email sent. To:" + Serializers.SerializeJson(model.To) + " Channel: SMTP");
@@ -60,7 +65,7 @@ namespace DAO_NotificationService.Controllers
                 var usersObj = Helpers.Serializers.DeserializeJson<List<UserDto>>(userJson);
 
                 //Send email to first Admin and pre defined contact email
-                if(usersObj.Count > 0)
+                if (usersObj.Count > 0)
                 {
                     model.To = new List<string>() { usersObj[0].Email, Program._settings.ContactEmail };
                 }

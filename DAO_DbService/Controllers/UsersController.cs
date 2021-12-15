@@ -335,5 +335,25 @@ namespace DAO_DbService.Controllers
 
             return null;
         }
+
+        [Route("GetUsersByType")]
+        [HttpGet]
+        public List<UserDto> GetUsersByType(Helpers.Constants.Enums.UserIdentityType type)
+        {
+            List<UserDto> model = new List<UserDto>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = _mapper.Map<List<User>, List<UserDto>>(db.Users.Where(x => x.UserType == type.ToString()).ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new List<UserDto>();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return model;
+        }
     }
 }

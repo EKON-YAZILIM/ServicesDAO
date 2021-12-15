@@ -100,7 +100,7 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/Login",
+      "UpstreamPathTemplate": "/PublicActions/Login",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
@@ -113,7 +113,7 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/Register",
+      "UpstreamPathTemplate": "/PublicActions/Register",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
@@ -126,7 +126,7 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/RegisterComplete",
+      "UpstreamPathTemplate": "/PublicActions/RegisterComplete",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
@@ -139,7 +139,7 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/ResetPassword",
+      "UpstreamPathTemplate": "/PublicActions/ResetPassword",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
@@ -152,7 +152,7 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/ResetPasswordComplete",
+      "UpstreamPathTemplate": "/PublicActions/ResetPasswordComplete",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
@@ -165,7 +165,7 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/PublicActions/Identity/KycCallBack",
+      "UpstreamPathTemplate": "/PublicActions/KycCallBack",
       "UpstreamHttpMethod": [ "POST" ],
       "Priority": 2
     },
