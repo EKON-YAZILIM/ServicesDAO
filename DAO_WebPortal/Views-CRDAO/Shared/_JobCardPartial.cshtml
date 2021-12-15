@@ -53,17 +53,28 @@
 
     </div>
 </div><!-- .header -->
-
 <!-- Card Body -->
 <div class="card-body cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
-    <div class="p-3 py-3 card-text text-justify">
-        @Html.Raw(Model.JobDescription)
-    </div>
+
+    @* If job description is html text dont use pre-line styling *@
+    @if (Model.JobDescription.Contains(">") && Model.JobDescription.Contains("<"))
+    {
+        <div class="p-3 py-3 card-text">
+            @Html.Raw(Model.JobDescription)
+        </div>
+    }
+    @* If job description is raw text use pre-line styling *@
+    else
+    { 
+        <div class="p-3 py-3 card-text text-justify" style="white-space:pre-line">
+            @Html.Raw(Model.JobDescription)
+        </div>
+    }
+
     <p>Job Budget: @Model.Amount €</p>
     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate</small></p>
 </div>
 <!-- Card Body -->
-
 <!-- Footer -->
 <div class="card-footer">
     <a class="card-text me-2 cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
