@@ -68,3 +68,4 @@
 /docker-compose-production.override.yml
 /crdaokey.pem
 /crdaoprivate.ppk
+.DS_Store

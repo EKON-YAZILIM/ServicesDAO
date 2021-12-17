@@ -79,7 +79,7 @@
                                             else
                                             {
 
-                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID)
+                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                                                 {
                                                     <td>
                                                         <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID, @item.JobID)">
@@ -165,7 +165,7 @@
                                             else
                                             {
 
-                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID)
+                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                                                 {
                                                     <td>
                                                         <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID, @item.JobID)">

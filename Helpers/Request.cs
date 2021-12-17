@@ -32,7 +32,7 @@ namespace Helpers
                     result = reader.ReadToEnd();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                
             }
@@ -68,7 +68,7 @@ namespace Helpers
 
                 result = new StreamReader(response.GetResponseStream()).ReadToEnd();
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -103,7 +103,7 @@ namespace Helpers
 
                 result = new StreamReader(response.GetResponseStream()).ReadToEnd();
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -139,7 +139,7 @@ namespace Helpers
 
                 result = new StreamReader(response.GetResponseStream()).ReadToEnd();
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -163,7 +163,7 @@ namespace Helpers
                     result = reader.ReadToEnd();
                 }
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -213,7 +213,7 @@ namespace Helpers
 
 
             }
-            catch (Exception ex)
+            catch
             {
             }
 
@@ -249,7 +249,7 @@ namespace Helpers
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
             }
 
@@ -284,7 +284,7 @@ namespace Helpers
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
             }
 
@@ -318,7 +318,7 @@ namespace Helpers
 
                 result = new StreamReader(response.GetResponseStream()).ReadToEnd();
             }
-            catch (Exception ex)
+            catch
             {
 
             }
@@ -344,7 +344,7 @@ namespace Helpers
                    
                 }
             }
-            catch(Exception ex)
+            catch
             {
 
             }
@@ -366,7 +366,7 @@ namespace Helpers
 
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
 
             }

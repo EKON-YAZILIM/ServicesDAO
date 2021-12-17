@@ -29,6 +29,7 @@ services:
 
   dao_db:
     image: mysql:5.7
+    platform: linux/x86_64
     volumes:
       - datafiles:/var/lib/mysql      
     restart: always
@@ -40,6 +41,7 @@ services:
 
   dao_logsdb:
     image: mysql:5.7
+    platform: linux/x86_64
     volumes:
       - logs_datafiles:/var/lib/mysql      
     restart: always

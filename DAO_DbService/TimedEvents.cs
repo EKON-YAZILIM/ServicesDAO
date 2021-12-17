@@ -267,8 +267,6 @@ namespace DAO_DbService
                                 var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
                                 var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
 
-                                double forReps = reputations.Where(x => x.Type == Enums.StakeType.For).Sum(x => x.Amount);
-
                                 double jobDoerPayment = auctionWinnerBid.Price * voting.PolicingRate;
                                 double daoPayment = auctionWinnerBid.Price - jobDoerPayment;
 
@@ -286,11 +284,18 @@ namespace DAO_DbService
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
 
+                                //Get total reputations of voters who voted FOR
+                                var forReps =  reputations.Where(x => x.Type == Enums.StakeType.For);
+                                var reputationsTotalJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+
                                 //Create Payment History model for dao members who participated into voting
                                 foreach (var group in reputations.Where(x => x.Type == Enums.StakeType.For).GroupBy(x => x.UserID))
                                 {
-                                    double usersStakePerc = group.Sum(x=>x.Amount) / forReps;
-                                    double memberPayment = daoPayment * usersStakePerc;
+                                    if(reputationsTotal.Count(x=>x.UserID == group.Key) == 0) continue;
+
+                                    double usersRepPerc = reputationsTotal.FirstOrDefault(x=>x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x=>x.LastTotal);
+                                    double memberPayment = daoPayment * usersRepPerc;
 
                                     var daouser = db.Users.Find(group.First().UserID);
 

@@ -359,7 +359,7 @@ namespace DAO_IdentityService.Controllers
                 var usr = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email));
 
                 DateTime emaildate = Convert.ToDateTime(tokendec.Split('|')[1]);
-                emaildate = emaildate.AddMinutes(60);
+                emaildate = emaildate.AddDays(5);
 
                 //Check if user is valid and password renewal is expired
                 if (usr != null && usr.Email == email && emaildate > DateTime.Now)
@@ -377,6 +377,9 @@ namespace DAO_IdentityService.Controllers
                 }
                 else
                 {
+                    //Logging
+                    Program.monitizer.AddApplicationLog(LogTypes.PublicUserLog, "Password renewal request failed. Email Date:" +emaildate.ToString()+ "  DateNow:" +DateTime.Now.ToString()+" "+ usr.Email);
+
                     return new SimpleResponse { Success = false, Message = "Renew expired" };
                 }
 

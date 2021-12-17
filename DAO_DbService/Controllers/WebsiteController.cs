@@ -1,5 +1,6 @@
 ﻿using DAO_DbService.Contexts;
 using DAO_DbService.Models;
+using Helpers.Constants;
 using Helpers.Models.DtoModels.LogDbDto;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
@@ -66,7 +67,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
 
             return res;
@@ -121,7 +122,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -162,7 +163,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -232,7 +233,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -322,7 +323,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -363,7 +364,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -401,7 +402,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -438,7 +439,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }
@@ -613,7 +614,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return res;
         }
@@ -754,7 +755,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return res;
         }
@@ -888,7 +889,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return res;
         }
@@ -939,7 +940,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return res;
         }
@@ -987,7 +988,7 @@ namespace DAO_DbService.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
         }

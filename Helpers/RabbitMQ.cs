@@ -59,7 +59,7 @@ namespace Helpers
                 channel.ExchangeDeclare(exchange: exchange, type: type, durable: durable, autoDelete: autoDelete);
                 return true;
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }
@@ -151,7 +151,7 @@ namespace Helpers
             {  
                 channel.BasicPublish(exchange: exchange, routingKey: routingKey, basicProperties: props, body: Serializers.Serialize(data));
             }
-            catch(Exception ex)
+            catch
             {
 
             }

@@ -110,10 +110,20 @@
                                     }
                                     else
                                     {
-                                        <div class="pt-2 pb-3">
-                                            @Html.Raw(commentItem.Comment)
-
-                                        </div>
+                                        @* If job description is html text dont use pre-line styling *@
+                                        if (commentItem.Comment.Contains(">") && commentItem.Comment.Contains("<"))
+                                        {
+                                            <div class="pt-2 pb-3">
+                                                @Html.Raw(commentItem.Comment)
+                                            </div>
+                                        }
+                                        @* If job description is raw text use pre-line styling *@
+                                        else
+                                        { 
+                                            <div class="pt-2 pb-3 text-justify" style="white-space:pre-line">
+                                                @Html.Raw(commentItem.Comment)
+                                            </div>
+                                        }
                                     }
 
                                     @if (Convert.ToBoolean(commentItem.IsPinned) == true)

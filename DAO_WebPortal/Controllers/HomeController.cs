@@ -385,6 +385,17 @@ namespace DAO_WebPortal.Controllers
                 {
                     result.Success = false;
                     result.Message = "Please complete the KYC from User Profile to add a new comment";
+                    return Json(result);
+                }
+
+                //Check if voting for this job started. If yes user can't post comment anymore
+                var informalVotingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetInformalVotingByJobId?jobid=" + JobId, HttpContext.Session.GetString("Token"));
+                var informalVoting = Helpers.Serializers.DeserializeJson<VotingDto>(informalVotingJson);
+                if(informalVoting != null && informalVoting.VotingID > 0)
+                {
+                    result.Success = false;
+                    result.Message = "This job is in voting process. Posting comments are disabled.";
+                    return Json(result);
                 }
 
                 //Create new comment model
@@ -2103,7 +2114,7 @@ namespace DAO_WebPortal.Controllers
             }
             catch (Exception ex)
             {
-
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
             //Return default profile image
