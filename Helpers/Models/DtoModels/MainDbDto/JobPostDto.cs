@@ -19,5 +19,7 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public DateTime LastUpdate { get; set; }
         public JobStatusTypes Status { get; set; }
         public bool? DosFeePaid { get; set; }
+        public string Tags { get; set; }
+        public string CodeUrl { get; set; }
     }
 }

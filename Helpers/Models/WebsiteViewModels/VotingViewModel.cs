@@ -24,6 +24,7 @@ namespace Helpers.Models.WebsiteViewModels
         public StakeType? UserVote { get; set; }
         public int JobDoerUserID { get; set; }
         public int JobOwnerUserID { get; set; }
-
+        public string JobDoerUsername { get; set; }
+        public double? WinnerBidPrice { get; set; }
     }
 }

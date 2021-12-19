@@ -6,7 +6,7 @@ using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-   public class JobPostViewModel
+    public class JobPostViewModel
     {
         public string Title { get; set; }
         public string UserName { get; set; }
@@ -20,6 +20,7 @@ namespace Helpers.Models.WebsiteViewModels
         public bool? DosFeePaid { get; set; }
         public int JobDoerUserID { get; set; }
         public int JobPosterUserID { get; set; }
-
+        public string Tags { get; set; }
+        public string CodeUrl { get; set; }
     }
 }

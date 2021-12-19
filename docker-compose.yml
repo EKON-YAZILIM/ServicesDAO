@@ -53,6 +53,7 @@ services:
 
   dao_apigateway:
     image: ${DOCKER_REGISTRY-}daoapigateway
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: DAO_ApiGateway/Dockerfile
@@ -67,6 +68,7 @@ services:
 
   dao_dbservice:
     image: ${DOCKER_REGISTRY-}daodbservice
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: DAO_DbService/Dockerfile
@@ -81,6 +83,7 @@ services:
 
   dao_identityservice:
     image: ${DOCKER_REGISTRY-}daoidentityservice
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: DAO_IdentityService/Dockerfile
@@ -94,6 +97,7 @@ services:
 
   dao_logservice:
     image: ${DOCKER_REGISTRY-}daologservice
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: DAO_LogService/Dockerfile
@@ -105,6 +109,7 @@ services:
 
   dao_notificationservice:
     image: ${DOCKER_REGISTRY-}daonotificationservice
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: DAO_NotificationService/Dockerfile
@@ -116,6 +121,7 @@ services:
 
   dao_webportal:
     image: ${DOCKER_REGISTRY-}daowebportal
+    platform: linux/x86_64
     build:
       context: .
       dockerfile: DAO_WebPortal/Dockerfile

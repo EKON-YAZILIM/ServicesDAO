@@ -187,14 +187,14 @@ namespace DAO_WebPortal.Controllers
         /// <param name="description">Description</param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult New_Job_Post(string title, double amount, string time, string description)
+        public JsonResult New_Job_Post(string title, double amount, string time, string description, string tags, string codeurl)
         {
             SimpleResponse result = new SimpleResponse();
 
             try
             {
                 //Empty fields control
-                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description) || amount <= 0)
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description)  || string.IsNullOrEmpty(codeurl) || amount <= 0)
                 {
                     result.Success = false;
                     result.Message = "You must fill all the fields to post a job.";
@@ -202,7 +202,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Create JobPost model
-                JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Status = Enums.JobStatusTypes.AdminApprovalPending };
+                JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Tags = tags, CodeUrl= codeurl, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
                 //Post model to ApiGateway
                 string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
@@ -1133,7 +1133,7 @@ namespace DAO_WebPortal.Controllers
 
                 //Get reputation stakes from reputation service
                 var reputationsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByProcessId?referenceProcessID=" + VotingID + "&reftype=" + StakeType.For, HttpContext.Session.GetString("Token"));
-                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson).OrderByDescending(x=>x.UserReputationStakeID);
 
                 //Get usernames of voters
                 var usernamesJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUsernamesByUserIds", Helpers.Serializers.SerializeJson(votes.Select(x => x.UserID)), HttpContext.Session.GetString("Token"));
@@ -1224,7 +1224,7 @@ namespace DAO_WebPortal.Controllers
                 informalVoting.StartDate = DateTime.Now;
                 informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
                 informalVoting.QuorumRatio = Program._settings.QuorumRatio;
-
+                informalVoting.Type = Enums.VoteTypes.JobCompletion;
                 informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime);
 
                 if (Program._settings.AuctionTimeType == "week")
@@ -1242,9 +1242,11 @@ namespace DAO_WebPortal.Controllers
 
                 //Get total dao member count
                 int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type=" + UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
+                //Eligible user count = VA Count - 1 (Job Doer)
+                informalVoting.EligibleUserCount = daoMemberCount - 1;         
                 //Quorum count is calculated with total user count - 2(job poster, job doer)
-                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(daoMemberCount - 1));
-
+                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(informalVoting.EligibleUserCount));          
+                
                 string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/StartInformalVoting", Helpers.Serializers.SerializeJson(informalVoting), HttpContext.Session.GetString("Token"));
                 res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResult);
                 res.Content = null;

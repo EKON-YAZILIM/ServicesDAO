@@ -58,7 +58,9 @@ namespace DAO_DbService.Controllers
                                                             CommentCount = count,
                                                             JobDoerUserID = job.JobDoerUserID,
                                                             DosFeePaid = job.DosFeePaid,
-                                                            JobPosterUserID = job.UserID
+                                                            JobPosterUserID = job.UserID,
+                                                            CodeUrl = job.CodeUrl,
+                                                            Tags = job.Tags
                                                         }).ToPagedList(page, pageCount);
 
                     res.Items = lst;
@@ -157,7 +159,9 @@ namespace DAO_DbService.Controllers
                         CommentCount = count,
                         JobDoerUserID = jobPost.JobDoerUserID,
                         DosFeePaid = jobPost.DosFeePaid,
-                        JobPosterUserID = jobPost.UserID
+                        JobPosterUserID = jobPost.UserID,
+                        Tags = jobPost.Tags,
+                        CodeUrl = jobPost.CodeUrl
                     };
                 }
             }
@@ -204,7 +208,9 @@ namespace DAO_DbService.Controllers
                                             CommentCount = count,
                                             JobDoerUserID = job.JobDoerUserID,
                                             DosFeePaid = job.DosFeePaid,
-                                            JobPosterUserID = job.UserID
+                                            JobPosterUserID = job.UserID,
+                                            Tags = job.Tags,
+                                            CodeUrl = job.CodeUrl
                                         }).ToList();
 
                     result.doerJobs = (from job in db.JobPosts
@@ -227,7 +233,9 @@ namespace DAO_DbService.Controllers
                                            CommentCount = count,
                                            JobDoerUserID = job.JobDoerUserID,
                                            DosFeePaid = job.DosFeePaid,
-                                           JobPosterUserID = job.UserID
+                                           JobPosterUserID = job.UserID,
+                                           Tags = job.Tags,
+                                           CodeUrl = job.CodeUrl
                                        }).ToList();
                 }
             }
@@ -268,7 +276,9 @@ namespace DAO_DbService.Controllers
                            TimeFrame = job.TimeFrame,
                            LastUpdate = job.LastUpdate,
                            Status = job.Status,
-                           JobDoerUserID = job.JobDoerUserID
+                           JobDoerUserID = job.JobDoerUserID,
+                           Tags = job.Tags,
+                           CodeUrl = job.CodeUrl
                        }).ToList();
             }
             return res;
@@ -917,7 +927,10 @@ namespace DAO_DbService.Controllers
 
                     res = (from voting in model
                            join job in db.JobPosts on voting.JobID equals job.JobID
-                           where status == null || voting.Status == status
+                           join user in db.Users on job.JobDoerUserID equals user.UserId
+                           join auction in db.Auctions on job.JobID equals auction.JobID
+                           join auctionbid in db.AuctionBids on auction.AuctionID equals auctionbid.AuctionID
+                           where (status == null || voting.Status == status) && auctionbid.UserID == user.UserId
                            orderby voting.CreateDate descending
                            select new VotingViewModel
                            {
@@ -934,7 +947,9 @@ namespace DAO_DbService.Controllers
                                VoteCount = voting.VoteCount,
                                QuorumCount = voting.QuorumCount,
                                JobDoerUserID = job.JobDoerUserID,
-                               JobOwnerUserID = job.UserID
+                               JobOwnerUserID = job.UserID,
+                               JobDoerUsername = user.UserName,
+                               WinnerBidPrice = auctionbid.Price
                            }).ToList();
                 }
             }
