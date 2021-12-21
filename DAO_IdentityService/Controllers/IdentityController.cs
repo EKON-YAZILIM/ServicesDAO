@@ -314,14 +314,14 @@ namespace DAO_IdentityService.Controllers
                 if (userModel != null)
                 {
                     //Create encrypted token for password renewal
-                    string enc = Helpers.Encryption.EncryptString(model.email + "|" + DateTime.Now.ToString());
+                    string enc = Helpers.Encryption.EncryptString(userModel.Email + "|" + DateTime.Now.ToString());
 
                     //Set password renewal email title and content
                     string emailTitle = Program._settings.DAOName + " Password Renewal";
                     string emailContent = "Greetings " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to reset your password. <br><br>" + "<a href='" + Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc + "'>Click here to reset your password.</a>";
 
                     //Send password renewal email
-                    SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { model.email } };
+                    SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
                     Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
 
                     //Logging
@@ -362,7 +362,7 @@ namespace DAO_IdentityService.Controllers
                 emaildate = emaildate.AddDays(5);
 
                 //Check if user is valid and password renewal is expired
-                if (usr != null && usr.Email == email && emaildate > DateTime.Now)
+                if (usr != null && emaildate > DateTime.Now)
                 {
                     //Reset password
                     usr.Password = Helpers.Encryption.EncryptPassword(model.newPass);

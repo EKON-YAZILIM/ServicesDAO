@@ -71,7 +71,7 @@ namespace DAO_DbService
 
                     foreach (var auction in publicAuctions)
                     {
-                        string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
+                        //string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
 
                         auction.Status = Enums.AuctionStatusTypes.PublicBidding;
                         db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
@@ -101,7 +101,7 @@ namespace DAO_DbService
                         //No winners selected. Auction expired. -> Set auction and job status to Expired
                         if (auction.WinnerAuctionBidID == null)
                         {
-                            string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Mint);
+                            string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
 
                             auction.Status = Enums.AuctionStatusTypes.Expired;
                             db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
@@ -286,7 +286,7 @@ namespace DAO_DbService
 
                                 //Get total reputations of voters who voted FOR
                                 var forReps =  reputations.Where(x => x.Type == Enums.StakeType.For);
-                                var reputationsTotalJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
                                 var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
 
                                 //Create Payment History model for dao members who participated into voting

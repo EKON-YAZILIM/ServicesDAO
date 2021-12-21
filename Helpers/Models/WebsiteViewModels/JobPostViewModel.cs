@@ -22,5 +22,7 @@ namespace Helpers.Models.WebsiteViewModels
         public int JobPosterUserID { get; set; }
         public string Tags { get; set; }
         public string CodeUrl { get; set; }
+        public bool IsUserFlagged { get; set; }
+        public int FlagCount { get; set; }
     }
 }

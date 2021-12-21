@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-   public class JobPostCommentModel
+    public class JobPostCommentModel
     {
+        public int UserID { get; set; }
         public int JobPostCommentID { get; set; }
         public string ProfileImage { get; set; }
         public string UserName { get; set; }
@@ -18,6 +19,7 @@ namespace Helpers.Models.WebsiteViewModels
         public bool? IsUpVote { get; set; }
         public bool IsUsersComment { get; set; }
         public bool? IsPinned { get; set; }
-
+        public bool? IsFlagged { get; set; }
+        public double? UserReputation { get; set; }
     }
 }

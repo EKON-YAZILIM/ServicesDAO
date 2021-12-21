@@ -8,7 +8,9 @@
 <div class="card-header">
     <!-- .header -->
     <div class="titleContainer">
-        <h5 class="card-title" title="@Model.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.Title, 90)</h5>
+        <span class="badge bg-dark">#@Model.JobID</span>
+
+        <h5 class="card-title mx-2" title="@Model.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.Title, 90)</h5>
         <small class="text-medium-emphasis">@Model.CreateDate.ToShortDateString() , @Model.UserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
@@ -83,7 +85,7 @@
         </svg> @Model.CommentCount Comment
     </a>
 
-    <a class="card-text  me-2" href="#" onclick="ShareJobPost();">
+    <a class="card-text mx-2" href="#" onclick="ShareJobPost();">
         <svg class="icon">
             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
         </svg> Share
@@ -92,11 +94,31 @@
     @if (httpContextAccessor.HttpContext.Request.Path.Value.ToString().Contains("Job-Detail"))
     {
         <!-- New comment click -->
-        <a onclick="CreateReplyBox(this, 0)" class="card-text me-2 cursorp">
+        <a onclick="CreateReplyBox(this, 0)" class="card-text mx-2 cursorp">
             <svg class="icon">
                 <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
             </svg> Reply
         </a>
+
+    }
+
+    @if (Model.IsUserFlagged == true){
+        <a class="card-text mx-2 text-danger" href="#" onclick="RemoveFlag(@Model.JobID);">
+            <svg class="icon">
+                <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
+            </svg> Remove Flag
+        </a>
+    }
+    else{
+        <a class="card-text mx-2" href="#" onclick="OpenFlagModal(@Model.JobID);">
+            <svg class="icon">
+                <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
+            </svg> Flag
+        </a>
+    }
+
+    @if(Model.FlagCount > 0){
+        <small class="float-right"><i>@Model.FlagCount user flagged this job</i></small>
     }
 
     <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
@@ -112,7 +134,7 @@
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
         <!-- New comment click -->
-        <button onclick="KYCModal();" class="btn btn-sm btn-primary btn-shine float-right">
+        <button onclick="window.location.href='../KYC-Verification'" class="btn btn-sm btn-primary btn-shine float-right">
             Submit KYC
         </button>
     }

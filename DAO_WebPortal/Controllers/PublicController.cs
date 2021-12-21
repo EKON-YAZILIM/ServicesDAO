@@ -393,18 +393,9 @@ namespace DAO_WebPortal.Controllers
                 //Check if format is valid
                 if (decryptedToken.Split('|').Length > 1)
                 {
-                    //Check if password renewal expired
-                    DateTime emaildate = Convert.ToDateTime(decryptedToken.Split('|')[1]);
-                    if (emaildate.AddMinutes(60) < DateTime.Now)
-                    {
-                        TempData["message"] = Lang.RenewExpired;
-                    }
-                    else
-                    {
-                        //Set user's email
-                        HttpContext.Session.SetString("passwordchangeemail", decryptedToken.Split('|')[0]);
-                        TempData["action"] = "resetpassword";
-                    }
+                    //Set user's email
+                    HttpContext.Session.SetString("passwordchangeemail", decryptedToken.Split('|')[0]);
+                    TempData["action"] = "resetpassword";
                 }
                 else
                 {

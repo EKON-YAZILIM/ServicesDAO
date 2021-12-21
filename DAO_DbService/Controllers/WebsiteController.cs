@@ -31,7 +31,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAllJobs")]
         [HttpGet]
-        public PaginationEntity<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status, int page = 1, int pageCount = 30)
+        public PaginationEntity<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status, int userid = 0, int page = 1, int pageCount = 30)
         {
             PaginationEntity<JobPostViewModel> res = new PaginationEntity<JobPostViewModel>();
 
@@ -43,6 +43,8 @@ namespace DAO_DbService.Controllers
                                                         join user in db.Users on job.UserID equals user.UserId
                                                         let explanation = job.JobDescription.Substring(0, 250)
                                                         let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
+                                                        let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
+                                                        let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
                                                         where status == null || job.Status == status
                                                         orderby job.CreateDate descending
                                                         select new JobPostViewModel
@@ -60,7 +62,9 @@ namespace DAO_DbService.Controllers
                                                             DosFeePaid = job.DosFeePaid,
                                                             JobPosterUserID = job.UserID,
                                                             CodeUrl = job.CodeUrl,
-                                                            Tags = job.Tags
+                                                            Tags = job.Tags,
+                                                            IsUserFlagged = userflagged,
+                                                            FlagCount = flagcount
                                                         }).ToPagedList(page, pageCount);
 
                     res.Items = lst;
@@ -98,6 +102,7 @@ namespace DAO_DbService.Controllers
                               where comment.JobID == jobid
                               select new JobPostCommentModel
                               {
+                                  UserID = user.UserId,
                                   JobPostCommentID = comment.JobPostCommentID,
                                   ProfileImage = user.ProfileImage,
                                   UserName = user.UserName,
@@ -108,7 +113,8 @@ namespace DAO_DbService.Controllers
                                   DownVote = downvote,
                                   IsUsersComment = isComment,
                                   Points = 0,
-                                  IsPinned = comment.IsPinned
+                                  IsPinned = comment.IsPinned,
+                                  IsFlagged = comment.IsFlagged
                               }).ToList();
 
                     var commentIds = result.Select(x => x.JobPostCommentID).ToList();
@@ -119,6 +125,17 @@ namespace DAO_DbService.Controllers
                     {
                         var comment = result.First(x => x.JobPostCommentID == commentVote.JobPostCommentID);
                         comment.IsUpVote = commentVote.IsUpVote;
+                    }
+
+                    //Get users reputation to attach comment body
+                    var userIds = result.Select(x => x.UserID).Distinct().ToList();
+                    var userRepsJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(userIds));
+                    var userReps = Helpers.Serializers.DeserializeJson<List<Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto>>(userRepsJson);                 
+                    foreach (var reputation in userReps)
+                    {
+                        foreach  (var comment in result.Where(x=>x.UserID == reputation.UserID)){
+                            comment.UserReputation = reputation.LastTotal;
+                        }
                     }
                 }
             }
@@ -136,7 +153,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetJobDetail")]
         [HttpGet]
-        public JobPostViewModel GetJobDetail(int jobid)
+        public JobPostViewModel GetJobDetail(int jobid, int userid = 0)
         {
             JobPostViewModel result = new JobPostViewModel();
             try
@@ -146,6 +163,9 @@ namespace DAO_DbService.Controllers
                     var jobPost = db.JobPosts.Find(jobid);
                     var user = db.Users.Find(jobPost.UserID);
                     var count = db.JobPostComments.Count(x => x.JobID == jobPost.JobID);
+                    var flagcount = db.JobPostComments.Count(x => x.JobID == jobid && x.IsFlagged == true);
+                    var userflagged = db.JobPostComments.Count(x => x.JobID == jobid && x.UserID == userid && x.IsFlagged == true) > 0;
+
                     result = new JobPostViewModel
                     {
                         Title = jobPost.Title,
@@ -161,7 +181,9 @@ namespace DAO_DbService.Controllers
                         DosFeePaid = jobPost.DosFeePaid,
                         JobPosterUserID = jobPost.UserID,
                         Tags = jobPost.Tags,
-                        CodeUrl = jobPost.CodeUrl
+                        CodeUrl = jobPost.CodeUrl,
+                        IsUserFlagged = userflagged,
+                        FlagCount = flagcount
                     };
                 }
             }
@@ -193,6 +215,8 @@ namespace DAO_DbService.Controllers
                                         join user in db.Users on job.UserID equals user.UserId
                                         let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                                         let explanation = job.JobDescription.Substring(0, 250)
+                                        let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
+                                        let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
                                         where job.UserID == userid
                                         orderby job.CreateDate descending
                                         select new JobPostViewModel
@@ -209,8 +233,10 @@ namespace DAO_DbService.Controllers
                                             JobDoerUserID = job.JobDoerUserID,
                                             DosFeePaid = job.DosFeePaid,
                                             JobPosterUserID = job.UserID,
+                                            CodeUrl = job.CodeUrl,
                                             Tags = job.Tags,
-                                            CodeUrl = job.CodeUrl
+                                            IsUserFlagged = userflagged,
+                                            FlagCount = flagcount
                                         }).ToList();
 
                     result.doerJobs = (from job in db.JobPosts
@@ -219,6 +245,8 @@ namespace DAO_DbService.Controllers
                                        join auctionbid in db.AuctionBids on auction.AuctionID equals auctionbid.AuctionID
                                        let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                                        let explanation = job.JobDescription.Substring(0, 250)
+                                       let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
+                                       let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
                                        where auctionbid.UserID == userid && auctionbid.AuctionBidID == auction.WinnerAuctionBidID
                                        select new JobPostViewModel
                                        {
@@ -234,8 +262,10 @@ namespace DAO_DbService.Controllers
                                            JobDoerUserID = job.JobDoerUserID,
                                            DosFeePaid = job.DosFeePaid,
                                            JobPosterUserID = job.UserID,
+                                           CodeUrl = job.CodeUrl,
                                            Tags = job.Tags,
-                                           CodeUrl = job.CodeUrl
+                                           IsUserFlagged = userflagged,
+                                           FlagCount = flagcount
                                        }).ToList();
                 }
             }
@@ -281,6 +311,46 @@ namespace DAO_DbService.Controllers
                            CodeUrl = job.CodeUrl
                        }).ToList();
             }
+            return res;
+        }
+
+        /// <summary>
+        /// Remove flagged comment if exists
+        /// </summary>
+        /// <param name="jobid"></param>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        [Route("RemoveFlag")]
+        [HttpGet]
+        public SimpleResponse RemoveFlag(int jobid, int userid)
+        {
+
+            SimpleResponse res = new SimpleResponse();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    //Get flagged comments of the user for the job
+                    var flaggedComments = db.JobPostComments.Where(x => x.JobID == jobid && x.IsFlagged == true && x.UserID == userid).ToList();
+
+                    foreach (var comment in flaggedComments)
+                    {
+                        var cmt = db.JobPostComments.Find(comment.JobPostCommentID);
+                        cmt.IsFlagged = false;
+                        cmt.Comment = "This comment is deleted by the owner.";
+                        db.SaveChanges();
+                    }
+
+                    res.Success = true;
+                    res.Message = "Flag removed succesfully.";
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
+            }
+
             return res;
         }
 
@@ -949,7 +1019,8 @@ namespace DAO_DbService.Controllers
                                JobDoerUserID = job.JobDoerUserID,
                                JobOwnerUserID = job.UserID,
                                JobDoerUsername = user.UserName,
-                               WinnerBidPrice = auctionbid.Price
+                               WinnerBidPrice = auctionbid.Price,
+                               EligibleUserCount = voting.EligibleUserCount
                            }).ToList();
                 }
             }

@@ -48,8 +48,8 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Title</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
+                                    <th scope="col">Job Price</th>
+                                    <th scope="col">Job Doer</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Quorum</th>
                                     <th scope="col">My Vote</th>
@@ -64,10 +64,20 @@
                                         <tr>
                                             <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                            <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                            <td>@item.WinnerBidPrice</td>
+                                            <td>@item.JobDoerUsername</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
-                                            <td>@item.VoteCount / @item.QuorumCount</td>
+                                            <td>
+                                                @if(item.VoteCount >= item.QuorumCount)
+                                                {
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum reached" class="fas fa-check-circle mr-2 text-success"></i>
+                                                }
+                                                else
+                                                {                                                       
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum not reached" class="fas fa-times-circle mr-2 text-danger"></i>
+                                                }
+                                                 @item.VoteCount / @item.EligibleUserCount                                                
+                                            </td>
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
                                                 <td class="informal-noneligible"><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
@@ -92,7 +102,7 @@
                                                 else
                                                 {
                                                     <td class="informal-noneligible">
-                                                        <a class="btn btn-sm btn-default me-2" disabled>
+                                                        <a class="btn btn-sm btn-dark me-2" disabled>
                                                             <svg class="icon">
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-minus"></use>
                                                             </svg> Not Eligible
@@ -134,8 +144,8 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Title</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
+                                    <th scope="col">Job Price</th>
+                                    <th scope="col">Job Doer</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Quorum</th>
                                     <th scope="col">My Vote</th>
@@ -148,12 +158,22 @@
                                     @foreach (var item in formalVotings)
                                     {
                                         <tr>
-                                            <td>@item.JobID</td>
+                                            <th>@item.JobID</th>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                            <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                            <td>@item.WinnerBidPrice</td>
+                                            <td>@item.JobDoerUsername</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
-                                            <td>@item.VoteCount / @item.QuorumCount</td>
+                                            <td>
+                                                @if(item.VoteCount >= item.QuorumCount)
+                                                {
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum reached" class="fas fa-check-circle mr-2 text-success"></i>
+                                                }
+                                                else
+                                                {                                                       
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum not reached" class="fas fa-times-circle mr-2 text-danger"></i>
+                                                }
+                                                @item.VoteCount / @item.EligibleUserCount
+                                            </td>
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
                                                 <td class="formal-noneligible"><button class="btn btn-sm btn-success disabled text-white w-100"><b>FOR</b></button></td>
@@ -164,8 +184,10 @@
                                             }
                                             else
                                             {
+                                                //Check if user voted in the informal voting
+                                                bool informalVoted = Model.Count(x=>x.IsFormal == false && x.JobID == item.JobID && x.UserVote != null) > 0;
 
-                                                if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
+                                                if (informalVoted && httpContextAccessor.HttpContext.Session.GetInt32("UserID") != item.JobDoerUserID && httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
                                                 {
                                                     <td>
                                                         <a class="btn btn-sm btn-primary btn-shine me-2" onclick="OpenVoteModal(@item.VotingID, @item.JobID)">
@@ -178,7 +200,7 @@
                                                 else
                                                 {
                                                     <td class="formal-noneligible">
-                                                        <a class="btn btn-sm btn-default me-2" disabled>
+                                                        <a class="btn btn-sm btn-dark me-2" disabled>
                                                             <svg class="icon">
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-minus"></use>
                                                             </svg> Not Eligible
@@ -218,8 +240,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Title</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
+                                    <th scope="col">Job Price</th>
+                                    <th scope="col">Job Doer</th>
+                                    <th scope="col">Quorum</th>
                                     <th scope="col">My Vote</th>
                                     <th scope="col">Voting Result</th>
                                     <th scope="col"></th>
@@ -233,10 +256,21 @@
                                     @foreach (var item in informalVotings)
                                     {
                                         <tr>
-                                            <td>@item.JobID</td>
+                                            <th>@item.JobID</th>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                            <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                            <td>@item.WinnerBidPrice</td>
+                                            <td>@item.JobDoerUsername</td>
+                                            <td>
+                                                @if(item.VoteCount >= item.QuorumCount)
+                                                {
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum reached" class="fas fa-check-circle mr-2 text-success"></i>
+                                                }
+                                                else
+                                                {                                                       
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum not reached" class="fas fa-times-circle mr-2 text-danger"></i>
+                                                }
+                                                 @item.VoteCount / @item.EligibleUserCount                                                
+                                            </td>
 
                                             @*User's Vote*@
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
@@ -298,8 +332,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Title</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
+                                    <th scope="col">Job Price</th>
+                                    <th scope="col">Job Doer</th>
+                                    <th scope="col">Quorum</th>
                                     <th scope="col">My Vote</th>
                                     <th scope="col">Voting Result</th>
                                     <th scope="col"></th>
@@ -313,10 +348,21 @@
                                     @foreach (var item in formalVotings)
                                     {
                                         <tr>
-                                            <td>@item.JobID</td>
+                                            <th>@item.JobID</th>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.StartDate.ToString("dd.MM.yyyy")</td>
-                                            <td>@item.EndDate.ToString("dd.MM.yyyy")</td>
+                                            <td>@item.WinnerBidPrice</td>
+                                            <td>@item.JobDoerUsername</td>
+                                            <td>
+                                                @if(item.VoteCount >= item.QuorumCount)
+                                                {
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum reached" class="fas fa-check-circle mr-2 text-success"></i>
+                                                }
+                                                else
+                                                {                                                       
+                                                    <i data-toggle="tooltip" data-placement="top" title="Quorum not reached" class="fas fa-times-circle mr-2 text-danger"></i>
+                                                }
+                                                 @item.VoteCount / @item.EligibleUserCount                                                
+                                            </td>
 
                                             @*User's Vote*@
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
@@ -415,6 +461,7 @@
         var now = new Date(@DateTime.Now.Year, @(DateTime.Now.Month-1), @DateTime.Now.Day, @DateTime.Now.Hour, @DateTime.Now.Minute, @DateTime.Now.Second);
 
         $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip()
 
             setInterval(function () {
                 now.setSeconds(now.getSeconds() + 1);
@@ -491,7 +538,7 @@
         function OpenVoteModal(votingId, jobId) {
             selectedDirection = -1;
             selectedVotingId = votingId;
-            $("#jobIdSpan").text(votingId);
+            $("#jobIdSpan").text(jobId);
             $("#VoteModal").modal("toggle");
         }
 

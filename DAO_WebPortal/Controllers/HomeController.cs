@@ -143,7 +143,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID") + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
                 //Parse response
                 var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<JobPostViewModel>>(jobsJson);
 
@@ -194,7 +194,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Empty fields control
-                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description)  || string.IsNullOrEmpty(codeurl) || amount <= 0)
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(time) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(codeurl) || amount <= 0)
                 {
                     result.Success = false;
                     result.Message = "You must fill all the fields to post a job.";
@@ -202,7 +202,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Create JobPost model
-                JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Tags = tags, CodeUrl= codeurl, Status = Enums.JobStatusTypes.AdminApprovalPending };
+                JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Tags = tags, CodeUrl = codeurl, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
                 //Post model to ApiGateway
                 string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token"));
@@ -333,7 +333,7 @@ namespace DAO_WebPortal.Controllers
                 var userid = HttpContext.Session.GetInt32("UserID");
 
                 //Get model from ApiGateway
-                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetJobDetail?jobid=" + JobID, HttpContext.Session.GetString("Token"));
+                var url = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetJobDetail?jobid=" + JobID + "&userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                 //Parse response
                 model.JobPostWebsiteModel = Helpers.Serializers.DeserializeJson<JobPostViewModel>(url);
 
@@ -388,10 +388,10 @@ namespace DAO_WebPortal.Controllers
                     return Json(result);
                 }
 
-                //Check if voting for this job started. If yes user can't post comment anymore
+                //Check if this job entered voting phase. If yes user can't post comment anymore
                 var informalVotingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetInformalVotingByJobId?jobid=" + JobId, HttpContext.Session.GetString("Token"));
                 var informalVoting = Helpers.Serializers.DeserializeJson<VotingDto>(informalVotingJson);
-                if(informalVoting != null && informalVoting.VotingID > 0)
+                if (informalVoting != null && informalVoting.VotingID > 0)
                 {
                     result.Success = false;
                     result.Message = "This job is in voting process. Posting comments are disabled.";
@@ -701,6 +701,104 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        /// <summary>
+        /// Inserts flag comment to the job
+        /// </summary>
+        /// <param name="jobid">Job id</param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult FlagJob(int jobid, string flagreason)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //KYC Control
+                if (Program._settings.ForumKYCRequired && HttpContext.Session.GetString("KYCStatus") != "true")
+                {
+                    result.Success = false;
+                    result.Message = "Please complete the KYC from User Profile";
+                    return Json(result);
+                }
+
+                //Check if this job entered voting phase. If yes user can't flag anymore
+                var informalVotingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetInformalVotingByJobId?jobid=" + jobid, HttpContext.Session.GetString("Token"));
+                var informalVoting = Helpers.Serializers.DeserializeJson<VotingDto>(informalVotingJson);
+                if (informalVoting != null && informalVoting.VotingID > 0)
+                {
+                    result.Success = false;
+                    result.Message = "This job is in voting process. Flagging is disabled.";
+                    return Json(result);
+                }
+
+                //Create new comment model
+                JobPostCommentDto model = new JobPostCommentDto()
+                {
+                    Comment = flagreason,
+                    Date = DateTime.Now,
+                    JobID = jobid,
+                    SubCommentID = 0,
+                    UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")),
+                    DownVote = 0,
+                    UpVote = 0,
+                    IsFlagged = true
+                };
+
+                //Post model to ApiGateway
+                model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPostComment/Post", Helpers.Serializers.SerializeJson(model), HttpContext.Session.GetString("Token")));
+
+                if (model != null && model.JobPostCommentID > 0)
+                {
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User commented.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                    result.Success = true;
+                    result.Message = "Job flagged succesfully.";
+                    result.Content = model;
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+                }
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
+        }
+
+        /// <summary>
+        /// Removes flag comment from the job
+        /// </summary>
+        /// <param name="jobid">Job id</param>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult RemoveFlag(int jobid)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Post model to ApiGateway
+                result = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/RemoveFlag?jobid=" + jobid + "&userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
+                
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+
         }
 
         #endregion
@@ -1035,7 +1133,7 @@ namespace DAO_WebPortal.Controllers
                             var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
                             //Set email title and content
-                            string emailTitle = "You won the auction #" + auction.AuctionID;
+                            string emailTitle = "You won the auction for job #" + auction.JobID;
                             string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> You won the auction of '" + jobStatusResult.Title + "'.<br><br> Please post your job completion evidence as a comment to the related job and start informal voting process within expected timeframe";
 
                             SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
@@ -1133,7 +1231,7 @@ namespace DAO_WebPortal.Controllers
 
                 //Get reputation stakes from reputation service
                 var reputationsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/GetByProcessId?referenceProcessID=" + VotingID + "&reftype=" + StakeType.For, HttpContext.Session.GetString("Token"));
-                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson).OrderByDescending(x=>x.UserReputationStakeID);
+                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson).OrderByDescending(x => x.UserReputationStakeID);
 
                 //Get usernames of voters
                 var usernamesJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUsernamesByUserIds", Helpers.Serializers.SerializeJson(votes.Select(x => x.UserID)), HttpContext.Session.GetString("Token"));
@@ -1243,10 +1341,10 @@ namespace DAO_WebPortal.Controllers
                 //Get total dao member count
                 int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type=" + UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
                 //Eligible user count = VA Count - 1 (Job Doer)
-                informalVoting.EligibleUserCount = daoMemberCount - 1;         
+                informalVoting.EligibleUserCount = daoMemberCount - 1;
                 //Quorum count is calculated with total user count - 2(job poster, job doer)
-                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(informalVoting.EligibleUserCount));          
-                
+                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(informalVoting.EligibleUserCount));
+
                 string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/StartInformalVoting", Helpers.Serializers.SerializeJson(informalVoting), HttpContext.Session.GetString("Token"));
                 res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResult);
                 res.Content = null;
