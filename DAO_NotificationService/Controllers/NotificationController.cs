@@ -28,7 +28,13 @@ namespace DAO_NotificationService.Controllers
             {
                 if (model.TargetGroup != null)
                 {
+                    List<UserDto> targetUsers = Helpers.Serializers.DeserializeJson<List<UserDto>>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetUsersByType?type=" + model.TargetGroup));
 
+                    if (targetUsers != null && targetUsers.Count > 0)
+                    {
+                        model.To = new List<string>() { Program._settings.EmailAddress };
+                        model.Bcc = targetUsers.Select(x => x.Email).ToList();
+                    }
                 }
 
                 //Send with SMTP channel

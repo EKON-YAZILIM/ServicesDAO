@@ -788,7 +788,7 @@ namespace DAO_WebPortal.Controllers
             {
                 //Post model to ApiGateway
                 result = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/RemoveFlag?jobid=" + jobid + "&userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token")));
-                
+
                 return Json(result);
 
             }
@@ -1193,7 +1193,7 @@ namespace DAO_WebPortal.Controllers
                     }
                 }
 
-                //Get user's available reputation and save it to session
+                //Get user's available reputation and save it to session to show in vote modal
                 var reputationJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                 if (!string.IsNullOrEmpty(reputationJson))
                 {
@@ -1275,7 +1275,6 @@ namespace DAO_WebPortal.Controllers
                 voteDetailModel.VoteItems = voteItems;
                 //Parse response
                 voteDetailModel.Voting = Helpers.Serializers.DeserializeJson<VotingDto>(votingJson);
-
             }
             catch (Exception ex)
             {
@@ -1358,6 +1357,9 @@ namespace DAO_WebPortal.Controllers
 
                 Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User started informal voting . Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
+                //Send email notification to VAs
+                SendEmailModel emailModel = new SendEmailModel() { Subject = "Informal Voting Started For Job #" + jobid, Content = "Informal voting process started for job #" + jobid + "<br><br>Please submit your vote until " + informalVoting.EndDate.ToString(), TargetGroup = Enums.UserIdentityType.VotingAssociate };
+                Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
 
                 return Json(res);
             }
@@ -2174,6 +2176,203 @@ namespace DAO_WebPortal.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
             return View(pagedModel);
+        }
+
+        /// <summary>
+        ///  Approves job with "AdminApprovalPending" status
+        /// </summary>
+        /// <param name="JobId"></param>
+        /// <returns></returns>
+        [AuthorizeAdmin]
+        [HttpGet]
+        public JsonResult RestartVoting(int votingid)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get response from ApiGateway
+                string jsonResponse = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/RestartVoting?votingid=" + votingid, HttpContext.Session.GetString("Token"));
+                result = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
+                result.Content = null;
+
+                //Set server side toastr because page will be redirected
+                TempData["toastr-message"] = result.Message;
+                TempData["toastr-type"] = "success";
+
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Voting restarted by admin user. Voting #" + votingid, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        /// <summary>
+        ///  Approves job with "AdminApprovalPending" status
+        /// </summary>
+        /// <param name="JobId"></param>
+        /// <returns></returns>
+        [AuthorizeAdmin]
+        [HttpGet]
+        public JsonResult RestartAuction(int auctionid)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Get auction model from ApiGateway
+                var auctionJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Auction/GetId?id=" + auctionid, HttpContext.Session.GetString("Token"));
+                //Parse response
+                var auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
+
+                if (auction.Status != AuctionStatusTypes.Expired)
+                {
+                    result.Message = "Only expired auctions can be restarted";
+                    result.Success = false;
+                }
+
+                auction.Status = AuctionStatusTypes.InternalBidding;
+
+                //Set auction end dates
+                DateTime internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime);
+                DateTime publicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+
+                if (Program._settings.AuctionTimeType == "week")
+                {
+                    internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime * 7);
+                    publicAuctionEndDate = DateTime.Now.AddDays((Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime) * 7);
+                }
+                else if (Program._settings.AuctionTimeType == "minute")
+                {
+                    internalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime);
+                    publicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+                }
+
+                auction.InternalAuctionEndDate = internalAuctionEndDate;
+                auction.PublicAuctionEndDate = publicAuctionEndDate;
+
+                var auctionUpdateJson = Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Update", Helpers.Serializers.SerializeJson(auction), HttpContext.Session.GetString("Token"));
+                auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionUpdateJson);
+
+                if (auction.AuctionID > 0)
+                {
+                    result.Message = "Auction restarted succesfully.";
+                    result.Success = true;
+                }
+
+
+                //Set server side toastr because page will be redirected
+                TempData["toastr-message"] = result.Message;
+                TempData["toastr-type"] = "success";
+
+                Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Auction restarted by admin user. Auction #" + auctionid, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                return Json(result);
+
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+
+        /// <summary>
+        /// New Simple Vote Page
+        /// </summary>
+        /// <returns></returns>
+        [AuthorizeAdmin]
+        [Route("New-Simple-Vote")]
+        public IActionResult New_Simple_Vote()
+        {
+            ViewBag.Title = "Start A New Simple Vote";
+
+            return View();
+        }
+
+        /// <summary>
+        ///  New simple vote post function
+        /// </summary>
+        /// <param name="title">Title</param>
+        /// <param name="description">Description</param>
+        /// <returns></returns>
+        [AuthorizeAdmin]
+        [HttpPost]
+        public JsonResult New_SimpleVote_Post(string title, string description)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Empty fields control
+                if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(description))
+                {
+                    result.Success = false;
+                    result.Message = "You must fill all the fields.";
+                    return Json(result);
+                }
+
+                //Create JobPost model
+                JobPostDto jobPostModel = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = 0, JobDescription = description, CreateDate = DateTime.Now, LastUpdate = DateTime.Now, Title = title, Status = Enums.JobStatusTypes.InformalVoting };
+                //Post model to ApiGateway
+                string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(jobPostModel), HttpContext.Session.GetString("Token"));
+                //Parse reponse
+                jobPostModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobPostResponseJson);
+
+                if (jobPostModel != null && jobPostModel.JobID > 0)
+                {
+                    //Start informal voting
+                    VotingDto informalVoting = new VotingDto();
+                    informalVoting.JobID = jobPostModel.JobID;
+                    informalVoting.StartDate = DateTime.Now;
+                    informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
+                    informalVoting.QuorumRatio = Program._settings.QuorumRatio;
+                    informalVoting.Type = Enums.VoteTypes.Simple;
+                    informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime);
+
+                    if (Program._settings.AuctionTimeType == "week")
+                    {
+                        informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime * 7);
+                    }
+                    else if (Program._settings.AuctionTimeType == "minute")
+                    {
+                        informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingTime);
+                    }
+
+                    //Get total dao member count
+                    int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type=" + UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
+                    //Eligible user count = VA Count - 1 (Job Doer)
+                    informalVoting.EligibleUserCount = daoMemberCount - 1;
+                    //Quorum count is calculated with total user count - 2(job poster, job doer)
+                    informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(informalVoting.EligibleUserCount));
+
+                    string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/StartInformalVoting", Helpers.Serializers.SerializeJson(informalVoting), HttpContext.Session.GetString("Token"));
+                    result = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResult);
+                    result.Content = null;
+
+                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User started new simple vote.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+
+                    return Json(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
         #endregion

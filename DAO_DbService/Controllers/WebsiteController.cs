@@ -997,10 +997,15 @@ namespace DAO_DbService.Controllers
 
                     res = (from voting in model
                            join job in db.JobPosts on voting.JobID equals job.JobID
-                           join user in db.Users on job.JobDoerUserID equals user.UserId
-                           join auction in db.Auctions on job.JobID equals auction.JobID
-                           join auctionbid in db.AuctionBids on auction.AuctionID equals auctionbid.AuctionID
-                           where (status == null || voting.Status == status) && auctionbid.UserID == user.UserId
+
+                           join usr in db.Users on job.JobDoerUserID equals usr.UserId into user
+                           from pUser in user.DefaultIfEmpty(new User() { UserId = 0, UserName = "" })            
+                           join act in db.Auctions on job.JobID equals act.JobID into auction
+                           from pAuction in auction.DefaultIfEmpty(new Auction() { AuctionID = 0 })
+                           join actbid in db.AuctionBids on pAuction.AuctionID equals actbid.AuctionID into auctionbid
+                           from pAuctionBid in auctionbid.DefaultIfEmpty(new AuctionBid() { AuctionBidID = 0, Price = 0 })
+
+                           where (status == null || voting.Status == status) && (pUser == null || pAuctionBid.UserID == pUser.UserId)
                            orderby voting.CreateDate descending
                            select new VotingViewModel
                            {
@@ -1018,8 +1023,8 @@ namespace DAO_DbService.Controllers
                                QuorumCount = voting.QuorumCount,
                                JobDoerUserID = job.JobDoerUserID,
                                JobOwnerUserID = job.UserID,
-                               JobDoerUsername = user.UserName,
-                               WinnerBidPrice = auctionbid.Price,
+                               JobDoerUsername = pUser.UserName,
+                               WinnerBidPrice = pAuctionBid.Price,
                                EligibleUserCount = voting.EligibleUserCount
                            }).ToList();
                 }

@@ -16,13 +16,19 @@
 <div class="row d-flex m-2 mb-3">
     <div class="col-md-6">
         <a class="btn btn-primary" href="../Auctions">
-            <svg class="icon me-2">
-                <use xlink:href="/Home/images/svg/free.svg#cil-chevron-circle-left-alt"></use>
-            </svg> Go Back
+             <i class="fas fa-arrow-circle-left me-1"></i> Go Back
         </a>
     </div>
     <div class="col-md-6 d-flex justify-content-end">
+        <a href="../Job-Detail/@Model.Auction.JobID" class="btn btn-primary float-right mx-2"><i class="fas fa-info-circle me-1"></i> Job Details</a>
 
+        @* If auction is expired and user is admin -> User can restart auction *@
+        @if (Model.Auction.Status == Enums.AuctionStatusTypes.Expired &&
+        httpContextAccessor.HttpContext.Session.GetString("UserType") == Enums.UserIdentityType.Admin.ToString())
+        {
+            <button class="btn btn-primary float-right" onclick="RestartAuction();"><i class="fas fa-sync-alt me-1"></i>
+                Restart Auction</button>
+        }
     </div>
 </div>
 
@@ -185,6 +191,46 @@
 
         function getCellValue(row, index) {
             return $(row).children('td').eq(index).text()
+        }
+
+        //Restart auction
+        function RestartAuction() {
+            $.confirm({
+                title: 'Confirmation',
+                content: 'Are you sure you want to restart the auction ?',
+                buttons: {
+                    cancel: {
+                        text: 'Cancel'
+                    },
+                    confirm: {
+                        text: 'Continue',
+                        btnClass: 'btn btn-primary',
+                        action: function () {
+                            //Ajax get action
+                            $.ajax({
+                                type: "GET",
+                                url: "../Home/RestartAuction?auctionid=" + @Model.Auction.AuctionID,
+                                success: function (result) {
+                                    if (result.success) {
+                                        window.location.reload();
+                                    }
+                                    else {
+                                        toastr.warning(result.message);
+
+                                    }
+                                },
+                                failure: function (response) {
+                                    toastr.warning("@Lang.ConnectionError");
+                                },
+                                error: function (response) {
+                                    toastr.error("@Lang.UnexpectedError");
+                                }
+                            });
+
+                        }
+                    }
+                }
+            });
         }
     </script>
 }

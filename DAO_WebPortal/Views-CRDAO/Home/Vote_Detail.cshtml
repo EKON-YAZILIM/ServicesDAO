@@ -1,10 +1,32 @@
 ﻿@using DAO_WebPortal.Resources
 @model Helpers.Models.WebsiteViewModels.VoteDetailViewModel
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@using Helpers.Constants
 
 @{
     Layout = "../Shared/_MainLayout.cshtml";
 }
 
+<!--Top Buttons-->
+<div class="row d-flex mb-3">
+    <div class="col-md-6">
+        <a class="btn btn-primary" href="../Votings">
+            <i class="fas fa-arrow-circle-left me-1"></i> Go Back
+        </a>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+        <a href="../Job-Detail/@Model.Voting.JobID" class="btn btn-primary float-right mx-2"><i class="fas fa-info-circle me-1"></i> Job Details</a>
+
+        @* If voting is expired and user is admin -> User can restart voting *@
+        @if (Model.Voting.Status == Enums.VoteStatusTypes.Expired &&
+        httpContextAccessor.HttpContext.Session.GetString("UserType") == Enums.UserIdentityType.Admin.ToString())
+        {
+            <button class="btn btn-primary float-right" onclick="RestartVoting();"><i class="fas fa-sync-alt me-1"></i>
+                Restart Voting</button>
+        }
+    </div>
+</div>
 
 @if (Model.Voting.IsFormal && Model.InformalFor != null && Model.InformalAgainst != null)
 {
@@ -14,18 +36,29 @@
     string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
 
     <div class="row mt-3 mb-5">
-        <div class="col-md-12">
-            <h5>Informal Voting Results</h5>
-            <div class="progress">
-                <div class="progress-bar bg-success" role="progressbar" style="width:@forPerc" aria-valuenow="@forRatio" aria-valuemin="0" aria-valuemax="100">@forPerc</div>
-                <div class="progress-bar bg-danger" role="progressbar" style="width:@againstPerc" aria-valuenow="@againstRatio" aria-valuemin="0" aria-valuemax="100">@againstPerc</div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <!-- .header -->
+                <span class="small ms-1"><b>Informal Voting Results For Job #@Model.Voting.JobID</b></span>
+            </div><!-- .header -->
+            <div class=" p-3">
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width:@forPerc"
+                        aria-valuenow="@forRatio" aria-valuemin="0" aria-valuemax="100">@forPerc</div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width:@againstPerc"
+                        aria-valuenow="@againstRatio" aria-valuemin="0" aria-valuemax="100">@againstPerc</div>
+                </div>
+                <div class="mt-2">
+                    <b class="float-left">For @forPerc</b>
+                    <b class="float-right">Against @againstPerc</b>
+                </div>
             </div>
-            <div class="mt-2">
-                <b class="float-left">For @forPerc</b>
-                <b class="float-right">Against @againstPerc</b>
-            </div>   
+
         </div>
+
     </div>
+</div>
 }
 
 <div class="row">
@@ -34,8 +67,14 @@
         <div class="card">
             <div class="card-header">
                 <!-- .header -->
-                <span class="small ms-1"><b>Voting Results</b></span>
-                <a href="../Job-Detail/@Model.Voting.JobID" class="float-right">Go to job details</a>
+                @if (Model.Voting.IsFormal)
+                {
+                    <span class="small ms-1"><b>Formal Voting Results For Job #@Model.Voting.JobID</b></span>
+                }
+                else
+                {
+                    <span class="small ms-1"><b>Informal Voting Results For Job #@Model.Voting.JobID</b></span>
+                }
             </div><!-- .header -->
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -52,7 +91,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @{int Count = 0;}
+                                @{
+                                    int Count = 0;
+                                    double forTotal = Model.VoteItems.Where(x => x.Direction ==
+                                    Helpers.Constants.Enums.StakeType.For).Sum(x => x.ReputationStake);
+                                    double againstTotal = Model.VoteItems.Where(x => x.Direction ==
+                                    Helpers.Constants.Enums.StakeType.Against).Sum(x => x.ReputationStake);
+
+                                    double forRatio = Convert.ToDouble(forTotal) / Convert.ToDouble(forTotal + againstTotal);
+                                    string forPerc = Math.Round(forRatio * 100, 2) + "%";
+
+                                    double againstRatio = 1 - forRatio;
+                                    string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
+                                }
 
                                 @foreach (var item in Model.VoteItems.OrderBy(x => x.Date))
                                 {
@@ -85,16 +136,26 @@
                                 <tr>
                                     <td>#</td>
                                     <td><b>Staked Total</b></td>
-                                    <td><b>@Model.VoteItems.Where(x => x.Direction == Helpers.Constants.Enums.StakeType.For).Sum(x => x.ReputationStake)</b></td>
-                                    <td><b>@Model.VoteItems.Where(x => x.Direction == Helpers.Constants.Enums.StakeType.Against).Sum(x => x.ReputationStake)</b></td>
+                                    <td><b>@forTotal</b></td>
+                                    <td><b>@againstTotal</b></td>
                                     <td></td>
                                 </tr>
                             </tbody>
+
+
+
                         </table>
+                        <div class="progress" style="height:3px">
+                            <div class="progress-bar bg-success" role="progressbar" style="width:@forPerc"
+                            aria-valuenow="@forRatio" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:@againstPerc"
+                            aria-valuenow="@againstRatio" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     }
                     else
                     {
-                        <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no votes in this voting" }, { "Icon", "frown-open" } }' />
+                        <partial name="../Shared/_EmptyPartial.cshtml"
+                        view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no votes in this voting" }, { "Icon", "frown-open" } }' />
                     }
                 </div>
             </div>
@@ -102,38 +163,79 @@
     </div>
 </div>
 
-<script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
-    $(function () {
-        CountDown();
-        setInterval(function () {
+@section Scripts{
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
+        $(function () {
             CountDown();
-        }, 1000);
-    });
+            setInterval(function () {
+                CountDown();
+            }, 1000);
+        });
 
-    function CountDown() {
-        var now = new Date().getTime();
+        function CountDown() {
+            var now = new Date().getTime();
 
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Output the result in an element with id="demo"
-        document.getElementById("demo").innerHTML = "<span style='font-size:2rem'>" + days + "</span>" + "days <span style='font-size:2rem'>" + hours + "</span>hours<span style='font-size:2rem'> "
-            + minutes + "</span>min <span style='font-size:2rem'>" + seconds + "</span>sec ";
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = "<span style='font-size:2rem'>" + days + "</span>" + "days <span style='font-size:2rem'>" + hours + "</span>hours<span style='font-size:2rem'> "
+                + minutes + "</span>min <span style='font-size:2rem'>" + seconds + "</span>sec ";
 
-        // If the count down is over, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
+            // If the count down is over, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+
         }
 
-    }
+        //Restart voting (Admin)
+        function RestartVoting() {
+            $.confirm({
+                title: 'Confirmation',
+                content: 'Are you sure you want to restart the voting ?',
+                buttons: {
+                    cancel: {
+                        text: 'Cancel'
+                    },
+                    confirm: {
+                        text: 'Continue',
+                        btnClass: 'btn btn-primary',
+                        action: function () {
+                            //Ajax get action
+                            $.ajax({
+                                type: "GET",
+                                url: "../Home/RestartVoting?votingid=" + @Model.Voting.VotingID,
+                                success: function (result) {
+                                    if (result.success) {
+                                        window.location.reload();
+                                    }
+                                    else {
+                                        toastr.warning(result.message);
 
-</script>
+                                    }
+                                },
+                                failure: function (response) {
+                                    toastr.warning("@Lang.ConnectionError");
+                                },
+                                error: function (response) {
+                                    toastr.error("@Lang.UnexpectedError");
+                                }
+                            });
+
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+}

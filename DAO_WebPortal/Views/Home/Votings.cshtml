@@ -8,23 +8,33 @@
 }
 
 <!--Tab list-->
-<ul class="nav nav-underline border-0 mb-3" role="tablist">
-    <li class="nav-item mx-2">
-        <a class="nav-link active" data-coreui-toggle="tab" href="#activeVotings" role="tab" aria-selected="false">
-            <svg class="icon me-2">
-                <use xlink:href="/Home/images/svg/free.svg#cil-media-play"></use>
-            </svg>Active
-        </a>
-    </li>
-    <li class="nav-item mx-2">
-        <a class="nav-link" data-coreui-toggle="tab" href="#completedVotings" role="tab" aria-selected="true">
-            <svg class="icon me-2">
-                <use xlink:href="/Home/images/svg/free.svg#cil-check"></use>
-            </svg>Completed
-        </a>
-    </li>
-</ul>
+<div class="row d-flex mb-3">
+    <div class="col-md-6">
+        <ul class="nav nav-underline border-0" role="tablist">
+            <li class="nav-item mx-2">
+                <a class="nav-link active" data-coreui-toggle="tab" href="#activeVotings" role="tab" aria-selected="false">
+                    <svg class="icon me-2">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-media-play"></use>
+                    </svg>Active
+                </a>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link" data-coreui-toggle="tab" href="#completedVotings" role="tab" aria-selected="true">
+                    <svg class="icon me-2">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-check"></use>
+                    </svg>Completed
+                </a>
+            </li>
 
+        </ul>
+    </div>
+    <div class="col-md-6">
+        @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
+        {
+            <a href="../New-Simple-Vote" class="btn btn-primary float-right mx-2"><i class="fas fa-plus me-1"></i> New Simple Vote</a>
+        }
+    </div>
+</div>
 <!-- Content -->
 <div class="tab-content rounded-bottom mt-2">
     <!--Tab Panel-->
@@ -64,7 +74,15 @@
                                         <tr>
                                             <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.WinnerBidPrice</td>
+                                            <td>
+                                                @if(string.IsNullOrWhiteSpace(item.JobDoerUsername))
+                                                {
+                                                    <span>@item.WinnerBidPrice</span>
+                                                } 
+                                                else{
+                                                    <span>Simple Voting</span>
+                                                }
+                                            </td>
                                             <td>@item.JobDoerUsername</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
                                             <td>

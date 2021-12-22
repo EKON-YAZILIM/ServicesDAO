@@ -252,9 +252,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
+                                    <th scope="col">Job Budget</th>
                                     <th scope="col">Job Poster</th>
-                                    <th scope="col">Auction Start Date</th>
-                                    <th scope="col">Auction End Date</th>
+                                    <th scope="col">Timeframe</th>
                                     <th scope="col">Winner User</th>
                                     <th scope="col">Bid Count</th>
                                     <th scope="col"></th>
@@ -269,9 +269,9 @@
                                         <tr>
                                             <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                            <td>@auction.JobPrice</td>
                                             <td>@auction.JobPosterUsername</td>
-                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
-                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                            <td>@auction.ExpectedTimeframe</td>
                                             <td>@auction.WinnerUserName</td>
                                             <td>@auction.BidCount</td>
                                             <td>
@@ -306,9 +306,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
+                                    <th scope="col">Job Budget</th>
                                     <th scope="col">Job Poster</th>
-                                    <th scope="col">Auction Start Date</th>
-                                    <th scope="col">Auction End Date</th>
+                                    <th scope="col">Timeframe</th>
                                     <th scope="col">Winner User</th>
                                     <th scope="col">Bid Count</th>
                                     <th scope="col"></th>
@@ -323,9 +323,9 @@
                                         <tr>
                                             <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                            <td>@auction.JobPrice</td>
                                             <td>@auction.JobPosterUsername</td>
-                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
-                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                            <td>@auction.ExpectedTimeframe</td>
                                             <td>-</td>
                                             <td>@auction.BidCount</td>
                                             <td>
