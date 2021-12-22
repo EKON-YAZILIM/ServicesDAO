@@ -28,7 +28,7 @@ namespace DAO_DbService.Tests
     /// UserDto GetByUsername(string username)  
     /// </summary>
     [Collection("Sequential")]
-    public class DAO_DbService_Test
+    public class DAO_DbService_UserController_Test
     {
         PostTestController controllers = new PostTestController();
 

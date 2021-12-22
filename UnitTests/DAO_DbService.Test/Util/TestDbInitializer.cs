@@ -8,6 +8,9 @@ using System.Collections.Generic;
 using PagedList.Core;
 using System.ComponentModel;
 using System.Linq;
+using System.Collections.Immutable;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Org.BouncyCastle.Math.EC.Multiplier;
 
 namespace DAO_DbService.Tests.Util
 {
@@ -29,7 +32,7 @@ namespace DAO_DbService.Tests.Util
         /// </summary>
         static TestDbInitializer()
         {
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.test.json").Build();
             DAO_DbService.Startup.LoadConfig(config);
 
             context = new dao_maindb_context();
@@ -39,7 +42,7 @@ namespace DAO_DbService.Tests.Util
         }
 
         /// <summary>
-        /// Truncates User, RFPs and Bids table in the database
+        /// Truncates Users, ActiveSessions, AuctionBids, Auctions, JobPostComments, JobPosts, commentVotes tables in the database
         /// </summary>
         public static void ClearDatabase()
         {
@@ -91,7 +94,7 @@ namespace DAO_DbService.Tests.Util
             context.SaveChanges();
             context.ChangeTracker.Clear();
         }
-
+        
         ///<summary>
         /// Clears the database.
         /// Creates an active admin user, random active amount of public users between 1 and 100, random amount of active internal users between 1 and 50
@@ -172,6 +175,44 @@ namespace DAO_DbService.Tests.Util
 
             // return user list;
             return context.Users.ToList();
+        }
+    
+        ///<summary>
+        /// Clears the database.
+        /// Creates an active admin user, random active amount of public users between 1 and 100, random amount of active internal users between 1 and 50
+        /// Random amount of posted jobs from randomly selected users
+        ///</summary>
+        ///<returns>The list of posted jobs</returns>
+        public static List<JobPost> SeedJobs(){
+            ClearDatabase();
+            SeedUsers();
+            List<JobPost> postedJobs = new List<JobPost>();
+
+            var randomUsers = context.Users.OrderBy(x => Guid.NewGuid()).Take(15).ToList();
+
+            int i = 1, j = 1;
+            Random random = new Random();
+            foreach(User user in randomUsers){
+                i++;
+                j++;
+                JobPost post = new JobPost{
+                    CreateDate     = DateTime.Now.AddDays((j/(-j))*random.Next(1,5)), 
+                    UserID         = user.UserId,
+                    JobDoerUserID  = 0,
+                    Title          = "Job #" + Math.Abs(i).ToString(),
+                    JobDescription = "Description of Job #" + Math.Abs(i).ToString(),
+                    Amount         = 1000*random.Next(7,100),
+                    TimeFrame      = "65",
+                    LastUpdate     = DateTime.Now.AddDays(40),
+                    Status         = Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending,
+                    DosFeePaid     = true                    
+                };
+                postedJobs.Add(post);
+            }                        
+            context.JobPosts.AddRange(postedJobs);
+            context.SaveChanges();
+            context.ChangeTracker.Clear();
+            return postedJobs;
         }
     }
 }
