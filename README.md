@@ -141,21 +141,24 @@ Helpers Library:<br>
 Contains application models, constants, application wide generic methods(MySQL connection, RabbitMQ subscription, Json Serializing, Encryption etc...) of the application.
 
 ## Testing
-Mysql database instances should be up and running with a testing environment setup.
-To run tests from terminal dotnet sdk should be installed on your system.
+Application Mysql database instances should be up and running with a testing environment setup.<br>
+To run tests from terminal dotnet sdk should be installed on your system.<br>
 
-The easiest and recommended way is pulling a mysql docker image and run in a docker container with minimum parameters.
-
+The easiest and recommended way is pulling a mysql docker image and run in a docker container with minimum parameters.<br>
+```shell
 docker run --detach --name=test-mysql -p 3309:3306  --env="MYSQL_ROOT_PASSWORD=mypassword" mysql
+```
 To access the mysql instance in the container:
-
+```shell
 docker exec -it test-mysql bash -l
+```
 To access the database from the mysql container terminal :
-
+```shell
 mysql -u root -p
 Enter Password: **********
 mysql>
-The root password, the expose port and many other parameters can be changed optionally. The test database connection string should be written under the PlatformSettings section taking place in the \PathToSolution\DAO_Votingengine\appsettings.test.json file and rebuild with command dotnet build.
+```
+The root password, the expose port and many other parameters can be changed optionally. The test database connection string should be written under the PlatformSettings section taking place in the \PathToSolution\ServicesDAO\<MicroserviceDirectory>\appsettings.test.json file and rebuild with command dotnet build.
 Example:
 ```json
 "PlatformSettings": {
@@ -187,18 +190,19 @@ An ssl certificate can be generated and placed in a location on the machine wher
 One way to generate an SSL certificate is explained here.
 
 The definition of the generated ssl certificate in the docker compose file is as follows:
-
+```yml
 dao_webportal:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+;http://+:80
       - ASPNETCORE_HTTPS_PORT=443
-## Password for the certificate
+#Password for the certificate
       - ASPNETCORE_Kestrel__Certificates__Default__Password=< password of the generated certificate >
-## Path of the certificate file
+#Path of the certificate file
       - ASPNETCORE_Kestrel__Certificates__Default__Path= < location of the ssl certificate in docker container. Example: '/https/aspnetapp.pfx' > 
     volumes:
-## Mount the local volume where the certificate exists to docker container
+#Mount the local volume where the certificate exists to docker container
       - < location of the ssl certificate in the host machine> : < location of the ssl certificate in docker container. Example: '~/.aspnet/https:/https:ro'>
+```      
 
 
