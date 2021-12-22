@@ -54,17 +54,17 @@ For dao_db:
 ```shell
 > mysql -u root -p'<root password>' -h 127.0.0.1 -P 3309 -D daodb
 ```
-Thera are 4 database instances of the application;<br>
+Thera are 2 database instances of the application;<br>
 - daodb (expose 3309)
 - logsdb (expose 3310)
-- daovotesdb (expose 3311)
-- daoreputationdb (expose 3312)
+
 
 Application logs and notifications are carried/delivered by a RabbitMQ instance - dao_rabbitmq.<br>
 dao_rabbitmq user interface adress is http://localhost:15672<br>
 
 ## Usage
-To activate a user
+After entering the valid SMTP credentials to appsettings.json file you can complete sign up process with e-mail verification. Also a sign up process can be completed manually by updating Users table in the daodb database.<br>
+The voting part of the application can be found as a separate module and as a stand-alone project at the link[https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine.git].
 
 
 
