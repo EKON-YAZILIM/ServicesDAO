@@ -129,7 +129,7 @@ namespace Helpers
                     return (T)binaryFormatter.Deserialize(ms);
                 }
             }
-            catch(System.Exception ex)
+            catch
             {
                 return default(T);
             }

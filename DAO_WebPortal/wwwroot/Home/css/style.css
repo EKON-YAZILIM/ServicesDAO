@@ -7096,9 +7096,11 @@ html:not([dir=rtl]) .offcanvas-end {
 }
 
 .avatar-img {
-  width: 100%;
-  height: auto;
-  border-radius: 50em;
+    width: 100%;
+    height: auto;
+    border-radius: 50em;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .avatar-status {

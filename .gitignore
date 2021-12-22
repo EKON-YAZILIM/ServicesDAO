@@ -70,3 +70,5 @@
 /crdaoprivate.ppk
 /UnitTests/DAO_WebPortal.Test/bin
 /UnitTests/DAO_WebPortal.Test/obj
+.DS_Store
+

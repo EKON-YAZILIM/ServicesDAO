@@ -11,6 +11,7 @@ using static DAO_DbService.Mapping.AutoMapperBase;
 using DAO_DbService.Mapping;
 using Helpers.Models.SharedModels;
 using PagedList.Core;
+using Helpers.Models.KYCModels;
 
 namespace DAO_DbService.Controllers
 {
@@ -127,6 +128,7 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<UserKYC, UserKYCDto>(model);
         }
+     
 
         [Route("Post")]
         [HttpPost]

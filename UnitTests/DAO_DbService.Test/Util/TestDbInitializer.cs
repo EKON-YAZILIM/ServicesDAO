@@ -122,13 +122,14 @@ namespace DAO_DbService.Tests.Util
                 KYCStatus = true,
                 FailedLoginCount = 0,
                 ProfileImage = "image.jpg",
-                UserName = $"admin_username",
+                UserName = "admin_username",
             }
                 );
 
             //Adding public users
             for (int i = 0; i < total_public_user_count; i++)
             {
+                string username = $"public_user{i}name";
                 context.Users.Add(new User
                 {
                     NameSurname = $"Username{i} UserSurname{i}",
@@ -142,7 +143,7 @@ namespace DAO_DbService.Tests.Util
                     KYCStatus = true,
                     FailedLoginCount = 0,
                     ProfileImage = "image.jpg",
-                    UserName = $"public_username{i}",
+                    UserName = username,
                 }
                 );
             }
@@ -150,6 +151,7 @@ namespace DAO_DbService.Tests.Util
             //Adding internal users
             for (int i = 0; i < total_internal_user_count; i++)
             {
+                string username = $"internal_username{i}";
                 context.Users.Add(new User
                 {
                     NameSurname = $"Username{i} UserSurname{i}",
@@ -163,7 +165,7 @@ namespace DAO_DbService.Tests.Util
                     KYCStatus = true,
                     FailedLoginCount = 0,
                     ProfileImage = "image.jpg",
-                    UserName = $"internal_username{i}",
+                    UserName = username,
                 }
                 );
             }

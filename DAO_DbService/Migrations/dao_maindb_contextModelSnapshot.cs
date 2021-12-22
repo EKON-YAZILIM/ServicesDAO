@@ -110,6 +110,9 @@ namespace DAO_DbService.Migrations
                     b.Property<double>("Amount")
                         .HasColumnType("double");
 
+                    b.Property<string>("CodeUrl")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime");
 
@@ -127,6 +130,9 @@ namespace DAO_DbService.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<string>("Tags")
+                        .HasColumnType("text");
 
                     b.Property<string>("TimeFrame")
                         .HasColumnType("text");
@@ -156,6 +162,9 @@ namespace DAO_DbService.Migrations
 
                     b.Property<int>("DownVote")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("IsFlagged")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool?>("IsPinned")
                         .HasColumnType("tinyint(1)");
@@ -345,6 +354,9 @@ namespace DAO_DbService.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Comment")
+                        .HasColumnType("text");
+
+                    b.Property<string>("DocumentId")
                         .HasColumnType("text");
 
                     b.Property<string>("FileId1")

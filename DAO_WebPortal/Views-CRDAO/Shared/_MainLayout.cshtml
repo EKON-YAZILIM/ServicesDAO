@@ -64,17 +64,17 @@
             <li class="nav-title">MENU</li>
 
             <li class="nav-item">
-                <a class="nav-link" href="../My-Jobs">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
-                    </svg>My Jobs
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="../All-Jobs">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-library"></use>
                     </svg> All Jobs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../My-Jobs">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
+                    </svg>My Jobs
                 </a>
             </li>
             <li class="nav-item">
@@ -85,10 +85,17 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="../My-Bids">
+                    <svg class="nav-icon">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-tag"></use>
+                    </svg> My Bids
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="../Votings">
                     <svg class="nav-icon">
                         <use xlink:href="/Home/images/svg/free.svg#cil-thumb-up"></use>
-                    </svg> Votings
+                    </svg> Voting
                 </a>
             </li>
             <li class="nav-item">
@@ -148,8 +155,6 @@
             }
 
         </ul>
-        @*<button class="sidebar-toggler mb-2 sidebar-exit" type="button"></button>*@
-        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
 
     <div class="wrapper d-flex flex-column min-vh-100 bg-light dark:bg-transparent">
@@ -224,24 +229,6 @@
             <div><a href="#">Services DAO</a> © @DateTime.Now.Year</div>
             <div class="ms-auto">Powered by&nbsp;<a href="#">Services DAO</a></div>
         </footer>
-    </div>
-
-    <!-- Modal KYC -->
-    <div class="modal" tabindex="-1" role="dialog" id="KYCModal" data-target="#KYCModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">KYC</h5>
-                </div>
-                <div class="modal-body">
-                    <p>Please submit KYC information</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="SubmitKYC();">Submit KYC</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Modal DOS Fee -->

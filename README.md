@@ -32,11 +32,11 @@ After docker-compose is up, you can access the application from the below link.<
 dao_webportal - http://localhost:8895<br>
 <br>
 Using below links, you can see the status, logs and/or erros of the belonging microservice from localhost.<br>
-dao_dbservice - http://localhost:9990<br>
-dao_identityservice - http://localhost:9991<br>
-dao_logservice - http://localhost:9992<br>
-dao_notificationservice - http://localhost:9993<br>
-dao_apigateway - http://localhost:9995<br>
+dao_identityservice - http://localhost:8890<br>
+dao_dbservice - http://localhost:8889<br>
+dao_logservice - http://localhost:8891<br>
+dao_notificationservice - http://localhost:8892<br>
+dao_apigateway - http://localhost:8896<br>
 <br>
 The applciation databases can be accessed from within their own containers or from certain ports to localhost.<br>
 Example:
@@ -54,21 +54,21 @@ For dao_db:
 ```shell
 > mysql -u root -p'<root password>' -h 127.0.0.1 -P 3309 -D daodb
 ```
-Thera are 4 database instances of the application;<br>
+Thera are 2 database instances of the application;<br>
 - daodb (expose 3309)
 - logsdb (expose 3310)
-- daovotesdb (expose 3311)
-- daoreputationdb (expose 3312)
+
 
 Application logs and notifications are carried/delivered by a RabbitMQ instance - dao_rabbitmq.<br>
 dao_rabbitmq user interface adress is http://localhost:15672<br>
 
 ## Usage
-To activate a user
+The test application is live at here[http://3.128.180.61:8895/].
 
+After entering the valid SMTP credentials to appsettings.json file you can complete sign up process with e-mail verification. Also a sign up process can be completed manually by updating Users table in the daodb database.<br>
 
-
-
+The voting part of the application is a separate module and is not available in this repostory.<br>
+The voting engine and reputation service can be found as a stand-alone project at this link[https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine.git].<br>
 
 ## Develop
 All applications can be built and run in their own docker containers with the following command;
@@ -79,29 +79,29 @@ docker run -p [application access port]:80 -name:[NAME]  [IMAGE_NAME]:dev --
 
 For the application to work, all containers should be created in the same network also database, rabbitmq and api endpoints can be redefined.<br>
 
-After .NET core 3.1 and .NET SDK 3.1.20 are installed on the environment, all applications can be built individually by running the commands below under the project solution folder;<br>
+After .NET core 3.1 and .NET SDK 3.1.20 are installed on the environment, all applications can be built individually by running the commands below under the project solution folder;
 ```shell
-dotnet build ./DAO_ApiGateway/DAO_ApiGateway.csproj
+ dotnet build ./DAO_ApiGateway/DAO_ApiGateway.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_DbService/DAO_DbService.csproj
+ dotnet build ./DAO_DbService/DAO_DbService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_IdentityService/DAO_IdentityService.csproj
+ dotnet build ./DAO_IdentityService/DAO_IdentityService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_LogService/DAO_LogService.csproj
+ dotnet build ./DAO_LogService/DAO_LogService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_NotificationService/DAO_NotificationService.csproj
+ dotnet build ./DAO_NotificationService/DAO_NotificationService.csproj
 ```
-<br>
+
 ```shell
-dotnet build ./DAO_WebPortal/DAO_WebPortal.csproj
+ dotnet build ./DAO_WebPortal/DAO_WebPortal.csproj
 ```
 
 ## Information About Services
@@ -139,4 +139,66 @@ Provides application and user interactions with user interface.<br>
 
 Helpers Library:<br>
 Contains application models, constants, application wide generic methods(MySQL connection, RabbitMQ subscription, Json Serializing, Encryption etc...) of the application.
+
+## Testing
+Mysql database instances should be up and running with a testing environment setup.
+To run tests from terminal dotnet sdk should be installed on your system.
+
+The easiest and recommended way is pulling a mysql docker image and run in a docker container with minimum parameters.
+
+docker run --detach --name=test-mysql -p 3309:3306  --env="MYSQL_ROOT_PASSWORD=mypassword" mysql
+To access the mysql instance in the container:
+
+docker exec -it test-mysql bash -l
+To access the database from the mysql container terminal :
+
+mysql -u root -p
+Enter Password: **********
+mysql>
+The root password, the expose port and many other parameters can be changed optionally. The test database connection string should be written under the PlatformSettings section taking place in the \PathToSolution\DAO_Votingengine\appsettings.test.json file and rebuild with command dotnet build.
+Example:
+```json
+"PlatformSettings": {
+    "DbConnectionString": "Server=localhost;Port=3313;Database=test_votingdb;Uid=root;Pwd=mypassword;",
+    ...
+}
+```
+After configuring the database, run the following commands from the test project directory \PathToSolution\RFPPortal_Tests\.
+
+dotnet test --filter DisplayName~
+dotnet test --filter DisplayName~
+dotnet test --filter DisplayName~
+Code documentation files in format is autogenerated everytime the project is build under bin folder.
+
+# HTTPS Configuration
+The process below is explained for dao_webportal and is identical for every microservice included in this repository.
+To enable HTTPS, https settings of the application should be added to the Docker Container configuration and the an ssl certificate file should be introduced if necessary.
+
+Example of enabling HTTPS using 'docker-compose.override.yml' file:
+
+dao_webportal:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+;http://+:80
+      - ASPNETCORE_HTTPS_PORT=443
+https://+ is added to ASPNETCORE_URLS and 443 port is defined as https port with adding ASPNETCORE_HTTPS_PORT=443
+
+An ssl certificate can be generated and placed in a location on the machine where the docker container is running.
+One way to generate an SSL certificate is explained here.
+
+The definition of the generated ssl certificate in the docker compose file is as follows:
+
+dao_webportal:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+;http://+:80
+      - ASPNETCORE_HTTPS_PORT=443
+## Password for the certificate
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=< password of the generated certificate >
+## Path of the certificate file
+      - ASPNETCORE_Kestrel__Certificates__Default__Path= < location of the ssl certificate in docker container. Example: '/https/aspnetapp.pfx' > 
+    volumes:
+## Mount the local volume where the certificate exists to docker container
+      - < location of the ssl certificate in the host machine> : < location of the ssl certificate in docker container. Example: '~/.aspnet/https:/https:ro'>
+
 

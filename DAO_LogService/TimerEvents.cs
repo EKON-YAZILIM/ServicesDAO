@@ -22,7 +22,7 @@ namespace DAO_LogService
             LogDbTimer.Enabled = true;
         }
 
-        private async static void SaveToDb(object source, ElapsedEventArgs e)
+        private static void SaveToDb(object source, ElapsedEventArgs e)
         {
             if (!saveDbProgress)
             {

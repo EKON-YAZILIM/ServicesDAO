@@ -3,6 +3,9 @@
     Layout = "../Shared/_MainLayout.cshtml";
 
 }
+
+<script src="../Home/lib/ckeditor/ckeditor.js"></script>
+
 <div class="row my-3">
     <div class="col-md-12">
         <h4 class="mb-3">Job Posting Rules</h4>
@@ -17,34 +20,64 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
-            <label class="mb-2" for="title"><b>Title</b></label>
-            <input type="text" class="form-control" id="title" placeholder="Title">
+            <label class="mb-2" for="title"><b><i class="fas fa-heading"></i> Title</b></label>
+            <input type="text" class="form-control" id="title" placeholder="Title of the job">
         </div>
-        <div class="row">
+        <div class="row my-3">
             <div class="col-md-6">
-                <label class="mb-2" for="title"><b>Total Budget</b></label>
+                <label class="mb-2" for="title"><b><i class="fas fa-coins mx-1"></i> Total Budget</b></label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">€</span>
-                    <input class="form-control number" type="text" aria-label="Amount" placeholder="Amount" id="amount" oninput="CheckNumbers(this)"><span class="input-group-text">.00</span>
+                    <input class="form-control number" type="text" aria-label="Amount" placeholder="Expected job price in Euros" id="amount" oninput="CheckNumbers(this)"><span class="input-group-text">.00</span>
                 </div>
             </div>
             <div class="col-md-6">
-                <label class="mb-2" for="title"><b>Expected Time Frame</b></label>
+                <label class="mb-2" for="title"><b><i class="fas fa-calendar-week mx-1"></i> Expected Time Frame</b></label>
                 <div class="input-group mb-3">
-                    <input class="form-control number" type="text" aria-label="Time Frame" placeholder="Time Frame" id="time" oninput="CheckNumbers(this)"><span class="input-group-text">days</span>
+                    <input class="form-control number" type="text" aria-label="Time Frame" placeholder="Time frame for job completion" id="time" oninput="CheckNumbers(this)"><span class="input-group-text">days</span>
                 </div>
             </div>
         </div>
-        <div class="form-group mb-3">
-            <label class="mb-2" for="description"><b>Job Description</b></label>
-            <textarea type="text" class="form-control" id="description" placeholder="Job Description" rows="10"></textarea>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <label class="mb-2" for="title"><b><i class="fas fa-hashtag mx-1"></i> Tags / Coding Language</b></label>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" aria-label="Tags" placeholder="Related tags and coding languages (Comma seperated)" id="tags">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="mb-2" for="title"><b><i class="fas fa-code mx-1"></i> Code Url</b></label>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" aria-label="CodeUrl" placeholder="Url of the repository or code file" id="codeurl">
+                </div>
+            </div>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="form-group">
+            <label class="mb-2" for="description"><b><i class="fas fa-file mx-1"></i> Job Description</b></label>
+            <textarea type="text" id="description" name="description"  placeholder="Job Description" rows="10"></textarea>
+        </div>
+        <div class="d-flex justify-content-end my-3">
             <button type="submit" class="btn btn-primary" onclick="NewJob();">Submit Job</button>
         </div>
     </div>
 </div>
-<script>
+
+@section Scripts{
+
+    <script>
+    $(document).ready(function () {
+        if (document.body.classList.contains('dark-theme')) {
+            CKEDITOR.replace('description', {
+                skin: 'moono-dark'
+            });
+        }
+        else {
+            CKEDITOR.replace('description', {
+                skin: 'moono-lisa'
+            });
+        }
+    });
+
     //Add new job function
     function NewJob() {
 
@@ -85,12 +118,14 @@
                         var title = $('#title').val()
                         var amount = $('#amount').val();
                         var time = $('#time').val();
-                        var description = $('#description').val();
+                        var codeurl = $('#codeurl').val();
+                        var tags = $('#tags').val();
+                        var description = CKEDITOR.instances["description"].getData();
                         //Ajax post action
                         $.ajax({
                             type: "POST",
                             url: "../Home/New_Job_Post",
-                            data: { "title": title, "amount": amount, "time": time, "description": description },
+                            data: { "title": title, "amount": amount, "time": time, "description": description, "tags": tags, "codeurl": codeurl },
                             success: function (result) {
                                 if (result.success) {
                                     window.location.href = "./My-Jobs";
@@ -116,4 +151,6 @@
 
 
         }
-</script>
+    </script>
+
+}

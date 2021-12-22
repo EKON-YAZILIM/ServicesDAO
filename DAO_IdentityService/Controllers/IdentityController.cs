@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -113,6 +114,7 @@ namespace DAO_IdentityService.Controllers
                 res.IsActive = true;
                 res.IsBanned = false;
                 res.IsBlocked = false;
+                res.KYCStatus = userObj.KYCStatus;
 
                 //Post or update user session in database
                 Helpers.Request.Post(Program._settings.Service_Db_Url + "/ActiveSession/PostOrUpdate", Helpers.Serializers.SerializeJson(new ActiveSessionDto() { LoginDate = DateTime.Now, Token = token, UserID = res.UserId }));
@@ -252,121 +254,6 @@ namespace DAO_IdentityService.Controllers
 
         }
 
-        [HttpPost("SubmitKYCFile", Name = "SubmitKYCFile")]
-        public SimpleResponse SubmitKYCFile(KYCFileUpload File)
-        {
-            try
-            {
-                var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetUserId?id=" + File.UserID));
-
-                if (userModel == null || userModel.UserKYCID <= 0)
-                {
-                    //Create KYC applicant
-                    var Person = new KYCPerson() { type = "PERSON", first_name = File.Name, last_name = File.Surname, dob = File.DoB, residence_country = File.Country, email = File.Email };
-                    var model = Helpers.Serializers.DeserializeJson<KYCPersonResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/applicants", Helpers.Serializers.SerializeJson(Person), Program._settings.KYCID));
-
-                    //Create File Request
-                    var model2 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile1), Program._settings.KYCID, "multipart/form-data"));
-                    var model3 = Helpers.Serializers.DeserializeJson<KYCFileResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/files", Helpers.Serializers.SerializeJson(File.UploadedFile2), Program._settings.KYCID, "multipart/form-data"));
-
-                    //Create applicant document request
-                    var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = File.Type, document_number = File.DocumentNumber, issue_date = File.IssueDate, expiry_date = File.ExpiryDate, front_side_id = model2.file_id, back_side_id = model3.file_id };
-                    var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
-
-                    //Create verification request
-
-                    var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse + "/KycCallBack" };
-                    var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/documents", Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
-
-                    //New KYC request for Db record
-                    var NewKYCObj = new UserKYCDto() { ApplicantId = model.applicant_id, VerificationId = model5.verification_id, FileId1 = model2.file_id, FileId2 = model3.file_id };
-                    var NewKYC = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Post(Program._settings.Service_Db_Url + "/UserKYC/Post", Helpers.Serializers.SerializeJson(NewKYCObj)));
-
-                    if (NewKYC.UserKYCID <= 0)
-                    {
-                        return new SimpleResponse() { Success = false, Message = "KYC error" };
-                    }
-                }
-                else
-                {
-                    //update user Kyc
-                }
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new SimpleResponse() { Success = false, Message = "Unexpected error" };
-            }
-            return new SimpleResponse() { Success = true };
-        }
-
-        [HttpPost("KycCallBack", Name = "KycCallBack")]
-        public SimpleResponse KycCallBack(KYCCallBack Response)
-        {
-            try
-            {
-                var userModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/UserKYC/GetApplicantId?id=" + Response.applicant_id));
-                if (userModel == null || userModel.UserKYCID <= 0)
-                {
-                    userModel.Comment = Response.verifications.document.comment;
-                    userModel.Verified = Response.verified;
-                    userModel.KYCStatus = Response.status;
-
-                    var KYCModel = Helpers.Serializers.DeserializeJson<UserKYCDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/UserKYC/Update", Helpers.Serializers.SerializeJson(userModel)));
-                    if (KYCModel.UserKYCID <= 0)
-                    {
-                        return new SimpleResponse() { Success = false, Message = "KYC Update error" };
-                    }
-
-                    if (Response.verified)
-                    {
-                        var User = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetId?Id=" + userModel.UserID));
-                        if (User == null)
-                        {
-                            return new SimpleResponse() { Success = false, Message = "User not found" };
-                        }
-                        else
-                        {
-                            User.KYCStatus = true;
-                            var UserUpdate = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_Db_Url + "/Users/Update", Helpers.Serializers.SerializeJson(User)));
-                            if(UserUpdate != null && UserUpdate.UserId > 0)
-                            {
-                                return new SimpleResponse() { Success = true };
-                            }
-                            else
-                            {
-                                return new SimpleResponse() { Success = false, Message = "User failed to update" };
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new SimpleResponse() { Success = false, Message = "Unexpected error" };
-            }
-            return new SimpleResponse() { Success = true };
-
-        }
-
-        [HttpPost("GetKycCountries", Name = "GetKycCountries")]
-        public List<KYCCountries> GetKycCountries()
-        {
-            List<KYCCountries> CountryList = new List<KYCCountries>();
-            try
-            {
-                CountryList = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.KYCGet(Program._settings.KYCURL + "/countries",Program._settings.KYCID));
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddException(ex, LogTypes.ApplicationError);
-                return new List<KYCCountries>() ;
-            }
-            return CountryList;
-
-        }
-
         /// <summary>
         ///  Email approval method after registration
         /// </summary>
@@ -427,14 +314,14 @@ namespace DAO_IdentityService.Controllers
                 if (userModel != null)
                 {
                     //Create encrypted token for password renewal
-                    string enc = Helpers.Encryption.EncryptString(model.email + "|" + DateTime.Now.ToString());
+                    string enc = Helpers.Encryption.EncryptString(userModel.Email + "|" + DateTime.Now.ToString());
 
                     //Set password renewal email title and content
                     string emailTitle = Program._settings.DAOName + " Password Renewal";
                     string emailContent = "Greetings " + userModel.NameSurname.Split(' ')[0] + ", <br><br> Please use the link below to reset your password. <br><br>" + "<a href='" + Program._settings.WebPortal_Url + "/Public/ResetPasswordView?str=" + enc + "'>Click here to reset your password.</a>";
 
                     //Send password renewal email
-                    SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { model.email } };
+                    SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
                     Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
 
                     //Logging
@@ -472,10 +359,10 @@ namespace DAO_IdentityService.Controllers
                 var usr = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Get(Program._settings.Service_Db_Url + "/Users/GetByEmail?email=" + email));
 
                 DateTime emaildate = Convert.ToDateTime(tokendec.Split('|')[1]);
-                emaildate = emaildate.AddMinutes(60);
+                emaildate = emaildate.AddDays(5);
 
                 //Check if user is valid and password renewal is expired
-                if (usr != null && usr.Email == email && emaildate > DateTime.Now)
+                if (usr != null && emaildate > DateTime.Now)
                 {
                     //Reset password
                     usr.Password = Helpers.Encryption.EncryptPassword(model.newPass);
@@ -490,6 +377,9 @@ namespace DAO_IdentityService.Controllers
                 }
                 else
                 {
+                    //Logging
+                    Program.monitizer.AddApplicationLog(LogTypes.PublicUserLog, "Password renewal request failed. Email Date:" +emaildate.ToString()+ "  DateNow:" +DateTime.Now.ToString()+" "+ usr.Email);
+
                     return new SimpleResponse { Success = false, Message = "Renew expired" };
                 }
 

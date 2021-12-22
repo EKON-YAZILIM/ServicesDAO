@@ -93,9 +93,9 @@
 
                                     <a class="float-right font-weight-normal" href="../Job-Detail/@item.JobID"><small>Go to job detail</small></a>
                                 </h6>
-                                <p class="comment-p mt-2 mb-0">
-                                    @DAO_WebPortal.Utility.StringHelper.ShortenString(item.Comment, 150)
-                                </p>
+                                <div class="comment-p mt-2 mb-0">
+                                    @Html.Raw(item.Comment)
+                                </div>
                             </div>
                         </div>
 
@@ -126,13 +126,13 @@
                         <div class="card bg-light mb-3">
                             <div class="card-body">
                                 <h6 class="mb-2">
-                                    <a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 50)</a>
+                                    <a class="cursorp" href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 50)</a>
                                     <small class="smallDate float-right mt-1">@item.CreateDate</small>
                                 </h6>
 
-                                <p class="comment-p mb-0">
-                                    @DAO_WebPortal.Utility.StringHelper.ShortenString(item.JobDescription, 150)
-                                </p>
+                                <div class="comment-p mt-2 mb-0">
+                                    @Html.Raw(item.JobDescription)
+                                </div>
                             </div>
                         </div>
 
@@ -202,6 +202,3 @@
     </div>
     <!-- /.col-->
 </div>
-
-
-

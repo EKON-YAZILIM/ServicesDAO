@@ -37,23 +37,23 @@
     <div class="card-body p-0">
         @if (Model.BidItems.Count > 0)
         {
-        <div class="table-responsive h-500">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Username</th>
-                        <th class="cursorp thSort" scope="col">Price <i class="fas fa-sort"></i></th>
-                        <th class="cursorp thSort" scope="col">Time (days) <i class="fas fa-sort"></i></th>
-                        <th class="cursorp thSort" scope="col">Reputation Stake <i class="fas fa-sort"></i></th>
-                        <th scope="col">User Note</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{int Count = 0;}
-                    @foreach (var item in Model.BidItems)
+            <div class="table-responsive h-500">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Username</th>
+                            <th class="cursorp thSort" scope="col">Price <i class="fas fa-sort"></i></th>
+                            <th class="cursorp thSort" scope="col">Time (days) <i class="fas fa-sort"></i></th>
+                            <th class="cursorp thSort" scope="col">Reputation Stake <i class="fas fa-sort"></i></th>
+                            <th scope="col">User Note</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int Count = 0;}
+                        @foreach (var item in Model.BidItems)
                         {
                             Count++;
 
@@ -64,46 +64,46 @@
                                 borderStyle = "border: 3px solid #77c97a";
                             }
 
-                    <tr style="@borderStyle">
-                        <th scope="row">@Count</th>
-                        <td id="name_@item.AuctionBidID">@item.NameSurname</td>
-                        <td>@item.UserName</td>
-                        <td>@item.Price</td>
-                        <td>@item.Time</td>
-                        <td>@item.ReputationStake</td>
-                        <td>@item.UserNote</td>
-                        <td class="text-right">
+                            <tr style="@borderStyle">
+                                <th scope="row">@Count</th>
+                                <td id="name_@item.AuctionBidID">@item.NameSurname</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Price</td>
+                                <td>@item.Time</td>
+                                <td>@item.ReputationStake</td>
+                                <td>@item.UserNote</td>
+                                <td class="text-right">
 
-                            @*If bidding continues, show buttons *@
-                            @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding)
+                                    @*If bidding continues, show buttons *@
+                                    @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding)
                                     {
-                            @*If user is job poster , show select winner bid button *@
+                                        @*If user is job poster , show select winner bid button *@
                                         if (Model.Auction.JobPosterUserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
                                         {
-                            <a class="btn btn-sm btn-primary me-2 cursorp" onclick="ChooseAsWinnerBidModal(@item.AuctionBidID)">
-                                <svg class="icon">
-                                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
-                                </svg> Select Winner
-                            </a>
+                                            <a class="btn btn-sm btn-primary me-2 cursorp" onclick="ChooseAsWinnerBidModal(@item.AuctionBidID)">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
+                                                </svg> Select Winner
+                                            </a>
                                         }
                                     }
 
-                            @*Show winner bid icon*@
-                            @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
+                                    @*Show winner bid icon*@
+                                    @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
                                     {
-                            <i class="fas fa-star" title="Winner Bid"></i><span> Selected as winner</span>
+                                        <i class="fas fa-star" title="Winner Bid"></i><span> Selected as winner</span>
                                     }
 
-                        </td>
-                    </tr>
+                                </td>
+                            </tr>
                         }
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
         }
         else
         {
-        <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no bids in this auction" }, { "Icon", "frown-open" } }' />
+            <partial name="../Shared/_EmptyPartial.cshtml" view-data='new ViewDataDictionary(ViewData) { { "Message", "There are no bids in this auction" }, { "Icon", "frown-open" } }' />
         }
     </div><!-- Card Body -->
 </div>

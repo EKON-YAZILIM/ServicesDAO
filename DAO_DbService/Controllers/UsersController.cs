@@ -50,7 +50,7 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    res = db.Users.Where(x => x.NameSurname.Contains(query) || x.Email.Contains(query)||x.UserName.Contains(query)).ToList();
+                    res = db.Users.Where(x => x.NameSurname.Contains(query) || x.Email.Contains(query) || x.UserName.Contains(query)).ToList();
                 }
 
             }
@@ -133,7 +133,7 @@ namespace DAO_DbService.Controllers
             try
             {
                 using (dao_maindb_context db = new dao_maindb_context())
-                {                    
+                {
                     User item = db.Users.FirstOrDefault(s => s.UserId == ID);
                     db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
                     db.SaveChanges();
@@ -272,7 +272,7 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    model = _mapper.Map< List<User>, List<UserDto>>(db.Users.Where(x => x.UserType == Helpers.Constants.Enums.UserIdentityType.Admin.ToString()).ToList());
+                    model = _mapper.Map<List<User>, List<UserDto>>(db.Users.Where(x => x.UserType == Helpers.Constants.Enums.UserIdentityType.Admin.ToString()).ToList());
                 }
             }
             catch (Exception ex)
@@ -291,9 +291,9 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    if(type == UserIdentityType.Admin)
+                    if (type == UserIdentityType.Admin)
                     {
-                        return db.Users.Count(x=>x.UserType == UserIdentityType.Admin.ToString());
+                        return db.Users.Count(x => x.UserType == UserIdentityType.Admin.ToString());
                     }
                     else if (type == UserIdentityType.Associate)
                     {
@@ -325,7 +325,15 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                   return db.Users.Where(x => userids.Contains(x.UserId)).Select(x=>x.UserName).ToList();
+                    var usrs = db.Users.Where(x => userids.Contains(x.UserId));
+                    List<string> usernames = new List<string>();
+
+                    foreach (var item in userids)
+                    {
+                        usernames.Add(usrs.First(x => x.UserId == item).UserName);
+                    }
+
+                    return usernames;
                 }
             }
             catch (Exception ex)
@@ -334,6 +342,26 @@ namespace DAO_DbService.Controllers
             }
 
             return null;
+        }
+
+        [Route("GetUsersByType")]
+        [HttpGet]
+        public List<UserDto> GetUsersByType(Helpers.Constants.Enums.UserIdentityType type)
+        {
+            List<UserDto> model = new List<UserDto>();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    model = _mapper.Map<List<User>, List<UserDto>>(db.Users.Where(x => x.UserType == type.ToString()).ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                model = new List<UserDto>();
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+            return model;
         }
     }
 }

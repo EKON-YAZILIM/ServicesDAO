@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
+using static Helpers.Constants.Enums;
 
 namespace DAO_DbService
 {
@@ -70,12 +71,15 @@ namespace DAO_DbService
 
                     foreach (var auction in publicAuctions)
                     {
-                        string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
+                        //string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
 
                         auction.Status = Enums.AuctionStatusTypes.PublicBidding;
                         db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                         db.SaveChanges();
 
+                        var job = db.JobPosts.Find(auction.JobID);
+                        job.Status = Enums.JobStatusTypes.PublicAuction;
+                        db.SaveChanges();
 
                         //Send notification email to job poster
                         var jobPoster = db.Users.Find(auction.JobPosterUserID);
@@ -97,7 +101,7 @@ namespace DAO_DbService
                         //No winners selected. Auction expired. -> Set auction and job status to Expired
                         if (auction.WinnerAuctionBidID == null)
                         {
-                            string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Mint);
+                            string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Enums.StakeType.Bid);
 
                             auction.Status = Enums.AuctionStatusTypes.Expired;
                             db.Entry(auction).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
@@ -165,7 +169,7 @@ namespace DAO_DbService
                 string informalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(informalVotingJobs.Select(x => x.JobID)));
 
                 //Parse result
-                List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson);
+                List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson).Where(x => x.IsFormal == false).ToList();
 
                 foreach (var voting in completedInformalModel)
                 {
@@ -234,7 +238,7 @@ namespace DAO_DbService
                 string formalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(formalVotingJobs.Select(x => x.JobID)));
 
                 //Parse result
-                List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson);
+                List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson).Where(x => x.IsFormal == true).ToList();
 
                 foreach (var voting in completedFormalModel)
                 {
@@ -259,19 +263,55 @@ namespace DAO_DbService
                                 var user = db.Users.Find(auctionWinnerBid.UserID);
                                 var job = db.JobPosts.Find(auction.JobID);
 
-                                //Create Payment History model
-                                PaymentHistory model = new PaymentHistory
+                                //Get reputation stakes from reputation service
+                                var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
+                                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+
+                                double jobDoerPayment = auctionWinnerBid.Price * voting.PolicingRate;
+                                double daoPayment = auctionWinnerBid.Price - jobDoerPayment;
+
+                                //Create Payment History model for job doer
+                                PaymentHistory paymentJobDoer = new PaymentHistory
                                 {
                                     JobID = job.JobID,
-                                    Amount = job.Amount,
+                                    Amount = jobDoerPayment,
                                     CreateDate = DateTime.Now,
                                     IBAN = user.IBAN,
                                     UserID = user.UserId,
                                     WalletAddress = user.WalletAddress,
                                 };
-                                db.PaymentHistories.Add(model);
+                                db.PaymentHistories.Add(paymentJobDoer);
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
+
+                                //Get total reputations of voters who voted FOR
+                                var forReps =  reputations.Where(x => x.Type == Enums.StakeType.For);
+                                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+
+                                //Create Payment History model for dao members who participated into voting
+                                foreach (var group in reputations.Where(x => x.Type == Enums.StakeType.For).GroupBy(x => x.UserID))
+                                {
+                                    if(reputationsTotal.Count(x=>x.UserID == group.Key) == 0) continue;
+
+                                    double usersRepPerc = reputationsTotal.FirstOrDefault(x=>x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x=>x.LastTotal);
+                                    double memberPayment = daoPayment * usersRepPerc;
+
+                                    var daouser = db.Users.Find(group.First().UserID);
+
+                                    PaymentHistory paymentDaoMember = new PaymentHistory
+                                    {
+                                        JobID = job.JobID,
+                                        Amount = memberPayment,
+                                        CreateDate = DateTime.Now,
+                                        IBAN = daouser.IBAN,
+                                        UserID = daouser.UserId,
+                                        WalletAddress = daouser.WalletAddress,
+                                    };
+
+                                    db.PaymentHistories.Add(paymentDaoMember);
+                                    db.SaveChanges();
+                                }
 
                                 //If job doer is Associate, change the user type to  VA
                                 if (user.UserType == Enums.UserIdentityType.Associate.ToString())
@@ -314,7 +354,7 @@ namespace DAO_DbService
                             }
                         }
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
                     }
@@ -341,10 +381,10 @@ namespace DAO_DbService
 
                         int expectedDays = Convert.ToInt32(winnerBid.Time);
 
-                        if(expectedDays > 0)
+                        if (expectedDays > 0)
                         {
                             //Job doer didn't post valid evidence and started informal voting within expected time range -> Set job status to Failed
-                            if(Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
+                            if (Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
                             {
                                 string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + job.JobID + "&reftype=" + Enums.StakeType.Mint);
 

@@ -14,6 +14,8 @@ using System.Text.RegularExpressions;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.NotificationModels;
 using Helpers.Models.WebsiteViewModels;
+using Helpers.Models.KYCModels;
+using Newtonsoft.Json;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -166,7 +168,7 @@ namespace DAO_WebPortal.Controllers
                 LoginModel LoginModelPost = new LoginModel() { email = email, pass = password, ip = ip, port = port, application = Helpers.Constants.Enums.AppNames.DAO_WebPortal };
 
                 //Post model to ApiGateway
-                var loginJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Login", Helpers.Serializers.SerializeJson(LoginModelPost));
+                var loginJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Login", Helpers.Serializers.SerializeJson(LoginModelPost));
 
                 //Parse response
                 LoginResponse loginModel = Helpers.Serializers.DeserializeJson<LoginResponse>(loginJson);
@@ -183,6 +185,7 @@ namespace DAO_WebPortal.Controllers
                     HttpContext.Session.SetString("NameSurname", loginModel.NameSurname);
                     HttpContext.Session.SetString("UserType", loginModel.UserType.ToString());
                     HttpContext.Session.SetString("ProfileImage", loginModel.ProfileImage);
+                    HttpContext.Session.SetString("KYCStatus", loginModel.KYCStatus.ToString());
 
                     return base.Json(new SimpleResponse { Success = true, Message = Lang.SuccessLogin });
                 }
@@ -246,7 +249,7 @@ namespace DAO_WebPortal.Controllers
                 string port = IpHelper.GetClientPort(HttpContext);
 
                 //Post model to ApiGateway
-                var registerJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/Register", Helpers.Serializers.SerializeJson(new RegisterModel() { email = email, username = username, namesurname = namesurname, password = password, ip = ip, port = port }));
+                var registerJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Register", Helpers.Serializers.SerializeJson(new RegisterModel() { email = email, username = username, namesurname = namesurname, password = password, ip = ip, port = port }));
 
                 //Parse response
                 SimpleResponse registerResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(registerJson);
@@ -293,7 +296,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get result
-                var completeJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/RegisterComplete", Helpers.Serializers.SerializeJson(new Helpers.Models.IdentityModels.RegisterCompleteModel() { registerToken = str }));
+                var completeJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/RegisterComplete", Helpers.Serializers.SerializeJson(new Helpers.Models.IdentityModels.RegisterCompleteModel() { registerToken = str }));
 
                 //Parse result
                 SimpleResponse completeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(completeJson);
@@ -340,7 +343,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Post model to ApiGateway
-                var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/ResetPassword", Helpers.Serializers.SerializeJson(new ResetPasswordModel() { email = email }));
+                var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/ResetPassword", Helpers.Serializers.SerializeJson(new ResetPasswordModel() { email = email }));
 
                 //Parse result
                 SimpleResponse resetResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(resetJson);
@@ -390,18 +393,9 @@ namespace DAO_WebPortal.Controllers
                 //Check if format is valid
                 if (decryptedToken.Split('|').Length > 1)
                 {
-                    //Check if password renewal expired
-                    DateTime emaildate = Convert.ToDateTime(decryptedToken.Split('|')[1]);
-                    if (emaildate.AddMinutes(60) < DateTime.Now)
-                    {
-                        TempData["message"] = Lang.RenewExpired;
-                    }
-                    else
-                    {
-                        //Set user's email
-                        HttpContext.Session.SetString("passwordchangeemail", decryptedToken.Split('|')[0]);
-                        TempData["action"] = "resetpassword";
-                    }
+                    //Set user's email
+                    HttpContext.Session.SetString("passwordchangeemail", decryptedToken.Split('|')[0]);
+                    TempData["action"] = "resetpassword";
                 }
                 else
                 {
@@ -457,7 +451,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Post model to ApiGateway
-                var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/Identity/ResetPasswordComplete", Helpers.Serializers.SerializeJson(new ResetCompleteModel() { newPass = newpass, passwordChangeToken = HttpContext.Session.GetString("passwordchangetoken") }));
+                var resetJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/ResetPasswordComplete", Helpers.Serializers.SerializeJson(new ResetCompleteModel() { newPass = newpass, passwordChangeToken = HttpContext.Session.GetString("passwordchangetoken") }));
 
                 //Parse result
                 SimpleResponse resetResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(resetJson);
@@ -553,14 +547,42 @@ namespace DAO_WebPortal.Controllers
         [Route("get-captcha-image")]
         public IActionResult GetCaptchaImage(string code)
         {
-            int width = 100;
-            int height = 36;
-            var captchaCode = Captcha.GenerateCaptchaCode();
-            var result = Captcha.GenerateCaptchaImage(width, height, captchaCode);
-            HttpContext.Session.SetString(code, result.CaptchaCode);
-            Stream s = new MemoryStream(result.CaptchaByteData);
-            return new FileStreamResult(s, "image/png");
+            try
+            {
+                int width = 100;
+                int height = 36;
+                var captchaCode = Captcha.GenerateCaptchaCode();
+                var result = Captcha.GenerateCaptchaImage(width, height, captchaCode);
+                HttpContext.Session.SetString(code, result.CaptchaCode);
+                Stream s = new MemoryStream(result.CaptchaByteData);
+                return new FileStreamResult(s, "image/png");
+            }
+            catch
+            {
+
+            }
+
+            return Json("");
         }
+
+        [HttpPost("KycCallBack", Name = "KycCallBack")]
+        public SimpleResponse KycCallBack([FromBody] KYCCallBack Response)
+        {
+            SimpleResponse model = new SimpleResponse();
+            try
+            {
+                Program.monitizer.AddConsole(Response.ToString());
+
+                var userJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/PublicActions/KycCallBack", JsonConvert.SerializeObject(Response), HttpContext.Session.GetString("Token"));
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return model;
+        }
+
 
     }
 }

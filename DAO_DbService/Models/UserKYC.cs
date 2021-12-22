@@ -16,6 +16,7 @@ namespace DAO_DbService.Models
         public string FileId2 { get; set; }
         public string ApplicantId { get; set; }
         public string VerificationId { get; set; }
+        public string DocumentId { get; set; }
         public string KYCStatus { get; set; }
         public string Comment { get; set; }
         public bool Verified { get; set; }

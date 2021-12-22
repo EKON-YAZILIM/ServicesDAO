@@ -7,9 +7,6 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8889:80"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
   dao_db: 
     ports:
@@ -25,9 +22,6 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8890:80"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
   dao_logservice: 
     environment:
@@ -35,9 +29,6 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8891:80"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
   dao_notificationservice: 
     environment:
@@ -45,9 +36,6 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8892:80"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
   dao_apigateway: 
     environment:
@@ -55,9 +43,6 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8896:80"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
 
   dao_webportal: 
     environment:
@@ -65,6 +50,3 @@ services:
       - ASPNETCORE_URLS=http://+:80
     ports:
       - "8895:80"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

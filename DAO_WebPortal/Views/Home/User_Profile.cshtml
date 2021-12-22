@@ -53,8 +53,12 @@
                 <small>Registration Date</small>
                 <p><b>@Model.CreateDate</b></p>
             </div>
+            <div class="d-flex justify-content-between">
+                @if (!Model.KYCStatus)
+                {
+                    <a class="btn btn-primary" href="../KYC-Verification">Submit KYC</a>
+                }
 
-            <div class="d-flex justify-content-end">
                 <button type="submit" class="btn btn-primary" id="saveProfilePhotoBtn" onclick="SaveProfileChanges();">Save Changes</button>
             </div>
         </div>

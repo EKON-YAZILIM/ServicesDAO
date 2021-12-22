@@ -18,5 +18,6 @@ namespace DAO_DbService.Models
         public int UpVote { get; set; }
         public int DownVote { get; set; }
         public bool? IsPinned { get; set; }
+        public bool? IsFlagged { get; set; }
     }
 }

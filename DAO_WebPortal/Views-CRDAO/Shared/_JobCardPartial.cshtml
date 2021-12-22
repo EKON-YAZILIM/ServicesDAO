@@ -8,7 +8,9 @@
 <div class="card-header">
     <!-- .header -->
     <div class="titleContainer">
-        <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
+        <span class="badge bg-dark">#@Model.JobID</span>
+
+        <h5 class="card-title mx-2" title="@Model.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.Title, 90)</h5>
         <small class="text-medium-emphasis">@Model.CreateDate.ToShortDateString() , @Model.UserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
@@ -53,16 +55,28 @@
 
     </div>
 </div><!-- .header -->
-
 <!-- Card Body -->
 <div class="card-body cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
-    <p class="p-3 py-0 card-text text-justify" style="white-space: pre-line">
-        @Model.JobDescription
-    </p>
+
+    @* If job description is html text dont use pre-line styling *@
+    @if (Model.JobDescription.Contains(">") && Model.JobDescription.Contains("<"))
+    {
+        <div class="p-3 py-3 card-text">
+            @Html.Raw(Model.JobDescription)
+        </div>
+    }
+    @* If job description is raw text use pre-line styling *@
+    else
+    { 
+        <div class="p-3 py-3 card-text text-justify" style="white-space:pre-line">
+            @Html.Raw(Model.JobDescription)
+        </div>
+    }
+
+    <p>Job Budget: @Model.Amount €</p>
     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate</small></p>
 </div>
 <!-- Card Body -->
-
 <!-- Footer -->
 <div class="card-footer">
     <a class="card-text me-2 cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
@@ -71,7 +85,7 @@
         </svg> @Model.CommentCount Comment
     </a>
 
-    <a class="card-text  me-2" href="#" onclick="ShareJobPost();">
+    <a class="card-text mx-2" href="#" onclick="ShareJobPost();">
         <svg class="icon">
             <use xlink:href="/Home/images/svg/free.svg#cil-share"></use>
         </svg> Share
@@ -80,11 +94,31 @@
     @if (httpContextAccessor.HttpContext.Request.Path.Value.ToString().Contains("Job-Detail"))
     {
         <!-- New comment click -->
-        <a onclick="CreateReplyBox(this, 0)" class="card-text me-2 cursorp">
+        <a onclick="CreateReplyBox(this, 0)" class="card-text mx-2 cursorp">
             <svg class="icon">
                 <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
             </svg> Reply
         </a>
+
+    }
+
+    @if (Model.IsUserFlagged == true){
+        <a class="card-text mx-2 text-danger" href="#" onclick="RemoveFlag(@Model.JobID);">
+            <svg class="icon">
+                <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
+            </svg> Remove Flag
+        </a>
+    }
+    else{
+        <a class="card-text mx-2" href="#" onclick="OpenFlagModal(@Model.JobID);">
+            <svg class="icon">
+                <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
+            </svg> Flag
+        </a>
+    }
+
+    @if(Model.FlagCount > 0){
+        <small class="float-right"><i>@Model.FlagCount user flagged this job</i></small>
     }
 
     <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
@@ -100,7 +134,7 @@
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
         <!-- New comment click -->
-        <button onclick="KYCModal();" class="btn btn-sm btn-primary btn-shine float-right">
+        <button onclick="window.location.href='../KYC-Verification'" class="btn btn-sm btn-primary btn-shine float-right">
             Submit KYC
         </button>
     }

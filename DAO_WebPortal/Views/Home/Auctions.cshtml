@@ -39,7 +39,16 @@
         <!-- .card -->
         <div class="card mb-4">
             <div class="card-header">
-                <span class="small ms-1"><b>Active Internal Auctions</b></span>
+                <span class="small ms-1 d-inline-block"><b>Active Internal Auctions</b></span>
+
+                <div class="form-check form-switch  d-inline-block float-right">
+                    <input class="form-check-input" type="checkbox" id="internalEligibleSwitch">
+                    <small class="form-check-label" for="internalEligibleSwitch">Show only eligible</small>
+                </div>
+
+                @*<small class="checkbox-inline float-right">
+                        <input type="checkbox" class="mr-2" value="">Show only eligible
+                    </small>*@
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive h-250">
@@ -51,8 +60,9 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
                                     <th scope="col">Job Budget</th>
-                                    <th scope="col">Auction Start Date</th>
-                                    <th scope="col">Auction End Date</th>
+                                    <th scope="col">Job Poster</th>
+                                    <th scope="col">Timeframe</th>
+                                    <th scope="col">Start Date</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Bid Count</th>
                                     <th scope="col"></th>
@@ -64,12 +74,22 @@
 
                                     @foreach (var auction in internalAuctions)
                                     {
-                                        <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                        string rowclass = "noneligible";
+                                        if (auction.UsersBidId == null)
+                                        {
+                                            if (userType == Enums.UserIdentityType.VotingAssociate.ToString() || userType == Enums.UserIdentityType.Admin.ToString())
+                                            {
+                                                rowclass = "eligible";
+                                            }
+                                        }
+
+                                        <tr class="internal-@rowclass">
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                             <td>@auction.JobPrice €</td>
-                                            <td>@auction.CreateDate.ToString("MM/dd/yyyy")</td>
-                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                            <td>@auction.JobPosterUsername</td>
+                                            <td>@auction.ExpectedTimeframe days</td>
+                                            <td>@auction.CreateDate.ToString("MM/dd/yyyy HH:mm")</td>
                                             <td><b id="counter_@auction.AuctionID"></b></td>
                                             <td>@auction.BidCount</td>
                                             <td>
@@ -85,18 +105,16 @@
                                                 else
                                                 {
                                                     @*If user doesn't have bid for this auction*@
-                                                    @if (auction.UsersBidId == null)
+                                                    @if (rowclass == "eligible")
                                                     {
-                                                        if (userType == Enums.UserIdentityType.VotingAssociate.ToString() || userType == Enums.UserIdentityType.Admin.ToString())
-                                                        {
-                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID)">
-                                                                <svg class="icon">
-                                                                    <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
-                                                                </svg> Submit Bid
-                                                            </a>
-                                                        }
+
+                                                        <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID, @auction.JobID)">
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                            </svg> Submit Bid
+                                                        </a>
                                                     }
-                                                    else
+                                                    else if (auction.UsersBidId != null)
                                                     {
                                                         <a class="btn btn-sm btn-danger text-white me-2" onclick="DeleteBid(this, @auction.UsersBidId)">
                                                             <svg class="icon">
@@ -121,7 +139,13 @@
         </div> <!-- .card -->
         <!-- .card -->
         <div class="card">
-            <div class="card-header"><span class="small ms-1"><b>Active Public Auctions</b></span></div>
+            <div class="card-header">
+                <span class="small ms-1 d-inline-block"><b>Active Public Auctions</b></span>
+                <div class="form-check form-switch  d-inline-block float-right">
+                    <input class="form-check-input" type="checkbox" id="publicEligibleSwitch">
+                    <small class="form-check-label" for="publicEligibleSwitch">Show only eligible</small>
+                </div>
+            </div>
             <div class="card-body p-0">
                 <div class="table-responsive h-250">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).Count() > 0)
@@ -132,8 +156,9 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
                                     <th scope="col">Job Budget</th>
-                                    <th scope="col">Auction Start Date</th>
-                                    <th scope="col">Auction End Date</th>
+                                    <th scope="col">Job Poster</th>
+                                    <th scope="col">Timeframe</th>
+                                    <th scope="col">Start Date</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Bid Count</th>
                                     <th scope="col"></th>
@@ -145,12 +170,22 @@
 
                                     @foreach (var auction in publicAuctions)
                                     {
-                                        <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                        string rowclass = "noneligible";
+                                        if (auction.UsersBidId == null)
+                                        {
+                                            if (userType == Enums.UserIdentityType.Associate.ToString())
+                                            {
+                                                rowclass = "eligible";
+                                            }
+                                        }
+
+                                        <tr class="public-@rowclass">
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                             <td>@auction.JobPrice €</td>
-                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                            <td>@auction.JobPosterUsername</td>
+                                            <td>@auction.ExpectedTimeframe days</td>
+                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
                                             <td><b id="counter_@auction.AuctionID"></b></td>
                                             <td>@auction.BidCount</td>
                                             <td>
@@ -166,18 +201,17 @@
                                                 else
                                                 {
                                                     @*If user doesn't have bid for this auction*@
-                                                    @if (auction.UsersBidId == null)
+                                                    @if (rowclass == "eligible")
                                                     {
-                                                        if (userType == Enums.UserIdentityType.Associate.ToString())
-                                                        {
-                                                            <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID)">
-                                                                <svg class="icon">
-                                                                    <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
-                                                                </svg> Submit Bid
-                                                            </a>
-                                                        }
+
+                                                        <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID, @auction.JobID)">
+                                                            <svg class="icon">
+                                                                <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
+                                                            </svg> Submit Bid
+                                                        </a>
+
                                                     }
-                                                    else
+                                                    else if (auction.UsersBidId != null)
                                                     {
                                                         <a class="btn btn-sm btn-danger text-white me-2" onclick="DeleteBid(this, @auction.UsersBidId)">
                                                             <svg class="icon">
@@ -218,6 +252,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
+                                    <th scope="col">Job Poster</th>
                                     <th scope="col">Auction Start Date</th>
                                     <th scope="col">Auction End Date</th>
                                     <th scope="col">Winner User</th>
@@ -232,10 +267,11 @@
                                     @foreach (var auction in completedAuctions)
                                     {
                                         <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                            <td>@auction.JobPosterUsername</td>
+                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
                                             <td>@auction.WinnerUserName</td>
                                             <td>@auction.BidCount</td>
                                             <td>
@@ -270,6 +306,7 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Job Name</th>
+                                    <th scope="col">Job Poster</th>
                                     <th scope="col">Auction Start Date</th>
                                     <th scope="col">Auction End Date</th>
                                     <th scope="col">Winner User</th>
@@ -284,10 +321,11 @@
                                     @foreach (var auction in expiredAuctions)
                                     {
                                         <tr>
-                                            <th scope="row">@auction.AuctionID</th>
+                                            <th scope="row">@auction.JobID</th>
                                             <td><a href="../Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy")</td>
-                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy")</td>
+                                            <td>@auction.JobPosterUsername</td>
+                                            <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                            <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy HH:mm")</td>
                                             <td>-</td>
                                             <td>@auction.BidCount</td>
                                             <td>
@@ -397,6 +435,25 @@
                 StartInterval(dataModel[i], 1000)
             }
 
+            //Show only eligible switch events
+            $("#internalEligibleSwitch").change(function () {
+                if (this.checked) {
+                    $(".internal-noneligible").addClass("d-none");
+                }
+                else {
+                    $(".internal-noneligible").removeClass("d-none");
+                }
+            });
+
+            //Show only eligible switch events
+            $("#publicEligibleSwitch").change(function () {
+                if (this.checked) {
+                    $(".public-noneligible").addClass("d-none");
+                }
+                else {
+                    $(".public-noneligible").removeClass("d-none");
+                }
+            });
         });
 
         //Send auctionIDs to CountDown function
@@ -430,10 +487,10 @@
         }
 
         //Opens submit bid modal
-        function OpenAddBidModal(auctionId) {
+        function OpenAddBidModal(auctionId, jobId) {
             selectedAuctionId = auctionId;
             $("#AddBid-Modal").modal("toggle");
-            $("#AddBidModalTitle").text("New Bid for Auction #"+auctionId);
+            $("#AddBidModalTitle").text("New Bid for Job #" + jobId);
         }
 
         //Auction bids adding function

@@ -15,5 +15,6 @@ namespace Helpers.Models.NotificationModels
         public List<string> To { get; set; } = new List<string>();
         public List<string> Cc { get; set; } = new List<string>();
         public List<string> Bcc { get; set; } = new List<string>();
+        public Constants.Enums.UserIdentityType? TargetGroup { get; set; }
     }
 }

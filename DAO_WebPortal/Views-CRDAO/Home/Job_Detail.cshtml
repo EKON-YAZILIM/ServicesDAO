@@ -7,13 +7,17 @@
 
 }
 @model Helpers.Models.WebsiteViewModels.JobPostDetailModel
+
+<script src="../Home/lib/ckeditor/ckeditor.js"></script>
+
 <!-- Row -->
 <div class="row">
     <div class="col-md-12">
 
         <div class="card mb-3">
+            <!-- Job Card -->
             <partial name="../Shared/_JobCardPartial.cshtml" model="Model.JobPostWebsiteModel" />
-
+            
             <!-- Comments footer -->
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
@@ -56,6 +60,18 @@
                             }
                         }
 
+                        //Show flagged comments firstly
+                        if (currentcomments.Count(x => Convert.ToBoolean(x.IsFlagged)) > 0)
+                        {
+                            var flaggedComments = currentcomments.Where(x => Convert.ToBoolean(x.IsFlagged)).ToList();
+
+                            foreach (var flagItem in flaggedComments)
+                            {
+                                currentcomments.RemoveAt(currentcomments.IndexOf(flagItem));
+                                currentcomments.Insert(0, flagItem);
+                            }
+                        }
+
                         @foreach (var commentItem in currentcomments)
                         {
                             Count = Count + 1;
@@ -91,13 +107,18 @@
                                         }
                                     </div>
                                     <div class="comment-info">
-                                        <a href="#" class="comment-author">@commentItem.UserName</a>
+                                        <a href="#" class="comment-author">@commentItem.UserName</a> 
+                                        @if(commentItem.UserReputation != null && commentItem.UserReputation > 0)
+                                        {
+                                            <small class="mx-1">@Convert.ToInt32(commentItem.UserReputation) reps</small>
+                                        }
                                         <p class="m-0">
-                                            @commentItem.Date.ToShortDateString() @commentItem.Date.ToShortTimeString()
+                                            @commentItem.Date.ToShortDateString() @commentItem.Date.ToShortTimeString()                                 
                                         </p>
                                     </div>
                                 </div>
                                 <!-- Heading -->
+                                
                                 <!-- Comment body -->
                                 <div class="comment-body">
 
@@ -107,7 +128,10 @@
                                     }
                                     else
                                     {
-                                        <p style="white-space: pre-line">@commentItem.Comment</p>
+                                        <div class="pt-2 pb-3">
+                                            @Html.Raw(commentItem.Comment)
+
+                                        </div>
                                     }
 
                                     @if (Convert.ToBoolean(commentItem.IsPinned) == true)
@@ -156,6 +180,16 @@
                                             </svg> Delete
                                         </a>
                                     }
+
+
+                                @if (Convert.ToBoolean(commentItem.IsFlagged) == true)
+                                {
+                                   <span class="card-text me-2 text-danger">
+                                        <svg class="icon">
+                                            <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
+                                        </svg> This comment is flagged
+                                   </span>
+                                }
 
                                 </div>
 
@@ -260,7 +294,19 @@
             var inputExists = $('#textarea-input-' + commentid).length;
 
             if (!inputExists) {
-                $(e).parent().append("<div class='comment-body mt-3'><textarea class='form-control' id='textarea-input-" + commentid + "' rows='3' placeholder='Your comment..'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2' onclick='AddNewComment(" +@Model.JobPostWebsiteModel.JobID+"," + commentid + ");'>Reply</button></div></div>");
+                $(e).parent().append("<div class='comment-body mt-3'><textarea name='textarea-input-" + commentid + "' id='textarea-input-" + commentid + "' rows='3'></textarea><div class='d-flex justify-content-end mt-1'><button class='btn btn-sm btn-block btn-primary my-2 px-3' onclick='AddNewComment(" +@Model.JobPostWebsiteModel.JobID+"," + commentid + ", this);'>Reply</button></div></div>");
+
+                if (document.body.classList.contains('dark-theme')) {
+                    CKEDITOR.replace("textarea-input-" + commentid, {
+                        skin: 'moono-dark'
+                    });
+                }
+                else {
+                    CKEDITOR.replace("textarea-input-" + commentid, {
+                        skin: 'moono-lisa'
+                    });
+                }
+
             } else {
                 $('#textarea-input-' + commentid).parent().remove();
             }
@@ -268,34 +314,36 @@
         }
 
         //Add new Comment
-        function AddNewComment(jobid, commentid) {
-            if ($("#textarea-input-" + commentid).val().trim() == "") {
-                $("#textarea-input-" + commentid).addClass("invalidInput");
-                $("#textarea-input-" + commentid).attr("placeholder", "Comment cannot be empty.");
-            } else {
-                $("#textarea-input-" + commentid).removeClass("invalidInput");
-                    $.ajax({
-                    type: "POST",
-                    url: "../Home/AddNewComment",
-                    data: { "JobId": jobid, "CommentId": commentid, "Comment": $("#textarea-input-"+commentid).val() },
-                    success: function (result) {
-                       console.log(result);
-                            if (result.success) {
-                                window.location.reload();
-                            }
-                            else {
-                                toastr.warning(result.message);
-                            }
-                        },
-                          failure: function (response) {
-                                toastr.warning("@Lang.ConnectionError");
-                        },
-                        error: function (response) {
-                             toastr.error("@Lang.UnexpectedError");
+        function AddNewComment(jobid, commentid, e) {
 
-                    }
-                });
+            var comment = CKEDITOR.instances["textarea-input-" + commentid].getData();
+
+            if (comment == "") {
+                toastr.warning("Comment cannot be empty.");
+                return;
             }
+
+            $.ajax({
+                type: "POST",
+                url: "../Home/AddNewComment",
+                data: { "JobId": jobid, "CommentId": commentid, "Comment": comment },
+                success: function (result) {
+                    console.log(result);
+                    if (result.success) {
+                        window.location.reload();
+                    }
+                    else {
+                        toastr.warning(result.message);
+                    }
+                },
+                failure: function (response) {
+                        toastr.warning("@Lang.ConnectionError");
+                },
+                error: function (response) {
+                        toastr.error("@Lang.UnexpectedError");
+                }
+            });
+
         }
 
         //Delete Comment

@@ -21,5 +21,7 @@ namespace DAO_DbService.Models
         public DateTime LastUpdate { get; set; }
         public JobStatusTypes Status { get; set; }
         public bool? DosFeePaid { get; set; }
+        public string Tags { get; set; }
+        public string CodeUrl { get; set; }
     }
 }

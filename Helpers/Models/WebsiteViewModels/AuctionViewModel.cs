@@ -20,5 +20,8 @@ namespace Helpers.Models.WebsiteViewModels
         public int BidCount { get; set; }
         public double JobPrice { get; set; }
         public int? UsersBidId { get; set; }
+        public string JobPosterUsername { get; set; }
+        public string ExpectedTimeframe { get; set; }
+
     }
 }

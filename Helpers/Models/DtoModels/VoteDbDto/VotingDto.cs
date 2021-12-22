@@ -17,6 +17,7 @@ namespace Helpers.Models.DtoModels.VoteDbDto
         public DateTime EndDate { get; set; }
         public VoteStatusTypes Status { get; set; }
         public int? QuorumCount { get; set; }
+        public int? EligibleUserCount { get; set; }
         public double? QuorumRatio { get; set; }
         public VoteTypes Type { get; set; }
         public int VoteCount { get; set; }

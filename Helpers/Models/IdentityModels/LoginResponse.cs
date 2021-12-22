@@ -14,6 +14,7 @@ namespace Helpers.Models.IdentityModels
         public bool IsBlocked { get; set; }
         public bool IsActive { get; set; }
         public bool IsBanned { get; set; }
+        public bool KYCStatus { get; set; }
         public string CustomMessage { get; set; }
         public string NameSurname { get; set; }
         public string ProfileImage { get; set; }
