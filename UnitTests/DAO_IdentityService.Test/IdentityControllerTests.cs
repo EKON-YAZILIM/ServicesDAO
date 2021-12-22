@@ -1,4 +1,5 @@
 using DAO_IdentityService.Controllers;
+// using DAO_DbService.Controllers;
 using FluentAssertions;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.IdentityModels;
@@ -11,6 +12,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;    
+using Microsoft.Extensions.Configuration;
 
 namespace DAO_IdentityService.Test
 {
@@ -22,42 +24,36 @@ namespace DAO_IdentityService.Test
     /// public LoginResponse Login(LoginModel model)
     /// IEnumerable<Claim> CreateUserClaims(UserDto user, UserIdentityType userType)
     /// SimpleResponse Register([FromBody] RegisterModel registerInput)
-    /// SimpleResponse SubmitKYCFile(KYCFileUpload File)
-    /// SimpleResponse KycCallBack(KYCCallBack Response)
-    /// List<KYCCountries> GetKycCountries()
     /// SimpleResponse RegisterComplete(RegisterCompleteModel model)
     /// SimpleResponse ResetPassword(ResetPasswordModel model)
     /// SimpleResponse ResetPasswordComplete(ResetCompleteModel model)
     /// bool Logout(string token)
     /// </summary>
-    public class IdentityControllerTests: IClassFixture<WebApplicationFactory<DAO_IdentityService.Startup>>
+    public class IdentityControllerTests 
     {        
-        readonly HttpClient _client;
-        private IdentityController controller;
-        public static string testPassword;
-        ///HttpClient created
-        public IdentityControllerTests(WebApplicationFactory<DAO_IdentityService.Startup> fixture)
+        private IdentityController identity_controller;
+        static string testPassword;
+       
+        public IdentityControllerTests() 
         {
-            _client = fixture.CreateClient();
-            controller = new IdentityController();
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.test.json").Build();
+            DAO_IdentityService.Startup.LoadConfig(config);
+            DAO_IdentityService.Startup.InitializeService();
+            identity_controller = new IdentityController();
             testPassword = Guid.NewGuid().ToString("d").Substring(1, 6);
-        }
-
-        public interface IRabbitMQConnectionFactory {
-            IConnection CreateConnection();
-        }
+        }        
         ///<summary>
         ///User Register Test
         ///Case -1- Register without activation and KYC verification
         ///Case -2- Fail with Email already exists
-        ///Case -3- Fail with Username already exsits
         ///</summary>
         [Fact]
         public void Register_Tests(){     
 
+            //Arrange
             if(!DAL.ClearUsersTable())
-                throw new Exception("MySqlFailure");
-
+                throw new Exception("MySqlFailure");            
+            
             RegisterModel model = new RegisterModel{
                 email = "user@mail.com",
                 username = "username1", 
@@ -85,51 +81,106 @@ namespace DAO_IdentityService.Test
                 port = ""
             };
             
-            var response = controller.Register(model);
+            ///Initial register attempt
+            ///Incomplete reigster due to pending Email verification
+            //Act
+            var response = identity_controller.Register(model);
+            //Assert
             response.Success.Should().Be(true);
 
-            var response2 = controller.Register(user_with_existing_email);
+            ///Registration attempt of existing user
+            //Act
+            var response2 = identity_controller.Register(user_with_existing_email);
+            //Assert
             response2.Success.Should().Be(false);
-            response2.Message.Should().Be("Email already exists.");
-
-            var response3 = controller.Register(user_with_existing_username);
-            response3.Success.Should().Be(false);
-            response3.Message.Should().Be("Username already exists.");            
+            response2.Message.Should().Be("Email already exists.");          
         }
 
         /// <summary>
         /// Test of public LoginResponse Login(LoginModel model)
+        /// -1- 
         /// </summary>
         [Fact]
         public void Login_Tests()
         {
+            //Arrange
+            if(!DAL.ClearUsersTable())
+                throw new Exception("MySqlFailure"); 
 
-            string userJson = string.Empty;
-            ///Login model preperation
-            LoginModel user1 = new LoginModel() { 
+            RegisterModel register_model = new RegisterModel{
                 email = "username6@internal.com",
+                username = "username6", 
+                namesurname = "username_surname",
+                password = testPassword,
+                ip = "",
+                port = ""
+            };
+            LoginModel login_model = new LoginModel{
+                email = "username6@internal.com",
+                pass = testPassword,
+                application = Helpers.Constants.Enums.AppNames.DAO_ApiGateway,
+                ip = "",
+                port ="" 
+            };
+            
+            LoginModel userX = new LoginModel() { 
+                email = "doesnot@exsist.com",
                 pass = "",
                 application = Helpers.Constants.Enums.AppNames.DAO_ApiGateway,
                 ip = "",
                 port =""
             };
 
-            ///-1- Find user from database
-            userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + user1.email, Program._settings.JwtTokenKey);
+            ///Act
+            var response = identity_controller.Register(register_model);
+            ///Assert
+            response.Success.Should().Be(true);
+            
+            string userJson = string.Empty;
+
+            ///Login tests
+            ///-1- User existance check control
+            userJson = Helpers.Request.Get(Program._settings.Service_Db_Url + "/users/GetByEmail?email=" + login_model.email, Program._settings.JwtTokenKey);
             var userModel1 = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
             
             userModel1.Email.Should().Be("username6@internal.com");
 
-            // var response1 = await _client.GetAsync("http://localhost:8889/users/Get");
-            // response1.StatusCode.Should().Be(HttpStatusCode.OK);
+            ///-2- User not found 
+            //Act
+            LoginResponse result = identity_controller.Login(login_model);
+            //Assert
+            result.IsSuccessful.Should().Be(false);
+
+            DAL.BlockUser(login_model.email);
+            ///-3- User IsBlocked control test (Login fail due to "user is blocked")
+            LoginResponse result2 = identity_controller.Login(login_model); 
+            result2.IsBlocked.Should().Be(true);
+            result2.IsActive.Should().Be(false);
+
+            ///-3- Email activated user account control
+            DAL.ResetUser(login_model.email);
+            LoginResponse result3 = identity_controller.Login(login_model);
+            result3.IsSuccessful.Should().Be(false);
+            result3.IsActive.Should().Be(false);            
+
+            ///-4- Successful Login
+            DAL.ResetUser(login_model.email);
+            DAL.ActivateUser(login_model.email);
+            DAL.ActivateKYC(login_model.email);
+            LoginResponse result5 = identity_controller.Login(login_model);
+            result5.IsSuccessful.Should().Be(true);
+
+            result5.Token.Should().NotBe(null);
+            result5.UserId.Should().NotBe(null);
+            result5.Email.Should().Be("username6@internal.com");
+            result5.NameSurname.Should().Be("username_surname");
+            result5.ProfileImage.Should().NotBe(null);
+            result5.UserType.Should().Be(Helpers.Constants.Enums.UserIdentityType.Associate);
+            result5.IsSuccessful.Should().Be(true);
+            result5.IsActive.Should().Be(true);
+            result5.IsBanned.Should().Be(false);
+            result5.IsBlocked.Should().Be(false);  
         }
-
-        [Fact]
-        public void CreateUserClaims(){
-
-        }
-
-
     }
 
 

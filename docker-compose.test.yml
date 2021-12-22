@@ -1,0 +1,145 @@
+version: '3.4'
+
+volumes:
+  datafiles: 
+  logs_datafiles:
+
+services:
+  dao_rabbitmq:
+    image: rabbitmq:3-management
+    container_name: 'dao_rabbitmq'
+    environment:
+        RABBITMQ_DEFAULT_USER: "daorabbit"
+        RABBITMQ_DEFAULT_PASS: "dao2021*"
+    ports:
+        - 5673:5673
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/rabbitmq/log/:/var/lib/log
+    healthcheck:
+        test: rabbitmq-diagnostics -q status
+        interval: 10s
+        timeout: 30s
+        retries: 15
+    
+    networks:
+        - daonetwork
+
+  dao_db:
+    image: mysql:5.7
+    volumes:
+      - datafiles:/var/lib/mysql      
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secred
+      - MYSQL_DATABASE=daodb
+    networks:
+      - daonetwork
+
+  dao_logsdb:
+    image: mysql:5.7
+    volumes:
+      - logs_datafiles:/var/lib/mysql      
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secred
+      - MYSQL_DATABASE=daologsdb
+    networks:
+      - daonetwork  
+
+  dao_apigateway:
+    image: ${DOCKER_REGISTRY-}daoapigateway
+    build:
+      context: .
+      dockerfile: DAO_ApiGateway/Dockerfile
+    depends_on:
+      dao_rabbitmq:
+        condition: service_healthy
+    links:
+      - dao_rabbitmq
+    restart: always
+    networks:
+      - daonetwork
+
+  dao_dbservice:
+    image: ${DOCKER_REGISTRY-}daodbservice
+    build:
+      context: .
+      dockerfile: DAO_DbService/Dockerfile
+    depends_on:      
+      dao_rabbitmq:
+        condition: service_healthy
+    restart: always
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+      - daonetwork
+
+  dao_identityservice:
+    image: ${DOCKER_REGISTRY-}daoidentityservice
+    build:
+      context: .
+      dockerfile: DAO_IdentityService/Dockerfile
+    depends_on:
+      dao_rabbitmq:
+        condition: service_healthy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    networks:
+        - daonetwork
+
+  dao_logservice:
+    image: ${DOCKER_REGISTRY-}daologservice
+    build:
+      context: .
+      dockerfile: DAO_LogService/Dockerfile
+    depends_on:
+      dao_rabbitmq:
+        condition: service_healthy
+    networks:
+        - daonetwork
+
+  dao_notificationservice:
+    image: ${DOCKER_REGISTRY-}daonotificationservice
+    build:
+      context: .
+      dockerfile: DAO_NotificationService/Dockerfile
+    depends_on:
+      dao_rabbitmq:
+        condition: service_healthy
+    networks:
+        - daonetwork
+
+  dao_webportal:
+    image: ${DOCKER_REGISTRY-}daowebportal
+    build:
+      context: .
+      dockerfile: DAO_WebPortal/Dockerfile
+    depends_on:
+      dao_rabbitmq:
+        condition: service_healthy
+    
+    networks:
+      - daonetwork
+
+  dao_webportal.test:
+    image: ${DOCKER_REGISTRY-}daowebportaltest
+    build:
+      context: .
+      dockerfile: UnitTests/DAO_WebPortal.Test/Dockerfile
+
+networks:
+  daonetwork:
+    name: daonetwork
+    driver: bridge
+
+
+
+
+
+
+
+
+

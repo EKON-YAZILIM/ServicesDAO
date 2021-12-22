@@ -41,13 +41,13 @@
 /DAO_WebPortal/DAO_WebPortal.csproj.user
 /Helpers/Helpers.csproj.user
 /bin/Release
-/UnitTests\DAO_DbService.Test\bin
-/UnitTests\DAO_DbService.Test\obj
+/UnitTests/DAO_DbService.Test/bin
+/UnitTests/DAO_DbService.Test/obj
 /UnitTests/DAO_DbService.Test/bin/Debug/netcoreapp3.1
 /UnitTests/DAO_DbService.Test/obj
 /UnitTests/DAO_DbService.Test/bin/Release/netcoreapp3.1/CoverletSourceRootsMapping
-/UnitTests\DAO_IdentityService.Test\bin
-/UnitTests\DAO_IdentityService.Test\obj
+/UnitTests/DAO_IdentityService.Test/bin
+/UnitTests/DAO_IdentityService.Test/obj
 /UnitTests/DAO_IdentityService.Test/bin/Debug/netcoreapp3.1
 /UnitTests/DAO_IdentityService.Test/obj
 /UnitTests/DAO_IdentityService.Test/bin/Release/netcoreapp3.1/CoverletSourceRootsMapping
@@ -68,4 +68,7 @@
 /docker-compose-production.override.yml
 /crdaokey.pem
 /crdaoprivate.ppk
+/UnitTests/DAO_WebPortal.Test/bin
+/UnitTests/DAO_WebPortal.Test/obj
 .DS_Store
+

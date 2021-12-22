@@ -38,7 +38,7 @@ namespace DAO_DbService.Tests.Util
         /// DAO_DbService.WebsiteController instance WebsiteController
         static PostTestController()
         {
-            var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+            var config = new ConfigurationBuilder().AddJsonFile("appsettings.test.json").Build();
             DAO_DbService.Startup.LoadConfig(config);
         }
 
