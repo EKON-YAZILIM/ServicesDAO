@@ -63,12 +63,12 @@ Application logs and notifications are carried/delivered by a RabbitMQ instance 
 dao_rabbitmq user interface adress is http://localhost:15672<br>
 
 ## Usage
+The test application is live at here[http://3.128.180.61:8895/].
+
 After entering the valid SMTP credentials to appsettings.json file you can complete sign up process with e-mail verification. Also a sign up process can be completed manually by updating Users table in the daodb database.<br>
-The voting part of the application can be found as a separate module and as a stand-alone project at the link[https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine.git].
 
-
-
-
+The voting part of the application is a separate module and is not available in this repostory.<br>
+The voting engine and reputation service can be found as a stand-alone project at this link[https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine.git].<br>
 
 ## Develop
 All applications can be built and run in their own docker containers with the following command;
