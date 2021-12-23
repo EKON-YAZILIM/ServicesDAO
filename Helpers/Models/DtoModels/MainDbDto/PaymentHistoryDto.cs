@@ -14,5 +14,6 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public string WalletAddress { get; set; }
         public string IBAN { get; set; }
         public DateTime CreateDate { get; set; }
+        public string Explanation { get; set; }
     }
 }

@@ -190,8 +190,9 @@ namespace DAO_WebPortal.Controllers
         [PreventDuplicateRequest]
         [ValidateAntiForgeryToken]
         public JsonResult New_Job_Post(string title, double amount, string time, string description, string tags, string codeurl)
-        {            
-            if (!ModelState.IsValid) {
+        {
+            if (!ModelState.IsValid)
+            {
                 return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
             }
 
@@ -384,7 +385,8 @@ namespace DAO_WebPortal.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult AddNewComment(int JobId, int CommentId, string Comment)
         {
-            if (!ModelState.IsValid) {
+            if (!ModelState.IsValid)
+            {
                 return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
             }
 
@@ -2209,7 +2211,13 @@ namespace DAO_WebPortal.Controllers
                 result = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResponse);
                 result.Content = null;
 
-                //Set server side toastr because page will be redirected
+                //Change job status
+                VotingDto voteModel = Helpers.Serializers.DeserializeJson<VotingDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetId?id=" + votingid, HttpContext.Session.GetString("Token")));
+                JobPostDto jobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + voteModel.JobID, HttpContext.Session.GetString("Token")));
+                jobModel.Status = JobStatusTypes.InformalVoting;
+                jobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(jobModel), HttpContext.Session.GetString("Token")));
+
+                //Set server side toastr because page will be redirected                                
                 TempData["toastr-message"] = result.Message;
                 TempData["toastr-type"] = "success";
 
@@ -2277,6 +2285,11 @@ namespace DAO_WebPortal.Controllers
                 {
                     result.Message = "Auction restarted succesfully.";
                     result.Success = true;
+
+                    //Change job status
+                    JobPostDto jobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/GetId?id=" + auction.JobID, HttpContext.Session.GetString("Token")));
+                    jobModel.Status = JobStatusTypes.InternalAuction;
+                    jobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(jobModel), HttpContext.Session.GetString("Token")));
                 }
 
 

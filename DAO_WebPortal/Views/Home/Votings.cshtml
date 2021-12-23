@@ -269,7 +269,7 @@
                             </thead>
                             <tbody>
                                 @{
-                                    var informalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == false).ToList();
+                                    var informalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == false).OrderByDescending(x=>x.EndDate).ToList();
 
                                     @foreach (var item in informalVotings)
                                     {
@@ -361,7 +361,7 @@
                             </thead>
                             <tbody>
                                 @{
-                                    var formalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == true).ToList();
+                                    var formalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == true).OrderByDescending(x=>x.EndDate).ToList();
 
                                     @foreach (var item in formalVotings)
                                     {

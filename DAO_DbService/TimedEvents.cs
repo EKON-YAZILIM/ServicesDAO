@@ -279,6 +279,7 @@ namespace DAO_DbService
                                     IBAN = user.IBAN,
                                     UserID = user.UserId,
                                     WalletAddress = user.WalletAddress,
+                                    Explanation = "User received payment for job completion."
                                 };
                                 db.PaymentHistories.Add(paymentJobDoer);
                                 job.Status = Enums.JobStatusTypes.Completed;
@@ -307,6 +308,7 @@ namespace DAO_DbService
                                         IBAN = daouser.IBAN,
                                         UserID = daouser.UserId,
                                         WalletAddress = daouser.WalletAddress,
+                                        Explanation = "User received payment for DAO policing."
                                     };
 
                                     db.PaymentHistories.Add(paymentDaoMember);

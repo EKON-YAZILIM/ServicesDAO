@@ -1073,8 +1073,10 @@ namespace DAO_DbService.Controllers
                                                          IBAN = payment.IBAN,
                                                          JobID = payment.JobID,
                                                          JobAmount = job.Amount,
+                                                         PaymentAmount = payment.Amount,
                                                          WalletAddress = payment.WalletAddress,
-                                                         CreateDate = payment.CreateDate
+                                                         CreateDate = payment.CreateDate,
+                                                         Explanation = payment.Explanation
                                                      }).ToList();
 
                     result.TotalAmount = result.UserPaymentHistoryList.Sum(x => x.JobAmount);
