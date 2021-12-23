@@ -94,7 +94,7 @@
                                             <td>@auction.BidCount</td>
                                             <td>
                                                 @*If user is job poster*@
-                                                @if (auction.JobPosterUserId == userid)
+                                                @if (auction.JobPosterUserId == userid || userType == Enums.UserIdentityType.Admin.ToString())
                                                 {
                                                     <a class="btn btn-sm btn-primary me-2" href="../Auction-Detail/@auction.AuctionID">
                                                         <svg class="icon">
@@ -190,7 +190,7 @@
                                             <td>@auction.BidCount</td>
                                             <td>
                                                 @*If user is job poster*@
-                                                @if (auction.JobPosterUserId == userid)
+                                                @if (auction.JobPosterUserId == userid || userType == Enums.UserIdentityType.Admin.ToString())
                                                 {
                                                     <a class="btn btn-sm btn-primary me-2" href="../Auction-Detail/@auction.AuctionID">
                                                         <svg class="icon">

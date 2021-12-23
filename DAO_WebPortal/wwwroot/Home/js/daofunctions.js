@@ -96,10 +96,8 @@ function PayDosFee() {
     });
 }
 
-function GoToJobDetail(pageurl, jobid) {
-    if (pageurl.indexOf("Job-Detail") == -1) {
-        window.location.href = '../Job-Detail/' + jobid;
-    }
+function GoToJobDetail(jobid) {
+    window.location.href = '../Job-Detail/' + jobid;
 }
 
 //Features which are not available at the moment should call this methods

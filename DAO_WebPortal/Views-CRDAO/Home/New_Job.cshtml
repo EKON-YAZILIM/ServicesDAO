@@ -4,6 +4,8 @@
 
 }
 
+@Html.AntiForgeryToken()
+
 <script src="../Home/lib/ckeditor/ckeditor.js"></script>
 
 <div class="row my-3">
@@ -121,11 +123,13 @@
                         var codeurl = $('#codeurl').val();
                         var tags = $('#tags').val();
                         var description = CKEDITOR.instances["description"].getData();
+                        var token = $('input[name="__RequestVerificationToken"]', token).val();
+
                         //Ajax post action
                         $.ajax({
                             type: "POST",
                             url: "../Home/New_Job_Post",
-                            data: { "title": title, "amount": amount, "time": time, "description": description, "tags": tags, "codeurl": codeurl },
+                            data: { "title": title, "amount": amount, "time": time, "description": description, "tags": tags, "codeurl": codeurl, "__RequestVerificationToken": token },
                             success: function (result) {
                                 if (result.success) {
                                     window.location.href = "./My-Jobs";

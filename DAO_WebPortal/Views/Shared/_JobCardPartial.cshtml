@@ -8,10 +8,10 @@
 <div class="card-header">
     <!-- .header -->
     <div class="titleContainer">
-        <span class="badge bg-dark">#@Model.JobID</span>
+        <span class="badge bg-primary">#@Model.JobID</span>
 
         <h5 class="card-title mx-2" title="@Model.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.Title, 90)</h5>
-        <small class="text-medium-emphasis">@Model.CreateDate.ToShortDateString() , @Model.UserName</small>
+        <small class="text-medium-emphasis">@Model.CreateDate.ToShortDateString() , @Model.JobPosterUserName</small>
 
         @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending)
         {
@@ -55,31 +55,97 @@
 
     </div>
 </div><!-- .header -->
+
 <!-- Card Body -->
-<div class="card-body cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
+@{
+    string divProps = "class=\"card-body\"";
+    string pageType = "detail";
+    string jobType = "job";
 
-    @* If job description is html text dont use pre-line styling *@
-    @if (Model.JobDescription.Contains(">") && Model.JobDescription.Contains("<"))
-    {
-        <div class="p-3 py-3 card-text">
-            @Html.Raw(Model.JobDescription)
-        </div>
-    }
-    @* If job description is raw text use pre-line styling *@
-    else
-    { 
-        <div class="p-3 py-3 card-text text-justify" style="white-space:pre-line">
-            @Html.Raw(Model.JobDescription)
-        </div>
+    if(!httpContextAccessor.HttpContext.Request.Path.ToString().Contains("Job-Detail")){
+        divProps = "class=\"card-body cursorp\" onclick=\"GoToJobDetail("+Model.JobID+")\"";
+        pageType = "summary";
     }
 
-    <p>Job Budget: @Model.Amount €</p>
+    if(string.IsNullOrEmpty(Model.TimeFrame) && Model.Amount == 0){
+        jobType = "simplevote";
+    }
+}
+<div @Html.Raw(divProps)>
+
+    @if(jobType == "job"){
+        <h5 class="mb-3 mt-2"><i class="fas fa-archive me-1"></i> Job Summary</h5>
+
+        <table class="table">
+            <tr>
+                <td><i class="fas fa-coins me-2"></i><i>Job Budget</i></td>
+                <td>@Model.Amount €</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-calendar me-2"></i><i>Time Frame</i></td>
+                <td>@Model.TimeFrame days</td>
+            </tr>
+            @if(!string.IsNullOrEmpty(Model.JobDoerUsername)){
+                <tr>
+                    <td><i class="fas fa-user me-2"></i><i>Job Doer</i></td>
+                    <td>@Model.JobDoerUsername</td>
+                </tr>
+            }
+            <tr>
+                <td><i class="fas fa-hashtag me-2"></i><i>Tags / Coding Lang.</i></td>
+                <td>
+                    @if(string.IsNullOrEmpty(@Model.Tags)){
+                        <i>No tags specified.</i>
+                    }
+                    else{
+                        foreach(var tag in Model.Tags.Split(',')){
+                            <span class="badge bg-secondary me-1">@tag</span>
+                        }
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-code me-2"></i><i>Code Link</i></td>
+                <td><a target="_blank" href="@Model.CodeUrl">@Model.CodeUrl</a></td>
+            </tr>
+        </table>
+    }
+    @if(pageType == "detail" && jobType == "job"){
+        <span>@Model.CommentCount comments made for this topic. <small><a href="#comments">Click here to jump comments section</a></small></span>
+    }
+
+    @* Show full job description in detail page *@
+    @if(pageType == "detail" || jobType == "simplevote"){
+
+        @if(jobType == "job"){
+            <h5><i class="fas fa-folder-open me-1 mt-5"></i> Job Description</h5>
+        }
+        else if(jobType == "simplevote"){
+            <h5><i class="fas fa-vote-yea me-1"></i> Simple Vote</h5>
+        }
+
+        @* If job description is html text dont use pre-line styling *@
+        if (Model.JobDescription.Contains(">") && Model.JobDescription.Contains("<"))
+        {
+            <div class="p-3 py-3 card-text">
+                @Html.Raw(Model.JobDescription)
+            </div>
+        }
+        @* If job description is raw text use pre-line styling *@
+        else
+        { 
+            <div class="p-3 pt-0 card-text text-justify" style="white-space:pre-line">
+                @Html.Raw(Model.JobDescription)
+            </div>
+        }
+    }
+    
     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate</small></p>
 </div>
 <!-- Card Body -->
 <!-- Footer -->
 <div class="card-footer">
-    <a class="card-text me-2 cursorp" onclick="GoToJobDetail('@httpContextAccessor.HttpContext.Request.Path', @Model.JobID)">
+    <a class="card-text me-2 cursorp" onclick="GoToJobDetail(@Model.JobID)">
         <svg class="icon">
             <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
         </svg> @Model.CommentCount Comment

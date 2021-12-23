@@ -187,8 +187,14 @@ namespace DAO_WebPortal.Controllers
         /// <param name="description">Description</param>
         /// <returns></returns>
         [HttpPost]
+        [PreventDuplicateRequest]
+        [ValidateAntiForgeryToken]
         public JsonResult New_Job_Post(string title, double amount, string time, string description, string tags, string codeurl)
-        {
+        {            
+            if (!ModelState.IsValid) {
+                return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
+            }
+
             SimpleResponse result = new SimpleResponse();
 
             try
@@ -374,8 +380,14 @@ namespace DAO_WebPortal.Controllers
         /// <param name="Comment">Comment</param>
         /// <returns></returns>
         [HttpPost]
+        [PreventDuplicateRequest]
+        [ValidateAntiForgeryToken]
         public JsonResult AddNewComment(int JobId, int CommentId, string Comment)
         {
+            if (!ModelState.IsValid) {
+                return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
+            }
+
             SimpleResponse result = new SimpleResponse();
 
             try
@@ -887,8 +899,9 @@ namespace DAO_WebPortal.Controllers
                 //Parse response
                 AuctionDetailModel.Auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
 
-                //If auction isn't completed only job poster can see the bids
-                if (HttpContext.Session.GetInt32("UserID") != AuctionDetailModel.Auction.JobPosterUserId)
+                //If auction isn't completed only job poster and admin can see the bids
+                if (HttpContext.Session.GetString("UserType") != Enums.UserIdentityType.Admin.ToString() &&
+                    HttpContext.Session.GetInt32("UserID") != AuctionDetailModel.Auction.JobPosterUserId)
                 {
                     if (AuctionDetailModel.Auction.Status == AuctionStatusTypes.PublicBidding || AuctionDetailModel.Auction.Status == AuctionStatusTypes.InternalBidding)
                     {

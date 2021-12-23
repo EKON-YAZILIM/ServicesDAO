@@ -8,6 +8,8 @@
 }
 @model Helpers.Models.WebsiteViewModels.JobPostDetailModel
 
+@Html.AntiForgeryToken()
+
 <script src="../Home/lib/ckeditor/ckeditor.js"></script>
 
 <!-- Row -->
@@ -315,7 +317,7 @@
 
         //Add new Comment
         function AddNewComment(jobid, commentid, e) {
-
+            var token = $('input[name="__RequestVerificationToken"]', token).val();
             var comment = CKEDITOR.instances["textarea-input-" + commentid].getData();
 
             if (comment == "") {
@@ -323,10 +325,13 @@
                 return;
             }
 
+            $(e).prop("disabled", true);
+            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Posting Reply..');
+
             $.ajax({
                 type: "POST",
                 url: "../Home/AddNewComment",
-                data: { "JobId": jobid, "CommentId": commentid, "Comment": comment },
+                data: { "JobId": jobid, "CommentId": commentid, "Comment": comment, "__RequestVerificationToken": token },
                 success: function (result) {
                     console.log(result);
                     if (result.success) {
@@ -334,13 +339,20 @@
                     }
                     else {
                         toastr.warning(result.message);
+
+                        $(e).prop("disabled", false);
+                        $(e).html('Reply');
                     }
                 },
                 failure: function (response) {
                         toastr.warning("@Lang.ConnectionError");
+                        $(e).prop("disabled", false);
+                        $(e).html('Reply');
                 },
                 error: function (response) {
                         toastr.error("@Lang.UnexpectedError");
+                        $(e).prop("disabled", false);
+                        $(e).html('Reply');
                 }
             });
 

@@ -9,7 +9,6 @@ namespace Helpers.Models.WebsiteViewModels
     public class JobPostViewModel
     {
         public string Title { get; set; }
-        public string UserName { get; set; }
         public DateTime CreateDate { get; set; }
         public string JobDescription { get; set; }
         public DateTime LastUpdate { get; set; }
@@ -19,10 +18,13 @@ namespace Helpers.Models.WebsiteViewModels
         public double Amount { get; set; }
         public bool? DosFeePaid { get; set; }
         public int JobDoerUserID { get; set; }
+        public string JobDoerUsername { get; set; }
         public int JobPosterUserID { get; set; }
+        public string JobPosterUserName { get; set; }
         public string Tags { get; set; }
         public string CodeUrl { get; set; }
         public bool IsUserFlagged { get; set; }
         public int FlagCount { get; set; }
+        public string TimeFrame { get; set; }
     }
 }

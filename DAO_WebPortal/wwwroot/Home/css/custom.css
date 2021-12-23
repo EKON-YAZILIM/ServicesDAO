@@ -569,7 +569,7 @@ tbody tr:hover .trSlider span {
         }
 
 .dark-theme .steps > .step:before {
-    background: #72769d;
+    background: #24252f;
     border: 1px solid #a9a9a9
 }
 
@@ -598,34 +598,31 @@ tbody tr:hover .trSlider span {
 
     .steps > .step.is-complete:before {
         content: "✓";
-        color: #1A236F;
-        background: #fff;
-        border: 2px solid #1A236F;
+        color: #5bc748;
+        border: 2px solid #5bc748;
     }
 
 .steps > .step.is-inactive:before {
     content: "X";
-    color: #9d0000;
-    background: #fff;
-    border: 2px solid #9d0000;
+    color: #c54949;
+    border: 2px solid #c54949;
 }
 
 .steps > .step.is-inactive:after {
-    background: #9d0000;
+    background: #c54949;
 }
 
 .steps > .step.is-complete:after {
-    background: #1A236F;
+    background: #5bc748;
 }
 
 .steps > .step.is-uncomplete:before {
-    color: #9d0000;
-    background: #fff;
-    border: 2px solid #9d0000;
+    color: #c54949;
+    border: 2px solid #c54949;
 }
 
 .steps > .step.is-uncomplete:after {
-    background: #9d0000;
+    background: #c54949;
 }
 
 /*   .steps > .step.is-active {
@@ -633,7 +630,6 @@ tbody tr:hover .trSlider span {
         }*/
 
 .steps > .step.is-active:before {
-    color: #FFF;
     border: 2px solid #1A236F;
     background: #1A236F;
     /*margin-bottom: -4.9rem;*/
