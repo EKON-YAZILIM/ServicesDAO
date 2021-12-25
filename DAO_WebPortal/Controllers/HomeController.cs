@@ -1123,7 +1123,7 @@ namespace DAO_WebPortal.Controllers
                         SimpleResponse stakeReleaseResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseStakes?referenceProcessID=" + auction.AuctionID + "&reftype=" + Helpers.Constants.Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
                         //Mint new reputation with (ReputationConversionRate(DAO Variable) * Bid Price)
-                        UserReputationStakeDto stake = new UserReputationStakeDto() { UserID = auctionBid.UserId, Amount = auctionBid.Price * Program._settings.ReputationConversionRate, CreateDate = DateTime.Now, Type = StakeType.Mint, ReferenceID = auctionBid.UserId, ReferenceProcessID = auction.JobID, Status = ReputationStakeStatus.Staked };
+                        UserReputationStakeDto stake = new UserReputationStakeDto() { UserID = auctionBid.UserId, Amount = auctionBid.Price * Program._settings.ReputationConversionRate, CreateDate = DateTime.Now, Type = StakeType.Mint, ReferenceID = auction.JobID, ReferenceProcessID = auction.JobID, Status = ReputationStakeStatus.Staked };
                         //Post model to ApiGateway
                         string mintJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/SubmitStake", Helpers.Serializers.SerializeJson(stake), HttpContext.Session.GetString("Token"));
                         //Parse response
@@ -1181,7 +1181,7 @@ namespace DAO_WebPortal.Controllers
         [Route("Votings")]
         public IActionResult Votings()
         {
-            ViewBag.Title = "Votings";
+            ViewBag.Title = "Voting";
 
             List<VotingViewModel> votingsModel = new List<VotingViewModel>();
             try

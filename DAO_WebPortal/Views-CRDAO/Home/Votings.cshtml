@@ -75,7 +75,7 @@
                                             <td>@item.JobID</td>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                             <td>
-                                                @if(string.IsNullOrWhiteSpace(item.JobDoerUsername))
+                                                @if(!string.IsNullOrWhiteSpace(item.JobDoerUsername))
                                                 {
                                                     <span>@item.WinnerBidPrice</span>
                                                 } 
@@ -178,7 +178,15 @@
                                         <tr>
                                             <th>@item.JobID</th>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.WinnerBidPrice</td>
+                                            <td>
+                                                @if(!string.IsNullOrWhiteSpace(item.JobDoerUsername))
+                                                {
+                                                    <span>@item.WinnerBidPrice</span>
+                                                } 
+                                                else{
+                                                    <span>Simple Voting</span>
+                                                }
+                                            </td>
                                             <td>@item.JobDoerUsername</td>
                                             <td><b id="counter_@item.VotingID"></b></td>
                                             <td>
@@ -269,7 +277,7 @@
                             </thead>
                             <tbody>
                                 @{
-                                    var informalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == false).ToList();
+                                    var informalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == false).OrderByDescending(x=>x.EndDate).ToList();
 
                                     @foreach (var item in informalVotings)
                                     {
@@ -361,7 +369,7 @@
                             </thead>
                             <tbody>
                                 @{
-                                    var formalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == true).ToList();
+                                    var formalVotings = Model.Where(x => (x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed || x.Status == Helpers.Constants.Enums.VoteStatusTypes.Expired) && x.IsFormal == true).OrderByDescending(x=>x.EndDate).ToList();
 
                                     @foreach (var item in formalVotings)
                                     {
