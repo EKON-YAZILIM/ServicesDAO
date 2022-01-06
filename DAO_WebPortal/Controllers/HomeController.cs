@@ -107,7 +107,7 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("My-Jobs")]
-        public IActionResult My_Jobs()
+        public IActionResult My_Jobs(JobStatusTypes? status)
         {
             ViewBag.Title = "My Jobs";
 
@@ -116,7 +116,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?status=" + status+"&userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                 //Parse response
                 myJobsModel = Helpers.Serializers.DeserializeJson<MyJobsViewModel>(jobsJson);
             }
@@ -306,9 +306,14 @@ namespace DAO_WebPortal.Controllers
                 {
                     Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User updated job.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
-                    result.Success = false;
+                    result.Success = true;
                     result.Message = "Job updated succesfully.";
-                    result.Content = model;
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+
+                    return Json(result);
                 }
             }
             catch (Exception ex)
@@ -1269,7 +1274,7 @@ namespace DAO_WebPortal.Controllers
 
                 //Combine results into VoteItemModel
                 List<VoteItemModel> voteItems = new List<VoteItemModel>();
-                votes = votes.OrderBy(x => x.UserID).ToList();
+
                 for (int i = 0; i < votes.Count; i++)
                 {
                     VoteItemModel vt = new VoteItemModel();
@@ -1354,10 +1359,10 @@ namespace DAO_WebPortal.Controllers
 
                 //Get total dao member count
                 int daoMemberCount = Convert.ToInt32(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetCount?type=" + UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token")));
-                //Eligible user count = VA Count - 1 (Job Doer)
-                informalVoting.EligibleUserCount = daoMemberCount - 1;
+                //Eligible user count = VA Count
+                informalVoting.EligibleUserCount = daoMemberCount;
                 //Quorum count is calculated with total user count - 2(job poster, job doer)
-                informalVoting.QuorumCount = Convert.ToInt32(Program._settings.QuorumRatio * Convert.ToDouble(informalVoting.EligibleUserCount));
+                informalVoting.QuorumCount = Convert.ToInt32(Math.Ceiling(Program._settings.QuorumRatio * Convert.ToDouble(informalVoting.EligibleUserCount)));
 
                 string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/StartInformalVoting", Helpers.Serializers.SerializeJson(informalVoting), HttpContext.Session.GetString("Token"));
                 res = Helpers.Serializers.DeserializeJson<SimpleResponse>(jsonResult);
@@ -1626,7 +1631,7 @@ namespace DAO_WebPortal.Controllers
 
             try
             {
-                model.Countries = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Kyc/GetKycCountries", "", HttpContext.Session.GetString("Token")));
+                model.Countries = Helpers.Serializers.DeserializeJson<List<KYCCountries>>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Identity/Kyc/GetKycCountries", "", HttpContext.Session.GetString("Token")));
 
                 if (model.Countries == null)
                     model.Countries = new List<KYCCountries>();
@@ -1659,7 +1664,7 @@ namespace DAO_WebPortal.Controllers
             {
                 //Send files to Identity server          
 
-                model = Helpers.Request.Upload(Program._settings.Service_ApiGateway_Url + "/Identity/Kyc/SubmitKYCFile?Type=" + File.Type + "&Name=" + File.Name + "&Surname=" + File.Surname + "&Dob=" + File.DoB + "&Email=" + File.Email + "&Country=" + File.Country + "&DocumentNumber=" + File.DocumentNumber + "&IssueDate=" + File.IssueDate + "&ExpiryDate=" + File.ExpiryDate + "&UserID=" + HttpContext.Session.GetInt32("UserID"), File.UploadedFile1, File.UploadedFile2);
+                model = Helpers.Request.Upload(Program._settings.Service_ApiGateway_Url + "/Identity/Kyc/SubmitKYCFile?Type=" + File.Type + "&Name=" + File.Name + "&Surname=" + File.Surname + "&Dob=" + File.DoB + "&Email=" + File.Email + "&Country=" + File.Country + "&DocumentNumber=" + File.DocumentNumber + "&IssueDate=" + File.IssueDate + "&ExpiryDate=" + File.ExpiryDate + "&UserID=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"), File.UploadedFile1, File.UploadedFile2);
             }
             catch (Exception ex)
             {

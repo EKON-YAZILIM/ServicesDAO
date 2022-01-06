@@ -58,7 +58,6 @@
                                         <th scope="col">Time (days)</th>
                                         <th scope="col">User Note</th>
                                         <th scope="col"></th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +72,16 @@
                                             <td>@item.UserName</td>
                                             <td>@item.Price</td>
                                             <td>@item.Time</td>
-                                            <td>@item.UserNote</td>
+                                            <td>
+                                                @if (item.UserNote != null && item.UserNote.Length > 20)
+                                                {
+                                                    @item.UserNote.Substring(0, Math.Min(item.UserNote.Length, 20))<span class="cursorp" onclick="ShowNoteModal('@Html.Encode(item.UserNote)');">... <i class="fas fa-eye ml-1"></i></span>
+                                                }
+                                                else
+                                                {
+                                                    @item.UserNote
+                                                }
+                                            </td>
                                             @*Show winner bid icon*@
                                             @if (item.AuctionBidID == Model.Auction.WinnerAuctionBidID)
                                             {
@@ -100,4 +108,31 @@
     </section>
 </main>
 
+
+<!-- User note modal -->
+<div class="modal fade" id="userNoteModal" tabindex="-1" role="dialog" aria-labelledby="userNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4>User's Note</h4>
+
+                <p id="userNoteContent"></p>
+
+                <button class="btn btn-secondary float-right" type="button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <partial name="../Shared/_PublicFooterPartial" />
+
+@section Scripts{
+
+    <script>
+        //Toggles user note modal to show all UserNote content
+        function ShowNoteModal(note) {
+            $("#userNoteContent").html(note);
+            $("#userNoteModal").modal("toggle");
+        }
+    </script>
+}

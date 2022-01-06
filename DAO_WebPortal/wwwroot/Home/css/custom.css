@@ -634,3 +634,24 @@ tbody tr:hover .trSlider span {
     background: #1A236F;
     /*margin-bottom: -4.9rem;*/
 }
+
+.jobCardBid{
+    height: 155px !important;
+    border-radius: 7px;
+}
+
+.jobCardBid table{
+    min-width:220px;
+    overflow:scroll;
+    font-size: 13px !important;
+}
+
+#userNoteContent{
+    font-style: italic;
+    white-space: pre-line;
+}
+
+.jobCardBid table td:nth-child(1) {  
+    width: 30px;
+    padding-left: 15px;
+  }

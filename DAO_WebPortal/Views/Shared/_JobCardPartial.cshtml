@@ -74,41 +74,149 @@
 <div @Html.Raw(divProps)>
 
     @if(jobType == "job"){
-        <h5 class="mb-3 mt-2"><i class="fas fa-archive me-1"></i> Job Summary</h5>
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="mb-3 mt-2"><i class="fas fa-archive me-1"></i> Job Summary</h5>
 
-        <table class="table">
-            <tr>
-                <td><i class="fas fa-coins me-2"></i><i>Job Budget</i></td>
-                <td>@Model.Amount €</td>
-            </tr>
-            <tr>
-                <td><i class="fas fa-calendar me-2"></i><i>Time Frame</i></td>
-                <td>@Model.TimeFrame days</td>
-            </tr>
-            @if(!string.IsNullOrEmpty(Model.JobDoerUsername)){
-                <tr>
-                    <td><i class="fas fa-user me-2"></i><i>Job Doer</i></td>
-                    <td>@Model.JobDoerUsername</td>
-                </tr>
-            }
-            <tr>
-                <td><i class="fas fa-hashtag me-2"></i><i>Tags / Coding Lang.</i></td>
-                <td>
-                    @if(string.IsNullOrEmpty(@Model.Tags)){
-                        <i>No tags specified.</i>
+                <table class="table">
+                    <tr>
+                        <td><i class="fas fa-coins me-2"></i><i>Job Poster's Budget</i></td>
+                        <td>@Model.Amount €</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-calendar me-2"></i><i>Time Frame</i></td>
+                        <td>@Model.TimeFrame days</td>
+                    </tr>
+                    @if(!string.IsNullOrEmpty(Model.JobDoerUsername)){
+                        <tr>
+                            <td><i class="fas fa-user me-2"></i><i>Job Doer</i></td>
+                            <td>@Model.JobDoerUsername</td>
+                        </tr>
                     }
-                    else{
-                        foreach(var tag in Model.Tags.Split(',')){
-                            <span class="badge bg-secondary me-1">@tag</span>
+                    <tr>
+                        <td><i class="fas fa-hashtag me-2"></i><i>Tags / Coding Lang.</i></td>
+                        <td>
+                            @if(string.IsNullOrEmpty(@Model.Tags)){
+                                <i>No tags specified.</i>
+                            }
+                            else{
+                                foreach(var tag in Model.Tags.Split(',')){
+                                    <span class="badge bg-secondary me-1">@tag</span>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-code me-2"></i><i>Code Link</i></td>
+                        <td><a target="_blank" href="@Model.CodeUrl">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.CodeUrl, 40)</a></td>
+                    </tr>
+                    @if(pageType == "detail" && Model.Auction != null && Model.Auction.WinnerAuctionBidID != null){
+                        try{
+                            <tr>
+                                <td><i class="fas fa-clock me-2"></i><i>Deadline</i></td>
+                                <td>
+                                    @Model.Auction.PublicAuctionEndDate.AddDays(Convert.ToInt32(Model.AuctionBids.First(x=>x.AuctionBidID == Model.Auction.WinnerAuctionBidID).Time))
+                                </td>
+                            </tr>
+                        }
+                        catch{
+
                         }
                     }
-                </td>
-            </tr>
-            <tr>
-                <td><i class="fas fa-code me-2"></i><i>Code Link</i></td>
-                <td><a target="_blank" href="@Model.CodeUrl">@Model.CodeUrl</a></td>
-            </tr>
-        </table>
+                </table>
+            </div>
+            <div class="col-md-4">
+                 <h5 class="mb-3 mt-2"><i class="fas fa-gavel me-1"></i> Bids</h5>
+                 @if(Model.Auction == null || Model.Auction.AuctionID <= 0){
+                    <center class="p-3">
+                        <i class="fas fa-hourglass-start text-secondary my-3" style="font-size:35px"></i>
+                        <h6 class="text-secondary">Auction did not start for this job yet</h6>
+                    </center>
+                 }
+                 else if (Model.Auction.AuctionID > 0 && Model.AuctionBids.Count == 0){
+                    <center class="p-3">
+                        <i class="fas fa-user-times text-secondary my-3" style="font-size:35px"></i>
+                        <h6 class="text-secondary">There are no bids for this job</h6>
+                    </center>
+                 }
+                 else if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction || Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction){
+                    <div class="table-responsive jobCardBid">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Price</th>
+                                    <th>Total Reps</th>
+                                    <th>Stake</th>
+                                    <th>Timeframe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var bid in Model.AuctionBids)
+                                {
+                                    string colClass = "bg-info text-white";
+                                    if(bid.UserType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()){
+                                        colClass = "bg-primary text-white";
+                                    }
+                                    <tr>
+                                        <td class="@colClass">
+                                            @if(bid.UserType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()){
+                                                <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-house-user"></i>
+                                            }
+                                            else{
+                                                <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-user"></i>
+                                            }
+                                        </td>
+                                        <td class="@colClass">@bid.Price€</td>
+                                        <td class="@colClass">@DAO_WebPortal.Utility.StringHelper.AnonymizeReputation(bid.UsersTotalReputation)</td>
+                                        <td class="@colClass">@bid.ReputationStake</td>
+                                        <td class="@colClass">@bid.Time days</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                 }
+                 else {
+                    <div class="table-responsive jobCardBid">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Username</th>
+                                    <th>Price</th>
+                                    <th>Timeframe</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var bid in Model.AuctionBids)
+                                {
+                                    string colClass = "";
+                                    if(bid.AuctionBidID == Model.Auction.WinnerAuctionBidID){
+                                        colClass = "bg-success text-white";
+                                    }
+                                    <tr>
+                                        <td class="@colClass">
+                                            @if(bid.UserType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()){
+                                                <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-house-user"></i>
+                                            }
+                                            else{
+                                                <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-user"></i>
+                                            }
+                                        </td>
+                                        <td class="@colClass">
+                                            @bid.UserName
+                                        </td>
+                                        <td class="@colClass">@bid.Price€</td>
+                                        <td class="@colClass">@bid.Time days</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                 }
+            </div>
+        </div>
     }
     @if(pageType == "detail" && jobType == "job"){
         <span>@Model.CommentCount comments made for this topic. <small><a href="#comments">Click here to jump comments section</a></small></span>
@@ -165,7 +273,6 @@
                 <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
             </svg> Reply
         </a>
-
     }
 
     @if (Model.IsUserFlagged == true){
@@ -183,12 +290,22 @@
         </a>
     }
 
+    @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed|| Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
+    {
+        <!-- New comment click -->
+        <a href="../My-Job-Edit/@Model.JobID" class="card-text mx-2 cursorp">
+            <svg class="icon">
+                <use xlink:href="/Home/images/svg/free.svg#cil-pencil"></use>
+            </svg> Edit
+        </a>
+    }
+
     @if(Model.FlagCount > 0){
         <small class="float-right"><i>@Model.FlagCount user flagged this job</i></small>
     }
 
     <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
-    @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted && Model.JobDoerUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+    @if ((Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed) && Model.JobDoerUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
         <!-- New comment click -->
         <button onclick="StartInformalVoting(@Model.JobID);" class="btn btn-sm btn-primary btn-shine float-right">
@@ -212,5 +329,22 @@
         <button onclick="PayDosFeeModal(@Model.JobID);" class="btn btn-sm btn-primary btn-shine float-right">
             Pay DoS Fee
         </button>
+
+        @* <form class="btn-shine float-right d-inline" action="../Home/DosFeeProcess" method="POST">
+            <input type="hidden" value="@Model.JobID" name="jobid">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_51K4gybBY9GMD1AgYf1OySdf1e0Q7oMtKMHsRvQihRcUA25vXAXjmMdI5bb4FSfJSVklNVjfVNhUmMziW3Uh0exRZ00CWMZfdry"
+            data-amount="@ViewBag.PaymentAmount"
+            data-name="Dos Fee Payment @Program._settings.DosFees[1] $"
+            data-description="Please pay the DoS fee to validate your bid."
+            data-locale="en"
+            data-zip-code="false"
+            data-label="Pay DoS Fee">
+            </script>
+        </form> *@
     }
 </div> <!-- Footer -->
+
+
+
+   

@@ -4,6 +4,7 @@ using Helpers.Constants;
 using Helpers.Models.DtoModels.LogDbDto;
 using Helpers.Models.DtoModels.MainDbDto;
 using Helpers.Models.DtoModels.VoteDbDto;
+using Helpers.Models.DtoModels.ReputationDbDto;
 using Helpers.Models.SharedModels;
 using Helpers.Models.WebsiteViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,7 @@ using PagedList.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using static DAO_DbService.Mapping.AutoMapperBase;
-using static Helpers.Models.WebsiteViewModels.MyJobsViewModel;
 
 namespace DAO_DbService.Controllers
 {
@@ -45,7 +44,7 @@ namespace DAO_DbService.Controllers
                                                         let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                                                         let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                                         let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                                        where status == null || job.Status == status
+                                                        where (status == null || job.Status == status)
                                                         orderby job.CreateDate descending
                                                         select new JobPostViewModel
                                                         {
@@ -67,6 +66,17 @@ namespace DAO_DbService.Controllers
                                                             FlagCount = flagcount,
                                                             TimeFrame = job.TimeFrame
                                                         }).ToPagedList(page, pageCount);
+
+                    //Match auctions and bids with jobs
+                    List<int?> jobIds = lst.Select(x=>x.JobID).ToList().ConvertAll<int?>(i => i);
+                    var auctions = _mapper.Map<List<Auction>, List<AuctionDto>>(db.Auctions.Where(x=> jobIds.Contains(x.JobID)).ToList());
+                    
+                    foreach (var job in lst)
+                    {
+                        job.Auction = auctions.SingleOrDefault(x=>x.JobID == job.JobID);                     
+                        if(job.Auction != null)
+                            job.AuctionBids = GetAuctionBids(job.Auction.AuctionID);
+                    }
 
                     res.Items = lst;
                     res.MetaData = new PaginationMetaData() { Count = lst.Count, FirstItemOnPage = lst.FirstItemOnPage, HasNextPage = lst.HasNextPage, HasPreviousPage = lst.HasPreviousPage, IsFirstPage = lst.IsFirstPage, IsLastPage = lst.IsLastPage, LastItemOnPage = lst.LastItemOnPage, PageCount = lst.PageCount, PageNumber = lst.PageNumber, PageSize = lst.PageSize, TotalItemCount = lst.TotalItemCount };
@@ -194,6 +204,10 @@ namespace DAO_DbService.Controllers
                         TimeFrame = jobPost.TimeFrame,
                         JobDoerUsername = jobDoerUsername
                     };
+
+                    result.Auction = _mapper.Map<Auction, AuctionDto>(db.Auctions.SingleOrDefault(x=>x.JobID == result.JobID));                     
+                    if(result.Auction != null)
+                        result.AuctionBids = GetAuctionBids(result.Auction.AuctionID);
                 }
             }
             catch (Exception ex)
@@ -210,7 +224,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetUserJobs")]
         [HttpGet]
-        public MyJobsViewModel GetUserJobs(int userid)
+        public MyJobsViewModel GetUserJobs(int userid, Helpers.Constants.Enums.JobStatusTypes? status)
         {
             MyJobsViewModel result = new MyJobsViewModel();
             result.ownedJobs = new List<JobPostViewModel>();
@@ -226,7 +240,7 @@ namespace DAO_DbService.Controllers
                                         let explanation = job.JobDescription.Substring(0, 250)
                                         let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                         let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                        where job.UserID == userid
+                                        where job.UserID == userid && (status == null || job.Status == status)
                                         orderby job.CreateDate descending
                                         select new JobPostViewModel
                                         {
@@ -257,7 +271,7 @@ namespace DAO_DbService.Controllers
                                        let explanation = job.JobDescription.Substring(0, 250)
                                        let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                        let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                       where auctionbid.UserID == userid && auctionbid.AuctionBidID == auction.WinnerAuctionBidID
+                                       where auctionbid.UserID == userid && auctionbid.AuctionBidID == auction.WinnerAuctionBidID && (status == null || job.Status == status)
                                        select new JobPostViewModel
                                        {
                                            Title = job.Title,
@@ -278,6 +292,29 @@ namespace DAO_DbService.Controllers
                                            FlagCount = flagcount,
                                            TimeFrame = job.TimeFrame
                                        }).ToList();
+              
+                    var allJobs = new List<JobPostViewModel>();
+                    allJobs.AddRange(result.ownedJobs);
+                    allJobs.AddRange(result.doerJobs);
+
+                    //Match auctions and bids with jobs
+                    List<int?> jobIds = allJobs.Select(x=>x.JobID).ToList().ConvertAll<int?>(i => i);
+                    var auctions = _mapper.Map<List<Auction>, List<AuctionDto>>(db.Auctions.Where(x=> jobIds.Contains(x.JobID)).ToList());
+                    var auctionIds = auctions.Select(x=>x.AuctionID).ToList();
+
+                    foreach (var job in result.ownedJobs)
+                    {
+                        job.Auction = auctions.SingleOrDefault(x=>x.JobID == job.JobID);
+                        if(job.Auction != null)
+                            job.AuctionBids = GetAuctionBids(job.Auction.AuctionID);
+                    }
+
+                    foreach (var job in result.doerJobs)
+                    {
+                        job.Auction = auctions.SingleOrDefault(x=>x.JobID == job.JobID);
+                        if(job.Auction != null)
+                            job.AuctionBids = GetAuctionBids(job.Auction.AuctionID);
+                    }
                 }
             }
             catch (Exception ex)
@@ -487,8 +524,18 @@ namespace DAO_DbService.Controllers
                                   UserName = user.UserName,
                                   AuctionBidID = actbid.AuctionBidID,
                                   NameSurname = user.NameSurname,
-                                  UserNote = actbid.AssociateUserNote
+                                  UserNote = actbid.AssociateUserNote,
+                                  UserType = user.UserType
                               }).ToList();
+
+                    var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(result.Select(x => x.UserId)));
+                    var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+
+                    foreach (var bid in result){
+                        if(reputationsTotal.Count(x=>x.UserID == bid.UserId) > 0){
+                            bid.UsersTotalReputation = reputationsTotal.First(x=>x.UserID == bid.UserId).LastTotal;
+                        }
+                    }
                 }
             }
             catch (Exception ex)

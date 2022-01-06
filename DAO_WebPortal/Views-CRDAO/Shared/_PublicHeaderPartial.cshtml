@@ -8,7 +8,7 @@
             <div class="header-wrap">
                 <!-- Logo -->
                 <div class="header-logo logo animated" data-animate="fadeInDown" data-delay=".6">
-                    <a href="./" class="logo-link">
+                    <a href="../Public/Index" class="logo-link">
                         <img class="logo-dark" src="../Public/images/crdao-logo-dark.png" srcset="../Public/images/crdao-logo-dark.png 2x" alt="logo">
                         <img class="logo-light" src="../Public/images/crdao-logo-light.png" srcset="../Public/images/crdao-logo-light.png 2x" alt="logo">
                     </a>
@@ -26,18 +26,17 @@
                 <div class="header-navbar animated" data-animate="fadeInDown" data-delay=".75">
                     <nav class="header-menu" id="header-menu">
                         <ul class="menu">
-
-                            <li class="menu-item">
-                                <a class="menu-link nav-link" href="../Privacy-Policy">Privacy Policy</a>
-                            </li>
-                            <li class="menu-item">
-                                <a class="menu-link nav-link" href="../Contact">Contact</a>
-                            </li>
                             <li class="menu-item">
                                 <a class="menu-link nav-link" href="../Price-Discovery">Price Discovery</a>
                             </li>
                             <li class="menu-item">
                                 <a class="menu-link nav-link" target="_blank" href="../Public/ossagtc.pdf">Terms & Conditions</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link nav-link" target="_blank" href="../Public/CRDAO-Whitepaper-Version3.pdf">Whitepaper</a>
+                            </li>
+                            <li class="menu-item">
+                                <a class="menu-link nav-link" href="../Contact">Contact</a>
                             </li>
                         </ul>
                         @if (httpContextAccessor.HttpContext.Session.GetInt32("UserID") != null)

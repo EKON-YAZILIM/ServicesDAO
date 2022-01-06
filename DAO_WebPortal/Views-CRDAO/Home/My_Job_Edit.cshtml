@@ -3,65 +3,115 @@
     Layout = "../Shared/_MainLayout.cshtml";
 
 }
+
 @model Helpers.Models.DtoModels.MainDbDto.JobPostDto
+
+@Html.AntiForgeryToken()
+
+<script src="../Home/lib/ckeditor/ckeditor.js"></script>
 
 <!-- Row -->
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" value="@Model.Title">
+            <label class="mb-2" for="title"><b><i class="fas fa-heading"></i> Title</b></label>
+            <input type="text" class="form-control" id="title" placeholder="Title of the job" value="@Model.Title">
         </div>
-        <div class="form-group mb-4">
-            <label for="amount">Amount</label>
-            <input type="text" class="form-control" id="amount" value="@Model.Amount">
+        <div class="row my-3">
+            <div class="col-md-6">
+                <label class="mb-2" for="title"><b><i class="fas fa-coins mx-1"></i> Total Budget</b></label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">€</span>
+                    <input class="form-control number" value="@Model.Amount" type="text" aria-label="Amount" placeholder="Expected job price in Euros" id="amount"><span class="input-group-text">.00</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="mb-2" for="title"><b><i class="fas fa-calendar-week mx-1"></i> Expected Time Frame</b></label>
+                <div class="input-group mb-3">
+                    <input class="form-control number" value="@Model.TimeFrame" type="text" aria-label="Time Frame" placeholder="Time frame for job completion" id="time"><span class="input-group-text">days</span>
+                </div>
+            </div>
         </div>
-        <div class="form-group mb-4">
-            <label for="time">Time Frame</label>
-            <input type="text" class="form-control" id="time" value="@Model.TimeFrame">
+        <div class="row my-3">
+            <div class="col-md-6">
+                <label class="mb-2" for="title"><b><i class="fas fa-hashtag mx-1"></i> Tags / Coding Language</b></label>
+                <div class="input-group mb-3">
+                    <input class="form-control" value="@Model.Tags" type="text" aria-label="Tags" placeholder="Related tags and coding languages (Comma seperated)" id="tags">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="mb-2" for="title"><b><i class="fas fa-code mx-1"></i> Code Url</b></label>
+                <div class="input-group mb-3">
+                    <input class="form-control" value="@Model.CodeUrl" type="text" aria-label="CodeUrl" placeholder="Url of the repository or code file" id="codeurl">
+                </div>
+            </div>
         </div>
-        <div class="form-group mb-4">
-            <label for="description">Job Description</label>
-            <textarea type="text" class="form-control" id="description" value="@Model.JobDescription" rows="5"></textarea>
+        <div class="form-group">
+            <label class="mb-2" for="description"><b><i class="fas fa-file mx-1"></i> Job Description</b></label>
+            <textarea type="text" id="description" name="description"  placeholder="Job Description" rows="10">@Html.Raw(Model.JobDescription)</textarea>
         </div>
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary" onclick="Update();">Submit Job</button>
+        <div class="d-flex justify-content-end mt-3">
+            <button type="submit" class="btn btn-primary" onclick="Update();">Update Job</button>
         </div>
     </div>
 </div>
-<script>
 
-    //Job edit function
-    function Update() {
-         //Create job model
-         dataModel = @Html.Raw(Json.Serialize(Model));
-         dataModel.title = $('#title').val()
-         dataModel.amount = $('#amount').val();
-         dataModel.time = $('#time').val();
-         dataModel.jobDescription = $('#description').val();
-            //Ajax put action
-            $.ajax({
-                type: "PUT",
-                url: "../Home/My_Job_Update",
-                data: dataModel,
-                success: function (result) {
-                    console.log(result);
-                    if (result.success) {
-                        toastr.success(result.message);
-                        setTimeout(function () {
-                            window.location.href = "./../My-Jobs";
-                        }, 1000);
+@section Scripts{
+    <script>
+
+
+        $(document).ready(function () {
+            if (document.body.classList.contains('dark-theme')) {
+                CKEDITOR.replace('description', {
+                    skin: 'moono-dark'
+                });
+            }
+            else {
+                CKEDITOR.replace('description', {
+                    skin: 'moono-lisa'
+                });
+            }
+        });
+
+        //Job edit function
+        function Update() {
+            //Create job model
+            var title = $('#title').val()
+            var amount = $('#amount').val();
+            var time = $('#time').val();
+            var codeurl = $('#codeurl').val();
+            var tags = $('#tags').val();
+            var description = CKEDITOR.instances["description"].getData();
+
+            dataModel = @Html.Raw(Json.Serialize(Model));
+            dataModel.title = title;
+            dataModel.amount = amount;
+            dataModel.timeFrame = time;
+            dataModel.codeUrl = codeurl;
+            dataModel.tags = tags;
+            dataModel.jobDescription = description;
+                
+                //Ajax put action
+                $.ajax({
+                    type: "PUT",
+                    url: "../Home/My_Job_Update",
+                    data: dataModel,
+                    success: function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            window.location.href = "../My-Jobs";
+                        }
+                        else {
+                            toastr.warning(result.message);
+                        }
+                    },
+                    failure: function (response) {
+                            toastr.warning("@Lang.ConnectionError");
+                    },
+                    error: function (response) {
+                        toastr.error("@Lang.UnexpectedError");
                     }
-                    else {
-                        toastr.warning(result.message);
-                    }
-                },
-                  failure: function (response) {
-                        toastr.warning("@Lang.ConnectionError");
-                },
-                error: function (response) {
-                     toastr.error("@Lang.UnexpectedError");
-                }
-            });
-     }
-</script>
+                });
+        }
+    </script>
+}

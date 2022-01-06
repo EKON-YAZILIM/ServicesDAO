@@ -1,4 +1,5 @@
-﻿using Helpers.Models.DtoModels.VoteDbDto;
+﻿using Helpers.Models.DtoModels.MainDbDto;
+using Helpers.Models.DtoModels.VoteDbDto;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,5 +27,7 @@ namespace Helpers.Models.WebsiteViewModels
         public bool IsUserFlagged { get; set; }
         public int FlagCount { get; set; }
         public string TimeFrame { get; set; }
+        public AuctionDto Auction { get; set; } = new AuctionDto();
+        public List<AuctionBidItemModel> AuctionBids { get; set; } = new List<AuctionBidItemModel>();
     }
 }

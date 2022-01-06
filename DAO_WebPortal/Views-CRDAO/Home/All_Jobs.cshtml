@@ -6,12 +6,10 @@
     Layout = "../Shared/_MainLayout.cshtml";
 }
 
-<div class="row mb-3">
-    <div class="col-md-6">
-
-    </div>
-    <div class="col-md-6">
-        <div class="input-group mb-2 float-right" style="max-width: 300px;">
+<!-- Row -->
+<div class="row d-flex mb-3">
+    <div class="col-md-6 d-flex">
+    <div class="input-group mb-2 float-right" style="max-width: 300px;">
             <span class="input-group-text"><i class="fas fa-filter"></i></span>
             <select class="form-select" id="jobStatusSelect">
                 <option value="*" selected>All Jobs</option>
@@ -29,7 +27,11 @@
                 <option value="Rejected">Rejected</option>
             </select>
         </div>
-
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+        <button class="btn btn-primary" type="button" onclick="window.location.href='./New-Job';">
+            <i class="fas fa-plus me-1"></i> Post New Job
+        </button>
     </div>
 </div>
 

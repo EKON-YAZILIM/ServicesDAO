@@ -19,6 +19,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using static DAO_WebPortal.Program;
 using static Helpers.Constants.Enums;
+using Stripe;
 
 namespace DAO_WebPortal
 {
@@ -57,6 +58,8 @@ namespace DAO_WebPortal
         /// </summary>
         public static void InitializeService()
         {
+            StripeConfiguration.ApiKey = Program._settings.StripePrivateKey;
+
             Helpers.Encryption.EncryptionKey = Program._settings.EncryptionKey;
 
             monitizer = new Monitizer(_settings.RabbitMQUrl, _settings.RabbitMQUsername, _settings.RabbitMQPassword);

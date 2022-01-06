@@ -32,8 +32,10 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Job Name</th>
                                                 <th scope="col">Job Budget</th>
-                                                <th scope="col">Auction Start Date</th>
-                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Job Poster</th>
+                                                <th scope="col">Timeframe</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">Time Left</th>
                                                 <th scope="col">Bid Count</th>
                                             </tr>
                                         </thead>
@@ -44,11 +46,13 @@
                                                 @foreach (var auction in internalAuctions)
                                                 {
                                                     <tr>
-                                                        <th scope="row">@auction.AuctionID</th>
-                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <th scope="row">@auction.JobID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                                         <td>@auction.JobPrice €</td>
-                                                        <td>@auction.CreateDate.ToString("MM/dd/yyyy") @auction.CreateDate.ToLocalTime().ToString("HH:mm")</td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <td>@auction.JobPosterUsername</td>
+                                                        <td>@auction.ExpectedTimeframe days</td>
+                                                        <td>@auction.CreateDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                                        <td><b id="counter_@auction.AuctionID"></b></td>
                                                         <td>@auction.BidCount</td>
                                                     </tr>
                                                 }
@@ -76,8 +80,10 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Job Name</th>
                                                 <th scope="col">Job Budget</th>
-                                                <th scope="col">Auction Start Date</th>
-                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Job Poster</th>
+                                                <th scope="col">Timeframe</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">Time Left</th>
                                                 <th scope="col">Bid Count</th>
                                             </tr>
                                         </thead>
@@ -88,11 +94,13 @@
                                                 @foreach (var auction in publicAuctions)
                                                 {
                                                     <tr>
-                                                        <th scope="row">@auction.AuctionID</th>
-                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <th scope="row">@auction.JobID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
                                                         <td>@auction.JobPrice €</td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
-                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy") @auction.PublicAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <td>@auction.JobPosterUsername</td>
+                                                        <td>@auction.ExpectedTimeframe days</td>
+                                                        <td>@auction.CreateDate.ToString("MM/dd/yyyy HH:mm")</td>
+                                                        <td><b id="counter_@auction.AuctionID"></b></td>
                                                         <td>@auction.BidCount</td>
                                                     </tr>
                                                 }
@@ -124,8 +132,9 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Job Name</th>
-                                                <th scope="col">Auction Start Date</th>
-                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Job Budget</th>
+                                                <th scope="col">Job Poster</th>
+                                                <th scope="col">Timeframe</th>
                                                 <th scope="col">Winner User</th>
                                                 <th scope="col">Bid Count</th>
                                                 <th scope="col"></th>
@@ -138,10 +147,11 @@
                                                 @foreach (var auction in completedAuctions)
                                                 {
                                                     <tr>
-                                                        <th scope="row">@auction.AuctionID</th>
-                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                                        <td>@auction.CreateDate.ToString("MM/dd/yyyy") @auction.CreateDate.ToLocalTime().ToString("HH:mm")</td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <th scope="row">@auction.JobID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <td>@auction.JobPrice</td>
+                                                        <td>@auction.JobPosterUsername</td>
+                                                        <td>@auction.ExpectedTimeframe</td>
                                                         <td>@auction.WinnerUserName</td>
                                                         <td>@auction.BidCount</td>
                                                         <td>
@@ -174,8 +184,9 @@
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Job Name</th>
-                                                <th scope="col">Auction Start Date</th>
-                                                <th scope="col">Auction End Date</th>
+                                                <th scope="col">Job Budget</th>
+                                                <th scope="col">Job Poster</th>
+                                                <th scope="col">Timeframe</th>
                                                 <th scope="col">Winner User</th>
                                                 <th scope="col">Bid Count</th>
                                                 <th scope="col"></th>
@@ -188,10 +199,11 @@
                                                 @foreach (var auction in expiredAuctions)
                                                 {
                                                     <tr>
-                                                        <th scope="row">@auction.AuctionID</th>
-                                                        <td><a href="../Public-Job-Detail/@auction.JobID" title="@auction.Title">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
-                                                        <td>@auction.InternalAuctionEndDate.ToString("MM/dd/yyyy") @auction.InternalAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
-                                                        <td>@auction.PublicAuctionEndDate.ToString("MM/dd/yyyy") @auction.PublicAuctionEndDate.ToLocalTime().ToString("HH:mm")</td>
+                                                        <th scope="row">@auction.JobID</th>
+                                                        <td><a href="../Public-Job-Detail/@auction.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(auction.Title, 25)</a></td>
+                                                        <td>@auction.JobPrice</td>
+                                                        <td>@auction.JobPosterUsername</td>
+                                                        <td>@auction.ExpectedTimeframe</td>
                                                         <td>-</td>
                                                         <td>@auction.BidCount</td>
                                                         <td>
@@ -220,3 +232,87 @@
 
 <partial name="../Shared/_PublicFooterPartial" />
 
+
+@section Scripts{
+
+    <script>
+
+        //Get auctions json model for time left counter
+        dataModel = @Html.Raw(Json.Serialize(Model.Where(x=>x.Status == Helpers.Constants.Enums.AuctionStatusTypes.InternalBidding || x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).ToList()));
+
+        var auctionCountdownDictionary = {};
+
+        var now = new Date(@DateTime.Now.Year, @(DateTime.Now.Month-1), @DateTime.Now.Day, @DateTime.Now.Hour, @DateTime.Now.Minute, @DateTime.Now.Second);
+
+        var selectedAuctionId = 0;
+
+        $(document).ready(function () {
+
+            setInterval(function () {
+                now.setSeconds(now.getSeconds() + 1);
+            }, 1000);
+
+            //Start auction countdowns
+            for (i = 0; i < dataModel.length; i++) {
+                if (dataModel[i].status == 1) {
+                    var countDownDate = new Date(dataModel[i].internalAuctionEndDate).getTime();
+                } else {
+                    var countDownDate = new Date(dataModel[i].publicAuctionEndDate).getTime();
+                }
+                auctionCountdownDictionary[dataModel[i].auctionID] = countDownDate;
+                CountDown(dataModel[i].auctionID, countDownDate);
+                StartInterval(dataModel[i], 1000)
+            }
+
+            //Show only eligible switch events
+            $("#internalEligibleSwitch").change(function () {
+                if (this.checked) {
+                    $(".internal-noneligible").addClass("d-none");
+                }
+                else {
+                    $(".internal-noneligible").removeClass("d-none");
+                }
+            });
+
+            //Show only eligible switch events
+            $("#publicEligibleSwitch").change(function () {
+                if (this.checked) {
+                    $(".public-noneligible").addClass("d-none");
+                }
+                else {
+                    $(".public-noneligible").removeClass("d-none");
+                }
+            });
+        });
+
+        //Send auctionIDs to CountDown function
+        function StartInterval(index, frequency) {
+            setInterval(function () {
+                CountDown(index.auctionID, auctionCountdownDictionary[index.auctionID]);
+            }, frequency);
+        }
+
+        //Countdown method
+        function CountDown(id, countDownDate) {
+
+            countDownDate = auctionCountdownDictionary[id];
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now.getTime();
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="counter_id"
+            document.getElementById("counter_" + id).innerHTML = "<span>" + days.toString() + "</span>" + "D <span>" + hours.toString().padStart(2, '0') + "</span>:<span>"
+                + minutes.toString().padStart(2, '0') + "</span>:<span>" + seconds.toString().padStart(2, '0') + "</span>";
+
+            // If the count down is over, write some text
+            if (distance < 0) {
+                document.getElementById("counter_" + id).innerHTML = "EXPIRED";
+            }
+        }
+        </script>
+}

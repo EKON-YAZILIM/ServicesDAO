@@ -20,6 +20,139 @@
             </div>
 
             <div class="card">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h5 class="mb-3 mt-2"><i class="fas fa-archive me-1"></i> Job Summary</h5>
+
+                        <table class="table">
+                            <tr>
+                                <td><i class="fas fa-coins me-2"></i><i>Job Poster's Budget</i></td>
+                                <td>@Model.Amount €</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-calendar me-2"></i><i>Time Frame</i></td>
+                                <td>@Model.TimeFrame days</td>
+                            </tr>
+                            @if(!string.IsNullOrEmpty(Model.JobDoerUsername)){
+                                <tr>
+                                    <td><i class="fas fa-user me-2"></i><i>Job Doer</i></td>
+                                    <td>@Model.JobDoerUsername</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td><i class="fas fa-hashtag me-2"></i><i>Tags / Coding Lang.</i></td>
+                                <td>
+                                    @if(string.IsNullOrEmpty(Model.Tags)){
+                                        <i>No tags specified.</i>
+                                    }
+                                    else{
+                                        foreach(var tag in Model.Tags.Split(',')){
+                                            <span class="badge bg-secondary me-1">@tag</span>
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-code me-2"></i><i>Code Link</i></td>
+                                <td><a target="_blank" href="@Model.CodeUrl">@DAO_WebPortal.Utility.StringHelper.ShortenString(Model.CodeUrl, 40)</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-5">
+                        <h5 class="mb-3 mt-2"><i class="fas fa-gavel me-1"></i> Bids</h5>
+                        @if(Model.Auction == null || Model.Auction.AuctionID <= 0){
+                            <center class="p-3">
+                                <i class="fas fa-hourglass-start text-secondary my-3" style="font-size:35px"></i>
+                                <h6 class="text-secondary">Auction did not start for this job yet</h6>
+                            </center>
+                        }
+                        else if (Model.Auction.AuctionID > 0 && Model.AuctionBids.Count == 0){
+                            <center class="p-3">
+                                <i class="fas fa-user-times text-secondary my-3" style="font-size:35px"></i>
+                                <h6 class="text-secondary">There are no bids for this job</h6>
+                            </center>
+                        }
+                        else if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction || Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction){
+                            <div class="table-responsive jobCardBid">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Price</th>
+                                            <th>Total Reps</th>
+                                            <th>Stake</th>
+                                            <th>Timeframe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var bid in Model.AuctionBids)
+                                        {
+                                            string colClass = "bg-info text-white";
+                                            if(bid.UserType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()){
+                                                colClass = "bg-primary text-white";
+                                            }
+                                            <tr>
+                                                <td class="@colClass">
+                                                    @if(bid.UserType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()){
+                                                        <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-house-user mx-2"></i>
+                                                    }
+                                                    else{
+                                                        <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-user mx-2"></i>
+                                                    }
+                                                </td>
+                                                <td class="@colClass">@bid.Price€</td>
+                                                <td class="@colClass">@DAO_WebPortal.Utility.StringHelper.AnonymizeReputation(bid.UsersTotalReputation)</td>
+                                                <td class="@colClass">@bid.ReputationStake</td>
+                                                <td class="@colClass">@bid.Time days</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else {
+                            <div class="table-responsive jobCardBid">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Username</th>
+                                            <th>Price</th>
+                                            <th>Timeframe</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var bid in Model.AuctionBids)
+                                        {
+                                            string colClass = "";
+                                            if(bid.AuctionBidID == Model.Auction.WinnerAuctionBidID){
+                                                colClass = "bg-success text-white";
+                                            }
+                                            <tr>
+                                                <td class="@colClass">
+                                                    @if(bid.UserType == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString()){
+                                                        <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-house-user mx-2"></i>
+                                                    }
+                                                    else{
+                                                        <i data-toggle="tooltip" data-placement="top" title="@bid.UserType" class="fas fa-user mx-2"></i>
+                                                    }
+                                                </td>
+                                                <td class="@colClass">
+                                                    @bid.UserName
+                                                </td>
+                                                <td class="@colClass">@bid.Price€</td>
+                                                <td class="@colClass">@bid.Time days</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
                 <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
 
                 <div class="card-body">
@@ -36,3 +169,11 @@
 </main>
 
 <partial name="../Shared/_PublicFooterPartial" />
+
+@section Scripts{
+
+    <script>
+        $('[data-toggle="tooltip"]').tooltip(); 
+    </script>
+
+}

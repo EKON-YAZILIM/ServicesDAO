@@ -38,10 +38,10 @@ namespace DAO_WebPortal
             //Default policing rate (What % goes to the DAO Members vs what % goes to the OP)
             public double DefaultPolicingRate { get; set; }
 
-            //Min policing rate (What is the minimum policing rate that a user can set on a job’s price - non-retroactive)
+            //Min policing rate (What is the minimum policing rate that a user can set on a jobï¿½s price - non-retroactive)
             public double MinPolicingRate { get; set; }
 
-            //Max policing rate (What is the maximum policing rate that a user can set on a job’s price - non-retroactive)
+            //Max policing rate (What is the maximum policing rate that a user can set on a jobï¿½s price - non-retroactive)
             public double MaxPolicingRate { get; set; }
 
             //KYC for normal forum user (Do forum users need to do KYC)
@@ -65,8 +65,12 @@ namespace DAO_WebPortal
             //Time type for votings (Weeks, days, minutes)
             public string VotingTimeType { get; set; }
 
-            //Cost -> Reputation conversion rate (Specifies the conversion rate from a job’s bid price amount when minting reputation for a proposal to the system)
+            //Cost -> Reputation conversion rate (Specifies the conversion rate from a jobï¿½s bid price amount when minting reputation for a proposal to the system)
             public double ReputationConversionRate { get; set; }
+
+            //STRIPE PAYMENT INTEGRATION KEYS
+            public string StripePublicKey { get; set; }
+            public string StripePrivateKey { get; set; }
         }
 
         public static Settings _settings { get; set; } = new Settings();
