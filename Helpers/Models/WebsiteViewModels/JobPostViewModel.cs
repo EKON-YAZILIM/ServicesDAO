@@ -29,5 +29,6 @@ namespace Helpers.Models.WebsiteViewModels
         public string TimeFrame { get; set; }
         public AuctionDto Auction { get; set; } = new AuctionDto();
         public List<AuctionBidItemModel> AuctionBids { get; set; } = new List<AuctionBidItemModel>();
+        public List<VotingDto> Voting {get;set;} = new List<VotingDto>();
     }
 }

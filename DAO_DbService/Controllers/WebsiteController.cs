@@ -68,13 +68,13 @@ namespace DAO_DbService.Controllers
                                                         }).ToPagedList(page, pageCount);
 
                     //Match auctions and bids with jobs
-                    List<int?> jobIds = lst.Select(x=>x.JobID).ToList().ConvertAll<int?>(i => i);
-                    var auctions = _mapper.Map<List<Auction>, List<AuctionDto>>(db.Auctions.Where(x=> jobIds.Contains(x.JobID)).ToList());
-                    
+                    List<int?> jobIds = lst.Select(x => x.JobID).ToList().ConvertAll<int?>(i => i);
+                    var auctions = _mapper.Map<List<Auction>, List<AuctionDto>>(db.Auctions.Where(x => jobIds.Contains(x.JobID)).ToList());
+
                     foreach (var job in lst)
                     {
-                        job.Auction = auctions.SingleOrDefault(x=>x.JobID == job.JobID);                     
-                        if(job.Auction != null)
+                        job.Auction = auctions.SingleOrDefault(x => x.JobID == job.JobID);
+                        if (job.Auction != null)
                             job.AuctionBids = GetAuctionBids(job.Auction.AuctionID);
                     }
 
@@ -205,8 +205,8 @@ namespace DAO_DbService.Controllers
                         JobDoerUsername = jobDoerUsername
                     };
 
-                    result.Auction = _mapper.Map<Auction, AuctionDto>(db.Auctions.SingleOrDefault(x=>x.JobID == result.JobID));                     
-                    if(result.Auction != null)
+                    result.Auction = _mapper.Map<Auction, AuctionDto>(db.Auctions.SingleOrDefault(x => x.JobID == result.JobID));
+                    if (result.Auction != null)
                         result.AuctionBids = GetAuctionBids(result.Auction.AuctionID);
                 }
             }
@@ -292,27 +292,27 @@ namespace DAO_DbService.Controllers
                                            FlagCount = flagcount,
                                            TimeFrame = job.TimeFrame
                                        }).ToList();
-              
+
                     var allJobs = new List<JobPostViewModel>();
                     allJobs.AddRange(result.ownedJobs);
                     allJobs.AddRange(result.doerJobs);
 
                     //Match auctions and bids with jobs
-                    List<int?> jobIds = allJobs.Select(x=>x.JobID).ToList().ConvertAll<int?>(i => i);
-                    var auctions = _mapper.Map<List<Auction>, List<AuctionDto>>(db.Auctions.Where(x=> jobIds.Contains(x.JobID)).ToList());
-                    var auctionIds = auctions.Select(x=>x.AuctionID).ToList();
+                    List<int?> jobIds = allJobs.Select(x => x.JobID).ToList().ConvertAll<int?>(i => i);
+                    var auctions = _mapper.Map<List<Auction>, List<AuctionDto>>(db.Auctions.Where(x => jobIds.Contains(x.JobID)).ToList());
+                    var auctionIds = auctions.Select(x => x.AuctionID).ToList();
 
                     foreach (var job in result.ownedJobs)
                     {
-                        job.Auction = auctions.SingleOrDefault(x=>x.JobID == job.JobID);
-                        if(job.Auction != null)
+                        job.Auction = auctions.SingleOrDefault(x => x.JobID == job.JobID);
+                        if (job.Auction != null)
                             job.AuctionBids = GetAuctionBids(job.Auction.AuctionID);
                     }
 
                     foreach (var job in result.doerJobs)
                     {
-                        job.Auction = auctions.SingleOrDefault(x=>x.JobID == job.JobID);
-                        if(job.Auction != null)
+                        job.Auction = auctions.SingleOrDefault(x => x.JobID == job.JobID);
+                        if (job.Auction != null)
                             job.AuctionBids = GetAuctionBids(job.Auction.AuctionID);
                     }
                 }
@@ -531,9 +531,11 @@ namespace DAO_DbService.Controllers
                     var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(result.Select(x => x.UserId)));
                     var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
 
-                    foreach (var bid in result){
-                        if(reputationsTotal.Count(x=>x.UserID == bid.UserId) > 0){
-                            bid.UsersTotalReputation = reputationsTotal.First(x=>x.UserID == bid.UserId).LastTotal;
+                    foreach (var bid in result)
+                    {
+                        if (reputationsTotal.Count(x => x.UserID == bid.UserId) > 0)
+                        {
+                            bid.UsersTotalReputation = reputationsTotal.First(x => x.UserID == bid.UserId).LastTotal;
                         }
                     }
                 }
@@ -1097,6 +1099,7 @@ namespace DAO_DbService.Controllers
         #endregion
 
         #region Payment History
+
         /// <summary>
         /// Get user payment history
         /// </summary>
@@ -1126,14 +1129,14 @@ namespace DAO_DbService.Controllers
                                                          Explanation = payment.Explanation
                                                      }).ToList();
 
-                    result.TotalAmount = result.UserPaymentHistoryList.Sum(x => x.JobAmount);
+                    result.TotalAmount = result.UserPaymentHistoryList.Sum(x => x.PaymentAmount);
 
                     //Get last months payments
                     result.LastMonthAmount = 0;
                     DateTime lastMonth = DateTime.Now.AddMonths(-1);
                     if (result.UserPaymentHistoryList.Count(x => x.CreateDate >= lastMonth) > 0)
                     {
-                        result.LastMonthAmount = result.UserPaymentHistoryList.Where(x => x.CreateDate >= lastMonth).Sum(x => x.JobAmount);
+                        result.LastMonthAmount = result.UserPaymentHistoryList.Where(x => x.CreateDate >= lastMonth).Sum(x => x.PaymentAmount);
                     }
                 }
             }
@@ -1143,6 +1146,7 @@ namespace DAO_DbService.Controllers
             }
             return result;
         }
+
         #endregion
 
 

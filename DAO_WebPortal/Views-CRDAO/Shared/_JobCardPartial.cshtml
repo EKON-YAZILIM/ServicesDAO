@@ -220,13 +220,66 @@
     }
     @if(pageType == "detail" && jobType == "job"){
         <span>@Model.CommentCount comments made for this topic. <small><a href="#comments">Click here to jump comments section</a></small></span>
+
+        if(Model.Voting.Any(x=>x.IsFormal == false)){
+            var voting = Model.Voting.First(x=>x.IsFormal == false);
+            double forRatio = Convert.ToDouble(voting.StakedFor) / Convert.ToDouble(voting.StakedFor + voting.StakedAgainst);
+            string forPerc = Math.Round(forRatio * 100, 2) + "%";
+            double againstRatio = 1 - forRatio;
+            string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
+            <hr>
+            <div class="pb-3">
+                <h5><i class="fas fa-vote-yea py-3 me-1"></i> Informal Vote Results</h5>
+                <div class="p-1">
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width:@forPerc"
+                            aria-valuenow="@forRatio" aria-valuemin="0" aria-valuemax="100">@forPerc</div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width:@againstPerc"
+                            aria-valuenow="@againstRatio" aria-valuemin="0" aria-valuemax="100">@againstPerc</div>
+                    </div>
+                    <div class="mt-2">
+                        <b class="float-left">For @forPerc</b>
+                        <b class="float-right">Against @againstPerc</b>
+                    </div>
+                     <small class="float-right mt-2"><a href="../Vote-Detail/@voting.VotingID"> View vote details</a></small>
+                </div>
+            </div>
+
+        }
+
+        if(Model.Voting.Any(x=>x.IsFormal == true)){
+            var voting = Model.Voting.First(x=>x.IsFormal == true);
+            double forRatio = Convert.ToDouble(voting.StakedFor) / Convert.ToDouble(voting.StakedFor + voting.StakedAgainst);
+            string forPerc = Math.Round(forRatio * 100, 2) + "%";
+            double againstRatio = 1 - forRatio;
+            string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
+
+            <div class="py-3">
+                <h5><i class="fas fa-vote-yea pb-3 me-1"></i> Formal Vote Results</h5>
+                <div class="p-1">
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width:@forPerc"
+                            aria-valuenow="@forRatio" aria-valuemin="0" aria-valuemax="100">@forPerc</div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width:@againstPerc"
+                            aria-valuenow="@againstRatio" aria-valuemin="0" aria-valuemax="100">@againstPerc</div>
+                    </div>
+                    <div class="mt-2">
+                        <b class="float-left">For @forPerc</b>
+                        <b class="float-right">Against @againstPerc</b>
+                    </div>
+                     <small class="float-right mt-2"><a href="../Vote-Detail/@voting.VotingID"> View vote details</a></small>
+                </div>
+            </div>
+        }
+
+        <hr> 
     }
 
     @* Show full job description in detail page *@
     @if(pageType == "detail" || jobType == "simplevote"){
 
         @if(jobType == "job"){
-            <h5><i class="fas fa-folder-open me-1 mt-5"></i> Job Description</h5>
+            <h5><i class="fas fa-folder-open me-1 mt-3"></i> Job Description</h5>
         }
         else if(jobType == "simplevote"){
             <h5><i class="fas fa-vote-yea me-1"></i> Simple Vote</h5>
@@ -292,12 +345,14 @@
 
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed|| Model.Status == Helpers.Constants.Enums.JobStatusTypes.AdminApprovalPending || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
     {
-        <!-- New comment click -->
-        <a href="../My-Job-Edit/@Model.JobID" class="card-text mx-2 cursorp">
-            <svg class="icon">
-                <use xlink:href="/Home/images/svg/free.svg#cil-pencil"></use>
-            </svg> Edit
-        </a>
+        if(Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID")){
+            <!-- Job Edit Button (Visible for jobposter for expired, failed and rejected jobs) -->
+            <a href="../My-Job-Edit/@Model.JobID" class="card-text mx-2 cursorp">
+                <svg class="icon">
+                    <use xlink:href="/Home/images/svg/free.svg#cil-pencil"></use>
+                </svg> Edit
+            </a>
+        }
     }
 
     @if(Model.FlagCount > 0){

@@ -153,6 +153,7 @@
 .comment-body {
     padding: 0 20px;
     padding-left: 28px;
+    overflow-x: auto;
 }
 
 .replies {
@@ -374,7 +375,8 @@
 
 .comment-p {
     line-height: 1.2;
-    font-size: 0.85rem
+    font-size: 0.85rem;
+    overflow-x: auto;
 }
 
 .dashIcon {

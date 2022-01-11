@@ -11,7 +11,7 @@
             <div class="card-body" style="padding-left:95px">
                 <i class="fas fa-coins cardIcon"></i>
                 <h5 class="card-title mb-0">Total Payments</h5>
-                <h2 class="text-right mb-0">@Model.TotalAmount</h2>
+                <h2 class="text-right mb-0">@Math.Round(Model.TotalAmount,2)</h2>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
             <div class="card-body" style="padding-left:95px">
                 <i class="fas fa-coins cardIcon"></i>
                 <h5 class="card-title mb-0">Monthly Payments</h5>
-                <h2 class="text-right mb-0">@Model.LastMonthAmount</h2>
+                <h2 class="text-right mb-0">@Math.Round(Model.LastMonthAmount,2)</h2>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
                                     <tr>
                                         <th>@item.JobID</th>
                                         <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                        <td>@item.PaymentAmount €</td>
+                                        <td>@Math.Round(item.PaymentAmount,2) €</td>
                                         <td>@item.Explanation</td>
                                         @* <td>@item.IBAN</td>
                                         <td>@item.WalletAddress</td> *@

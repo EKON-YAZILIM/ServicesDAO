@@ -263,6 +263,7 @@ namespace DAO_WebPortal.Controllers
                 {
                     return View("../Shared/Error.cshtml");
                 }
+                
             }
             catch (Exception ex)
             {
@@ -367,7 +368,7 @@ namespace DAO_WebPortal.Controllers
 
                 //Get related voting if exists
                 var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetByJobId?jobid=" + JobID, HttpContext.Session.GetString("Token"));
-                model.Voting = Helpers.Serializers.DeserializeJson<VotingDto>(votingJson);
+                model.JobPostWebsiteModel.Voting = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingJson);
 
             }
             catch (Exception ex)

@@ -12,6 +12,5 @@ namespace Helpers.Models.WebsiteViewModels
         public List<JobPostCommentModel> JobPostCommentModel { get; set; }
         public AuctionDto Auction { get; set; }
         public AuctionBidDto WinnerBid { get; set; }
-        public VotingDto Voting { get; set; }
     }
 }

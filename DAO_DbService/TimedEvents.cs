@@ -257,83 +257,73 @@ namespace DAO_DbService
                             //Find winning side
                             if (voting.StakedFor > voting.StakedAgainst)
                             {
-                                //Create payment
-                                var auction = db.Auctions.First(x => x.JobID == voting.JobID);
-                                var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
-                                var user = db.Users.Find(auctionWinnerBid.UserID);
-                                var job = db.JobPosts.Find(auction.JobID);
-
-                                //Get reputation stakes from reputation service
-                                var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
-                                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
-
-                                double jobDoerPayment = auctionWinnerBid.Price * voting.PolicingRate;
-                                double daoPayment = auctionWinnerBid.Price - jobDoerPayment;
-
-                                //Create Payment History model for job doer
-                                PaymentHistory paymentJobDoer = new PaymentHistory
-                                {
-                                    JobID = job.JobID,
-                                    Amount = jobDoerPayment,
-                                    CreateDate = DateTime.Now,
-                                    IBAN = user.IBAN,
-                                    UserID = user.UserId,
-                                    WalletAddress = user.WalletAddress,
-                                    Explanation = "User received payment for job completion."
-                                };
-                                db.PaymentHistories.Add(paymentJobDoer);
+                                var job = db.JobPosts.Find(voting.JobID);
                                 job.Status = Enums.JobStatusTypes.Completed;
                                 db.SaveChanges();
 
-                                //Get total reputations of voters who voted FOR
-                                var forReps =  reputations.Where(x => x.Type == Enums.StakeType.For);
-                                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
-                                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
-
-                                //Create Payment History model for dao members who participated into voting
-                                foreach (var group in reputations.Where(x => x.Type == Enums.StakeType.For).GroupBy(x => x.UserID))
+                                if(voting.Type == VoteTypes.JobCompletion)
                                 {
-                                    if(reputationsTotal.Count(x=>x.UserID == group.Key) == 0) continue;
+                                    //Create payment
+                                    var auction = db.Auctions.First(x => x.JobID == voting.JobID);
+                                    var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+                                    var user = db.Users.Find(auctionWinnerBid.UserID);
 
-                                    double usersRepPerc = reputationsTotal.FirstOrDefault(x=>x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x=>x.LastTotal);
-                                    double memberPayment = daoPayment * usersRepPerc;
+                                    //Get reputation stakes from reputation service
+                                    var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
+                                    var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
 
-                                    var daouser = db.Users.Find(group.First().UserID);
+                                    //Get reputations of voters who voted FOR
+                                    var forReps =  reputations.Where(x => x.Type == Enums.StakeType.For).ToList();
+                                    //Add job doer to list
+                                    forReps.Add(new UserReputationStakeDto(){ UserID = job.JobDoerUserID});
+                                    var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                                    var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
 
-                                    PaymentHistory paymentDaoMember = new PaymentHistory
+                                    //Create Payment History model for dao members who participated into voting
+                                    foreach (var group in forReps.GroupBy(x => x.UserID))
                                     {
-                                        JobID = job.JobID,
-                                        Amount = memberPayment,
-                                        CreateDate = DateTime.Now,
-                                        IBAN = daouser.IBAN,
-                                        UserID = daouser.UserId,
-                                        WalletAddress = daouser.WalletAddress,
-                                        Explanation = "User received payment for DAO policing."
-                                    };
+                                        if(reputationsTotal.Count(x=>x.UserID == group.Key) == 0) continue;
 
-                                    db.PaymentHistories.Add(paymentDaoMember);
-                                    db.SaveChanges();
+                                        double usersRepPerc = reputationsTotal.FirstOrDefault(x=>x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x=>x.LastTotal);
+                                        double memberPayment = auctionWinnerBid.Price * usersRepPerc;
+
+                                        var daouser = db.Users.Find(group.Key);
+
+                                        PaymentHistory paymentDaoMember = new PaymentHistory
+                                        {
+                                            JobID = job.JobID,
+                                            Amount = memberPayment,
+                                            CreateDate = DateTime.Now,
+                                            IBAN = daouser.IBAN,
+                                            UserID = daouser.UserId,
+                                            WalletAddress = daouser.WalletAddress,
+                                            Explanation = "User received payment for DAO policing."
+                                        };
+
+                                        db.PaymentHistories.Add(paymentDaoMember);
+                                        db.SaveChanges();
+                                    }
+
+                                    //If job doer is Associate, change the user type to  VA
+                                    if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                    {
+                                        user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
+                                        db.SaveChanges();
+                                    }
+
+                                    //Send notification email to job poster and job doer
+                                    var jobPoster = db.Users.Find(job.UserID);
+                                    var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                                    //Set email title and content
+                                    string emailTitle = "Formal voting finished successfully for job #" + job.JobID;
+                                    string emailContent = "Greetings, {name}, <br><br> Congratulations, your job passed the formal voting and job is completed successfully. <br><br> Payment for the job will be visible on the 'Payment History' for job doer.";
+
+                                    //Send email to job poster
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                    //Send email to job doer
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
                                 }
-
-                                //If job doer is Associate, change the user type to  VA
-                                if (user.UserType == Enums.UserIdentityType.Associate.ToString())
-                                {
-                                    user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
-                                    db.SaveChanges();
-                                }
-
-                                //Send notification email to job poster and job doer
-                                var jobPoster = db.Users.Find(job.UserID);
-                                var jobDoer = db.Users.Find(job.JobDoerUserID);
-
-                                //Set email title and content
-                                string emailTitle = "Formal voting finished successfully for job #" + job.JobID;
-                                string emailContent = "Greetings, {name}, <br><br> Congratulations, your job passed the formal voting and job is completed successfully. <br><br> Payment for the job will be visible on the 'Payment History' for job doer.";
-
-                                //Send email to job poster
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                                //Send email to job doer
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
                             }
                             else
                             {
@@ -341,18 +331,21 @@ namespace DAO_DbService
                                 job.Status = Enums.JobStatusTypes.Failed;
                                 db.SaveChanges();
 
-                                //Send notification email to job poster and job doer
-                                var jobPoster = db.Users.Find(job.UserID);
-                                var jobDoer = db.Users.Find(job.JobDoerUserID);
+                                if(voting.Type == VoteTypes.JobCompletion)
+                                {
+                                    //Send notification email to job poster and job doer
+                                    var jobPoster = db.Users.Find(job.UserID);
+                                    var jobDoer = db.Users.Find(job.JobDoerUserID);
 
-                                //Set email title and content
-                                string emailTitle = "Formal voting finished AGAINST for job #" + job.JobID;
-                                string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job failed to pass formal voting. Job amount will be refunded to job poster.";
+                                    //Set email title and content
+                                    string emailTitle = "Formal voting finished AGAINST for job #" + job.JobID;
+                                    string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job failed to pass formal voting. Job amount will be refunded to job poster.";
 
-                                //Send email to job poster
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                                //Send email to job doer
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                    //Send email to job poster
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                    //Send email to job doer
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                }
                             }
                         }
                     }
