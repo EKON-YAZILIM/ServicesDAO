@@ -7276,6 +7276,7 @@ html:not([dir=rtl]) .callout-dark {
   color: var(--cui-footer-color, rgba(44, 56, 74, 0.95));
   background: var(--cui-footer-bg, #ebedef);
   border-top: var(--cui-footer-border-width, 1px) solid var(--cui-footer-border-color, #d8dbe0);
+  font-size: 13px;
 }
 
 .footer-sticky {

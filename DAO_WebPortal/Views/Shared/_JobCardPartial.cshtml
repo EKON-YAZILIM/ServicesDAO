@@ -73,6 +73,7 @@
 }
 <div @Html.Raw(divProps)>
 
+    @* JOB SUMMARY *@
     @if(jobType == "job"){
         <div class="row">
             <div class="col-md-8">
@@ -218,8 +219,14 @@
             </div>
         </div>
     }
+
+    @* JUMP TO COMMMENTS LINK *@
     @if(pageType == "detail" && jobType == "job"){
         <span>@Model.CommentCount comments made for this topic. <small><a href="#comments">Click here to jump comments section</a></small></span>
+    }
+
+    @* VOTE SUMMARY *@
+    @if(pageType == "detail"){
 
         if(Model.Voting.Any(x=>x.IsFormal == false)){
             var voting = Model.Voting.First(x=>x.IsFormal == false);
@@ -227,6 +234,17 @@
             string forPerc = Math.Round(forRatio * 100, 2) + "%";
             double againstRatio = 1 - forRatio;
             string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
+
+            if(forPerc.ToLower().Contains("nan")){
+                forRatio = 0;
+                forPerc = "0%";
+            }
+
+            if(againstPerc.ToLower().Contains("nan")){
+                againstRatio = 0;
+                againstPerc = "0%";
+            }
+
             <hr>
             <div class="pb-3">
                 <h5><i class="fas fa-vote-yea py-3 me-1"></i> Informal Vote Results</h5>
@@ -254,6 +272,16 @@
             double againstRatio = 1 - forRatio;
             string againstPerc = Math.Round(againstRatio * 100, 2) + "%";
 
+            if(forPerc.ToLower().Contains("nan")){
+                forRatio = 0;
+                forPerc = "0%";
+            }
+
+            if(againstPerc.ToLower().Contains("nan")){
+                againstRatio = 0;
+                againstPerc = "0%";
+            }
+            
             <div class="py-3">
                 <h5><i class="fas fa-vote-yea pb-3 me-1"></i> Formal Vote Results</h5>
                 <div class="p-1">
@@ -275,14 +303,14 @@
         <hr> 
     }
 
-    @* Show full job description in detail page *@
+    @* FULL DESCRIPTION *@
     @if(pageType == "detail" || jobType == "simplevote"){
 
         @if(jobType == "job"){
             <h5><i class="fas fa-folder-open me-1 mt-3"></i> Job Description</h5>
         }
         else if(jobType == "simplevote"){
-            <h5><i class="fas fa-vote-yea me-1"></i> Simple Vote</h5>
+            <h5><i class="fas fa-poll me-1"></i> Simple Vote</h5>
         }
 
         @* If job description is html text dont use pre-line styling *@

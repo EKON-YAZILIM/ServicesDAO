@@ -1174,8 +1174,50 @@ namespace DAO_WebPortal.Controllers
             }
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
-        }
+        }      
+        
+        /// <summary>
+        /// Returns data for reputation pie chart in the payment policy confirmation.
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ReputationPieChartModel GetVaReputationChart()
+        {
+            ReputationPieChartModel result = new ReputationPieChartModel();
+            result.Labels = new List<string>();
+            result.Values = new List<int>();
 
+            try
+            {
+                //Get VA user ids
+                string vaJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetUserIdsByType?type=" + Enums.UserIdentityType.VotingAssociate, HttpContext.Session.GetString("Token"));
+                //Parse response
+                List<int> vaIds = Helpers.Serializers.DeserializeJson<List<int>>(vaJson);
+
+                //Get VA reputations
+                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(vaIds), HttpContext.Session.GetString("Token") );
+                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+
+                List<string> anonymizedReputations = new List<string>();
+                foreach (var item in reputationsTotal)
+                {
+                    anonymizedReputations.Add(Utility.StringHelper.AnonymizeReputation(item.LastTotal));
+                }
+          
+                foreach (var group in anonymizedReputations.GroupBy(x=>x))
+                {
+                    result.Labels.Add(group.Key);
+                    result.Values.Add(group.Count());
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
+            }
+
+            return result;
+        }
+        
         #endregion
 
         #region Voting

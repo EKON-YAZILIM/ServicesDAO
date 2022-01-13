@@ -583,6 +583,7 @@ namespace DAO_DbService.Controllers
             }
             return result;
         }
+
         #endregion
 
         #region Dashboard
@@ -827,7 +828,6 @@ namespace DAO_DbService.Controllers
                         )
                         .ToList();
 
-                    //Get users registered in the last mounth
                     var date = DateTime.Now.AddMonths(-1);
                     var date2 = DateTime.Now.AddMonths(-2);
 
@@ -867,29 +867,26 @@ namespace DAO_DbService.Controllers
                                          .ToList();
 
                     //Get job post count
-                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid || x.JobDoerUserID == userid).Count();
+                    res.MyJobCount = db.JobPosts.Count(x => x.UserID == userid || x.JobDoerUserID == userid);
 
                     //Get auction count
                     //Get model from Voting_Engine_Url
-                    res.MyAuctionCount = db.Auctions.Where(x => x.JobPosterUserID == userid).Count();
+                    res.MyAuctionCount = db.Auctions.Count(x => x.JobPosterUserID == userid);
 
                     //Get voting count
                     //Get model from Voting_Engine_Url
-                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Votes/Get?"));
+                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByUserId?userid="+userid));
 
-                    res.MyVotesCount = VotingModel.Where(x => x.UserID == userid).Count();
+                    res.MyVotesCount = VotingModel.Count();
 
                     //Get job ratio from the comparison of the last two months
-                    var JobPreviousCount = db.JobPosts.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.UserID == userid).Count();
-                    var JobCount = db.JobPosts.Where(x => x.CreateDate > date && x.UserID == userid).Count();
+                    var JobPreviousCount = db.JobPosts.Count(x => x.CreateDate > date2 && x.CreateDate < date && x.UserID == userid);
+                    var JobCount = db.JobPosts.Count(x => x.CreateDate > date && x.UserID == userid);
 
 
                     //Get auction ratio from the comparison of the last two months
-                    var AuctionPreviousCount = db.Auctions.Where(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid).Count();
-                    var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
-
-
-
+                    var AuctionPreviousCount = db.Auctions.Count(x => x.CreateDate > date2 && x.CreateDate < date && x.JobPosterUserID == userid);
+                    var AuctionCount = db.Auctions.Count(x => x.CreateDate > date && x.JobPosterUserID == userid);
 
                 }
             }
@@ -1008,23 +1005,23 @@ namespace DAO_DbService.Controllers
                         .ToList();
 
                     //Get job post count
-                    res.MyJobCount = db.JobPosts.Where(x => x.UserID == userid || x.JobDoerUserID == userid).Count();
+                    res.MyJobCount = db.JobPosts.Count(x => x.UserID == userid || x.JobDoerUserID == userid);
 
                     //Get auction count
                     //Get model from Voting_Engine_Url
-                    res.MyAuctionCount = db.Auctions.Where(x => x.JobPosterUserID == userid).Count();
+                    res.MyAuctionCount = db.Auctions.Count(x => x.JobPosterUserID == userid);
 
                     //Get voting count
                     //Get model from Voting_Engine_Url
-                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Votes/Get?"));
-                    res.MyVotesCount = VotingModel.Where(x => x.UserID == userid).Count();
+                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByUserId?userid="+userid));
+                    res.MyVotesCount = VotingModel.Count();
 
                     //Get job ratio from the comparison of the last two months                   
-                    var JobCount = db.JobPosts.Where(x => x.CreateDate > date && x.UserID == userid).Count();
+                    var JobCount = db.JobPosts.Count(x => x.CreateDate > date && x.UserID == userid);
 
 
                     //Get auction ratio from the comparison of the last two months                    
-                    var AuctionCount = db.Auctions.Where(x => x.CreateDate > date && x.JobPosterUserID == userid).Count();
+                    var AuctionCount = db.Auctions.Count(x => x.CreateDate > date && x.JobPosterUserID == userid);
                 }
             }
             catch (Exception ex)

@@ -108,7 +108,7 @@
                                                     @if (rowclass == "eligible")
                                                     {
 
-                                                        <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID, @auction.JobID)">
+                                                        <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenPaymentConfirmation(@auction.AuctionID, @auction.JobID)">
                                                             <svg class="icon">
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
                                                             </svg> Submit Bid
@@ -204,7 +204,7 @@
                                                     @if (rowclass == "eligible")
                                                     {
 
-                                                        <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenAddBidModal(@auction.AuctionID, @auction.JobID)">
+                                                        <a class="btn btn-sm btn-primary text-white btn-shine me-2" onclick="OpenPaymentConfirmation(@auction.AuctionID, @auction.JobID)">
                                                             <svg class="icon">
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
                                                             </svg> Submit Bid
@@ -403,6 +403,35 @@
     </div>
 </div>
 
+<!-- Payment Policy Confirmation Modal  -->
+<div class="modal fade" id="PaymentPolicyConfirmation-Modal" tabindex="-1" aria-labelledby="PaymentPolicyConfirmation" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Confirmation"><b>Please read carefully and confirm</b></h5>
+                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task in accordance with Section 4.4 will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO in accordance with the distribution mechanism of Minimum Viable Protocol Requirements for “Blockchain Infrastructure for Measuring Domain Specific Reputation in Autonomous Decentralized and Anonymous Systems” as described in this paper (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;</a> accessed December 20, 2021) (hereinafter “MVPR”).</p>
+
+                <center class="pb-3">
+                    <p class="text-center">Current Reputation Distribution Of Voting Associates</p>
+                    <canvas class="chart" id="reputation-chart" height="150"></canvas>
+                </center>
+
+                <small><b>Your initial reputation calculated as:</b></small><br>
+                <small><i>Your Bid(€) * @Program._settings.ReputationConversionRate (Reputation conversion rate) * @Program._settings.DefaultPolicingRate (Policing rate)</i></small>
+                <br><br>
+                <small><b>Your payment calculated as:</b></small><br>
+                <small><i>Your Bid(€) * (Your Initial Reputation / Total Reputation of Voters)</i></small>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success text-white" onclick="AgreeTerms();">Agree Terms</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts{
 
@@ -454,6 +483,51 @@
                     $(".public-noneligible").removeClass("d-none");
                 }
             });
+
+            //Ajax get action
+            $.ajax({
+                type: "GET",
+                url: "../Home/GetVaReputationChart",
+                success: function (result) {
+                    var pieChartOptions = {
+                        responsive: false,
+                        elements: {
+                            arc: {
+                                borderWidth: 0
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position:"right"
+                            }
+                        },
+                    }
+
+                    const cardChart1 = new Chart(document.getElementById('reputation-chart'), {
+                        type: 'pie',
+                        data: {
+                                labels: result.labels,
+                                datasets: [{
+                                    label: 'Reputation Distribution',
+                                    data: result.values,
+                                    backgroundColor: [                    
+                                    'rgb(235, 154, 54, 0.65)',
+                                    'rgb(235, 54, 154, 0.65)',
+                                    'rgb(54, 210, 235, 0.65)',
+                                    'rgb(54, 235, 143, 0.65)',
+                                    'rgb(224, 235, 54, 0.65)',
+                                    'rgb(235, 154, 54, 0.65)',
+                                    'rgb(76, 66, 229, 0.65)',
+                                    'rgb(199, 54, 235, 0.65)'
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                        },
+                        options: pieChartOptions
+                    });
+                }
+            });
+
         });
 
         //Send auctionIDs to CountDown function
@@ -581,6 +655,19 @@
                 }
             });
 
+        }
+
+        //Payment policy confirmation
+        function OpenPaymentConfirmation(auctionId, jobId){
+            selectedAuctionId = auctionId;
+            $("#PaymentPolicyConfirmation-Modal").modal("toggle");
+            $("#AddBidModalTitle").text("New Bid for Job #" + jobId);
+        }
+
+        //Payment policy agree
+        function AgreeTerms(){
+            $("#PaymentPolicyConfirmation-Modal").modal("toggle");
+            $("#AddBid-Modal").modal("toggle");
         }
 
         //Bid delete function

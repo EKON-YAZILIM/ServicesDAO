@@ -657,3 +657,7 @@ tbody tr:hover .trSlider span {
     width: 30px;
     padding-left: 15px;
   }
+
+  .font-sm {
+      font-size: 13px !important;
+  }
