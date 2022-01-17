@@ -166,7 +166,7 @@ Example:
     ...
 }
 ```
-After configuring the database, run the following commands from the test project directory \PathToSolution\RFPPortal_Tests\.
+After configuring the database, run the following commands from the test project directory \PathToSolution\UnitTests\.
 
 dotnet test --filter DisplayName~
 dotnet test --filter DisplayName~
