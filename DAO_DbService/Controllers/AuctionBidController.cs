@@ -198,6 +198,27 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(model).ToList();
         }
 
+
+        [Route("DeleteByAuctionID")]
+        [HttpDelete]
+        public bool DeleteByAuctionID(int auctionId)
+        {
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    var bids = db.AuctionBids.Where(x => x.AuctionID == auctionId).ToList();
+                    db.AuctionBids.RemoveRange(bids);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+                return false;
+            }
+        }
       
     }
 }
