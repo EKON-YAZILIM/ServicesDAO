@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DAO_IdentityService.Controllers
 {
     /// <summary>
-    ///  InfoController contains healthcheck methods for the application
+    ///  InfoController contains healthcheck methods for the application.
     ///  This controller only responds requests from local machine (LocalMachineAuthorization)
     /// </summary>
     [Route("[controller]")]

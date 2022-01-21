@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::document_id_added_to_KYCStatus_table</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1a546a2b5fbb65e2890e3211c74935be5c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.document_id_added_to_KYCStatus_table.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.document_id_added_to_KYCStatus_table.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.cs" bodystart="7" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1abd63e862636af020cc5374f43a5338b0" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.document_id_added_to_KYCStatus_table.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.document_id_added_to_KYCStatus_table.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.cs" line="16" column="33" bodyfile="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.cs" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1aaf643bf0625287d17fcc1b5458269a25" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.document_id_added_to_KYCStatus_table.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.document_id_added_to_KYCStatus_table.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.Designer.cs" bodystart="15" bodyend="381"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.document_id_added_to_KYCStatus_table</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.document_id_added_to_KYCStatus_table</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211209071850_document_id_added_to_KYCStatus_table.cs" bodystart="6" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1aaf643bf0625287d17fcc1b5458269a25" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::document_id_added_to_KYCStatus_table</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1abd63e862636af020cc5374f43a5338b0" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::document_id_added_to_KYCStatus_table</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1a546a2b5fbb65e2890e3211c74935be5c" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::document_id_added_to_KYCStatus_table</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

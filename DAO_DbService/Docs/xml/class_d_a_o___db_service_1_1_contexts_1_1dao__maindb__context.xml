@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Contexts::dao_maindb_context</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">DbContext</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ae0b623e93327a3c9f9db8f51b8561182" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_auction" kindref="compound">Auction</ref> &gt;</type>
+        <definition>DbSet&lt;Auction&gt; DAO_DbService.Contexts.dao_maindb_context.Auctions</definition>
+        <argsstring></argsstring>
+        <name>Auctions</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.Auctions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="31" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a33c09496b2d007863b1938e58ac655a5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid" kindref="compound">AuctionBid</ref> &gt;</type>
+        <definition>DbSet&lt;AuctionBid&gt; DAO_DbService.Contexts.dao_maindb_context.AuctionBids</definition>
+        <argsstring></argsstring>
+        <name>AuctionBids</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.AuctionBids</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="32" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ac168401392f6a787af260326cf41aba6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_user" kindref="compound">User</ref> &gt;</type>
+        <definition>DbSet&lt;User&gt; DAO_DbService.Contexts.dao_maindb_context.Users</definition>
+        <argsstring></argsstring>
+        <name>Users</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.Users</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="33" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a10e10256d9487ea67d88a5fbd08574f1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment" kindref="compound">JobPostComment</ref> &gt;</type>
+        <definition>DbSet&lt;JobPostComment&gt; DAO_DbService.Contexts.dao_maindb_context.JobPostComments</definition>
+        <argsstring></argsstring>
+        <name>JobPostComments</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.JobPostComments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="34" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a6e4466ae747202e8e93f6a52afd6a2cd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_job_post" kindref="compound">JobPost</ref> &gt;</type>
+        <definition>DbSet&lt;JobPost&gt; DAO_DbService.Contexts.dao_maindb_context.JobPosts</definition>
+        <argsstring></argsstring>
+        <name>JobPosts</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.JobPosts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="35" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ad0e4ab1e81ead8092d0aeee3ca1aba3b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c" kindref="compound">UserKYC</ref> &gt;</type>
+        <definition>DbSet&lt;UserKYC&gt; DAO_DbService.Contexts.dao_maindb_context.UserKYCs</definition>
+        <argsstring></argsstring>
+        <name>UserKYCs</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.UserKYCs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="36" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a4e4df9ba0fb64e2a8a5f14189217e04e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_active_session" kindref="compound">ActiveSession</ref> &gt;</type>
+        <definition>DbSet&lt;ActiveSession&gt; DAO_DbService.Contexts.dao_maindb_context.ActiveSessions</definition>
+        <argsstring></argsstring>
+        <name>ActiveSessions</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.ActiveSessions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="37" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a659737f3a6102202521cb4c8657da212" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote" kindref="compound">UserCommentVote</ref> &gt;</type>
+        <definition>DbSet&lt;UserCommentVote&gt; DAO_DbService.Contexts.dao_maindb_context.UserCommentVotes</definition>
+        <argsstring></argsstring>
+        <name>UserCommentVotes</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.UserCommentVotes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="38" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ab609a87709c5e7a8c2e185cfd486de5b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_payment_history" kindref="compound">PaymentHistory</ref> &gt;</type>
+        <definition>DbSet&lt;PaymentHistory&gt; DAO_DbService.Contexts.dao_maindb_context.PaymentHistories</definition>
+        <argsstring></argsstring>
+        <name>PaymentHistories</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.PaymentHistories</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="39" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a3f1dd84cc24daa40fc56fe3ee4a13401" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting" kindref="compound">PlatformSetting</ref> &gt;</type>
+        <definition>DbSet&lt;PlatformSetting&gt; DAO_DbService.Contexts.dao_maindb_context.PlatformSettings</definition>
+        <argsstring></argsstring>
+        <name>PlatformSettings</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.PlatformSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="40" column="22" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="40" bodyend="40"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1aea0f87265538f8d6894a46f5ea7d16f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_DbService.Contexts.dao_maindb_context.dao_maindb_context</definition>
+        <argsstring>()</argsstring>
+        <name>dao_maindb_context</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.dao_maindb_context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="13" column="16" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a88255a77919712c582706a9d15223510" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_DbService.Contexts.dao_maindb_context.dao_maindb_context</definition>
+        <argsstring>(DbContextOptions options)</argsstring>
+        <name>dao_maindb_context</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.dao_maindb_context</qualifiedname>
+        <param>
+          <type>DbContextOptions</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="18" column="16" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="18" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a07c255c932ac8aff79caa7f24e05501a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Contexts.dao_maindb_context.OnConfiguring</definition>
+        <argsstring>(DbContextOptionsBuilder optionsBuilder)</argsstring>
+        <name>OnConfiguring</name>
+        <qualifiedname>DAO_DbService.Contexts.dao_maindb_context.OnConfiguring</qualifiedname>
+        <param>
+          <type>DbContextOptionsBuilder</type>
+          <declname>optionsBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="23" column="33" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="23" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Contexts.dao_maindb_context</label>
+        <link refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DbContext</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Contexts.dao_maindb_context</label>
+        <link refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DbContext</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Contexts/dao_maindb_context.cs" line="11" column="11" bodyfile="DAO_DbService/Contexts/dao_maindb_context.cs" bodystart="12" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a4e4df9ba0fb64e2a8a5f14189217e04e" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>ActiveSessions</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a33c09496b2d007863b1938e58ac655a5" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>AuctionBids</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ae0b623e93327a3c9f9db8f51b8561182" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>Auctions</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1aea0f87265538f8d6894a46f5ea7d16f6" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>dao_maindb_context</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a88255a77919712c582706a9d15223510" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>dao_maindb_context</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a10e10256d9487ea67d88a5fbd08574f1" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>JobPostComments</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a6e4466ae747202e8e93f6a52afd6a2cd" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>JobPosts</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a07c255c932ac8aff79caa7f24e05501a" prot="protected" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>OnConfiguring</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ab609a87709c5e7a8c2e185cfd486de5b" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>PaymentHistories</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a3f1dd84cc24daa40fc56fe3ee4a13401" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>PlatformSettings</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a659737f3a6102202521cb4c8657da212" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>UserCommentVotes</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ad0e4ab1e81ead8092d0aeee3ca1aba3b" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>UserKYCs</name></member>
+      <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ac168401392f6a787af260326cf41aba6" prot="public" virt="non-virtual"><scope>DAO_DbService::Contexts::dao_maindb_context</scope><name>Users</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

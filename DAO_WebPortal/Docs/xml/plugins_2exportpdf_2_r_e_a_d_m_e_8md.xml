@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="plugins_2exportpdf_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>Plugin</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>**Export<sp/>to<sp/>PDF**<sp/>CKEditor<sp/>4<sp/>plugin<sp/>allows<sp/>you<sp/>to<sp/>easily<sp/>print<sp/>the<sp/>WYSIWYG<sp/>editor<sp/>content<sp/>to<sp/>a<sp/>PDF<sp/>file.<sp/>When<sp/>enabled,<sp/>this<sp/>feature<sp/>sends<sp/>the<sp/>content<sp/>of<sp/>your<sp/>editor<sp/>together<sp/>with<sp/>the<sp/>styles<sp/>that<sp/>are<sp/>used<sp/>to<sp/>display<sp/>it<sp/>to<sp/>the<sp/>CKEditor<sp/>Cloud<sp/>Services<sp/>HTML<sp/>to<sp/>PDF<sp/>converter<sp/>service.<sp/>The<sp/>service<sp/>then<sp/>generates<sp/>a<sp/>PDF<sp/>document<sp/>that<sp/>can<sp/>be<sp/>downloaded<sp/>by<sp/>the<sp/>user.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Thanks<sp/>to<sp/>this<sp/>plugin,<sp/>it<sp/>takes<sp/>exactly<sp/>one<sp/>button<sp/>click<sp/>to<sp/>get<sp/>a<sp/>PDF<sp/>file<sp/>with<sp/>content<sp/>formatted<sp/>in<sp/>the<sp/>same<sp/>way<sp/>as<sp/>the<sp/>one<sp/>visible<sp/>in<sp/>CKEditor<sp/>4.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CKEditor<sp/>4<sp/>**Export<sp/>to<sp/>PDF**<sp/>also<sp/>allows<sp/>various<sp/>customizations<sp/>like<sp/>changing<sp/>the<sp/>page<sp/>size<sp/>and<sp/>margin,<sp/>setting<sp/>additional<sp/>styling,<sp/>adding<sp/>custom<sp/>headers<sp/>and<sp/>footers<sp/>and<sp/>pre-processing<sp/>content.<sp/>This<sp/>gives<sp/>great<sp/>flexibility<sp/>and<sp/>control<sp/>over<sp/>the<sp/>PDF<sp/>output<sp/>and<sp/>allows<sp/>to<sp/>keep<sp/>all<sp/>the<sp/>PDF<sp/>documents<sp/>consistent<sp/>when<sp/>it<sp/>comes<sp/>to<sp/>styling.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>a<sp/>premium<sp/>feature.<sp/>Please<sp/>[contact<sp/>us](https://ckeditor.com/contact/)<sp/>if<sp/>you<sp/>would<sp/>like<sp/>to<sp/>purchase<sp/>a<sp/>license.<sp/>Let<sp/>us<sp/>know<sp/>if<sp/>you<sp/>have<sp/>any<sp/>feedback<sp/>or<sp/>questions!<sp/>You<sp/>can<sp/>also<sp/>sign<sp/>up<sp/>for<sp/>the<sp/>[CKEditor<sp/>Premium<sp/>Features<sp/>30-day<sp/>Free<sp/>Trial](https://orders.ckeditor.com/trial/premium-features).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>this<sp/>feature<sp/>is<sp/>used<sp/>without<sp/>authorization,<sp/>the<sp/>resulting<sp/>documents<sp/>will<sp/>be<sp/>watermarked.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![](https://c.cksource.com/a/1/img/npm/ckeditor4-pdf-export.gif)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Getting<sp/>Started</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Using<sp/>with<sp/>official<sp/>CKEditor<sp/>4<sp/>presets</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Starting<sp/>with<sp/>CKEditor<sp/>4<sp/>version<sp/>`4.15.0`,<sp/>**Export<sp/>to<sp/>PDF**<sp/>plugin<sp/>is<sp/>included<sp/>in<sp/>`standard-all`,<sp/>`full`<sp/>and<sp/>`full-all`<sp/>official<sp/>presets.<sp/>The<sp/>`full`<sp/>and<sp/>`full-all`<sp/>presets<sp/>have<sp/>the<sp/>plugin<sp/>active<sp/>by<sp/>default<sp/>while<sp/>for<sp/>`standard-all`<sp/>it<sp/>needs<sp/>to<sp/>be<sp/>enabled<sp/>with<sp/>the<sp/>[`config.extraPlugins`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-extraPlugins)<sp/>configuration<sp/>option:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```js</highlight></codeline>
+<codeline><highlight class="normal">CKEDITOR.replace(<sp/>&apos;editor&apos;,<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>extraPlugins:<sp/>&apos;exportpdf&apos;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Installation<sp/>from<sp/>npm</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>instal<sp/>the<sp/>plugin<sp/>via<sp/>npm,<sp/>simply<sp/>run:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">npm<sp/>i<sp/>ckeditor4-plugin-exportpdf</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Then<sp/>add<sp/>the<sp/>plugin<sp/>to<sp/>your<sp/>CKEditor<sp/>4<sp/>instance<sp/>with<sp/>the<sp/>[`addExternal()`<sp/>method](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins.html#method-addExternal):</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```js</highlight></codeline>
+<codeline><highlight class="normal">CKEDITOR.plugins.addExternal(<sp/>&apos;exportpdf&apos;,<sp/>&apos;./node_modules/ckeditor4-plugin-exportpdf/&apos;<sp/>);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>prefer<sp/>not<sp/>to<sp/>link<sp/>to<sp/>the<sp/>`node_modules`<sp/>folder<sp/>directly,<sp/>you<sp/>may<sp/>simply<sp/>copy<sp/>the<sp/>entire<sp/>`./node_modules/ckeditor4-plugin-exportpdf/`<sp/>directory<sp/>as<sp/>`ckeditor/plugins/exportpdf/`<sp/>and<sp/>add<sp/>it<sp/>with<sp/>the<sp/>[`config.extraPlugins`](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-extraPlugins)<sp/>configuration<sp/>option:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```js</highlight></codeline>
+<codeline><highlight class="normal">CKEDITOR.replace(<sp/>&apos;editor&apos;,<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>extraPlugins:<sp/>&apos;exportpdf&apos;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Other<sp/>Installation<sp/>Methods</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>also<sp/>use<sp/>the<sp/>[CKEditor<sp/>4<sp/>Add-ons<sp/>repository](https://ckeditor.com/cke4/addons/plugins/all)<sp/>to<sp/>obtain<sp/>the<sp/>plugin<sp/>via:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>[Custom<sp/>build<sp/>with<sp/>online<sp/>builder](https://ckeditor.com/cke4/builder)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>[Manual<sp/>download](https://ckeditor.com/cke4/addon/exportpdf)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Refer<sp/>to<sp/>[Export<sp/>to<sp/>PDF<sp/>installation<sp/>documentation](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#installation)<sp/>for<sp/>more<sp/>details.<sp/>If<sp/>you<sp/>are<sp/>having<sp/>trouble<sp/>setting<sp/>up<sp/>the<sp/>Export<sp/>to<sp/>PDF<sp/>plugin,<sp/>please<sp/>[contact<sp/>us](https://ckeditor.com/contact/).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Setting<sp/>up<sp/>a<sp/>license<sp/>key</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>have<sp/>a<sp/>commercial<sp/>license<sp/>for<sp/>**Export<sp/>to<sp/>PDF**<sp/>plugin,<sp/>[exportPdf_tokenUrl](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_tokenUrl)<sp/>configuration<sp/>option<sp/>should<sp/>be<sp/>set<sp/>to<sp/>remove<sp/>watermark<sp/>from<sp/>generated<sp/>documents:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```js</highlight></codeline>
+<codeline><highlight class="normal">CKEDITOR.replace(<sp/>&apos;editor&apos;,<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>exportPdf_tokenUrl:<sp/>&apos;https://example.com/cs-token-endpoint&apos;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>);</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>value<sp/>is<sp/>unique<sp/>for<sp/>each<sp/>customer<sp/>and<sp/>can<sp/>be<sp/>found<sp/>in<sp/>the<sp/>[CKEditor<sp/>Ecosystem<sp/>dashboard](https://dashboard.ckeditor.com).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>all.<sp/>If<sp/>you<sp/>are<sp/>having<sp/>trouble<sp/>in<sp/>setting<sp/>up<sp/>Export<sp/>to<sp/>PDF<sp/>plugin,<sp/>please<sp/>[contact<sp/>us](https://ckeditor.com/contact/).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Features</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>is<sp/>really<sp/>simple<sp/>to<sp/>use<sp/>and<sp/>works<sp/>out-of-the-box.<sp/>It<sp/>does<sp/>not<sp/>require<sp/>any<sp/>additional<sp/>configuration<sp/>and<sp/>due<sp/>to<sp/>its<sp/>flexible<sp/>nature,<sp/>it<sp/>covers<sp/>a<sp/>lot<sp/>of<sp/>cases<sp/>internally<sp/>while<sp/>also<sp/>providing<sp/>an<sp/>easy<sp/>way<sp/>to<sp/>[customize<sp/>output<sp/>PDF<sp/>files](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#configuration).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>most<sp/>important<sp/>features<sp/>are:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Exporting<sp/>HTML<sp/>content<sp/>from<sp/>CKEditor<sp/>4<sp/>WYSIWYG<sp/>editor<sp/>to<sp/>PDF<sp/>with<sp/>a<sp/>single<sp/>click.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>[Setting<sp/>a<sp/>custom<sp/>name](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#setting-dynamic-file-name)<sp/>for<sp/>the<sp/>generated<sp/>PDF<sp/>file.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>[Handling<sp/>relative<sp/>image<sp/>paths](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#relative-vs-absolute-urls).</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>[Changing<sp/>the<sp/>appearance<sp/>of<sp/>the<sp/>PDF<sp/>document](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#custom-css-rules)<sp/>(like<sp/>margins,<sp/>text<sp/>styling,<sp/>custom<sp/>headers<sp/>and<sp/>footers<sp/>etc.)<sp/>with<sp/>custom<sp/>CSS<sp/>styles.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>[Pre-processing<sp/>HTML<sp/>content](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#data-preprocessing)<sp/>via<sp/>synchronous<sp/>and<sp/>asynchronous<sp/>code<sp/>before<sp/>the<sp/>generation<sp/>of<sp/>the<sp/>PDF<sp/>file.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Browser<sp/>and<sp/>CKEditor<sp/>4<sp/>Support</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>works<sp/>in<sp/>all<sp/>the<sp/>browsers<sp/>[supported<sp/>by<sp/>CKEditor<sp/>4](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_browsers.html)<sp/>except<sp/>for<sp/>Internet<sp/>Explorer<sp/>versions<sp/>older<sp/>than<sp/>version<sp/>11.<sp/>The<sp/>plugin<sp/>is<sp/>compatible<sp/>with<sp/>CKEditor<sp/>4<sp/>versions<sp/>starting<sp/>from<sp/>`4.6.1`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Demo</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>the<sp/>working<sp/>[&quot;Exporting<sp/>editor<sp/>content<sp/>to<sp/>PDF&quot;](https://ckeditor.com/docs/ckeditor4/latest/examples/exporttopdf.html)<sp/>sample<sp/>that<sp/>showcases<sp/>printing<sp/>your<sp/>HTML<sp/>content<sp/>to<sp/>a<sp/>PDF<sp/>file.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin**<sp/>(https://ckeditor.com/ckeditor-4/)&lt;br&gt;</highlight></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2003-2021,<sp/>[CKSource](http://cksource.com)<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CKEditor<sp/>4<sp/>export<sp/>to<sp/>PDF<sp/>plugin<sp/>is<sp/>licensed<sp/>under<sp/>a<sp/>commercial<sp/>license<sp/>and<sp/>is<sp/>protected<sp/>by<sp/>copyright<sp/>law.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>more<sp/>details<sp/>about<sp/>available<sp/>licensing<sp/>options<sp/>please<sp/>contact<sp/>us<sp/>at<sp/>sales@cksource.com.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Trademarks</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**CKEditor**<sp/>is<sp/>a<sp/>trademark<sp/>of<sp/>[CKSource](http://cksource.com)<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>other<sp/>brand<sp/>and<sp/>product<sp/>names<sp/>are<sp/>trademarks,<sp/>registered<sp/>trademarks<sp/>or<sp/>service<sp/>marks<sp/>of<sp/>their<sp/>respective<sp/>holders.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="tokentwoeditorscorrect_8md" kind="file" language="Markdown">
+    <compoundname>tokentwoeditorscorrect.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">@bender-tags:<sp/>exportpdf,<sp/>feature,<sp/>77</highlight></codeline>
+<codeline><highlight class="normal">@bender-ui:<sp/>collapsed</highlight></codeline>
+<codeline><highlight class="normal">@bender-include:<sp/>../_helpers/tools.js</highlight></codeline>
+<codeline><highlight class="normal">@bender-ckeditor-plugins:<sp/>wysiwygarea,<sp/>toolbar,<sp/>basicstyles,<sp/>notification,<sp/>format</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Note:<sp/>You<sp/>need<sp/>the<sp/>Internet<sp/>connection<sp/>to<sp/>run<sp/>this<sp/>test.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>in<sp/>both<sp/>editors.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Examine<sp/>the<sp/>area<sp/>in<sp/>the<sp/>red<sp/>frames<sp/>below<sp/>each<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**<sp/>Content<sp/>of<sp/>two<sp/>boxes<sp/>are<sp/>two<sp/>different<sp/>long<sp/>strings.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**<sp/>Values<sp/>in<sp/>both<sp/>boxes<sp/>are<sp/>the<sp/>same<sp/>or<sp/>one<sp/>of<sp/>them<sp/>says<sp/>`undefined`.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/tokentwoeditorscorrect.md"/>
+  </compounddef>
+</doxygen>

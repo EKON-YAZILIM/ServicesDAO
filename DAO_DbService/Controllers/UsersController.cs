@@ -14,10 +14,17 @@ using static Helpers.Constants.Enums;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  UsersController contains user operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class UsersController : Controller
     {
+        /// <summary>
+        /// Gets users list
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<UserDto> Get()
@@ -40,6 +47,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<User>, List<UserDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// returns a list of all users by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [Route("UserSearch")]
         [HttpGet]
         public IEnumerable<UserDto> UserSearch(string query)
@@ -62,6 +74,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<User>, List<UserDto>>(res).ToArray();
         }
 
+        /// <summary>
+        /// Get user by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public UserDto GetId(int id)
@@ -84,6 +101,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<User, UserDto>(model);
         }
 
+        /// <summary>
+        /// Saves user model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public UserDto Post([FromBody] UserDto model)
@@ -105,6 +127,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves users list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<UserDto> PostMultiple([FromBody] List<UserDto> model)
@@ -126,6 +153,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes users by id
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -147,6 +179,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates users using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public UserDto Update([FromBody] UserDto model)
@@ -168,6 +205,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the users pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<UserDto> GetPaged(int page = 1, int pageCount = 30)
@@ -197,6 +241,13 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// returns a list containing desired amount of found users by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<UserDto> Search(string query, int page = 1, int pageCount = 30)
@@ -223,6 +274,11 @@ namespace DAO_DbService.Controllers
 
         }
 
+        /// <summary>
+        /// Get users by email
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         [Route("GetByEmail")]
         [HttpGet]
         public UserDto GetByEmail(string email)
@@ -243,6 +299,11 @@ namespace DAO_DbService.Controllers
             return model;
         }
 
+        /// <summary>
+        /// Get users by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         [Route("GetByUsername")]
         [HttpGet]
         public UserDto GetByUsername(string username)
@@ -263,6 +324,10 @@ namespace DAO_DbService.Controllers
             return model;
         }
 
+        /// <summary>
+        /// Get all admin users
+        /// </summary>
+        /// <returns></returns>
         [Route("GetAdminUsers")]
         [HttpGet]
         public List<UserDto> GetAdminUsers()
@@ -283,6 +348,13 @@ namespace DAO_DbService.Controllers
             return model;
         }
 
+        /// <summary>
+        /// Get users count by type
+        /// if types are not equal Admin , Associate or VotingAssociate
+        /// returns all users count
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [Route("GetCount")]
         [HttpGet]
         public int? GetCount(UserIdentityType? type)
@@ -317,6 +389,11 @@ namespace DAO_DbService.Controllers
             return null;
         }
 
+        /// <summary>
+        /// Get usernames by userIds
+        /// </summary>
+        /// <param name="userids"></param>
+        /// <returns></returns>
         [Route("GetUsernamesByUserIds")]
         [HttpPost]
         public List<string> GetUsernamesByUserIds(List<int> userids)
@@ -344,6 +421,11 @@ namespace DAO_DbService.Controllers
             return null;
         }
 
+        /// <summary>
+        /// Get users by type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [Route("GetUsersByType")]
         [HttpGet]
         public List<UserDto> GetUsersByType(Helpers.Constants.Enums.UserIdentityType type)
@@ -364,6 +446,11 @@ namespace DAO_DbService.Controllers
             return model;
         }
     
+        /// <summary>
+        /// Get users Id by type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         [Route("GetUserIdsByType")]
         [HttpGet]
         public List<int> GetUserIdsByType(Helpers.Constants.Enums.UserIdentityType type)

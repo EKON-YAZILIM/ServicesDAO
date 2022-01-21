@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::JobPostComment</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a675a22d8b31eac190ac4c6725b6b5b4c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPostComment.JobPostCommentID</definition>
+        <argsstring></argsstring>
+        <name>JobPostCommentID</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.JobPostCommentID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="12" column="20" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a740f5139e8dce8a57f7c69432969daee" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPostComment.JobID</definition>
+        <argsstring></argsstring>
+        <name>JobID</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.JobID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="13" column="20" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1acfeb092071150648258bdc84f0d1004d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPostComment.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="14" column="20" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1af1fbe12e3cec91b7baa3bb4a62322e2e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.JobPostComment.Date</definition>
+        <argsstring></argsstring>
+        <name>Date</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.Date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="15" column="25" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a4480f341d9fdd89ac90b724c63d1e04f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.JobPostComment.Comment</definition>
+        <argsstring></argsstring>
+        <name>Comment</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.Comment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="16" column="23" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a6ea6eac761a2246df1086a2f493a3826" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPostComment.SubCommentID</definition>
+        <argsstring></argsstring>
+        <name>SubCommentID</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.SubCommentID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="17" column="20" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a5f274e2fa5b04a410bdd1b151c4f31df" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPostComment.UpVote</definition>
+        <argsstring></argsstring>
+        <name>UpVote</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.UpVote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="18" column="20" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1aafc315aeef76b4c6d02d90df24005a16" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPostComment.DownVote</definition>
+        <argsstring></argsstring>
+        <name>DownVote</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.DownVote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="19" column="20" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a84a0cf2f6e5e0f52b8da2f51c933acd8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool?</type>
+        <definition>bool? DAO_DbService.Models.JobPostComment.IsPinned</definition>
+        <argsstring></argsstring>
+        <name>IsPinned</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.IsPinned</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="20" column="21" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a558845c77b4046ce0210279485c806ef" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool?</type>
+        <definition>bool? DAO_DbService.Models.JobPostComment.IsFlagged</definition>
+        <argsstring></argsstring>
+        <name>IsFlagged</name>
+        <qualifiedname>DAO_DbService.Models.JobPostComment.IsFlagged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPostComment.cs" line="21" column="21" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/JobPostComment.cs" line="9" column="11" bodyfile="DAO_DbService/Models/JobPostComment.cs" bodystart="10" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a4480f341d9fdd89ac90b724c63d1e04f" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>Comment</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1af1fbe12e3cec91b7baa3bb4a62322e2e" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>Date</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1aafc315aeef76b4c6d02d90df24005a16" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>DownVote</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a558845c77b4046ce0210279485c806ef" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>IsFlagged</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a84a0cf2f6e5e0f52b8da2f51c933acd8" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>IsPinned</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a740f5139e8dce8a57f7c69432969daee" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>JobID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a675a22d8b31eac190ac4c6725b6b5b4c" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>JobPostCommentID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a6ea6eac761a2246df1086a2f493a3826" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>SubCommentID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a5f274e2fa5b04a410bdd1b151c4f31df" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>UpVote</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1acfeb092071150648258bdc84f0d1004d" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPostComment</scope><name>UserID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

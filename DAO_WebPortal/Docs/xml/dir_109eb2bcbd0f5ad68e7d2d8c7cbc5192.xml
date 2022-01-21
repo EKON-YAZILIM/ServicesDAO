@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_109eb2bcbd0f5ad68e7d2d8c7cbc5192" kind="dir">
+    <compoundname>DAO_WebPortal</compoundname>
+    <innerdir refid="dir_9d285bf4078d3404b5adc9861120e90f">DAO_WebPortal/Controllers</innerdir>
+    <innerdir refid="dir_d584c34056bd631c48ef38f2f5e428d7">DAO_WebPortal/Models</innerdir>
+    <innerdir refid="dir_118da5ca469a0a26fd5b2233816db51c">DAO_WebPortal/obj</innerdir>
+    <innerdir refid="dir_4d90150895302be5e4e99893e33f7283">DAO_WebPortal/Providers</innerdir>
+    <innerdir refid="dir_22c7cd83959cba2a287983937291a562">DAO_WebPortal/Resources</innerdir>
+    <innerdir refid="dir_00a085b2a51b6f45a2161e7f527fb243">DAO_WebPortal/Utility</innerdir>
+    <innerdir refid="dir_0b41a599fc2719519618121feb2da250">DAO_WebPortal/Views</innerdir>
+    <innerdir refid="dir_3202e322eed3a02a0bfcfd908dcdab89">DAO_WebPortal/wwwroot</innerdir>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <innerfile refid="_startup_8cs">Startup.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/"/>
+  </compounddef>
+</doxygen>

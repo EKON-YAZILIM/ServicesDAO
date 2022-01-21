@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_CHANGELOG</compoundname>
+    <title>CKEditor 4 Export to PDF Plugin Changelog</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md85">
+<title>ckeditor4-plugin-exportpdf 1.0.3</title>
+<para>Other Changes:</para>
+<para><itemizedlist>
+<listitem><para>Updated test files.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md86">
+<title>ckeditor4-plugin-exportpdf 1.0.2</title>
+<para>Other Changes:</para>
+<para><itemizedlist>
+<listitem><para>Updated year in license headers.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md87">
+<title>ckeditor4-plugin-exportpdf 1.0.1</title>
+<para>Other Changes:</para>
+<para><itemizedlist>
+<listitem><para>Improved external CSS support for <ulink url="https://ckeditor.com/docs/ckeditor4/latest/examples/classic.html">Classic Editor</ulink> by handling exceptions and displaying convenient <ulink url="https://ckeditor.com/docs/ckeditor4/latest/guide/dev_errors.html#exportpdf-stylesheets-incaccessible">error messages</ulink>.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md88">
+<title>ckeditor4-plugin-exportpdf 1.0.0</title>
+<para>The first stable release of the CKEditor 4 WYSIWYG Editor Export to PDF plugin. After a few months of the beta phase, testing and listening to community feedback, the CKEditor 4 Export to PDF plugin is stable and can be used with full confidence. Enjoy!</para>
+<para>New Features:</para>
+<para><itemizedlist>
+<listitem><para>Introduced access control mechanism. The plugin now can be configured with additional <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_tokenUrl">exportPdf_tokenUrl</ulink> option to allow commercial use.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md89">
+<title>ckeditor4-plugin-exportpdf 0.1.2</title>
+<para>Other Changes:</para>
+<para><itemizedlist>
+<listitem><para>Improved <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_fileName">plugin API documentation</ulink>.</para>
+</listitem><listitem><para>Updated Export to PDF plugin npm readme to link to the <ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html">official plugin documentation</ulink>.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md90">
+<title>ckeditor4-plugin-exportpdf 0.1.1</title>
+<para>Other Changes:</para>
+<para><itemizedlist>
+<listitem><para>Renamed the Export to PDF plugin button from <computeroutput>exportPdf</computeroutput> to <computeroutput>ExportPdf</computeroutput>. The <computeroutput>ExportPdf</computeroutput> name should now be used while setting up a custom toolbar with the <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbar">CKEDITOR.config.toolbar</ulink> configuration option.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__c_h_a_n_g_e_l_o_g_1autotoc_md91">
+<title>ckeditor4-plugin-exportpdf 0.1.0</title>
+<para>The first beta release of the CKEditor 4 Export to PDF plugin.</para>
+<para>This plugin allows you to easily print your WYSIWYG editor content to a PDF file. When enabled, this feature sends the content of your editor together with the styles that are used to display it to the CKEditor Cloud Services HTML to PDF converter service. The service then generates a PDF document that can be downloaded by the user.</para>
+<para>Available features:</para>
+<para><itemizedlist>
+<listitem><para>Exporting HTML content from CKEditor 4 WYSIWYG editor to PDF with a single click.</para>
+</listitem><listitem><para>Setting a custom name for the generated PDF file.</para>
+</listitem><listitem><para>Handling relative image paths.</para>
+</listitem><listitem><para>Changing the appearance of the PDF document (like margins, text styling, custom headers and footers etc.) with custom CSS styles.</para>
+</listitem><listitem><para>Pre-processing HTML content via synchronous and asynchronous code before the generation of the PDF file. </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/CHANGELOG.md"/>
+  </compounddef>
+</doxygen>

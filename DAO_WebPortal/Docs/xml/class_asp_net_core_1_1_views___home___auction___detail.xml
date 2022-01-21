@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___auction___detail" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_Auction_Detail</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.AuctionDetailViewModel &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___auction___detail_1a19a4c0c0224c1da92fb1349da609732c" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Auction_Detail.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="54" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___auction___detail_1a962e2900297faac374739d6cfae2cef5" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Home_Auction_Detail.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="57" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___auction___detail_1ad00d92ea5bbff49cf390c4eb73f4214c" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Home_Auction_Detail.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="59" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___auction___detail_1a6c88250cf6ce2f9305a2243b84e59aa1" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Home_Auction_Detail.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="61" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___auction___detail_1ac4005fb6a87210a529945a93576d9373" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Auction_Detail.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="63" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___auction___detail_1a244eb5374869e66d011e4f038079d54e" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_Home_Auction_Detail.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="75" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1a707c8b26d1aef9c3fce13bf4529d2c82" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Auction_Detail.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="64" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="65" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1a4002405d584e0ff0af718abee3673c79" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_Home_Auction_Detail.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="728" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="728" bodyend="728"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1a3e292e601f65cda8705009bcdf1e8b2f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_Auction_Detail.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="730" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="730" bodyend="730"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1a338d56b97f71e2ef752383817b852da2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_Auction_Detail.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="732" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="732" bodyend="732"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1afbb9913378a518f2e2ce51469ec651d3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_Auction_Detail.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="734" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="734" bodyend="734"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1a688c0e162ff751b9a195e660952a899e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_Auction_Detail.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="736" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="736" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___auction___detail_1a73f22a3f54b05ca7654a2d5638f5d1ce" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.AuctionDetailViewModel &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.AuctionDetailViewModel&gt; AspNetCore.Views_Home_Auction_Detail.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="738" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="738" bodyend="738"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___auction___detail_1acb69e5600274a87e790edcdcb72bb019" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_Auction_Detail.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_Auction_Detail.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="77" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="77" bodyend="725"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Auction_Detail</label>
+        <link refid="class_asp_net_core_1_1_views___home___auction___detail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.AuctionDetailViewModel &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Auction_Detail</label>
+        <link refid="class_asp_net_core_1_1_views___home___auction___detail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.AuctionDetailViewModel &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" line="52" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Auction_Detail.cshtml.g.cs" bodystart="53" bodyend="739"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1ac4005fb6a87210a529945a93576d9373" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a244eb5374869e66d011e4f038079d54e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a19a4c0c0224c1da92fb1349da609732c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a962e2900297faac374739d6cfae2cef5" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1ad00d92ea5bbff49cf390c4eb73f4214c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a707c8b26d1aef9c3fce13bf4529d2c82" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a6c88250cf6ce2f9305a2243b84e59aa1" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1afbb9913378a518f2e2ce51469ec651d3" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1acb69e5600274a87e790edcdcb72bb019" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a73f22a3f54b05ca7654a2d5638f5d1ce" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a4002405d584e0ff0af718abee3673c79" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a688c0e162ff751b9a195e660952a899e" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a3e292e601f65cda8705009bcdf1e8b2f" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___auction___detail_1a338d56b97f71e2ef752383817b852da2" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Auction_Detail</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

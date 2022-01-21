@@ -15,11 +15,17 @@ using Helpers.Models.DtoModels.VoteDbDto;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  PaymentHistoryController contains payment history operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class PaymentHistoryController : Controller
     {
-
+        /// <summary>
+        /// Get PaymentHistory List
+        /// </summary>
+        /// <returns></returns>>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<PaymentHistoryDto> Get()
@@ -42,6 +48,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<PaymentHistory>, List<PaymentHistoryDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get PaymentHistory by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public PaymentHistoryDto GetId(int id)
@@ -64,6 +75,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<PaymentHistory, PaymentHistoryDto>(model);
         }
 
+        /// <summary>
+        /// Saves payment history model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public PaymentHistoryDto Post([FromBody] PaymentHistoryDto model)
@@ -85,6 +101,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves payment history list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<PaymentHistoryDto> PostMultiple([FromBody] List<PaymentHistoryDto> model)
@@ -106,6 +127,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        ///  Removes payment history by id
+        ///  Ends payment history
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -127,6 +154,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        ///  Update Payment history using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public PaymentHistoryDto Update([FromBody] PaymentHistoryDto model)
@@ -148,6 +180,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Get Payment History by userId
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [Route("GetPaymentHistoryByUserId")]
         [HttpGet]
         public IEnumerable<PaymentHistoryDto> GetPaymentHistoryByUserId(int userid)
@@ -169,7 +206,6 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<List<PaymentHistory>, List<PaymentHistoryDto>>(model).ToArray();
         }
-
 
         /// <summary>
         /// Get job and payment details for completed jobs

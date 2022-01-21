@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller" kind="class"><name>DAO_IdentityService::Controllers::IdentityController</name>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1ad563a8f0ace5fc6ca357ce6c1c3493c9" kind="function"><name>Login</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a39befd16c061162d013465e5a37cc777" kind="function"><name>Register</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a27a88452f25da524792173ec40742632" kind="function"><name>RegisterComplete</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1af11f39dfb23aad3b07e90f4b9d672629" kind="function"><name>ResetPassword</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1aa07ccbc54dab9a46aedfcd7ea66a5288" kind="function"><name>ResetPasswordComplete</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a927e5baf705fa6dd73d9608a2a8f3b75" kind="function"><name>Logout</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1aa6cb53fb609323406e7f34382164b7df" kind="function"><name>CreateUserClaims</name></member>
+  </compound>
+  <compound refid="class_d_a_o___identity_service_1_1_controllers_1_1_info_controller" kind="class"><name>DAO_IdentityService::Controllers::InfoController</name>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_info_controller_1acf1c12b71a7514555f191844d8960c12" kind="function"><name>GetAppInfo</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_info_controller_1ae0c517c1720e44bf7414e4a55918860f" kind="function"><name>ResetErrors</name></member>
+  </compound>
+  <compound refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller" kind="class"><name>DAO_IdentityService::Controllers::KycController</name>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1a30233d911e3e4cc84e7ec81520f72e3d" kind="function"><name>SubmitKYCFile</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1a7830b2a90a1d3f5646151a0e2dba0da8" kind="function"><name>KycCallBack</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1aa6b976691554978491d805e53ca5da84" kind="function"><name>GetKycCountries</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1ae4bb2e98e76efc038dd678b20969b32d" kind="function"><name>GetKycStatus</name></member>
+  </compound>
+  <compound refid="class_d_a_o___identity_service_1_1_program" kind="class"><name>DAO_IdentityService::Program</name>
+    <member refid="class_d_a_o___identity_service_1_1_program_1abb7918d9f9a23c44f83f6436ed65a22e" kind="property"><name>_settings</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1abf7a18dda14ea85fa5c292cf0c0445c2" kind="variable"><name>rabbitMq</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1a997e8f31828d72882073961c79901882" kind="variable"><name>monitizer</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1a8eccf3c233b67bf390ab223ca6a09a46" kind="function"><name>Main</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1a7a604cde9768bbe20831f364f16fead0" kind="function"><name>CreateHostBuilder</name></member>
+  </compound>
+  <compound refid="class_d_a_o___identity_service_1_1_program_1_1_settings" kind="class"><name>DAO_IdentityService::Program::Settings</name>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a86fce4b2d02c9a0eb7c980b8fd906372" kind="property"><name>DAOName</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a7a7110d707128f02faeb121075e2b938" kind="property"><name>DbConnectionString</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a58f91be62c564b4b322d3912511c47dc" kind="property"><name>RabbitMQUrl</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a4db3c36936d1f637649df0982aaebe31" kind="property"><name>RabbitMQUsername</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a025600918a9942fd305942a3b5a6767e" kind="property"><name>RabbitMQPassword</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a790fa9a356a19c2d3fc9a077915e2a41" kind="property"><name>Service_Db_Url</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1aae23034e8d760e0f14912da3720c0180" kind="property"><name>WebPortal_Url</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a6353981f9849e4f5d74a6bc9752f94f1" kind="property"><name>Service_Notification_Url</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a4ecd1c211dd1e4e65710bb10cd747d9c" kind="property"><name>EncryptionKey</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a71d1b1faae22e187df10bad96ac7383b" kind="property"><name>JwtTokenKey</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a512f09e2df30700dd896c66c1f7d298e" kind="property"><name>KYCID</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a8c2d6b6b382a0a994881fff7c473d59d" kind="property"><name>KYCURL</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1ac248e7521c2f69cb8491eab489040106" kind="property"><name>WebURLforKYCResponse</name></member>
+  </compound>
+  <compound refid="class_d_a_o___identity_service_1_1_startup" kind="class"><name>DAO_IdentityService::Startup</name>
+    <member refid="class_d_a_o___identity_service_1_1_startup_1af39409394055a2f5a310f083e0fe67a1" kind="property"><name>Configuration</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_startup_1aabe04f6bf21dff17ae998a06d7045c2f" kind="function"><name>Startup</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_startup_1a53c24bf761072cfeb505ddf54394c5ee" kind="function"><name>ConfigureServices</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_startup_1a933ce1d825a6a21ab14f19c8d2c98468" kind="function"><name>Configure</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_startup_1adb6fd78ec6171c7c459d47d190b89144" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_d_a_o___identity_service_1_1_startup_1a33e58d9eabcfdad73d16f0bfd8b2835d" kind="function"><name>InitializeService</name></member>
+  </compound>
+  <compound refid="namespace_d_a_o___identity_service" kind="namespace"><name>DAO_IdentityService</name>
+  </compound>
+  <compound refid="namespace_d_a_o___identity_service_1_1_controllers" kind="namespace"><name>DAO_IdentityService::Controllers</name>
+  </compound>
+  <compound refid="namespace_d_a_o___identity_service_1_1_program" kind="namespace"><name>DAO_IdentityService::Program</name>
+  </compound>
+  <compound refid="namespace_helpers" kind="namespace"><name>Helpers</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants" kind="namespace"><name>Helpers::Constants</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants_1_1_enums" kind="namespace"><name>Helpers::Constants::Enums</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_main_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::MainDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_identity_models" kind="namespace"><name>Helpers::Models::IdentityModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_k_y_c_models" kind="namespace"><name>Helpers::Models::KYCModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_notification_models" kind="namespace"><name>Helpers::Models::NotificationModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_shared_models" kind="namespace"><name>Helpers::Models::SharedModels</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_builder" kind="namespace"><name>Microsoft::AspNetCore::Builder</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_hosting" kind="namespace"><name>Microsoft::AspNetCore::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_http" kind="namespace"><name>Microsoft::AspNetCore::Http</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_https_policy" kind="namespace"><name>Microsoft::AspNetCore::HttpsPolicy</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_localization" kind="namespace"><name>Microsoft::AspNetCore::Localization</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_mvc" kind="namespace"><name>Microsoft::AspNetCore::Mvc</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_configuration" kind="namespace"><name>Microsoft::Extensions::Configuration</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_dependency_injection" kind="namespace"><name>Microsoft::Extensions::DependencyInjection</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_hosting" kind="namespace"><name>Microsoft::Extensions::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_logging" kind="namespace"><name>Microsoft::Extensions::Logging</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_identity_model_1_1_tokens" kind="namespace"><name>Microsoft::IdentityModel::Tokens</name>
+  </compound>
+  <compound refid="namespace_newtonsoft_1_1_json" kind="namespace"><name>Newtonsoft::Json</name>
+  </compound>
+  <compound refid="namespacestatic" kind="namespace"><name>static</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_identity_model_1_1_tokens_1_1_jwt" kind="namespace"><name>System::IdentityModel::Tokens::Jwt</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_security_1_1_claims" kind="namespace"><name>System::Security::Claims</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text_1_1_json_1_1_serialization" kind="namespace"><name>System::Text::Json::Serialization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="_identity_controller_8cs" kind="file"><name>IdentityController.cs</name>
+  </compound>
+  <compound refid="_info_controller_8cs" kind="file"><name>InfoController.cs</name>
+  </compound>
+  <compound refid="_kyc_controller_8cs" kind="file"><name>KycController.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_d_a_o___identity_service_8_assembly_info_8cs" kind="file"><name>DAO_IdentityService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_d_a_o___identity_service_8_assembly_info_8cs" kind="file"><name>DAO_IdentityService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_startup_8cs" kind="file"><name>Startup.cs</name>
+  </compound>
+  <compound refid="dir_01b35550d3bb3d02d9d4b5868f086173" kind="dir"><name>DAO_IdentityService/Controllers</name>
+  </compound>
+  <compound refid="dir_47730610b46d25ceefc0f00c2e81ea86" kind="dir"><name>DAO_IdentityService</name>
+  </compound>
+  <compound refid="dir_970de87f22f141072cc8425af569d780" kind="dir"><name>DAO_IdentityService/obj/Debug</name>
+  </compound>
+  <compound refid="dir_9e1f7ecbfea6de1469a36f0d883018ff" kind="dir"><name>DAO_IdentityService/obj/Debug/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_68137b8f020878140fdfd0ef96f3d395" kind="dir"><name>DAO_IdentityService/obj/Release/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_18267a8e52f8021bc39fc345c76096d2" kind="dir"><name>DAO_IdentityService/obj</name>
+  </compound>
+  <compound refid="dir_f4a3c8ec86d82be4be22193c6e2256f9" kind="dir"><name>DAO_IdentityService/obj/Release</name>
+  </compound>
+</doxygenindex>

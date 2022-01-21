@@ -11,6 +11,9 @@ using static Helpers.Constants.Enums;
 
 namespace DAO_IdentityService.Controllers
 {
+    /// <summary>
+    ///  KycController contains Kyc operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class KycController : ControllerBase
@@ -171,9 +174,8 @@ namespace DAO_IdentityService.Controllers
             return new SimpleResponse() { Success = true, Message = "KYC completed successfully." };
         }
 
-
         /// <summary>
-        ///  Receives calllback from the KYC verification site
+        ///  Receives calllback from the KYC verification site.
         /// </summary>
         /// <param name="Response">KYC information of the user</param>
         /// <returns>KYCCallBack class</returns>

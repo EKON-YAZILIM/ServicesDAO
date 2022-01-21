@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Migrations::dblogservice_models_adjustment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1acceb8ff760b5b65de545af3546d4aeca" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Migrations.dblogservice_models_adjustment.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_LogService.Migrations.dblogservice_models_adjustment.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" line="9" column="33" bodyfile="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" bodystart="9" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1abce5fbf9a89abacfcc4931b1da5eef53" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Migrations.dblogservice_models_adjustment.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_LogService.Migrations.dblogservice_models_adjustment.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" line="73" column="33" bodyfile="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" bodystart="73" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1af3ff720b300c6ac611306dc08de68346" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Migrations.dblogservice_models_adjustment.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_LogService.Migrations.dblogservice_models_adjustment.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.Designer.cs" line="15" column="33" bodyfile="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.Designer.cs" bodystart="15" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_LogService.Migrations.dblogservice_models_adjustment</label>
+        <link refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_LogService.Migrations.dblogservice_models_adjustment</label>
+        <link refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" line="7" column="19" bodyfile="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" bodystart="8" bodyend="84"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1af3ff720b300c6ac611306dc08de68346" prot="protected" virt="non-virtual"><scope>DAO_LogService::Migrations::dblogservice_models_adjustment</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1abce5fbf9a89abacfcc4931b1da5eef53" prot="protected" virt="non-virtual"><scope>DAO_LogService::Migrations::dblogservice_models_adjustment</scope><name>Down</name></member>
+      <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1acceb8ff760b5b65de545af3546d4aeca" prot="protected" virt="non-virtual"><scope>DAO_LogService::Migrations::dblogservice_models_adjustment</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

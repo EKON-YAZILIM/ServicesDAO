@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="class_d_a_o___notification_service_1_1_controllers_1_1_info_controller" kind="class"><name>DAO_NotificationService::Controllers::InfoController</name>
+    <member refid="class_d_a_o___notification_service_1_1_controllers_1_1_info_controller_1adfd4cd97fdbd44980409708e964d0fae" kind="function"><name>GetAppInfo</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_controllers_1_1_info_controller_1a4c9bbea290bf982c2709243fad5c2fe1" kind="function"><name>ResetErrors</name></member>
+  </compound>
+  <compound refid="class_d_a_o___notification_service_1_1_main_events" kind="class"><name>DAO_NotificationService::MainEvents</name>
+    <member refid="class_d_a_o___notification_service_1_1_main_events_1ab0a525c88bbeaa20ecbbc791d1405098" kind="function"><name>InitializeNotificationService</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_main_events_1a679be4241e9c9b46730c745ac57daff4" kind="function"><name>OnEmailMessageReceived</name></member>
+  </compound>
+  <compound refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller" kind="class"><name>DAO_NotificationService::Controllers::NotificationController</name>
+    <member refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller_1a01e709114320c397a38ca4832a97f762" kind="function"><name>SendEmail</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller_1a0248b667aa7b28ee73a3afed28c0104f" kind="function"><name>SendPublicContactEmail</name></member>
+  </compound>
+  <compound refid="class_d_a_o___notification_service_1_1_program" kind="class"><name>DAO_NotificationService::Program</name>
+    <member refid="class_d_a_o___notification_service_1_1_program_1ab95198e9ba5de6d66f0fd5b68c9eba76" kind="property"><name>_settings</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1ae5359576c4641d5322f71b556daabf4d" kind="variable"><name>rabbitMq</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1a491e3fa3e6c7f394718ece76ac02b34a" kind="variable"><name>monitizer</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1accc0d1e417fa016ccb05585ce91fc446" kind="function"><name>Main</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1a901c4f9f037405ce248967b88c551023" kind="function"><name>CreateHostBuilder</name></member>
+  </compound>
+  <compound refid="class_d_a_o___notification_service_1_1_program_1_1_settings" kind="class"><name>DAO_NotificationService::Program::Settings</name>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1adadc0b41ac56f66a52ddd1259b3b5c8d" kind="property"><name>DAOName</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a1f5c4784d1ebeb519012316d733c8b60" kind="property"><name>RabbitMQUrl</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a951a8871501376f70b54cb3640a67b93" kind="property"><name>RabbitMQUsername</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1af7b9ec3237a2d706f19e9153456e5708" kind="property"><name>RabbitMQPassword</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1aaf3b073ef3ccc2cff84b27b0d0eb9914" kind="property"><name>Service_Db_Url</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a96f304470dd62eeeaa790119f0b9301c" kind="property"><name>WebPortal_Url</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a3218228740654344244c645a009d891e" kind="property"><name>EmailChannel</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1ad7f2b773bce56ecced1a94c14a6b1d80" kind="property"><name>EmailAddress</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1aadf1b66a6098373b4259646037a71ae1" kind="property"><name>EmailDisplayName</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a896ee774a870b5f03975ffbb99ab5518" kind="property"><name>EmailPassword</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1adc6198802058b6e6755cd97a4b919e49" kind="property"><name>EmailHost</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a019b638918da835ecad192b272286bf3" kind="property"><name>EmailPort</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a5786e8690432b2ada21eedc69b33ecad" kind="property"><name>EmailSSL</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1ac3fa2e976b86aa32b98456c7ba087762" kind="property"><name>EmailApiUrl</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a83717f1ddf5850078ee5640ff8fe93a6" kind="property"><name>ContactEmail</name></member>
+  </compound>
+  <compound refid="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender" kind="class"><name>DAO_NotificationService::Integrations::SmtpMailSender</name>
+    <member refid="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender_1aa1dcbf205b43238a9b910ca9a7de1b18" kind="function"><name>SendEmail</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender_1a6b70e06fa6fb3a109f7d3a29bdfcbf84" kind="function"><name>WrapToMailTemplate</name></member>
+  </compound>
+  <compound refid="class_d_a_o___notification_service_1_1_startup" kind="class"><name>DAO_NotificationService::Startup</name>
+    <member refid="class_d_a_o___notification_service_1_1_startup_1a642b2a1390da876ee067be25add46b0a" kind="property"><name>Configuration</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_startup_1a390c5e80adc2e752b6c5d31f5e954c9d" kind="function"><name>Startup</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_startup_1add05e4c0aa8316ac09bf165c773a6641" kind="function"><name>ConfigureServices</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_startup_1acda116ac638ae0fae8a4aa073e1b62ae" kind="function"><name>Configure</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_startup_1aa7f82609d4d99394e1064f9168a67e43" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_d_a_o___notification_service_1_1_startup_1a88341c7cd1453d5ec7f9d85fc382798f" kind="function"><name>InitializeService</name></member>
+  </compound>
+  <compound refid="namespace_d_a_o___notification_service" kind="namespace"><name>DAO_NotificationService</name>
+  </compound>
+  <compound refid="namespace_d_a_o___notification_service_1_1_controllers" kind="namespace"><name>DAO_NotificationService::Controllers</name>
+  </compound>
+  <compound refid="namespace_d_a_o___notification_service_1_1_integrations" kind="namespace"><name>DAO_NotificationService::Integrations</name>
+  </compound>
+  <compound refid="namespace_d_a_o___notification_service_1_1_program" kind="namespace"><name>DAO_NotificationService::Program</name>
+  </compound>
+  <compound refid="namespace_helpers" kind="namespace"><name>Helpers</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants" kind="namespace"><name>Helpers::Constants</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants_1_1_enums" kind="namespace"><name>Helpers::Constants::Enums</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_main_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::MainDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_notification_models" kind="namespace"><name>Helpers::Models::NotificationModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_shared_models" kind="namespace"><name>Helpers::Models::SharedModels</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_builder" kind="namespace"><name>Microsoft::AspNetCore::Builder</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_hosting" kind="namespace"><name>Microsoft::AspNetCore::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_https_policy" kind="namespace"><name>Microsoft::AspNetCore::HttpsPolicy</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_localization" kind="namespace"><name>Microsoft::AspNetCore::Localization</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_mvc" kind="namespace"><name>Microsoft::AspNetCore::Mvc</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_configuration" kind="namespace"><name>Microsoft::Extensions::Configuration</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_dependency_injection" kind="namespace"><name>Microsoft::Extensions::DependencyInjection</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_hosting" kind="namespace"><name>Microsoft::Extensions::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_logging" kind="namespace"><name>Microsoft::Extensions::Logging</name>
+  </compound>
+  <compound refid="namespacestatic" kind="namespace"><name>static</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net_1_1_mail" kind="namespace"><name>System::Net::Mail</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text_1_1_json_1_1_serialization" kind="namespace"><name>System::Text::Json::Serialization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="_info_controller_8cs" kind="file"><name>InfoController.cs</name>
+  </compound>
+  <compound refid="_notification_controller_8cs" kind="file"><name>NotificationController.cs</name>
+  </compound>
+  <compound refid="_smtp_mail_sender_8cs" kind="file"><name>SmtpMailSender.cs</name>
+  </compound>
+  <compound refid="_main_events_8cs" kind="file"><name>MainEvents.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_d_a_o___notification_service_8_assembly_info_8cs" kind="file"><name>DAO_NotificationService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_d_a_o___notification_service_8_assembly_info_8cs" kind="file"><name>DAO_NotificationService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_startup_8cs" kind="file"><name>Startup.cs</name>
+  </compound>
+  <compound refid="dir_bd696381264c423fa5a1d0fded49b74e" kind="dir"><name>DAO_NotificationService/Controllers</name>
+  </compound>
+  <compound refid="dir_1f4f8796326fb92ac603ea6cf3707e3e" kind="dir"><name>DAO_NotificationService</name>
+  </compound>
+  <compound refid="dir_43c0a1558b2e609a5bb1df9cd6ea0607" kind="dir"><name>DAO_NotificationService/obj/Debug</name>
+  </compound>
+  <compound refid="dir_f5055a42514809c078e41f13730b228c" kind="dir"><name>DAO_NotificationService/Integrations</name>
+  </compound>
+  <compound refid="dir_a715d5d3668840bcb10a23cb1061835a" kind="dir"><name>DAO_NotificationService/obj/Debug/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_8f4d9d85ad5a950c634b01a0966861fe" kind="dir"><name>DAO_NotificationService/obj/Release/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_f4c52c4204f3cd6a454bbd4b1d297c7d" kind="dir"><name>DAO_NotificationService/obj</name>
+  </compound>
+  <compound refid="dir_3df057a476eb78b80d7c37c505d854c9" kind="dir"><name>DAO_NotificationService/obj/Release</name>
+  </compound>
+</doxygenindex>

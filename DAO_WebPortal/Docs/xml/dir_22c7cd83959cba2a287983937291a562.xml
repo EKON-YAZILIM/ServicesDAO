@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_22c7cd83959cba2a287983937291a562" kind="dir">
+    <compoundname>DAO_WebPortal/Resources</compoundname>
+    <innerfile refid="_lang_8_designer_8cs">Lang.Designer.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Resources/"/>
+  </compounddef>
+</doxygen>

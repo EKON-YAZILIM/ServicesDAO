@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor__s_e_c_u_r_i_t_y" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_SECURITY</compoundname>
+    <title>Reporting a security issues</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>If you believe you have found a security issue in the CKEditor 4 software, please contact us immediately.</para>
+<para>When reporting a potential security problem, please bear this in mind:</para>
+<para><itemizedlist>
+<listitem><para>Make sure to provide as many details as possible about the vulnerability.</para>
+</listitem><listitem><para>Please do not disclose publicly any security issues until we fix them and publish security releases.</para>
+</listitem></itemizedlist>
+</para>
+<para>Contact the security team at <ulink url="mailto:security@cksource.com">security@cksource.com</ulink>. As soon as we receive the security report, we will work promptly to confirm the issue and then to provide a security fix. </para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/SECURITY.md"/>
+  </compounddef>
+</doxygen>

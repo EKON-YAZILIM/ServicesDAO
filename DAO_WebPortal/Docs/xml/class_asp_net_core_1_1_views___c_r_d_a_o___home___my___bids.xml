@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_CRDAO_Home_My_Bids</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.WebsiteViewModels.MyBidsViewModel &gt; &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ae546969f2e516c0c660ba1755ae9f295" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="33" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ac0375abd3816439cd16119ed5eb88ca3" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="36" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a9b55df1aa6f96e8e4f0f43bd48a77354" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="38" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a326af20757e04f05485ac9009080e193" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="40" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ac856665c1072bad2563caf864624f413" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Home_My_Bids.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="42" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a0a3527264483b7063b167eeba281d66e" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_CRDAO_Home_My_Bids.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="54" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ab7f00d28923a825febd4a2ecbe728319" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="43" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1af4d4b58bde405276ab3359210d3143f6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_CRDAO_Home_My_Bids.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.ModelExpressionProvider</qualifiedname>
+        <initializer>            &lt;div class=&quot;&quot;table-responsive h-500&quot;&quot;&gt;
+                &lt;table class=&quot;&quot;table table-striped table-hover&quot;&quot;&gt;
+                    &lt;thead&gt;
+                        &lt;tr&gt;
+                            &lt;th scope=&quot;&quot;col&quot;&quot;&gt;Job Name&lt;/th&gt;
+                            &lt;th class=&quot;&quot;cursorp thSort&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Price &lt;i class=&quot;&quot;fas fa-sort&quot;&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+                            &lt;th class=&quot;&quot;cursorp thSort&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Time (days) &lt;i class=&quot;&quot;fas fa-sort&quot;&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+                            &lt;th class=&quot;&quot;cursorp thSort&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Reputation Stake &lt;i class=&quot;&quot;fas fa-sort&quot;&quot;&gt;&lt;/i&gt;&lt;/th&gt;
+                            &lt;th scope=&quot;&quot;col&quot;&quot;&gt;Auction Status&lt;/th&gt;
+                            &lt;th scope=&quot;&quot;col&quot;&quot;&gt;&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="277" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="277" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a9379d216e63909414ae9a661d6d432fc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_CRDAO_Home_My_Bids.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="279" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="279" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1aa71ae20d80c8d69691d8d791eb61020b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_CRDAO_Home_My_Bids.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="281" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="281" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a4517d89d3537b2c3a0aa429f1aeb9a7b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_CRDAO_Home_My_Bids.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="283" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="283" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ab83dea46f2fd2af6d50a9965acd6eabd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; List&lt; Helpers.Models.WebsiteViewModels.MyBidsViewModel &gt; &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;List&lt;Helpers.Models.WebsiteViewModels.MyBidsViewModel&gt; &gt; AspNetCore.Views_CRDAO_Home_My_Bids.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="285" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="285" bodyend="285"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a3c63e3c6a8732f7e6e14605fc88343e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_CRDAO_Home_My_Bids.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_My_Bids.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="56" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="56" bodyend="274"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Home_My_Bids</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.WebsiteViewModels.MyBidsViewModel &gt; &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Home_My_Bids</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.WebsiteViewModels.MyBidsViewModel &gt; &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" line="31" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/My_Bids.cshtml.g.cs" bodystart="32" bodyend="286"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ac856665c1072bad2563caf864624f413" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a0a3527264483b7063b167eeba281d66e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ae546969f2e516c0c660ba1755ae9f295" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ac0375abd3816439cd16119ed5eb88ca3" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a9b55df1aa6f96e8e4f0f43bd48a77354" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ab7f00d28923a825febd4a2ecbe728319" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a326af20757e04f05485ac9009080e193" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1aa71ae20d80c8d69691d8d791eb61020b" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a3c63e3c6a8732f7e6e14605fc88343e1" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1ab83dea46f2fd2af6d50a9965acd6eabd" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a4517d89d3537b2c3a0aa429f1aeb9a7b" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1af4d4b58bde405276ab3359210d3143f6" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids_1a9379d216e63909414ae9a661d6d432fc" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_My_Bids</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

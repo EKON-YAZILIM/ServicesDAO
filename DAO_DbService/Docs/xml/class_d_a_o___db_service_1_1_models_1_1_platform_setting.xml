@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_platform_setting" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::PlatformSetting</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a3338535aa9d6203507082dc75a7dcfda" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.PlatformSetting.PlatformSettingID</definition>
+        <argsstring></argsstring>
+        <name>PlatformSettingID</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.PlatformSettingID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="12" column="20" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1abea4e1acbaf01a6933580a30b97fa1e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int?</type>
+        <definition>int? DAO_DbService.Models.PlatformSetting.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="13" column="20" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1aa14579ea518262553a82b337e24d283a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.PlatformSetting.CreateDate</definition>
+        <argsstring></argsstring>
+        <name>CreateDate</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.CreateDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="14" column="25" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a0e28f4682b7859476c2ce4709f37f313" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PlatformSetting.DosCurrencies</definition>
+        <argsstring></argsstring>
+        <name>DosCurrencies</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.DosCurrencies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="15" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a2d33fba09b2fba94cc01e82e160fed34" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PlatformSetting.DosFees</definition>
+        <argsstring></argsstring>
+        <name>DosFees</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.DosFees</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="16" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1ab7f99d32f9c97bba94754bbd5fc5d1f4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.DefaultPolicingRate</definition>
+        <argsstring></argsstring>
+        <name>DefaultPolicingRate</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.DefaultPolicingRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="17" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a8e2a21c2420a1e7c83d31a0bad17fa19" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.MinPolicingRate</definition>
+        <argsstring></argsstring>
+        <name>MinPolicingRate</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.MinPolicingRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="18" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a7c405e8b1cf8ed4283ce90aa98a6512b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.MaxPolicingRate</definition>
+        <argsstring></argsstring>
+        <name>MaxPolicingRate</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.MaxPolicingRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="19" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a02cb0816f54bc793b0412a9abbc220bf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Models.PlatformSetting.ForumKYCRequired</definition>
+        <argsstring></argsstring>
+        <name>ForumKYCRequired</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.ForumKYCRequired</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="20" column="21" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a547e45c2180134205c30664a691e7351" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.QuorumRatio</definition>
+        <argsstring></argsstring>
+        <name>QuorumRatio</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.QuorumRatio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="21" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a228c42a22a41b2d2701eb1b2eb175792" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.InternalAuctionTime</definition>
+        <argsstring></argsstring>
+        <name>InternalAuctionTime</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.InternalAuctionTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="22" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a6fdbf59a25eec0fb3aaf9968012d864d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.PublicAuctionTime</definition>
+        <argsstring></argsstring>
+        <name>PublicAuctionTime</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.PublicAuctionTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="23" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a24edd87f9ec9f0fef09581a78398d5f7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PlatformSetting.AuctionTimeType</definition>
+        <argsstring></argsstring>
+        <name>AuctionTimeType</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.AuctionTimeType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="24" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1ae0e911609b531b296cee78c36566bdc7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.VotingTime</definition>
+        <argsstring></argsstring>
+        <name>VotingTime</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.VotingTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="25" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1aee9c41f97795e8795afc66c57ab652ba" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PlatformSetting.VotingTimeType</definition>
+        <argsstring></argsstring>
+        <name>VotingTimeType</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.VotingTimeType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="26" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a6fd08bbbc5b449e250751e990830e208" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double?</type>
+        <definition>double? DAO_DbService.Models.PlatformSetting.ReputationConversionRate</definition>
+        <argsstring></argsstring>
+        <name>ReputationConversionRate</name>
+        <qualifiedname>DAO_DbService.Models.PlatformSetting.ReputationConversionRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PlatformSetting.cs" line="27" column="23" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/PlatformSetting.cs" line="9" column="11" bodyfile="DAO_DbService/Models/PlatformSetting.cs" bodystart="10" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a24edd87f9ec9f0fef09581a78398d5f7" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>AuctionTimeType</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1aa14579ea518262553a82b337e24d283a" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>CreateDate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1ab7f99d32f9c97bba94754bbd5fc5d1f4" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>DefaultPolicingRate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a0e28f4682b7859476c2ce4709f37f313" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>DosCurrencies</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a2d33fba09b2fba94cc01e82e160fed34" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>DosFees</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a02cb0816f54bc793b0412a9abbc220bf" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>ForumKYCRequired</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a228c42a22a41b2d2701eb1b2eb175792" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>InternalAuctionTime</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a7c405e8b1cf8ed4283ce90aa98a6512b" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>MaxPolicingRate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a8e2a21c2420a1e7c83d31a0bad17fa19" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>MinPolicingRate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a3338535aa9d6203507082dc75a7dcfda" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>PlatformSettingID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a6fdbf59a25eec0fb3aaf9968012d864d" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>PublicAuctionTime</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a547e45c2180134205c30664a691e7351" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>QuorumRatio</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a6fd08bbbc5b449e250751e990830e208" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>ReputationConversionRate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1abea4e1acbaf01a6933580a30b97fa1e2" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>UserID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1ae0e911609b531b296cee78c36566bdc7" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>VotingTime</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1aee9c41f97795e8795afc66c57ab652ba" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PlatformSetting</scope><name>VotingTimeType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

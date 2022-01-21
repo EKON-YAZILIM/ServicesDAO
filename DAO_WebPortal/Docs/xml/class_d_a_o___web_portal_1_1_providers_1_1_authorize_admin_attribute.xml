@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Providers::AuthorizeAdminAttribute</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionFilterAttribute</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute_1a290e8a48bb69dc36cb063d3fa5b3efd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_WebPortal.Providers.AuthorizeAdminAttribute.AuthorizeAdminAttribute</definition>
+        <argsstring>()</argsstring>
+        <name>AuthorizeAdminAttribute</name>
+        <qualifiedname>DAO_WebPortal.Providers.AuthorizeAdminAttribute.AuthorizeAdminAttribute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Providers/AuthorizeAdminAttribute.cs" line="13" column="16" bodyfile="DAO_WebPortal/Providers/AuthorizeAdminAttribute.cs" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute_1a424bc5d592e290de901187f8e97ee496" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_WebPortal.Providers.AuthorizeAdminAttribute.OnActionExecuting</definition>
+        <argsstring>(ActionExecutingContext context)</argsstring>
+        <name>OnActionExecuting</name>
+        <qualifiedname>DAO_WebPortal.Providers.AuthorizeAdminAttribute.OnActionExecuting</qualifiedname>
+        <param>
+          <type>ActionExecutingContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Providers/AuthorizeAdminAttribute.cs" line="17" column="30" bodyfile="DAO_WebPortal/Providers/AuthorizeAdminAttribute.cs" bodystart="17" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionFilterAttribute</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Providers.AuthorizeAdminAttribute</label>
+        <link refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionFilterAttribute</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Providers.AuthorizeAdminAttribute</label>
+        <link refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/Providers/AuthorizeAdminAttribute.cs" line="11" column="11" bodyfile="DAO_WebPortal/Providers/AuthorizeAdminAttribute.cs" bodystart="12" bodyend="45"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute_1a290e8a48bb69dc36cb063d3fa5b3efd9" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Providers::AuthorizeAdminAttribute</scope><name>AuthorizeAdminAttribute</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_admin_attribute_1a424bc5d592e290de901187f8e97ee496" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Providers::AuthorizeAdminAttribute</scope><name>OnActionExecuting</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

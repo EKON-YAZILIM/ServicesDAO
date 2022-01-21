@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_27f0112c5a97f9344bccb6ed2ea83d30" kind="dir">
+    <compoundname>DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins</compoundname>
+    <innerdir refid="dir_4beebd3607b791db177b804fb551a0f6">DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins/moono-dark</innerdir>
+    <innerdir refid="dir_2d51aa67a1845a3dc16fed68717ceeb8">DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins/moono-lisa</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins/"/>
+  </compounddef>
+</doxygen>

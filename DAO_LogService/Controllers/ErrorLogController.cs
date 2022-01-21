@@ -14,10 +14,17 @@ using DAO_LogService.Mapping;
 
 namespace DAO_LogService.Controllers
 {
+    /// <summary>
+    ///  ErrorLogsController contains error logs operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class ErrorLogController : Controller
     {
+        /// <summary>
+        ///  Get error logs list
+        /// </summary>
+        /// <returns>ErrorLog List</returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<ErrorLogDto> Get()
@@ -40,6 +47,9 @@ namespace DAO_LogService.Controllers
             return _mapper.Map<List<ErrorLog>, List<ErrorLogDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get error logs by id
+        /// </summary>
         [Route("GetId")]
         [HttpGet]
         public ErrorLogDto GetId(int id)
@@ -62,6 +72,9 @@ namespace DAO_LogService.Controllers
             return _mapper.Map<ErrorLog, ErrorLogDto>(model);
         }
 
+        /// <summary>
+        /// Saves the ErrorLog using the post method.
+        /// </summary>
         [Route("Post")]
         [HttpPost]
         public ErrorLogDto Post([FromBody] ErrorLogDto model)
@@ -83,6 +96,10 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves the list of errorLogs model using post method
+        /// </summary>
+        /// <returns>List of errorLogs class</returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<ErrorLogDto> PostMultiple([FromBody] List<ErrorLogDto> model)
@@ -104,6 +121,9 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes the errorlog by id using delete method
+        /// </summary>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,6 +145,9 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates the errorlogs by model using put method
+        /// </summary>
         [Route("Update")]
         [HttpPut]
         public ErrorLogDto Update([FromBody] ErrorLogDto model)
@@ -146,6 +169,10 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the errorLogs pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<ErrorLogDto> GetPaged(int page = 1, int pageCount = 30)

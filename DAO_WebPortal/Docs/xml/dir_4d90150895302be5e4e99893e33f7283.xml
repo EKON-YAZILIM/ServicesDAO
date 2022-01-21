@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_4d90150895302be5e4e99893e33f7283" kind="dir">
+    <compoundname>DAO_WebPortal/Providers</compoundname>
+    <innerfile refid="_authorize_admin_attribute_8cs">AuthorizeAdminAttribute.cs</innerfile>
+    <innerfile refid="_authorize_user_attribute_8cs">AuthorizeUserAttribute.cs</innerfile>
+    <innerfile refid="_prevent_duplicate_request_attribute_8cs">PreventDuplicateRequestAttribute.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Providers/"/>
+  </compounddef>
+</doxygen>

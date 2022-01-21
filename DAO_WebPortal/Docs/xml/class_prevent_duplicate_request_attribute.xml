@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_prevent_duplicate_request_attribute" kind="class" language="C#" prot="public">
+    <compoundname>PreventDuplicateRequestAttribute</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionFilterAttribute</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_prevent_duplicate_request_attribute_1ac713b524579f69bf8f2cd9f25d2699ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void PreventDuplicateRequestAttribute.OnActionExecuting</definition>
+        <argsstring>(ActionExecutingContext context)</argsstring>
+        <name>OnActionExecuting</name>
+        <qualifiedname>PreventDuplicateRequestAttribute.OnActionExecuting</qualifiedname>
+        <param>
+          <type>ActionExecutingContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Providers/PreventDuplicateRequestAttribute.cs" line="7" column="26" bodyfile="DAO_WebPortal/Providers/PreventDuplicateRequestAttribute.cs" bodystart="7" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionFilterAttribute</label>
+      </node>
+      <node id="1">
+        <label>PreventDuplicateRequestAttribute</label>
+        <link refid="class_prevent_duplicate_request_attribute"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionFilterAttribute</label>
+      </node>
+      <node id="1">
+        <label>PreventDuplicateRequestAttribute</label>
+        <link refid="class_prevent_duplicate_request_attribute"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/Providers/PreventDuplicateRequestAttribute.cs" line="6" column="7" bodyfile="DAO_WebPortal/Providers/PreventDuplicateRequestAttribute.cs" bodystart="6" bodyend="20"/>
+    <listofallmembers>
+      <member refid="class_prevent_duplicate_request_attribute_1ac713b524579f69bf8f2cd9f25d2699ba" prot="public" virt="non-virtual"><scope>PreventDuplicateRequestAttribute</scope><name>OnActionExecuting</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

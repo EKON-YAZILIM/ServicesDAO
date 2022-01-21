@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::jobpost_edited</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a03732839d1a09bc78cba11c304761145" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.jobpost_edited.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.jobpost_edited.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211219073632_jobpost_edited.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211219073632_jobpost_edited.cs" bodystart="7" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a3a299f73aff3b4270b0ace550419506a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.jobpost_edited.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.jobpost_edited.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211219073632_jobpost_edited.cs" line="22" column="33" bodyfile="DAO_DbService/Migrations/20211219073632_jobpost_edited.cs" bodystart="22" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a9100d432eb8ca55664ec533bd2830a76" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.jobpost_edited.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.jobpost_edited.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211219073632_jobpost_edited.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211219073632_jobpost_edited.Designer.cs" bodystart="15" bodyend="387"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.jobpost_edited</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.jobpost_edited</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211219073632_jobpost_edited.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211219073632_jobpost_edited.cs" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a9100d432eb8ca55664ec533bd2830a76" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::jobpost_edited</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a3a299f73aff3b4270b0ace550419506a" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::jobpost_edited</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a03732839d1a09bc78cba11c304761145" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::jobpost_edited</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___api_gateway_1_1_controllers" kind="namespace" language="C#">
+    <compoundname>DAO_ApiGateway::Controllers</compoundname>
+    <innerclass refid="class_d_a_o___api_gateway_1_1_controllers_1_1_info_controller" prot="public">DAO_ApiGateway::Controllers::InfoController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_ApiGateway/Controllers/InfoController.cs" line="8" column="1"/>
+  </compounddef>
+</doxygen>

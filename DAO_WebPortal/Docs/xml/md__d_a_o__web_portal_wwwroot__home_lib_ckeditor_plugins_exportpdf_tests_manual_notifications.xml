@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_notifications" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_notifications</compoundname>
+    <title>notifications</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 4 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, notification</para>
+<para><orderedlist>
+<listitem><para>Read the expected results first as there will be a sequence of things happening quickly to examine.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button in the first editor.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>Button is disabled after click.</para>
+</listitem><listitem><para>Nofitication bar of <computeroutput>info</computeroutput> type appeared.</para>
+</listitem><listitem><para>When download started, notification type changed to <computeroutput>success</computeroutput>.</para>
+</listitem><listitem><para>Once download finished, button is enabled again.</para>
+</listitem><listitem><para>After 3 seconds notification bar disappeared.</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold><itemizedlist>
+<listitem><para>Button wasn&apos;t disabled.</para>
+</listitem><listitem><para>Button wasn&apos;t enabled after download started.</para>
+</listitem><listitem><para>Notifications were incorrect.</para>
+</listitem><listitem><para>Notification bar didn&apos;t disappear.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button in the second editor.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>Neither notifications nor alerts appeared.</para>
+</listitem><listitem><para>File was downloaded.</para>
+</listitem><listitem><para>Button was disabled for the time between click and download.</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold><itemizedlist>
+<listitem><para>Notification or browser alert appeared.</para>
+</listitem><listitem><para>File wasn&apos;t downloaded.</para>
+</listitem><listitem><para>Button wasn&apos;t disabled for the time between click and download. </para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/notifications.md"/>
+  </compounddef>
+</doxygen>

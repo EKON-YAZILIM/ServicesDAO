@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::DAO_DbService_addedAuctionTable_Status</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1a312d32cd85bd76505d71aca03322e7aa" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.cs" bodystart="7" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1ab10dad1f2bb614e054092536699756ff" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.cs" line="17" column="33" bodyfile="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.cs" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1a5c027568a4f582704fe61ad6dc3872ab" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.Designer.cs" bodystart="15" bodyend="257"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_addedAuctionTable_Status</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211015121343_DAO_DbService_addedAuctionTable_Status.cs" bodystart="6" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1a5c027568a4f582704fe61ad6dc3872ab" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_addedAuctionTable_Status</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1ab10dad1f2bb614e054092536699756ff" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_addedAuctionTable_Status</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1a312d32cd85bd76505d71aca03322e7aa" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_addedAuctionTable_Status</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___db_service_1_1_migrations" kind="namespace" language="C#">
+    <compoundname>DAO_DbService::Migrations</compoundname>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban" prot="public">DAO_DbService::Migrations::Add_PaymentHistory_add_WalletAdd_Iban</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table" prot="public">DAO_DbService::Migrations::added_ThirdPartyKey_and_ThirdPartyType_UserTable</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1auction__edited" prot="public">DAO_DbService::Migrations::auction_edited</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered" prot="public">DAO_DbService::Migrations::auctions_transffered</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transfrred" prot="public">DAO_DbService::Migrations::auctions_transfrred</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added" prot="public">DAO_DbService::Migrations::comment_pinned_added</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid" prot="public">DAO_DbService::Migrations::create_date_added_auctionbid</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user" prot="public">DAO_DbService::Migrations::DAO_DbService_addedActiveSessionTable_addUserNametoUser</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status" prot="public">DAO_DbService::Migrations::DAO_DbService_addedAuctionTable_Status</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__add_table_user_comment_votes" prot="public">DAO_DbService::Migrations::DAO_DbService_addTableUserCommentVotes</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_auction_table___status" prot="public">DAO_DbService::Migrations::DAO_DbService_deleteAuctionTable_Status</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias" prot="public">DAO_DbService::Migrations::DAO_DbService_deleteUserAlias</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment" prot="public">DAO_DbService::Migrations::DAO_DbService_updateJobPost_updateJobPostComment</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot" prot="public">DAO_DbService::Migrations::dao_maindb_contextModelSnapshot</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment" prot="public">DAO_DbService::Migrations::dbservice_models_adjustment</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1delete__twocolums__usertable" prot="public">DAO_DbService::Migrations::delete_twocolums_usertable</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table" prot="public">DAO_DbService::Migrations::document_id_added_to_KYCStatus_table</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1dossfee__updated" prot="public">DAO_DbService::Migrations::dossfee_updated</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1flag__added" prot="public">DAO_DbService::Migrations::flag_added</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs" prot="public">DAO_DbService::Migrations::flag_removed_from_jobs</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited" prot="public">DAO_DbService::Migrations::jobpost_edited</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__jobdoerid__added" prot="public">DAO_DbService::Migrations::jobpost_jobdoerid_added</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed" prot="public">DAO_DbService::Migrations::kyc_table_changed</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1payment__explanation__added" prot="public">DAO_DbService::Migrations::payment_explanation_added</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added" prot="public">DAO_DbService::Migrations::platformsetting_table_added</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_update___auction__and___auction_bids__table" prot="public">DAO_DbService::Migrations::Update_Auction_and_AuctionBids_table</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated" prot="public">DAO_DbService::Migrations::UserTableUpdated</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

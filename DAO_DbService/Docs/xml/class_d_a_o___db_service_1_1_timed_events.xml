@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_timed_events" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::TimedEvents</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_timed_events_1a0ad92a578658ce4682c58988046d897a" prot="public" static="yes" mutable="no">
+        <type>System.Timers.Timer</type>
+        <definition>System.Timers.Timer DAO_DbService.TimedEvents.auctionStatusTimer</definition>
+        <argsstring></argsstring>
+        <name>auctionStatusTimer</name>
+        <qualifiedname>DAO_DbService.TimedEvents.auctionStatusTimer</qualifiedname>
+        <briefdescription>
+<para>Auction status control timer Checks the end date of the auction as follows: If internal auction end date reached without any internal bids -&gt; Start public auction If public auction end date reached without any public bids -&gt; Set auction and job status to Expired </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="26" column="41" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_timed_events_1a42fbee1af056b7d37880716615944e09" prot="public" static="yes" mutable="no">
+        <type>System.Timers.Timer</type>
+        <definition>System.Timers.Timer DAO_DbService.TimedEvents.jobStatusTimer</definition>
+        <argsstring></argsstring>
+        <name>jobStatusTimer</name>
+        <qualifiedname>DAO_DbService.TimedEvents.jobStatusTimer</qualifiedname>
+        <briefdescription>
+<para>Job status control timer Checks the results of voting as follows: If formal voting ended as AGAINST -&gt; Set job status to Failed If formal voting ended as FOR -&gt; Set job status to Completed </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="34" column="41" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1a5b7087eba070438f41f26606a3c9e901" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.StartTimers</definition>
+        <argsstring>()</argsstring>
+        <name>StartTimers</name>
+        <qualifiedname>DAO_DbService.TimedEvents.StartTimers</qualifiedname>
+        <briefdescription>
+<para>Starts timer controls of the application </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="39" column="28" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="39" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1a9b1564eb556668ad057b0e780846e040" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.SendNotificationEmail</definition>
+        <argsstring>(string title, string content, string email)</argsstring>
+        <name>SendNotificationEmail</name>
+        <qualifiedname>DAO_DbService.TimedEvents.SendNotificationEmail</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>content</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <briefdescription>
+<para>Helper function for sending notification emails </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="462" column="28" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="462" bodyend="466"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1a564db3485d16c1ca8bc0c47057e67803" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.CheckAuctionStatus</definition>
+        <argsstring>(Object source, ElapsedEventArgs e)</argsstring>
+        <name>CheckAuctionStatus</name>
+        <qualifiedname>DAO_DbService.TimedEvents.CheckAuctionStatus</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>ElapsedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Checks auction status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="63" column="29" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="63" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1a60394a547852ed3e651e82028fb9b1a4" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.CheckJobStatus</definition>
+        <argsstring>(Object source, ElapsedEventArgs e)</argsstring>
+        <name>CheckJobStatus</name>
+        <qualifiedname>DAO_DbService.TimedEvents.CheckJobStatus</qualifiedname>
+        <param>
+          <type>Object</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>ElapsedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Checks job status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="139" column="29" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="139" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1a208ad0dd1070f6fa1c39a59eaa600b77" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.CheckCompletedInformalVotings</definition>
+        <argsstring>()</argsstring>
+        <name>CheckCompletedInformalVotings</name>
+        <qualifiedname>DAO_DbService.TimedEvents.CheckCompletedInformalVotings</qualifiedname>
+        <briefdescription>
+<para>Checks completed informal votings and updates job status accordingly </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="154" column="29" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="154" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1a834c0e5ab196298c6db1c572d88f6e13" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.CheckCompletedFormalVotings</definition>
+        <argsstring>()</argsstring>
+        <name>CheckCompletedFormalVotings</name>
+        <qualifiedname>DAO_DbService.TimedEvents.CheckCompletedFormalVotings</qualifiedname>
+        <briefdescription>
+<para>Checks completed formal votings and updates job status accordingly </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="239" column="29" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="239" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_timed_events_1aedbd5d875c34534fac12fe3107eb219c" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.TimedEvents.CheckJobFail</definition>
+        <argsstring>()</argsstring>
+        <name>CheckJobFail</name>
+        <qualifiedname>DAO_DbService.TimedEvents.CheckJobFail</qualifiedname>
+        <briefdescription>
+<para>Checks if job doer does not provided job evidence and started informal voting within expected time frame </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/TimedEvents.cs" line="400" column="29" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="400" bodyend="457"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.TimedEvents</label>
+        <link refid="class_d_a_o___db_service_1_1_timed_events"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>auctionStatusTimer</edgelabel>
+          <edgelabel>jobStatusTimer</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>static</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/TimedEvents.cs" line="18" column="11" bodyfile="DAO_DbService/TimedEvents.cs" bodystart="19" bodyend="467"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a0ad92a578658ce4682c58988046d897a" prot="public" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>auctionStatusTimer</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a564db3485d16c1ca8bc0c47057e67803" prot="private" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>CheckAuctionStatus</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a834c0e5ab196298c6db1c572d88f6e13" prot="private" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>CheckCompletedFormalVotings</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a208ad0dd1070f6fa1c39a59eaa600b77" prot="private" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>CheckCompletedInformalVotings</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1aedbd5d875c34534fac12fe3107eb219c" prot="private" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>CheckJobFail</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a60394a547852ed3e651e82028fb9b1a4" prot="private" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>CheckJobStatus</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a42fbee1af056b7d37880716615944e09" prot="public" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>jobStatusTimer</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a9b1564eb556668ad057b0e780846e040" prot="public" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>SendNotificationEmail</name></member>
+      <member refid="class_d_a_o___db_service_1_1_timed_events_1a5b7087eba070438f41f26606a3c9e901" prot="public" virt="non-virtual"><scope>DAO_DbService::TimedEvents</scope><name>StartTimers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

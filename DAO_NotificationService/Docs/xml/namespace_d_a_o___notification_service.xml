@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___notification_service" kind="namespace" language="C#">
+    <compoundname>DAO_NotificationService</compoundname>
+    <innerclass refid="class_d_a_o___notification_service_1_1_main_events" prot="public">DAO_NotificationService::MainEvents</innerclass>
+    <innerclass refid="class_d_a_o___notification_service_1_1_program" prot="public">DAO_NotificationService::Program</innerclass>
+    <innerclass refid="class_d_a_o___notification_service_1_1_startup" prot="public">DAO_NotificationService::Startup</innerclass>
+    <innernamespace refid="namespace_d_a_o___notification_service_1_1_controllers">DAO_NotificationService::Controllers</innernamespace>
+    <innernamespace refid="namespace_d_a_o___notification_service_1_1_integrations">DAO_NotificationService::Integrations</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/Controllers/InfoController.cs" line="8" column="1"/>
+  </compounddef>
+</doxygen>

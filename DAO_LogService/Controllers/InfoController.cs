@@ -26,7 +26,7 @@ namespace DAO_LogService.Controllers
         }
 
         /// <summary>
-        ///  Reset application exception list
+        ///  Reset application exception list.
         /// </summary>
         /// <returns></returns>
         [HttpGet("ResetErrors", Name = "ResetErrors")]

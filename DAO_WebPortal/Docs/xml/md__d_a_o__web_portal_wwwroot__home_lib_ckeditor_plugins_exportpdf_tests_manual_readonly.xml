@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_readonly" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_readonly</compoundname>
+    <title>readonly</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 1 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, basicstyles, notification</para>
+<para><orderedlist>
+<listitem><para>Examine <computeroutput>Export to PDF</computeroutput> button (the one next to the <computeroutput>Source</computeroutput> button).</para>
+<para><bold>Expected:</bold></para>
+<para>Button is clickable.</para>
+<para><bold>Unexpected:</bold></para>
+<para>Button is inactive.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Click the button.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Wait for the file to download.</para>
+<para><bold>Expected:</bold></para>
+<para>File with correct content was downloaded.</para>
+<para><bold>Unexpected:</bold></para>
+<para>File was not downloaded or its content is incorrect.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Click <computeroutput>Toggle read-only mode</computeroutput> button.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Repeat steps 1-3. </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/readonly.md"/>
+  </compounddef>
+</doxygen>

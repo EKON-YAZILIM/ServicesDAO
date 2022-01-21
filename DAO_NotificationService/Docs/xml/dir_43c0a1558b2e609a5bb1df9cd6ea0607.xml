@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_43c0a1558b2e609a5bb1df9cd6ea0607" kind="dir">
+    <compoundname>DAO_NotificationService/obj/Debug</compoundname>
+    <innerdir refid="dir_a715d5d3668840bcb10a23cb1061835a">DAO_NotificationService/obj/Debug/netcoreapp3.1</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/obj/Debug/"/>
+  </compounddef>
+</doxygen>

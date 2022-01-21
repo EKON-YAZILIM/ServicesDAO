@@ -18,13 +18,16 @@ using static Helpers.Constants.Enums;
 
 namespace DAO_IdentityService.Controllers
 {
+    /// <summary>
+    ///  IdentityController contains identity operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class IdentityController : ControllerBase
     {
         /// <summary>
         ///  User login method with email or username.
-        ///  A JWT Token is created with every successful login. Active user sessions are stored in the database (ActiveSessions table)
+        ///  A JWT Token is created with every successful login. Active user sessions are stored in the database. (ActiveSessions table)
         ///  It is recommended to change the JwtTokenKey in production environment.
         /// </summary>
         /// <param name="model">LoginModel</param>
@@ -378,7 +381,7 @@ namespace DAO_IdentityService.Controllers
                 else
                 {
                     //Logging
-                    Program.monitizer.AddApplicationLog(LogTypes.PublicUserLog, "Password renewal request failed. Email Date:" +emaildate.ToString()+ "  DateNow:" +DateTime.Now.ToString()+" "+ usr.Email);
+                    Program.monitizer.AddApplicationLog(LogTypes.PublicUserLog, "Password renewal request failed. Email Date:" + emaildate.ToString() + "  DateNow:" + DateTime.Now.ToString() + " " + usr.Email);
 
                     return new SimpleResponse { Success = false, Message = "Renew expired" };
                 }

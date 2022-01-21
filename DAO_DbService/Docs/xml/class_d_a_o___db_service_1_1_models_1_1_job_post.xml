@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_job_post" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::JobPost</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a9113c77aae5f90f51428b60ba4808478" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPost.JobID</definition>
+        <argsstring></argsstring>
+        <name>JobID</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.JobID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="13" column="20" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a50023712bfaf97a6adf050d27a674f21" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.JobPost.CreateDate</definition>
+        <argsstring></argsstring>
+        <name>CreateDate</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.CreateDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="14" column="25" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a1e6fb57dd372d08f709d0060965cb836" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPost.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="15" column="20" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a0789bcf2c01718768bf917d741fc9a04" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.JobPost.JobDoerUserID</definition>
+        <argsstring></argsstring>
+        <name>JobDoerUserID</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.JobDoerUserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="16" column="20" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1aa3f76c26a844b1477fdfd1d91c0fb2ac" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.JobPost.Title</definition>
+        <argsstring></argsstring>
+        <name>Title</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.Title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="17" column="23" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1ac7be079f54a873cf7f1b426fcb3fc627" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.JobPost.JobDescription</definition>
+        <argsstring></argsstring>
+        <name>JobDescription</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.JobDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="18" column="23" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a81c510ed5a6e300ac9c30156b7c1374a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_DbService.Models.JobPost.Amount</definition>
+        <argsstring></argsstring>
+        <name>Amount</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.Amount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="19" column="23" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1aa85764a0559630dee13008d0941d838b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.JobPost.TimeFrame</definition>
+        <argsstring></argsstring>
+        <name>TimeFrame</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.TimeFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="20" column="23" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a849cb83c4524ed796c8b8bc4b2aae742" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.JobPost.LastUpdate</definition>
+        <argsstring></argsstring>
+        <name>LastUpdate</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.LastUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="21" column="25" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a1e2f740233b08a41c1c88ccadfc64000" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>JobStatusTypes</type>
+        <definition>JobStatusTypes DAO_DbService.Models.JobPost.Status</definition>
+        <argsstring></argsstring>
+        <name>Status</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.Status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="22" column="31" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1ac425e9fc8cb325c368287f7908217d4e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool?</type>
+        <definition>bool? DAO_DbService.Models.JobPost.DosFeePaid</definition>
+        <argsstring></argsstring>
+        <name>DosFeePaid</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.DosFeePaid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="23" column="21" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1af09adecd0101c595eac1844135c6409b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.JobPost.Tags</definition>
+        <argsstring></argsstring>
+        <name>Tags</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.Tags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="24" column="23" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_job_post_1a4ea95d2ba30fe7c167ffa5746f23448d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.JobPost.CodeUrl</definition>
+        <argsstring></argsstring>
+        <name>CodeUrl</name>
+        <qualifiedname>DAO_DbService.Models.JobPost.CodeUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/JobPost.cs" line="25" column="23" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/JobPost.cs" line="10" column="11" bodyfile="DAO_DbService/Models/JobPost.cs" bodystart="11" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a81c510ed5a6e300ac9c30156b7c1374a" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>Amount</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a4ea95d2ba30fe7c167ffa5746f23448d" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>CodeUrl</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a50023712bfaf97a6adf050d27a674f21" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>CreateDate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1ac425e9fc8cb325c368287f7908217d4e" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>DosFeePaid</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1ac7be079f54a873cf7f1b426fcb3fc627" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>JobDescription</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a0789bcf2c01718768bf917d741fc9a04" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>JobDoerUserID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a9113c77aae5f90f51428b60ba4808478" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>JobID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a849cb83c4524ed796c8b8bc4b2aae742" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>LastUpdate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a1e2f740233b08a41c1c88ccadfc64000" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>Status</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1af09adecd0101c595eac1844135c6409b" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>Tags</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1aa85764a0559630dee13008d0941d838b" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>TimeFrame</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1aa3f76c26a844b1477fdfd1d91c0fb2ac" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>Title</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a1e6fb57dd372d08f709d0060965cb836" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::JobPost</scope><name>UserID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

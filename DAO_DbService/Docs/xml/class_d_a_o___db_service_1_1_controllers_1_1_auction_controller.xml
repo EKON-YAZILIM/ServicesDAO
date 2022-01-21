@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Controllers::AuctionController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1ab921472c8efe42fb9b4ec0b587558c73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; AuctionDto &gt;</type>
+        <definition>IEnumerable&lt; AuctionDto &gt; DAO_DbService.Controllers.AuctionController.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.Get</qualifiedname>
+        <briefdescription>
+<para>Get auction list </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="32" column="28" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="32" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a6ed34fda0c202a7f478c830b893a350c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>AuctionDto</type>
+        <definition>AuctionDto DAO_DbService.Controllers.AuctionController.GetId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.GetId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get auction by id </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="59" column="27" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="59" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a76569d17e226a18e52099a79ed92fbb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>AuctionDto</type>
+        <definition>AuctionDto DAO_DbService.Controllers.AuctionController.Post</definition>
+        <argsstring>([FromBody] AuctionDto model)</argsstring>
+        <name>Post</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.Post</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>AuctionDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves auction model using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="86" column="27" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="86" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a5db4c28b23efc8847dd533f96d4b7388" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; AuctionDto &gt;</type>
+        <definition>List&lt; AuctionDto &gt; DAO_DbService.Controllers.AuctionController.PostMultiple</definition>
+        <argsstring>([FromBody] List&lt; AuctionDto &gt; model)</argsstring>
+        <name>PostMultiple</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.PostMultiple</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>List&lt; AuctionDto &gt;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves auction list using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="112" column="21" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="112" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a5d1b70984de7129a58fd9e41147bd920" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.AuctionController.Delete</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.Delete</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Removes auction by id Ends auctions </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="139" column="21" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="139" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a3132b1219c11475b6ec7cc74728d3c9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>AuctionDto</type>
+        <definition>AuctionDto DAO_DbService.Controllers.AuctionController.Update</definition>
+        <argsstring>([FromBody] AuctionDto model)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.Update</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>AuctionDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Update auctions </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="165" column="27" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="165" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a838cacf525214214b134265f773e979c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaginationEntity&lt; AuctionDto &gt;</type>
+        <definition>PaginationEntity&lt; AuctionDto &gt; DAO_DbService.Controllers.AuctionController.GetPaged</definition>
+        <argsstring>(int page=1, int pageCount=30)</argsstring>
+        <name>GetPaged</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.GetPaged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Brings up the auction pages. The selected page is fetched. Not all pages are returned </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>page</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageCount</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="194" column="33" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="194" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1aec519d8b73494618a1a6c5a3916fb221" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_auction" kindref="compound">Auction</ref> &gt;</type>
+        <definition>List&lt; Auction &gt; DAO_DbService.Controllers.AuctionController.GetAuctionsByStatus</definition>
+        <argsstring>(AuctionStatusTypes? status)</argsstring>
+        <name>GetAuctionsByStatus</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.GetAuctionsByStatus</qualifiedname>
+        <param>
+          <type>AuctionStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Returns list of Auctions in the database by status. Returns all records in the database if status parameter is null or empty </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Status of the Auction</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Auction List</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="229" column="21" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="229" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a7bbdc35fcba60ff6c2a0683559851daf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PagedList.Core.IPagedList&lt; <ref refid="class_d_a_o___db_service_1_1_models_1_1_auction" kindref="compound">Auction</ref> &gt;</type>
+        <definition>PagedList.Core.IPagedList&lt; Auction &gt; DAO_DbService.Controllers.AuctionController.GetAuctionsByStatusPaged</definition>
+        <argsstring>(AuctionStatusTypes? status, int page=1, int pageCount=30)</argsstring>
+        <name>GetAuctionsByStatusPaged</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.GetAuctionsByStatusPaged</qualifiedname>
+        <param>
+          <type>AuctionStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Returns list of Auctions in the database by status with pagination. Returns all paginated records in the database if status parameter is null or empty. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>page</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageCount</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Auction List with pagination entity</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="265" column="40" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="265" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a2f96e7b808edfc575cfff0fe6bd38b15" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>AuctionDto</type>
+        <definition>AuctionDto DAO_DbService.Controllers.AuctionController.GetByJobId</definition>
+        <argsstring>(int jobid)</argsstring>
+        <name>GetByJobId</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.GetByJobId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <briefdescription>
+<para>Get Auction by jobId </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="298" column="27" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="298" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a088c6bc14e6951b03edbff0e51867bab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.AuctionController.SetWinnerBid</definition>
+        <argsstring>(int bidId)</argsstring>
+        <name>SetWinnerBid</name>
+        <qualifiedname>DAO_DbService.Controllers.AuctionController.SetWinnerBid</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>bidId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bidId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/AuctionController.cs" line="325" column="21" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="325" bodyend="351"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller" kindref="compound">AuctionController</ref> contains auctions operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.AuctionController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.AuctionController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Controllers/AuctionController.cs" line="24" column="11" bodyfile="DAO_DbService/Controllers/AuctionController.cs" bodystart="25" bodyend="352"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a5d1b70984de7129a58fd9e41147bd920" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>Delete</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1ab921472c8efe42fb9b4ec0b587558c73" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>Get</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1aec519d8b73494618a1a6c5a3916fb221" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>GetAuctionsByStatus</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a7bbdc35fcba60ff6c2a0683559851daf" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>GetAuctionsByStatusPaged</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a2f96e7b808edfc575cfff0fe6bd38b15" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>GetByJobId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a6ed34fda0c202a7f478c830b893a350c" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>GetId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a838cacf525214214b134265f773e979c" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>GetPaged</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a76569d17e226a18e52099a79ed92fbb7" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>Post</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a5db4c28b23efc8847dd533f96d4b7388" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>PostMultiple</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a088c6bc14e6951b03edbff0e51867bab" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>SetWinnerBid</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a3132b1219c11475b6ec7cc74728d3c9c" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::AuctionController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

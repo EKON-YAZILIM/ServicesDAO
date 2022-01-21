@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::flag_removed_from_jobs</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1ae69b7de81bd61eb753ec064625e703e7" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.flag_removed_from_jobs.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.flag_removed_from_jobs.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.cs" bodystart="7" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1a56bc7fafb741f737dd5679088875ca8f" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.flag_removed_from_jobs.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.flag_removed_from_jobs.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.cs" line="14" column="33" bodyfile="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.cs" bodystart="14" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1a8033ba75191fd1dac8f52e57f2f4c134" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.flag_removed_from_jobs.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.flag_removed_from_jobs.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.Designer.cs" bodystart="15" bodyend="390"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.flag_removed_from_jobs</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.flag_removed_from_jobs</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211220200841_flag_removed_from_jobs.cs" bodystart="6" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1a8033ba75191fd1dac8f52e57f2f4c134" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::flag_removed_from_jobs</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1a56bc7fafb741f737dd5679088875ca8f" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::flag_removed_from_jobs</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1ae69b7de81bd61eb753ec064625e703e7" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::flag_removed_from_jobs</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

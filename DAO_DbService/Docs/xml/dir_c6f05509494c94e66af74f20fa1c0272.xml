@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_c6f05509494c94e66af74f20fa1c0272" kind="dir">
+    <compoundname>DAO_DbService/Controllers</compoundname>
+    <innerfile refid="_active_session_controller_8cs">ActiveSessionController.cs</innerfile>
+    <innerfile refid="_auction_bid_controller_8cs">AuctionBidController.cs</innerfile>
+    <innerfile refid="_auction_controller_8cs">AuctionController.cs</innerfile>
+    <innerfile refid="_info_controller_8cs">InfoController.cs</innerfile>
+    <innerfile refid="_job_post_comment_controller_8cs">JobPostCommentController.cs</innerfile>
+    <innerfile refid="_job_post_controller_8cs">JobPostController.cs</innerfile>
+    <innerfile refid="_payment_history_controller_8cs">PaymentHistoryController.cs</innerfile>
+    <innerfile refid="_platform_setting_controller_8cs">PlatformSettingController.cs</innerfile>
+    <innerfile refid="_user_comment_vote_controller_8cs">UserCommentVoteController.cs</innerfile>
+    <innerfile refid="_user_k_y_c_controller_8cs">UserKYCController.cs</innerfile>
+    <innerfile refid="_users_controller_8cs">UsersController.cs</innerfile>
+    <innerfile refid="_website_controller_8cs">WebsiteController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Controllers/"/>
+  </compounddef>
+</doxygen>

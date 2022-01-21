@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor__r_e_a_d_m_e" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_README</compoundname>
+    <title>CKEditor 4</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved. <ulink url="https://ckeditor.com">https://ckeditor.com</ulink> - See LICENSE.md for license information.</para>
+<para>CKEditor 4 is a text editor to be used inside web pages. It&apos;s not a replacement for desktop text editors like Word or OpenOffice, but a component to be used as part of web applications and websites.</para>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor__r_e_a_d_m_e_1autotoc_md105">
+<title>Documentation</title>
+<para>The full editor documentation is available online at the following address: <ulink url="https://ckeditor.com/docs/">https://ckeditor.com/docs/</ulink></para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor__r_e_a_d_m_e_1autotoc_md106">
+<title>Installation</title>
+<para>Installing CKEditor is an easy task. Just follow these simple steps:</para>
+<para><orderedlist>
+<listitem><para><bold>Download</bold> the latest version from the CKEditor website: <ulink url="https://ckeditor.com">https://ckeditor.com</ulink>. You should have already completed this step, but be sure you have the very latest version.</para>
+</listitem><listitem><para><bold>Extract</bold> (decompress) the downloaded file into the root of your website.</para>
+</listitem></orderedlist>
+</para>
+<para><bold>Note:</bold> CKEditor is by default installed in the <computeroutput>ckeditor</computeroutput> folder. You can place the files in whichever you want though.</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor__r_e_a_d_m_e_1autotoc_md107">
+<title>Checking Your Installation</title>
+<para>The editor comes with a few sample pages that can be used to verify that installation proceeded properly. Take a look at the <computeroutput>samples</computeroutput> directory.</para>
+<para>To test your installation, just call the following page at your website: <verbatim>http://&lt;your site&gt;/&lt;CKEditor installation path&gt;/samples/index.html
+</verbatim> For example: <verbatim>http://www.example.com/ckeditor/samples/index.html
+</verbatim> </para>
+</sect1>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/README.md"/>
+  </compounddef>
+</doxygen>

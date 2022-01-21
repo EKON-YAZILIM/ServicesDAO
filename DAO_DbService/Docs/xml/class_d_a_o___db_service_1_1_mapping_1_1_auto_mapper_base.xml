@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Mapping::AutoMapperBase</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1a5c3a8f75b93451789da5e7d6dfde13fe" prot="public" static="yes" mutable="no">
+        <type>readonly IMapper</type>
+        <definition>readonly IMapper DAO_DbService.Mapping.AutoMapperBase._mapper</definition>
+        <argsstring></argsstring>
+        <name>_mapper</name>
+        <qualifiedname>DAO_DbService.Mapping.AutoMapperBase._mapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Mapping/AutoMapperBase.cs" line="9" column="40" bodyfile="DAO_DbService/Mapping/AutoMapperBase.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1ac7f27f2a9f215d26b5cc3b52709d8ba9" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>static</type>
+        <definition>static DAO_DbService.Mapping.AutoMapperBase.AutoMapperBase</definition>
+        <argsstring>()</argsstring>
+        <name>AutoMapperBase</name>
+        <qualifiedname>DAO_DbService.Mapping.AutoMapperBase.AutoMapperBase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Mapping/AutoMapperBase.cs" line="10" column="16" bodyfile="DAO_DbService/Mapping/AutoMapperBase.cs" bodystart="10" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1ac650579afa1b0ec8525de9c6dab1b5c2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IPagedList&lt; TDestination &gt;</type>
+        <definition>static IPagedList&lt; TDestination &gt; DAO_DbService.Mapping.AutoMapperBase.ToMappedPagedList&lt; TSource, TDestination &gt;</definition>
+        <argsstring>(this IPagedList&lt; TSource &gt; list)</argsstring>
+        <name>ToMappedPagedList&lt; TSource, TDestination &gt;</name>
+        <qualifiedname>DAO_DbService.Mapping.AutoMapperBase.ToMappedPagedList&lt; TSource, TDestination &gt;</qualifiedname>
+        <param>
+          <type>this IPagedList&lt; TSource &gt;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Mapping/AutoMapperBase.cs" line="16" column="9" bodyfile="DAO_DbService/Mapping/AutoMapperBase.cs" bodystart="16" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Mapping.AutoMapperBase</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_mapper</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>static</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Mapping/AutoMapperBase.cs" line="7" column="19" bodyfile="DAO_DbService/Mapping/AutoMapperBase.cs" bodystart="8" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1a5c3a8f75b93451789da5e7d6dfde13fe" prot="public" virt="non-virtual"><scope>DAO_DbService::Mapping::AutoMapperBase</scope><name>_mapper</name></member>
+      <member refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1ac7f27f2a9f215d26b5cc3b52709d8ba9" prot="private" virt="non-virtual"><scope>DAO_DbService::Mapping::AutoMapperBase</scope><name>AutoMapperBase</name></member>
+      <member refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1ac650579afa1b0ec8525de9c6dab1b5c2" prot="public" virt="non-virtual"><scope>DAO_DbService::Mapping::AutoMapperBase</scope><name>ToMappedPagedList&lt; TSource, TDestination &gt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

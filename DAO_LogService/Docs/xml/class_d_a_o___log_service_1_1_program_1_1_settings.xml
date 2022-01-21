@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_program_1_1_settings" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Program::Settings</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_program_1_1_settings_1a5f0ffeae5fac4ce465fec731ca0ddeb7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Program.Settings.DbConnectionString</definition>
+        <argsstring></argsstring>
+        <name>DbConnectionString</name>
+        <qualifiedname>DAO_LogService.Program.Settings.DbConnectionString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Program.cs" line="20" column="27" bodyfile="DAO_LogService/Program.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_program_1_1_settings_1a5337f922ca72e1e54268202549727b1a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Program.Settings.RabbitMQUrl</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUrl</name>
+        <qualifiedname>DAO_LogService.Program.Settings.RabbitMQUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Program.cs" line="21" column="27" bodyfile="DAO_LogService/Program.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_program_1_1_settings_1aac12d5fbad8eb4793f1d9152254303b0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Program.Settings.RabbitMQUsername</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUsername</name>
+        <qualifiedname>DAO_LogService.Program.Settings.RabbitMQUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Program.cs" line="22" column="27" bodyfile="DAO_LogService/Program.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_program_1_1_settings_1ad79207a027fd6c49b61db16b93f3f47b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Program.Settings.RabbitMQPassword</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQPassword</name>
+        <qualifiedname>DAO_LogService.Program.Settings.RabbitMQPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Program.cs" line="23" column="27" bodyfile="DAO_LogService/Program.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Program.cs" line="18" column="15" bodyfile="DAO_LogService/Program.cs" bodystart="19" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1a5f0ffeae5fac4ce465fec731ca0ddeb7" prot="public" virt="non-virtual"><scope>DAO_LogService::Program::Settings</scope><name>DbConnectionString</name></member>
+      <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1ad79207a027fd6c49b61db16b93f3f47b" prot="public" virt="non-virtual"><scope>DAO_LogService::Program::Settings</scope><name>RabbitMQPassword</name></member>
+      <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1a5337f922ca72e1e54268202549727b1a" prot="public" virt="non-virtual"><scope>DAO_LogService::Program::Settings</scope><name>RabbitMQUrl</name></member>
+      <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1aac12d5fbad8eb4793f1d9152254303b0" prot="public" virt="non-virtual"><scope>DAO_LogService::Program::Settings</scope><name>RabbitMQUsername</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

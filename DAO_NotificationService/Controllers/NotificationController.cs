@@ -11,6 +11,9 @@ using static Helpers.Constants.Enums;
 
 namespace DAO_NotificationService.Controllers
 {
+    /// <summary>
+    /// NotificationController contains notification operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class NotificationController : Controller

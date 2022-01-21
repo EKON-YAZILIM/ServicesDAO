@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_78d6703a75cd83139073b1c2dc69ac20" kind="dir">
+    <compoundname>DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared</compoundname>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___empty_partial_8cshtml_8g_8cs">_EmptyPartial.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___job_card_partial_8cshtml_8g_8cs">_JobCardPartial.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___job_table_partial_8cshtml_8g_8cs">_JobTablePartial.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___main_layout_8cshtml_8g_8cs">_MainLayout.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___public_footer_partial_8cshtml_8g_8cs">_PublicFooterPartial.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___public_header_partial_8cshtml_8g_8cs">_PublicHeaderPartial.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_shared_2___public_layout_8cshtml_8g_8cs">_PublicLayout.cshtml.g.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/"/>
+  </compounddef>
+</doxygen>

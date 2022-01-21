@@ -14,10 +14,17 @@ using DAO_LogService.Mapping;
 
 namespace DAO_LogService.Controllers
 {
+    /// <summary>
+    ///  UserLogsController contains user logs operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class UserLogController : Controller
     {
+        /// <summary>
+        ///  Get user logs list
+        /// </summary>
+        /// <returns>UserLog List</returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<UserLogDto> Get()
@@ -40,6 +47,9 @@ namespace DAO_LogService.Controllers
             return _mapper.Map<List<UserLog>, List<UserLogDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get user logs by id
+        /// </summary>
         [Route("GetId")]
         [HttpGet]
         public UserLogDto GetId(int id)
@@ -62,6 +72,9 @@ namespace DAO_LogService.Controllers
             return _mapper.Map<UserLog, UserLogDto>(model);
         }
 
+        /// <summary>
+        /// Saves the UserLog using the post method.
+        /// </summary>
         [Route("Post")]
         [HttpPost]
         public UserLogDto Post([FromBody] UserLogDto model)
@@ -83,6 +96,10 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves the list of userLogs model using post method
+        /// </summary>
+        /// <returns>List of userLogs class</returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<UserLogDto> PostMultiple([FromBody] List<UserLogDto> model)
@@ -104,6 +121,9 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes the userlog by id using delete method
+        /// </summary>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,6 +145,9 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates the userlogs by model using put method
+        /// </summary>
         [Route("Update")]
         [HttpPut]
         public UserLogDto Update([FromBody] UserLogDto model)
@@ -146,6 +169,10 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the userLogs pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<UserLogDto> GetPaged(int page = 1, int pageCount = 30)
@@ -175,9 +202,13 @@ namespace DAO_LogService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// Gets last userlogs list by count parameter.
+        /// </summary>
+        /// <returns>UserLog list</returns>
         [Route("GetLastWithCount")]
         [HttpGet]
-        public IEnumerable<UserLogDto> GetLastWithCount(int count =20)
+        public IEnumerable<UserLogDto> GetLastWithCount(int count = 20)
         {
             List<UserLog> model = new List<UserLog>();
 
@@ -185,7 +216,7 @@ namespace DAO_LogService.Controllers
             {
                 using (dao_logsdb_context db = new dao_logsdb_context())
                 {
-                    model = db.UserLogs.OrderByDescending(x=>x.UserLogId).Take(count).ToList();
+                    model = db.UserLogs.OrderByDescending(x => x.UserLogId).Take(count).ToList();
                 }
             }
             catch (Exception ex)

@@ -1,0 +1,546 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Controllers::WebsiteController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1ac5fa1b9f74e3d0fe0a4d21145ae2c201" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaginationEntity&lt; JobPostViewModel &gt;</type>
+        <definition>PaginationEntity&lt; JobPostViewModel &gt; DAO_DbService.Controllers.WebsiteController.GetAllJobs</definition>
+        <argsstring>(Helpers.Constants.Enums.JobStatusTypes? status, int userid=0, int page=1, int pageCount=30)</argsstring>
+        <name>GetAllJobs</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetAllJobs</qualifiedname>
+        <param>
+          <type>Helpers.Constants.Enums.JobStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Get all jobs </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job Status Types</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="36" column="33" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="36" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a949a73d80fa8b691cb0436aab6cd351d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; JobPostCommentModel &gt;</type>
+        <definition>List&lt; JobPostCommentModel &gt; DAO_DbService.Controllers.WebsiteController.GetJobComment</definition>
+        <argsstring>(int jobid, int userid)</argsstring>
+        <name>GetJobComment</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetJobComment</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get Job comment and user </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job Id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User Id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="104" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="104" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1adb76ffd64f1abf3666ffe75749653881" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JobPostViewModel</type>
+        <definition>JobPostViewModel DAO_DbService.Controllers.WebsiteController.GetJobDetail</definition>
+        <argsstring>(int jobid, int userid=0)</argsstring>
+        <name>GetJobDetail</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetJobDetail</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Get job detail </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="171" column="33" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="171" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a50cbd996d3de34682630419a54279cce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>MyJobsViewModel</type>
+        <definition>MyJobsViewModel DAO_DbService.Controllers.WebsiteController.GetUserJobs</definition>
+        <argsstring>(int userid, Helpers.Constants.Enums.JobStatusTypes? status)</argsstring>
+        <name>GetUserJobs</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetUserJobs</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <param>
+          <type>Helpers.Constants.Enums.JobStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Get users job </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="230" column="32" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="230" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a9bd94449bcc9e3717b5a4a95709dd5d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; JobPostDto &gt;</type>
+        <definition>List&lt; JobPostDto &gt; DAO_DbService.Controllers.WebsiteController.GetJobsByProgressTypes</definition>
+        <argsstring>(Helpers.Constants.Enums.JobStatusTypes? status)</argsstring>
+        <name>GetJobsByProgressTypes</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetJobsByProgressTypes</qualifiedname>
+        <param>
+          <type>Helpers.Constants.Enums.JobStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Get jobpost and user table together </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ProgressType</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="337" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="337" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a22caadbd3b54afb455c3deb5580c83c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_DbService.Controllers.WebsiteController.RemoveFlag</definition>
+        <argsstring>(int jobid, int userid)</argsstring>
+        <name>RemoveFlag</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.RemoveFlag</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Remove flagged comment if exists </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="376" column="31" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="376" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1ad88c68e0671803a2ac76be6be90e3d86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; AuctionViewModel &gt;</type>
+        <definition>List&lt; AuctionViewModel &gt; DAO_DbService.Controllers.WebsiteController.GetAuctions</definition>
+        <argsstring>(Helpers.Constants.Enums.AuctionStatusTypes? status)</argsstring>
+        <name>GetAuctions</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetAuctions</qualifiedname>
+        <param>
+          <type>Helpers.Constants.Enums.AuctionStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Get auctions </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="419" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="419" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a6f47678a75fb1467686ecf15b2ced971" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; MyBidsViewModel &gt;</type>
+        <definition>List&lt; MyBidsViewModel &gt; DAO_DbService.Controllers.WebsiteController.GetMyBids</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>GetMyBids</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetMyBids</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get user&apos;s bids </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="468" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="468" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aae9fa78331f5a8ae7cb9a20b4ff63eed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; AuctionBidItemModel &gt;</type>
+        <definition>List&lt; AuctionBidItemModel &gt; DAO_DbService.Controllers.WebsiteController.GetAuctionBids</definition>
+        <argsstring>(int auctionid)</argsstring>
+        <name>GetAuctionBids</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetAuctionBids</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>auctionid</declname>
+        </param>
+        <briefdescription>
+<para>Get auctions bids </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>auctionid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="510" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="510" bodyend="551"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a082a079e65b5ef2534020bf3fce699c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; AuctionBidDto &gt;</type>
+        <definition>List&lt; AuctionBidDto &gt; DAO_DbService.Controllers.WebsiteController.GetUserBids</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>GetUserBids</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetUserBids</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get user&apos;s bids for active auctions </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="560" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="560" bodyend="588"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aab814086951a8a512653432be5f48c9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DashBoardViewModelAdmin</type>
+        <definition>DashBoardViewModelAdmin DAO_DbService.Controllers.WebsiteController.GetDashBoardAdmin</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>GetDashBoardAdmin</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetDashBoardAdmin</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get dashboard for admin </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="601" column="40" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="601" bodyend="764"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a65f6d4f292ffe23f04365ff8743bf172" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DashBoardViewModelVA</type>
+        <definition>DashBoardViewModelVA DAO_DbService.Controllers.WebsiteController.GetDashBoardVA</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>GetDashBoardVA</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetDashBoardVA</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get dashboard for voting associate </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="774" column="37" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="774" bodyend="901"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aafc77d94b5213e3d5a2cb91811edb7aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>DashBoardViewModelVA</type>
+        <definition>DashBoardViewModelVA DAO_DbService.Controllers.WebsiteController.GetDashBoardAssociate</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>GetDashBoardAssociate</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetDashBoardAssociate</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get dashboard for associate </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="911" column="37" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="911" bodyend="1035"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a7c7b6aedcdd89b2b1f87793ad1889452" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; VotingViewModel &gt;</type>
+        <definition>List&lt; VotingViewModel &gt; DAO_DbService.Controllers.WebsiteController.GetVotingsByStatus</definition>
+        <argsstring>(Helpers.Constants.Enums.VoteStatusTypes? status)</argsstring>
+        <name>GetVotingsByStatus</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.GetVotingsByStatus</qualifiedname>
+        <param>
+          <type>Helpers.Constants.Enums.VoteStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Get votings by status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Voting status enum</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="1048" column="21" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="1048" bodyend="1097"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a5c55904b6733073c4a719f63e55aa7b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaymentHistoryViewModel</type>
+        <definition>PaymentHistoryViewModel DAO_DbService.Controllers.WebsiteController.PaymentHistoryByUserId</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>PaymentHistoryByUserId</name>
+        <qualifiedname>DAO_DbService.Controllers.WebsiteController.PaymentHistoryByUserId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get user payment history </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>List&lt;PaymentHistoryViewModel&gt;</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/WebsiteController.cs" line="1110" column="40" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="1110" bodyend="1148"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>WebSiteController contains website operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.WebsiteController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.WebsiteController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Controllers/WebsiteController.cs" line="24" column="11" bodyfile="DAO_DbService/Controllers/WebsiteController.cs" bodystart="25" bodyend="1153"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1ac5fa1b9f74e3d0fe0a4d21145ae2c201" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetAllJobs</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aae9fa78331f5a8ae7cb9a20b4ff63eed" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetAuctionBids</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1ad88c68e0671803a2ac76be6be90e3d86" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetAuctions</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aab814086951a8a512653432be5f48c9c" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetDashBoardAdmin</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aafc77d94b5213e3d5a2cb91811edb7aa" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetDashBoardAssociate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a65f6d4f292ffe23f04365ff8743bf172" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetDashBoardVA</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a949a73d80fa8b691cb0436aab6cd351d" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetJobComment</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1adb76ffd64f1abf3666ffe75749653881" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetJobDetail</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a9bd94449bcc9e3717b5a4a95709dd5d1" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetJobsByProgressTypes</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a6f47678a75fb1467686ecf15b2ced971" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetMyBids</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a082a079e65b5ef2534020bf3fce699c0" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetUserBids</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a50cbd996d3de34682630419a54279cce" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetUserJobs</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a7c7b6aedcdd89b2b1f87793ad1889452" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>GetVotingsByStatus</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a5c55904b6733073c4a719f63e55aa7b7" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>PaymentHistoryByUserId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a22caadbd3b54afb455c3deb5580c83c0" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::WebsiteController</scope><name>RemoveFlag</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

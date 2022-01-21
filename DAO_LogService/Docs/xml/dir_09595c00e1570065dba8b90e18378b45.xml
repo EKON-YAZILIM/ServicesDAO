@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_09595c00e1570065dba8b90e18378b45" kind="dir">
+    <compoundname>DAO_LogService/Migrations</compoundname>
+    <innerfile refid="20211011140617__dblogservice__models__adjustment_8cs">20211011140617_dblogservice_models_adjustment.cs</innerfile>
+    <innerfile refid="20211011140617__dblogservice__models__adjustment_8_designer_8cs">20211011140617_dblogservice_models_adjustment.Designer.cs</innerfile>
+    <innerfile refid="20211011141026__dblogservice__name__update_8cs">20211011141026_dblogservice_name_update.cs</innerfile>
+    <innerfile refid="20211011141026__dblogservice__name__update_8_designer_8cs">20211011141026_dblogservice_name_update.Designer.cs</innerfile>
+    <innerfile refid="dao__logsdb__context_model_snapshot_8cs">dao_logsdb_contextModelSnapshot.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Migrations/"/>
+  </compounddef>
+</doxygen>

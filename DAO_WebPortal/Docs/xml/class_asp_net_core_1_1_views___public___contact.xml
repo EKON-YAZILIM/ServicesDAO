@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___public___contact" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Public_Contact</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1ac0bf1dec0a5278fcd813f31e46ff9081" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Public_Contact.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_PublicHeaderPartial&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="47" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1a89dc70cf56cc1a7a877af0e087408650" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Public_Contact.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_PublicFooterPartial&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="48" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1a5b06bb3e5658bf98be52b9fe81784ccf" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Public_Contact.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="51" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1a3f212cb9d98b04b49bebfd9745dc5e21" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Public_Contact.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="53" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1aa154c0fd24fc856eff2d09e2f319c595" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Public_Contact.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="55" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1aeca062747be54b11dc53a9e1b9e74b55" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Public_Contact.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="57" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___public___contact_1a34adc52843ad6e2ed0dff84023a9d6bd" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_Public_Contact.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="69" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1a50d68cc331cabd1b1c733f97b23ebbf3" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Public_Contact.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="58" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="59" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1aa91c0d73932d936d8043ac7ff3e7764a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_Public_Contact.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="296" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="296" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1ab4292c6e4b20b933fa16106f95674906" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Public_Contact.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="298" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="298" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1a43319d3aa7a0e4a5af645ae04828a88c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Public_Contact.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="300" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="300" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1a3c3977ab388b9016660ecddefcc38e13" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Public_Contact.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="302" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="302" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1ae25c2336a8ef71463f04d073836b2060" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Public_Contact.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="304" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___public___contact_1affb7b08c46c5d600109517bfc56c267e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views_Public_Contact.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="306" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="306" bodyend="306"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___public___contact_1abc859c0c41706289e6c19e06029ccd0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Public_Contact.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Public_Contact.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="71" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="71" bodyend="293"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Public_Contact</label>
+        <link refid="class_asp_net_core_1_1_views___public___contact"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Public_Contact</label>
+        <link refid="class_asp_net_core_1_1_views___public___contact"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" line="45" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/Contact.cshtml.g.cs" bodystart="46" bodyend="307"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1aeca062747be54b11dc53a9e1b9e74b55" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a34adc52843ad6e2ed0dff84023a9d6bd" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1ac0bf1dec0a5278fcd813f31e46ff9081" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a89dc70cf56cc1a7a877af0e087408650" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a5b06bb3e5658bf98be52b9fe81784ccf" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a3f212cb9d98b04b49bebfd9745dc5e21" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a50d68cc331cabd1b1c733f97b23ebbf3" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1aa154c0fd24fc856eff2d09e2f319c595" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a3c3977ab388b9016660ecddefcc38e13" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1abc859c0c41706289e6c19e06029ccd0c" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1affb7b08c46c5d600109517bfc56c267e" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1aa91c0d73932d936d8043ac7ff3e7764a" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1ae25c2336a8ef71463f04d073836b2060" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1ab4292c6e4b20b933fa16106f95674906" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___public___contact_1a43319d3aa7a0e4a5af645ae04828a88c" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Public_Contact</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

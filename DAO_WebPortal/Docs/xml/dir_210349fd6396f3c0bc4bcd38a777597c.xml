@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_210349fd6396f3c0bc4bcd38a777597c" kind="dir">
+    <compoundname>DAO_WebPortal/wwwroot/Home</compoundname>
+    <innerdir refid="dir_b1f627d0a76dc0d284fcab3ca7eb8267">DAO_WebPortal/wwwroot/Home/lib</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Controllers::UserCommentVoteController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a1ef4076987712081f88204f3d6731b69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; UserCommentVoteDto &gt;</type>
+        <definition>IEnumerable&lt; UserCommentVoteDto &gt; DAO_DbService.Controllers.UserCommentVoteController.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.Get</qualifiedname>
+        <briefdescription>
+<para>Get UserCommentVote List </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="30" column="28" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="30" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a361803c583219e7f0ae2989a4c3872fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>UserCommentVoteDto</type>
+        <definition>UserCommentVoteDto DAO_DbService.Controllers.UserCommentVoteController.GetId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.GetId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get UserCommentVote by id </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="57" column="35" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="57" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a31585211f00f7df6ba0956cef310c838" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>UserCommentVoteDto</type>
+        <definition>UserCommentVoteDto DAO_DbService.Controllers.UserCommentVoteController.Post</definition>
+        <argsstring>([FromBody] UserCommentVoteDto model)</argsstring>
+        <name>Post</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.Post</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>UserCommentVoteDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves user comment vote model using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="84" column="35" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="84" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a18beb0ebaf236ca9d7e4c82400a7f6e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; UserCommentVoteDto &gt;</type>
+        <definition>List&lt; UserCommentVoteDto &gt; DAO_DbService.Controllers.UserCommentVoteController.PostMultiple</definition>
+        <argsstring>([FromBody] List&lt; UserCommentVoteDto &gt; model)</argsstring>
+        <name>PostMultiple</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.PostMultiple</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>List&lt; UserCommentVoteDto &gt;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves user comment vote list using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="110" column="21" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="110" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a4565d565362a14e14b5c6ebf2e514894" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.UserCommentVoteController.Delete</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.Delete</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Removes user comment vote by id Ends user comment vote </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="137" column="21" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="137" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1abb62f76391424be6d71978cd3b97a343" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.UserCommentVoteController.DeleteMultiple</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>DeleteMultiple</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.DeleteMultiple</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Removes user comment vote list by id Ends user comment vote </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="164" column="21" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="164" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a96652f953bbb507a7448f221b7be70e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>UserCommentVoteDto</type>
+        <definition>UserCommentVoteDto DAO_DbService.Controllers.UserCommentVoteController.Update</definition>
+        <argsstring>([FromBody] UserCommentVoteDto model)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.Update</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>UserCommentVoteDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Update UserCommentVote using put method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="190" column="35" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="190" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1abd249c6de7bfd9bb0f90a378a1a2d90c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaginationEntity&lt; UserCommentVoteDto &gt;</type>
+        <definition>PaginationEntity&lt; UserCommentVoteDto &gt; DAO_DbService.Controllers.UserCommentVoteController.GetPaged</definition>
+        <argsstring>(int page=1, int pageCount=30)</argsstring>
+        <name>GetPaged</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.GetPaged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Brings up the userCommentVote pages. The selected page is fetched. Not all pages are returned </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>page</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageCount</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="218" column="33" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="218" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1afafea5969397837cace9fc01e5fb9138" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; UserCommentVoteDto &gt;</type>
+        <definition>List&lt; UserCommentVoteDto &gt; DAO_DbService.Controllers.UserCommentVoteController.GetByUserId</definition>
+        <argsstring>(int UserId)</argsstring>
+        <name>GetByUserId</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.GetByUserId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>UserId</declname>
+        </param>
+        <briefdescription>
+<para>Get UserCommentVote by userId &lt;/summary <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>UserId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="252" column="21" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="252" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a9a86a3e06aa3df7229584d56ccf474c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; UserCommentVoteDto &gt;</type>
+        <definition>List&lt; UserCommentVoteDto &gt; DAO_DbService.Controllers.UserCommentVoteController.GetByCommentId</definition>
+        <argsstring>(int CommentId)</argsstring>
+        <name>GetByCommentId</name>
+        <qualifiedname>DAO_DbService.Controllers.UserCommentVoteController.GetByCommentId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>CommentId</declname>
+        </param>
+        <briefdescription>
+<para>Get UserCommentVote by commentId </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>CommentId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="279" column="21" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="279" bodyend="297"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller" kindref="compound">UserCommentVoteController</ref> contains user comment vote operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.UserCommentVoteController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.UserCommentVoteController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Controllers/UserCommentVoteController.cs" line="22" column="11" bodyfile="DAO_DbService/Controllers/UserCommentVoteController.cs" bodystart="23" bodyend="300"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a4565d565362a14e14b5c6ebf2e514894" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>Delete</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1abb62f76391424be6d71978cd3b97a343" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>DeleteMultiple</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a1ef4076987712081f88204f3d6731b69" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>Get</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a9a86a3e06aa3df7229584d56ccf474c7" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>GetByCommentId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1afafea5969397837cace9fc01e5fb9138" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>GetByUserId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a361803c583219e7f0ae2989a4c3872fe" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>GetId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1abd249c6de7bfd9bb0f90a378a1a2d90c" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>GetPaged</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a31585211f00f7df6ba0956cef310c838" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>Post</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a18beb0ebaf236ca9d7e4c82400a7f6e3" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>PostMultiple</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a96652f953bbb507a7448f221b7be70e8" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::UserCommentVoteController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

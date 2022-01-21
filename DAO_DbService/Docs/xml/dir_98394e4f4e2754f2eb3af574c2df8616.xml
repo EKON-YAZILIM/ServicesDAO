@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_98394e4f4e2754f2eb3af574c2df8616" kind="dir">
+    <compoundname>DAO_DbService/Contexts</compoundname>
+    <innerfile refid="dao__maindb__context_8cs">dao_maindb_context.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Contexts/"/>
+  </compounddef>
+</doxygen>

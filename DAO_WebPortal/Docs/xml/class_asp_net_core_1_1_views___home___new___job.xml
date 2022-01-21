@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___new___job" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_New_Job</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___new___job_1a2d3d77a51ae17b38f8cfc0613b674517" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_New_Job.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_New_Job.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="217" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___new___job_1aed20ea3d657498af48fca741815d1eec" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_New_Job.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_New_Job.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="219" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="219" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___new___job_1afbec91dc2857ab530ea43f8e0e87d56d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_New_Job.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_New_Job.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="221" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="221" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___new___job_1af0d424da008963adb95edcb05d9cbf02" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_New_Job.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_New_Job.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="223" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="223" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___new___job_1a66910897c0b32418ccaea746f429f134" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views_Home_New_Job.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_New_Job.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="225" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="225" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___new___job_1a3ed440fe1b4958815b00d7de7a6a1c44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_New_Job.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_New_Job.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="41" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="41" bodyend="214"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_New_Job</label>
+        <link refid="class_asp_net_core_1_1_views___home___new___job"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_New_Job</label>
+        <link refid="class_asp_net_core_1_1_views___home___new___job"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" line="38" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/New_Job.cshtml.g.cs" bodystart="39" bodyend="226"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___new___job_1afbec91dc2857ab530ea43f8e0e87d56d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_New_Job</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___new___job_1a3ed440fe1b4958815b00d7de7a6a1c44" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_New_Job</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___new___job_1a66910897c0b32418ccaea746f429f134" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_New_Job</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___new___job_1af0d424da008963adb95edcb05d9cbf02" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_New_Job</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___new___job_1a2d3d77a51ae17b38f8cfc0613b674517" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_New_Job</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___new___job_1aed20ea3d657498af48fca741815d1eec" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_New_Job</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

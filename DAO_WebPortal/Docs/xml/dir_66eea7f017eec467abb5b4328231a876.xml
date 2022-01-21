@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_66eea7f017eec467abb5b4328231a876" kind="dir">
+    <compoundname>DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor</compoundname>
+    <innerdir refid="dir_7ad83bf03e675e7ff85f9aadf9d09a00">DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views</innerdir>
+    <innerdir refid="dir_86e619216845cfc7d483c77389e297a1">DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/"/>
+  </compounddef>
+</doxygen>

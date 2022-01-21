@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::dbservice_models_adjustment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1a7541e869d29883dcd721ffc662199a63" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.dbservice_models_adjustment.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.dbservice_models_adjustment.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.cs" line="9" column="33" bodyfile="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.cs" bodystart="9" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1ad1687f12cb50200debf4b83ed80c6a78" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.dbservice_models_adjustment.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.dbservice_models_adjustment.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.cs" line="111" column="33" bodyfile="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.cs" bodystart="111" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1a7e068eb19acff74aec7500c867490b02" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.dbservice_models_adjustment.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.dbservice_models_adjustment.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.Designer.cs" bodystart="15" bodyend="199"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.dbservice_models_adjustment</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.dbservice_models_adjustment</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.cs" line="7" column="19" bodyfile="DAO_DbService/Migrations/20211011134317_dbservice_models_adjustment.cs" bodystart="8" bodyend="142"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1a7e068eb19acff74aec7500c867490b02" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::dbservice_models_adjustment</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1ad1687f12cb50200debf4b83ed80c6a78" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::dbservice_models_adjustment</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1a7541e869d29883dcd721ffc662199a63" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::dbservice_models_adjustment</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

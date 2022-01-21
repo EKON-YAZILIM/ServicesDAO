@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="class_d_a_o___log_service_1_1_models_1_1_application_log" kind="class"><name>DAO_LogService::Models::ApplicationLog</name>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1ad4a52fe20636768b7e91a4b4c7baa728" kind="property"><name>ApplicationLogID</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1abfddd3d9e3d621b8e1561c7b58265fec" kind="property"><name>Application</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a0434785515c8bbc50d1154364eda85c6" kind="property"><name>Server</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a83a2b0ab53f832b0f5b9bbfcddcf27c1" kind="property"><name>Date</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1afe01dc6b21be90b3a0fc2a33ed127a4f" kind="property"><name>IdFieldName</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1ac7ddfd80df5f980aae4b438fc8191be7" kind="property"><name>IdField</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a9412122ed4c967376624d506cc1842e9" kind="property"><name>Type</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a45fe71aadcf86d15e3997824059b610f" kind="property"><name>Explanation</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller" kind="class"><name>DAO_LogService::Controllers::ApplicationLogController</name>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a6e16b05b4e37bb226e17568c71126864" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a81ee44c98c0a127f030ac9b582cb2422" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1aa94fedeffb4cd50cfcd5c649a1756a1e" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a40f552ab86d275ed9550852812980e97" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a16ac80c929a055f0dd4a650302bb78d4" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a62c74beba9acf44d0cacb856310c3892" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1ab61b1f4a457a0dbec2e764a89d469f54" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1ad7cde477cfdd58f35f3dc5e37896d874" kind="function"><name>GetLastWithCount</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_mapping_1_1_auto_mapper_base" kind="class"><name>DAO_LogService::Mapping::AutoMapperBase</name>
+    <member refid="class_d_a_o___log_service_1_1_mapping_1_1_auto_mapper_base_1a7afdac343a00aed79e01c6e83683c372" kind="variable"><name>_mapper</name></member>
+    <member refid="class_d_a_o___log_service_1_1_mapping_1_1_auto_mapper_base_1a8dcf628cf0af111a880a6e370999d8ad" kind="function"><name>AutoMapperBase</name></member>
+    <member refid="class_d_a_o___log_service_1_1_mapping_1_1_auto_mapper_base_1adbb07b5f92f67b4b5943fa422056273a" kind="function"><name>ToMappedPagedList&lt; TSource, TDestination &gt;</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context" kind="class"><name>DAO_LogService::Contexts::dao_logsdb_context</name>
+    <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1a1c9a42e60d67e3d8c6b8143c0efd1620" kind="property"><name>ApplicationLogs</name></member>
+    <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1afafb49ee1d9a6d4567e63eff465e7950" kind="property"><name>ErrorLogs</name></member>
+    <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1a83db30eeb151b8e0560d998f90266c0c" kind="property"><name>UserLogs</name></member>
+    <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1ae51ed9f377d6609d992f54db4edcf11e" kind="function"><name>dao_logsdb_context</name></member>
+    <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1ad685974afb56f618a1ac1f8d20156a45" kind="function"><name>OnConfiguring</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_migrations_1_1dao__logsdb__context_model_snapshot" kind="class"><name>DAO_LogService::Migrations::dao_logsdb_contextModelSnapshot</name>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dao__logsdb__context_model_snapshot_1ad05327804af65eca88aad12c28a9e68c" kind="function"><name>BuildModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment" kind="class"><name>DAO_LogService::Migrations::dblogservice_models_adjustment</name>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1acceb8ff760b5b65de545af3546d4aeca" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1abce5fbf9a89abacfcc4931b1da5eef53" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__models__adjustment_1af3ff720b300c6ac611306dc08de68346" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update" kind="class"><name>DAO_LogService::Migrations::dblogservice_name_update</name>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1ae1455ad393707f35c1e9bb1c6748c589" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1ab9f12db03c3b4dea371ae9bee16f184a" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1af183174b7075b588b1f1b904759cfd8a" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_models_1_1_error_log" kind="class"><name>DAO_LogService::Models::ErrorLog</name>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a33cba9b44c70181976e39e7f433bba7b" kind="property"><name>ErrorLogId</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1adc19d978111bf38e4c156dde2eb7988f" kind="property"><name>Server</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a897b40803873542f5d927f0fbfbd14c1" kind="property"><name>Application</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1acb99099922804b12615cd8bcd4651b4b" kind="property"><name>Message</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a4ab53d2903187bb95e09695147cf85df" kind="property"><name>Target</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1ad4c9651b23033e4696eef9c776c6103b" kind="property"><name>Trace</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1ad0937662728f501ea55fe231ad303a12" kind="property"><name>Date</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a632338c6135002a95ec836333f7367b8" kind="property"><name>IdFieldName</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a76d074f1403de6ad7e27704066285e80" kind="property"><name>IdField</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a95158b18d0ea0d9fa80ebb6f0e55f761" kind="property"><name>Type</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller" kind="class"><name>DAO_LogService::Controllers::ErrorLogController</name>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1a00c2e484b8b163e05e526ffb81a571cc" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1ac8f74378c6545b66309cf4552974f7a5" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1aaceefe5b6454e6646fb8832f60e8b94c" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1a83617a0ad2ed40e02bd2f8a35dabe5a8" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1aedfd926f0fc1eab94ea670043f9ba121" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1ad98edec24726ae1f7c0346cb038e4c14" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller_1af6fa5f9d64bad7faf3f7e3f2d6aefea8" kind="function"><name>GetPaged</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller" kind="class"><name>DAO_LogService::Controllers::InfoController</name>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller_1adeff17655a4817bd8a33cf8dd68e4a74" kind="function"><name>GetAppInfo</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller_1afb212fcab132d1b2686d7f7cbcd9c8d7" kind="function"><name>ResetErrors</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_main_events" kind="class"><name>DAO_LogService::MainEvents</name>
+    <member refid="class_d_a_o___log_service_1_1_main_events_1aba1de9d16623236d52be8fdfd4367846" kind="function"><name>IntiliazeLogService</name></member>
+    <member refid="class_d_a_o___log_service_1_1_main_events_1ae61d0c11923eb3b9f20c433ddbdaf879" kind="function"><name>OnApplicationLog</name></member>
+    <member refid="class_d_a_o___log_service_1_1_main_events_1a1cd1db48790b3a44fda58ba143bf7310" kind="function"><name>OnErrorLog</name></member>
+    <member refid="class_d_a_o___log_service_1_1_main_events_1a8da52eacf8c9dcc210332efd3650d429" kind="function"><name>OnUserLog</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_mapping_1_1_mapping_profile" kind="class"><name>DAO_LogService::Mapping::MappingProfile</name>
+    <member refid="class_d_a_o___log_service_1_1_mapping_1_1_mapping_profile_1aa7a7f0072c3d9f8f8cf7bb3b571ea8e3" kind="function"><name>MappingProfile</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_program" kind="class"><name>DAO_LogService::Program</name>
+    <member refid="class_d_a_o___log_service_1_1_program_1a341c021110a6250534c119825a968e8d" kind="variable"><name>monitizer</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1aa9fff21ade709f8ddfee960e45a616bb" kind="variable"><name>rabbitMq</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1aa1c08955947691675b21540cdf367579" kind="variable"><name>mysql</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1a191155cee01ea7b4170a7e35b3977ef0" kind="variable"><name>dbOptions</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1ac5ca3fb3c8af3d166ab93f93cdcb2839" kind="variable"><name>UserLogs</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1a7be8503d84e5b7849fc6e0299ccbb1f7" kind="variable"><name>ApplicationLogs</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1a49fcbef0673234098fe621a7f84962fd" kind="variable"><name>ErrorLogs</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1a79f875aaad5fd0bf1417ba6837e89223" kind="property"><name>_settings</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1aee6373487771d3c5bd3c47167ed70727" kind="function"><name>Main</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1acc0d89951b42a7a552e323c5ee848c02" kind="function"><name>CreateHostBuilder</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_program_1_1_settings" kind="class"><name>DAO_LogService::Program::Settings</name>
+    <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1a5f0ffeae5fac4ce465fec731ca0ddeb7" kind="property"><name>DbConnectionString</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1a5337f922ca72e1e54268202549727b1a" kind="property"><name>RabbitMQUrl</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1aac12d5fbad8eb4793f1d9152254303b0" kind="property"><name>RabbitMQUsername</name></member>
+    <member refid="class_d_a_o___log_service_1_1_program_1_1_settings_1ad79207a027fd6c49b61db16b93f3f47b" kind="property"><name>RabbitMQPassword</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_startup" kind="class"><name>DAO_LogService::Startup</name>
+    <member refid="class_d_a_o___log_service_1_1_startup_1a3c6ceae588693549496e98b9f489cc2d" kind="property"><name>Configuration</name></member>
+    <member refid="class_d_a_o___log_service_1_1_startup_1ae0931964bbed117306642e7cbe07eb21" kind="function"><name>Startup</name></member>
+    <member refid="class_d_a_o___log_service_1_1_startup_1a43e7f73e8b2a9db5b186b382c7138f47" kind="function"><name>ConfigureServices</name></member>
+    <member refid="class_d_a_o___log_service_1_1_startup_1a25430886918b8641fc97065263b7f1b3" kind="function"><name>Configure</name></member>
+    <member refid="class_d_a_o___log_service_1_1_startup_1ab8a846c60c63552051a87da707034d20" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_d_a_o___log_service_1_1_startup_1a3848bbb4c5e7ee94b58b91ff375a6701" kind="function"><name>InitializeService</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_timer_events" kind="class"><name>DAO_LogService::TimerEvents</name>
+    <member refid="class_d_a_o___log_service_1_1_timer_events_1ad26bd1623dabc09f5fbe1873e275d215" kind="variable"><name>LogDbTimer</name></member>
+    <member refid="class_d_a_o___log_service_1_1_timer_events_1a4f333df94c0deb245da6012a81a5d965" kind="variable"><name>saveDbProgress</name></member>
+    <member refid="class_d_a_o___log_service_1_1_timer_events_1a2d300911c396e965671e657d8e0bbbf4" kind="function"><name>StartTimers</name></member>
+    <member refid="class_d_a_o___log_service_1_1_timer_events_1ab27125e444e27318c0d1ee845f990f87" kind="function"><name>SaveToDb</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_models_1_1_user_log" kind="class"><name>DAO_LogService::Models::UserLog</name>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1ac05f8fff076972c46b40e4d84acc00ae" kind="property"><name>UserLogId</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1a60173e7f4e62979b81427cb2048ed608" kind="property"><name>UserId</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1a297934932e32995ac123a5a3461608c9" kind="property"><name>Date</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1aca54066d15fbed3013500c483fcc00ea" kind="property"><name>Type</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1a490414c23d55bf0376fcc93a35593367" kind="property"><name>Explanation</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1ab7efe82900f661815f4d02c27dbcf2ab" kind="property"><name>Application</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1a54807cef79261ab657ab6335dcc5e1be" kind="property"><name>Ip</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1ab7cc33085ce83093bf98f24fbe88eb77" kind="property"><name>Port</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1a749a505ca93fd4ce40b0b2ed44530704" kind="property"><name>IdField</name></member>
+    <member refid="class_d_a_o___log_service_1_1_models_1_1_user_log_1ae04242f0a7b7c361fbe697e723d12fd3" kind="property"><name>IdValue</name></member>
+  </compound>
+  <compound refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller" kind="class"><name>DAO_LogService::Controllers::UserLogController</name>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1aefeb412eedb07e60fcc8e19ff2485c80" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1acf3059defd28d567a0a98f1dcc5ad1dd" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1ae85a4d368d5a0fdec03432795312c41c" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1ab4decd886ef200a904d33aa911bb5e79" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1af2fc3458b4979bab66c9e984efdbdded" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1abcf446a77603bc9cad6ed6454f29f56d" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1ac5e4a83b283bc77c62f7f1c3cc73ffdf" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller_1a884224b037ecc8ce29473bb20ed5db84" kind="function"><name>GetLastWithCount</name></member>
+  </compound>
+  <compound refid="namespace_auto_mapper" kind="namespace"><name>AutoMapper</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service" kind="namespace"><name>DAO_LogService</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_contexts" kind="namespace"><name>DAO_LogService::Contexts</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_controllers" kind="namespace"><name>DAO_LogService::Controllers</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_mapping" kind="namespace"><name>DAO_LogService::Mapping</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_mapping_1_1_auto_mapper_base" kind="namespace"><name>DAO_LogService::Mapping::AutoMapperBase</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_migrations" kind="namespace"><name>DAO_LogService::Migrations</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_models" kind="namespace"><name>DAO_LogService::Models</name>
+  </compound>
+  <compound refid="namespace_d_a_o___log_service_1_1_program" kind="namespace"><name>DAO_LogService::Program</name>
+  </compound>
+  <compound refid="namespace_helpers" kind="namespace"><name>Helpers</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants" kind="namespace"><name>Helpers::Constants</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants_1_1_enums" kind="namespace"><name>Helpers::Constants::Enums</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models" kind="namespace"><name>Helpers::Models::DtoModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_log_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::LogDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_shared_models" kind="namespace"><name>Helpers::Models::SharedModels</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_builder" kind="namespace"><name>Microsoft::AspNetCore::Builder</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_hosting" kind="namespace"><name>Microsoft::AspNetCore::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_https_policy" kind="namespace"><name>Microsoft::AspNetCore::HttpsPolicy</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_localization" kind="namespace"><name>Microsoft::AspNetCore::Localization</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_mvc" kind="namespace"><name>Microsoft::AspNetCore::Mvc</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core" kind="namespace"><name>Microsoft::EntityFrameworkCore</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core_1_1_infrastructure" kind="namespace"><name>Microsoft::EntityFrameworkCore::Infrastructure</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core_1_1_migrations" kind="namespace"><name>Microsoft::EntityFrameworkCore::Migrations</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core_1_1_storage_1_1_value_conversion" kind="namespace"><name>Microsoft::EntityFrameworkCore::Storage::ValueConversion</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_configuration" kind="namespace"><name>Microsoft::Extensions::Configuration</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_dependency_injection" kind="namespace"><name>Microsoft::Extensions::DependencyInjection</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_hosting" kind="namespace"><name>Microsoft::Extensions::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_logging" kind="namespace"><name>Microsoft::Extensions::Logging</name>
+  </compound>
+  <compound refid="namespace_my_sql_1_1_entity_framework_core_1_1_metadata" kind="namespace"><name>MySql::EntityFrameworkCore::Metadata</name>
+  </compound>
+  <compound refid="namespace_paged_list_1_1_core" kind="namespace"><name>PagedList::Core</name>
+  </compound>
+  <compound refid="namespacestatic" kind="namespace"><name>static</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_concurrent" kind="namespace"><name>System::Collections::Concurrent</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_component_model_1_1_data_annotations" kind="namespace"><name>System::ComponentModel::DataAnnotations</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_system_1_1_timers" kind="namespace"><name>System::Timers</name>
+  </compound>
+  <compound refid="dao__logsdb__context_8cs" kind="file"><name>dao_logsdb_context.cs</name>
+  </compound>
+  <compound refid="_application_log_controller_8cs" kind="file"><name>ApplicationLogController.cs</name>
+  </compound>
+  <compound refid="_error_log_controller_8cs" kind="file"><name>ErrorLogController.cs</name>
+  </compound>
+  <compound refid="_info_controller_8cs" kind="file"><name>InfoController.cs</name>
+  </compound>
+  <compound refid="_user_log_controller_8cs" kind="file"><name>UserLogController.cs</name>
+  </compound>
+  <compound refid="_main_events_8cs" kind="file"><name>MainEvents.cs</name>
+  </compound>
+  <compound refid="_auto_mapper_base_8cs" kind="file"><name>AutoMapperBase.cs</name>
+  </compound>
+  <compound refid="_mapping_profile_8cs" kind="file"><name>MappingProfile.cs</name>
+  </compound>
+  <compound refid="20211011140617__dblogservice__models__adjustment_8cs" kind="file"><name>20211011140617_dblogservice_models_adjustment.cs</name>
+  </compound>
+  <compound refid="20211011140617__dblogservice__models__adjustment_8_designer_8cs" kind="file"><name>20211011140617_dblogservice_models_adjustment.Designer.cs</name>
+  </compound>
+  <compound refid="20211011141026__dblogservice__name__update_8cs" kind="file"><name>20211011141026_dblogservice_name_update.cs</name>
+  </compound>
+  <compound refid="20211011141026__dblogservice__name__update_8_designer_8cs" kind="file"><name>20211011141026_dblogservice_name_update.Designer.cs</name>
+  </compound>
+  <compound refid="dao__logsdb__context_model_snapshot_8cs" kind="file"><name>dao_logsdb_contextModelSnapshot.cs</name>
+  </compound>
+  <compound refid="_application_log_8cs" kind="file"><name>ApplicationLog.cs</name>
+  </compound>
+  <compound refid="_error_log_8cs" kind="file"><name>ErrorLog.cs</name>
+  </compound>
+  <compound refid="_user_log_8cs" kind="file"><name>UserLog.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_d_a_o___log_service_8_assembly_info_8cs" kind="file"><name>DAO_LogService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_d_a_o___log_service_8_assembly_info_8cs" kind="file"><name>DAO_LogService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_startup_8cs" kind="file"><name>Startup.cs</name>
+  </compound>
+  <compound refid="_timer_events_8cs" kind="file"><name>TimerEvents.cs</name>
+  </compound>
+  <compound refid="dir_3c4dd07498d9c915962dbce16eb0a1f9" kind="dir"><name>DAO_LogService/Contexts</name>
+  </compound>
+  <compound refid="dir_3eea7865ac1ec66644d92cdbc2612dba" kind="dir"><name>DAO_LogService/Controllers</name>
+  </compound>
+  <compound refid="dir_555dcb5ec2b82ccf9d06c5086f101405" kind="dir"><name>DAO_LogService</name>
+  </compound>
+  <compound refid="dir_c746919d0cd198b9ba0ade2fe41dc0db" kind="dir"><name>DAO_LogService/obj/Debug</name>
+  </compound>
+  <compound refid="dir_3729e8a0ff8fcd27defa02cbed99fcae" kind="dir"><name>DAO_LogService/Mapping</name>
+  </compound>
+  <compound refid="dir_09595c00e1570065dba8b90e18378b45" kind="dir"><name>DAO_LogService/Migrations</name>
+  </compound>
+  <compound refid="dir_95a098293b4fc784d12866f83a89497f" kind="dir"><name>DAO_LogService/Models</name>
+  </compound>
+  <compound refid="dir_f6ba00f54172b8d9ee2fd20acf1128fb" kind="dir"><name>DAO_LogService/obj/Debug/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_e912f86abdbcbc8fb48e5bacba449484" kind="dir"><name>DAO_LogService/obj/Release/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_e3d2b2840044419728c55c87fe8bc3de" kind="dir"><name>DAO_LogService/obj</name>
+  </compound>
+  <compound refid="dir_394f6f2561bfb3474f2b797cf7ba18d5" kind="dir"><name>DAO_LogService/obj/Release</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Controllers::ApplicationLogController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a6e16b05b4e37bb226e17568c71126864" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; ApplicationLogDto &gt;</type>
+        <definition>IEnumerable&lt; ApplicationLogDto &gt; DAO_LogService.Controllers.ApplicationLogController.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.Get</qualifiedname>
+        <briefdescription>
+<para>Get application logs list </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>ApplicationLog List</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="31" column="28" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="31" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a81ee44c98c0a127f030ac9b582cb2422" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApplicationLogDto</type>
+        <definition>ApplicationLogDto DAO_LogService.Controllers.ApplicationLogController.GetId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.GetId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get application log by id </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="56" column="34" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="56" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1aa94fedeffb4cd50cfcd5c649a1756a1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApplicationLogDto</type>
+        <definition>ApplicationLogDto DAO_LogService.Controllers.ApplicationLogController.Post</definition>
+        <argsstring>([FromBody] ApplicationLogDto model)</argsstring>
+        <name>Post</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.Post</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>ApplicationLogDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves the ApplicationLog using the post method. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="81" column="34" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="81" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a40f552ab86d275ed9550852812980e97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ApplicationLogDto &gt;</type>
+        <definition>List&lt; ApplicationLogDto &gt; DAO_LogService.Controllers.ApplicationLogController.PostMultiple</definition>
+        <argsstring>([FromBody] List&lt; ApplicationLogDto &gt; model)</argsstring>
+        <name>PostMultiple</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.PostMultiple</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>List&lt; ApplicationLogDto &gt;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves the list of ApplicationLogs model using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>List of applicationLog class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="106" column="21" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="106" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a16ac80c929a055f0dd4a650302bb78d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_LogService.Controllers.ApplicationLogController.Delete</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.Delete</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Deletes the applicationLogs by id using delete method </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="130" column="21" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="130" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a62c74beba9acf44d0cacb856310c3892" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ApplicationLogDto</type>
+        <definition>ApplicationLogDto DAO_LogService.Controllers.ApplicationLogController.Update</definition>
+        <argsstring>([FromBody] ApplicationLogDto model)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.Update</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>ApplicationLogDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Updates the applicationLogs by model using put method </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="154" column="34" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="154" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1ab61b1f4a457a0dbec2e764a89d469f54" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaginationEntity&lt; ApplicationLogDto &gt;</type>
+        <definition>PaginationEntity&lt; ApplicationLogDto &gt; DAO_LogService.Controllers.ApplicationLogController.GetPaged</definition>
+        <argsstring>(int page=1, int pageCount=30)</argsstring>
+        <name>GetPaged</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.GetPaged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Brings up the applicationLogs pages. The selected page is fetched. Not all pages are returned </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="179" column="33" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="179" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1ad7cde477cfdd58f35f3dc5e37896d874" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; ApplicationLogDto &gt;</type>
+        <definition>IEnumerable&lt; ApplicationLogDto &gt; DAO_LogService.Controllers.ApplicationLogController.GetLastWithCount</definition>
+        <argsstring>(int count=20)</argsstring>
+        <name>GetLastWithCount</name>
+        <qualifiedname>DAO_LogService.Controllers.ApplicationLogController.GetLastWithCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+          <defval>20</defval>
+        </param>
+        <briefdescription>
+<para>Gets last applicationLogs list by count parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>ApplicationLog list</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="212" column="28" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="212" bodyend="230"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>ApplicationLogsController contains Application Logs operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_LogService.Controllers.ApplicationLogController</label>
+        <link refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_LogService.Controllers.ApplicationLogController</label>
+        <link refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="23" column="11" bodyfile="DAO_LogService/Controllers/ApplicationLogController.cs" bodystart="24" bodyend="231"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a16ac80c929a055f0dd4a650302bb78d4" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>Delete</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a6e16b05b4e37bb226e17568c71126864" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>Get</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a81ee44c98c0a127f030ac9b582cb2422" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>GetId</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1ad7cde477cfdd58f35f3dc5e37896d874" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>GetLastWithCount</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1ab61b1f4a457a0dbec2e764a89d469f54" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>GetPaged</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1aa94fedeffb4cd50cfcd5c649a1756a1e" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>Post</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a40f552ab86d275ed9550852812980e97" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>PostMultiple</name></member>
+      <member refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller_1a62c74beba9acf44d0cacb856310c3892" prot="public" virt="non-virtual"><scope>DAO_LogService::Controllers::ApplicationLogController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

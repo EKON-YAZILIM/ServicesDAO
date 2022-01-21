@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_integration" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_integration</compoundname>
+    <title>integration</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 17 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: basicstyles, bidi, blockquote, clipboard, colorbutton, colordialog, dialogadvtab, elementspath, enterkey, font, format, horizontalrule, htmlwriter, image, indentlist, indentblock, justify, link, list, liststyle, magicline, pagebreak, pastefromgdocs, pastefromlibreoffice, pastefromword, pastetext, specialchar, stylescombo, table, tableselection, tabletools, toolbar, undo, wysiwygarea, sourcearea, resize</para>
+<para><orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button (the one next to the <computeroutput>Source</computeroutput> button).</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Wait for the PDF to download and examine it.</para>
+</listitem></orderedlist>
+</para>
+<para>If you find any bugs, please report them <ulink url="https://github.com/cksource/ckeditor4-plugin-exportpdf/issues">here</ulink>. Just remember to check if it isn&apos;t <ulink url="https://github.com/cksource/ckeditor4-plugin-exportpdf/issues?q=is%3Aopen+is%3Aissue+label%3Atype%3Abug">already known</ulink>.</para>
+<para>When comparing generated PDF to editor contents the best conversion results (close to 1:1 document formatting) can be observed in a Chrome browser. </para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/integration.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Migrations::dblogservice_name_update</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1ae1455ad393707f35c1e9bb1c6748c589" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Migrations.dblogservice_name_update.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_LogService.Migrations.dblogservice_name_update.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.cs" line="7" column="33" bodyfile="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.cs" bodystart="7" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1ab9f12db03c3b4dea371ae9bee16f184a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Migrations.dblogservice_name_update.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_LogService.Migrations.dblogservice_name_update.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.cs" line="23" column="33" bodyfile="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.cs" bodystart="23" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1af183174b7075b588b1f1b904759cfd8a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Migrations.dblogservice_name_update.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_LogService.Migrations.dblogservice_name_update.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.Designer.cs" line="15" column="33" bodyfile="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.Designer.cs" bodystart="15" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_LogService.Migrations.dblogservice_name_update</label>
+        <link refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_LogService.Migrations.dblogservice_name_update</label>
+        <link refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.cs" line="5" column="19" bodyfile="DAO_LogService/Migrations/20211011141026_dblogservice_name_update.cs" bodystart="6" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1af183174b7075b588b1f1b904759cfd8a" prot="protected" virt="non-virtual"><scope>DAO_LogService::Migrations::dblogservice_name_update</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1ab9f12db03c3b4dea371ae9bee16f184a" prot="protected" virt="non-virtual"><scope>DAO_LogService::Migrations::dblogservice_name_update</scope><name>Down</name></member>
+      <member refid="class_d_a_o___log_service_1_1_migrations_1_1dblogservice__name__update_1ae1455ad393707f35c1e9bb1c6748c589" prot="protected" virt="non-virtual"><scope>DAO_LogService::Migrations::dblogservice_name_update</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

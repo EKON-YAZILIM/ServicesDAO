@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___identity_service_1_1_program_1_1_settings" kind="class" language="C#" prot="public">
+    <compoundname>DAO_IdentityService::Program::Settings</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a86fce4b2d02c9a0eb7c980b8fd906372" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.DAOName</definition>
+        <argsstring></argsstring>
+        <name>DAOName</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.DAOName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="17" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a7a7110d707128f02faeb121075e2b938" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.DbConnectionString</definition>
+        <argsstring></argsstring>
+        <name>DbConnectionString</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.DbConnectionString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="19" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a58f91be62c564b4b322d3912511c47dc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.RabbitMQUrl</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUrl</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.RabbitMQUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="21" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a4db3c36936d1f637649df0982aaebe31" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.RabbitMQUsername</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUsername</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.RabbitMQUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="22" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a025600918a9942fd305942a3b5a6767e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.RabbitMQPassword</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQPassword</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.RabbitMQPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="23" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a790fa9a356a19c2d3fc9a077915e2a41" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.Service_Db_Url</definition>
+        <argsstring></argsstring>
+        <name>Service_Db_Url</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.Service_Db_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="25" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1aae23034e8d760e0f14912da3720c0180" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.WebPortal_Url</definition>
+        <argsstring></argsstring>
+        <name>WebPortal_Url</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.WebPortal_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="26" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a6353981f9849e4f5d74a6bc9752f94f1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.Service_Notification_Url</definition>
+        <argsstring></argsstring>
+        <name>Service_Notification_Url</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.Service_Notification_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="27" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a4ecd1c211dd1e4e65710bb10cd747d9c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.EncryptionKey</definition>
+        <argsstring></argsstring>
+        <name>EncryptionKey</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.EncryptionKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="29" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a71d1b1faae22e187df10bad96ac7383b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.JwtTokenKey</definition>
+        <argsstring></argsstring>
+        <name>JwtTokenKey</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.JwtTokenKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="30" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a512f09e2df30700dd896c66c1f7d298e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.KYCID</definition>
+        <argsstring></argsstring>
+        <name>KYCID</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.KYCID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="31" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1a8c2d6b6b382a0a994881fff7c473d59d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.KYCURL</definition>
+        <argsstring></argsstring>
+        <name>KYCURL</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.KYCURL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="32" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_program_1_1_settings_1ac248e7521c2f69cb8491eab489040106" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_IdentityService.Program.Settings.WebURLforKYCResponse</definition>
+        <argsstring></argsstring>
+        <name>WebURLforKYCResponse</name>
+        <qualifiedname>DAO_IdentityService.Program.Settings.WebURLforKYCResponse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Program.cs" line="33" column="27" bodyfile="DAO_IdentityService/Program.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_IdentityService/Program.cs" line="15" column="15" bodyfile="DAO_IdentityService/Program.cs" bodystart="16" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a86fce4b2d02c9a0eb7c980b8fd906372" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>DAOName</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a7a7110d707128f02faeb121075e2b938" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>DbConnectionString</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a4ecd1c211dd1e4e65710bb10cd747d9c" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>EncryptionKey</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a71d1b1faae22e187df10bad96ac7383b" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>JwtTokenKey</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a512f09e2df30700dd896c66c1f7d298e" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>KYCID</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a8c2d6b6b382a0a994881fff7c473d59d" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>KYCURL</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a025600918a9942fd305942a3b5a6767e" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>RabbitMQPassword</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a58f91be62c564b4b322d3912511c47dc" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>RabbitMQUrl</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a4db3c36936d1f637649df0982aaebe31" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>RabbitMQUsername</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a790fa9a356a19c2d3fc9a077915e2a41" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>Service_Db_Url</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1a6353981f9849e4f5d74a6bc9752f94f1" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>Service_Notification_Url</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1aae23034e8d760e0f14912da3720c0180" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>WebPortal_Url</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_program_1_1_settings_1ac248e7521c2f69cb8491eab489040106" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Program::Settings</scope><name>WebURLforKYCResponse</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

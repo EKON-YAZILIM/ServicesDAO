@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::added_ThirdPartyKey_and_ThirdPartyType_UserTable</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a0e22b0048cb66224a4e0cebdd1a04465" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs" bodystart="7" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a558d5c48c887e87b12d46f7f72da5ca6" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs" line="22" column="33" bodyfile="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs" bodystart="22" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a24e399b26e268d7a44796a2f763e51bc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.Designer.cs" bodystart="15" bodyend="263"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.added_ThirdPartyKey_and_ThirdPartyType_UserTable</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a24e399b26e268d7a44796a2f763e51bc" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::added_ThirdPartyKey_and_ThirdPartyType_UserTable</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a558d5c48c887e87b12d46f7f72da5ca6" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::added_ThirdPartyKey_and_ThirdPartyType_UserTable</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a0e22b0048cb66224a4e0cebdd1a04465" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::added_ThirdPartyKey_and_ThirdPartyType_UserTable</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

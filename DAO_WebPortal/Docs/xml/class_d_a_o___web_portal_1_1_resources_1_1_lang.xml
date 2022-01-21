@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_resources_1_1_lang" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Resources::Lang</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a81e42a47e44f0ecd2dfbb055e5c1d8d4" prot="private" static="yes" mutable="no">
+        <type>global::System.Resources.ResourceManager</type>
+        <definition>global::System.Resources.ResourceManager DAO_WebPortal.Resources.Lang.resourceMan</definition>
+        <argsstring></argsstring>
+        <name>resourceMan</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.resourceMan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="27" column="63" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ab7b370cf40dd3e8d8bc9f112fbf7ffd3" prot="private" static="yes" mutable="no">
+        <type>global::System.Globalization.CultureInfo</type>
+        <definition>global::System.Globalization.CultureInfo DAO_WebPortal.Resources.Lang.resourceCulture</definition>
+        <argsstring></argsstring>
+        <name>resourceCulture</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.resourceCulture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="29" column="63" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a72cf710c75fe2a231c029d51473ba1c6" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::System.Resources.ResourceManager</type>
+        <definition>global::System.Resources.ResourceManager DAO_WebPortal.Resources.Lang.ResourceManager</definition>
+        <argsstring></argsstring>
+        <name>ResourceManager</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ResourceManager</qualifiedname>
+        <briefdescription>
+<para>Returns the cached ResourceManager instance used by this class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="39" column="62" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1afb789f606754f6e3e0b1f5f76ba6af12" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>global::System.Globalization.CultureInfo</type>
+        <definition>global::System.Globalization.CultureInfo DAO_WebPortal.Resources.Lang.Culture</definition>
+        <argsstring></argsstring>
+        <name>Culture</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Culture</qualifiedname>
+        <briefdescription>
+<para>Overrides the current thread&apos;s CurrentUICulture property for all resource lookups using this strongly typed resource class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="54" column="62" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="54" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a83278873f2b18401f09140739f8362fb" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.ConnectionError</definition>
+        <argsstring></argsstring>
+        <name>ConnectionError</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ConnectionError</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Could not receive response from the server.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="66" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="66" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a1cdc49c922c2fd95fabbaf99e6c1a26c" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.EmailError</definition>
+        <argsstring></argsstring>
+        <name>EmailError</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.EmailError</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Please enter an e-mail address registered in the system.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="75" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="75" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ac94a3c6d6f50061c5ce55b88e7195f19" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Error</definition>
+        <argsstring></argsstring>
+        <name>Error</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Error</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="84" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ae6c4db50704af953e304f27d3f371d39" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.ErrorMailMsg</definition>
+        <argsstring></argsstring>
+        <name>ErrorMailMsg</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ErrorMailMsg</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to There is an existing account with this email address.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="93" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a3d2c33064bdc1ad386617419c0e7d643" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.ErrorNote</definition>
+        <argsstring></argsstring>
+        <name>ErrorNote</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ErrorNote</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to An error occurred while proccesing your request.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="102" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="102" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1acf1caf428e93a9fbc19eebd5d5482c60" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.ErrorPasswordMsg</definition>
+        <argsstring></argsstring>
+        <name>ErrorPasswordMsg</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ErrorPasswordMsg</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to The password must contain at least 8 characters and contain 1 digit 1 lowercase 1 uppercase.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="111" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="111" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a840626d07679bec084f6efbd902b3d06" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.ErrorUserMsg</definition>
+        <argsstring></argsstring>
+        <name>ErrorUserMsg</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ErrorUserMsg</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to There is an existing account with this Username.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="120" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="120" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ab267d12c5c04455dc3c85a4b2354d52f" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.ErrorUsernamePassword</definition>
+        <argsstring></argsstring>
+        <name>ErrorUsernamePassword</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.ErrorUsernamePassword</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Username or password is wrong.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="129" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="129" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a1598961ffb4b75826818867148038092" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.IncorrectPassReset</definition>
+        <argsstring></argsstring>
+        <name>IncorrectPassReset</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.IncorrectPassReset</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Incorrect password reset request.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="138" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="138" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ad2102806b7dd8753d5cba0a13b7fd5a2" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Login_AggreeTerms</definition>
+        <argsstring></argsstring>
+        <name>Login_AggreeTerms</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Login_AggreeTerms</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to I agree your terms and conditions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="147" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="147" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a4a33865dab7422c2a247e47e64407b7e" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Login_CheckTermsError</definition>
+        <argsstring></argsstring>
+        <name>Login_CheckTermsError</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Login_CheckTermsError</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Please confirm user agreement.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="156" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="156" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ab1c03cc7c5a7c256444752d539533bf5" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Login_ForgotPassword</definition>
+        <argsstring></argsstring>
+        <name>Login_ForgotPassword</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Login_ForgotPassword</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Forgot password?. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="165" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="165" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a8f0e9c5bdcf5dad4fa072d2f49bab267" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Login_RememberMe</definition>
+        <argsstring></argsstring>
+        <name>Login_RememberMe</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Login_RememberMe</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Remember me. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="174" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="174" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a05152496720900e1ab278aa3b5eb2dd6" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Login_SignInTitle</definition>
+        <argsstring></argsstring>
+        <name>Login_SignInTitle</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Login_SignInTitle</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Sign In. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="183" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="183" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1aceb906ed385ef3be38afa293f2c1067b" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.LoginViewTitle</definition>
+        <argsstring></argsstring>
+        <name>LoginViewTitle</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.LoginViewTitle</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Welcome to ServicesDAO. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="192" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="192" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1abdb4533175c3e34317b4597d8425476a" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.NotCompatiblePass</definition>
+        <argsstring></argsstring>
+        <name>NotCompatiblePass</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.NotCompatiblePass</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Passwords entered are not compatible.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="201" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="201" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a2a4d3b80640aeb0441444774dc937fb3" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.PasswordResetSuccess</definition>
+        <argsstring></argsstring>
+        <name>PasswordResetSuccess</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.PasswordResetSuccess</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Password reset link sent to your email.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="210" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="210" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ae6c0e41cb8b8eaa409b68277762d7ec1" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.RegisterComplete</definition>
+        <argsstring></argsstring>
+        <name>RegisterComplete</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.RegisterComplete</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Registration completed. You can sign in with your email/username and password.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="219" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="219" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a2dbc35e528d025702c53b30f099419e4" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.RegisterEmailSent</definition>
+        <argsstring></argsstring>
+        <name>RegisterEmailSent</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.RegisterEmailSent</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Please confirm your account from your email.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="228" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="228" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a01a65140eaa92597e92323b88c8422c4" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.RegisterEmailTitle</definition>
+        <argsstring></argsstring>
+        <name>RegisterEmailTitle</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.RegisterEmailTitle</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Welcome to ServicesDAO. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="237" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="237" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a645a35eb481e97bb0b498e3efbbcea13" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.RenewExpired</definition>
+        <argsstring></argsstring>
+        <name>RenewExpired</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.RenewExpired</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to This password renewal request has expired.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="246" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="246" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a225486e8c92848480cec9ef83a6a157a" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.SecureNote</definition>
+        <argsstring></argsstring>
+        <name>SecureNote</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.SecureNote</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Enter security code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="255" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="255" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a454a76994525779c3c7d8513f3cd7e09" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.Successful</definition>
+        <argsstring></argsstring>
+        <name>Successful</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Successful</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Success. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="264" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="264" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a5809ca5fb9b195e85def4192dc09c558" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.SuccessLogin</definition>
+        <argsstring></argsstring>
+        <name>SuccessLogin</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.SuccessLogin</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Login successful.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="273" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="273" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1af0b168b79f83566805a92edbb36759bf" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.UnauthorizedAccess</definition>
+        <argsstring></argsstring>
+        <name>UnauthorizedAccess</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.UnauthorizedAccess</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to You are unauthorized to perform this action.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="282" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="282" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1aa159b506dcd1b22fa9aad0c550920ec6" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.UnexpectedError</definition>
+        <argsstring></argsstring>
+        <name>UnexpectedError</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.UnexpectedError</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to An unexpected error has occurred. Please try again later. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="291" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="291" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a416aaebce5a3622b630253aefc30a0d7" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.UpdatePassword</definition>
+        <argsstring></argsstring>
+        <name>UpdatePassword</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.UpdatePassword</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Your password has been updated. You can sign in with your new password.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="300" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="300" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ac16e38be359a82d8c5c0174e2b814db7" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Resources.Lang.WrongErrorCodeEntered</definition>
+        <argsstring></argsstring>
+        <name>WrongErrorCodeEntered</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.WrongErrorCodeEntered</qualifiedname>
+        <briefdescription>
+<para>Looks up a localized string similar to Incorrect security code entry.. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="309" column="30" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="309" bodyend="313"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="package-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a0386ffd62f3dc4d033d5d8b1b8179e4e" prot="package" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_WebPortal.Resources.Lang.Lang</definition>
+        <argsstring>()</argsstring>
+        <name>Lang</name>
+        <qualifiedname>DAO_WebPortal.Resources.Lang.Lang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="32" column="18" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="32" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A strongly-typed resource class, for looking up localized strings, etc. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Resources/Lang.Designer.cs" line="25" column="11" bodyfile="DAO_WebPortal/Resources/Lang.Designer.cs" bodystart="25" bodyend="314"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a83278873f2b18401f09140739f8362fb" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ConnectionError</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1afb789f606754f6e3e0b1f5f76ba6af12" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Culture</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a1cdc49c922c2fd95fabbaf99e6c1a26c" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>EmailError</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ac94a3c6d6f50061c5ce55b88e7195f19" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Error</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ae6c4db50704af953e304f27d3f371d39" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ErrorMailMsg</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a3d2c33064bdc1ad386617419c0e7d643" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ErrorNote</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1acf1caf428e93a9fbc19eebd5d5482c60" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ErrorPasswordMsg</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a840626d07679bec084f6efbd902b3d06" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ErrorUserMsg</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ab267d12c5c04455dc3c85a4b2354d52f" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ErrorUsernamePassword</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a1598961ffb4b75826818867148038092" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>IncorrectPassReset</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a0386ffd62f3dc4d033d5d8b1b8179e4e" prot="package" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Lang</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ad2102806b7dd8753d5cba0a13b7fd5a2" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Login_AggreeTerms</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a4a33865dab7422c2a247e47e64407b7e" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Login_CheckTermsError</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ab1c03cc7c5a7c256444752d539533bf5" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Login_ForgotPassword</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a8f0e9c5bdcf5dad4fa072d2f49bab267" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Login_RememberMe</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a05152496720900e1ab278aa3b5eb2dd6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Login_SignInTitle</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1aceb906ed385ef3be38afa293f2c1067b" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>LoginViewTitle</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1abdb4533175c3e34317b4597d8425476a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>NotCompatiblePass</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a2a4d3b80640aeb0441444774dc937fb3" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>PasswordResetSuccess</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ae6c0e41cb8b8eaa409b68277762d7ec1" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>RegisterComplete</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a2dbc35e528d025702c53b30f099419e4" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>RegisterEmailSent</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a01a65140eaa92597e92323b88c8422c4" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>RegisterEmailTitle</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a645a35eb481e97bb0b498e3efbbcea13" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>RenewExpired</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ab7b370cf40dd3e8d8bc9f112fbf7ffd3" prot="private" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>resourceCulture</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a81e42a47e44f0ecd2dfbb055e5c1d8d4" prot="private" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>resourceMan</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a72cf710c75fe2a231c029d51473ba1c6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>ResourceManager</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a225486e8c92848480cec9ef83a6a157a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>SecureNote</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a454a76994525779c3c7d8513f3cd7e09" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>Successful</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a5809ca5fb9b195e85def4192dc09c558" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>SuccessLogin</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1af0b168b79f83566805a92edbb36759bf" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>UnauthorizedAccess</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1aa159b506dcd1b22fa9aad0c550920ec6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>UnexpectedError</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1a416aaebce5a3622b630253aefc30a0d7" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>UpdatePassword</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_resources_1_1_lang_1ac16e38be359a82d8c5c0174e2b814db7" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Resources::Lang</scope><name>WrongErrorCodeEntered</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

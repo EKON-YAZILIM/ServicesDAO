@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_CRDAO_Shared__JobTablePartial</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.WebsiteViewModels.DashboardJobCardModel &gt; &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a15b402e14e28d31cb2e041937ed794cb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_CRDAO_Shared__JobTablePartial.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Shared__JobTablePartial.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="340" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="340" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a9740efe43425175d6803301ff1bdfef9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_CRDAO_Shared__JobTablePartial.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Shared__JobTablePartial.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="342" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="342" bodyend="342"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a228db79d9a25c2e7bac1d1ed0d4440ff" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_CRDAO_Shared__JobTablePartial.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Shared__JobTablePartial.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="344" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="344" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a5a992a8e3bdbb61baa14f3b4dcad854d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_CRDAO_Shared__JobTablePartial.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Shared__JobTablePartial.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="346" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="346" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a712baa6c8176fce905b0246b4e7b1523" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; List&lt; Helpers.Models.WebsiteViewModels.DashboardJobCardModel &gt; &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;List&lt;Helpers.Models.WebsiteViewModels.DashboardJobCardModel&gt; &gt; AspNetCore.Views_CRDAO_Shared__JobTablePartial.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Shared__JobTablePartial.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="348" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="348" bodyend="348"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1adc47b98eae7b4d06a9ff2f1cc91ee730" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_CRDAO_Shared__JobTablePartial.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Shared__JobTablePartial.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="34" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="34" bodyend="337"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Shared__JobTablePartial</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.WebsiteViewModels.DashboardJobCardModel &gt; &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Shared__JobTablePartial</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.WebsiteViewModels.DashboardJobCardModel &gt; &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" line="31" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared/_JobTablePartial.cshtml.g.cs" bodystart="32" bodyend="349"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a228db79d9a25c2e7bac1d1ed0d4440ff" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Shared__JobTablePartial</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1adc47b98eae7b4d06a9ff2f1cc91ee730" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Shared__JobTablePartial</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a712baa6c8176fce905b0246b4e7b1523" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Shared__JobTablePartial</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a5a992a8e3bdbb61baa14f3b4dcad854d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Shared__JobTablePartial</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a15b402e14e28d31cb2e041937ed794cb" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Shared__JobTablePartial</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial_1a9740efe43425175d6803301ff1bdfef9" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Shared__JobTablePartial</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

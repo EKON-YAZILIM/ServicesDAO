@@ -14,10 +14,17 @@ using PagedList.Core;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    /// UserCommentVoteController contains user comment vote operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class UserCommentVoteController : Controller
     {
+        /// <summary>
+        /// Get UserCommentVote List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<UserCommentVoteDto> Get()
@@ -40,6 +47,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<UserCommentVote>, List<UserCommentVoteDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get UserCommentVote by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public UserCommentVoteDto GetId(int id)
@@ -62,6 +74,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<UserCommentVote, UserCommentVoteDto>(model);
         }
 
+        /// <summary>
+        /// Saves user comment vote model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public UserCommentVoteDto Post([FromBody] UserCommentVoteDto model)
@@ -83,6 +100,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        ///  Saves user comment vote list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<UserCommentVoteDto> PostMultiple([FromBody] List<UserCommentVoteDto> model)
@@ -104,6 +126,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes user comment vote by id
+        /// Ends user comment vote
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,6 +153,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes user comment vote list by id
+        /// Ends user comment vote
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("DeleteMultiple")]
         [HttpDelete]
         public bool DeleteMultiple(int? ID)
@@ -145,6 +179,12 @@ namespace DAO_DbService.Controllers
                 return false;
             }
         }
+
+        /// <summary>
+        /// Update UserCommentVote using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public UserCommentVoteDto Update([FromBody] UserCommentVoteDto model)
@@ -166,6 +206,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the userCommentVote pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<UserCommentVoteDto> GetPaged(int page = 1, int pageCount = 30)
@@ -195,6 +242,11 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// Get UserCommentVote by userId
+        /// </summary
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         [Route("GetByUserId")]
         [HttpGet]
         public List<UserCommentVoteDto> GetByUserId(int UserId)
@@ -217,6 +269,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<UserCommentVote>, List<UserCommentVoteDto>>(model);
         }
 
+        /// <summary>
+        /// Get UserCommentVote by commentId
+        /// </summary>
+        /// <param name="CommentId"></param>
+        /// <returns></returns>
         [Route("GetByCommentId")]
         [HttpGet]
         public List<UserCommentVoteDto> GetByCommentId(int CommentId)

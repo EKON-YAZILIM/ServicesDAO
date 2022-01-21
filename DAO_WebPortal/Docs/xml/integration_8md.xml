@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="integration_8md" kind="file" language="Markdown">
+    <compoundname>integration.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">@bender-tags:<sp/>exportpdf,<sp/>feature,<sp/>17</highlight></codeline>
+<codeline><highlight class="normal">@bender-ui:<sp/>collapsed</highlight></codeline>
+<codeline><highlight class="normal">@bender-include:<sp/>../_helpers/tools.js</highlight></codeline>
+<codeline><highlight class="normal">@bender-ckeditor-plugins:<sp/>basicstyles,<sp/>bidi,<sp/>blockquote,<sp/>clipboard,<sp/>colorbutton,<sp/>colordialog,<sp/>dialogadvtab,<sp/>elementspath,<sp/>enterkey,<sp/>font,<sp/>format,<sp/>horizontalrule,<sp/>htmlwriter,<sp/>image,<sp/>indentlist,<sp/>indentblock,<sp/>justify,<sp/>link,<sp/>list,<sp/>liststyle,<sp/>magicline,<sp/>pagebreak,<sp/>pastefromgdocs,<sp/>pastefromlibreoffice,<sp/>pastefromword,<sp/>pastetext,<sp/>specialchar,<sp/>stylescombo,<sp/>table,<sp/>tableselection,<sp/>tabletools,<sp/>toolbar,<sp/>undo,<sp/>wysiwygarea,<sp/>sourcearea,<sp/>resize</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>(the<sp/>one<sp/>next<sp/>to<sp/>the<sp/>`Source`<sp/>button).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Wait<sp/>for<sp/>the<sp/>PDF<sp/>to<sp/>download<sp/>and<sp/>examine<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>find<sp/>any<sp/>bugs,<sp/>please<sp/>report<sp/>them<sp/>&lt;a<sp/>href=&quot;https://github.com/cksource/ckeditor4-plugin-exportpdf/issues&quot;<sp/>target=&quot;_blank&quot;&gt;here&lt;/a&gt;.<sp/>Just<sp/>remember<sp/>to<sp/>check<sp/>if<sp/>it<sp/>isn&apos;t<sp/>&lt;a<sp/>href=&quot;https://github.com/cksource/ckeditor4-plugin-exportpdf/issues?q=is%3Aopen+is%3Aissue+label%3Atype%3Abug&quot;<sp/>target=&quot;_blank&quot;&gt;already<sp/>known&lt;/a&gt;.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>comparing<sp/>generated<sp/>PDF<sp/>to<sp/>editor<sp/>contents<sp/>the<sp/>best<sp/>conversion<sp/>results<sp/>(close<sp/>to<sp/>1:1<sp/>document<sp/>formatting)<sp/>can<sp/>be<sp/>observed<sp/>in<sp/>a<sp/>Chrome<sp/>browser.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/integration.md"/>
+  </compounddef>
+</doxygen>

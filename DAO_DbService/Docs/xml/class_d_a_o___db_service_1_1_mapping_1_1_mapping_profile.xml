@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Mapping::MappingProfile</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Profile</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile_1a00ab607bf312839026bc8bd1a02cbe8e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_DbService.Mapping.MappingProfile.MappingProfile</definition>
+        <argsstring>()</argsstring>
+        <name>MappingProfile</name>
+        <qualifiedname>DAO_DbService.Mapping.MappingProfile.MappingProfile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Mapping/MappingProfile.cs" line="9" column="16" bodyfile="DAO_DbService/Mapping/MappingProfile.cs" bodystart="9" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Mapping.MappingProfile</label>
+        <link refid="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Profile</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Mapping.MappingProfile</label>
+        <link refid="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Profile</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Mapping/MappingProfile.cs" line="7" column="11" bodyfile="DAO_DbService/Mapping/MappingProfile.cs" bodystart="8" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile_1a00ab607bf312839026bc8bd1a02cbe8e" prot="public" virt="non-virtual"><scope>DAO_DbService::Mapping::MappingProfile</scope><name>MappingProfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

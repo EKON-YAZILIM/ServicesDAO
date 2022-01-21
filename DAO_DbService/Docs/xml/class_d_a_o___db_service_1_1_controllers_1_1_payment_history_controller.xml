@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Controllers::PaymentHistoryController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1af2048c82ffc6743e395a8c16d6e440bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; PaymentHistoryDto &gt;</type>
+        <definition>IEnumerable&lt; PaymentHistoryDto &gt; DAO_DbService.Controllers.PaymentHistoryController.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.Get</qualifiedname>
+        <briefdescription>
+<para>Get PaymentHistory List </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+&gt; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="31" column="28" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="31" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ababc7d080484297e39c89067bcc896d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaymentHistoryDto</type>
+        <definition>PaymentHistoryDto DAO_DbService.Controllers.PaymentHistoryController.GetId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.GetId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get PaymentHistory by id </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="58" column="34" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="58" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ab7f7b530a7c8b708b3adcbfa6bd02794" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaymentHistoryDto</type>
+        <definition>PaymentHistoryDto DAO_DbService.Controllers.PaymentHistoryController.Post</definition>
+        <argsstring>([FromBody] PaymentHistoryDto model)</argsstring>
+        <name>Post</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.Post</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>PaymentHistoryDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves payment history model using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="85" column="34" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="85" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a99a67b0174277ed67751c908d26a0840" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; PaymentHistoryDto &gt;</type>
+        <definition>List&lt; PaymentHistoryDto &gt; DAO_DbService.Controllers.PaymentHistoryController.PostMultiple</definition>
+        <argsstring>([FromBody] List&lt; PaymentHistoryDto &gt; model)</argsstring>
+        <name>PostMultiple</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.PostMultiple</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>List&lt; PaymentHistoryDto &gt;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves payment history list using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="111" column="21" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="111" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1aa4afaa192647319156eea128c61ae5ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.PaymentHistoryController.Delete</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.Delete</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Removes payment history by id Ends payment history </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="138" column="21" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="138" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a3b4012986e8927ac9223a351da4b68cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaymentHistoryDto</type>
+        <definition>PaymentHistoryDto DAO_DbService.Controllers.PaymentHistoryController.Update</definition>
+        <argsstring>([FromBody] PaymentHistoryDto model)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.Update</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>PaymentHistoryDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Update Payment history using put method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="164" column="34" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="164" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ae5200cb495a70135b0ad4feed8030a17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; PaymentHistoryDto &gt;</type>
+        <definition>IEnumerable&lt; PaymentHistoryDto &gt; DAO_DbService.Controllers.PaymentHistoryController.GetPaymentHistoryByUserId</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>GetPaymentHistoryByUserId</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.GetPaymentHistoryByUserId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get Payment History by userId </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="190" column="28" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="190" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a4fe2d00d7344472d618b1e3472f7c071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; PaymentExport &gt;</type>
+        <definition>List&lt; PaymentExport &gt; DAO_DbService.Controllers.PaymentHistoryController.ExportPaymentHistory</definition>
+        <argsstring>(int? userid)</argsstring>
+        <name>ExportPaymentHistory</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.ExportPaymentHistory</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Get job and payment details for completed jobs </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>List&lt;PaymentExport&gt;</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="216" column="21" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="216" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1af30380912372c52476a5236004d4e594" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; PaymentHistoryDto &gt;</type>
+        <definition>List&lt; PaymentHistoryDto &gt; DAO_DbService.Controllers.PaymentHistoryController.RecreatePaymentHistory</definition>
+        <argsstring>()</argsstring>
+        <name>RecreatePaymentHistory</name>
+        <qualifiedname>DAO_DbService.Controllers.PaymentHistoryController.RecreatePaymentHistory</qualifiedname>
+        <briefdescription>
+<para>Deletes all records from payment history table and recreate records from completed jobs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>New payment history records</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="254" column="21" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="254" bodyend="344"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller" kindref="compound">PaymentHistoryController</ref> contains payment history operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.PaymentHistoryController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.PaymentHistoryController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Controllers/PaymentHistoryController.cs" line="23" column="11" bodyfile="DAO_DbService/Controllers/PaymentHistoryController.cs" bodystart="24" bodyend="346"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1aa4afaa192647319156eea128c61ae5ec" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>Delete</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a4fe2d00d7344472d618b1e3472f7c071" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>ExportPaymentHistory</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1af2048c82ffc6743e395a8c16d6e440bf" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>Get</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ababc7d080484297e39c89067bcc896d2" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>GetId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ae5200cb495a70135b0ad4feed8030a17" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>GetPaymentHistoryByUserId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ab7f7b530a7c8b708b3adcbfa6bd02794" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>Post</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a99a67b0174277ed67751c908d26a0840" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>PostMultiple</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1af30380912372c52476a5236004d4e594" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>RecreatePaymentHistory</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a3b4012986e8927ac9223a351da4b68cd" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PaymentHistoryController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

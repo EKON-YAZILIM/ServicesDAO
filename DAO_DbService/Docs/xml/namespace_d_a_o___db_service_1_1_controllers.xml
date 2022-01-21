@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___db_service_1_1_controllers" kind="namespace" language="C#">
+    <compoundname>DAO_DbService::Controllers</compoundname>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller" prot="public">DAO_DbService::Controllers::ActiveSessionController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller" prot="public">DAO_DbService::Controllers::AuctionBidController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller" prot="public">DAO_DbService::Controllers::AuctionController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_info_controller" prot="public">DAO_DbService::Controllers::InfoController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller" prot="public">DAO_DbService::Controllers::JobPostCommentController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller" prot="public">DAO_DbService::Controllers::JobPostController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller" prot="public">DAO_DbService::Controllers::PaymentHistoryController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller" prot="public">DAO_DbService::Controllers::PlatformSettingController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller" prot="public">DAO_DbService::Controllers::UserCommentVoteController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller" prot="public">DAO_DbService::Controllers::UserKYCController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller" prot="public">DAO_DbService::Controllers::UsersController</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller" prot="public">DAO_DbService::Controllers::WebsiteController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="15" column="1"/>
+  </compounddef>
+</doxygen>

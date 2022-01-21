@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_IdentityService::Controllers::IdentityController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ControllerBase</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1ad563a8f0ace5fc6ca357ce6c1c3493c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>LoginResponse</type>
+        <definition>LoginResponse DAO_IdentityService.Controllers.IdentityController.Login</definition>
+        <argsstring>(LoginModel model)</argsstring>
+        <name>Login</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.Login</qualifiedname>
+        <param>
+          <type>LoginModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>User login method with email or username. A JWT Token is created with every successful login. Active user sessions are stored in the database. (ActiveSessions table) It is recommended to change the JwtTokenKey in production environment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>LoginModel</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>User summary and token</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="36" column="30" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="36" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a39befd16c061162d013465e5a37cc777" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_IdentityService.Controllers.IdentityController.Register</definition>
+        <argsstring>([FromBody] RegisterModel registerInput)</argsstring>
+        <name>Register</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.Register</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>RegisterModel</type>
+          <declname>registerInput</declname>
+        </param>
+        <briefdescription>
+<para>User register method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>registerInput</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Registration information of the user</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Generic SimpleResponse class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="186" column="31" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="186" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a27a88452f25da524792173ec40742632" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_IdentityService.Controllers.IdentityController.RegisterComplete</definition>
+        <argsstring>(RegisterCompleteModel model)</argsstring>
+        <name>RegisterComplete</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.RegisterComplete</qualifiedname>
+        <param>
+          <type>RegisterCompleteModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Email approval method after registration </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Token generated from the Register method</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Generic SimpleResponse class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="266" column="31" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="266" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1af11f39dfb23aad3b07e90f4b9d672629" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_IdentityService.Controllers.IdentityController.ResetPassword</definition>
+        <argsstring>(ResetPasswordModel model)</argsstring>
+        <name>ResetPassword</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.ResetPassword</qualifiedname>
+        <param>
+          <type>ResetPasswordModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Reset password request method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User registered email in the system</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Generic SimpleResponse class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="309" column="31" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="309" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1aa07ccbc54dab9a46aedfcd7ea66a5288" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_IdentityService.Controllers.IdentityController.ResetPasswordComplete</definition>
+        <argsstring>(ResetCompleteModel model)</argsstring>
+        <name>ResetPasswordComplete</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.ResetPasswordComplete</qualifiedname>
+        <param>
+          <type>ResetCompleteModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Change password method after reset password request </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>passwordChangeToken: Token generated from ResetPassword method</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Generic SimpleResponse class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="353" column="31" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="353" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a927e5baf705fa6dd73d9608a2a8f3b75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_IdentityService.Controllers.IdentityController.Logout</definition>
+        <argsstring>(string token)</argsstring>
+        <name>Logout</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.Logout</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+<para>User logout method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Jwt token of the user</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Is successful</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="403" column="21" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="403" bodyend="422"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1aa6cb53fb609323406e7f34382164b7df" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; Claim &gt;</type>
+        <definition>IEnumerable&lt; Claim &gt; DAO_IdentityService.Controllers.IdentityController.CreateUserClaims</definition>
+        <argsstring>(UserDto user, UserIdentityType userType)</argsstring>
+        <name>CreateUserClaims</name>
+        <qualifiedname>DAO_IdentityService.Controllers.IdentityController.CreateUserClaims</qualifiedname>
+        <param>
+          <type>UserDto</type>
+          <declname>user</declname>
+        </param>
+        <param>
+          <type>UserIdentityType</type>
+          <declname>userType</declname>
+        </param>
+        <briefdescription>
+<para>Get claims of the user from user object and user identity type </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UserDto object</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>userType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UserIdentityType enum</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>User claims list</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="143" column="29" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="143" bodyend="178"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller" kindref="compound">IdentityController</ref> contains identity operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>DAO_IdentityService.Controllers.IdentityController</label>
+        <link refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>DAO_IdentityService.Controllers.IdentityController</label>
+        <link refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="26" column="11" bodyfile="DAO_IdentityService/Controllers/IdentityController.cs" bodystart="27" bodyend="423"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1aa6cb53fb609323406e7f34382164b7df" prot="private" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>CreateUserClaims</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1ad563a8f0ace5fc6ca357ce6c1c3493c9" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>Login</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a927e5baf705fa6dd73d9608a2a8f3b75" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>Logout</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a39befd16c061162d013465e5a37cc777" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>Register</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1a27a88452f25da524792173ec40742632" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>RegisterComplete</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1af11f39dfb23aad3b07e90f4b9d672629" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>ResetPassword</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller_1aa07ccbc54dab9a46aedfcd7ea66a5288" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::IdentityController</scope><name>ResetPasswordComplete</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,742 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_active_session" kind="class"><name>DAO_DbService::Models::ActiveSession</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1a854f0b69dcae84d0338e54d138f2b09c" kind="property"><name>ActiveSessionID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1afec2bd9d075ec9f749a07bf9f4a301e7" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1a06fe0a6fd70aea8146efbe99788fad3e" kind="property"><name>LoginDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1a49dc0dbacfba100007739c412a96095d" kind="property"><name>Token</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller" kind="class"><name>DAO_DbService::Controllers::ActiveSessionController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a129c9712702d1023a89039105481a219" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a742c0de8cf2430fa45a13a38d2ec889d" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a32d74b52c7a469074d4fc439fbf545f6" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a9537d3c022c84b7cb02007ed4b143c89" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a4f1a6712592534bb55a5d2aebfe04828" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a2e03aeaf7c3b046b68a69d5917643396" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a73d22d12223d73349cadcc107eaa3932" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a07efe36cd50638c1b4065747992fb085" kind="function"><name>PostOrUpdate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1aa0bd4f023c038d25987d8948995b28d7" kind="function"><name>DeleteByUserId</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban" kind="class"><name>DAO_DbService::Migrations::Add_PaymentHistory_add_WalletAdd_Iban</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1a92611b44851c25661d70025d75e3e816" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1a5d34b6f9fac4a442d6868693fc254906" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1aeb54d3c25638ace7d458149a0dbf8acd" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table" kind="class"><name>DAO_DbService::Migrations::added_ThirdPartyKey_and_ThirdPartyType_UserTable</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a0e22b0048cb66224a4e0cebdd1a04465" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a558d5c48c887e87b12d46f7f72da5ca6" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1added___third_party_key__and___third_party_type___user_table_1a24e399b26e268d7a44796a2f763e51bc" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_auction" kind="class"><name>DAO_DbService::Models::Auction</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1a784e610c030514db58e5fb4f1b897aed" kind="property"><name>AuctionID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1a062117854a51000cd18652a842dee5c5" kind="property"><name>JobID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1ac96a73fd05baf0b639cecfc41afd3a4a" kind="property"><name>CreateDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1ac295b05d7f3bf3cc7eff77c7a7651912" kind="property"><name>JobPosterUserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1a92ad07d55eb516090184673adf287df6" kind="property"><name>WinnerAuctionBidID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1a622872df7883064bfbff205ca2c519a2" kind="property"><name>Status</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1ac6496df49e83ac754923ce9af00e2c20" kind="property"><name>PublicAuctionEndDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_1a4fdb3939a9c3b25047945d1373687292" kind="property"><name>InternalAuctionEndDate</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1auction__edited" kind="class"><name>DAO_DbService::Migrations::auction_edited</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auction__edited_1ad7395f0dc363bf504867ee31ab7b3a2a" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auction__edited_1a71bb5e1aefb9bd9ce718d51f3191ad0a" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auction__edited_1a44611d14af6d1f31c6ab19add4d4ab8c" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid" kind="class"><name>DAO_DbService::Models::AuctionBid</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1abff76a8082cd85f488ea032bdbe92569" kind="property"><name>AuctionBidID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1af05ce7259b88264f252a003b632f0c52" kind="property"><name>AuctionID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a885304b33b65b2a18efbe76944f8050f" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a0ee147329e0596ee01afaad76b02b4dd" kind="property"><name>Price</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a0514470b233fa1d1686d4e2becd08a61" kind="property"><name>Time</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1ae0dcf503928fc72fe35b5680ca2d0e25" kind="property"><name>ReputationStake</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a4800bd7af761d09c0926b496a4cb747e" kind="property"><name>CreateDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a27fecf4a46be08ca5bfb50ac0ca2cd73" kind="property"><name>AssociateUserNote</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller" kind="class"><name>DAO_DbService::Controllers::AuctionBidController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1a4422ec30051e37b5de9b7a5438886ecd" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1a8599d77d8eb064eeea9b795e4edcbaf6" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1a6c59ac1dcdb856539b5c3dcf1f067f35" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1ac8d00db23bcc4d4b6c21b5966771c8d4" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1ae165d49b822a28958a6538874bae2296" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1aa7795a344bbf7670f63c1c7263e0acb9" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1a46147c8f5170490543ae31e03c8f8b02" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1a2d084407d8eb125f7dc16001fcbdcce7" kind="function"><name>GetByAuctionId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_bid_controller_1a9443cfa6cd71789163cfbc9c95f760f6" kind="function"><name>DeleteByAuctionID</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller" kind="class"><name>DAO_DbService::Controllers::AuctionController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1ab921472c8efe42fb9b4ec0b587558c73" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a6ed34fda0c202a7f478c830b893a350c" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a76569d17e226a18e52099a79ed92fbb7" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a5db4c28b23efc8847dd533f96d4b7388" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a5d1b70984de7129a58fd9e41147bd920" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a3132b1219c11475b6ec7cc74728d3c9c" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a838cacf525214214b134265f773e979c" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1aec519d8b73494618a1a6c5a3916fb221" kind="function"><name>GetAuctionsByStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a7bbdc35fcba60ff6c2a0683559851daf" kind="function"><name>GetAuctionsByStatusPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a2f96e7b808edfc575cfff0fe6bd38b15" kind="function"><name>GetByJobId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_auction_controller_1a088c6bc14e6951b03edbff0e51867bab" kind="function"><name>SetWinnerBid</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered" kind="class"><name>DAO_DbService::Migrations::auctions_transffered</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a8cf3c0ed2be8a9006877ff4f2aea150c" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a868145ecfc3320b100b82fa8cf2e54c3" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a6aa868bff5aa6359a280960b8ffc90da" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transfrred" kind="class"><name>DAO_DbService::Migrations::auctions_transfrred</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transfrred_1a7b8419a0461d97ae3e01a1dc481ffe28" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transfrred_1af45a724fbeff9adad613c0235ce26241" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transfrred_1a0e886ee1ce3a51b3133909b756a257be" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base" kind="class"><name>DAO_DbService::Mapping::AutoMapperBase</name>
+    <member refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1a5c3a8f75b93451789da5e7d6dfde13fe" kind="variable"><name>_mapper</name></member>
+    <member refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1ac7f27f2a9f215d26b5cc3b52709d8ba9" kind="function"><name>AutoMapperBase</name></member>
+    <member refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base_1ac650579afa1b0ec8525de9c6dab1b5c2" kind="function"><name>ToMappedPagedList&lt; TSource, TDestination &gt;</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added" kind="class"><name>DAO_DbService::Migrations::comment_pinned_added</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a3628643a095fd4237cdfb7a0a83747eb" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a2741ce170480e5fe50f99607ff3eac14" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a8fe4e80ab9bdfe08b5e7f74f2ba85337" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid" kind="class"><name>DAO_DbService::Migrations::create_date_added_auctionbid</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a1bfa8bc3da75bb594ec5b3375c18353e" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a60dad36708763672a47b75889a55283b" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a91c60134effb6b3fcb48e973188a5c61" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user" kind="class"><name>DAO_DbService::Migrations::DAO_DbService_addedActiveSessionTable_addUserNametoUser</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a12ddf9a5f8fed88b7d3382ddbc339db6" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a6f58d3f65e6afd9edc4318aad648754d" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a04c41568d1f719db47f759bfe1a74c60" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status" kind="class"><name>DAO_DbService::Migrations::DAO_DbService_addedAuctionTable_Status</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1a312d32cd85bd76505d71aca03322e7aa" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1ab10dad1f2bb614e054092536699756ff" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_auction_table___status_1a5c027568a4f582704fe61ad6dc3872ab" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__add_table_user_comment_votes" kind="class"><name>DAO_DbService::Migrations::DAO_DbService_addTableUserCommentVotes</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__add_table_user_comment_votes_1a42a1175e18d655b281d6d77a063995ca" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__add_table_user_comment_votes_1a83498d84061da11a93b6f5c459e969af" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__add_table_user_comment_votes_1a02a2839291c2bba471dd1ca937a5544b" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_auction_table___status" kind="class"><name>DAO_DbService::Migrations::DAO_DbService_deleteAuctionTable_Status</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_auction_table___status_1a1298e37de80ce94ebefc79160d9081f0" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_auction_table___status_1a18b9be029cb4598b038a7e52fd2fa864" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_auction_table___status_1a016f479e1a7589076a1980edb4b5ff09" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias" kind="class"><name>DAO_DbService::Migrations::DAO_DbService_deleteUserAlias</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1a5ddca37f76450ea2fda997dd9a58a0e5" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1ae112643a9198dd442a737bdbe04d167c" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1a68107fcba4865008068e13c84104de8a" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment" kind="class"><name>DAO_DbService::Migrations::DAO_DbService_updateJobPost_updateJobPostComment</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1a0c4476426c387154dca8d9543f7ae88d" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1af688d089ad5615a033318c78a9682543" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1a2be81a0a384829ed0d2280bb0a0cf8c4" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context" kind="class"><name>DAO_DbService::Contexts::dao_maindb_context</name>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ae0b623e93327a3c9f9db8f51b8561182" kind="property"><name>Auctions</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a33c09496b2d007863b1938e58ac655a5" kind="property"><name>AuctionBids</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ac168401392f6a787af260326cf41aba6" kind="property"><name>Users</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a10e10256d9487ea67d88a5fbd08574f1" kind="property"><name>JobPostComments</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a6e4466ae747202e8e93f6a52afd6a2cd" kind="property"><name>JobPosts</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ad0e4ab1e81ead8092d0aeee3ca1aba3b" kind="property"><name>UserKYCs</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a4e4df9ba0fb64e2a8a5f14189217e04e" kind="property"><name>ActiveSessions</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a659737f3a6102202521cb4c8657da212" kind="property"><name>UserCommentVotes</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1ab609a87709c5e7a8c2e185cfd486de5b" kind="property"><name>PaymentHistories</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a3f1dd84cc24daa40fc56fe3ee4a13401" kind="property"><name>PlatformSettings</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1aea0f87265538f8d6894a46f5ea7d16f6" kind="function"><name>dao_maindb_context</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a88255a77919712c582706a9d15223510" kind="function"><name>dao_maindb_context</name></member>
+    <member refid="class_d_a_o___db_service_1_1_contexts_1_1dao__maindb__context_1a07c255c932ac8aff79caa7f24e05501a" kind="function"><name>OnConfiguring</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot" kind="class"><name>DAO_DbService::Migrations::dao_maindb_contextModelSnapshot</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot_1a4ce31ef862629f2ca659df303468271c" kind="function"><name>BuildModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment" kind="class"><name>DAO_DbService::Migrations::dbservice_models_adjustment</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1a7541e869d29883dcd721ffc662199a63" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1ad1687f12cb50200debf4b83ed80c6a78" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dbservice__models__adjustment_1a7e068eb19acff74aec7500c867490b02" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1delete__twocolums__usertable" kind="class"><name>DAO_DbService::Migrations::delete_twocolums_usertable</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1delete__twocolums__usertable_1a6399a843b5a13af577c862759ef68741" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1delete__twocolums__usertable_1a3a1bbcdf944f75eb4731b8a969df1061" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1delete__twocolums__usertable_1a0db645c55c87c075c6d47e13f2114000" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table" kind="class"><name>DAO_DbService::Migrations::document_id_added_to_KYCStatus_table</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1a546a2b5fbb65e2890e3211c74935be5c" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1abd63e862636af020cc5374f43a5338b0" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1document__id__added__to___k_y_c_status__table_1aaf643bf0625287d17fcc1b5458269a25" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1dossfee__updated" kind="class"><name>DAO_DbService::Migrations::dossfee_updated</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dossfee__updated_1a8e525c51894a8054f564f0fdeeb8bd2b" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dossfee__updated_1a397a32cd901027c2d384a201b23ad88c" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1dossfee__updated_1ac93c6c1c31b412b3e2098bfd6cd87516" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1flag__added" kind="class"><name>DAO_DbService::Migrations::flag_added</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__added_1a89b72060fc33b39182761e056e9aec50" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__added_1ac8ec8128bb28469b9dc5e7ff79cb1a7f" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__added_1ab117fbfc45add01a3843c16c6d82fcd7" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs" kind="class"><name>DAO_DbService::Migrations::flag_removed_from_jobs</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1ae69b7de81bd61eb753ec064625e703e7" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1a56bc7fafb741f737dd5679088875ca8f" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1flag__removed__from__jobs_1a8033ba75191fd1dac8f52e57f2f4c134" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_info_controller" kind="class"><name>DAO_DbService::Controllers::InfoController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_info_controller_1aad6d3fad1e7651b9f99f096ec369ffbe" kind="function"><name>GetAppInfo</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_info_controller_1a9aeb52cad1b9e3f46b702ece45c94fac" kind="function"><name>ResetErrors</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_job_post" kind="class"><name>DAO_DbService::Models::JobPost</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a9113c77aae5f90f51428b60ba4808478" kind="property"><name>JobID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a50023712bfaf97a6adf050d27a674f21" kind="property"><name>CreateDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a1e6fb57dd372d08f709d0060965cb836" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a0789bcf2c01718768bf917d741fc9a04" kind="property"><name>JobDoerUserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1aa3f76c26a844b1477fdfd1d91c0fb2ac" kind="property"><name>Title</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1ac7be079f54a873cf7f1b426fcb3fc627" kind="property"><name>JobDescription</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a81c510ed5a6e300ac9c30156b7c1374a" kind="property"><name>Amount</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1aa85764a0559630dee13008d0941d838b" kind="property"><name>TimeFrame</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a849cb83c4524ed796c8b8bc4b2aae742" kind="property"><name>LastUpdate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a1e2f740233b08a41c1c88ccadfc64000" kind="property"><name>Status</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1ac425e9fc8cb325c368287f7908217d4e" kind="property"><name>DosFeePaid</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1af09adecd0101c595eac1844135c6409b" kind="property"><name>Tags</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_1a4ea95d2ba30fe7c167ffa5746f23448d" kind="property"><name>CodeUrl</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited" kind="class"><name>DAO_DbService::Migrations::jobpost_edited</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a03732839d1a09bc78cba11c304761145" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a3a299f73aff3b4270b0ace550419506a" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__edited_1a9100d432eb8ca55664ec533bd2830a76" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__jobdoerid__added" kind="class"><name>DAO_DbService::Migrations::jobpost_jobdoerid_added</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__jobdoerid__added_1a76926e9f22688bf82efa8d122380938e" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__jobdoerid__added_1ab325dc91d944d681cb7d9879af6276c9" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1jobpost__jobdoerid__added_1a822407f7023efe14344e4de522962e94" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment" kind="class"><name>DAO_DbService::Models::JobPostComment</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a675a22d8b31eac190ac4c6725b6b5b4c" kind="property"><name>JobPostCommentID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a740f5139e8dce8a57f7c69432969daee" kind="property"><name>JobID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1acfeb092071150648258bdc84f0d1004d" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1af1fbe12e3cec91b7baa3bb4a62322e2e" kind="property"><name>Date</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a4480f341d9fdd89ac90b724c63d1e04f" kind="property"><name>Comment</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a6ea6eac761a2246df1086a2f493a3826" kind="property"><name>SubCommentID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a5f274e2fa5b04a410bdd1b151c4f31df" kind="property"><name>UpVote</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1aafc315aeef76b4c6d02d90df24005a16" kind="property"><name>DownVote</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a84a0cf2f6e5e0f52b8da2f51c933acd8" kind="property"><name>IsPinned</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment_1a558845c77b4046ce0210279485c806ef" kind="property"><name>IsFlagged</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller" kind="class"><name>DAO_DbService::Controllers::JobPostCommentController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1a5b13004e9689d98ac9b4a182a1853c28" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1af77b4a261ce6e99c8a8771f460169f3e" kind="function"><name>JobPostCommentSearch</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1ac54f54fc1324ebba0043371489d9602e" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1ae8e4eb962d5f64225064f567e898da29" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1aff8d064e6d076a43b399e37b74926e74" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1a2c0c62add684c8b2368fc3bb9c64fabc" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1a629f0378aaa99032d51a2880da6b2b7c" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1a6ecc717d079e7cf00462ef3390233496" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_comment_controller_1a0ebf2235266ecb5f96690d4de9fddf51" kind="function"><name>Search</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller" kind="class"><name>DAO_DbService::Controllers::JobPostController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a64c76159628165b194f6c99ba1f27015" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a95163f37b8ac0a30d230ab92c606411a" kind="function"><name>JobPostSearch</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a331e5fe5b1e49569727841fd3bc12c44" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a1c1548a85bdd73e34d3c27fa04341cc9" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1ab440321cc00acbdc68c4591e9c579b6b" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a9788ce41eca9acfba5bdeb4d81ae31f9" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1af4cda8da6f94689dc52c6fd3c7271ddd" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a85472ece84f1e71717faaa7d3f564857" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a23b9aea51c35b8cd87a0eb26da747d8f" kind="function"><name>Search</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1ab1bf51c1770c982404240fffdb1e207a" kind="function"><name>ChangeJobStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_job_post_controller_1a979b5e7f83a058eeb664f7fa30295382" kind="function"><name>GetByUserId</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed" kind="class"><name>DAO_DbService::Migrations::kyc_table_changed</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1afdd3d0d5e1e50fbd2c6c0dcf9dd6960c" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1a983acb79abe42f4281be8ca6ada4e3c6" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1a925028e43f7d4c1a3a8bdd94670992c8" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile" kind="class"><name>DAO_DbService::Mapping::MappingProfile</name>
+    <member refid="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile_1a00ab607bf312839026bc8bd1a02cbe8e" kind="function"><name>MappingProfile</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1payment__explanation__added" kind="class"><name>DAO_DbService::Migrations::payment_explanation_added</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1payment__explanation__added_1ad69727ff8426678c5575587a3a3a6542" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1payment__explanation__added_1ae0d7a860c23919b72233fbf950f6f00a" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1payment__explanation__added_1a6ba808c6733d69f3af11de99ed1d14a3" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_payment_history" kind="class"><name>DAO_DbService::Models::PaymentHistory</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a0924676971aa7e481fb32599e21ccb14" kind="property"><name>PaymentHistoryID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a9c476c07a4b8cc13e57b3799ed40259d" kind="property"><name>JobID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a9ca4447eed675bf63ad6bc42d1364647" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1aa226f78ea9d055045238576f497f62f2" kind="property"><name>Amount</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a423b3bdbe25f2275d1ddebb8f1e297c7" kind="property"><name>WalletAddress</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a98eb5c3edfd6aa2dced136901d5630d1" kind="property"><name>IBAN</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a614628f56e7a7ce28c0c81c6f83667de" kind="property"><name>CreateDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1ade7d09e330e3fd06fa864136da1baa35" kind="property"><name>Explanation</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller" kind="class"><name>DAO_DbService::Controllers::PaymentHistoryController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1af2048c82ffc6743e395a8c16d6e440bf" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ababc7d080484297e39c89067bcc896d2" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ab7f7b530a7c8b708b3adcbfa6bd02794" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a99a67b0174277ed67751c908d26a0840" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1aa4afaa192647319156eea128c61ae5ec" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a3b4012986e8927ac9223a351da4b68cd" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1ae5200cb495a70135b0ad4feed8030a17" kind="function"><name>GetPaymentHistoryByUserId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1a4fe2d00d7344472d618b1e3472f7c071" kind="function"><name>ExportPaymentHistory</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_payment_history_controller_1af30380912372c52476a5236004d4e594" kind="function"><name>RecreatePaymentHistory</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting" kind="class"><name>DAO_DbService::Models::PlatformSetting</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a3338535aa9d6203507082dc75a7dcfda" kind="property"><name>PlatformSettingID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1abea4e1acbaf01a6933580a30b97fa1e2" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1aa14579ea518262553a82b337e24d283a" kind="property"><name>CreateDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a0e28f4682b7859476c2ce4709f37f313" kind="property"><name>DosCurrencies</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a2d33fba09b2fba94cc01e82e160fed34" kind="property"><name>DosFees</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1ab7f99d32f9c97bba94754bbd5fc5d1f4" kind="property"><name>DefaultPolicingRate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a8e2a21c2420a1e7c83d31a0bad17fa19" kind="property"><name>MinPolicingRate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a7c405e8b1cf8ed4283ce90aa98a6512b" kind="property"><name>MaxPolicingRate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a02cb0816f54bc793b0412a9abbc220bf" kind="property"><name>ForumKYCRequired</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a547e45c2180134205c30664a691e7351" kind="property"><name>QuorumRatio</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a228c42a22a41b2d2701eb1b2eb175792" kind="property"><name>InternalAuctionTime</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a6fdbf59a25eec0fb3aaf9968012d864d" kind="property"><name>PublicAuctionTime</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a24edd87f9ec9f0fef09581a78398d5f7" kind="property"><name>AuctionTimeType</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1ae0e911609b531b296cee78c36566bdc7" kind="property"><name>VotingTime</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1aee9c41f97795e8795afc66c57ab652ba" kind="property"><name>VotingTimeType</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting_1a6fd08bbbc5b449e250751e990830e208" kind="property"><name>ReputationConversionRate</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added" kind="class"><name>DAO_DbService::Migrations::platformsetting_table_added</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1a385fe64c0f0387ff69581c47909260ea" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1aeea8e2c5c6d7fa5ff2a0d0aeafaf9af4" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1afe8bfd5e6fe7817405cfd107641b3489" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller" kind="class"><name>DAO_DbService::Controllers::PlatformSettingController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a2b1016a79b21082f79671a9fa4bb7f50" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a960dd9a79c7632c1661404e6c703c91c" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a3dc79ef2360c671a57c2d1b754bb1ca6" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1af7e380d511e62eff6abc3fd831e512fe" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a801a84378b05fa905e2c528ead6e76b9" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1af9e5b9e4f6fa53c0a81028cb25fc8c52" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1aacfea1d31e0a967b8eceebad527bb878" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a3096a2e6ae40d349160de798228e6021" kind="function"><name>GetLatestSetting</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_program" kind="class"><name>DAO_DbService::Program</name>
+    <member refid="class_d_a_o___db_service_1_1_program_1a7807a5f143296bffa7e1fc241065eefa" kind="variable"><name>monitizer</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1a666234fe567fe1ebdd89385d970929d3" kind="variable"><name>rabbitMq</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1ac75a9659afcd0ad6f6260b10a1be1806" kind="variable"><name>mysql</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1a71051f2e37a26eee192c7c8c5f847d92" kind="variable"><name>dbOptions</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1a51ac370aeb796088891ecce97c644aaf" kind="property"><name>_settings</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1ab722a299371b80344e37b569708095ae" kind="function"><name>Main</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1ad314af733fcb2e3745db38cfaa14da0f" kind="function"><name>CreateHostBuilder</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_program_1_1_settings" kind="class"><name>DAO_DbService::Program::Settings</name>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1ab3ff4c99e8d3f7cf82f76c4822e3ac30" kind="property"><name>DbConnectionString</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a01d84ae89cfc6168603f32773c5f4c76" kind="property"><name>LocalDbConnectionString</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a1640635b55655314354520efb290dd36" kind="property"><name>RabbitMQUrl</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a9b7d44ead26529ab30f15fcfa51904ad" kind="property"><name>RabbitMQUsername</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a8f65ed58fcd0857e3052d737293f615f" kind="property"><name>RabbitMQPassword</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1afadf0df33ee729aa92dfc8d4e004df4a" kind="property"><name>Voting_Engine_Url</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a15608f6ea9ba301b90756f93bbca4a1a" kind="property"><name>Service_Reputation_Url</name></member>
+    <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a6ff71474ebc1dd0f69ff5e17a379db43" kind="property"><name>Service_Log_Url</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_startup" kind="class"><name>DAO_DbService::Startup</name>
+    <member refid="class_d_a_o___db_service_1_1_startup_1a085b340623f41ddab2bc0c911ecff043" kind="property"><name>Configuration</name></member>
+    <member refid="class_d_a_o___db_service_1_1_startup_1a82b419dcf3f058e72d827891cad55756" kind="function"><name>Startup</name></member>
+    <member refid="class_d_a_o___db_service_1_1_startup_1a46018741f098f5124a6647ff863b4df4" kind="function"><name>ConfigureServices</name></member>
+    <member refid="class_d_a_o___db_service_1_1_startup_1a82d7c3a706a387438e322d420d086fc3" kind="function"><name>Configure</name></member>
+    <member refid="class_d_a_o___db_service_1_1_startup_1aa792d132b98d91c408efe5d92bc83cc9" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_d_a_o___db_service_1_1_startup_1a95fe6c6ef4d91f496921346d29061789" kind="function"><name>InitializeService</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_timed_events" kind="class"><name>DAO_DbService::TimedEvents</name>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a0ad92a578658ce4682c58988046d897a" kind="variable"><name>auctionStatusTimer</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a42fbee1af056b7d37880716615944e09" kind="variable"><name>jobStatusTimer</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a5b7087eba070438f41f26606a3c9e901" kind="function"><name>StartTimers</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a9b1564eb556668ad057b0e780846e040" kind="function"><name>SendNotificationEmail</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a564db3485d16c1ca8bc0c47057e67803" kind="function"><name>CheckAuctionStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a60394a547852ed3e651e82028fb9b1a4" kind="function"><name>CheckJobStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a208ad0dd1070f6fa1c39a59eaa600b77" kind="function"><name>CheckCompletedInformalVotings</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1a834c0e5ab196298c6db1c572d88f6e13" kind="function"><name>CheckCompletedFormalVotings</name></member>
+    <member refid="class_d_a_o___db_service_1_1_timed_events_1aedbd5d875c34534fac12fe3107eb219c" kind="function"><name>CheckJobFail</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_update___auction__and___auction_bids__table" kind="class"><name>DAO_DbService::Migrations::Update_Auction_and_AuctionBids_table</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_update___auction__and___auction_bids__table_1a8dfcfe6be236e0fad97d0e88676fa82f" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_update___auction__and___auction_bids__table_1a83c7fc03cc0a980ccba4a91e79a776fb" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_update___auction__and___auction_bids__table_1aaba9db4141538cc519783bb74fb7efef" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_user" kind="class"><name>DAO_DbService::Models::User</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1acf2f13a3a4e7285bcef69a0549b96ad3" kind="property"><name>UserId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1acfa5b4379d948639f4f9122ff95209bc" kind="property"><name>NameSurname</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1ae41a88377fcd4185ec190e19ab11ef5d" kind="property"><name>Email</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1aea00b4a38fef1792b22c49f5a8bbfff8" kind="property"><name>Password</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1a7e49fa55756b0ef1fa7aed40d603ea12" kind="property"><name>Newsletter</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1a82f3bfa8a0d2922c16f67f3d77ca9e60" kind="property"><name>UserType</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1a122820d71cf29e05e829154487f480fb" kind="property"><name>IsBlocked</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1ad9e342d79301b24ccb3143d1b9341ec1" kind="property"><name>IsActive</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1abe53a27aaa116473cd2886863bfd2451" kind="property"><name>CreateDate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1af6b2e78a8aaeca9b248c6f7ed2080821" kind="property"><name>KYCStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1ad35fc15ee3b9ce1ab73df00125ced989" kind="property"><name>FailedLoginCount</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1a78a2cbc6b16db4914d16324a212fe186" kind="property"><name>ProfileImage</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1a381ae5d309605960b1c03d2cdf2d0272" kind="property"><name>UserName</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1acb76688328ce832b3767cf80870d0cb3" kind="property"><name>WalletAddress</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_1ad4a21138830926fec99e44ddbe8a9c10" kind="property"><name>IBAN</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote" kind="class"><name>DAO_DbService::Models::UserCommentVote</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1adec79faa1276b5c70d521c61dda47175" kind="property"><name>UserCommentVoteID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a6a1d4766c5b72ede0ead80c4d8461ec5" kind="property"><name>UserId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a736105714dbc58011764c5cfcd44e819" kind="property"><name>JobPostCommentID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a45027e87aa866486fbe6f09bc1be43be" kind="property"><name>IsUpVote</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller" kind="class"><name>DAO_DbService::Controllers::UserCommentVoteController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a1ef4076987712081f88204f3d6731b69" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a361803c583219e7f0ae2989a4c3872fe" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a31585211f00f7df6ba0956cef310c838" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a18beb0ebaf236ca9d7e4c82400a7f6e3" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a4565d565362a14e14b5c6ebf2e514894" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1abb62f76391424be6d71978cd3b97a343" kind="function"><name>DeleteMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a96652f953bbb507a7448f221b7be70e8" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1abd249c6de7bfd9bb0f90a378a1a2d90c" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1afafea5969397837cace9fc01e5fb9138" kind="function"><name>GetByUserId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_comment_vote_controller_1a9a86a3e06aa3df7229584d56ccf474c7" kind="function"><name>GetByCommentId</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c" kind="class"><name>DAO_DbService::Models::UserKYC</name>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1ac76da63bdaccc9beaff593d835a767ad" kind="property"><name>UserKYCID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a88f07eb47364953a8831afaf762ca6d3" kind="property"><name>UserID</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a652840532ebfcce3fed87631f29e831f" kind="property"><name>UserType</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a89020b754ef7b95b5f9c06c60d02a0db" kind="property"><name>FileId1</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a11ea46aca2d8308480943a3f0829f4e1" kind="property"><name>FileId2</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1ac17b81ffdc0ab322162a22256d19fab9" kind="property"><name>ApplicantId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a55959a981f0958d68b80194318e40bfe" kind="property"><name>VerificationId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a8aeb600141fdda99715ec3f152edaf09" kind="property"><name>DocumentId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a6438ea0065fa943bea52f271e1386402" kind="property"><name>KYCStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a6594f48c810652f52cd243e8a6e5dcda" kind="property"><name>Comment</name></member>
+    <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a4702b04fa28d3f160cac5d0663e6bb9b" kind="property"><name>Verified</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller" kind="class"><name>DAO_DbService::Controllers::UserKYCController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a61f5442568cc12786ecd9db80ec60314" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1aa54610587b20842473ff44cf437cc518" kind="function"><name>UserKYCSearch</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a8742d49185391aebb24456390e8b64a6" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a28003fee72acc2024535a39aeb93403d" kind="function"><name>GetUserId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a503086f8b02210b35e7167ab2360666b" kind="function"><name>GetApplicantId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1ae5bab1ec9b6a0337361df1d460650165" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a6203addb5c6ef7f6ca7e05f8e15b617e" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a89e292f075dfb00cebe788733a150d41" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1ab4ba46ceb17b64dcb5e59b9a242bb1bf" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1a61129d86b042fc4546d33e0ae05e3d9a" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_user_k_y_c_controller_1aba107812dc4d62cd885c79a212611d29" kind="function"><name>Search</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller" kind="class"><name>DAO_DbService::Controllers::UsersController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a9dd131a42b0d16d1dba58d636be91d61" kind="function"><name>Get</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a7fd91ef7ba59a0d370a58ae0fdb3e95b" kind="function"><name>UserSearch</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a3aee6e1c2e5c23759110460b3742ed88" kind="function"><name>GetId</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a299d8d81e0c2c4a3e081b3ba51a06123" kind="function"><name>Post</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1ac5dbaf70f55f1b6c733c22365794a635" kind="function"><name>PostMultiple</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1acec0b2114e3a33ea6e4d8ff37e4eb5cf" kind="function"><name>Delete</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a9b29ba6ea1861080bc6696725457c56d" kind="function"><name>Update</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a01906ce6bc2281e255db9ddc6115bb96" kind="function"><name>GetPaged</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1aff494cbf17d872ecc448660ebde29dcf" kind="function"><name>Search</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1adbcf0618a81196dadec6922cc17812bc" kind="function"><name>GetByEmail</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a74e241c32a689f322deb86b2436f66e5" kind="function"><name>GetByUsername</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a7bc73dd6694b8e0f77f7d2c68a1bf4ec" kind="function"><name>GetAdminUsers</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a939e1852904d47fa76f292b69d711b3e" kind="function"><name>GetCount</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1abe50d50622bb52f0f4f693844cb9b083" kind="function"><name>GetUsernamesByUserIds</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1ab7d06b89d7ceb065236d2808ed8c78bf" kind="function"><name>GetUsersByType</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_users_controller_1a24e762bd97cb04c56a5b6bb8641971f6" kind="function"><name>GetUserIdsByType</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated" kind="class"><name>DAO_DbService::Migrations::UserTableUpdated</name>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1a0e05c0ada06899459776d50818fd4749" kind="function"><name>Up</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1ac84b92fd444c14a33c43e1a583b5dffa" kind="function"><name>Down</name></member>
+    <member refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1af3d470723b1a208f2446a930beb11251" kind="function"><name>BuildTargetModel</name></member>
+  </compound>
+  <compound refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller" kind="class"><name>DAO_DbService::Controllers::WebsiteController</name>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1ac5fa1b9f74e3d0fe0a4d21145ae2c201" kind="function"><name>GetAllJobs</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a949a73d80fa8b691cb0436aab6cd351d" kind="function"><name>GetJobComment</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1adb76ffd64f1abf3666ffe75749653881" kind="function"><name>GetJobDetail</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a50cbd996d3de34682630419a54279cce" kind="function"><name>GetUserJobs</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a9bd94449bcc9e3717b5a4a95709dd5d1" kind="function"><name>GetJobsByProgressTypes</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a22caadbd3b54afb455c3deb5580c83c0" kind="function"><name>RemoveFlag</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1ad88c68e0671803a2ac76be6be90e3d86" kind="function"><name>GetAuctions</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a6f47678a75fb1467686ecf15b2ced971" kind="function"><name>GetMyBids</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aae9fa78331f5a8ae7cb9a20b4ff63eed" kind="function"><name>GetAuctionBids</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a082a079e65b5ef2534020bf3fce699c0" kind="function"><name>GetUserBids</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aab814086951a8a512653432be5f48c9c" kind="function"><name>GetDashBoardAdmin</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a65f6d4f292ffe23f04365ff8743bf172" kind="function"><name>GetDashBoardVA</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1aafc77d94b5213e3d5a2cb91811edb7aa" kind="function"><name>GetDashBoardAssociate</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a7c7b6aedcdd89b2b1f87793ad1889452" kind="function"><name>GetVotingsByStatus</name></member>
+    <member refid="class_d_a_o___db_service_1_1_controllers_1_1_website_controller_1a5c55904b6733073c4a719f63e55aa7b7" kind="function"><name>PaymentHistoryByUserId</name></member>
+  </compound>
+  <compound refid="namespace_auto_mapper" kind="namespace"><name>AutoMapper</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service" kind="namespace"><name>DAO_DbService</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_contexts" kind="namespace"><name>DAO_DbService::Contexts</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_controllers" kind="namespace"><name>DAO_DbService::Controllers</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_mapping" kind="namespace"><name>DAO_DbService::Mapping</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base" kind="namespace"><name>DAO_DbService::Mapping::AutoMapperBase</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_migrations" kind="namespace"><name>DAO_DbService::Migrations</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_models" kind="namespace"><name>DAO_DbService::Models</name>
+  </compound>
+  <compound refid="namespace_d_a_o___db_service_1_1_program" kind="namespace"><name>DAO_DbService::Program</name>
+  </compound>
+  <compound refid="namespace_helpers" kind="namespace"><name>Helpers</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants" kind="namespace"><name>Helpers::Constants</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants_1_1_enums" kind="namespace"><name>Helpers::Constants::Enums</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_log_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::LogDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_main_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::MainDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_reputation_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::ReputationDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_dto_models_1_1_vote_db_dto" kind="namespace"><name>Helpers::Models::DtoModels::VoteDbDto</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_k_y_c_models" kind="namespace"><name>Helpers::Models::KYCModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_notification_models" kind="namespace"><name>Helpers::Models::NotificationModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_shared_models" kind="namespace"><name>Helpers::Models::SharedModels</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_website_view_models" kind="namespace"><name>Helpers::Models::WebsiteViewModels</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_builder" kind="namespace"><name>Microsoft::AspNetCore::Builder</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_hosting" kind="namespace"><name>Microsoft::AspNetCore::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_https_policy" kind="namespace"><name>Microsoft::AspNetCore::HttpsPolicy</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_localization" kind="namespace"><name>Microsoft::AspNetCore::Localization</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_mvc" kind="namespace"><name>Microsoft::AspNetCore::Mvc</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core" kind="namespace"><name>Microsoft::EntityFrameworkCore</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core_1_1_infrastructure" kind="namespace"><name>Microsoft::EntityFrameworkCore::Infrastructure</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core_1_1_migrations" kind="namespace"><name>Microsoft::EntityFrameworkCore::Migrations</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_entity_framework_core_1_1_storage_1_1_value_conversion" kind="namespace"><name>Microsoft::EntityFrameworkCore::Storage::ValueConversion</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_configuration" kind="namespace"><name>Microsoft::Extensions::Configuration</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_dependency_injection" kind="namespace"><name>Microsoft::Extensions::DependencyInjection</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_hosting" kind="namespace"><name>Microsoft::Extensions::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_logging" kind="namespace"><name>Microsoft::Extensions::Logging</name>
+  </compound>
+  <compound refid="namespace_my_sql_1_1_entity_framework_core_1_1_extensions" kind="namespace"><name>MySql::EntityFrameworkCore::Extensions</name>
+  </compound>
+  <compound refid="namespace_my_sql_1_1_entity_framework_core_1_1_metadata" kind="namespace"><name>MySql::EntityFrameworkCore::Metadata</name>
+  </compound>
+  <compound refid="namespace_paged_list_1_1_core" kind="namespace"><name>PagedList::Core</name>
+  </compound>
+  <compound refid="namespacestatic" kind="namespace"><name>static</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_component_model_1_1_data_annotations" kind="namespace"><name>System::ComponentModel::DataAnnotations</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading" kind="namespace"><name>System::Threading</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_system_1_1_timers" kind="namespace"><name>System::Timers</name>
+  </compound>
+  <compound refid="dao__maindb__context_8cs" kind="file"><name>dao_maindb_context.cs</name>
+  </compound>
+  <compound refid="_active_session_controller_8cs" kind="file"><name>ActiveSessionController.cs</name>
+  </compound>
+  <compound refid="_auction_bid_controller_8cs" kind="file"><name>AuctionBidController.cs</name>
+  </compound>
+  <compound refid="_auction_controller_8cs" kind="file"><name>AuctionController.cs</name>
+  </compound>
+  <compound refid="_info_controller_8cs" kind="file"><name>InfoController.cs</name>
+  </compound>
+  <compound refid="_job_post_comment_controller_8cs" kind="file"><name>JobPostCommentController.cs</name>
+  </compound>
+  <compound refid="_job_post_controller_8cs" kind="file"><name>JobPostController.cs</name>
+  </compound>
+  <compound refid="_payment_history_controller_8cs" kind="file"><name>PaymentHistoryController.cs</name>
+  </compound>
+  <compound refid="_platform_setting_controller_8cs" kind="file"><name>PlatformSettingController.cs</name>
+  </compound>
+  <compound refid="_user_comment_vote_controller_8cs" kind="file"><name>UserCommentVoteController.cs</name>
+  </compound>
+  <compound refid="_user_k_y_c_controller_8cs" kind="file"><name>UserKYCController.cs</name>
+  </compound>
+  <compound refid="_users_controller_8cs" kind="file"><name>UsersController.cs</name>
+  </compound>
+  <compound refid="_website_controller_8cs" kind="file"><name>WebsiteController.cs</name>
+  </compound>
+  <compound refid="_auto_mapper_base_8cs" kind="file"><name>AutoMapperBase.cs</name>
+  </compound>
+  <compound refid="_mapping_profile_8cs" kind="file"><name>MappingProfile.cs</name>
+  </compound>
+  <compound refid="20211008094944___user_table_updated_8cs" kind="file"><name>20211008094944_UserTableUpdated.cs</name>
+  </compound>
+  <compound refid="20211008094944___user_table_updated_8_designer_8cs" kind="file"><name>20211008094944_UserTableUpdated.Designer.cs</name>
+  </compound>
+  <compound refid="20211011134317__dbservice__models__adjustment_8cs" kind="file"><name>20211011134317_dbservice_models_adjustment.cs</name>
+  </compound>
+  <compound refid="20211011134317__dbservice__models__adjustment_8_designer_8cs" kind="file"><name>20211011134317_dbservice_models_adjustment.Designer.cs</name>
+  </compound>
+  <compound refid="20211013132010___d_a_o___db_service__added_active_session_table__add_user_nameto_user_8cs" kind="file"><name>20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs</name>
+  </compound>
+  <compound refid="20211013132010___d_a_o___db_service__added_active_session_table__add_user_nameto_user_8_designer_8cs" kind="file"><name>20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.Designer.cs</name>
+  </compound>
+  <compound refid="20211013134329___d_a_o___db_service__delete_user_alias_8cs" kind="file"><name>20211013134329_DAO_DbService_deleteUserAlias.cs</name>
+  </compound>
+  <compound refid="20211013134329___d_a_o___db_service__delete_user_alias_8_designer_8cs" kind="file"><name>20211013134329_DAO_DbService_deleteUserAlias.Designer.cs</name>
+  </compound>
+  <compound refid="20211014090837___d_a_o___db_service__update_job_post__update_job_post_comment_8cs" kind="file"><name>20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs</name>
+  </compound>
+  <compound refid="20211014090837___d_a_o___db_service__update_job_post__update_job_post_comment_8_designer_8cs" kind="file"><name>20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.Designer.cs</name>
+  </compound>
+  <compound refid="20211014110050___d_a_o___db_service__add_table_user_comment_votes_8cs" kind="file"><name>20211014110050_DAO_DbService_addTableUserCommentVotes.cs</name>
+  </compound>
+  <compound refid="20211014110050___d_a_o___db_service__add_table_user_comment_votes_8_designer_8cs" kind="file"><name>20211014110050_DAO_DbService_addTableUserCommentVotes.Designer.cs</name>
+  </compound>
+  <compound refid="20211015121039___d_a_o___db_service__delete_auction_table___status_8cs" kind="file"><name>20211015121039_DAO_DbService_deleteAuctionTable_Status.cs</name>
+  </compound>
+  <compound refid="20211015121039___d_a_o___db_service__delete_auction_table___status_8_designer_8cs" kind="file"><name>20211015121039_DAO_DbService_deleteAuctionTable_Status.Designer.cs</name>
+  </compound>
+  <compound refid="20211015121343___d_a_o___db_service__added_auction_table___status_8cs" kind="file"><name>20211015121343_DAO_DbService_addedAuctionTable_Status.cs</name>
+  </compound>
+  <compound refid="20211015121343___d_a_o___db_service__added_auction_table___status_8_designer_8cs" kind="file"><name>20211015121343_DAO_DbService_addedAuctionTable_Status.Designer.cs</name>
+  </compound>
+  <compound refid="20211026122212__added___third_party_key__and___third_party_type___user_table_8cs" kind="file"><name>20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs</name>
+  </compound>
+  <compound refid="20211026122212__added___third_party_key__and___third_party_type___user_table_8_designer_8cs" kind="file"><name>20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.Designer.cs</name>
+  </compound>
+  <compound refid="20211027091038__delete__twocolums__usertable_8cs" kind="file"><name>20211027091038_delete_twocolums_usertable.cs</name>
+  </compound>
+  <compound refid="20211027091038__delete__twocolums__usertable_8_designer_8cs" kind="file"><name>20211027091038_delete_twocolums_usertable.Designer.cs</name>
+  </compound>
+  <compound refid="20211103080250___update___auction__and___auction_bids__table_8cs" kind="file"><name>20211103080250_Update_Auction_and_AuctionBids_table.cs</name>
+  </compound>
+  <compound refid="20211103080250___update___auction__and___auction_bids__table_8_designer_8cs" kind="file"><name>20211103080250_Update_Auction_and_AuctionBids_table.Designer.cs</name>
+  </compound>
+  <compound refid="20211111100143__auctions__transffered_8cs" kind="file"><name>20211111100143_auctions_transffered.cs</name>
+  </compound>
+  <compound refid="20211111100143__auctions__transffered_8_designer_8cs" kind="file"><name>20211111100143_auctions_transffered.Designer.cs</name>
+  </compound>
+  <compound refid="20211112073158__comment__pinned__added_8cs" kind="file"><name>20211112073158_comment_pinned_added.cs</name>
+  </compound>
+  <compound refid="20211112073158__comment__pinned__added_8_designer_8cs" kind="file"><name>20211112073158_comment_pinned_added.Designer.cs</name>
+  </compound>
+  <compound refid="20211112100901__auctions__transfrred_8cs" kind="file"><name>20211112100901_auctions_transfrred.cs</name>
+  </compound>
+  <compound refid="20211112100901__auctions__transfrred_8_designer_8cs" kind="file"><name>20211112100901_auctions_transfrred.Designer.cs</name>
+  </compound>
+  <compound refid="20211112102802__auction__edited_8cs" kind="file"><name>20211112102802_auction_edited.cs</name>
+  </compound>
+  <compound refid="20211112102802__auction__edited_8_designer_8cs" kind="file"><name>20211112102802_auction_edited.Designer.cs</name>
+  </compound>
+  <compound refid="20211112132056__jobpost__jobdoerid__added_8cs" kind="file"><name>20211112132056_jobpost_jobdoerid_added.cs</name>
+  </compound>
+  <compound refid="20211112132056__jobpost__jobdoerid__added_8_designer_8cs" kind="file"><name>20211112132056_jobpost_jobdoerid_added.Designer.cs</name>
+  </compound>
+  <compound refid="20211112133359__dossfee__updated_8cs" kind="file"><name>20211112133359_dossfee_updated.cs</name>
+  </compound>
+  <compound refid="20211112133359__dossfee__updated_8_designer_8cs" kind="file"><name>20211112133359_dossfee_updated.Designer.cs</name>
+  </compound>
+  <compound refid="20211113151808__create__date__added__auctionbid_8cs" kind="file"><name>20211113151808_create_date_added_auctionbid.cs</name>
+  </compound>
+  <compound refid="20211113151808__create__date__added__auctionbid_8_designer_8cs" kind="file"><name>20211113151808_create_date_added_auctionbid.Designer.cs</name>
+  </compound>
+  <compound refid="20211116070533___add___payment_history__add___wallet_add___iban_8cs" kind="file"><name>20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs</name>
+  </compound>
+  <compound refid="20211116070533___add___payment_history__add___wallet_add___iban_8_designer_8cs" kind="file"><name>20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.Designer.cs</name>
+  </compound>
+  <compound refid="20211203184922__platformsetting__table__added_8cs" kind="file"><name>20211203184922_platformsetting_table_added.cs</name>
+  </compound>
+  <compound refid="20211203184922__platformsetting__table__added_8_designer_8cs" kind="file"><name>20211203184922_platformsetting_table_added.Designer.cs</name>
+  </compound>
+  <compound refid="20211206120503__kyc__table__changed_8cs" kind="file"><name>20211206120503_kyc_table_changed.cs</name>
+  </compound>
+  <compound refid="20211206120503__kyc__table__changed_8_designer_8cs" kind="file"><name>20211206120503_kyc_table_changed.Designer.cs</name>
+  </compound>
+  <compound refid="20211209071850__document__id__added__to___k_y_c_status__table_8cs" kind="file"><name>20211209071850_document_id_added_to_KYCStatus_table.cs</name>
+  </compound>
+  <compound refid="20211209071850__document__id__added__to___k_y_c_status__table_8_designer_8cs" kind="file"><name>20211209071850_document_id_added_to_KYCStatus_table.Designer.cs</name>
+  </compound>
+  <compound refid="20211219073632__jobpost__edited_8cs" kind="file"><name>20211219073632_jobpost_edited.cs</name>
+  </compound>
+  <compound refid="20211219073632__jobpost__edited_8_designer_8cs" kind="file"><name>20211219073632_jobpost_edited.Designer.cs</name>
+  </compound>
+  <compound refid="20211219074346__flag__added_8cs" kind="file"><name>20211219074346_flag_added.cs</name>
+  </compound>
+  <compound refid="20211219074346__flag__added_8_designer_8cs" kind="file"><name>20211219074346_flag_added.Designer.cs</name>
+  </compound>
+  <compound refid="20211220200841__flag__removed__from__jobs_8cs" kind="file"><name>20211220200841_flag_removed_from_jobs.cs</name>
+  </compound>
+  <compound refid="20211220200841__flag__removed__from__jobs_8_designer_8cs" kind="file"><name>20211220200841_flag_removed_from_jobs.Designer.cs</name>
+  </compound>
+  <compound refid="20211223164207__payment__explanation__added_8cs" kind="file"><name>20211223164207_payment_explanation_added.cs</name>
+  </compound>
+  <compound refid="20211223164207__payment__explanation__added_8_designer_8cs" kind="file"><name>20211223164207_payment_explanation_added.Designer.cs</name>
+  </compound>
+  <compound refid="dao__maindb__context_model_snapshot_8cs" kind="file"><name>dao_maindb_contextModelSnapshot.cs</name>
+  </compound>
+  <compound refid="_active_session_8cs" kind="file"><name>ActiveSession.cs</name>
+  </compound>
+  <compound refid="_auction_8cs" kind="file"><name>Auction.cs</name>
+  </compound>
+  <compound refid="_auction_bid_8cs" kind="file"><name>AuctionBid.cs</name>
+  </compound>
+  <compound refid="_job_post_8cs" kind="file"><name>JobPost.cs</name>
+  </compound>
+  <compound refid="_job_post_comment_8cs" kind="file"><name>JobPostComment.cs</name>
+  </compound>
+  <compound refid="_payment_history_8cs" kind="file"><name>PaymentHistory.cs</name>
+  </compound>
+  <compound refid="_platform_setting_8cs" kind="file"><name>PlatformSetting.cs</name>
+  </compound>
+  <compound refid="_user_8cs" kind="file"><name>User.cs</name>
+  </compound>
+  <compound refid="_user_comment_vote_8cs" kind="file"><name>UserCommentVote.cs</name>
+  </compound>
+  <compound refid="_user_k_y_c_8cs" kind="file"><name>UserKYC.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_d_a_o___db_service_8_assembly_info_8cs" kind="file"><name>DAO_DbService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_d_a_o___db_service_8_assembly_info_8cs" kind="file"><name>DAO_DbService.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_startup_8cs" kind="file"><name>Startup.cs</name>
+  </compound>
+  <compound refid="_timed_events_8cs" kind="file"><name>TimedEvents.cs</name>
+  </compound>
+  <compound refid="dir_98394e4f4e2754f2eb3af574c2df8616" kind="dir"><name>DAO_DbService/Contexts</name>
+  </compound>
+  <compound refid="dir_c6f05509494c94e66af74f20fa1c0272" kind="dir"><name>DAO_DbService/Controllers</name>
+  </compound>
+  <compound refid="dir_ddfcb5a0ca8f80e00604d4618cb5e0e8" kind="dir"><name>DAO_DbService</name>
+  </compound>
+  <compound refid="dir_fe0ca471d2e18f6dd8e24dd743eefd32" kind="dir"><name>DAO_DbService/obj/Debug</name>
+  </compound>
+  <compound refid="dir_c1ca4a7f2b64fa84e1341e427fda53fe" kind="dir"><name>DAO_DbService/Mapping</name>
+  </compound>
+  <compound refid="dir_77dd319ce521ad423d9ddb9349ce1c4b" kind="dir"><name>DAO_DbService/Migrations</name>
+  </compound>
+  <compound refid="dir_ead65c8ed650e462cacd3486ba55a708" kind="dir"><name>DAO_DbService/Models</name>
+  </compound>
+  <compound refid="dir_5624ff5f8427a5884e47e5ba1baebd06" kind="dir"><name>DAO_DbService/obj/Debug/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_2b361a5d501ecbf13b26ecbc4bf7ec4c" kind="dir"><name>DAO_DbService/obj/Release/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_33f4d1f3ec8580dd98545b64a324a195" kind="dir"><name>DAO_DbService/obj</name>
+  </compound>
+  <compound refid="dir_53dde88a5068e4330bb70eaab5bc722b" kind="dir"><name>DAO_DbService/obj/Release</name>
+  </compound>
+</doxygenindex>

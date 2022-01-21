@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_b3de9706620472af0fbd450e9441dbfa" kind="dir">
+    <compoundname>DAO_ApiGateway/obj/Release</compoundname>
+    <innerdir refid="dir_b9786821a605f18a4a917c5997d21a1a">DAO_ApiGateway/obj/Release/netcoreapp3.1</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_ApiGateway/obj/Release/"/>
+  </compounddef>
+</doxygen>

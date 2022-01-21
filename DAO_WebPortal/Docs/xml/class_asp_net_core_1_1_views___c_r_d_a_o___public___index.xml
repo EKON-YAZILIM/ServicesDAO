@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_CRDAO_Public_Index</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a602123be99d99483a3acbbd650c2b311" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Public_Index.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;action&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;form/subscribe.php&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="40" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1acee750e0b8d34f13a74198bbe0ef9b22" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Public_Index.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;class&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;nk-form-submit&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="41" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a7f1d2dcbf5d371d740256948b4dee899" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Public_Index.__tagHelperAttribute_2</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_2</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperAttribute_2</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;method&quot;, &quot;post&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="42" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a33c9a4da654129400ea65644d57128be" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_CRDAO_Public_Index.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="45" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a672323a4cdffda4410ce6d2792665eab" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_CRDAO_Public_Index.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="47" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a6d3ffe235f4c14dfeca51321baa3492a" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_CRDAO_Public_Index.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="49" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1aa850021bd400f86a02ce919535bd4146" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Public_Index.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="51" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1aa5550a4f8c63bfdb65c7c461ae847443" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper AspNetCore.Views_CRDAO_Public_Index.__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="63" column="71" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a2d99c2320d8f2cfef5ec31168586d71b" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper AspNetCore.Views_CRDAO_Public_Index.__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="64" column="84" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1ae14df3185dd9f3a875bdf19fa4be731b" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Public_Index.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="52" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="53" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a7571b1d430c7bebbe073adbdd1239ef7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_CRDAO_Public_Index.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="553" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="553" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a40cae646778304e2858d446b80bc7924" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_CRDAO_Public_Index.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="555" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="555" bodyend="555"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1ae73867385870528af68fb4763d2f3bd1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_CRDAO_Public_Index.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="557" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="557" bodyend="557"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a9edbaa4f9799a8c59b265ced509cdead" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_CRDAO_Public_Index.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="559" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="559" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a9f1eb5d844155e121ce627e234c213cf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_CRDAO_Public_Index.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="561" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="561" bodyend="561"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a1ba9f7c879e8872da613b503eb118f59" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views_CRDAO_Public_Index.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="563" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="563" bodyend="563"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a7cc36dcbb6b702c8711c734d05a745d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_CRDAO_Public_Index.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Index.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="66" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="66" bodyend="550"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Public_Index</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Public_Index</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" line="38" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Index.cshtml.g.cs" bodystart="39" bodyend="564"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1aa850021bd400f86a02ce919535bd4146" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1aa5550a4f8c63bfdb65c7c461ae847443" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a2d99c2320d8f2cfef5ec31168586d71b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a602123be99d99483a3acbbd650c2b311" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1acee750e0b8d34f13a74198bbe0ef9b22" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a7f1d2dcbf5d371d740256948b4dee899" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperAttribute_2</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a33c9a4da654129400ea65644d57128be" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a672323a4cdffda4410ce6d2792665eab" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1ae14df3185dd9f3a875bdf19fa4be731b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a6d3ffe235f4c14dfeca51321baa3492a" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a9edbaa4f9799a8c59b265ced509cdead" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a7cc36dcbb6b702c8711c734d05a745d0" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a1ba9f7c879e8872da613b503eb118f59" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a7571b1d430c7bebbe073adbdd1239ef7" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a9f1eb5d844155e121ce627e234c213cf" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1a40cae646778304e2858d446b80bc7924" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index_1ae73867385870528af68fb4763d2f3bd1" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Index</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

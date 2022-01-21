@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_tokenfetching" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_tokenfetching</compoundname>
+    <title>tokenfetching</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 77 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, basicstyles, notification, format</para>
+<para>Note: You need the Internet connection to run this test.</para>
+<para><orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> toolbar button.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Examine the area in the red frame below.</para>
+<para><bold>Expected:</bold> There is a long token string in the frame.</para>
+<para><bold>Unexpected:</bold> Frame is empty or says &apos;undefined&apos;.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Wait for the file to download and open it.</para>
+<para><bold>Expected:</bold> No information about being created with CKEditor was added.</para>
+<para><bold>Unexpected:</bold> There is an additional note about CKEditor at the bottom of page. </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/tokenfetching.md"/>
+  </compounddef>
+</doxygen>

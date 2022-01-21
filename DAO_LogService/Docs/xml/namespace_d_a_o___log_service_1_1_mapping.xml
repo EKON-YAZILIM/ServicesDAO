@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___log_service_1_1_mapping" kind="namespace" language="C#">
+    <compoundname>DAO_LogService::Mapping</compoundname>
+    <innerclass refid="class_d_a_o___log_service_1_1_mapping_1_1_auto_mapper_base" prot="public">DAO_LogService::Mapping::AutoMapperBase</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_mapping_1_1_mapping_profile" prot="public">DAO_LogService::Mapping::MappingProfile</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Mapping/AutoMapperBase.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

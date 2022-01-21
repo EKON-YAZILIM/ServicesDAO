@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_info_controller_8cs" kind="file" language="C#">
+    <compoundname>InfoController.cs</compoundname>
+    <innerclass refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller" prot="public">DAO_LogService::Controllers::InfoController</innerclass>
+    <innernamespace refid="namespace_d_a_o___log_service">DAO_LogService</innernamespace>
+    <innernamespace refid="namespace_d_a_o___log_service_1_1_controllers">DAO_LogService::Controllers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>Helpers.Models.SharedModels;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>Microsoft.AspNetCore.Mvc;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Collections.Generic;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Linq;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Threading.Tasks;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_d_a_o___log_service_1_1_controllers" kindref="compound">DAO_LogService.Controllers</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>[Route(</highlight><highlight class="stringliteral">&quot;[controller]&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>[ApiController]</highlight></codeline>
+<codeline lineno="16" refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller" kindref="compound">InfoController</ref><sp/>:<sp/>ControllerBase</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[HttpGet(</highlight><highlight class="stringliteral">&quot;GetAppInfo&quot;</highlight><highlight class="normal">,<sp/>Name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;GetAppInfo&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MonitizerResult<sp/><ref refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller_1adeff17655a4817bd8a33cf8dd68e4a74" kindref="member">GetAppInfo</ref>()</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_d_a_o___log_service_1_1_program" kindref="compound">Program</ref>.<ref refid="class_d_a_o___log_service_1_1_program_1a341c021110a6250534c119825a968e8d" kindref="member">monitizer</ref>.GetMonitizerResult();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[HttpGet(</highlight><highlight class="stringliteral">&quot;ResetErrors&quot;</highlight><highlight class="normal">,<sp/>Name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ResetErrors&quot;</highlight><highlight class="normal">)]</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller_1afb212fcab132d1b2686d7f7cbcd9c8d7" kindref="member">ResetErrors</ref>()</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_d_a_o___log_service_1_1_program" kindref="compound">Program</ref>.<ref refid="class_d_a_o___log_service_1_1_program_1a341c021110a6250534c119825a968e8d" kindref="member">monitizer</ref>.exceptions.Clear();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_d_a_o___log_service_1_1_program" kindref="compound">Program</ref>.<ref refid="class_d_a_o___log_service_1_1_program_1a341c021110a6250534c119825a968e8d" kindref="member">monitizer</ref>.exceptionCounter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_d_a_o___log_service_1_1_program" kindref="compound">Program</ref>.<ref refid="class_d_a_o___log_service_1_1_program_1a341c021110a6250534c119825a968e8d" kindref="member">monitizer</ref>.fatalCounter<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DAO_LogService/Controllers/InfoController.cs"/>
+  </compounddef>
+</doxygen>

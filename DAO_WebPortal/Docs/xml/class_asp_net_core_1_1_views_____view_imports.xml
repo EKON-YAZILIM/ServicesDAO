@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views_____view_imports" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views__ViewImports</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views_____view_imports_1af24a853448780518b9b8bb0494fc03d0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views__ViewImports.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views__ViewImports.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="38" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views_____view_imports_1af6e6f9f7d99285bd76a2db97f17a9128" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views__ViewImports.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views__ViewImports.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="40" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views_____view_imports_1aab0dbba5d923b01ca42fc275a31201e4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views__ViewImports.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views__ViewImports.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="42" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views_____view_imports_1a5f8b1527e81afa1bcfca3f907e09a406" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views__ViewImports.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views__ViewImports.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="44" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views_____view_imports_1a5de9e15d8a491c339e580feb37748cac" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views__ViewImports.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views__ViewImports.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="46" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="46" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views_____view_imports_1afb0fbe4d2cff8ff940fd8555b3f3c64e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views__ViewImports.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views__ViewImports.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="33" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="33" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views__ViewImports</label>
+        <link refid="class_asp_net_core_1_1_views_____view_imports"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views__ViewImports</label>
+        <link refid="class_asp_net_core_1_1_views_____view_imports"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" line="30" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs" bodystart="31" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views_____view_imports_1aab0dbba5d923b01ca42fc275a31201e4" prot="public" virt="non-virtual"><scope>AspNetCore::Views__ViewImports</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views_____view_imports_1afb0fbe4d2cff8ff940fd8555b3f3c64e" prot="public" virt="non-virtual"><scope>AspNetCore::Views__ViewImports</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views_____view_imports_1a5de9e15d8a491c339e580feb37748cac" prot="public" virt="non-virtual"><scope>AspNetCore::Views__ViewImports</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views_____view_imports_1a5f8b1527e81afa1bcfca3f907e09a406" prot="public" virt="non-virtual"><scope>AspNetCore::Views__ViewImports</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views_____view_imports_1af24a853448780518b9b8bb0494fc03d0" prot="public" virt="non-virtual"><scope>AspNetCore::Views__ViewImports</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views_____view_imports_1af6e6f9f7d99285bd76a2db97f17a9128" prot="public" virt="non-virtual"><scope>AspNetCore::Views__ViewImports</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

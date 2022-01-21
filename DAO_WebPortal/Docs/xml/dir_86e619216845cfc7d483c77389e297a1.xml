@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_86e619216845cfc7d483c77389e297a1" kind="dir">
+    <compoundname>DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO</compoundname>
+    <innerdir refid="dir_96bb8f6ce95c91c412bfad775a2fa606">DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home</innerdir>
+    <innerdir refid="dir_1e3b250d027895851db7e0e1965970a5">DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public</innerdir>
+    <innerdir refid="dir_78d6703a75cd83139073b1c2dc69ac20">DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Shared</innerdir>
+    <innerfile refid="_views-_c_r_d_a_o_2___view_imports_8cshtml_8g_8cs">_ViewImports.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2___view_start_8cshtml_8g_8cs">_ViewStart.cshtml.g.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/"/>
+  </compounddef>
+</doxygen>

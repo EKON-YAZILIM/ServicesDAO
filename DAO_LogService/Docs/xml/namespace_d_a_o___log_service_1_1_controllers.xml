@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___log_service_1_1_controllers" kind="namespace" language="C#">
+    <compoundname>DAO_LogService::Controllers</compoundname>
+    <innerclass refid="class_d_a_o___log_service_1_1_controllers_1_1_application_log_controller" prot="public">DAO_LogService::Controllers::ApplicationLogController</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_controllers_1_1_error_log_controller" prot="public">DAO_LogService::Controllers::ErrorLogController</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_controllers_1_1_info_controller" prot="public">DAO_LogService::Controllers::InfoController</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_controllers_1_1_user_log_controller" prot="public">DAO_LogService::Controllers::UserLogController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Controllers/ApplicationLogController.cs" line="15" column="1"/>
+  </compounddef>
+</doxygen>

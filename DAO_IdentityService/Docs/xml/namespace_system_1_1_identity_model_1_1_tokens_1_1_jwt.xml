@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_system_1_1_identity_model_1_1_tokens_1_1_jwt" kind="namespace" language="C#">
+    <compoundname>System::IdentityModel::Tokens::Jwt</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="12" column="38"/>
+  </compounddef>
+</doxygen>

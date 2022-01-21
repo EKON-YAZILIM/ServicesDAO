@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_startup" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Startup</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_startup_1a3c6ceae588693549496e98b9f489cc2d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IConfiguration</type>
+        <definition>IConfiguration DAO_LogService.Startup.Configuration</definition>
+        <argsstring></argsstring>
+        <name>Configuration</name>
+        <qualifiedname>DAO_LogService.Startup.Configuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Startup.cs" line="89" column="31" bodyfile="DAO_LogService/Startup.cs" bodystart="89" bodyend="89"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_startup_1ae0931964bbed117306642e7cbe07eb21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_LogService.Startup.Startup</definition>
+        <argsstring>(IConfiguration configuration, IWebHostEnvironment env)</argsstring>
+        <name>Startup</name>
+        <qualifiedname>DAO_LogService.Startup.Startup</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Startup.cs" line="27" column="16" bodyfile="DAO_LogService/Startup.cs" bodystart="27" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_startup_1a43e7f73e8b2a9db5b186b382c7138f47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_LogService.Startup.ConfigureServices</definition>
+        <argsstring>(IServiceCollection services)</argsstring>
+        <name>ConfigureServices</name>
+        <qualifiedname>DAO_LogService.Startup.ConfigureServices</qualifiedname>
+        <param>
+          <type>IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Startup.cs" line="92" column="21" bodyfile="DAO_LogService/Startup.cs" bodystart="92" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_startup_1a25430886918b8641fc97065263b7f1b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_LogService.Startup.Configure</definition>
+        <argsstring>(IApplicationBuilder app, IWebHostEnvironment env)</argsstring>
+        <name>Configure</name>
+        <qualifiedname>DAO_LogService.Startup.Configure</qualifiedname>
+        <param>
+          <type>IApplicationBuilder</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Startup.cs" line="100" column="21" bodyfile="DAO_LogService/Startup.cs" bodystart="100" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_startup_1ab8a846c60c63552051a87da707034d20" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.Startup.LoadConfig</definition>
+        <argsstring>(IConfiguration configuration)</argsstring>
+        <name>LoadConfig</name>
+        <qualifiedname>DAO_LogService.Startup.LoadConfig</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Loads application config from appsettings.json </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Startup.cs" line="46" column="28" bodyfile="DAO_LogService/Startup.cs" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_startup_1a3848bbb4c5e7ee94b58b91ff375a6701" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.Startup.InitializeService</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeService</name>
+        <qualifiedname>DAO_LogService.Startup.InitializeService</qualifiedname>
+        <briefdescription>
+<para>Initializes application (Db migrations, connection check, timer construction) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Startup.cs" line="55" column="28" bodyfile="DAO_LogService/Startup.cs" bodystart="55" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Startup.cs" line="25" column="11" bodyfile="DAO_LogService/Startup.cs" bodystart="26" bodyend="138"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_startup_1a3c6ceae588693549496e98b9f489cc2d" prot="public" virt="non-virtual"><scope>DAO_LogService::Startup</scope><name>Configuration</name></member>
+      <member refid="class_d_a_o___log_service_1_1_startup_1a25430886918b8641fc97065263b7f1b3" prot="public" virt="non-virtual"><scope>DAO_LogService::Startup</scope><name>Configure</name></member>
+      <member refid="class_d_a_o___log_service_1_1_startup_1a43e7f73e8b2a9db5b186b382c7138f47" prot="public" virt="non-virtual"><scope>DAO_LogService::Startup</scope><name>ConfigureServices</name></member>
+      <member refid="class_d_a_o___log_service_1_1_startup_1a3848bbb4c5e7ee94b58b91ff375a6701" prot="public" virt="non-virtual"><scope>DAO_LogService::Startup</scope><name>InitializeService</name></member>
+      <member refid="class_d_a_o___log_service_1_1_startup_1ab8a846c60c63552051a87da707034d20" prot="public" virt="non-virtual"><scope>DAO_LogService::Startup</scope><name>LoadConfig</name></member>
+      <member refid="class_d_a_o___log_service_1_1_startup_1ae0931964bbed117306642e7cbe07eb21" prot="public" virt="non-virtual"><scope>DAO_LogService::Startup</scope><name>Startup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

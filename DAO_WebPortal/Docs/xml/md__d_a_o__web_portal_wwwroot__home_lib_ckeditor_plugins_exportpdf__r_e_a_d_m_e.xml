@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_README</compoundname>
+    <title>CKEditor 4 Export to PDF Plugin</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The <bold>Export to PDF</bold> CKEditor 4 plugin allows you to easily print the WYSIWYG editor content to a PDF file. When enabled, this feature sends the content of your editor together with the styles that are used to display it to the CKEditor Cloud Services HTML to PDF converter service. The service then generates a PDF document that can be downloaded by the user.</para>
+<para>Thanks to this plugin, it takes exactly one button click to get a PDF file with content formatted in the same way as the one visible in CKEditor 4.</para>
+<para>CKEditor 4 <bold>Export to PDF</bold> also allows various customizations like changing the page size and margin, setting additional styling, adding custom headers and footers and pre-processing content. This gives great flexibility and control over the PDF output and allows to keep all the PDF documents consistent when it comes to styling.</para>
+<para>This is a premium feature. Please <ulink url="https://ckeditor.com/contact/">contact us</ulink> if you would like to purchase a license. Let us know if you have any feedback or questions! You can also sign up for the <ulink url="https://orders.ckeditor.com/trial/premium-features">CKEditor Premium Features 30-day Free Trial</ulink>.</para>
+<para>If this feature is used without authorization, the resulting documents will be watermarked.</para>
+<para><image type="html" name="https://c.cksource.com/a/1/img/npm/ckeditor4-pdf-export.gif" inline="yes"></image>
+</para>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md95">
+<title>Getting Started</title>
+<sect2 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md96">
+<title>Using with official CKEditor 4 presets</title>
+<para>Starting with CKEditor 4 version <computeroutput>4.15.0</computeroutput>, <bold>Export to PDF</bold> plugin is included in <computeroutput>standard-all</computeroutput>, <computeroutput>full</computeroutput> and <computeroutput>full-all</computeroutput> official presets. The <computeroutput>full</computeroutput> and <computeroutput>full-all</computeroutput> presets have the plugin active by default while for <computeroutput>standard-all</computeroutput> it needs to be enabled with the <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-extraPlugins"><computeroutput>config.extraPlugins</computeroutput></ulink> configuration option:</para>
+<para><programlisting filename=".js"><codeline><highlight class="normal">CKEDITOR.replace(<sp/>&apos;editor&apos;,<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>extraPlugins:<sp/>&apos;exportpdf&apos;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md97">
+<title>Installation from npm</title>
+<para>To instal the plugin via npm, simply run:</para>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">npm<sp/>i<sp/>ckeditor4-plugin-exportpdf</highlight></codeline>
+</programlisting></para>
+<para>Then add the plugin to your CKEditor 4 instance with the <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_plugins.html#method-addExternal"><computeroutput>addExternal()</computeroutput> method</ulink>:</para>
+<para><programlisting filename=".js"><codeline><highlight class="normal">CKEDITOR.plugins.addExternal(<sp/>&apos;exportpdf&apos;,<sp/>&apos;./node_modules/ckeditor4-plugin-exportpdf/&apos;<sp/>);</highlight></codeline>
+</programlisting></para>
+<para>If you prefer not to link to the <computeroutput>node_modules</computeroutput> folder directly, you may simply copy the entire <computeroutput>./node_modules/ckeditor4-plugin-exportpdf/</computeroutput> directory as <computeroutput>ckeditor/plugins/exportpdf/</computeroutput> and add it with the <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-extraPlugins"><computeroutput>config.extraPlugins</computeroutput></ulink> configuration option:</para>
+<para><programlisting filename=".js"><codeline><highlight class="normal">CKEDITOR.replace(<sp/>&apos;editor&apos;,<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>extraPlugins:<sp/>&apos;exportpdf&apos;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>);</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md98">
+<title>Other Installation Methods</title>
+<para>You can also use the <ulink url="https://ckeditor.com/cke4/addons/plugins/all">CKEditor 4 Add-ons repository</ulink> to obtain the plugin via:</para>
+<para><itemizedlist>
+<listitem><para><ulink url="https://ckeditor.com/cke4/builder">Custom build with online builder</ulink></para>
+</listitem><listitem><para><ulink url="https://ckeditor.com/cke4/addon/exportpdf">Manual download</ulink></para>
+</listitem></itemizedlist>
+</para>
+<para>Refer to <ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#installation">Export to PDF installation documentation</ulink> for more details. If you are having trouble setting up the Export to PDF plugin, please <ulink url="https://ckeditor.com/contact/">contact us</ulink>.</para>
+</sect2>
+<sect2 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md99">
+<title>Setting up a license key</title>
+<para>If you have a commercial license for <bold>Export to PDF</bold> plugin, <ulink url="https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_tokenUrl">exportPdf_tokenUrl</ulink> configuration option should be set to remove watermark from generated documents:</para>
+<para><programlisting filename=".js"><codeline><highlight class="normal">CKEDITOR.replace(<sp/>&apos;editor&apos;,<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>exportPdf_tokenUrl:<sp/>&apos;https://example.com/cs-token-endpoint&apos;</highlight></codeline>
+<codeline><highlight class="normal">}<sp/>);</highlight></codeline>
+</programlisting></para>
+<para>This value is unique for each customer and can be found in the <ulink url="https://dashboard.ckeditor.com">CKEditor Ecosystem dashboard</ulink>.</para>
+<para>This is all. If you are having trouble in setting up Export to PDF plugin, please <ulink url="https://ckeditor.com/contact/">contact us</ulink>.</para>
+</sect2>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md100">
+<title>Features</title>
+<para>The CKEditor 4 Export to PDF plugin is really simple to use and works out-of-the-box. It does not require any additional configuration and due to its flexible nature, it covers a lot of cases internally while also providing an easy way to <ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#configuration">customize output PDF files</ulink>.</para>
+<para>The most important features are:</para>
+<para><itemizedlist>
+<listitem><para>Exporting HTML content from CKEditor 4 WYSIWYG editor to PDF with a single click.</para>
+</listitem><listitem><para><ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#setting-dynamic-file-name">Setting a custom name</ulink> for the generated PDF file.</para>
+</listitem><listitem><para><ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#relative-vs-absolute-urls">Handling relative image paths</ulink>.</para>
+</listitem><listitem><para><ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#custom-css-rules">Changing the appearance of the PDF document</ulink> (like margins, text styling, custom headers and footers etc.) with custom CSS styles.</para>
+</listitem><listitem><para><ulink url="https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html#data-preprocessing">Pre-processing HTML content</ulink> via synchronous and asynchronous code before the generation of the PDF file.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md101">
+<title>Browser and CKEditor 4 Support</title>
+<para>The CKEditor 4 Export to PDF plugin works in all the browsers <ulink url="https://ckeditor.com/docs/ckeditor4/latest/guide/dev_browsers.html">supported by CKEditor 4</ulink> except for Internet Explorer versions older than version 11. The plugin is compatible with CKEditor 4 versions starting from <computeroutput>4.6.1</computeroutput>.</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md102">
+<title>Demo</title>
+<para>See the working <ulink url="https://ckeditor.com/docs/ckeditor4/latest/examples/exporttopdf.html">"Exporting editor content to PDF"</ulink> sample that showcases printing your HTML content to a PDF file.</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md103">
+<title>License</title>
+<para><bold>CKEditor 4 Export to PDF plugin</bold> (<ulink url="https://ckeditor.com/ckeditor-4/">https://ckeditor.com/ckeditor-4/</ulink>)<linebreak/>
+ Copyright (c) 2003-2021, <ulink url="http://cksource.com">CKSource</ulink> Frederico Knabben. All rights reserved.</para>
+<para>CKEditor 4 export to PDF plugin is licensed under a commercial license and is protected by copyright law. For more details about available licensing options please contact us at <ulink url="mailto:sales@cksource.com">sales@cksource.com</ulink>.</para>
+<sect2 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf__r_e_a_d_m_e_1autotoc_md104">
+<title>Trademarks</title>
+<para><bold>CKEditor</bold> is a trademark of <ulink url="http://cksource.com">CKSource</ulink> Frederico Knabben. All other brand and product names are trademarks, registered trademarks or service marks of their respective holders. </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/README.md"/>
+  </compounddef>
+</doxygen>

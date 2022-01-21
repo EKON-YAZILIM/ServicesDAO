@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="sample__posteddata_8php" kind="file" language="PHP">
+    <compoundname>sample_posteddata.php</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">&lt;?php<sp/></highlight><highlight class="comment">/*<sp/>&lt;body&gt;&lt;pre&gt;</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">-------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/>CKEditor<sp/>-<sp/>Posted<sp/>Data</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/>We<sp/>are<sp/>sorry,<sp/>but<sp/>your<sp/>Web<sp/>server<sp/>does<sp/>not<sp/>support<sp/>the<sp/>PHP<sp/>language<sp/>used<sp/>in<sp/>this<sp/>script.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"></highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/>Please<sp/>note<sp/>that<sp/>CKEditor<sp/>can<sp/>be<sp/>used<sp/>with<sp/>any<sp/>other<sp/>server-side<sp/>language<sp/>than<sp/>just<sp/>PHP.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/>To<sp/>save<sp/>the<sp/>content<sp/>created<sp/>with<sp/>CKEditor<sp/>you<sp/>need<sp/>to<sp/>read<sp/>the<sp/>POST<sp/>data<sp/>on<sp/>the<sp/>server</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/>side<sp/>and<sp/>write<sp/>it<sp/>to<sp/>a<sp/>file<sp/>or<sp/>the<sp/>database.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/>Copyright<sp/>(c)<sp/>2003-2021,<sp/>CKSource<sp/>-<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/>For<sp/>licensing,<sp/>see<sp/>LICENSE.md<sp/>or<sp/>https://ckeditor.com/legal/ckeditor-oss-license</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">-------------------------------------------------------------------------------------------</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment">&lt;/pre&gt;&lt;div<sp/>style=&quot;display:none&quot;&gt;&lt;/body&gt;<sp/>*/</highlight><highlight class="normal"><sp/>include<sp/></highlight><highlight class="stringliteral">&quot;assets/posteddata.php&quot;</highlight><highlight class="normal">;<sp/>?&gt;</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/samples/old/sample_posteddata.php"/>
+  </compounddef>
+</doxygen>

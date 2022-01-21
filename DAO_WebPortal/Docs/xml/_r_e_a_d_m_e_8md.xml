@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">CKEditor<sp/>4</highlight></codeline>
+<codeline><highlight class="normal">==========</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2003-2021,<sp/>CKSource<sp/>-<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline><highlight class="normal">https://ckeditor.com<sp/>-<sp/>See<sp/>LICENSE.md<sp/>for<sp/>license<sp/>information.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CKEditor<sp/>4<sp/>is<sp/>a<sp/>text<sp/>editor<sp/>to<sp/>be<sp/>used<sp/>inside<sp/>web<sp/>pages.<sp/>It&apos;s<sp/>not<sp/>a<sp/>replacement</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>desktop<sp/>text<sp/>editors<sp/>like<sp/>Word<sp/>or<sp/>OpenOffice,<sp/>but<sp/>a<sp/>component<sp/>to<sp/>be<sp/>used<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">part<sp/>of<sp/>web<sp/>applications<sp/>and<sp/>websites.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>full<sp/>editor<sp/>documentation<sp/>is<sp/>available<sp/>online<sp/>at<sp/>the<sp/>following<sp/>address:</highlight></codeline>
+<codeline><highlight class="normal">https://ckeditor.com/docs/</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Installation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Installing<sp/>CKEditor<sp/>is<sp/>an<sp/>easy<sp/>task.<sp/>Just<sp/>follow<sp/>these<sp/>simple<sp/>steps:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>1.<sp/>**Download**<sp/>the<sp/>latest<sp/>version<sp/>from<sp/>the<sp/>CKEditor<sp/>website:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>https://ckeditor.com.<sp/>You<sp/>should<sp/>have<sp/>already<sp/>completed<sp/>this<sp/>step,<sp/>but<sp/>be</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sure<sp/>you<sp/>have<sp/>the<sp/>very<sp/>latest<sp/>version.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>2.<sp/>**Extract**<sp/>(decompress)<sp/>the<sp/>downloaded<sp/>file<sp/>into<sp/>the<sp/>root<sp/>of<sp/>your<sp/>website.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Note:**<sp/>CKEditor<sp/>is<sp/>by<sp/>default<sp/>installed<sp/>in<sp/>the<sp/>`ckeditor`<sp/>folder.<sp/>You<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">place<sp/>the<sp/>files<sp/>in<sp/>whichever<sp/>you<sp/>want<sp/>though.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Checking<sp/>Your<sp/>Installation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>editor<sp/>comes<sp/>with<sp/>a<sp/>few<sp/>sample<sp/>pages<sp/>that<sp/>can<sp/>be<sp/>used<sp/>to<sp/>verify<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">installation<sp/>proceeded<sp/>properly.<sp/>Take<sp/>a<sp/>look<sp/>at<sp/>the<sp/>`samples`<sp/>directory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>test<sp/>your<sp/>installation,<sp/>just<sp/>call<sp/>the<sp/>following<sp/>page<sp/>at<sp/>your<sp/>website:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>http://&lt;your<sp/>site&gt;/&lt;CKEditor<sp/>installation<sp/>path&gt;/samples/index.html</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>example:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>http://www.example.com/ckeditor/samples/index.html</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/README.md"/>
+  </compounddef>
+</doxygen>

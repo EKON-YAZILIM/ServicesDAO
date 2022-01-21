@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___reputation___history" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_Reputation_History</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto &gt; &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___reputation___history_1a454b9c35bae1d4c7572981b186af1a88" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Reputation_History.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="33" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___reputation___history_1a01d4bbb4349fe125e75be528ec80204b" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Home_Reputation_History.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="36" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___reputation___history_1acdf70a2d3d0ee012129f9aa3340cb11d" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Home_Reputation_History.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="38" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___reputation___history_1a6f16d178c4251834073d88301138583c" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Home_Reputation_History.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="40" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___reputation___history_1a5e5e52d736d6d4ab640e0b3c7aa7a6e4" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Reputation_History.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="42" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___reputation___history_1a72efa398c7762b99b2db16d66ac3dd76" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_Home_Reputation_History.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="54" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___reputation___history_1ab93c17615e1d2d93ed81421fac099d71" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Reputation_History.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="43" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___reputation___history_1a38ede959e7289e73d68d845fb40de3d9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_Reputation_History.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="287" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="287" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___reputation___history_1a9df8d94bed14379ffb345c3a64406185" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_Reputation_History.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="289" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="289" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___reputation___history_1abd480e9bb22d6957166bbcfb5f533cba" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_Reputation_History.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="291" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="291" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___reputation___history_1a52bfe3c7afd99def6bb4aa73a145f4a6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_Reputation_History.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="293" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="293" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___reputation___history_1ae73975b8f74cc14652742923ac817442" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; List&lt; Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto &gt; &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;List&lt;Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto&gt; &gt; AspNetCore.Views_Home_Reputation_History.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="295" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="295" bodyend="295"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___reputation___history_1aabca1479834d20ff520585f1ddc244bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_Reputation_History.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_Reputation_History.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="56" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="56" bodyend="284"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Reputation_History</label>
+        <link refid="class_asp_net_core_1_1_views___home___reputation___history"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto &gt; &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Reputation_History</label>
+        <link refid="class_asp_net_core_1_1_views___home___reputation___history"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; List&lt; Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto &gt; &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" line="31" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Reputation_History.cshtml.g.cs" bodystart="32" bodyend="296"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a5e5e52d736d6d4ab640e0b3c7aa7a6e4" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a72efa398c7762b99b2db16d66ac3dd76" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a454b9c35bae1d4c7572981b186af1a88" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a01d4bbb4349fe125e75be528ec80204b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1acdf70a2d3d0ee012129f9aa3340cb11d" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1ab93c17615e1d2d93ed81421fac099d71" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a6f16d178c4251834073d88301138583c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1abd480e9bb22d6957166bbcfb5f533cba" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1aabca1479834d20ff520585f1ddc244bc" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1ae73975b8f74cc14652742923ac817442" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a52bfe3c7afd99def6bb4aa73a145f4a6" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a38ede959e7289e73d68d845fb40de3d9" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___reputation___history_1a9df8d94bed14379ffb345c3a64406185" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Reputation_History</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

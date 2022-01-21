@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_active_session" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::ActiveSession</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_active_session_1a854f0b69dcae84d0338e54d138f2b09c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.ActiveSession.ActiveSessionID</definition>
+        <argsstring></argsstring>
+        <name>ActiveSessionID</name>
+        <qualifiedname>DAO_DbService.Models.ActiveSession.ActiveSessionID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/ActiveSession.cs" line="12" column="20" bodyfile="DAO_DbService/Models/ActiveSession.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_active_session_1afec2bd9d075ec9f749a07bf9f4a301e7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.ActiveSession.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.ActiveSession.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/ActiveSession.cs" line="13" column="20" bodyfile="DAO_DbService/Models/ActiveSession.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_active_session_1a06fe0a6fd70aea8146efbe99788fad3e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.ActiveSession.LoginDate</definition>
+        <argsstring></argsstring>
+        <name>LoginDate</name>
+        <qualifiedname>DAO_DbService.Models.ActiveSession.LoginDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/ActiveSession.cs" line="14" column="25" bodyfile="DAO_DbService/Models/ActiveSession.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_active_session_1a49dc0dbacfba100007739c412a96095d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.ActiveSession.Token</definition>
+        <argsstring></argsstring>
+        <name>Token</name>
+        <qualifiedname>DAO_DbService.Models.ActiveSession.Token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/ActiveSession.cs" line="15" column="23" bodyfile="DAO_DbService/Models/ActiveSession.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/ActiveSession.cs" line="9" column="11" bodyfile="DAO_DbService/Models/ActiveSession.cs" bodystart="10" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1a854f0b69dcae84d0338e54d138f2b09c" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::ActiveSession</scope><name>ActiveSessionID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1a06fe0a6fd70aea8146efbe99788fad3e" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::ActiveSession</scope><name>LoginDate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1a49dc0dbacfba100007739c412a96095d" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::ActiveSession</scope><name>Token</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_active_session_1afec2bd9d075ec9f749a07bf9f4a301e7" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::ActiveSession</scope><name>UserID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

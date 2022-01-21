@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="class_d_a_o___api_gateway_1_1_controllers_1_1_info_controller" kind="class"><name>DAO_ApiGateway::Controllers::InfoController</name>
+    <member refid="class_d_a_o___api_gateway_1_1_controllers_1_1_info_controller_1a05e38bd9aa6ba04be85d0ce79586096d" kind="function"><name>GetAppInfo</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_controllers_1_1_info_controller_1a649f1377368bf17d4b98025392bea14c" kind="function"><name>ResetErrors</name></member>
+  </compound>
+  <compound refid="class_d_a_o___api_gateway_1_1_program" kind="class"><name>DAO_ApiGateway::Program</name>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1a3c27f72973709db5cc368140313b07a8" kind="property"><name>_settings</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1adede231730a305bca27ccc338f60d28c" kind="variable"><name>rabbitMq</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1aefc89b48fdef485945c7333097d98407" kind="variable"><name>monitizer</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1abcc09c515b86d400af35ab5fb4af67a5" kind="function"><name>Main</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1aa89258ea1f287c04b27bfca8fbf799ac" kind="function"><name>CreateHostBuilder</name></member>
+  </compound>
+  <compound refid="class_d_a_o___api_gateway_1_1_program_1_1_settings" kind="class"><name>DAO_ApiGateway::Program::Settings</name>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1_1_settings_1a9c171065b5aa2de0c12b3649266f6454" kind="property"><name>RabbitMQUrl</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1_1_settings_1a96b9a976ac1a31531d7f2126205fe80d" kind="property"><name>RabbitMQUsername</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1_1_settings_1ac741ac782dbc8e8678ecb7d2da19511c" kind="property"><name>RabbitMQPassword</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_program_1_1_settings_1aede6f750c0a0e774006dbd41cd74e2fb" kind="property"><name>JwtTokenKey</name></member>
+  </compound>
+  <compound refid="class_d_a_o___api_gateway_1_1_startup" kind="class"><name>DAO_ApiGateway::Startup</name>
+    <member refid="class_d_a_o___api_gateway_1_1_startup_1a14676eb8c27c79927d3ea10459cfc6e0" kind="property"><name>Configuration</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_startup_1ab16400b7582507542a07929c9db998b2" kind="function"><name>Startup</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_startup_1a57978442cf9f04dd3104bc6245a6c72a" kind="function"><name>ConfigureServices</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_startup_1acc7f1c882cb8641961b694031e2de710" kind="function"><name>Configure</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_startup_1a57784fc98f8923300a89800bb9f90642" kind="function"><name>LoadConfig</name></member>
+    <member refid="class_d_a_o___api_gateway_1_1_startup_1ac212adbf98950dd7e5f9dc5f37154c78" kind="function"><name>InitializeService</name></member>
+  </compound>
+  <compound refid="namespace_d_a_o___api_gateway" kind="namespace"><name>DAO_ApiGateway</name>
+  </compound>
+  <compound refid="namespace_d_a_o___api_gateway_1_1_controllers" kind="namespace"><name>DAO_ApiGateway::Controllers</name>
+  </compound>
+  <compound refid="namespace_d_a_o___api_gateway_1_1_program" kind="namespace"><name>DAO_ApiGateway::Program</name>
+  </compound>
+  <compound refid="namespace_helpers" kind="namespace"><name>Helpers</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_constants_1_1_enums" kind="namespace"><name>Helpers::Constants::Enums</name>
+  </compound>
+  <compound refid="namespace_helpers_1_1_models_1_1_shared_models" kind="namespace"><name>Helpers::Models::SharedModels</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_authentication_1_1_jwt_bearer" kind="namespace"><name>Microsoft::AspNetCore::Authentication::JwtBearer</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_builder" kind="namespace"><name>Microsoft::AspNetCore::Builder</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_hosting" kind="namespace"><name>Microsoft::AspNetCore::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_https_policy" kind="namespace"><name>Microsoft::AspNetCore::HttpsPolicy</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_localization" kind="namespace"><name>Microsoft::AspNetCore::Localization</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_asp_net_core_1_1_mvc" kind="namespace"><name>Microsoft::AspNetCore::Mvc</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_configuration" kind="namespace"><name>Microsoft::Extensions::Configuration</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_dependency_injection" kind="namespace"><name>Microsoft::Extensions::DependencyInjection</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_hosting" kind="namespace"><name>Microsoft::Extensions::Hosting</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_extensions_1_1_logging" kind="namespace"><name>Microsoft::Extensions::Logging</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_identity_model_1_1_tokens" kind="namespace"><name>Microsoft::IdentityModel::Tokens</name>
+  </compound>
+  <compound refid="namespace_ocelot_1_1_dependency_injection" kind="namespace"><name>Ocelot::DependencyInjection</name>
+  </compound>
+  <compound refid="namespace_ocelot_1_1_middleware" kind="namespace"><name>Ocelot::Middleware</name>
+  </compound>
+  <compound refid="namespacestatic" kind="namespace"><name>static</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="_info_controller_8cs" kind="file"><name>InfoController.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs" kind="file"><name>.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</name>
+  </compound>
+  <compound refid="_debug_2netcoreapp3_81_2_d_a_o___api_gateway_8_assembly_info_8cs" kind="file"><name>DAO_ApiGateway.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_release_2netcoreapp3_81_2_d_a_o___api_gateway_8_assembly_info_8cs" kind="file"><name>DAO_ApiGateway.AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_d_a_o___api_gateway_8_mvc_application_parts_assembly_info_8cs" kind="file"><name>DAO_ApiGateway.MvcApplicationPartsAssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_startup_8cs" kind="file"><name>Startup.cs</name>
+  </compound>
+  <compound refid="dir_f8d77249188d4c473f150ac6d3e24904" kind="dir"><name>DAO_ApiGateway/Controllers</name>
+  </compound>
+  <compound refid="dir_3e77a0d3815f3bc33c8108e6f2ace698" kind="dir"><name>DAO_ApiGateway</name>
+  </compound>
+  <compound refid="dir_52cb427c33df498233bc82fe528531b2" kind="dir"><name>DAO_ApiGateway/obj/Debug</name>
+  </compound>
+  <compound refid="dir_4965f5e6365a6c865d7a3144b6ea153f" kind="dir"><name>DAO_ApiGateway/obj/Debug/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_b9786821a605f18a4a917c5997d21a1a" kind="dir"><name>DAO_ApiGateway/obj/Release/netcoreapp3.1</name>
+  </compound>
+  <compound refid="dir_85f5b3859a0971057def2343981f225b" kind="dir"><name>DAO_ApiGateway/obj</name>
+  </compound>
+  <compound refid="dir_b3de9706620472af0fbd450e9441dbfa" kind="dir"><name>DAO_ApiGateway/obj/Release</name>
+  </compound>
+</doxygenindex>

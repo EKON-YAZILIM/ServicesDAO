@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_helpers_1_1_constants_1_1_enums" kind="namespace" language="C#">
+    <compoundname>Helpers::Constants::Enums</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_ApiGateway/Startup.cs" line="23" column="36"/>
+  </compounddef>
+</doxygen>

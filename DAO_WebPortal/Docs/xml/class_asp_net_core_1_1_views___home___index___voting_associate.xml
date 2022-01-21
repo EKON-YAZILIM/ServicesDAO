@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___index___voting_associate" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_Index_VotingAssociate</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.DashBoardViewModelVA &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a45a89043865d29ac3aa4cbcfba8c4110" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="33" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1adb500e49da6e52b7d8bb252eabbd1b44" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_JobTablePartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="34" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a88fb0c0679031cb98d01672b8171be92" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="37" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1aff8005c9cbe618bb135b7b6033688349" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="39" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a9dd82d6ab28da8915d7decaec9da0f8e" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="41" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1ac00841b58be1a29c5f2d8c8103cf205c" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Index_VotingAssociate.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="43" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a5d0b1d03c20586fa164ef8762179a35e" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_Home_Index_VotingAssociate.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="55" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___index___voting_associate_1ada4ada1348dc861f20aed451873adaa0" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="44" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="45" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a7443b1a34b64cc22f3b6032b95cf4e26" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_Index_VotingAssociate.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="652" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="652" bodyend="652"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a319f0356c80416b8007651ddb6dfdcc8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_Index_VotingAssociate.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="654" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="654" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___index___voting_associate_1ad33543487788e407bc0a946f3f026c5e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_Index_VotingAssociate.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="656" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="656" bodyend="656"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a0af095cc5ff3af5dedc8c5fa74f02376" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_Index_VotingAssociate.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="658" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="658" bodyend="658"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___index___voting_associate_1a3844eea25cb02c04c584f6da3127d9a1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.DashBoardViewModelVA &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.DashBoardViewModelVA&gt; AspNetCore.Views_Home_Index_VotingAssociate.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="660" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="660" bodyend="660"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___index___voting_associate_1aa7bed3cae95834aa1609648947be673a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_Index_VotingAssociate.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_Index_VotingAssociate.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="57" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="57" bodyend="649"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Index_VotingAssociate</label>
+        <link refid="class_asp_net_core_1_1_views___home___index___voting_associate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.DashBoardViewModelVA &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Index_VotingAssociate</label>
+        <link refid="class_asp_net_core_1_1_views___home___index___voting_associate"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.DashBoardViewModelVA &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" line="31" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index_VotingAssociate.cshtml.g.cs" bodystart="32" bodyend="661"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1ac00841b58be1a29c5f2d8c8103cf205c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a5d0b1d03c20586fa164ef8762179a35e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a45a89043865d29ac3aa4cbcfba8c4110" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1adb500e49da6e52b7d8bb252eabbd1b44" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a88fb0c0679031cb98d01672b8171be92" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1aff8005c9cbe618bb135b7b6033688349" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1ada4ada1348dc861f20aed451873adaa0" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a9dd82d6ab28da8915d7decaec9da0f8e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1ad33543487788e407bc0a946f3f026c5e" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1aa7bed3cae95834aa1609648947be673a" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a3844eea25cb02c04c584f6da3127d9a1" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a0af095cc5ff3af5dedc8c5fa74f02376" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a7443b1a34b64cc22f3b6032b95cf4e26" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___index___voting_associate_1a319f0356c80416b8007651ddb6dfdcc8" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Index_VotingAssociate</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

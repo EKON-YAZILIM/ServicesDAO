@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_startup" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Startup</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_startup_1a7406b53ecba0e8d06f96582cc4fc07fd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IConfiguration</type>
+        <definition>IConfiguration DAO_WebPortal.Startup.Configuration</definition>
+        <argsstring></argsstring>
+        <name>Configuration</name>
+        <qualifiedname>DAO_WebPortal.Startup.Configuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="160" column="31" bodyfile="DAO_WebPortal/Startup.cs" bodystart="160" bodyend="160"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_startup_1a9f2aa9b6e102ca697207bdabec8d49b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_WebPortal.Startup.Startup</definition>
+        <argsstring>(IConfiguration configuration, IWebHostEnvironment env)</argsstring>
+        <name>Startup</name>
+        <qualifiedname>DAO_WebPortal.Startup.Startup</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="28" column="16" bodyfile="DAO_WebPortal/Startup.cs" bodystart="28" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_startup_1a24a8f8cb78c1b9794c45988cacd97856" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_WebPortal.Startup.ConfigureServices</definition>
+        <argsstring>(IServiceCollection services)</argsstring>
+        <name>ConfigureServices</name>
+        <qualifiedname>DAO_WebPortal.Startup.ConfigureServices</qualifiedname>
+        <param>
+          <type>IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="163" column="21" bodyfile="DAO_WebPortal/Startup.cs" bodystart="163" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_startup_1a4b0e549f7bcf53adc78d132d1f3c62dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_WebPortal.Startup.Configure</definition>
+        <argsstring>(IApplicationBuilder app, IWebHostEnvironment env)</argsstring>
+        <name>Configure</name>
+        <qualifiedname>DAO_WebPortal.Startup.Configure</qualifiedname>
+        <param>
+          <type>IApplicationBuilder</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="213" column="21" bodyfile="DAO_WebPortal/Startup.cs" bodystart="213" bodyend="249"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_startup_1a9aae1b4505472ae3974d87d2bf296fb6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_WebPortal.Startup.LoadConfig</definition>
+        <argsstring>(IConfiguration configuration)</argsstring>
+        <name>LoadConfig</name>
+        <qualifiedname>DAO_WebPortal.Startup.LoadConfig</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Loads application config from appsettings.json </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="47" column="28" bodyfile="DAO_WebPortal/Startup.cs" bodystart="47" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_startup_1addcbe37c00dee5c0652e7adb5c48089e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_WebPortal.Startup.InitializeService</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeService</name>
+        <qualifiedname>DAO_WebPortal.Startup.InitializeService</qualifiedname>
+        <briefdescription>
+<para>Initializes application (Db migrations, connection check, timer construction) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="59" column="28" bodyfile="DAO_WebPortal/Startup.cs" bodystart="59" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_startup_1aec088d55e026b6c069c6fb740eed03ac" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_WebPortal.Startup.LoadDaoSettings</definition>
+        <argsstring>()</argsstring>
+        <name>LoadDaoSettings</name>
+        <qualifiedname>DAO_WebPortal.Startup.LoadDaoSettings</qualifiedname>
+        <briefdescription>
+<para>Loads platform settings from db if exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Startup.cs" line="84" column="28" bodyfile="DAO_WebPortal/Startup.cs" bodystart="84" bodyend="158"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Startup.cs" line="26" column="11" bodyfile="DAO_WebPortal/Startup.cs" bodystart="27" bodyend="250"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1a7406b53ecba0e8d06f96582cc4fc07fd" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>Configuration</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1a4b0e549f7bcf53adc78d132d1f3c62dd" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>Configure</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1a24a8f8cb78c1b9794c45988cacd97856" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>ConfigureServices</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1addcbe37c00dee5c0652e7adb5c48089e" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>InitializeService</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1a9aae1b4505472ae3974d87d2bf296fb6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>LoadConfig</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1aec088d55e026b6c069c6fb740eed03ac" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>LoadDaoSettings</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_startup_1a9f2aa9b6e102ca697207bdabec8d49b0" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Startup</scope><name>Startup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

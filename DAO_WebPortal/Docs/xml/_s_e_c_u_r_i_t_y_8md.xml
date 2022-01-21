@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_s_e_c_u_r_i_t_y_8md" kind="file" language="Markdown">
+    <compoundname>SECURITY.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Reporting<sp/>a<sp/>security<sp/>issues</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>believe<sp/>you<sp/>have<sp/>found<sp/>a<sp/>security<sp/>issue<sp/>in<sp/>the<sp/>CKEditor<sp/>4<sp/>software,<sp/>please<sp/>contact<sp/>us<sp/>immediately.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>reporting<sp/>a<sp/>potential<sp/>security<sp/>problem,<sp/>please<sp/>bear<sp/>this<sp/>in<sp/>mind:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Make<sp/>sure<sp/>to<sp/>provide<sp/>as<sp/>many<sp/>details<sp/>as<sp/>possible<sp/>about<sp/>the<sp/>vulnerability.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Please<sp/>do<sp/>not<sp/>disclose<sp/>publicly<sp/>any<sp/>security<sp/>issues<sp/>until<sp/>we<sp/>fix<sp/>them<sp/>and<sp/>publish<sp/>security<sp/>releases.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Contact<sp/>the<sp/>security<sp/>team<sp/>at<sp/>security@cksource.com.<sp/>As<sp/>soon<sp/>as<sp/>we<sp/>receive<sp/>the<sp/>security<sp/>report,<sp/>we<sp/>will<sp/>work<sp/>promptly<sp/>to<sp/>confirm<sp/>the<sp/>issue<sp/>and<sp/>then<sp/>to<sp/>provide<sp/>a<sp/>security<sp/>fix.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/SECURITY.md"/>
+  </compounddef>
+</doxygen>

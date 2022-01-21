@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_lisa_readme" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_skins_moono_lisa_readme</compoundname>
+    <title>&quot;Moono-lisa&quot; Skin</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This skin has been made a <bold>default skin</bold> starting from CKEditor 4.6.0 and is maintained by the core developers.</para>
+<para>For more information about skins, please check the <ulink url="https://ckeditor.com/docs/ckeditor4/latest/guide/skin_sdk_intro.html">CKEditor Skin SDK</ulink> documentation.</para>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_lisa_readme_1autotoc_md112">
+<title>Features</title>
+<para>&quot;Moono-lisa&quot; is a monochromatic skin, which offers a modern, flat and minimalistic look which blends very well in modern design. It comes with the following features:</para>
+<para><itemizedlist>
+<listitem><para>Chameleon feature with brightness.</para>
+</listitem><listitem><para>High-contrast compatibility.</para>
+</listitem><listitem><para>Graphics source provided in SVG.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_lisa_readme_1autotoc_md113">
+<title>Directory Structure</title>
+<para>CSS parts:<itemizedlist>
+<listitem><para><bold>editor.css</bold>: the main CSS file. It&apos;s simply loading several other files, for easier maintenance,</para>
+</listitem><listitem><para><bold>mainui.css</bold>: the file contains styles of entire editor outline structures,</para>
+</listitem><listitem><para><bold>toolbar.css</bold>: the file contains styles of the editor toolbar space (top),</para>
+</listitem><listitem><para><bold>richcombo.css</bold>: the file contains styles of the rich combo ui elements on toolbar,</para>
+</listitem><listitem><para><bold>panel.css</bold>: the file contains styles of the rich combo drop-down, it&apos;s not loaded until the first panel open up,</para>
+</listitem><listitem><para><bold>elementspath.css</bold>: the file contains styles of the editor elements path bar (bottom),</para>
+</listitem><listitem><para><bold>menu.css</bold>: the file contains styles of all editor menus including context menu and button drop-down, it&apos;s not loaded until the first menu open up,</para>
+</listitem><listitem><para><bold>dialog.css</bold>: the CSS files for the dialog UI, it&apos;s not loaded until the first dialog open,</para>
+</listitem><listitem><para><bold>reset.css</bold>: the file defines the basis of style resets among all editor UI spaces,</para>
+</listitem><listitem><para><bold>preset.css</bold>: the file defines the default styles of some UI elements reflecting the skin preference,</para>
+</listitem><listitem><para><bold>editor_XYZ.css</bold> and <bold>dialog_XYZ.css</bold>: browser specific CSS hacks.</para>
+</listitem></itemizedlist>
+</para>
+<para>Other parts:<itemizedlist>
+<listitem><para><bold>skin.js</bold>: the only JavaScript part of the skin that registers the skin, its browser specific files and its icons and defines the Chameleon feature,</para>
+</listitem><listitem><para><bold>images/</bold>: contains a fill general used images,</para>
+</listitem><listitem><para><bold>dev/</bold>: contains SVG and PNG source of the skin icons.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_lisa_readme_1autotoc_md114">
+<title>License</title>
+<para>Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.</para>
+<para>For licensing, see LICENSE.md or <ulink url="https://ckeditor.com/legal/ckeditor-oss-license">https://ckeditor.com/legal/ckeditor-oss-license</ulink> </para>
+</sect1>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins/moono-lisa/readme.md"/>
+  </compounddef>
+</doxygen>

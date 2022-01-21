@@ -14,10 +14,17 @@ using PagedList.Core;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    /// PlatformSettingController contains platform setting operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class PlatformSettingController : Controller
     {
+        /// <summary>
+        /// Get Platform setting List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<PlatformSettingDto> Get()
@@ -40,6 +47,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<PlatformSetting>, List<PlatformSettingDto>>(model).ToArray();
         }
 
+        /// <summary>
+        ///  Get Platform setting by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public PlatformSettingDto GetId(int id)
@@ -62,6 +74,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<PlatformSetting, PlatformSettingDto>(model);
         }
 
+        /// <summary>
+        /// Saves platform setting model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public PlatformSettingDto Post([FromBody] PlatformSettingDto model)
@@ -83,6 +100,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves platform settings list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<PlatformSettingDto> PostMultiple([FromBody] List<PlatformSettingDto> model)
@@ -104,6 +126,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes platform setting by id
+        /// Ends platform setting
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,6 +153,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Update Platform setting using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public PlatformSettingDto Update([FromBody] PlatformSettingDto model)
@@ -146,6 +179,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the platform setting pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<PlatformSettingDto> GetPaged(int page = 1, int pageCount = 30)
@@ -175,13 +215,16 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// get latest setting
+        /// </summary>
+        /// <returns></returns>
         [Route("GetLatestSetting")]
         [HttpGet]
         public PlatformSettingDto GetLatestSetting()
         {
             try
             {
-
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
                     if (db.PlatformSettings.Count() > 0)

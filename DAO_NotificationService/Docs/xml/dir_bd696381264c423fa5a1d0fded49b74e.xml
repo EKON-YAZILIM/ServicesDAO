@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_bd696381264c423fa5a1d0fded49b74e" kind="dir">
+    <compoundname>DAO_NotificationService/Controllers</compoundname>
+    <innerfile refid="_info_controller_8cs">InfoController.cs</innerfile>
+    <innerfile refid="_notification_controller_8cs">NotificationController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/Controllers/"/>
+  </compounddef>
+</doxygen>

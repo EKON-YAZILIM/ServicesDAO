@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="notificationsasync_8md" kind="file" language="Markdown">
+    <compoundname>notificationsasync.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">@bender-tags:<sp/>exportpdf,<sp/>feature,<sp/>4</highlight></codeline>
+<codeline><highlight class="normal">@bender-ui:<sp/>collapsed</highlight></codeline>
+<codeline><highlight class="normal">@bender-include:<sp/>../_helpers/tools.js</highlight></codeline>
+<codeline><highlight class="normal">@bender-ckeditor-plugins:<sp/>wysiwygarea,<sp/>toolbar,<sp/>basicstyles,<sp/>notification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>(the<sp/>one<sp/>next<sp/>to<sp/>the<sp/>`Source`<sp/>button)<sp/>in<sp/>the<sp/>first<sp/>editor.</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Watch<sp/>appearing<sp/>notifications.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notification<sp/>`Processing<sp/>PDF<sp/>document...`<sp/>was<sp/>visible<sp/>for<sp/>about<sp/>2<sp/>seconds.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Progress<sp/>steps<sp/>were:<sp/>`0`,<sp/>`0.5`,<sp/>`success`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Notification<sp/>disappeared<sp/>too<sp/>fast<sp/>to<sp/>be<sp/>noticable.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Do<sp/>the<sp/>same<sp/>in<sp/>the<sp/>second<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notification<sp/>`Processing<sp/>PDF<sp/>document...`<sp/>was<sp/>visible<sp/>for<sp/>about<sp/>2<sp/>seconds.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Progress<sp/>steps<sp/>were:<sp/>`0.2`,<sp/>`0.5`,<sp/>`success`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Notification<sp/>disappeared<sp/>too<sp/>fast<sp/>to<sp/>be<sp/>noticable.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/notificationsasync.md"/>
+  </compounddef>
+</doxygen>

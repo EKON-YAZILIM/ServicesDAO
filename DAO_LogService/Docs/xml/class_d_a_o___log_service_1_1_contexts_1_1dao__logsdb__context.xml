@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Contexts::dao_logsdb_context</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">DbContext</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1a1c9a42e60d67e3d8c6b8143c0efd1620" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___log_service_1_1_models_1_1_application_log" kindref="compound">ApplicationLog</ref> &gt;</type>
+        <definition>DbSet&lt;ApplicationLog&gt; DAO_LogService.Contexts.dao_logsdb_context.ApplicationLogs</definition>
+        <argsstring></argsstring>
+        <name>ApplicationLogs</name>
+        <qualifiedname>DAO_LogService.Contexts.dao_logsdb_context.ApplicationLogs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="25" column="22" bodyfile="DAO_LogService/Contexts/dao_logsdb_context.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1afafb49ee1d9a6d4567e63eff465e7950" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___log_service_1_1_models_1_1_error_log" kindref="compound">ErrorLog</ref> &gt;</type>
+        <definition>DbSet&lt;ErrorLog&gt; DAO_LogService.Contexts.dao_logsdb_context.ErrorLogs</definition>
+        <argsstring></argsstring>
+        <name>ErrorLogs</name>
+        <qualifiedname>DAO_LogService.Contexts.dao_logsdb_context.ErrorLogs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="26" column="22" bodyfile="DAO_LogService/Contexts/dao_logsdb_context.cs" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1a83db30eeb151b8e0560d998f90266c0c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DbSet&lt; <ref refid="class_d_a_o___log_service_1_1_models_1_1_user_log" kindref="compound">UserLog</ref> &gt;</type>
+        <definition>DbSet&lt;UserLog&gt; DAO_LogService.Contexts.dao_logsdb_context.UserLogs</definition>
+        <argsstring></argsstring>
+        <name>UserLogs</name>
+        <qualifiedname>DAO_LogService.Contexts.dao_logsdb_context.UserLogs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="27" column="22" bodyfile="DAO_LogService/Contexts/dao_logsdb_context.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1ae51ed9f377d6609d992f54db4edcf11e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_LogService.Contexts.dao_logsdb_context.dao_logsdb_context</definition>
+        <argsstring>()</argsstring>
+        <name>dao_logsdb_context</name>
+        <qualifiedname>DAO_LogService.Contexts.dao_logsdb_context.dao_logsdb_context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="12" column="16" bodyfile="DAO_LogService/Contexts/dao_logsdb_context.cs" bodystart="12" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1ad685974afb56f618a1ac1f8d20156a45" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_LogService.Contexts.dao_logsdb_context.OnConfiguring</definition>
+        <argsstring>(DbContextOptionsBuilder optionsBuilder)</argsstring>
+        <name>OnConfiguring</name>
+        <qualifiedname>DAO_LogService.Contexts.dao_logsdb_context.OnConfiguring</qualifiedname>
+        <param>
+          <type>DbContextOptionsBuilder</type>
+          <declname>optionsBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="17" column="33" bodyfile="DAO_LogService/Contexts/dao_logsdb_context.cs" bodystart="17" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_LogService.Contexts.dao_logsdb_context</label>
+        <link refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DbContext</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_LogService.Contexts.dao_logsdb_context</label>
+        <link refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DbContext</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="10" column="11" bodyfile="DAO_LogService/Contexts/dao_logsdb_context.cs" bodystart="11" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1a1c9a42e60d67e3d8c6b8143c0efd1620" prot="public" virt="non-virtual"><scope>DAO_LogService::Contexts::dao_logsdb_context</scope><name>ApplicationLogs</name></member>
+      <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1ae51ed9f377d6609d992f54db4edcf11e" prot="public" virt="non-virtual"><scope>DAO_LogService::Contexts::dao_logsdb_context</scope><name>dao_logsdb_context</name></member>
+      <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1afafb49ee1d9a6d4567e63eff465e7950" prot="public" virt="non-virtual"><scope>DAO_LogService::Contexts::dao_logsdb_context</scope><name>ErrorLogs</name></member>
+      <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1ad685974afb56f618a1ac1f8d20156a45" prot="protected" virt="non-virtual"><scope>DAO_LogService::Contexts::dao_logsdb_context</scope><name>OnConfiguring</name></member>
+      <member refid="class_d_a_o___log_service_1_1_contexts_1_1dao__logsdb__context_1a83db30eeb151b8e0560d998f90266c0c" prot="public" virt="non-virtual"><scope>DAO_LogService::Contexts::dao_logsdb_context</scope><name>UserLogs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

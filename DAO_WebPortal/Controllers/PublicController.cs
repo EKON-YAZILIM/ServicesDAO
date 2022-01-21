@@ -565,6 +565,10 @@ namespace DAO_WebPortal.Controllers
             return Json("");
         }
 
+        /// <summary>
+        /// KYC call back function
+        /// </summary>
+        /// <param name="Response"></param>
         [HttpPost("KycCallBack", Name = "KycCallBack")]
         public SimpleResponse KycCallBack([FromBody] KYCCallBack Response)
         {
@@ -582,7 +586,5 @@ namespace DAO_WebPortal.Controllers
 
             return model;
         }
-
-
     }
 }

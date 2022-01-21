@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_ead65c8ed650e462cacd3486ba55a708" kind="dir">
+    <compoundname>DAO_DbService/Models</compoundname>
+    <innerfile refid="_active_session_8cs">ActiveSession.cs</innerfile>
+    <innerfile refid="_auction_8cs">Auction.cs</innerfile>
+    <innerfile refid="_auction_bid_8cs">AuctionBid.cs</innerfile>
+    <innerfile refid="_job_post_8cs">JobPost.cs</innerfile>
+    <innerfile refid="_job_post_comment_8cs">JobPostComment.cs</innerfile>
+    <innerfile refid="_payment_history_8cs">PaymentHistory.cs</innerfile>
+    <innerfile refid="_platform_setting_8cs">PlatformSetting.cs</innerfile>
+    <innerfile refid="_user_8cs">User.cs</innerfile>
+    <innerfile refid="_user_comment_vote_8cs">UserCommentVote.cs</innerfile>
+    <innerfile refid="_user_k_y_c_8cs">UserKYC.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/"/>
+  </compounddef>
+</doxygen>

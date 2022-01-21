@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_CRDAO_Home_Vote_Detail</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.VoteDetailViewModel &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a11e0ea4511eac7d9fbf15f321d4c3173" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="54" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a01167c754e949b51c85ff123cb766b4c" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="57" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1aed47e9a6c5d692e168b25b3a17feac8d" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="59" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a5f5e50905787d6f775c98ab8aebcea94" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="61" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a078f484a95240f977a9839d215cf6ceb" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Home_Vote_Detail.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="63" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a010663a1e496506225834e8a05d515fd" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_CRDAO_Home_Vote_Detail.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="75" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1ae87262fb77f0fa51a94f847deb682915" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="64" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="65" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1adbe677f2455323992035ac4e88b99945" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_CRDAO_Home_Vote_Detail.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="623" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="623" bodyend="623"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a415ae731106496b926b04ba7acfff1b0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_CRDAO_Home_Vote_Detail.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="625" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="625" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a9a0c9d28fc9f26ae6a574330b223ba4b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_CRDAO_Home_Vote_Detail.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="627" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="627" bodyend="627"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a14383de520ebbbe546f806532747188d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_CRDAO_Home_Vote_Detail.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="629" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="629" bodyend="629"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a3852271445d178ae8f88271d1c96d5fc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_CRDAO_Home_Vote_Detail.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="631" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="631" bodyend="631"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1afa2a4b4727f900b2ae03bc1f8e9e4aa7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.VoteDetailViewModel &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.VoteDetailViewModel&gt; AspNetCore.Views_CRDAO_Home_Vote_Detail.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="633" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="633" bodyend="633"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1ab3eb2c2c679d3f7782eb9741d9fae804" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_CRDAO_Home_Vote_Detail.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Vote_Detail.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="77" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="77" bodyend="620"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Home_Vote_Detail</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.VoteDetailViewModel &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Home_Vote_Detail</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.VoteDetailViewModel &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" line="52" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Vote_Detail.cshtml.g.cs" bodystart="53" bodyend="634"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a078f484a95240f977a9839d215cf6ceb" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a010663a1e496506225834e8a05d515fd" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a11e0ea4511eac7d9fbf15f321d4c3173" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a01167c754e949b51c85ff123cb766b4c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1aed47e9a6c5d692e168b25b3a17feac8d" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1ae87262fb77f0fa51a94f847deb682915" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a5f5e50905787d6f775c98ab8aebcea94" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a14383de520ebbbe546f806532747188d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1ab3eb2c2c679d3f7782eb9741d9fae804" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1afa2a4b4727f900b2ae03bc1f8e9e4aa7" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1adbe677f2455323992035ac4e88b99945" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a3852271445d178ae8f88271d1c96d5fc" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a415ae731106496b926b04ba7acfff1b0" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail_1a9a0c9d28fc9f26ae6a574330b223ba4b" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Vote_Detail</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="notifications_8md" kind="file" language="Markdown">
+    <compoundname>notifications.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">@bender-tags:<sp/>exportpdf,<sp/>feature,<sp/>4</highlight></codeline>
+<codeline><highlight class="normal">@bender-ui:<sp/>collapsed</highlight></codeline>
+<codeline><highlight class="normal">@bender-include:<sp/>../_helpers/tools.js</highlight></codeline>
+<codeline><highlight class="normal">@bender-ckeditor-plugins:<sp/>wysiwygarea,<sp/>toolbar,<sp/>notification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Read<sp/>the<sp/>expected<sp/>results<sp/>first<sp/>as<sp/>there<sp/>will<sp/>be<sp/>a<sp/>sequence<sp/>of<sp/>things<sp/>happening<sp/>quickly<sp/>to<sp/>examine.</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>in<sp/>the<sp/>first<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>is<sp/>disabled<sp/>after<sp/>click.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Nofitication<sp/>bar<sp/>of<sp/>`info`<sp/>type<sp/>appeared.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>When<sp/>download<sp/>started,<sp/>notification<sp/>type<sp/>changed<sp/>to<sp/>`success`.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Once<sp/>download<sp/>finished,<sp/>button<sp/>is<sp/>enabled<sp/>again.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>After<sp/>3<sp/>seconds<sp/>notification<sp/>bar<sp/>disappeared.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>wasn&apos;t<sp/>disabled.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>wasn&apos;t<sp/>enabled<sp/>after<sp/>download<sp/>started.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notifications<sp/>were<sp/>incorrect.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notification<sp/>bar<sp/>didn&apos;t<sp/>disappear.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>in<sp/>the<sp/>second<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Neither<sp/>notifications<sp/>nor<sp/>alerts<sp/>appeared.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>was<sp/>downloaded.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>was<sp/>disabled<sp/>for<sp/>the<sp/>time<sp/>between<sp/>click<sp/>and<sp/>download.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notification<sp/>or<sp/>browser<sp/>alert<sp/>appeared.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>wasn&apos;t<sp/>downloaded.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>wasn&apos;t<sp/>disabled<sp/>for<sp/>the<sp/>time<sp/>between<sp/>click<sp/>and<sp/>download.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/notifications.md"/>
+  </compounddef>
+</doxygen>

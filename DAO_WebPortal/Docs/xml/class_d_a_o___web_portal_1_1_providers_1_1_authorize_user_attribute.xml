@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Providers::AuthorizeUserAttribute</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ActionFilterAttribute</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute_1aff38ba5d3f71b3c9de255d17007144bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_WebPortal.Providers.AuthorizeUserAttribute.AuthorizeUserAttribute</definition>
+        <argsstring>()</argsstring>
+        <name>AuthorizeUserAttribute</name>
+        <qualifiedname>DAO_WebPortal.Providers.AuthorizeUserAttribute.AuthorizeUserAttribute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Providers/AuthorizeUserAttribute.cs" line="10" column="16" bodyfile="DAO_WebPortal/Providers/AuthorizeUserAttribute.cs" bodystart="10" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute_1a57b362e71071ceda2884e2b6ca3e1382" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_WebPortal.Providers.AuthorizeUserAttribute.OnActionExecuting</definition>
+        <argsstring>(ActionExecutingContext context)</argsstring>
+        <name>OnActionExecuting</name>
+        <qualifiedname>DAO_WebPortal.Providers.AuthorizeUserAttribute.OnActionExecuting</qualifiedname>
+        <param>
+          <type>ActionExecutingContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Providers/AuthorizeUserAttribute.cs" line="14" column="30" bodyfile="DAO_WebPortal/Providers/AuthorizeUserAttribute.cs" bodystart="14" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ActionFilterAttribute</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Providers.AuthorizeUserAttribute</label>
+        <link refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ActionFilterAttribute</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Providers.AuthorizeUserAttribute</label>
+        <link refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/Providers/AuthorizeUserAttribute.cs" line="8" column="11" bodyfile="DAO_WebPortal/Providers/AuthorizeUserAttribute.cs" bodystart="9" bodyend="37"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute_1aff38ba5d3f71b3c9de255d17007144bf" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Providers::AuthorizeUserAttribute</scope><name>AuthorizeUserAttribute</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_providers_1_1_authorize_user_attribute_1a57b362e71071ceda2884e2b6ca3e1382" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Providers::AuthorizeUserAttribute</scope><name>OnActionExecuting</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

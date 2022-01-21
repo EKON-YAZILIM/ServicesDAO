@@ -16,10 +16,17 @@ using DAO_DbService.Contexts;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    /// AuctionController contains auctions operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class AuctionController : Controller
     {
+        /// <summary>
+        /// Get auction list
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<AuctionDto> Get()
@@ -42,6 +49,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<Auction>, List<AuctionDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get auction by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public AuctionDto GetId(int id)
@@ -64,6 +76,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<Auction, AuctionDto>(model);
         }
 
+        /// <summary>
+        /// Saves auction model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public AuctionDto Post([FromBody] AuctionDto model)
@@ -85,6 +102,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves auction list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<AuctionDto> PostMultiple([FromBody] List<AuctionDto> model)
@@ -106,6 +128,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes auction by id
+        /// Ends auctions
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -127,6 +155,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Update auctions
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public AuctionDto Update([FromBody] AuctionDto model)
@@ -148,6 +181,14 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the auction pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
+        /// 
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<AuctionDto> GetPaged(int page = 1, int pageCount = 30)
@@ -215,7 +256,9 @@ namespace DAO_DbService.Controllers
         ///  Returns list of Auctions in the database by status with pagination.
         ///  Returns all paginated records in the database if status parameter is null or empty.
         /// </summary>
-        /// <param name="status">Status of the Auction</param>
+        /// <param name="status"></param>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
         /// <returns>Auction List with pagination entity</returns>
         [Route("GetAuctionsByStatusPaged")]
         [HttpGet]
@@ -245,7 +288,11 @@ namespace DAO_DbService.Controllers
             return new PagedList<Auction>(null, 1, 1);
         }
 
-
+        /// <summary>
+        /// Get Auction by jobId
+        /// </summary>
+        /// <param name="jobid"></param>
+        /// <returns></returns>
         [Route("GetByJobId")]
         [HttpGet]
         public AuctionDto GetByJobId(int jobid)
@@ -256,7 +303,7 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    Auction ac = db.Auctions.OrderByDescending(x=>x.AuctionID).FirstOrDefault(x => x.JobID == jobid);
+                    Auction ac = db.Auctions.OrderByDescending(x => x.AuctionID).FirstOrDefault(x => x.JobID == jobid);
                     res = _mapper.Map<Auction, AuctionDto>(ac);
                 }
             }
@@ -268,7 +315,11 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bidId"></param>
+        /// <returns></returns>
         [Route("SetWinnerBid")]
         [HttpGet]
         public bool SetWinnerBid(int bidId)

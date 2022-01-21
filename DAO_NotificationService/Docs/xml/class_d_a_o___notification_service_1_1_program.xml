@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___notification_service_1_1_program" kind="class" language="C#" prot="public">
+    <compoundname>DAO_NotificationService::Program</compoundname>
+    <innerclass refid="class_d_a_o___notification_service_1_1_program_1_1_settings" prot="public">DAO_NotificationService::Program::Settings</innerclass>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1ab95198e9ba5de6d66f0fd5b68c9eba76" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_d_a_o___notification_service_1_1_program_1_1_settings" kindref="compound">Settings</ref></type>
+        <definition>Settings DAO_NotificationService.Program._settings</definition>
+        <argsstring></argsstring>
+        <name>_settings</name>
+        <qualifiedname>DAO_NotificationService.Program._settings</qualifiedname>
+        <initializer>= new <ref refid="class_d_a_o___notification_service_1_1_program_1_1_settings" kindref="compound">Settings</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="42" column="32" bodyfile="DAO_NotificationService/Program.cs" bodystart="42" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___notification_service_1_1_program_1ae5359576c4641d5322f71b556daabf4d" prot="public" static="yes" mutable="no">
+        <type>Helpers.RabbitMQ</type>
+        <definition>Helpers.RabbitMQ DAO_NotificationService.Program.rabbitMq</definition>
+        <argsstring></argsstring>
+        <name>rabbitMq</name>
+        <qualifiedname>DAO_NotificationService.Program.rabbitMq</qualifiedname>
+        <initializer>= new Helpers.RabbitMQ()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="43" column="39" bodyfile="DAO_NotificationService/Program.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___notification_service_1_1_program_1a491e3fa3e6c7f394718ece76ac02b34a" prot="public" static="yes" mutable="no">
+        <type>Monitizer</type>
+        <definition>Monitizer DAO_NotificationService.Program.monitizer</definition>
+        <argsstring></argsstring>
+        <name>monitizer</name>
+        <qualifiedname>DAO_NotificationService.Program.monitizer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="44" column="33" bodyfile="DAO_NotificationService/Program.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_program_1accc0d1e417fa016ccb05585ce91fc446" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_NotificationService.Program.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <qualifiedname>DAO_NotificationService.Program.Main</qualifiedname>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="46" column="28" bodyfile="DAO_NotificationService/Program.cs" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_program_1a901c4f9f037405ce248967b88c551023" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IHostBuilder</type>
+        <definition>static IHostBuilder DAO_NotificationService.Program.CreateHostBuilder</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>CreateHostBuilder</name>
+        <qualifiedname>DAO_NotificationService.Program.CreateHostBuilder</qualifiedname>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="51" column="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_NotificationService.Program</label>
+        <link refid="class_d_a_o___notification_service_1_1_program"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>monitizer</edgelabel>
+          <edgelabel>rabbitMq</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>static</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_NotificationService/Program.cs" line="13" column="11" bodyfile="DAO_NotificationService/Program.cs" bodystart="14" bodyend="57"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___notification_service_1_1_program_1ab95198e9ba5de6d66f0fd5b68c9eba76" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program</scope><name>_settings</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1a901c4f9f037405ce248967b88c551023" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program</scope><name>CreateHostBuilder</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1accc0d1e417fa016ccb05585ce91fc446" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program</scope><name>Main</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1a491e3fa3e6c7f394718ece76ac02b34a" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program</scope><name>monitizer</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1ae5359576c4641d5322f71b556daabf4d" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program</scope><name>rabbitMq</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

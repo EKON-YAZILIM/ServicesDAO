@@ -14,10 +14,17 @@ using static Helpers.Constants.Enums;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  JobPostController contains job post operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class JobPostController : Controller
     {
+        /// <summary>
+        /// Get JobPost List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<JobPostDto> Get()
@@ -40,6 +47,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<JobPost>, List<JobPostDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// returns a list of all job post by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [Route("JobPostSearch")]
         [HttpGet]
         public IEnumerable<JobPostDto> JobPostSearch(string query)
@@ -62,6 +74,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<JobPost>, List<JobPostDto>>(res).ToArray();
         }
 
+        /// <summary>
+        /// Get JobPost by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public JobPostDto GetId(int id)
@@ -84,6 +101,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<JobPost, JobPostDto>(model);
         }
 
+        /// <summary>
+        ///  Saves job post model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public JobPostDto Post([FromBody] JobPostDto model)
@@ -105,6 +127,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves job post list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<JobPostDto> PostMultiple([FromBody] List<JobPostDto> model)
@@ -126,6 +153,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes job post by id
+        /// Ends active sessions
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -146,7 +179,12 @@ namespace DAO_DbService.Controllers
                 return false;
             }
         }
-     
+
+        /// <summary>
+        ///  Update jobPost using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public JobPostDto Update([FromBody] JobPostDto model)
@@ -168,6 +206,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the jobPost pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<JobPostDto> GetPaged(int page = 1, int pageCount = 30)
@@ -196,7 +241,14 @@ namespace DAO_DbService.Controllers
 
             return res;
         }
-       
+
+        /// <summary>
+        /// returns a list containing desired amount of found job post by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<JobPostDto> Search(string query, int page = 1, int pageCount = 30)
@@ -223,6 +275,12 @@ namespace DAO_DbService.Controllers
 
         }
 
+        /// <summary>
+        /// Updates ChangeJobStatus by jobid and status
+        /// </summary>
+        /// <param name="jobid"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         [Route("ChangeJobStatus")]
         [HttpGet]
         public JobPostDto ChangeJobStatus(int jobid, JobStatusTypes status)
@@ -246,6 +304,11 @@ namespace DAO_DbService.Controllers
             return new JobPostDto();
         }
 
+        /// <summary>
+        /// gets jobPost List by userId
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [Route("GetByUserId")]
         [HttpGet]
         public List<JobPostDto> GetByUserId(int userid)

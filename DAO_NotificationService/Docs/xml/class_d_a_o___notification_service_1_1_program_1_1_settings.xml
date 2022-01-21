@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___notification_service_1_1_program_1_1_settings" kind="class" language="C#" prot="public">
+    <compoundname>DAO_NotificationService::Program::Settings</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1adadc0b41ac56f66a52ddd1259b3b5c8d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.DAOName</definition>
+        <argsstring></argsstring>
+        <name>DAOName</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.DAOName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="17" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a1f5c4784d1ebeb519012316d733c8b60" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.RabbitMQUrl</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUrl</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.RabbitMQUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="19" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a951a8871501376f70b54cb3640a67b93" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.RabbitMQUsername</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUsername</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.RabbitMQUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="20" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1af7b9ec3237a2d706f19e9153456e5708" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.RabbitMQPassword</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQPassword</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.RabbitMQPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="21" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1aaf3b073ef3ccc2cff84b27b0d0eb9914" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.Service_Db_Url</definition>
+        <argsstring></argsstring>
+        <name>Service_Db_Url</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.Service_Db_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="22" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a96f304470dd62eeeaa790119f0b9301c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.WebPortal_Url</definition>
+        <argsstring></argsstring>
+        <name>WebPortal_Url</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.WebPortal_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="23" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a3218228740654344244c645a009d891e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailChannel</definition>
+        <argsstring></argsstring>
+        <name>EmailChannel</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailChannel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="25" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1ad7f2b773bce56ecced1a94c14a6b1d80" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailAddress</definition>
+        <argsstring></argsstring>
+        <name>EmailAddress</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="28" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1aadf1b66a6098373b4259646037a71ae1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailDisplayName</definition>
+        <argsstring></argsstring>
+        <name>EmailDisplayName</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailDisplayName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="29" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a896ee774a870b5f03975ffbb99ab5518" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailPassword</definition>
+        <argsstring></argsstring>
+        <name>EmailPassword</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="30" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1adc6198802058b6e6755cd97a4b919e49" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailHost</definition>
+        <argsstring></argsstring>
+        <name>EmailHost</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="31" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a019b638918da835ecad192b272286bf3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailPort</definition>
+        <argsstring></argsstring>
+        <name>EmailPort</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="32" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a5786e8690432b2ada21eedc69b33ecad" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailSSL</definition>
+        <argsstring></argsstring>
+        <name>EmailSSL</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailSSL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="33" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1ac3fa2e976b86aa32b98456c7ba087762" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.EmailApiUrl</definition>
+        <argsstring></argsstring>
+        <name>EmailApiUrl</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.EmailApiUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="36" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_program_1_1_settings_1a83717f1ddf5850078ee5640ff8fe93a6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_NotificationService.Program.Settings.ContactEmail</definition>
+        <argsstring></argsstring>
+        <name>ContactEmail</name>
+        <qualifiedname>DAO_NotificationService.Program.Settings.ContactEmail</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Program.cs" line="39" column="27" bodyfile="DAO_NotificationService/Program.cs" bodystart="39" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/Program.cs" line="15" column="15" bodyfile="DAO_NotificationService/Program.cs" bodystart="16" bodyend="40"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a83717f1ddf5850078ee5640ff8fe93a6" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>ContactEmail</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1adadc0b41ac56f66a52ddd1259b3b5c8d" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>DAOName</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1ad7f2b773bce56ecced1a94c14a6b1d80" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailAddress</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1ac3fa2e976b86aa32b98456c7ba087762" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailApiUrl</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a3218228740654344244c645a009d891e" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailChannel</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1aadf1b66a6098373b4259646037a71ae1" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailDisplayName</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1adc6198802058b6e6755cd97a4b919e49" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailHost</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a896ee774a870b5f03975ffbb99ab5518" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailPassword</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a019b638918da835ecad192b272286bf3" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailPort</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a5786e8690432b2ada21eedc69b33ecad" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>EmailSSL</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1af7b9ec3237a2d706f19e9153456e5708" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>RabbitMQPassword</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a1f5c4784d1ebeb519012316d733c8b60" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>RabbitMQUrl</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a951a8871501376f70b54cb3640a67b93" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>RabbitMQUsername</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1aaf3b073ef3ccc2cff84b27b0d0eb9914" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>Service_Db_Url</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_program_1_1_settings_1a96f304470dd62eeeaa790119f0b9301c" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Program::Settings</scope><name>WebPortal_Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

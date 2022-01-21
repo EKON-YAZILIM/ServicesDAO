@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___shared_____job_card_partial" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Shared__JobCardPartial</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.JobPostViewModel &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1a07a0d19860f41612bb018e76ab0dcb29" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_Shared__JobCardPartial.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="1394" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="1394" bodyend="1394"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1a7b82f562c6d9502acb33362c2f5b8406" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Shared__JobCardPartial.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="1396" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="1396" bodyend="1396"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1ac9defd4c93efb06b3f5bb2a366b291f7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Shared__JobCardPartial.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="1398" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="1398" bodyend="1398"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1aa27189f6dfe065a33a7f161f6715c8b0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Shared__JobCardPartial.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="1400" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="1400" bodyend="1400"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1a334b4d35bd74fff3d0d88873dc7cf978" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Shared__JobCardPartial.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="1402" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="1402" bodyend="1402"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1aea5497d02ce99bc2fc13b93671c58dc3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.JobPostViewModel &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.JobPostViewModel&gt; AspNetCore.Views_Shared__JobCardPartial.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="1404" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="1404" bodyend="1404"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___shared_____job_card_partial_1a9b69e84fd67023426c6cd69f66e257b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Shared__JobCardPartial.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Shared__JobCardPartial.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="48" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="48" bodyend="1391"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Shared__JobCardPartial</label>
+        <link refid="class_asp_net_core_1_1_views___shared_____job_card_partial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.JobPostViewModel &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Shared__JobCardPartial</label>
+        <link refid="class_asp_net_core_1_1_views___shared_____job_card_partial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.JobPostViewModel &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" line="45" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_JobCardPartial.cshtml.g.cs" bodystart="46" bodyend="1405"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1aa27189f6dfe065a33a7f161f6715c8b0" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1a9b69e84fd67023426c6cd69f66e257b1" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1aea5497d02ce99bc2fc13b93671c58dc3" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1a07a0d19860f41612bb018e76ab0dcb29" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1a334b4d35bd74fff3d0d88873dc7cf978" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1a7b82f562c6d9502acb33362c2f5b8406" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____job_card_partial_1ac9defd4c93efb06b3f5bb2a366b291f7" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__JobCardPartial</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

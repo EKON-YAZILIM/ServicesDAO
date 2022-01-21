@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_3e77a0d3815f3bc33c8108e6f2ace698" kind="dir">
+    <compoundname>DAO_ApiGateway</compoundname>
+    <innerdir refid="dir_f8d77249188d4c473f150ac6d3e24904">DAO_ApiGateway/Controllers</innerdir>
+    <innerdir refid="dir_85f5b3859a0971057def2343981f225b">DAO_ApiGateway/obj</innerdir>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <innerfile refid="_startup_8cs">Startup.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_ApiGateway/"/>
+  </compounddef>
+</doxygen>

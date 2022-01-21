@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="emptyeditor_8md" kind="file" language="Markdown">
+    <compoundname>emptyeditor.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">@bender-tags:<sp/>exportpdf,<sp/>feature,<sp/>11</highlight></codeline>
+<codeline><highlight class="normal">@bender-ui:<sp/>collapsed</highlight></codeline>
+<codeline><highlight class="normal">@bender-include:<sp/>../_helpers/tools.js</highlight></codeline>
+<codeline><highlight class="normal">@bender-ckeditor-plugins:<sp/>wysiwygarea,<sp/>toolbar,<sp/>basicstyles,<sp/>notification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Note:**<sp/>At<sp/>the<sp/>beginning<sp/>open<sp/>the<sp/>console.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>(the<sp/>one<sp/>next<sp/>to<sp/>the<sp/>`Source`<sp/>button)<sp/>in<sp/>the<sp/>first<sp/>editor.</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Wait<sp/>for<sp/>the<sp/>file<sp/>to<sp/>download.</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Open<sp/>the<sp/>file.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Empty<sp/>file<sp/>was<sp/>downloaded.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>No<sp/>errors<sp/>in<sp/>console.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>wasn&apos;t<sp/>downloaded.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>was<sp/>downloaded<sp/>but<sp/>can&apos;t<sp/>be<sp/>opened.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Error<sp/>in<sp/>the<sp/>console<sp/>appeared.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>in<sp/>the<sp/>second<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>wasn&apos;t<sp/>downloaded.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>The<sp/>notification<sp/>with<sp/>error<sp/>appeared<sp/>in<sp/>the<sp/>editor.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>There<sp/>is<sp/>an<sp/>error<sp/>message<sp/>in<sp/>the<sp/>console.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>was<sp/>downloaded<sp/>and<sp/>can&apos;t<sp/>be<sp/>opened.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Success<sp/>notification<sp/>was<sp/>displayed.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/emptyeditor.md"/>
+  </compounddef>
+</doxygen>

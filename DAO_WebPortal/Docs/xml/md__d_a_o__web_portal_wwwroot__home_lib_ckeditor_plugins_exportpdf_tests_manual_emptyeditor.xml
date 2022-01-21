@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_emptyeditor" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_emptyeditor</compoundname>
+    <title>emptyeditor</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 11 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, basicstyles, notification</para>
+<para><bold>Note:</bold> At the beginning open the console.</para>
+<para><orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button (the one next to the <computeroutput>Source</computeroutput> button) in the first editor.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Wait for the file to download.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Open the file.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>Empty file was downloaded.</para>
+</listitem><listitem><para>No errors in console.</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold><itemizedlist>
+<listitem><para>File wasn&apos;t downloaded.</para>
+</listitem><listitem><para>File was downloaded but can&apos;t be opened.</para>
+</listitem><listitem><para>Error in the console appeared.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button in the second editor.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>File wasn&apos;t downloaded.</para>
+</listitem><listitem><para>The notification with error appeared in the editor.</para>
+</listitem><listitem><para>There is an error message in the console.</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold><itemizedlist>
+<listitem><para>File was downloaded and can&apos;t be opened.</para>
+</listitem><listitem><para>Success notification was displayed. </para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/emptyeditor.md"/>
+  </compounddef>
+</doxygen>

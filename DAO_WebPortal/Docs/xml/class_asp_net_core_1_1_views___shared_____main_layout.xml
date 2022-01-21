@@ -1,0 +1,1183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___shared_____main_layout" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Shared__MainLayout</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a5b6fbfa04fcf30b601ac22b103d82393" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;rel&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;apple-touch-icon&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="40" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ac53f624c2df6257f9abc86e0da585251" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;57x57&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="41" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a3fef724f268c73171f422edc106d191a" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_2</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_2</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_2</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-57x57.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="42" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a1cc332797ba4ee17309b33c9aa25288e" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_3</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_3</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_3</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;60x60&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="43" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a3ee760bafa343a9640e659eb99fcc6ab" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_4</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_4</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_4</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-60x60.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="44" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a1874b5a9bad4c01782bb51156a71e6b5" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_5</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_5</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_5</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;72x72&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="45" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a6f2f6c7ab0fe5554f4ca81d8c3185056" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_6</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_6</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_6</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-72x72.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="46" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a3e6537801ebfaa6b842c97ac3f4055e6" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_7</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_7</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_7</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;76x76&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="47" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ab1858a888cd330630057318761f658ef" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_8</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_8</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_8</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-76x76.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="48" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a65c2da333dbefa11e74b0fe298d4f88b" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_9</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_9</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_9</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;114x114&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="49" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aed6e4936e74e667035c75f8d32a7a55e" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_10</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_10</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_10</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-114x114.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="50" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1adbe188cae13245e619f1fef1381bd66a" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_11</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_11</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_11</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;120x120&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="51" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1af939f0862be31163a1c692b539bb1b4b" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_12</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_12</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_12</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-120x120.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="52" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aba29c0a70a636f0f13fbd9b33e5c943d" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_13</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_13</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_13</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;144x144&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="53" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ae52d5d918ee5acbbdd7b118a7d4a424c" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_14</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_14</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_14</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-144x144.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="54" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a1fb9f28c235affa59aa6839d7d68a294" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_15</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_15</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_15</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;152x152&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="55" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a60645efe159ca250edb1796a8a74d4f4" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_16</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_16</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_16</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-152x152.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="56" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a71f39ee0bc2459cb555643938f8e71ca" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_17</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_17</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_17</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;180x180&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="57" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a0e053451f43085cd6a3c0ec846fd90d6" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_18</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_18</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_18</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/apple-icon-180x180.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="58" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a92eb8032a0a2359080611705bbbe39c9" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_19</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_19</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_19</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;rel&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;icon&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="59" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a8e49e04b581137ddf1255e6e0fc75b88" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_20</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_20</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_20</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;type&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;image/png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="60" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a7cae3674c4271a409fb9bba21978a245" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_21</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_21</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_21</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;192x192&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="61" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a137b7e878d18a8fc47af520de050be71" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_22</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_22</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_22</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/android-icon-192x192.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="62" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a5689cdffbde8f3fa9c100904a1bf76a4" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_23</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_23</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_23</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;32x32&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="63" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ae903f00c8cef1421d643e42a3f75b869" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_24</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_24</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_24</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/favicon-32x32.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="64" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ac46a4d71e870f5ecff5833ca890d1040" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_25</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_25</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_25</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;96x96&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="65" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a723bb5216177a4f6b306d3326997d47e" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_26</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_26</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_26</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/favicon-96x96.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="66" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a618d5d14f56abdc97b61bcd28ab09f9b" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_27</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_27</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_27</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;sizes&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;16x16&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="67" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a1b148304d1c08921361adc72a9a69d70" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_28</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_28</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_28</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/favicon-16x16.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="68" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aec9cb42cbf5c855166adc6ddc4bdafd0" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_29</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_29</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_29</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;rel&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;manifest&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="69" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a5c527cbf52b55315003eb64ec4494af1" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_30</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_30</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_30</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/favicon/manifest.json&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="70" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aade96486828daa3f8c7393cdef59710a" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_31</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_31</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_31</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/css/style.css?v=1.0.0&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="71" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a8f51e837e358ed3084e91a515b817065" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_32</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_32</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_32</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;rel&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;stylesheet&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="72" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ac3d23bc8d09917f4c1ac49091f756d66" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_33</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_33</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_33</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/css/custom.css?v=1.0.2&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="73" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1affa037707e82954695e4dab75017a214" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_34</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_34</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_34</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/chartjs/css/coreui-chartjs.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="74" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1abf4b6122a2e24620b436f07df4c24cfc" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_35</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_35</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_35</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/toastr/toastr.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="75" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aa39488fbd52d37d113548f067d5bb320" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_36</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_36</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_36</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/font-awesome/fontawesome-all.min.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="76" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a482f9750329f3af4c057bcb39ee80f42" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_37</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_37</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_37</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/jquery-confirm/jquery-confirm.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="77" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a919629f5bc500b51e7545651e1d5e849" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_38</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_38</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_38</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/css/jquery.flipster.min.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="78" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a7cc0980ab91ff9e2e9edd58d5275a1f2" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_39</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_39</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_39</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Public/images/logo-light.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="79" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aca1e49ddf791a2a3012b75518cb82539" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_40</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_40</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_40</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;class&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;sidebar-brand-full&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="80" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aee1bcd864897fcb8ae538890608a8557" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_41</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_41</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_41</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;width&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;118&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="81" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ac5909f27f1048c3634001785ab082983" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_42</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_42</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_42</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;height&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;46&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="82" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a24d51b2d9bbe5dedb36073b878d52741" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_43</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_43</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_43</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;alt&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;Services DAO&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="83" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aba2b6013c4abfc595c8d9cd49e73043e" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_44</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_44</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_44</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Public/images/logo-single.png&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="84" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ad4e1179ed65eeaf3303d687c70983cac" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_45</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_45</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_45</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;class&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;sidebar-brand-narrow&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="85" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a5c8790822c9bc0623e8761bf63ceab8d" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_46</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_46</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_46</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;width&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;46&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="86" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a990d37da3d8a190c35bc4a27b5a6ee29" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_47</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_47</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_47</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/jquery/dist/jquery.min.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="87" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a5293183397d21f1955ebbd34dac23c26" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_48</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_48</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_48</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/js/coreui.bundle.min.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="88" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a7657c36dcef6fea56a5050cce7749a11" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_49</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_49</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_49</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/chartjs/js/coreui-chartjs.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="89" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a081de92f07c5e91b2ccd3fd0baec9c51" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_50</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_50</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_50</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/chartjs/js/chart.min.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="90" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1ab36cd351c11042ca83975dc3a7770709" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_51</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_51</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_51</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/chartjs/js/coreui-utils.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="91" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1aaa919c554405ec8355d5e77aa508881c" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_52</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_52</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_52</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/toastr/toastr.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="92" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a2775e00424e5a3c1aac83950cad83310" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_53</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_53</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_53</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/lib/jquery-confirm/jquery-confirm.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="93" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a3939bb745b2f3cb5a65e2f053da27590" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_54</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_54</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_54</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/js/jquery.flipster.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="94" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a44adb425452dcbfecd9c9067702e6bc9" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_55</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_55</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_55</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/js/daofunctions.js?v=1.0.1&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="95" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a1612f51166ebdabb983895059db8b598" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_56</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_56</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperAttribute_56</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/js/sorttable.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="96" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a848069e4f8802f40e6481e930a13db3f" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Shared__MainLayout.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="99" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a36e1914364ed5c306f84f3543e1dd048" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Shared__MainLayout.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="101" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a52e04a5c9b0ae3c40e97ac0684d1be42" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Shared__MainLayout.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="103" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a9477a6bf4983e6f37e69ca87d07f5d15" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Shared__MainLayout.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="105" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a58f397684aae9b792513473faf254d44" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper AspNetCore.Views_Shared__MainLayout.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="117" column="76" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a4c7bd4e82dd9425244ed8e2533b207d2" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper AspNetCore.Views_Shared__MainLayout.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="118" column="85" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___shared_____main_layout_1a4a460a405481f52cea3d2eeb925dd0b8" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper AspNetCore.Views_Shared__MainLayout.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="119" column="76" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1a09f901c634bda2092dd7f5a1575828e2" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Shared__MainLayout.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="106" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="107" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1af48245241c28986d8e451d65a5528871" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_Shared__MainLayout.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="1055" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="1055" bodyend="1055"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1a63fdd412b35265536664066370d6e2aa" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Shared__MainLayout.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="1057" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="1057" bodyend="1057"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1a795542f6d916e1c9db14283f361d6667" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Shared__MainLayout.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="1059" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="1059" bodyend="1059"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1a9cfb62804cac77355cf3905944c2403d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Shared__MainLayout.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="1061" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="1061" bodyend="1061"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1a703f9b310ac0f1605036ae6e16378594" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Shared__MainLayout.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="1063" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="1063" bodyend="1063"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____main_layout_1ac88db48fa589bb98d5b605f22e121f8e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views_Shared__MainLayout.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="1065" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="1065" bodyend="1065"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___shared_____main_layout_1a12eca0d7fb832c7bd6c356083c747790" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Shared__MainLayout.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Shared__MainLayout.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="121" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="121" bodyend="1052"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Shared__MainLayout</label>
+        <link refid="class_asp_net_core_1_1_views___shared_____main_layout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Shared__MainLayout</label>
+        <link refid="class_asp_net_core_1_1_views___shared_____main_layout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" line="38" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_MainLayout.cshtml.g.cs" bodystart="39" bodyend="1066"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a9477a6bf4983e6f37e69ca87d07f5d15" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a4a460a405481f52cea3d2eeb925dd0b8" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a58f397684aae9b792513473faf254d44" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a4c7bd4e82dd9425244ed8e2533b207d2" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a5b6fbfa04fcf30b601ac22b103d82393" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ac53f624c2df6257f9abc86e0da585251" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aed6e4936e74e667035c75f8d32a7a55e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_10</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1adbe188cae13245e619f1fef1381bd66a" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_11</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1af939f0862be31163a1c692b539bb1b4b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_12</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aba29c0a70a636f0f13fbd9b33e5c943d" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_13</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ae52d5d918ee5acbbdd7b118a7d4a424c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_14</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a1fb9f28c235affa59aa6839d7d68a294" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_15</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a60645efe159ca250edb1796a8a74d4f4" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_16</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a71f39ee0bc2459cb555643938f8e71ca" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_17</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a0e053451f43085cd6a3c0ec846fd90d6" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_18</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a92eb8032a0a2359080611705bbbe39c9" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_19</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a3fef724f268c73171f422edc106d191a" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_2</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a8e49e04b581137ddf1255e6e0fc75b88" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_20</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a7cae3674c4271a409fb9bba21978a245" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_21</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a137b7e878d18a8fc47af520de050be71" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_22</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a5689cdffbde8f3fa9c100904a1bf76a4" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_23</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ae903f00c8cef1421d643e42a3f75b869" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_24</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ac46a4d71e870f5ecff5833ca890d1040" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_25</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a723bb5216177a4f6b306d3326997d47e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_26</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a618d5d14f56abdc97b61bcd28ab09f9b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_27</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a1b148304d1c08921361adc72a9a69d70" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_28</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aec9cb42cbf5c855166adc6ddc4bdafd0" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_29</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a1cc332797ba4ee17309b33c9aa25288e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_3</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a5c527cbf52b55315003eb64ec4494af1" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_30</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aade96486828daa3f8c7393cdef59710a" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_31</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a8f51e837e358ed3084e91a515b817065" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_32</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ac3d23bc8d09917f4c1ac49091f756d66" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_33</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1affa037707e82954695e4dab75017a214" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_34</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1abf4b6122a2e24620b436f07df4c24cfc" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_35</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aa39488fbd52d37d113548f067d5bb320" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_36</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a482f9750329f3af4c057bcb39ee80f42" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_37</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a919629f5bc500b51e7545651e1d5e849" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_38</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a7cc0980ab91ff9e2e9edd58d5275a1f2" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_39</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a3ee760bafa343a9640e659eb99fcc6ab" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_4</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aca1e49ddf791a2a3012b75518cb82539" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_40</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aee1bcd864897fcb8ae538890608a8557" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_41</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ac5909f27f1048c3634001785ab082983" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_42</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a24d51b2d9bbe5dedb36073b878d52741" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_43</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aba2b6013c4abfc595c8d9cd49e73043e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_44</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ad4e1179ed65eeaf3303d687c70983cac" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_45</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a5c8790822c9bc0623e8761bf63ceab8d" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_46</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a990d37da3d8a190c35bc4a27b5a6ee29" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_47</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a5293183397d21f1955ebbd34dac23c26" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_48</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a7657c36dcef6fea56a5050cce7749a11" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_49</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a1874b5a9bad4c01782bb51156a71e6b5" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_5</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a081de92f07c5e91b2ccd3fd0baec9c51" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_50</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ab36cd351c11042ca83975dc3a7770709" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_51</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1aaa919c554405ec8355d5e77aa508881c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_52</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a2775e00424e5a3c1aac83950cad83310" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_53</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a3939bb745b2f3cb5a65e2f053da27590" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_54</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a44adb425452dcbfecd9c9067702e6bc9" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_55</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a1612f51166ebdabb983895059db8b598" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_56</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a6f2f6c7ab0fe5554f4ca81d8c3185056" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_6</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a3e6537801ebfaa6b842c97ac3f4055e6" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_7</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ab1858a888cd330630057318761f658ef" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_8</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a65c2da333dbefa11e74b0fe298d4f88b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperAttribute_9</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a848069e4f8802f40e6481e930a13db3f" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a36e1914364ed5c306f84f3543e1dd048" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a09f901c634bda2092dd7f5a1575828e2" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a52e04a5c9b0ae3c40e97ac0684d1be42" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a9cfb62804cac77355cf3905944c2403d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a12eca0d7fb832c7bd6c356083c747790" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1ac88db48fa589bb98d5b605f22e121f8e" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1af48245241c28986d8e451d65a5528871" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a703f9b310ac0f1605036ae6e16378594" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a63fdd412b35265536664066370d6e2aa" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____main_layout_1a795542f6d916e1c9db14283f361d6667" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__MainLayout</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

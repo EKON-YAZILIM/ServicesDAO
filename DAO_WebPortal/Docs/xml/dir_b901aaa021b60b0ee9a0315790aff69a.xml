@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_b901aaa021b60b0ee9a0315790aff69a" kind="dir">
+    <compoundname>DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/integrations</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/integrations/"/>
+  </compounddef>
+</doxygen>

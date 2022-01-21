@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_utility_1_1_captcha" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Utility::Captcha</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1a9b95cedf563113a165cafd4775d436c9" prot="private" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string DAO_WebPortal.Utility.Captcha.Letters</definition>
+        <argsstring></argsstring>
+        <name>Letters</name>
+        <qualifiedname>DAO_WebPortal.Utility.Captcha.Letters</qualifiedname>
+        <initializer>= &quot;2346789ABCDEFGHJKLMNPRTUVWXYZ&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="19" column="22" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1a7e018c89649af006033abed233272a81" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_WebPortal.Utility.Captcha.GenerateCaptchaCode</definition>
+        <argsstring>()</argsstring>
+        <name>GenerateCaptchaCode</name>
+        <qualifiedname>DAO_WebPortal.Utility.Captcha.GenerateCaptchaCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="21" column="30" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="21" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1a1da700942701c9bda41ecb93a3c03899" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool DAO_WebPortal.Utility.Captcha.ValidateCaptchaCode</definition>
+        <argsstring>(string code, string userInputCaptcha, HttpContext context)</argsstring>
+        <name>ValidateCaptchaCode</name>
+        <qualifiedname>DAO_WebPortal.Utility.Captcha.ValidateCaptchaCode</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>userInputCaptcha</declname>
+        </param>
+        <param>
+          <type>HttpContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="37" column="28" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="37" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1ae6d411abc6b6f001cbc7ac01560bf354" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result" kindref="compound">CaptchaResult</ref></type>
+        <definition>static CaptchaResult DAO_WebPortal.Utility.Captcha.GenerateCaptchaImage</definition>
+        <argsstring>(int width, int height, string captchaCode)</argsstring>
+        <name>GenerateCaptchaImage</name>
+        <qualifiedname>DAO_WebPortal.Utility.Captcha.GenerateCaptchaImage</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>captchaCode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="55" column="37" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="55" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Captcha class for generating captcha control for public inputs </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Utility/Captcha.cs" line="17" column="19" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="18" bodyend="221"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1a7e018c89649af006033abed233272a81" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::Captcha</scope><name>GenerateCaptchaCode</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1ae6d411abc6b6f001cbc7ac01560bf354" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::Captcha</scope><name>GenerateCaptchaImage</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1a9b95cedf563113a165cafd4775d436c9" prot="private" virt="non-virtual"><scope>DAO_WebPortal::Utility::Captcha</scope><name>Letters</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_1a1da700942701c9bda41ecb93a3c03899" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::Captcha</scope><name>ValidateCaptchaCode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

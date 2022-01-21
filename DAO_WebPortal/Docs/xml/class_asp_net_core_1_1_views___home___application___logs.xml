@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___application___logs" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_Application_Logs</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; StaticPagedList&lt; Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto &gt; &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1a7ea133aaa2b7a80bd358a1e57657981e" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="47" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1a5e21cfdf70e4f6338bf949824b9e33db" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;class&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;pager-container&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="48" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1a9178e9d54a7dd4c1eaac892fe863dfc1" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_2</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_2</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_2</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;asp-action&quot;, &quot;Application-Logs&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="49" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1a9dbe4bd7d209e178127df36648eaf61c" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_3</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_3</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperAttribute_3</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;asp-controller&quot;, &quot;Home&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="50" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1aa1396d5fccb67b70977c2a1e2789cc77" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Home_Application_Logs.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="53" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1aa4a5e20ac88462af7810cba6d51e90da" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Home_Application_Logs.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="55" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1aad272a9a92db0044d41c21299c69d8ac" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Home_Application_Logs.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="57" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1a1ed835a49c8a52fd7eacd8976acfb13f" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Application_Logs.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="59" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1ac56809fadae7156492ed387335124a93" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_Home_Application_Logs.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="71" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___application___logs_1a34eda989967291f2cb481c55d9f17df1" prot="private" static="no" mutable="no">
+        <type>global::PagedList.Core.Mvc.PagerTagHelper</type>
+        <definition>global::PagedList.Core.Mvc.PagerTagHelper AspNetCore.Views_Home_Application_Logs.__PagedList_Core_Mvc_PagerTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__PagedList_Core_Mvc_PagerTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__PagedList_Core_Mvc_PagerTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="72" column="56" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___application___logs_1a5baaea6c2afaf3c1fb7029f0f65dae49" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_Application_Logs.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="60" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="61" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___application___logs_1a4fa1ae2a78eb45094fcf9d1eb98b866f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_Application_Logs.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.ModelExpressionProvider</qualifiedname>
+        <initializer>                &lt;div class=&quot;&quot;table-responsive h-500&quot;&quot;&gt;
+                    &lt;table class=&quot;&quot;table table-striped table-hover&quot;&quot;&gt;
+                        &lt;thead&gt;
+                            &lt;tr&gt;
+                                &lt;th width=&quot;&quot;20%&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Application&lt;/th&gt;
+                                &lt;th width=&quot;&quot;20%&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Date&lt;/th&gt;
+                                &lt;th width=&quot;&quot;20%&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Type&lt;/th&gt;
+                                &lt;th width=&quot;&quot;40%&quot;&quot; scope=&quot;&quot;col&quot;&quot;&gt;Explanation&lt;/th&gt;
+                            &lt;/tr&gt;
+                        &lt;/thead&gt;
+                        &lt;tbody&gt;
+&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="252" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="252" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___application___logs_1a502b8e435acf2d5739d995dd4a76a3dc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_Application_Logs.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="254" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="254" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___application___logs_1a2fa71709f30848845f78064cf0572ed9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_Application_Logs.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="256" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="256" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___application___logs_1a8b3a392a306a6069adebb1bd52652e9d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_Application_Logs.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="258" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___application___logs_1abe0a03f3b9aaf6fb0e65616d392511f9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; StaticPagedList&lt; Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto &gt; &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;StaticPagedList&lt;Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto&gt; &gt; AspNetCore.Views_Home_Application_Logs.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="260" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="260" bodyend="260"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___application___logs_1a6932b943bb66e7307995a2345f76ddb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_Application_Logs.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_Application_Logs.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="74" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="74" bodyend="249"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Application_Logs</label>
+        <link refid="class_asp_net_core_1_1_views___home___application___logs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; StaticPagedList&lt; Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto &gt; &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_Application_Logs</label>
+        <link refid="class_asp_net_core_1_1_views___home___application___logs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; StaticPagedList&lt; Helpers.Models.DtoModels.LogDbDto.ApplicationLogDto &gt; &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" line="45" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/Application_Logs.cshtml.g.cs" bodystart="46" bodyend="261"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a1ed835a49c8a52fd7eacd8976acfb13f" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1ac56809fadae7156492ed387335124a93" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a34eda989967291f2cb481c55d9f17df1" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__PagedList_Core_Mvc_PagerTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a7ea133aaa2b7a80bd358a1e57657981e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a5e21cfdf70e4f6338bf949824b9e33db" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a9178e9d54a7dd4c1eaac892fe863dfc1" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperAttribute_2</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a9dbe4bd7d209e178127df36648eaf61c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperAttribute_3</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1aa1396d5fccb67b70977c2a1e2789cc77" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1aa4a5e20ac88462af7810cba6d51e90da" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a5baaea6c2afaf3c1fb7029f0f65dae49" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1aad272a9a92db0044d41c21299c69d8ac" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a2fa71709f30848845f78064cf0572ed9" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a6932b943bb66e7307995a2345f76ddb5" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1abe0a03f3b9aaf6fb0e65616d392511f9" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a8b3a392a306a6069adebb1bd52652e9d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a4fa1ae2a78eb45094fcf9d1eb98b866f" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___application___logs_1a502b8e435acf2d5739d995dd4a76a3dc" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_Application_Logs</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

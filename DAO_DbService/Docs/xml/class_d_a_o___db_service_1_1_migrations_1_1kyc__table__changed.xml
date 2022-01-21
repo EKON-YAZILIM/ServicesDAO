@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::kyc_table_changed</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1afdd3d0d5e1e50fbd2c6c0dcf9dd6960c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.kyc_table_changed.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.kyc_table_changed.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211206120503_kyc_table_changed.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211206120503_kyc_table_changed.cs" bodystart="7" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1a983acb79abe42f4281be8ca6ada4e3c6" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.kyc_table_changed.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.kyc_table_changed.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211206120503_kyc_table_changed.cs" line="60" column="33" bodyfile="DAO_DbService/Migrations/20211206120503_kyc_table_changed.cs" bodystart="60" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1a925028e43f7d4c1a3a8bdd94670992c8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.kyc_table_changed.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.kyc_table_changed.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211206120503_kyc_table_changed.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211206120503_kyc_table_changed.Designer.cs" bodystart="15" bodyend="378"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.kyc_table_changed</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.kyc_table_changed</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211206120503_kyc_table_changed.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211206120503_kyc_table_changed.cs" bodystart="6" bodyend="94"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1a925028e43f7d4c1a3a8bdd94670992c8" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::kyc_table_changed</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1a983acb79abe42f4281be8ca6ada4e3c6" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::kyc_table_changed</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1kyc__table__changed_1afdd3d0d5e1e50fbd2c6c0dcf9dd6960c" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::kyc_table_changed</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Controllers::ActiveSessionController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a129c9712702d1023a89039105481a219" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; ActiveSessionDto &gt;</type>
+        <definition>IEnumerable&lt; ActiveSessionDto &gt; DAO_DbService.Controllers.ActiveSessionController.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.Get</qualifiedname>
+        <briefdescription>
+<para>Get Active Session List </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="30" column="28" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="30" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a742c0de8cf2430fa45a13a38d2ec889d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActiveSessionDto</type>
+        <definition>ActiveSessionDto DAO_DbService.Controllers.ActiveSessionController.GetId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.GetId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get active session by id </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="57" column="33" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="57" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a32d74b52c7a469074d4fc439fbf545f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActiveSessionDto</type>
+        <definition>ActiveSessionDto DAO_DbService.Controllers.ActiveSessionController.Post</definition>
+        <argsstring>([FromBody] ActiveSessionDto model)</argsstring>
+        <name>Post</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.Post</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>ActiveSessionDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves active session model using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="84" column="33" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="84" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a9537d3c022c84b7cb02007ed4b143c89" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; ActiveSessionDto &gt;</type>
+        <definition>List&lt; ActiveSessionDto &gt; DAO_DbService.Controllers.ActiveSessionController.PostMultiple</definition>
+        <argsstring>([FromBody] List&lt; ActiveSessionDto &gt; model)</argsstring>
+        <name>PostMultiple</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.PostMultiple</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>List&lt; ActiveSessionDto &gt;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves active session list using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="110" column="21" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="110" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a4f1a6712592534bb55a5d2aebfe04828" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.ActiveSessionController.Delete</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.Delete</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Removes active session by id Ends active sessions </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="137" column="21" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="137" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a2e03aeaf7c3b046b68a69d5917643396" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActiveSessionDto</type>
+        <definition>ActiveSessionDto DAO_DbService.Controllers.ActiveSessionController.Update</definition>
+        <argsstring>([FromBody] ActiveSessionDto model)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.Update</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>ActiveSessionDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Update active session </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="163" column="33" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="163" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a73d22d12223d73349cadcc107eaa3932" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaginationEntity&lt; ActiveSessionDto &gt;</type>
+        <definition>PaginationEntity&lt; ActiveSessionDto &gt; DAO_DbService.Controllers.ActiveSessionController.GetPaged</definition>
+        <argsstring>(int page=1, int pageCount=30)</argsstring>
+        <name>GetPaged</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.GetPaged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Brings up the active session pages. The selected page is fetched. Not all pages are returned </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>page</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageCount</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="191" column="33" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="191" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a07efe36cd50638c1b4065747992fb085" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActiveSessionDto</type>
+        <definition>ActiveSessionDto DAO_DbService.Controllers.ActiveSessionController.PostOrUpdate</definition>
+        <argsstring>([FromBody] ActiveSessionDto model)</argsstring>
+        <name>PostOrUpdate</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.PostOrUpdate</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>ActiveSessionDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>if active session count not equal zero by userId , Modified active session if not saves the active session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="226" column="33" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="226" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1aa0bd4f023c038d25987d8948995b28d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.ActiveSessionController.DeleteByUserId</definition>
+        <argsstring>(int userid)</argsstring>
+        <name>DeleteByUserId</name>
+        <qualifiedname>DAO_DbService.Controllers.ActiveSessionController.DeleteByUserId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>userid</declname>
+        </param>
+        <briefdescription>
+<para>Removes active session by userid </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>userid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="265" column="21" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="265" bodyend="285"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller" kindref="compound">ActiveSessionController</ref> contains active session operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.ActiveSessionController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.ActiveSessionController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Controllers/ActiveSessionController.cs" line="22" column="11" bodyfile="DAO_DbService/Controllers/ActiveSessionController.cs" bodystart="23" bodyend="287"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a4f1a6712592534bb55a5d2aebfe04828" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>Delete</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1aa0bd4f023c038d25987d8948995b28d7" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>DeleteByUserId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a129c9712702d1023a89039105481a219" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>Get</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a742c0de8cf2430fa45a13a38d2ec889d" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>GetId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a73d22d12223d73349cadcc107eaa3932" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>GetPaged</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a32d74b52c7a469074d4fc439fbf545f6" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>Post</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a9537d3c022c84b7cb02007ed4b143c89" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>PostMultiple</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a07efe36cd50638c1b4065747992fb085" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>PostOrUpdate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_active_session_controller_1a2e03aeaf7c3b046b68a69d5917643396" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::ActiveSessionController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

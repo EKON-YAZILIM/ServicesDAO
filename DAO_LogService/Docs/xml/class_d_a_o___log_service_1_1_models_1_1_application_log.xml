@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_models_1_1_application_log" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Models::ApplicationLog</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1ad4a52fe20636768b7e91a4b4c7baa728" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_LogService.Models.ApplicationLog.ApplicationLogID</definition>
+        <argsstring></argsstring>
+        <name>ApplicationLogID</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.ApplicationLogID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="12" column="20" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1abfddd3d9e3d621b8e1561c7b58265fec" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ApplicationLog.Application</definition>
+        <argsstring></argsstring>
+        <name>Application</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.Application</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="13" column="23" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1a0434785515c8bbc50d1154364eda85c6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ApplicationLog.Server</definition>
+        <argsstring></argsstring>
+        <name>Server</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.Server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="14" column="23" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1a83a2b0ab53f832b0f5b9bbfcddcf27c1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_LogService.Models.ApplicationLog.Date</definition>
+        <argsstring></argsstring>
+        <name>Date</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.Date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="15" column="25" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1afe01dc6b21be90b3a0fc2a33ed127a4f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ApplicationLog.IdFieldName</definition>
+        <argsstring></argsstring>
+        <name>IdFieldName</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.IdFieldName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="16" column="23" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1ac7ddfd80df5f980aae4b438fc8191be7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_LogService.Models.ApplicationLog.IdField</definition>
+        <argsstring></argsstring>
+        <name>IdField</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.IdField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="17" column="20" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1a9412122ed4c967376624d506cc1842e9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ApplicationLog.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="18" column="23" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_application_log_1a45fe71aadcf86d15e3997824059b610f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ApplicationLog.Explanation</definition>
+        <argsstring></argsstring>
+        <name>Explanation</name>
+        <qualifiedname>DAO_LogService.Models.ApplicationLog.Explanation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ApplicationLog.cs" line="19" column="23" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Models/ApplicationLog.cs" line="9" column="11" bodyfile="DAO_LogService/Models/ApplicationLog.cs" bodystart="10" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1abfddd3d9e3d621b8e1561c7b58265fec" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>Application</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1ad4a52fe20636768b7e91a4b4c7baa728" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>ApplicationLogID</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a83a2b0ab53f832b0f5b9bbfcddcf27c1" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>Date</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a45fe71aadcf86d15e3997824059b610f" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>Explanation</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1ac7ddfd80df5f980aae4b438fc8191be7" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>IdField</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1afe01dc6b21be90b3a0fc2a33ed127a4f" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>IdFieldName</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a0434785515c8bbc50d1154364eda85c6" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>Server</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_application_log_1a9412122ed4c967376624d506cc1842e9" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ApplicationLog</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

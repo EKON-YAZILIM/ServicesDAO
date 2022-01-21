@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_asp_net_core" kind="namespace" language="C#">
+    <compoundname>AspNetCore</compoundname>
+    <innerclass refid="class_asp_net_core_1_1_views_____view_imports" prot="public">AspNetCore::Views__ViewImports</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views_____view_start" prot="public">AspNetCore::Views__ViewStart</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o_____view_imports" prot="public">AspNetCore::Views_CRDAO__ViewImports</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o_____view_start" prot="public">AspNetCore::Views_CRDAO__ViewStart</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___all___jobs" prot="public">AspNetCore::Views_CRDAO_Home_All_Jobs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___application___logs" prot="public">AspNetCore::Views_CRDAO_Home_Application_Logs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___auction___detail" prot="public">AspNetCore::Views_CRDAO_Home_Auction_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___auctions" prot="public">AspNetCore::Views_CRDAO_Home_Auctions</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___dao___variables" prot="public">AspNetCore::Views_CRDAO_Home_Dao_Variables</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___index___admin" prot="public">AspNetCore::Views_CRDAO_Home_Index_Admin</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___index___associate" prot="public">AspNetCore::Views_CRDAO_Home_Index_Associate</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___index___voting_associate" prot="public">AspNetCore::Views_CRDAO_Home_Index_VotingAssociate</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail" prot="public">AspNetCore::Views_CRDAO_Home_Job_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___k_y_c___verification" prot="public">AspNetCore::Views_CRDAO_Home_KYC_Verification</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___bids" prot="public">AspNetCore::Views_CRDAO_Home_My_Bids</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___job___edit" prot="public">AspNetCore::Views_CRDAO_Home_My_Job_Edit</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___my___jobs" prot="public">AspNetCore::Views_CRDAO_Home_My_Jobs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___new___job" prot="public">AspNetCore::Views_CRDAO_Home_New_Job</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___new___simple___vote" prot="public">AspNetCore::Views_CRDAO_Home_New_Simple_Vote</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___payment___history" prot="public">AspNetCore::Views_CRDAO_Home_Payment_History</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___reputation___history" prot="public">AspNetCore::Views_CRDAO_Home_Reputation_History</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___reputation___logs" prot="public">AspNetCore::Views_CRDAO_Home_Reputation_Logs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___user___profile" prot="public">AspNetCore::Views_CRDAO_Home_User_Profile</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___users___list" prot="public">AspNetCore::Views_CRDAO_Home_Users_List</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___vote___detail" prot="public">AspNetCore::Views_CRDAO_Home_Vote_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___votings" prot="public">AspNetCore::Views_CRDAO_Home_Votings</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___contact" prot="public">AspNetCore::Views_CRDAO_Public_Contact</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error" prot="public">AspNetCore::Views_CRDAO_Public_Error</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___index" prot="public">AspNetCore::Views_CRDAO_Public_Index</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___price___discovery" prot="public">AspNetCore::Views_CRDAO_Public_Price_Discovery</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___price___discovery___detail" prot="public">AspNetCore::Views_CRDAO_Public_Price_Discovery_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___privacy___policy" prot="public">AspNetCore::Views_CRDAO_Public_Privacy_Policy</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___public___job___detail" prot="public">AspNetCore::Views_CRDAO_Public_Public_Job_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____empty_partial" prot="public">AspNetCore::Views_CRDAO_Shared__EmptyPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_card_partial" prot="public">AspNetCore::Views_CRDAO_Shared__JobCardPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____job_table_partial" prot="public">AspNetCore::Views_CRDAO_Shared__JobTablePartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____main_layout" prot="public">AspNetCore::Views_CRDAO_Shared__MainLayout</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____public_footer_partial" prot="public">AspNetCore::Views_CRDAO_Shared__PublicFooterPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____public_header_partial" prot="public">AspNetCore::Views_CRDAO_Shared__PublicHeaderPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___c_r_d_a_o___shared_____public_layout" prot="public">AspNetCore::Views_CRDAO_Shared__PublicLayout</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___all___jobs" prot="public">AspNetCore::Views_Home_All_Jobs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___application___logs" prot="public">AspNetCore::Views_Home_Application_Logs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___auction___detail" prot="public">AspNetCore::Views_Home_Auction_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___auctions" prot="public">AspNetCore::Views_Home_Auctions</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___dao___variables" prot="public">AspNetCore::Views_Home_Dao_Variables</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___index___admin" prot="public">AspNetCore::Views_Home_Index_Admin</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___index___associate" prot="public">AspNetCore::Views_Home_Index_Associate</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___index___voting_associate" prot="public">AspNetCore::Views_Home_Index_VotingAssociate</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___job___detail" prot="public">AspNetCore::Views_Home_Job_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___k_y_c___verification" prot="public">AspNetCore::Views_Home_KYC_Verification</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___my___bids" prot="public">AspNetCore::Views_Home_My_Bids</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___my___job___edit" prot="public">AspNetCore::Views_Home_My_Job_Edit</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___my___jobs" prot="public">AspNetCore::Views_Home_My_Jobs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___new___job" prot="public">AspNetCore::Views_Home_New_Job</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___new___simple___vote" prot="public">AspNetCore::Views_Home_New_Simple_Vote</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___payment___history" prot="public">AspNetCore::Views_Home_Payment_History</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___reputation___history" prot="public">AspNetCore::Views_Home_Reputation_History</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___reputation___logs" prot="public">AspNetCore::Views_Home_Reputation_Logs</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___user___profile" prot="public">AspNetCore::Views_Home_User_Profile</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___users___list" prot="public">AspNetCore::Views_Home_Users_List</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___vote___detail" prot="public">AspNetCore::Views_Home_Vote_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___home___votings" prot="public">AspNetCore::Views_Home_Votings</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___contact" prot="public">AspNetCore::Views_Public_Contact</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___error" prot="public">AspNetCore::Views_Public_Error</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___index" prot="public">AspNetCore::Views_Public_Index</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___price___discovery" prot="public">AspNetCore::Views_Public_Price_Discovery</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___price___discovery___detail" prot="public">AspNetCore::Views_Public_Price_Discovery_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___privacy___policy" prot="public">AspNetCore::Views_Public_Privacy_Policy</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___public___public___job___detail" prot="public">AspNetCore::Views_Public_Public_Job_Detail</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____empty_partial" prot="public">AspNetCore::Views_Shared__EmptyPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____job_card_partial" prot="public">AspNetCore::Views_Shared__JobCardPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____job_table_partial" prot="public">AspNetCore::Views_Shared__JobTablePartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____main_layout" prot="public">AspNetCore::Views_Shared__MainLayout</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____public_footer_partial" prot="public">AspNetCore::Views_Shared__PublicFooterPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____public_header_partial" prot="public">AspNetCore::Views_Shared__PublicHeaderPartial</innerclass>
+    <innerclass refid="class_asp_net_core_1_1_views___shared_____public_layout" prot="public">AspNetCore::Views_Shared__PublicLayout</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/_ViewImports.cshtml.g.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

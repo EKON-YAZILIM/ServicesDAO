@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_my_sql_1_1_entity_framework_core_1_1_metadata" kind="namespace" language="C#">
+    <compoundname>MySql::EntityFrameworkCore::Metadata</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Migrations/20211011140617_dblogservice_models_adjustment.cs" line="3" column="41"/>
+  </compounddef>
+</doxygen>

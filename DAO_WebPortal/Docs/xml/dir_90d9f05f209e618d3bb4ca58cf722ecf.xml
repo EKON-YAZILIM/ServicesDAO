@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_90d9f05f209e618d3bb4ca58cf722ecf" kind="dir">
+    <compoundname>DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests</compoundname>
+    <innerdir refid="dir_1914a6dba67fa03064d0571854f7640e">DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/"/>
+  </compounddef>
+</doxygen>

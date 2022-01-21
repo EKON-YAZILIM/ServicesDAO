@@ -1,0 +1,605 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Controllers::PublicController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1abfb0505f914de3cb274c94858673e176" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Index</definition>
+        <argsstring>()</argsstring>
+        <name>Index</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="28" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a221e23ff9ba0464a3f31444815b2f185" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Privacy_Policy</definition>
+        <argsstring>()</argsstring>
+        <name>Privacy_Policy</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Privacy_Policy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="34" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="34" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1af3fb544c68d87cd44a66a5b1fc5c734a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Contact</definition>
+        <argsstring>()</argsstring>
+        <name>Contact</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Contact</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="44" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ab90c0434e52c089cd14fcaa9bf9cbfea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Error</definition>
+        <argsstring>()</argsstring>
+        <name>Error</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="53" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1af76f5f99fb7fccf806844e50470576bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Price_Discovery</definition>
+        <argsstring>()</argsstring>
+        <name>Price_Discovery</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Price_Discovery</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="59" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="59" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1aea426dd0c5286c1c866415a6a260f6c0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Price_Discovery_Detail</definition>
+        <argsstring>(int AuctionID)</argsstring>
+        <name>Price_Discovery_Detail</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Price_Discovery_Detail</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>AuctionID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="81" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="81" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a7abf6ba43b9302599e2ad071df48067b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Public_Job_Detail</definition>
+        <argsstring>(int JobID)</argsstring>
+        <name>Public_Job_Detail</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Public_Job_Detail</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="116" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="116" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a42c6294c1dcc790481213e7f5458105f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.PublicController.Login</definition>
+        <argsstring>(string email, string password, string usercode)</argsstring>
+        <name>Login</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Login</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>usercode</declname>
+        </param>
+        <briefdescription>
+<para>User login function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>email</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User&apos;s email or username</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User&apos;s password</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>usercode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Captcha code (Needed after 3 failed requests)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="150" column="27" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="150" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1aac891f59b9f060004eb3a85c07ffe206" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.PublicController.Register</definition>
+        <argsstring>(string email, string username, string namesurname, string password, string repass, string usercode)</argsstring>
+        <name>Register</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Register</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>namesurname</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>password</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>repass</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>usercode</declname>
+        </param>
+        <briefdescription>
+<para>New user registration function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>email</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Email</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Username</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>namesurname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name Surname</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Password</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>repass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Password confirmation</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>usercode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Captcha code (Needed after 3 failed requests)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="218" column="27" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="218" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a71e5c8bcb0290e1e9b680c5296d2e311" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult DAO_WebPortal.Controllers.PublicController.RegisterCompleteView</definition>
+        <argsstring>(string str)</argsstring>
+        <name>RegisterCompleteView</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.RegisterCompleteView</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Completes user registration from activation link in the confirmation email </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Encrypted user information in the registration email</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="294" column="29" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="294" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a4d04eeae682f686a27d24ff2aaf6571a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.PublicController.ResetPassword</definition>
+        <argsstring>(string email, string usercode)</argsstring>
+        <name>ResetPassword</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.ResetPassword</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>usercode</declname>
+        </param>
+        <briefdescription>
+<para>Sends password reset email to user&apos;s email </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>email</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User&apos;s email</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>usercode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Captcha code (Needed after 3 failed requests)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="331" column="27" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="331" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a552f0f194677a3bc42a3ecdea3f5a966" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult DAO_WebPortal.Controllers.PublicController.ResetPasswordView</definition>
+        <argsstring>(string str)</argsstring>
+        <name>ResetPasswordView</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.ResetPasswordView</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Opens password reset model from </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Encrypted user information in the password reset email</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="383" column="29" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="383" bodyend="413"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ab1c2e36883b3203018d5c661433222b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.PublicController.ResetPasswordComplete</definition>
+        <argsstring>(string newpass, string newpassagain, string usercode)</argsstring>
+        <name>ResetPasswordComplete</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.ResetPasswordComplete</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>newpass</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>newpassagain</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>usercode</declname>
+        </param>
+        <briefdescription>
+<para>Sets user new password </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newpass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New password</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newpassagain</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New password confirmation</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>usercode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Captcha code (Needed after 3 failed requests)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="424" column="27" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="424" bodyend="482"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a9435df4b6226217f130097da85dc419d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.Logout</definition>
+        <argsstring>()</argsstring>
+        <name>Logout</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.Logout</qualifiedname>
+        <briefdescription>
+<para>User logout function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="488" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="488" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ae66cecdbcbab5f4535431fd9070b1e95" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.PublicController.SubmitContactForm</definition>
+        <argsstring>(string namesurname, string email, string message, string usercode)</argsstring>
+        <name>SubmitContactForm</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.SubmitContactForm</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>namesurname</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>usercode</declname>
+        </param>
+        <briefdescription>
+<para>Sends user&apos;s message as email to system admins </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>namesurname</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User&apos;s name surname</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>email</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User&apos;s email</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>User&apos;s message</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="505" column="27" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="505" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a76feb8e7b0e7ae41dc053ae097b842be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.PublicController.GetCaptchaImage</definition>
+        <argsstring>(string code)</argsstring>
+        <name>GetCaptchaImage</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.GetCaptchaImage</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Creates captcha image for public forms This method is called after 3 failed requests </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Captcha code</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Captcha image</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="548" column="30" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="548" bodyend="566"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ae55c80896b73d0d4a5f022522a415344" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_WebPortal.Controllers.PublicController.KycCallBack</definition>
+        <argsstring>([FromBody] KYCCallBack Response)</argsstring>
+        <name>KycCallBack</name>
+        <qualifiedname>DAO_WebPortal.Controllers.PublicController.KycCallBack</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>KYCCallBack</type>
+          <declname>Response</declname>
+        </param>
+        <briefdescription>
+<para>KYC call back function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Response</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/PublicController.cs" line="573" column="31" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="573" bodyend="588"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controller for public views and public actions </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Controllers.PublicController</label>
+        <link refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Controllers.PublicController</label>
+        <link refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/Controllers/PublicController.cs" line="25" column="11" bodyfile="DAO_WebPortal/Controllers/PublicController.cs" bodystart="26" bodyend="589"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1af3fb544c68d87cd44a66a5b1fc5c734a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Contact</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ab90c0434e52c089cd14fcaa9bf9cbfea" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Error</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a76feb8e7b0e7ae41dc053ae097b842be" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>GetCaptchaImage</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1abfb0505f914de3cb274c94858673e176" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Index</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ae55c80896b73d0d4a5f022522a415344" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>KycCallBack</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a42c6294c1dcc790481213e7f5458105f" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Login</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a9435df4b6226217f130097da85dc419d" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Logout</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1af76f5f99fb7fccf806844e50470576bb" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Price_Discovery</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1aea426dd0c5286c1c866415a6a260f6c0" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Price_Discovery_Detail</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a221e23ff9ba0464a3f31444815b2f185" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Privacy_Policy</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a7abf6ba43b9302599e2ad071df48067b" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Public_Job_Detail</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1aac891f59b9f060004eb3a85c07ffe206" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>Register</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a71e5c8bcb0290e1e9b680c5296d2e311" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>RegisterCompleteView</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a4d04eeae682f686a27d24ff2aaf6571a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>ResetPassword</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ab1c2e36883b3203018d5c661433222b0" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>ResetPasswordComplete</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1a552f0f194677a3bc42a3ecdea3f5a966" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>ResetPasswordView</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_public_controller_1ae66cecdbcbab5f4535431fd9070b1e95" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::PublicController</scope><name>SubmitContactForm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

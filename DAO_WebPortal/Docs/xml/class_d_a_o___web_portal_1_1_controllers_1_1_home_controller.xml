@@ -1,0 +1,1480 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Controllers::HomeController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ab5a2bf1d0d320b35d44e4e702b181f9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Index</definition>
+        <argsstring>()</argsstring>
+        <name>Index</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Index</qualifiedname>
+        <briefdescription>
+<para>Dashboard Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="41" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="41" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a33dc4d3ba6a8c741c8528ee7062240fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.My_Jobs</definition>
+        <argsstring>(JobStatusTypes? status)</argsstring>
+        <name>My_Jobs</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.My_Jobs</qualifiedname>
+        <param>
+          <type>JobStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>User&apos;s Job Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="112" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="112" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae529b6f86ee41bea997c547e6dfcea08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.All_Jobs</definition>
+        <argsstring>(JobStatusTypes? status, int page=1, int pageCount=10)</argsstring>
+        <name>All_Jobs</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.All_Jobs</qualifiedname>
+        <param>
+          <type>JobStatusTypes?</type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>10</defval>
+        </param>
+        <briefdescription>
+<para>All Jobs Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="139" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="139" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a49ddb6c635c1ce8d2d7c4312578de92a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.New_Job</definition>
+        <argsstring>()</argsstring>
+        <name>New_Job</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.New_Job</qualifiedname>
+        <briefdescription>
+<para>New Job Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="176" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="176" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac7c6166e39998388e4e7b1d64f9f6bad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.New_Job_Post</definition>
+        <argsstring>(string title, double amount, string time, string description, string tags, string codeurl)</argsstring>
+        <name>New_Job_Post</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.New_Job_Post</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>amount</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>tags</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>codeurl</declname>
+        </param>
+        <briefdescription>
+<para>New job post registration function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Title</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>amount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amount</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="194" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="194" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5b7b0d0241b81304d4b9f7cb443e217b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.My_Job_Edit</definition>
+        <argsstring>(int Job)</argsstring>
+        <name>My_Job_Edit</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.My_Job_Edit</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>Job</declname>
+        </param>
+        <briefdescription>
+<para>Job Edit Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job Id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<linebreak/>
+ <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="250" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="250" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5c89eba109a9fd531c1c0e3778e8c2d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.My_Job_Update</definition>
+        <argsstring>(JobPostDto Model)</argsstring>
+        <name>My_Job_Update</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.My_Job_Update</qualifiedname>
+        <param>
+          <type>JobPostDto</type>
+          <declname>Model</declname>
+        </param>
+        <briefdescription>
+<para>Edit user Job post </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JobPostDto Model</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="284" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="284" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a9ce2dcb169a98c2d318fa77d24d495fa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Job_Detail</definition>
+        <argsstring>(int JobID)</argsstring>
+        <name>Job_Detail</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Job_Detail</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobID</declname>
+        </param>
+        <briefdescription>
+<para>Job Detail Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job Id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="340" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="340" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a1f13a035f6d8441c94a2c0932ced7824" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.AddNewComment</definition>
+        <argsstring>(int JobId, int CommentId, string Comment)</argsstring>
+        <name>AddNewComment</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.AddNewComment</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>CommentId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>Comment</declname>
+        </param>
+        <briefdescription>
+<para>Add new comment </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>CommentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Main comment id</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Comment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Comment</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="394" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="394" bodyend="485"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a3e721ed4c5c444f11ddc1a29bdaa7455" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.DeleteComment</definition>
+        <argsstring>(int CommentId)</argsstring>
+        <name>DeleteComment</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.DeleteComment</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>CommentId</declname>
+        </param>
+        <briefdescription>
+<para>Delete user comment and comments upvote and downvote </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>CommentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JobPostCommentID</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="493" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="493" bodyend="544"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a2e5011f7d2eda56e6f0ab674adc8cc21" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.UpVote</definition>
+        <argsstring>(int JobPostCommentId)</argsstring>
+        <name>UpVote</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.UpVote</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobPostCommentId</declname>
+        </param>
+        <briefdescription>
+<para>Comment upvote function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobPostCommentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JobPostCommentId</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="552" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="552" bodyend="636"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a2e150fe03a5c18ac8c0066e4e2912759" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.DownVote</definition>
+        <argsstring>(int JobPostCommentId)</argsstring>
+        <name>DownVote</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.DownVote</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobPostCommentId</declname>
+        </param>
+        <briefdescription>
+<para>Comment downvote function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobPostCommentId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>JobPostCommentId</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="644" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="644" bodyend="726"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5b34e69881e86f0ae3c7da6ad6dc3728" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.FlagJob</definition>
+        <argsstring>(int jobid, string flagreason)</argsstring>
+        <name>FlagJob</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.FlagJob</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>flagreason</declname>
+        </param>
+        <briefdescription>
+<para>Inserts flag comment to the job </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="734" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="734" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a80df4d9050d2f5f55eaa8015c2204aa6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.RemoveFlag</definition>
+        <argsstring>(int jobid)</argsstring>
+        <name>RemoveFlag</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.RemoveFlag</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <briefdescription>
+<para>Removes flag comment from the job </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="805" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="805" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac8aa235ea5e7b0cea6219da0e5b116ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Auctions</definition>
+        <argsstring>()</argsstring>
+        <name>Auctions</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Auctions</qualifiedname>
+        <briefdescription>
+<para>Auctions Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="835" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="835" bodyend="865"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a44817dd0f4230202d2f8ae9d64961917" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.My_Bids</definition>
+        <argsstring>()</argsstring>
+        <name>My_Bids</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.My_Bids</qualifiedname>
+        <briefdescription>
+<para>My Bids Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="872" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="872" bodyend="891"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae7678a7f1b08ae9a1d79ca33da22d6aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Auction_Detail</definition>
+        <argsstring>(int AuctionID)</argsstring>
+        <name>Auction_Detail</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Auction_Detail</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>AuctionID</declname>
+        </param>
+        <briefdescription>
+<para>Auction Detail Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>AuctionID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Auction Id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="899" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="899" bodyend="932"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1aa786d3cdd757eadddc72ce7b60b24b81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.Auction_Bid_Add</definition>
+        <argsstring>(AuctionBidDto Model)</argsstring>
+        <name>Auction_Bid_Add</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Auction_Bid_Add</qualifiedname>
+        <param>
+          <type>AuctionBidDto</type>
+          <declname>Model</declname>
+        </param>
+        <briefdescription>
+<para>Add new bid for auction </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>AuctionBidDto Model</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="940" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="940" bodyend="1037"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a390ef6d774f3ec312302c5efc560ed9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.Auction_Bid_Delete</definition>
+        <argsstring>(int id)</argsstring>
+        <name>Auction_Bid_Delete</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Auction_Bid_Delete</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Delete Auction Bid </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Auction Bid ID</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1045" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1045" bodyend="1089"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1afc7b74ad2afcc1eac52cd0cc57504d6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.ChooseWinnerBid</definition>
+        <argsstring>(int bidId)</argsstring>
+        <name>ChooseWinnerBid</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.ChooseWinnerBid</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>bidId</declname>
+        </param>
+        <briefdescription>
+<para>This method chooses winner bid and changes the status of the auction as completed. Only job poster is authorized to call the method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bidId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>auctionId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>jobid</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1100" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1100" bodyend="1179"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a2a658df38b93181dd687d6f8fc34d086" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ReputationPieChartModel</type>
+        <definition>ReputationPieChartModel DAO_WebPortal.Controllers.HomeController.GetVaReputationChart</definition>
+        <argsstring>()</argsstring>
+        <name>GetVaReputationChart</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.GetVaReputationChart</qualifiedname>
+        <briefdescription>
+<para>Returns data for reputation pie chart in the payment policy confirmation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1186" column="40" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1186" bodyend="1221"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ab17a38a82ebcd2707a4374681a4671ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Votings</definition>
+        <argsstring>()</argsstring>
+        <name>Votings</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Votings</qualifiedname>
+        <briefdescription>
+<para>Votes Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1232" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1232" bodyend="1273"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a3dd025028fc00934b9ab6c391c09bec5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Vote_Detail</definition>
+        <argsstring>(int VotingID)</argsstring>
+        <name>Vote_Detail</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Vote_Detail</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>VotingID</declname>
+        </param>
+        <briefdescription>
+<para>Vote Detail Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VoteID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vote Id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1281" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1281" bodyend="1350"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a83d0dd78dc77fe908cdd802eaa95eb25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.StartInformalVoting</definition>
+        <argsstring>(int jobid)</argsstring>
+        <name>StartInformalVoting</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.StartInformalVoting</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>jobid</declname>
+        </param>
+        <briefdescription>
+<para>Job Edit Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Job</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Job Id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<linebreak/>
+ <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1358" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1358" bodyend="1437"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a7a9e255ab4ba62fcdbc4b0c07dee25cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.SubmitVote</definition>
+        <argsstring>(int VotingID, StakeType Direction, double? ReputationStake)</argsstring>
+        <name>SubmitVote</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.SubmitVote</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>VotingID</declname>
+        </param>
+        <param>
+          <type>StakeType</type>
+          <declname>Direction</declname>
+        </param>
+        <param>
+          <type>double?</type>
+          <declname>ReputationStake</declname>
+        </param>
+        <briefdescription>
+<para>User submit vote action. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VotingID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Direction</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ReputationStake</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1447" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1447" bodyend="1507"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae5c598bab174beebe77cba5bab139057" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Reputation_History</definition>
+        <argsstring>()</argsstring>
+        <name>Reputation_History</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Reputation_History</qualifiedname>
+        <briefdescription>
+<para>User Reputation History Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1518" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1518" bodyend="1536"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1aa5e520fd22cdcfacbc37f9ce46c50007" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.User_Profile</definition>
+        <argsstring>()</argsstring>
+        <name>User_Profile</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.User_Profile</qualifiedname>
+        <briefdescription>
+<para>User Profile Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1546" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1546" bodyend="1566"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1af5c2f83bc2e8f3595e2cf32ba753f9b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.ProfileUpdate</definition>
+        <argsstring>(string image, IFormFile File)</argsstring>
+        <name>ProfileUpdate</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.ProfileUpdate</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>IFormFile</type>
+          <declname>File</declname>
+        </param>
+        <briefdescription>
+<para>Profile save changes action </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>image</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>File</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1576" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1576" bodyend="1633"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1af4b8a35e5c434c75efd04f923f1e80fc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.KYC_Verification</definition>
+        <argsstring>()</argsstring>
+        <name>KYC_Verification</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.KYC_Verification</qualifiedname>
+        <briefdescription>
+<para>User KYC Verification Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1673" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1673" bodyend="1697"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a1a3acf8065696b04c5e68e02bafb5a62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.UploadKYCDoc</definition>
+        <argsstring>(KYCFileUpload File)</argsstring>
+        <name>UploadKYCDoc</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.UploadKYCDoc</qualifiedname>
+        <param>
+          <type>KYCFileUpload</type>
+          <declname>File</declname>
+        </param>
+        <briefdescription>
+<para>Submits form data for the KYC verification </para>
+        </briefdescription>
+        <detaileddescription>
+<para>User information</para>
+<para><simplesect kind="return"><para>Generic Simple Response class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1705" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1705" bodyend="1720"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5514ac27163770758f20e411e946caad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.PayDosFee</definition>
+        <argsstring>(int JobId)</argsstring>
+        <name>PayDosFee</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.PayDosFee</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobId</declname>
+        </param>
+        <briefdescription>
+<para>Public user pay dos fee action </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1728" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1728" bodyend="1804"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a8ed08fb9a3e4c021258c4e7b3e611e70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Payment_History</definition>
+        <argsstring>()</argsstring>
+        <name>Payment_History</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Payment_History</qualifiedname>
+        <briefdescription>
+<para>Payment History view </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1815" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1815" bodyend="1834"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac2d94d7f12cde4ae5cb1f79873cc442f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.AdminJobApproval</definition>
+        <argsstring>(int JobId)</argsstring>
+        <name>AdminJobApproval</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.AdminJobApproval</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobId</declname>
+        </param>
+        <briefdescription>
+<para>Approves job with &quot;AdminApprovalPending&quot; status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1847" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1847" bodyend="1975"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a9c479bf2ee195e4cd02f1a666ddaacfe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.AdminJobDisapproval</definition>
+        <argsstring>(int JobId)</argsstring>
+        <name>AdminJobDisapproval</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.AdminJobDisapproval</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>JobId</declname>
+        </param>
+        <briefdescription>
+<para>Disapproves job with &quot;AdminApprovalPending&quot; status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1984" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1984" bodyend="2036"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a84ac025796cb8e7045067ab203ec5047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Dao_Variables</definition>
+        <argsstring>()</argsstring>
+        <name>Dao_Variables</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Dao_Variables</qualifiedname>
+        <briefdescription>
+<para>This view shows global parameters of the DAO </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2044" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2044" bodyend="2049"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a709da48511466cc73c09f11cc14d8ab1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.DaoVariablesPost</definition>
+        <argsstring>(PlatformSettingDto model)</argsstring>
+        <name>DaoVariablesPost</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.DaoVariablesPost</qualifiedname>
+        <param>
+          <type>PlatformSettingDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>DAO Variables save changes </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2057" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2057" bodyend="2096"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a0bb53a0e070034a8011baf48e05c5256" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Users_List</definition>
+        <argsstring>(int page=1, int pageCount=20)</argsstring>
+        <name>Users_List</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Users_List</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>20</defval>
+        </param>
+        <briefdescription>
+<para>This view shows users of the DAO </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2105" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2105" bodyend="2130"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a0669a94a4f539fc37017dbb2db6b0635" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.UserSearch</definition>
+        <argsstring>(string searchText)</argsstring>
+        <name>UserSearch</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.UserSearch</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>searchText</declname>
+        </param>
+        <briefdescription>
+<para>Finds user info from query </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2138" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2138" bodyend="2153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae748c7ea2424a55d8508ef3e626ae532" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Reputation_Logs</definition>
+        <argsstring>(int page=1, int pageCount=20)</argsstring>
+        <name>Reputation_Logs</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Reputation_Logs</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>20</defval>
+        </param>
+        <briefdescription>
+<para>This view shows reputation logs of the DAO </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2162" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2162" bodyend="2187"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a9a2ee072d2335bbc515cd7cc8fe88405" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.ReputationSearch</definition>
+        <argsstring>(string searchText)</argsstring>
+        <name>ReputationSearch</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.ReputationSearch</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>searchText</declname>
+        </param>
+        <briefdescription>
+<para>Finds user reputations from user id </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2195" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2195" bodyend="2210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac25d95f9ee849eb461510ad2271a90de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.Application_Logs</definition>
+        <argsstring>(int page=1, int pageCount=20)</argsstring>
+        <name>Application_Logs</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.Application_Logs</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>20</defval>
+        </param>
+        <briefdescription>
+<para>This view shows application logs of the DAO </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2219" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2219" bodyend="2244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a892d38a4384f84d969e12d5033d4a7e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.RestartVoting</definition>
+        <argsstring>(int votingid)</argsstring>
+        <name>RestartVoting</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.RestartVoting</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>votingid</declname>
+        </param>
+        <briefdescription>
+<para>Approves job with &quot;AdminApprovalPending&quot; status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2253" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2253" bodyend="2285"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a36afc5de1eba5ebc348aa56225179c77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.RestartAuction</definition>
+        <argsstring>(int auctionid)</argsstring>
+        <name>RestartAuction</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.RestartAuction</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>auctionid</declname>
+        </param>
+        <briefdescription>
+<para>Approves job with &quot;AdminApprovalPending&quot; status </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>JobId</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2294" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2294" bodyend="2361"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1aabbd939584d00949961e7f5253d5a257" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IActionResult</type>
+        <definition>IActionResult DAO_WebPortal.Controllers.HomeController.New_Simple_Vote</definition>
+        <argsstring>()</argsstring>
+        <name>New_Simple_Vote</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.New_Simple_Vote</qualifiedname>
+        <briefdescription>
+<para>New Simple Vote Page </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2370" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2370" bodyend="2375"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a7dba6dff43906aaf664390d2fadf02cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.New_SimpleVote_Post</definition>
+        <argsstring>(string title, string description)</argsstring>
+        <name>New_SimpleVote_Post</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.New_SimpleVote_Post</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>description</declname>
+        </param>
+        <briefdescription>
+<para>New simple vote post function </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Title</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>description</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Description</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2385" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2385" bodyend="2452"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae2e01ffddc0a2cee919f10bca840b433" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>JsonResult</type>
+        <definition>JsonResult DAO_WebPortal.Controllers.HomeController.SetCookie</definition>
+        <argsstring>(string src)</argsstring>
+        <name>SetCookie</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.SetCookie</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2459" column="27" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2459" bodyend="2465"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a4ec8ac24ed93c287d488b70c2c5dbfe3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ActionResult</type>
+        <definition>ActionResult DAO_WebPortal.Controllers.HomeController.GetProfileImage</definition>
+        <argsstring>()</argsstring>
+        <name>GetProfileImage</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.GetProfileImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="2468" column="29" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="2468" bodyend="2498"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a7bcfb54a033ddef0a5e1024b959de014" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_WebPortal.Controllers.HomeController.ResizeImage</definition>
+        <argsstring>(byte[] data, double w, double h)</argsstring>
+        <name>ResizeImage</name>
+        <qualifiedname>DAO_WebPortal.Controllers.HomeController.ResizeImage</qualifiedname>
+        <param>
+          <type>byte[]</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+<para>Resize uploaded profile image </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Image as byte array</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Expected width</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Expected height</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Controllers/HomeController.cs" line="1642" column="30" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="1642" bodyend="1665"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Controller for views and actions </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Controllers.HomeController</label>
+        <link refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_WebPortal.Controllers.HomeController</label>
+        <link refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/Controllers/HomeController.cs" line="33" column="11" bodyfile="DAO_WebPortal/Controllers/HomeController.cs" bodystart="34" bodyend="2500"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a1f13a035f6d8441c94a2c0932ced7824" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>AddNewComment</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac2d94d7f12cde4ae5cb1f79873cc442f" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>AdminJobApproval</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a9c479bf2ee195e4cd02f1a666ddaacfe" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>AdminJobDisapproval</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae529b6f86ee41bea997c547e6dfcea08" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>All_Jobs</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac25d95f9ee849eb461510ad2271a90de" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Application_Logs</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1aa786d3cdd757eadddc72ce7b60b24b81" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Auction_Bid_Add</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a390ef6d774f3ec312302c5efc560ed9a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Auction_Bid_Delete</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae7678a7f1b08ae9a1d79ca33da22d6aa" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Auction_Detail</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac8aa235ea5e7b0cea6219da0e5b116ff" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Auctions</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1afc7b74ad2afcc1eac52cd0cc57504d6a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>ChooseWinnerBid</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a84ac025796cb8e7045067ab203ec5047" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Dao_Variables</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a709da48511466cc73c09f11cc14d8ab1" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>DaoVariablesPost</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a3e721ed4c5c444f11ddc1a29bdaa7455" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>DeleteComment</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a2e150fe03a5c18ac8c0066e4e2912759" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>DownVote</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5b34e69881e86f0ae3c7da6ad6dc3728" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>FlagJob</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a4ec8ac24ed93c287d488b70c2c5dbfe3" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>GetProfileImage</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a2a658df38b93181dd687d6f8fc34d086" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>GetVaReputationChart</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ab5a2bf1d0d320b35d44e4e702b181f9b" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Index</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a9ce2dcb169a98c2d318fa77d24d495fa" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Job_Detail</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1af4b8a35e5c434c75efd04f923f1e80fc" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>KYC_Verification</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a44817dd0f4230202d2f8ae9d64961917" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>My_Bids</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5b7b0d0241b81304d4b9f7cb443e217b" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>My_Job_Edit</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5c89eba109a9fd531c1c0e3778e8c2d0" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>My_Job_Update</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a33dc4d3ba6a8c741c8528ee7062240fd" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>My_Jobs</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a49ddb6c635c1ce8d2d7c4312578de92a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>New_Job</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ac7c6166e39998388e4e7b1d64f9f6bad" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>New_Job_Post</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1aabbd939584d00949961e7f5253d5a257" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>New_Simple_Vote</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a7dba6dff43906aaf664390d2fadf02cd" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>New_SimpleVote_Post</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a5514ac27163770758f20e411e946caad" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>PayDosFee</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a8ed08fb9a3e4c021258c4e7b3e611e70" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Payment_History</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1af5c2f83bc2e8f3595e2cf32ba753f9b5" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>ProfileUpdate</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a80df4d9050d2f5f55eaa8015c2204aa6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>RemoveFlag</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae5c598bab174beebe77cba5bab139057" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Reputation_History</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae748c7ea2424a55d8508ef3e626ae532" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Reputation_Logs</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a9a2ee072d2335bbc515cd7cc8fe88405" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>ReputationSearch</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a7bcfb54a033ddef0a5e1024b959de014" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>ResizeImage</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a36afc5de1eba5ebc348aa56225179c77" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>RestartAuction</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a892d38a4384f84d969e12d5033d4a7e3" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>RestartVoting</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ae2e01ffddc0a2cee919f10bca840b433" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>SetCookie</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a83d0dd78dc77fe908cdd802eaa95eb25" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>StartInformalVoting</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a7a9e255ab4ba62fcdbc4b0c07dee25cf" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>SubmitVote</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a1a3acf8065696b04c5e68e02bafb5a62" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>UploadKYCDoc</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a2e5011f7d2eda56e6f0ab674adc8cc21" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>UpVote</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1aa5e520fd22cdcfacbc37f9ce46c50007" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>User_Profile</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a0bb53a0e070034a8011baf48e05c5256" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Users_List</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a0669a94a4f539fc37017dbb2db6b0635" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>UserSearch</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1a3dd025028fc00934b9ab6c391c09bec5" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Vote_Detail</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_controllers_1_1_home_controller_1ab17a38a82ebcd2707a4374681a4671ca" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Controllers::HomeController</scope><name>Votings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

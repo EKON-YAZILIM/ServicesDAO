@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::DAO_DbService_deleteUserAlias</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1a5ddca37f76450ea2fda997dd9a58a0e5" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_deleteUserAlias.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_deleteUserAlias.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.cs" bodystart="7" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1ae112643a9198dd442a737bdbe04d167c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_deleteUserAlias.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_deleteUserAlias.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.cs" line="14" column="33" bodyfile="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.cs" bodystart="14" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1a68107fcba4865008068e13c84104de8a" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_deleteUserAlias.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_deleteUserAlias.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.Designer.cs" bodystart="15" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_deleteUserAlias</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_deleteUserAlias</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211013134329_DAO_DbService_deleteUserAlias.cs" bodystart="6" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1a68107fcba4865008068e13c84104de8a" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_deleteUserAlias</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1ae112643a9198dd442a737bdbe04d167c" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_deleteUserAlias</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__delete_user_alias_1a5ddca37f76450ea2fda997dd9a58a0e5" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_deleteUserAlias</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_5b5d0dae4adbc8b8ec83742b20c3c1f9" kind="dir">
+    <compoundname>DAO_WebPortal/obj/Debug/netcoreapp3.1</compoundname>
+    <innerdir refid="dir_66eea7f017eec467abb5b4328231a876">DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor</innerdir>
+    <innerfile refid="_debug_2netcoreapp3_81_2_8_n_e_t_core_app_00_version_0av3_81_8_assembly_attributes_8cs">.NETCoreApp,Version=v3.1.AssemblyAttributes.cs</innerfile>
+    <innerfile refid="_debug_2netcoreapp3_81_2_d_a_o___web_portal_8_assembly_info_8cs">DAO_WebPortal.AssemblyInfo.cs</innerfile>
+    <innerfile refid="_d_a_o___web_portal_8_mvc_application_parts_assembly_info_8cs">DAO_WebPortal.MvcApplicationPartsAssemblyInfo.cs</innerfile>
+    <innerfile refid="_debug_2netcoreapp3_81_2_d_a_o___web_portal_8_razor_assembly_info_8cs">DAO_WebPortal.RazorAssemblyInfo.cs</innerfile>
+    <innerfile refid="_d_a_o___web_portal_8_razor_target_assembly_info_8cs">DAO_WebPortal.RazorTargetAssemblyInfo.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/"/>
+  </compounddef>
+</doxygen>

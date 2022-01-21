@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_dark_readme" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_skins_moono_dark_readme</compoundname>
+    <title>&quot;Moono&quot; Skin</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This skin has been chosen for the <bold>default skin</bold> of CKEditor 4.x, elected from the CKEditor <ulink url="http://ckeditor.com/blog/new_ckeditor_4_skin">skin contest</ulink> and further shaped by the CKEditor team. &quot;Moono&quot; is maintained by the core developers.</para>
+<para>For more information about skins, please check the <ulink url="http://docs.cksource.com/CKEditor_4.x/Skin_SDK">CKEditor Skin SDK</ulink> documentation.</para>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_dark_readme_1autotoc_md109">
+<title>Features</title>
+<para>&quot;Moono&quot; is a monochromatic skin, which offers a modern look coupled with gradients and transparency. It comes with the following features:</para>
+<para><itemizedlist>
+<listitem><para>Chameleon feature with brightness,</para>
+</listitem><listitem><para>high-contrast compatibility,</para>
+</listitem><listitem><para>graphics source provided in SVG.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_dark_readme_1autotoc_md110">
+<title>Directory Structure</title>
+<para>CSS parts:<itemizedlist>
+<listitem><para><bold>editor.css</bold>: the main CSS file. It&apos;s simply loading several other files, for easier maintenance,</para>
+</listitem><listitem><para><bold>mainui.css</bold>: the file contains styles of entire editor outline structures,</para>
+</listitem><listitem><para><bold>toolbar.css</bold>: the file contains styles of the editor toolbar space (top),</para>
+</listitem><listitem><para><bold>richcombo.css</bold>: the file contains styles of the rich combo ui elements on toolbar,</para>
+</listitem><listitem><para><bold>panel.css</bold>: the file contains styles of the rich combo drop-down, it&apos;s not loaded until the first panel open up,</para>
+</listitem><listitem><para><bold>elementspath.css</bold>: the file contains styles of the editor elements path bar (bottom),</para>
+</listitem><listitem><para><bold>menu.css</bold>: the file contains styles of all editor menus including context menu and button drop-down, it&apos;s not loaded until the first menu open up,</para>
+</listitem><listitem><para><bold>dialog.css</bold>: the CSS files for the dialog UI, it&apos;s not loaded until the first dialog open,</para>
+</listitem><listitem><para><bold>reset.css</bold>: the file defines the basis of style resets among all editor UI spaces,</para>
+</listitem><listitem><para><bold>preset.css</bold>: the file defines the default styles of some UI elements reflecting the skin preference,</para>
+</listitem><listitem><para><bold>editor_XYZ.css</bold> and <bold>dialog_XYZ.css</bold>: browser specific CSS hacks.</para>
+</listitem></itemizedlist>
+</para>
+<para>Other parts:<itemizedlist>
+<listitem><para><bold>skin.js</bold>: the only JavaScript part of the skin that registers the skin, its browser specific files and its icons and defines the Chameleon feature,</para>
+</listitem><listitem><para><bold>icons/</bold>: contains all skin defined icons,</para>
+</listitem><listitem><para><bold>images/</bold>: contains a fill general used images,</para>
+</listitem><listitem><para><bold>dev/</bold>: contains SVG source of the skin icons.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_skins_moono_dark_readme_1autotoc_md111">
+<title>License</title>
+<para>Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.</para>
+<para>Licensed under the terms of any of the following licenses at your choice: <ulink url="http://www.gnu.org/licenses/gpl.html">GPL</ulink>, <ulink url="http://www.gnu.org/licenses/lgpl.html">LGPL</ulink> and <ulink url="http://www.mozilla.org/MPL/MPL-1.1.html">MPL</ulink>.</para>
+<para>See LICENSE.md for more information. </para>
+</sect1>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins/moono-dark/readme.md"/>
+  </compounddef>
+</doxygen>

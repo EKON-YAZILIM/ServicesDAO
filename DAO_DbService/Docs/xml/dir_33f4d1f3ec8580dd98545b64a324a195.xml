@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_33f4d1f3ec8580dd98545b64a324a195" kind="dir">
+    <compoundname>DAO_DbService/obj</compoundname>
+    <innerdir refid="dir_fe0ca471d2e18f6dd8e24dd743eefd32">DAO_DbService/obj/Debug</innerdir>
+    <innerdir refid="dir_53dde88a5068e4330bb70eaab5bc722b">DAO_DbService/obj/Release</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/obj/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_00a085b2a51b6f45a2161e7f527fb243" kind="dir">
+    <compoundname>DAO_WebPortal/Utility</compoundname>
+    <innerfile refid="_captcha_8cs">Captcha.cs</innerfile>
+    <innerfile refid="_ip_helper_8cs">IpHelper.cs</innerfile>
+    <innerfile refid="_string_helper_8cs">StringHelper.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Utility/"/>
+  </compounddef>
+</doxygen>

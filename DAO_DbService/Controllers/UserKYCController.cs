@@ -15,10 +15,17 @@ using Helpers.Models.KYCModels;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    /// UserKYCController contains userKYC operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class UserKYCController : Controller
     {
+        /// <summary>
+        /// Get userKYC List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<UserKYCDto> Get()
@@ -41,6 +48,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<UserKYC>, List<UserKYCDto>>(model).ToArray();
         }
 
+        /// <summary>
+        ///  returns a list of all job post comment by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [Route("UserKYCSearch")]
         [HttpGet]
         public IEnumerable<UserKYCDto> UserKYCSearch(string query)
@@ -63,6 +75,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<UserKYC>, List<UserKYCDto>>(res).ToArray();
         }
 
+        /// <summary>
+        /// Get userKYC by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public UserKYCDto GetId(int id)
@@ -85,6 +102,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<UserKYC, UserKYCDto>(model);
         }
 
+        /// <summary>
+        /// Get userKYC by userId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetUserId")]
         [HttpGet]
         public UserKYCDto GetUserId(int id)
@@ -107,6 +129,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<UserKYC, UserKYCDto>(model);
         }
 
+        /// <summary>
+        /// Get userKYC by applicantId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetApplicantId")]
         [HttpGet]
         public UserKYCDto GetApplicantId(string id)
@@ -128,8 +155,12 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<UserKYC, UserKYCDto>(model);
         }
-     
 
+        /// <summary>
+        /// Saves userKYC model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public UserKYCDto Post([FromBody] UserKYCDto model)
@@ -151,6 +182,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves userKYC list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<UserKYCDto> PostMultiple([FromBody] List<UserKYCDto> model)
@@ -172,6 +208,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes userKYC by id
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -193,6 +234,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Update userKYC using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public UserKYCDto Update([FromBody] UserKYCDto model)
@@ -214,6 +260,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the userKYC pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<UserKYCDto> GetPaged(int page = 1, int pageCount = 30)
@@ -242,7 +295,14 @@ namespace DAO_DbService.Controllers
 
             return res;
         }
-     
+
+        /// <summary>
+        /// returns a list containing desired amount of found userKYC by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<UserKYCDto> Search(string query, int page = 1, int pageCount = 30)
@@ -268,6 +328,5 @@ namespace DAO_DbService.Controllers
             }
 
         }
-
     }
 }

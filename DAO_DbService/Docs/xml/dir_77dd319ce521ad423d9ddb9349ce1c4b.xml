@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_77dd319ce521ad423d9ddb9349ce1c4b" kind="dir">
+    <compoundname>DAO_DbService/Migrations</compoundname>
+    <innerfile refid="20211008094944___user_table_updated_8cs">20211008094944_UserTableUpdated.cs</innerfile>
+    <innerfile refid="20211008094944___user_table_updated_8_designer_8cs">20211008094944_UserTableUpdated.Designer.cs</innerfile>
+    <innerfile refid="20211011134317__dbservice__models__adjustment_8cs">20211011134317_dbservice_models_adjustment.cs</innerfile>
+    <innerfile refid="20211011134317__dbservice__models__adjustment_8_designer_8cs">20211011134317_dbservice_models_adjustment.Designer.cs</innerfile>
+    <innerfile refid="20211013132010___d_a_o___db_service__added_active_session_table__add_user_nameto_user_8cs">20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs</innerfile>
+    <innerfile refid="20211013132010___d_a_o___db_service__added_active_session_table__add_user_nameto_user_8_designer_8cs">20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.Designer.cs</innerfile>
+    <innerfile refid="20211013134329___d_a_o___db_service__delete_user_alias_8cs">20211013134329_DAO_DbService_deleteUserAlias.cs</innerfile>
+    <innerfile refid="20211013134329___d_a_o___db_service__delete_user_alias_8_designer_8cs">20211013134329_DAO_DbService_deleteUserAlias.Designer.cs</innerfile>
+    <innerfile refid="20211014090837___d_a_o___db_service__update_job_post__update_job_post_comment_8cs">20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs</innerfile>
+    <innerfile refid="20211014090837___d_a_o___db_service__update_job_post__update_job_post_comment_8_designer_8cs">20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.Designer.cs</innerfile>
+    <innerfile refid="20211014110050___d_a_o___db_service__add_table_user_comment_votes_8cs">20211014110050_DAO_DbService_addTableUserCommentVotes.cs</innerfile>
+    <innerfile refid="20211014110050___d_a_o___db_service__add_table_user_comment_votes_8_designer_8cs">20211014110050_DAO_DbService_addTableUserCommentVotes.Designer.cs</innerfile>
+    <innerfile refid="20211015121039___d_a_o___db_service__delete_auction_table___status_8cs">20211015121039_DAO_DbService_deleteAuctionTable_Status.cs</innerfile>
+    <innerfile refid="20211015121039___d_a_o___db_service__delete_auction_table___status_8_designer_8cs">20211015121039_DAO_DbService_deleteAuctionTable_Status.Designer.cs</innerfile>
+    <innerfile refid="20211015121343___d_a_o___db_service__added_auction_table___status_8cs">20211015121343_DAO_DbService_addedAuctionTable_Status.cs</innerfile>
+    <innerfile refid="20211015121343___d_a_o___db_service__added_auction_table___status_8_designer_8cs">20211015121343_DAO_DbService_addedAuctionTable_Status.Designer.cs</innerfile>
+    <innerfile refid="20211026122212__added___third_party_key__and___third_party_type___user_table_8cs">20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.cs</innerfile>
+    <innerfile refid="20211026122212__added___third_party_key__and___third_party_type___user_table_8_designer_8cs">20211026122212_added_ThirdPartyKey_and_ThirdPartyType_UserTable.Designer.cs</innerfile>
+    <innerfile refid="20211027091038__delete__twocolums__usertable_8cs">20211027091038_delete_twocolums_usertable.cs</innerfile>
+    <innerfile refid="20211027091038__delete__twocolums__usertable_8_designer_8cs">20211027091038_delete_twocolums_usertable.Designer.cs</innerfile>
+    <innerfile refid="20211103080250___update___auction__and___auction_bids__table_8cs">20211103080250_Update_Auction_and_AuctionBids_table.cs</innerfile>
+    <innerfile refid="20211103080250___update___auction__and___auction_bids__table_8_designer_8cs">20211103080250_Update_Auction_and_AuctionBids_table.Designer.cs</innerfile>
+    <innerfile refid="20211111100143__auctions__transffered_8cs">20211111100143_auctions_transffered.cs</innerfile>
+    <innerfile refid="20211111100143__auctions__transffered_8_designer_8cs">20211111100143_auctions_transffered.Designer.cs</innerfile>
+    <innerfile refid="20211112073158__comment__pinned__added_8cs">20211112073158_comment_pinned_added.cs</innerfile>
+    <innerfile refid="20211112073158__comment__pinned__added_8_designer_8cs">20211112073158_comment_pinned_added.Designer.cs</innerfile>
+    <innerfile refid="20211112100901__auctions__transfrred_8cs">20211112100901_auctions_transfrred.cs</innerfile>
+    <innerfile refid="20211112100901__auctions__transfrred_8_designer_8cs">20211112100901_auctions_transfrred.Designer.cs</innerfile>
+    <innerfile refid="20211112102802__auction__edited_8cs">20211112102802_auction_edited.cs</innerfile>
+    <innerfile refid="20211112102802__auction__edited_8_designer_8cs">20211112102802_auction_edited.Designer.cs</innerfile>
+    <innerfile refid="20211112132056__jobpost__jobdoerid__added_8cs">20211112132056_jobpost_jobdoerid_added.cs</innerfile>
+    <innerfile refid="20211112132056__jobpost__jobdoerid__added_8_designer_8cs">20211112132056_jobpost_jobdoerid_added.Designer.cs</innerfile>
+    <innerfile refid="20211112133359__dossfee__updated_8cs">20211112133359_dossfee_updated.cs</innerfile>
+    <innerfile refid="20211112133359__dossfee__updated_8_designer_8cs">20211112133359_dossfee_updated.Designer.cs</innerfile>
+    <innerfile refid="20211113151808__create__date__added__auctionbid_8cs">20211113151808_create_date_added_auctionbid.cs</innerfile>
+    <innerfile refid="20211113151808__create__date__added__auctionbid_8_designer_8cs">20211113151808_create_date_added_auctionbid.Designer.cs</innerfile>
+    <innerfile refid="20211116070533___add___payment_history__add___wallet_add___iban_8cs">20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs</innerfile>
+    <innerfile refid="20211116070533___add___payment_history__add___wallet_add___iban_8_designer_8cs">20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.Designer.cs</innerfile>
+    <innerfile refid="20211203184922__platformsetting__table__added_8cs">20211203184922_platformsetting_table_added.cs</innerfile>
+    <innerfile refid="20211203184922__platformsetting__table__added_8_designer_8cs">20211203184922_platformsetting_table_added.Designer.cs</innerfile>
+    <innerfile refid="20211206120503__kyc__table__changed_8cs">20211206120503_kyc_table_changed.cs</innerfile>
+    <innerfile refid="20211206120503__kyc__table__changed_8_designer_8cs">20211206120503_kyc_table_changed.Designer.cs</innerfile>
+    <innerfile refid="20211209071850__document__id__added__to___k_y_c_status__table_8cs">20211209071850_document_id_added_to_KYCStatus_table.cs</innerfile>
+    <innerfile refid="20211209071850__document__id__added__to___k_y_c_status__table_8_designer_8cs">20211209071850_document_id_added_to_KYCStatus_table.Designer.cs</innerfile>
+    <innerfile refid="20211219073632__jobpost__edited_8cs">20211219073632_jobpost_edited.cs</innerfile>
+    <innerfile refid="20211219073632__jobpost__edited_8_designer_8cs">20211219073632_jobpost_edited.Designer.cs</innerfile>
+    <innerfile refid="20211219074346__flag__added_8cs">20211219074346_flag_added.cs</innerfile>
+    <innerfile refid="20211219074346__flag__added_8_designer_8cs">20211219074346_flag_added.Designer.cs</innerfile>
+    <innerfile refid="20211220200841__flag__removed__from__jobs_8cs">20211220200841_flag_removed_from_jobs.cs</innerfile>
+    <innerfile refid="20211220200841__flag__removed__from__jobs_8_designer_8cs">20211220200841_flag_removed_from_jobs.Designer.cs</innerfile>
+    <innerfile refid="20211223164207__payment__explanation__added_8cs">20211223164207_payment_explanation_added.cs</innerfile>
+    <innerfile refid="20211223164207__payment__explanation__added_8_designer_8cs">20211223164207_payment_explanation_added.Designer.cs</innerfile>
+    <innerfile refid="dao__maindb__context_model_snapshot_8cs">dao_maindb_contextModelSnapshot.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Migrations/"/>
+  </compounddef>
+</doxygen>

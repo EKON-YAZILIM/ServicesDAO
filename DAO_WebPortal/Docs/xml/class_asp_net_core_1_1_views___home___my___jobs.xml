@@ -1,0 +1,481 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___my___jobs" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_My_Jobs</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.MyJobsViewModel &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1aa5d216a02ff4165487c9abc93605f3cd" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;*&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="33" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a164672b8012bce65d611691965ff0c1a" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;AdminApprovalPending&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="34" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1abe897159a5d5652baabb5a3ac0bc678e" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_2</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_2</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_2</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;DoSFeePending&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="35" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a62138d0eb3240c6bc199d1ab58a5ceaa" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_3</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_3</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_3</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;KYCPending&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="36" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1ae0e0bb7302257d451c2f0044dd8b1a80" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_4</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_4</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_4</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;InternalAuction&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="37" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1aba4a0fa4008538d41b43ab3ddee6d303" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_5</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_5</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_5</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;PublicAuction&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="38" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1aa0d989ed542920a3cba6c4a505150691" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_6</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_6</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_6</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;AuctionCompleted&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="39" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a76ac8059b5704a97f524c5212fe54f03" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_7</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_7</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_7</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;InformalVoting&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="40" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1aae815af64289ee5d37db12b5b1c9150b" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_8</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_8</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_8</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;FormalVoting&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="41" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a7c00e4bdf7bfc90e649d5ec9666117d2" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_9</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_9</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_9</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;Completed&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="42" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1af85dbd7b435acc958e71f3587aef01ac" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_10</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_10</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_10</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;Failed&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="43" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a6ea9d4274f09bcc927f5ff644d4ef9a2" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_11</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_11</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_11</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;Expired&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="44" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a39c505bd85ac3a037ff7343e5d864972" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_12</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_12</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_12</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;value&quot;, &quot;Rejected&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="45" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1abf7cad05c3364b446bcd29b5d0b298e7" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_13</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_13</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_13</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_JobCardPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="46" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a5321a9a35286efaa514747f950dd6e1a" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_14</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_14</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperAttribute_14</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="47" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a66ec5528d8f2b3961df3af310caa95b1" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Home_My_Jobs.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="50" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1af29bac6d0cd2c1989e9c762be4d7d28b" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Home_My_Jobs.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="52" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1ac1a5ff3786892d5c0bf284856d32d2a1" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Home_My_Jobs.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="54" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1acbb3c48097f22639ffd35009274fd55f" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_My_Jobs.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="56" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a6c051f2ac17f62167ac8b0eae56a9079" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper AspNetCore.Views_Home_My_Jobs.__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="68" column="73" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___my___jobs_1a1726bfe5aa4e382462f7709be46da1fd" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_Home_My_Jobs.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="69" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___my___jobs_1a45fbdec92b0a5c06862aa2bebfb36105" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_My_Jobs.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="57" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="58" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___my___jobs_1a6a8ddf559cbe9849d499455286ded024" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_My_Jobs.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="439" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="439" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___my___jobs_1aa14e60df6b108531b1ee35214c4c34e5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_My_Jobs.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="441" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="441" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___my___jobs_1a74cb0d8af0d6336f2bd36ec3df78f567" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_My_Jobs.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="443" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="443" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___my___jobs_1af8e4a35e84d001d0c18bed40ef50f9dc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_My_Jobs.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="445" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="445" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___my___jobs_1a70543ae3b3cef1aa8db72e36968282c5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.MyJobsViewModel &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.MyJobsViewModel&gt; AspNetCore.Views_Home_My_Jobs.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="447" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="447" bodyend="447"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___my___jobs_1a63faeb5bf459975717ebe060e5c4e300" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_My_Jobs.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_My_Jobs.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="71" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="71" bodyend="436"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_My_Jobs</label>
+        <link refid="class_asp_net_core_1_1_views___home___my___jobs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.MyJobsViewModel &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_My_Jobs</label>
+        <link refid="class_asp_net_core_1_1_views___home___my___jobs"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.MyJobsViewModel &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" line="31" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/My_Jobs.cshtml.g.cs" bodystart="32" bodyend="448"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1acbb3c48097f22639ffd35009274fd55f" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a6c051f2ac17f62167ac8b0eae56a9079" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a1726bfe5aa4e382462f7709be46da1fd" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1aa5d216a02ff4165487c9abc93605f3cd" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a164672b8012bce65d611691965ff0c1a" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1af85dbd7b435acc958e71f3587aef01ac" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_10</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a6ea9d4274f09bcc927f5ff644d4ef9a2" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_11</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a39c505bd85ac3a037ff7343e5d864972" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_12</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1abf7cad05c3364b446bcd29b5d0b298e7" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_13</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a5321a9a35286efaa514747f950dd6e1a" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_14</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1abe897159a5d5652baabb5a3ac0bc678e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_2</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a62138d0eb3240c6bc199d1ab58a5ceaa" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_3</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1ae0e0bb7302257d451c2f0044dd8b1a80" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_4</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1aba4a0fa4008538d41b43ab3ddee6d303" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_5</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1aa0d989ed542920a3cba6c4a505150691" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_6</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a76ac8059b5704a97f524c5212fe54f03" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_7</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1aae815af64289ee5d37db12b5b1c9150b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_8</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a7c00e4bdf7bfc90e649d5ec9666117d2" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperAttribute_9</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a66ec5528d8f2b3961df3af310caa95b1" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1af29bac6d0cd2c1989e9c762be4d7d28b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a45fbdec92b0a5c06862aa2bebfb36105" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1ac1a5ff3786892d5c0bf284856d32d2a1" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a74cb0d8af0d6336f2bd36ec3df78f567" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a63faeb5bf459975717ebe060e5c4e300" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a70543ae3b3cef1aa8db72e36968282c5" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1af8e4a35e84d001d0c18bed40ef50f9dc" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1a6a8ddf559cbe9849d499455286ded024" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___my___jobs_1aa14e60df6b108531b1ee35214c4c34e5" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_My_Jobs</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

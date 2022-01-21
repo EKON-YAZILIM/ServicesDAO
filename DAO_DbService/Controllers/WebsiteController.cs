@@ -16,6 +16,9 @@ using static DAO_DbService.Mapping.AutoMapperBase;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  WebSiteController contains website operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class WebsiteController : Controller

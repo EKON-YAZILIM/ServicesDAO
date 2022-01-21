@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::UserTableUpdated</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1a0e05c0ada06899459776d50818fd4749" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.UserTableUpdated.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.UserTableUpdated.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" line="9" column="33" bodyfile="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" bodystart="9" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1ac84b92fd444c14a33c43e1a583b5dffa" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.UserTableUpdated.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.UserTableUpdated.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" line="34" column="33" bodyfile="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" bodystart="34" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1af3d470723b1a208f2446a930beb11251" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.UserTableUpdated.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.UserTableUpdated.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211008094944_UserTableUpdated.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211008094944_UserTableUpdated.Designer.cs" bodystart="15" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.UserTableUpdated</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.UserTableUpdated</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" line="7" column="19" bodyfile="DAO_DbService/Migrations/20211008094944_UserTableUpdated.cs" bodystart="8" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1af3d470723b1a208f2446a930beb11251" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::UserTableUpdated</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1ac84b92fd444c14a33c43e1a583b5dffa" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::UserTableUpdated</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_user_table_updated_1a0e05c0ada06899459776d50818fd4749" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::UserTableUpdated</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

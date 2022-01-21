@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Utility::CaptchaResult</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1aef78dc7d1c96d77b749cd3e305a4c957" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Utility.CaptchaResult.CaptchaCode</definition>
+        <argsstring></argsstring>
+        <name>CaptchaCode</name>
+        <qualifiedname>DAO_WebPortal.Utility.CaptchaResult.CaptchaCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="227" column="23" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="227" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1af0d6150a60f7857a09a2bd5a304d4422" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>byte[]</type>
+        <definition>byte [] DAO_WebPortal.Utility.CaptchaResult.CaptchaByteData</definition>
+        <argsstring></argsstring>
+        <name>CaptchaByteData</name>
+        <qualifiedname>DAO_WebPortal.Utility.CaptchaResult.CaptchaByteData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="228" column="21" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1af744138ac74af5c9898e6149319df955" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Utility.CaptchaResult.CaptchBase64Data</definition>
+        <argsstring></argsstring>
+        <name>CaptchBase64Data</name>
+        <qualifiedname>DAO_WebPortal.Utility.CaptchaResult.CaptchBase64Data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="229" column="23" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1ae1b3aad7822d6f5eb10d7fffdf6803e6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_WebPortal.Utility.CaptchaResult.Timestamp</definition>
+        <argsstring></argsstring>
+        <name>Timestamp</name>
+        <qualifiedname>DAO_WebPortal.Utility.CaptchaResult.Timestamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/Captcha.cs" line="230" column="25" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="230" bodyend="230"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Utility/Captcha.cs" line="223" column="11" bodyfile="DAO_WebPortal/Utility/Captcha.cs" bodystart="224" bodyend="231"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1af0d6150a60f7857a09a2bd5a304d4422" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::CaptchaResult</scope><name>CaptchaByteData</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1aef78dc7d1c96d77b749cd3e305a4c957" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::CaptchaResult</scope><name>CaptchaCode</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1af744138ac74af5c9898e6149319df955" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::CaptchaResult</scope><name>CaptchBase64Data</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result_1ae1b3aad7822d6f5eb10d7fffdf6803e6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::CaptchaResult</scope><name>Timestamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

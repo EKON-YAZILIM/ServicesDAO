@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::DAO_DbService_updateJobPost_updateJobPostComment</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1a0c4476426c387154dca8d9543f7ae88d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs" line="8" column="33" bodyfile="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs" bodystart="8" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1af688d089ad5615a033318c78a9682543" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs" line="46" column="33" bodyfile="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs" bodystart="46" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1a2be81a0a384829ed0d2280bb0a0cf8c4" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.Designer.cs" bodystart="15" bodyend="237"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_updateJobPost_updateJobPostComment</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs" line="6" column="19" bodyfile="DAO_DbService/Migrations/20211014090837_DAO_DbService_updateJobPost_updateJobPostComment.cs" bodystart="7" bodyend="68"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1a2be81a0a384829ed0d2280bb0a0cf8c4" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_updateJobPost_updateJobPostComment</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1af688d089ad5615a033318c78a9682543" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_updateJobPost_updateJobPostComment</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__update_job_post__update_job_post_comment_1a0c4476426c387154dca8d9543f7ae88d" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_updateJobPost_updateJobPostComment</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

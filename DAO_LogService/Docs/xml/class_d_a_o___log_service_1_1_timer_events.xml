@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_timer_events" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::TimerEvents</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___log_service_1_1_timer_events_1ad26bd1623dabc09f5fbe1873e275d215" prot="public" static="yes" mutable="no">
+        <type>System.Timers.Timer</type>
+        <definition>System.Timers.Timer DAO_LogService.TimerEvents.LogDbTimer</definition>
+        <argsstring></argsstring>
+        <name>LogDbTimer</name>
+        <qualifiedname>DAO_LogService.TimerEvents.LogDbTimer</qualifiedname>
+        <initializer>= new System.Timers.Timer()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/TimerEvents.cs" line="14" column="41" bodyfile="DAO_LogService/TimerEvents.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___log_service_1_1_timer_events_1a4f333df94c0deb245da6012a81a5d965" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool DAO_LogService.TimerEvents.saveDbProgress</definition>
+        <argsstring></argsstring>
+        <name>saveDbProgress</name>
+        <qualifiedname>DAO_LogService.TimerEvents.saveDbProgress</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/TimerEvents.cs" line="16" column="28" bodyfile="DAO_LogService/TimerEvents.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_timer_events_1a2d300911c396e965671e657d8e0bbbf4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.TimerEvents.StartTimers</definition>
+        <argsstring>()</argsstring>
+        <name>StartTimers</name>
+        <qualifiedname>DAO_LogService.TimerEvents.StartTimers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/TimerEvents.cs" line="18" column="28" bodyfile="DAO_LogService/TimerEvents.cs" bodystart="18" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_timer_events_1ab27125e444e27318c0d1ee845f990f87" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.TimerEvents.SaveToDb</definition>
+        <argsstring>(object source, ElapsedEventArgs e)</argsstring>
+        <name>SaveToDb</name>
+        <qualifiedname>DAO_LogService.TimerEvents.SaveToDb</qualifiedname>
+        <param>
+          <type>object</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>ElapsedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/TimerEvents.cs" line="25" column="29" bodyfile="DAO_LogService/TimerEvents.cs" bodystart="25" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_LogService.TimerEvents</label>
+        <link refid="class_d_a_o___log_service_1_1_timer_events"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>LogDbTimer</edgelabel>
+          <edgelabel>saveDbProgress</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>static</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_LogService/TimerEvents.cs" line="12" column="11" bodyfile="DAO_LogService/TimerEvents.cs" bodystart="13" bodyend="94"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_timer_events_1ad26bd1623dabc09f5fbe1873e275d215" prot="public" virt="non-virtual"><scope>DAO_LogService::TimerEvents</scope><name>LogDbTimer</name></member>
+      <member refid="class_d_a_o___log_service_1_1_timer_events_1a4f333df94c0deb245da6012a81a5d965" prot="public" virt="non-virtual"><scope>DAO_LogService::TimerEvents</scope><name>saveDbProgress</name></member>
+      <member refid="class_d_a_o___log_service_1_1_timer_events_1ab27125e444e27318c0d1ee845f990f87" prot="private" virt="non-virtual"><scope>DAO_LogService::TimerEvents</scope><name>SaveToDb</name></member>
+      <member refid="class_d_a_o___log_service_1_1_timer_events_1a2d300911c396e965671e657d8e0bbbf4" prot="public" virt="non-virtual"><scope>DAO_LogService::TimerEvents</scope><name>StartTimers</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

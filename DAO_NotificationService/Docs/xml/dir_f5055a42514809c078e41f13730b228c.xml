@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_f5055a42514809c078e41f13730b228c" kind="dir">
+    <compoundname>DAO_NotificationService/Integrations</compoundname>
+    <innerfile refid="_smtp_mail_sender_8cs">SmtpMailSender.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/Integrations/"/>
+  </compounddef>
+</doxygen>

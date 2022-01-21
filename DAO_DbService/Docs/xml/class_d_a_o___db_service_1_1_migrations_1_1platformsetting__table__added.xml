@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::platformsetting_table_added</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1a385fe64c0f0387ff69581c47909260ea" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.platformsetting_table_added.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.platformsetting_table_added.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.cs" line="9" column="33" bodyfile="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.cs" bodystart="9" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1aeea8e2c5c6d7fa5ff2a0d0aeafaf9af4" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.platformsetting_table_added.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.platformsetting_table_added.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.cs" line="39" column="33" bodyfile="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.cs" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1afe8bfd5e6fe7817405cfd107641b3489" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.platformsetting_table_added.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.platformsetting_table_added.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.Designer.cs" bodystart="15" bodyend="354"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.platformsetting_table_added</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.platformsetting_table_added</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.cs" line="7" column="19" bodyfile="DAO_DbService/Migrations/20211203184922_platformsetting_table_added.cs" bodystart="8" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1afe8bfd5e6fe7817405cfd107641b3489" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::platformsetting_table_added</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1aeea8e2c5c6d7fa5ff2a0d0aeafaf9af4" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::platformsetting_table_added</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1platformsetting__table__added_1a385fe64c0f0387ff69581c47909260ea" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::platformsetting_table_added</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

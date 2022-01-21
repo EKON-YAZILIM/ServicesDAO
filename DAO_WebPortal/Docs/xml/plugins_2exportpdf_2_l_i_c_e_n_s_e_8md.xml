@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="plugins_2exportpdf_2_l_i_c_e_n_s_e_8md" kind="file" language="Markdown">
+    <compoundname>LICENSE.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">Software<sp/>License<sp/>Agreement</highlight></codeline>
+<codeline><highlight class="normal">==========================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin**<sp/>(https://ckeditor.com/ckeditor-4/)&lt;br&gt;</highlight></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2003-2021,<sp/>[CKSource](http://cksource.com)<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>is<sp/>licensed<sp/>under<sp/>a<sp/>commercial<sp/>license<sp/>and<sp/>is<sp/>protected<sp/>by<sp/>copyright<sp/>law.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>more<sp/>details<sp/>about<sp/>available<sp/>licensing<sp/>options<sp/>please<sp/>contact<sp/>us<sp/>at<sp/>sales@cksource.com.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sources<sp/>of<sp/>Intellectual<sp/>Property<sp/>Included<sp/>in<sp/>CKEditor<sp/>4<sp/>export<sp/>to<sp/>PDF</highlight></codeline>
+<codeline><highlight class="normal">---------------------------------------------------------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Where<sp/>not<sp/>otherwise<sp/>indicated,<sp/>all<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>content<sp/>is<sp/>authored<sp/>by<sp/>CKSource<sp/>engineers<sp/>and<sp/>consists<sp/>of<sp/>CKSource-owned<sp/>intellectual<sp/>property.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Trademarks</highlight></codeline>
+<codeline><highlight class="normal">----------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**CKEditor**<sp/>is<sp/>a<sp/>trademark<sp/>of<sp/>[CKSource](http://cksource.com)<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>other<sp/>brand<sp/>and<sp/>product<sp/>names<sp/>are<sp/>trademarks,<sp/>registered<sp/>trademarks<sp/>or<sp/>service<sp/>marks<sp/>of<sp/>their<sp/>respective<sp/>holders.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/LICENSE.md"/>
+  </compounddef>
+</doxygen>

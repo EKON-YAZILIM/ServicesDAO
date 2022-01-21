@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Controllers::PlatformSettingController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a2b1016a79b21082f79671a9fa4bb7f50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerable&lt; PlatformSettingDto &gt;</type>
+        <definition>IEnumerable&lt; PlatformSettingDto &gt; DAO_DbService.Controllers.PlatformSettingController.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.Get</qualifiedname>
+        <briefdescription>
+<para>Get Platform setting List </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="30" column="28" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="30" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a960dd9a79c7632c1661404e6c703c91c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PlatformSettingDto</type>
+        <definition>PlatformSettingDto DAO_DbService.Controllers.PlatformSettingController.GetId</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetId</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.GetId</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Get Platform setting by id </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="57" column="35" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="57" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a3dc79ef2360c671a57c2d1b754bb1ca6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PlatformSettingDto</type>
+        <definition>PlatformSettingDto DAO_DbService.Controllers.PlatformSettingController.Post</definition>
+        <argsstring>([FromBody] PlatformSettingDto model)</argsstring>
+        <name>Post</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.Post</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>PlatformSettingDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves platform setting model using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="84" column="35" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="84" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1af7e380d511e62eff6abc3fd831e512fe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; PlatformSettingDto &gt;</type>
+        <definition>List&lt; PlatformSettingDto &gt; DAO_DbService.Controllers.PlatformSettingController.PostMultiple</definition>
+        <argsstring>([FromBody] List&lt; PlatformSettingDto &gt; model)</argsstring>
+        <name>PostMultiple</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.PostMultiple</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>List&lt; PlatformSettingDto &gt;</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Saves platform settings list using post method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="110" column="21" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="110" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a801a84378b05fa905e2c528ead6e76b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Controllers.PlatformSettingController.Delete</definition>
+        <argsstring>(int? ID)</argsstring>
+        <name>Delete</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.Delete</qualifiedname>
+        <param>
+          <type>int?</type>
+          <declname>ID</declname>
+        </param>
+        <briefdescription>
+<para>Removes platform setting by id Ends platform setting </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="137" column="21" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="137" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1af9e5b9e4f6fa53c0a81028cb25fc8c52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PlatformSettingDto</type>
+        <definition>PlatformSettingDto DAO_DbService.Controllers.PlatformSettingController.Update</definition>
+        <argsstring>([FromBody] PlatformSettingDto model)</argsstring>
+        <name>Update</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.Update</qualifiedname>
+        <param>
+          <attributes>[FromBody]</attributes>
+          <type>PlatformSettingDto</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Update Platform setting using put method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="163" column="35" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="163" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1aacfea1d31e0a967b8eceebad527bb878" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PaginationEntity&lt; PlatformSettingDto &gt;</type>
+        <definition>PaginationEntity&lt; PlatformSettingDto &gt; DAO_DbService.Controllers.PlatformSettingController.GetPaged</definition>
+        <argsstring>(int page=1, int pageCount=30)</argsstring>
+        <name>GetPaged</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.GetPaged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>page</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>pageCount</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+<para>Brings up the platform setting pages. The selected page is fetched. Not all pages are returned </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>page</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pageCount</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="191" column="33" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="191" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a3096a2e6ae40d349160de798228e6021" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PlatformSettingDto</type>
+        <definition>PlatformSettingDto DAO_DbService.Controllers.PlatformSettingController.GetLatestSetting</definition>
+        <argsstring>()</argsstring>
+        <name>GetLatestSetting</name>
+        <qualifiedname>DAO_DbService.Controllers.PlatformSettingController.GetLatestSetting</qualifiedname>
+        <briefdescription>
+<para>get latest setting </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="224" column="35" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="224" bodyend="244"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller" kindref="compound">PlatformSettingController</ref> contains platform setting operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.PlatformSettingController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_DbService.Controllers.PlatformSettingController</label>
+        <link refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Controllers/PlatformSettingController.cs" line="22" column="11" bodyfile="DAO_DbService/Controllers/PlatformSettingController.cs" bodystart="23" bodyend="246"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a801a84378b05fa905e2c528ead6e76b9" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>Delete</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a2b1016a79b21082f79671a9fa4bb7f50" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>Get</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a960dd9a79c7632c1661404e6c703c91c" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>GetId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a3096a2e6ae40d349160de798228e6021" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>GetLatestSetting</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1aacfea1d31e0a967b8eceebad527bb878" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>GetPaged</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1a3dc79ef2360c671a57c2d1b754bb1ca6" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>Post</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1af7e380d511e62eff6abc3fd831e512fe" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>PostMultiple</name></member>
+      <member refid="class_d_a_o___db_service_1_1_controllers_1_1_platform_setting_controller_1af9e5b9e4f6fa53c0a81028cb25fc8c52" prot="public" virt="non-virtual"><scope>DAO_DbService::Controllers::PlatformSettingController</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

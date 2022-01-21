@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_IdentityService::Controllers::KycController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ControllerBase</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1a30233d911e3e4cc84e7ec81520f72e3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_IdentityService.Controllers.KycController.SubmitKYCFile</definition>
+        <argsstring>([FromQuery] string Type, string Name, string Surname, string DoB, string Email, string Country, string DocumentNumber, string IssueDate, string ExpiryDate, string UserID)</argsstring>
+        <name>SubmitKYCFile</name>
+        <qualifiedname>DAO_IdentityService.Controllers.KycController.SubmitKYCFile</qualifiedname>
+        <param>
+          <attributes>[FromQuery]</attributes>
+          <type>string</type>
+          <declname>Type</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>Name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>Surname</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>DoB</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>Email</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>Country</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>DocumentNumber</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>IssueDate</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>ExpiryDate</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>UserID</declname>
+        </param>
+        <briefdescription>
+<para>Submits form data for the KYC verification </para>
+        </briefdescription>
+        <detaileddescription>
+<para>User information</para>
+<para><simplesect kind="return"><para>Generic Simple Response class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/KycController.cs" line="27" column="31" bodyfile="DAO_IdentityService/Controllers/KycController.cs" bodystart="27" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1a7830b2a90a1d3f5646151a0e2dba0da8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_IdentityService.Controllers.KycController.KycCallBack</definition>
+        <argsstring>(KYCCallBack Response)</argsstring>
+        <name>KycCallBack</name>
+        <qualifiedname>DAO_IdentityService.Controllers.KycController.KycCallBack</qualifiedname>
+        <param>
+          <type>KYCCallBack</type>
+          <declname>Response</declname>
+        </param>
+        <briefdescription>
+<para>Receives calllback from the KYC verification site. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>Response</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KYC information of the user</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>KYCCallBack class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/KycController.cs" line="183" column="31" bodyfile="DAO_IdentityService/Controllers/KycController.cs" bodystart="183" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1aa6b976691554978491d805e53ca5da84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>List&lt; KYCCountries &gt;</type>
+        <definition>List&lt; KYCCountries &gt; DAO_IdentityService.Controllers.KycController.GetKycCountries</definition>
+        <argsstring>()</argsstring>
+        <name>GetKycCountries</name>
+        <qualifiedname>DAO_IdentityService.Controllers.KycController.GetKycCountries</qualifiedname>
+        <briefdescription>
+<para>Brings countries for KYC form </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>List of KYCCountries class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/KycController.cs" line="241" column="21" bodyfile="DAO_IdentityService/Controllers/KycController.cs" bodystart="241" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1ae4bb2e98e76efc038dd678b20969b32d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>UserKYCDto</type>
+        <definition>UserKYCDto DAO_IdentityService.Controllers.KycController.GetKycStatus</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetKycStatus</name>
+        <qualifiedname>DAO_IdentityService.Controllers.KycController.GetKycStatus</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Brings KYC status of user </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>user id</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>UserKYCDto class</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Controllers/KycController.cs" line="263" column="27" bodyfile="DAO_IdentityService/Controllers/KycController.cs" bodystart="263" bodyend="279"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller" kindref="compound">KycController</ref> contains Kyc operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>DAO_IdentityService.Controllers.KycController</label>
+        <link refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ControllerBase</label>
+      </node>
+      <node id="1">
+        <label>DAO_IdentityService.Controllers.KycController</label>
+        <link refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_IdentityService/Controllers/KycController.cs" line="19" column="11" bodyfile="DAO_IdentityService/Controllers/KycController.cs" bodystart="20" bodyend="281"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1aa6b976691554978491d805e53ca5da84" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::KycController</scope><name>GetKycCountries</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1ae4bb2e98e76efc038dd678b20969b32d" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::KycController</scope><name>GetKycStatus</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1a7830b2a90a1d3f5646151a0e2dba0da8" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::KycController</scope><name>KycCallBack</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller_1a30233d911e3e4cc84e7ec81520f72e3d" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Controllers::KycController</scope><name>SubmitKYCFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___k_y_c___verification" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_KYC_Verification</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.KYCViewModel &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a022f7faafb24bbee4635540036d3c8f5" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/css/KYCstyle.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="40" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a554f799796a00058c3e242e18181bfe6" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;rel&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;stylesheet&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="41" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1ae6a5579803c218aeb743dd1d6da2eb7b" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_2</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_2</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_2</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;href&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/css/jquery-ui.css&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="42" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a1dcc375be4d447b1f60d819353bce9fd" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_3</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_3</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_3</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/js/bootstrap.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="43" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a018e6ae9b6763bac719e958eb43a4f65" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_4</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_4</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperAttribute_4</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;src&quot;, new global::Microsoft.AspNetCore.Html.HtmlString(&quot;~/Home/js/jquery-ui.min.js&quot;), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="44" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a816f4994f764c82f23df4dcb88240128" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_Home_KYC_Verification.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="47" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a30a831f24e45488c6374c11947972b26" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_Home_KYC_Verification.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="49" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a2fcb66a589f78da8cc1de0b0daa55d20" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_Home_KYC_Verification.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="51" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a9716fcfca430612883fa9a10b38a8953" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_KYC_Verification.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="53" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a948baba16d78b35f70954b0e0d600dbb" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper AspNetCore.Views_Home_KYC_Verification.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="65" column="85" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a13c8620874f5629147bc2bb6e3fb6027" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper AspNetCore.Views_Home_KYC_Verification.__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="66" column="73" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a3677c2916388bb213a6c37776a5825ee" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_Home_KYC_Verification.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="54" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="55" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a22644aacbdc74309a00d814b252884f4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_KYC_Verification.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="743" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="743" bodyend="743"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a3cae3be078dc8448073408744bcbab80" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_KYC_Verification.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="745" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="745" bodyend="745"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a4dfdef4cf44e3e95aea3bbe86c057a4b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_KYC_Verification.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="747" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="747" bodyend="747"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1ae5df645318ce0b95d7f3dd03d7350cb4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_KYC_Verification.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="749" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="749" bodyend="749"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a602c8752c0910fe27224d91e39b781c4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.KYCViewModel &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.KYCViewModel&gt; AspNetCore.Views_Home_KYC_Verification.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="751" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="751" bodyend="751"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___k_y_c___verification_1a3a41e197b8e22cfc38473ad01bf87dac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_KYC_Verification.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_KYC_Verification.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="68" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="68" bodyend="740"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_KYC_Verification</label>
+        <link refid="class_asp_net_core_1_1_views___home___k_y_c___verification"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.KYCViewModel &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_KYC_Verification</label>
+        <link refid="class_asp_net_core_1_1_views___home___k_y_c___verification"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.KYCViewModel &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" line="38" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/KYC_Verification.cshtml.g.cs" bodystart="39" bodyend="752"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a9716fcfca430612883fa9a10b38a8953" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a948baba16d78b35f70954b0e0d600dbb" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a13c8620874f5629147bc2bb6e3fb6027" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_OptionTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a022f7faafb24bbee4635540036d3c8f5" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a554f799796a00058c3e242e18181bfe6" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1ae6a5579803c218aeb743dd1d6da2eb7b" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperAttribute_2</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a1dcc375be4d447b1f60d819353bce9fd" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperAttribute_3</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a018e6ae9b6763bac719e958eb43a4f65" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperAttribute_4</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a816f4994f764c82f23df4dcb88240128" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a30a831f24e45488c6374c11947972b26" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a3677c2916388bb213a6c37776a5825ee" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a2fcb66a589f78da8cc1de0b0daa55d20" prot="private" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a4dfdef4cf44e3e95aea3bbe86c057a4b" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a3a41e197b8e22cfc38473ad01bf87dac" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a602c8752c0910fe27224d91e39b781c4" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1ae5df645318ce0b95d7f3dd03d7350cb4" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a22644aacbdc74309a00d814b252884f4" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___k_y_c___verification_1a3cae3be078dc8448073408744bcbab80" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_KYC_Verification</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

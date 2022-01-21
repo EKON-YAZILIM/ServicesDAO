@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_555dcb5ec2b82ccf9d06c5086f101405" kind="dir">
+    <compoundname>DAO_LogService</compoundname>
+    <innerdir refid="dir_3c4dd07498d9c915962dbce16eb0a1f9">DAO_LogService/Contexts</innerdir>
+    <innerdir refid="dir_3eea7865ac1ec66644d92cdbc2612dba">DAO_LogService/Controllers</innerdir>
+    <innerdir refid="dir_3729e8a0ff8fcd27defa02cbed99fcae">DAO_LogService/Mapping</innerdir>
+    <innerdir refid="dir_09595c00e1570065dba8b90e18378b45">DAO_LogService/Migrations</innerdir>
+    <innerdir refid="dir_95a098293b4fc784d12866f83a89497f">DAO_LogService/Models</innerdir>
+    <innerdir refid="dir_e3d2b2840044419728c55c87fe8bc3de">DAO_LogService/obj</innerdir>
+    <innerfile refid="_main_events_8cs">MainEvents.cs</innerfile>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <innerfile refid="_startup_8cs">Startup.cs</innerfile>
+    <innerfile refid="_timer_events_8cs">TimerEvents.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/"/>
+  </compounddef>
+</doxygen>

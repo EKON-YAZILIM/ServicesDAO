@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::UserCommentVote</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1adec79faa1276b5c70d521c61dda47175" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.UserCommentVote.UserCommentVoteID</definition>
+        <argsstring></argsstring>
+        <name>UserCommentVoteID</name>
+        <qualifiedname>DAO_DbService.Models.UserCommentVote.UserCommentVoteID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserCommentVote.cs" line="13" column="20" bodyfile="DAO_DbService/Models/UserCommentVote.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a6a1d4766c5b72ede0ead80c4d8461ec5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.UserCommentVote.UserId</definition>
+        <argsstring></argsstring>
+        <name>UserId</name>
+        <qualifiedname>DAO_DbService.Models.UserCommentVote.UserId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserCommentVote.cs" line="14" column="20" bodyfile="DAO_DbService/Models/UserCommentVote.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a736105714dbc58011764c5cfcd44e819" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.UserCommentVote.JobPostCommentID</definition>
+        <argsstring></argsstring>
+        <name>JobPostCommentID</name>
+        <qualifiedname>DAO_DbService.Models.UserCommentVote.JobPostCommentID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserCommentVote.cs" line="15" column="20" bodyfile="DAO_DbService/Models/UserCommentVote.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a45027e87aa866486fbe6f09bc1be43be" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Models.UserCommentVote.IsUpVote</definition>
+        <argsstring></argsstring>
+        <name>IsUpVote</name>
+        <qualifiedname>DAO_DbService.Models.UserCommentVote.IsUpVote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserCommentVote.cs" line="16" column="21" bodyfile="DAO_DbService/Models/UserCommentVote.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/UserCommentVote.cs" line="10" column="11" bodyfile="DAO_DbService/Models/UserCommentVote.cs" bodystart="11" bodyend="18"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a45027e87aa866486fbe6f09bc1be43be" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserCommentVote</scope><name>IsUpVote</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a736105714dbc58011764c5cfcd44e819" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserCommentVote</scope><name>JobPostCommentID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1adec79faa1276b5c70d521c61dda47175" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserCommentVote</scope><name>UserCommentVoteID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote_1a6a1d4766c5b72ede0ead80c4d8461ec5" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserCommentVote</scope><name>UserId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

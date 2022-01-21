@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="wrongendpoint_8md" kind="file" language="Markdown">
+    <compoundname>wrongendpoint.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">@bender-tags:<sp/>exportpdf,<sp/>feature,<sp/>4</highlight></codeline>
+<codeline><highlight class="normal">@bender-ui:<sp/>collapsed</highlight></codeline>
+<codeline><highlight class="normal">@bender-include:<sp/>../_helpers/tools.js</highlight></codeline>
+<codeline><highlight class="normal">@bender-ckeditor-plugins:<sp/>wysiwygarea,<sp/>toolbar,<sp/>notification</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Note:**<sp/>Errors<sp/>in<sp/>console<sp/>during<sp/>this<sp/>test<sp/>are<sp/>allowed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>in<sp/>the<sp/>first<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Warning<sp/>notification<sp/>with<sp/>`Error<sp/>occured.`<sp/>message<sp/>appeared.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>is<sp/>clickable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>wasn&apos;t<sp/>downloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notification<sp/>didn&apos;t<sp/>show<sp/>up.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>wasn&apos;t<sp/>reenabled.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>was<sp/>downloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>Click<sp/>`Export<sp/>to<sp/>PDF`<sp/>button<sp/>in<sp/>the<sp/>second<sp/>editor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Expected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Alert<sp/>appeared<sp/>instead<sp/>of<sp/>notification.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>is<sp/>clickable.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>wasn&apos;t<sp/>downloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>**Unexpected:**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Notification<sp/>didn&apos;t<sp/>show<sp/>up.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Button<sp/>wasn&apos;t<sp/>reenabled.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>File<sp/>was<sp/>downloaded.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/wrongendpoint.md"/>
+  </compounddef>
+</doxygen>

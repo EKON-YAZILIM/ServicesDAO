@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="skins_2moono-dark_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>readme.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">&quot;Moono&quot;<sp/>Skin</highlight></codeline>
+<codeline><highlight class="normal">====================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>skin<sp/>has<sp/>been<sp/>chosen<sp/>for<sp/>the<sp/>**default<sp/>skin**<sp/>of<sp/>CKEditor<sp/>4.x,<sp/>elected<sp/>from<sp/>the<sp/>CKEditor</highlight></codeline>
+<codeline><highlight class="normal">[skin<sp/>contest](http://ckeditor.com/blog/new_ckeditor_4_skin)<sp/>and<sp/>further<sp/>shaped<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>CKEditor<sp/>team.<sp/>&quot;Moono&quot;<sp/>is<sp/>maintained<sp/>by<sp/>the<sp/>core<sp/>developers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>more<sp/>information<sp/>about<sp/>skins,<sp/>please<sp/>check<sp/>the<sp/>[CKEditor<sp/>Skin<sp/>SDK](http://docs.cksource.com/CKEditor_4.x/Skin_SDK)</highlight></codeline>
+<codeline><highlight class="normal">documentation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Features</highlight></codeline>
+<codeline><highlight class="normal">-------------------</highlight></codeline>
+<codeline><highlight class="normal">&quot;Moono&quot;<sp/>is<sp/>a<sp/>monochromatic<sp/>skin,<sp/>which<sp/>offers<sp/>a<sp/>modern<sp/>look<sp/>coupled<sp/>with<sp/>gradients<sp/>and<sp/>transparency.</highlight></codeline>
+<codeline><highlight class="normal">It<sp/>comes<sp/>with<sp/>the<sp/>following<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Chameleon<sp/>feature<sp/>with<sp/>brightness,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>high-contrast<sp/>compatibility,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>graphics<sp/>source<sp/>provided<sp/>in<sp/>SVG.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Directory<sp/>Structure</highlight></codeline>
+<codeline><highlight class="normal">-------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CSS<sp/>parts:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**editor.css**:<sp/>the<sp/>main<sp/>CSS<sp/>file.<sp/>It&apos;s<sp/>simply<sp/>loading<sp/>several<sp/>other<sp/>files,<sp/>for<sp/>easier<sp/>maintenance,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**mainui.css**:<sp/>the<sp/>file<sp/>contains<sp/>styles<sp/>of<sp/>entire<sp/>editor<sp/>outline<sp/>structures,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**toolbar.css**:<sp/>the<sp/>file<sp/>contains<sp/>styles<sp/>of<sp/>the<sp/>editor<sp/>toolbar<sp/>space<sp/>(top),</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**richcombo.css**:<sp/>the<sp/>file<sp/>contains<sp/>styles<sp/>of<sp/>the<sp/>rich<sp/>combo<sp/>ui<sp/>elements<sp/>on<sp/>toolbar,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**panel.css**:<sp/>the<sp/>file<sp/>contains<sp/>styles<sp/>of<sp/>the<sp/>rich<sp/>combo<sp/>drop-down,<sp/>it&apos;s<sp/>not<sp/>loaded</highlight></codeline>
+<codeline><highlight class="normal">until<sp/>the<sp/>first<sp/>panel<sp/>open<sp/>up,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**elementspath.css**:<sp/>the<sp/>file<sp/>contains<sp/>styles<sp/>of<sp/>the<sp/>editor<sp/>elements<sp/>path<sp/>bar<sp/>(bottom),</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**menu.css**:<sp/>the<sp/>file<sp/>contains<sp/>styles<sp/>of<sp/>all<sp/>editor<sp/>menus<sp/>including<sp/>context<sp/>menu<sp/>and<sp/>button<sp/>drop-down,</highlight></codeline>
+<codeline><highlight class="normal">it&apos;s<sp/>not<sp/>loaded<sp/>until<sp/>the<sp/>first<sp/>menu<sp/>open<sp/>up,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**dialog.css**:<sp/>the<sp/>CSS<sp/>files<sp/>for<sp/>the<sp/>dialog<sp/>UI,<sp/>it&apos;s<sp/>not<sp/>loaded<sp/>until<sp/>the<sp/>first<sp/>dialog<sp/>open,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**reset.css**:<sp/>the<sp/>file<sp/>defines<sp/>the<sp/>basis<sp/>of<sp/>style<sp/>resets<sp/>among<sp/>all<sp/>editor<sp/>UI<sp/>spaces,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**preset.css**:<sp/>the<sp/>file<sp/>defines<sp/>the<sp/>default<sp/>styles<sp/>of<sp/>some<sp/>UI<sp/>elements<sp/>reflecting<sp/>the<sp/>skin<sp/>preference,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**editor_XYZ.css**<sp/>and<sp/>**dialog_XYZ.css**:<sp/>browser<sp/>specific<sp/>CSS<sp/>hacks.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Other<sp/>parts:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**skin.js**:<sp/>the<sp/>only<sp/>JavaScript<sp/>part<sp/>of<sp/>the<sp/>skin<sp/>that<sp/>registers<sp/>the<sp/>skin,<sp/>its<sp/>browser<sp/>specific<sp/>files<sp/>and<sp/>its<sp/>icons<sp/>and<sp/>defines<sp/>the<sp/>Chameleon<sp/>feature,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**icons/**:<sp/>contains<sp/>all<sp/>skin<sp/>defined<sp/>icons,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**images/**:<sp/>contains<sp/>a<sp/>fill<sp/>general<sp/>used<sp/>images,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**dev/**:<sp/>contains<sp/>SVG<sp/>source<sp/>of<sp/>the<sp/>skin<sp/>icons.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">License</highlight></codeline>
+<codeline><highlight class="normal">-------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2003-2014,<sp/>CKSource<sp/>-<sp/>Frederico<sp/>Knabben.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Licensed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>any<sp/>of<sp/>the<sp/>following<sp/>licenses<sp/>at<sp/>your<sp/>choice:<sp/>[GPL](http://www.gnu.org/licenses/gpl.html),<sp/>[LGPL](http://www.gnu.org/licenses/lgpl.html)<sp/>and<sp/>[MPL](http://www.mozilla.org/MPL/MPL-1.1.html).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>LICENSE.md<sp/>for<sp/>more<sp/>information.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/skins/moono-dark/readme.md"/>
+  </compounddef>
+</doxygen>

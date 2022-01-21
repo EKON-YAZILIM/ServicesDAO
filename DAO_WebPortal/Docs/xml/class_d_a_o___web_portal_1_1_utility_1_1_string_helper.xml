@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_utility_1_1_string_helper" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Utility::StringHelper</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_string_helper_1a2dd312070f4c2bb4d45eeb4614367277" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_WebPortal.Utility.StringHelper.ShortenString</definition>
+        <argsstring>(string text, int length)</argsstring>
+        <name>ShortenString</name>
+        <qualifiedname>DAO_WebPortal.Utility.StringHelper.ShortenString</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Method for shortening strings in narrow spaces like tables and cards etc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input text</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired length</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/StringHelper.cs" line="16" column="30" bodyfile="DAO_WebPortal/Utility/StringHelper.cs" bodystart="16" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_string_helper_1a151efbe4c6032a4e9f34e409b1c961cb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_WebPortal.Utility.StringHelper.AnonymizeReputation</definition>
+        <argsstring>(double? reputation)</argsstring>
+        <name>AnonymizeReputation</name>
+        <qualifiedname>DAO_WebPortal.Utility.StringHelper.AnonymizeReputation</qualifiedname>
+        <param>
+          <type>double?</type>
+          <declname>reputation</declname>
+        </param>
+        <briefdescription>
+<para>Used for hiding user&apos;s reputation and converting it to a range to provide anonymity </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>text</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input text</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired length</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/StringHelper.cs" line="36" column="30" bodyfile="DAO_WebPortal/Utility/StringHelper.cs" bodystart="36" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Utility/StringHelper.cs" line="8" column="19" bodyfile="DAO_WebPortal/Utility/StringHelper.cs" bodystart="9" bodyend="54"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_string_helper_1a151efbe4c6032a4e9f34e409b1c961cb" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::StringHelper</scope><name>AnonymizeReputation</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_string_helper_1a2dd312070f4c2bb4d45eeb4614367277" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::StringHelper</scope><name>ShortenString</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

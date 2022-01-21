@@ -15,10 +15,17 @@ using DAO_DbService.Contexts;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  AuctionBidController contains auction bid operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class AuctionBidController : Controller
     {
+        /// <summary>
+        /// Get Auction Bid List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<AuctionBidDto> Get()
@@ -40,7 +47,12 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(model).ToArray();
         }
-        
+
+        /// <summary>
+        /// Get Auction bid by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public AuctionBidDto GetId(int id)
@@ -62,7 +74,12 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<AuctionBid, AuctionBidDto>(model);
         }
-        
+
+        /// <summary>
+        /// Saves Auction bid model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public AuctionBidDto Post([FromBody] AuctionBidDto model)
@@ -83,7 +100,12 @@ namespace DAO_DbService.Controllers
                 return new AuctionBidDto();
             }
         }
-        
+
+        /// <summary>
+        ///  Saves Auction bid list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<AuctionBidDto> PostMultiple([FromBody] List<AuctionBidDto> model)
@@ -104,7 +126,13 @@ namespace DAO_DbService.Controllers
                 return new List<AuctionBidDto>();
             }
         }
-        
+
+        /// <summary>
+        /// Removes auction bid by id
+        /// Ends auction bid
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,7 +153,12 @@ namespace DAO_DbService.Controllers
                 return false;
             }
         }
-        
+
+        /// <summary>
+        ///  Update auction bid
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public AuctionBidDto Update([FromBody] AuctionBidDto model)
@@ -146,7 +179,14 @@ namespace DAO_DbService.Controllers
                 return new AuctionBidDto();
             }
         }
-      
+
+        /// <summary>
+        /// Brings up the auction bid pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<AuctionBidDto> GetPaged(int page = 1, int pageCount = 30)
@@ -176,6 +216,11 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// Get auction bid by auctionid
+        /// </summary>
+        /// <param name="auctionid"></param>
+        /// <returns></returns>
         [Route("GetByAuctionId")]
         [HttpGet]
         public List<AuctionBidDto> GetByAuctionId(int auctionid)
@@ -198,7 +243,12 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<AuctionBid>, List<AuctionBidDto>>(model).ToList();
         }
 
-
+        /// <summary>
+        /// Removes auction bid by auctionId
+        /// Ends active sessions
+        /// </summary>
+        /// <param name="auctionId"></param>
+        /// <returns></returns>
         [Route("DeleteByAuctionID")]
         [HttpDelete]
         public bool DeleteByAuctionID(int auctionId)

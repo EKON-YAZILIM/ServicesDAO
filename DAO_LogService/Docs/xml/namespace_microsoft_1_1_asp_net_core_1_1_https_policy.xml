@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_microsoft_1_1_asp_net_core_1_1_https_policy" kind="namespace" language="C#">
+    <compoundname>Microsoft::AspNetCore::HttpsPolicy</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Startup.cs" line="3" column="39"/>
+  </compounddef>
+</doxygen>

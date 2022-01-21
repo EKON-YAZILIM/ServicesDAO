@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___web_portal_1_1_utility" kind="namespace" language="C#">
+    <compoundname>DAO_WebPortal::Utility</compoundname>
+    <innerclass refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha" prot="public">DAO_WebPortal::Utility::Captcha</innerclass>
+    <innerclass refid="class_d_a_o___web_portal_1_1_utility_1_1_captcha_result" prot="public">DAO_WebPortal::Utility::CaptchaResult</innerclass>
+    <innerclass refid="class_d_a_o___web_portal_1_1_utility_1_1_ip_helper" prot="public">DAO_WebPortal::Utility::IpHelper</innerclass>
+    <innerclass refid="class_d_a_o___web_portal_1_1_utility_1_1_string_helper" prot="public">DAO_WebPortal::Utility::StringHelper</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Utility/Captcha.cs" line="12" column="1"/>
+  </compounddef>
+</doxygen>

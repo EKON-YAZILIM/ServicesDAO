@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_payment_history" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::PaymentHistory</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a0924676971aa7e481fb32599e21ccb14" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.PaymentHistory.PaymentHistoryID</definition>
+        <argsstring></argsstring>
+        <name>PaymentHistoryID</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.PaymentHistoryID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="12" column="20" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a9c476c07a4b8cc13e57b3799ed40259d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.PaymentHistory.JobID</definition>
+        <argsstring></argsstring>
+        <name>JobID</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.JobID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="13" column="20" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a9ca4447eed675bf63ad6bc42d1364647" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.PaymentHistory.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="14" column="20" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1aa226f78ea9d055045238576f497f62f2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_DbService.Models.PaymentHistory.Amount</definition>
+        <argsstring></argsstring>
+        <name>Amount</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.Amount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="15" column="23" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a423b3bdbe25f2275d1ddebb8f1e297c7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PaymentHistory.WalletAddress</definition>
+        <argsstring></argsstring>
+        <name>WalletAddress</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.WalletAddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="16" column="23" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a98eb5c3edfd6aa2dced136901d5630d1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PaymentHistory.IBAN</definition>
+        <argsstring></argsstring>
+        <name>IBAN</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.IBAN</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="17" column="23" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a614628f56e7a7ce28c0c81c6f83667de" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.PaymentHistory.CreateDate</definition>
+        <argsstring></argsstring>
+        <name>CreateDate</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.CreateDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="18" column="25" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_payment_history_1ade7d09e330e3fd06fa864136da1baa35" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.PaymentHistory.Explanation</definition>
+        <argsstring></argsstring>
+        <name>Explanation</name>
+        <qualifiedname>DAO_DbService.Models.PaymentHistory.Explanation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/PaymentHistory.cs" line="19" column="23" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/PaymentHistory.cs" line="9" column="11" bodyfile="DAO_DbService/Models/PaymentHistory.cs" bodystart="10" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1aa226f78ea9d055045238576f497f62f2" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>Amount</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a614628f56e7a7ce28c0c81c6f83667de" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>CreateDate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1ade7d09e330e3fd06fa864136da1baa35" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>Explanation</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a98eb5c3edfd6aa2dced136901d5630d1" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>IBAN</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a9c476c07a4b8cc13e57b3799ed40259d" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>JobID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a0924676971aa7e481fb32599e21ccb14" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>PaymentHistoryID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a9ca4447eed675bf63ad6bc42d1364647" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>UserID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_payment_history_1a423b3bdbe25f2275d1ddebb8f1e297c7" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::PaymentHistory</scope><name>WalletAddress</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

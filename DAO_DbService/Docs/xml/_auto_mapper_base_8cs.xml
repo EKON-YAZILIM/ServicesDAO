@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_auto_mapper_base_8cs" kind="file" language="C#">
+    <compoundname>AutoMapperBase.cs</compoundname>
+    <innerclass refid="class_d_a_o___db_service_1_1_mapping_1_1_auto_mapper_base" prot="public">DAO_DbService::Mapping::AutoMapperBase</innerclass>
+    <innernamespace refid="namespace_d_a_o___db_service">DAO_DbService</innernamespace>
+    <innernamespace refid="namespace_d_a_o___db_service_1_1_mapping">DAO_DbService::Mapping</innernamespace>
+    <innernamespace refid="namespace_auto_mapper">AutoMapper</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>AutoMapper;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>PagedList.Core;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System.Collections.Generic;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="namespace_d_a_o___db_service_1_1_mapping" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_d_a_o___db_service_1_1_mapping" kindref="compound">DAO_DbService.Mapping</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">AutoMapperBase</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>readonly<sp/>IMapper<sp/>_mapper;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>AutoMapperBase()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>config<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MapperConfiguration(c<sp/>=&gt;<sp/>c.AddProfile&lt;<ref refid="class_d_a_o___db_service_1_1_mapping_1_1_mapping_profile" kindref="compound">MappingProfile</ref>&gt;());</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_mapper<sp/>=<sp/>config.CreateMapper();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>IPagedList&lt;TDestination&gt;<sp/>ToMappedPagedList&lt;TSource,<sp/>TDestination&gt;(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>IPagedList&lt;TSource&gt;<sp/>list)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IEnumerable&lt;TDestination&gt;<sp/>sourceList<sp/>=<sp/>_mapper.Map&lt;IEnumerable&lt;TSource&gt;,<sp/>IEnumerable&lt;TDestination&gt;&gt;(list);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IPagedList&lt;TDestination&gt;<sp/>pagedResult<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>StaticPagedList&lt;TDestination&gt;(sourceList,<sp/>list.GetMetaData());</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pagedResult;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DAO_DbService/Mapping/AutoMapperBase.cs"/>
+  </compounddef>
+</doxygen>

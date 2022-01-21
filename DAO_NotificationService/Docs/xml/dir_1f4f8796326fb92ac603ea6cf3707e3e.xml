@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_1f4f8796326fb92ac603ea6cf3707e3e" kind="dir">
+    <compoundname>DAO_NotificationService</compoundname>
+    <innerdir refid="dir_bd696381264c423fa5a1d0fded49b74e">DAO_NotificationService/Controllers</innerdir>
+    <innerdir refid="dir_f5055a42514809c078e41f13730b228c">DAO_NotificationService/Integrations</innerdir>
+    <innerdir refid="dir_f4c52c4204f3cd6a454bbd4b1d297c7d">DAO_NotificationService/obj</innerdir>
+    <innerfile refid="_main_events_8cs">MainEvents.cs</innerfile>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <innerfile refid="_startup_8cs">Startup.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/"/>
+  </compounddef>
+</doxygen>

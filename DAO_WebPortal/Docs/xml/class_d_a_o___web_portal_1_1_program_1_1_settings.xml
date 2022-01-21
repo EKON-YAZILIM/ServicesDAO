@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_program_1_1_settings" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Program::Settings</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a9192d18a3bab0b5194e6e405f5781def" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.ViewFolder</definition>
+        <argsstring></argsstring>
+        <name>ViewFolder</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.ViewFolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="19" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a36253556076d3737960d7d722ca5aea0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.RabbitMQUrl</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUrl</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.RabbitMQUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="22" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a98ac8da70157acba7ba8b6ae4e4f031c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.RabbitMQUsername</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUsername</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.RabbitMQUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="23" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1ae85fac220f26ed9462192b3f957bb274" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.RabbitMQPassword</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQPassword</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.RabbitMQPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="24" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1aa5ea446be4aae0c3b520b3b5e50988e6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.Service_ApiGateway_Url</definition>
+        <argsstring></argsstring>
+        <name>Service_ApiGateway_Url</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.Service_ApiGateway_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="25" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1abdc91a4691622da91e4e4e3ded1e8027" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.EncryptionKey</definition>
+        <argsstring></argsstring>
+        <name>EncryptionKey</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.EncryptionKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="28" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1ab65058ea3ef4a25062b41a142c9619c1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; string &gt;</type>
+        <definition>List&lt;string&gt; DAO_WebPortal.Program.Settings.DosCurrencies</definition>
+        <argsstring></argsstring>
+        <name>DosCurrencies</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.DosCurrencies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="33" column="25" bodyfile="DAO_WebPortal/Program.cs" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1af333dc1c30b0228b95381eee7d59c211" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; double &gt;</type>
+        <definition>List&lt;double&gt; DAO_WebPortal.Program.Settings.DosFees</definition>
+        <argsstring></argsstring>
+        <name>DosFees</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.DosFees</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="36" column="25" bodyfile="DAO_WebPortal/Program.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a67f42443fd9b25a54957da31b40499a6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_WebPortal.Program.Settings.DefaultPolicingRate</definition>
+        <argsstring></argsstring>
+        <name>DefaultPolicingRate</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.DefaultPolicingRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="39" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1ad6ea66b97eef689a0c486f002b00b3f3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_WebPortal.Program.Settings.MinPolicingRate</definition>
+        <argsstring></argsstring>
+        <name>MinPolicingRate</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.MinPolicingRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="42" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a23be94c2cb5ce44c512be4e5f10fc0be" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_WebPortal.Program.Settings.MaxPolicingRate</definition>
+        <argsstring></argsstring>
+        <name>MaxPolicingRate</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.MaxPolicingRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="45" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1ac6bda348e5891bd1dfc82bedcf915ba7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DAO_WebPortal.Program.Settings.ForumKYCRequired</definition>
+        <argsstring></argsstring>
+        <name>ForumKYCRequired</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.ForumKYCRequired</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="48" column="25" bodyfile="DAO_WebPortal/Program.cs" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a25aef1e0ab918df888c3af4734a77553" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_WebPortal.Program.Settings.QuorumRatio</definition>
+        <argsstring></argsstring>
+        <name>QuorumRatio</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.QuorumRatio</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="51" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a357fd926a73a56ae7ae08133e43a6956" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_WebPortal.Program.Settings.InternalAuctionTime</definition>
+        <argsstring></argsstring>
+        <name>InternalAuctionTime</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.InternalAuctionTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="54" column="24" bodyfile="DAO_WebPortal/Program.cs" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1aacdbf94a60a55a9c65433963073a998d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_WebPortal.Program.Settings.PublicAuctionTime</definition>
+        <argsstring></argsstring>
+        <name>PublicAuctionTime</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.PublicAuctionTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="57" column="24" bodyfile="DAO_WebPortal/Program.cs" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1aff2e2c1e3d54d8e17e6d60b2aec6025a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.AuctionTimeType</definition>
+        <argsstring></argsstring>
+        <name>AuctionTimeType</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.AuctionTimeType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="60" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a7606290f479e2f5773e8355b9960a13c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_WebPortal.Program.Settings.VotingTime</definition>
+        <argsstring></argsstring>
+        <name>VotingTime</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.VotingTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="63" column="24" bodyfile="DAO_WebPortal/Program.cs" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a6b6cdbfc4c38c6710f255790ed0d508b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.VotingTimeType</definition>
+        <argsstring></argsstring>
+        <name>VotingTimeType</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.VotingTimeType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="66" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1a70fc84358e9042561c94fdc93b891e43" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_WebPortal.Program.Settings.ReputationConversionRate</definition>
+        <argsstring></argsstring>
+        <name>ReputationConversionRate</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.ReputationConversionRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="69" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1aa417d4dc1086aa76b8b17bd462b81f31" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.StripePublicKey</definition>
+        <argsstring></argsstring>
+        <name>StripePublicKey</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.StripePublicKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="72" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___web_portal_1_1_program_1_1_settings_1aa33af23ebef855a8dfae097fd34ab5e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_WebPortal.Program.Settings.StripePrivateKey</definition>
+        <argsstring></argsstring>
+        <name>StripePrivateKey</name>
+        <qualifiedname>DAO_WebPortal.Program.Settings.StripePrivateKey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Program.cs" line="73" column="27" bodyfile="DAO_WebPortal/Program.cs" bodystart="73" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Program.cs" line="15" column="15" bodyfile="DAO_WebPortal/Program.cs" bodystart="16" bodyend="74"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1aff2e2c1e3d54d8e17e6d60b2aec6025a" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>AuctionTimeType</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a67f42443fd9b25a54957da31b40499a6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>DefaultPolicingRate</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1ab65058ea3ef4a25062b41a142c9619c1" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>DosCurrencies</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1af333dc1c30b0228b95381eee7d59c211" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>DosFees</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1abdc91a4691622da91e4e4e3ded1e8027" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>EncryptionKey</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1ac6bda348e5891bd1dfc82bedcf915ba7" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>ForumKYCRequired</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a357fd926a73a56ae7ae08133e43a6956" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>InternalAuctionTime</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a23be94c2cb5ce44c512be4e5f10fc0be" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>MaxPolicingRate</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1ad6ea66b97eef689a0c486f002b00b3f3" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>MinPolicingRate</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1aacdbf94a60a55a9c65433963073a998d" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>PublicAuctionTime</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a25aef1e0ab918df888c3af4734a77553" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>QuorumRatio</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1ae85fac220f26ed9462192b3f957bb274" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>RabbitMQPassword</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a36253556076d3737960d7d722ca5aea0" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>RabbitMQUrl</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a98ac8da70157acba7ba8b6ae4e4f031c" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>RabbitMQUsername</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a70fc84358e9042561c94fdc93b891e43" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>ReputationConversionRate</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1aa5ea446be4aae0c3b520b3b5e50988e6" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>Service_ApiGateway_Url</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1aa33af23ebef855a8dfae097fd34ab5e2" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>StripePrivateKey</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1aa417d4dc1086aa76b8b17bd462b81f31" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>StripePublicKey</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a9192d18a3bab0b5194e6e405f5781def" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>ViewFolder</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a7606290f479e2f5773e8355b9960a13c" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>VotingTime</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_program_1_1_settings_1a6b6cdbfc4c38c6710f255790ed0d508b" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Program::Settings</scope><name>VotingTimeType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

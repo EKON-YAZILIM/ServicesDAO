@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___identity_service_1_1_startup" kind="class" language="C#" prot="public">
+    <compoundname>DAO_IdentityService::Startup</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___identity_service_1_1_startup_1af39409394055a2f5a310f083e0fe67a1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IConfiguration</type>
+        <definition>IConfiguration DAO_IdentityService.Startup.Configuration</definition>
+        <argsstring></argsstring>
+        <name>Configuration</name>
+        <qualifiedname>DAO_IdentityService.Startup.Configuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Startup.cs" line="73" column="31" bodyfile="DAO_IdentityService/Startup.cs" bodystart="73" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_startup_1aabe04f6bf21dff17ae998a06d7045c2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_IdentityService.Startup.Startup</definition>
+        <argsstring>(IConfiguration configuration, IWebHostEnvironment env)</argsstring>
+        <name>Startup</name>
+        <qualifiedname>DAO_IdentityService.Startup.Startup</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Startup.cs" line="25" column="16" bodyfile="DAO_IdentityService/Startup.cs" bodystart="25" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_startup_1a53c24bf761072cfeb505ddf54394c5ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_IdentityService.Startup.ConfigureServices</definition>
+        <argsstring>(IServiceCollection services)</argsstring>
+        <name>ConfigureServices</name>
+        <qualifiedname>DAO_IdentityService.Startup.ConfigureServices</qualifiedname>
+        <param>
+          <type>IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Startup.cs" line="76" column="21" bodyfile="DAO_IdentityService/Startup.cs" bodystart="76" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_startup_1a933ce1d825a6a21ab14f19c8d2c98468" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_IdentityService.Startup.Configure</definition>
+        <argsstring>(IApplicationBuilder app, IWebHostEnvironment env)</argsstring>
+        <name>Configure</name>
+        <qualifiedname>DAO_IdentityService.Startup.Configure</qualifiedname>
+        <param>
+          <type>IApplicationBuilder</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Startup.cs" line="85" column="21" bodyfile="DAO_IdentityService/Startup.cs" bodystart="85" bodyend="122"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_startup_1adb6fd78ec6171c7c459d47d190b89144" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_IdentityService.Startup.LoadConfig</definition>
+        <argsstring>(IConfiguration configuration)</argsstring>
+        <name>LoadConfig</name>
+        <qualifiedname>DAO_IdentityService.Startup.LoadConfig</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Loads application config from appsettings.json </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Startup.cs" line="44" column="28" bodyfile="DAO_IdentityService/Startup.cs" bodystart="44" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___identity_service_1_1_startup_1a33e58d9eabcfdad73d16f0bfd8b2835d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_IdentityService.Startup.InitializeService</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeService</name>
+        <qualifiedname>DAO_IdentityService.Startup.InitializeService</qualifiedname>
+        <briefdescription>
+<para>Initializes application (Db migrations, connection check, timer construction) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_IdentityService/Startup.cs" line="53" column="28" bodyfile="DAO_IdentityService/Startup.cs" bodystart="53" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_IdentityService/Startup.cs" line="23" column="11" bodyfile="DAO_IdentityService/Startup.cs" bodystart="24" bodyend="123"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___identity_service_1_1_startup_1af39409394055a2f5a310f083e0fe67a1" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Startup</scope><name>Configuration</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_startup_1a933ce1d825a6a21ab14f19c8d2c98468" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Startup</scope><name>Configure</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_startup_1a53c24bf761072cfeb505ddf54394c5ee" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Startup</scope><name>ConfigureServices</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_startup_1a33e58d9eabcfdad73d16f0bfd8b2835d" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Startup</scope><name>InitializeService</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_startup_1adb6fd78ec6171c7c459d47d190b89144" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Startup</scope><name>LoadConfig</name></member>
+      <member refid="class_d_a_o___identity_service_1_1_startup_1aabe04f6bf21dff17ae998a06d7045c2f" prot="public" virt="non-virtual"><scope>DAO_IdentityService::Startup</scope><name>Startup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

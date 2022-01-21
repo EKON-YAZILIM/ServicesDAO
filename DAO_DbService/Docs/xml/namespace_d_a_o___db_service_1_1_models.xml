@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___db_service_1_1_models" kind="namespace" language="C#">
+    <compoundname>DAO_DbService::Models</compoundname>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_active_session" prot="public">DAO_DbService::Models::ActiveSession</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_auction" prot="public">DAO_DbService::Models::Auction</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid" prot="public">DAO_DbService::Models::AuctionBid</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_job_post" prot="public">DAO_DbService::Models::JobPost</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_job_post_comment" prot="public">DAO_DbService::Models::JobPostComment</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_payment_history" prot="public">DAO_DbService::Models::PaymentHistory</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_platform_setting" prot="public">DAO_DbService::Models::PlatformSetting</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_user" prot="public">DAO_DbService::Models::User</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_user_comment_vote" prot="public">DAO_DbService::Models::UserCommentVote</innerclass>
+    <innerclass refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c" prot="public">DAO_DbService::Models::UserKYC</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/ActiveSession.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_96bb8f6ce95c91c412bfad775a2fa606" kind="dir">
+    <compoundname>DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home</compoundname>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_all___jobs_8cshtml_8g_8cs">All_Jobs.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_application___logs_8cshtml_8g_8cs">Application_Logs.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_auction___detail_8cshtml_8g_8cs">Auction_Detail.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_auctions_8cshtml_8g_8cs">Auctions.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_dao___variables_8cshtml_8g_8cs">Dao_Variables.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_index___admin_8cshtml_8g_8cs">Index_Admin.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_index___associate_8cshtml_8g_8cs">Index_Associate.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_index___voting_associate_8cshtml_8g_8cs">Index_VotingAssociate.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_job___detail_8cshtml_8g_8cs">Job_Detail.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_k_y_c___verification_8cshtml_8g_8cs">KYC_Verification.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_my___bids_8cshtml_8g_8cs">My_Bids.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_my___job___edit_8cshtml_8g_8cs">My_Job_Edit.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_my___jobs_8cshtml_8g_8cs">My_Jobs.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_new___job_8cshtml_8g_8cs">New_Job.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_new___simple___vote_8cshtml_8g_8cs">New_Simple_Vote.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_payment___history_8cshtml_8g_8cs">Payment_History.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_reputation___history_8cshtml_8g_8cs">Reputation_History.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_reputation___logs_8cshtml_8g_8cs">Reputation_Logs.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_user___profile_8cshtml_8g_8cs">User_Profile.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_users___list_8cshtml_8g_8cs">Users_List.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_vote___detail_8cshtml_8g_8cs">Vote_Detail.cshtml.g.cs</innerfile>
+    <innerfile refid="_views-_c_r_d_a_o_2_home_2_votings_8cshtml_8g_8cs">Votings.cshtml.g.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/"/>
+  </compounddef>
+</doxygen>

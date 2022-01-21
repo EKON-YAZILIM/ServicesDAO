@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___log_service" kind="namespace" language="C#">
+    <compoundname>DAO_LogService</compoundname>
+    <innerclass refid="class_d_a_o___log_service_1_1_main_events" prot="public">DAO_LogService::MainEvents</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_program" prot="public">DAO_LogService::Program</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_startup" prot="public">DAO_LogService::Startup</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_timer_events" prot="public">DAO_LogService::TimerEvents</innerclass>
+    <innernamespace refid="namespace_d_a_o___log_service_1_1_contexts">DAO_LogService::Contexts</innernamespace>
+    <innernamespace refid="namespace_d_a_o___log_service_1_1_controllers">DAO_LogService::Controllers</innernamespace>
+    <innernamespace refid="namespace_d_a_o___log_service_1_1_mapping">DAO_LogService::Mapping</innernamespace>
+    <innernamespace refid="namespace_d_a_o___log_service_1_1_migrations">DAO_LogService::Migrations</innernamespace>
+    <innernamespace refid="namespace_d_a_o___log_service_1_1_models">DAO_LogService::Models</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Contexts/dao_logsdb_context.cs" line="8" column="1"/>
+  </compounddef>
+</doxygen>

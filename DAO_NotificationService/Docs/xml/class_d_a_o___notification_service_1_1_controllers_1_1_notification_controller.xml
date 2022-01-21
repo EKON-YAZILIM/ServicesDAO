@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller" kind="class" language="C#" prot="public">
+    <compoundname>DAO_NotificationService::Controllers::NotificationController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Controller</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller_1a01e709114320c397a38ca4832a97f762" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_NotificationService.Controllers.NotificationController.SendEmail</definition>
+        <argsstring>(SendEmailModel model)</argsstring>
+        <name>SendEmail</name>
+        <qualifiedname>DAO_NotificationService.Controllers.NotificationController.SendEmail</qualifiedname>
+        <param>
+          <type>SendEmailModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Send notification email method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SendEmailModel</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Is successful</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Controllers/NotificationController.cs" line="28" column="31" bodyfile="DAO_NotificationService/Controllers/NotificationController.cs" bodystart="28" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller_1a0248b667aa7b28ee73a3afed28c0104f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SimpleResponse</type>
+        <definition>SimpleResponse DAO_NotificationService.Controllers.NotificationController.SendPublicContactEmail</definition>
+        <argsstring>(SendEmailModel model)</argsstring>
+        <name>SendPublicContactEmail</name>
+        <qualifiedname>DAO_NotificationService.Controllers.NotificationController.SendPublicContactEmail</qualifiedname>
+        <param>
+          <type>SendEmailModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Send notification email to system admin method </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>SendEmailModel (To, Cc, Bcc fields are ignored in this request)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Is successful</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Controllers/NotificationController.cs" line="67" column="31" bodyfile="DAO_NotificationService/Controllers/NotificationController.cs" bodystart="67" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller" kindref="compound">NotificationController</ref> contains notification operation methods </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_NotificationService.Controllers.NotificationController</label>
+        <link refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Controller</label>
+      </node>
+      <node id="1">
+        <label>DAO_NotificationService.Controllers.NotificationController</label>
+        <link refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_NotificationService/Controllers/NotificationController.cs" line="19" column="11" bodyfile="DAO_NotificationService/Controllers/NotificationController.cs" bodystart="20" bodyend="98"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller_1a01e709114320c397a38ca4832a97f762" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Controllers::NotificationController</scope><name>SendEmail</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_controllers_1_1_notification_controller_1a0248b667aa7b28ee73a3afed28c0104f" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Controllers::NotificationController</scope><name>SendPublicContactEmail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

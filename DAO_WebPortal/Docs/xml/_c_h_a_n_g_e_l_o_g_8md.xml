@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_c_h_a_n_g_e_l_o_g_8md" kind="file" language="Markdown">
+    <compoundname>CHANGELOG.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>Plugin<sp/>Changelog</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>1.0.3</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Other<sp/>Changes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Updated<sp/>test<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>1.0.2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Other<sp/>Changes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Updated<sp/>year<sp/>in<sp/>license<sp/>headers.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>1.0.1</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Other<sp/>Changes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Improved<sp/>external<sp/>CSS<sp/>support<sp/>for<sp/>[Classic<sp/>Editor](https://ckeditor.com/docs/ckeditor4/latest/examples/classic.html)<sp/>by<sp/>handling<sp/>exceptions<sp/>and<sp/>displaying<sp/>convenient<sp/>[error<sp/>messages](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_errors.html#exportpdf-stylesheets-incaccessible).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>1.0.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>stable<sp/>release<sp/>of<sp/>the<sp/>CKEditor<sp/>4<sp/>WYSIWYG<sp/>Editor<sp/>Export<sp/>to<sp/>PDF<sp/>plugin.<sp/>After<sp/>a<sp/>few<sp/>months<sp/>of<sp/>the<sp/>beta<sp/>phase,<sp/>testing<sp/>and<sp/>listening<sp/>to<sp/>community<sp/>feedback,<sp/>the<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>is<sp/>stable<sp/>and<sp/>can<sp/>be<sp/>used<sp/>with<sp/>full<sp/>confidence.<sp/>Enjoy!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">New<sp/>Features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Introduced<sp/>access<sp/>control<sp/>mechanism.<sp/>The<sp/>plugin<sp/>now<sp/>can<sp/>be<sp/>configured<sp/>with<sp/>additional<sp/>[exportPdf_tokenUrl](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_tokenUrl)<sp/>option<sp/>to<sp/>allow<sp/>commercial<sp/>use.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>0.1.2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Other<sp/>Changes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Improved<sp/>[plugin<sp/>API<sp/>documentation](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-exportPdf_fileName).</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Updated<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>npm<sp/>readme<sp/>to<sp/>link<sp/>to<sp/>the<sp/>[official<sp/>plugin<sp/>documentation](https://ckeditor.com/docs/ckeditor4/latest/features/exporttopdf.html).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>0.1.1</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Other<sp/>Changes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Renamed<sp/>the<sp/>Export<sp/>to<sp/>PDF<sp/>plugin<sp/>button<sp/>from<sp/>`exportPdf`<sp/>to<sp/>`ExportPdf`.<sp/>The<sp/>`ExportPdf`<sp/>name<sp/>should<sp/>now<sp/>be<sp/>used<sp/>while<sp/>setting<sp/>up<sp/>a<sp/>custom<sp/>toolbar<sp/>with<sp/>the<sp/>[CKEDITOR.config.toolbar](https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-toolbar)<sp/>configuration<sp/>option.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>ckeditor4-plugin-exportpdf<sp/>0.1.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>beta<sp/>release<sp/>of<sp/>the<sp/>CKEditor<sp/>4<sp/>Export<sp/>to<sp/>PDF<sp/>plugin.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>plugin<sp/>allows<sp/>you<sp/>to<sp/>easily<sp/>print<sp/>your<sp/>WYSIWYG<sp/>editor<sp/>content<sp/>to<sp/>a<sp/>PDF<sp/>file.<sp/>When<sp/>enabled,<sp/>this<sp/>feature<sp/>sends<sp/>the<sp/>content<sp/>of<sp/>your<sp/>editor<sp/>together<sp/>with<sp/>the<sp/>styles<sp/>that<sp/>are<sp/>used<sp/>to<sp/>display<sp/>it<sp/>to<sp/>the<sp/>CKEditor<sp/>Cloud<sp/>Services<sp/>HTML<sp/>to<sp/>PDF<sp/>converter<sp/>service.<sp/>The<sp/>service<sp/>then<sp/>generates<sp/>a<sp/>PDF<sp/>document<sp/>that<sp/>can<sp/>be<sp/>downloaded<sp/>by<sp/>the<sp/>user.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Available<sp/>features:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Exporting<sp/>HTML<sp/>content<sp/>from<sp/>CKEditor<sp/>4<sp/>WYSIWYG<sp/>editor<sp/>to<sp/>PDF<sp/>with<sp/>a<sp/>single<sp/>click.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Setting<sp/>a<sp/>custom<sp/>name<sp/>for<sp/>the<sp/>generated<sp/>PDF<sp/>file.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Handling<sp/>relative<sp/>image<sp/>paths.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Changing<sp/>the<sp/>appearance<sp/>of<sp/>the<sp/>PDF<sp/>document<sp/>(like<sp/>margins,<sp/>text<sp/>styling,<sp/>custom<sp/>headers<sp/>and<sp/>footers<sp/>etc.)<sp/>with<sp/>custom<sp/>CSS<sp/>styles.</highlight></codeline>
+<codeline><highlight class="normal">*<sp/><sp/><sp/>Pre-processing<sp/>HTML<sp/>content<sp/>via<sp/>synchronous<sp/>and<sp/>asynchronous<sp/>code<sp/>before<sp/>the<sp/>generation<sp/>of<sp/>the<sp/>PDF<sp/>file.</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/CHANGELOG.md"/>
+  </compounddef>
+</doxygen>

@@ -14,10 +14,17 @@ using PagedList.Core;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  ActiveSessionController contains active session operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class ActiveSessionController : Controller
     {
+        /// <summary>
+        /// Get Active Session List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<ActiveSessionDto> Get()
@@ -40,6 +47,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<ActiveSession>, List<ActiveSessionDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get active session by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public ActiveSessionDto GetId(int id)
@@ -62,6 +74,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<ActiveSession, ActiveSessionDto>(model);
         }
 
+        /// <summary>
+        /// Saves active session model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public ActiveSessionDto Post([FromBody] ActiveSessionDto model)
@@ -83,6 +100,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves active session list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<ActiveSessionDto> PostMultiple([FromBody] List<ActiveSessionDto> model)
@@ -104,6 +126,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes active session by id
+        /// Ends active sessions
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,6 +153,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Update active session
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public ActiveSessionDto Update([FromBody] ActiveSessionDto model)
@@ -146,6 +179,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the active session pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<ActiveSessionDto> GetPaged(int page = 1, int pageCount = 30)
@@ -175,6 +215,12 @@ namespace DAO_DbService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// if active session count not equal zero by userId , Modified active session
+        /// if not saves the active session.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostOrUpdate")]
         [HttpPost]
         public ActiveSessionDto PostOrUpdate([FromBody] ActiveSessionDto model)
@@ -209,6 +255,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes active session by userid
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <returns></returns>
         [Route("DeleteByUserId")]
         [HttpDelete]
         public bool DeleteByUserId(int userid)

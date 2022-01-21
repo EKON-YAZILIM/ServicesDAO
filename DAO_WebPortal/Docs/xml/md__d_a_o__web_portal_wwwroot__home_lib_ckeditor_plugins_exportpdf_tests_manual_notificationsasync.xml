@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_notificationsasync" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_notificationsasync</compoundname>
+    <title>notificationsasync</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 4 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, basicstyles, notification</para>
+<para><orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button (the one next to the <computeroutput>Source</computeroutput> button) in the first editor.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Watch appearing notifications.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>Notification <computeroutput>Processing PDF document...</computeroutput> was visible for about 2 seconds.</para>
+</listitem><listitem><para>Progress steps were: <computeroutput>0</computeroutput>, <computeroutput>0.5</computeroutput>, <computeroutput>success</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold></para>
+<para>Notification disappeared too fast to be noticable.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Do the same in the second editor.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>Notification <computeroutput>Processing PDF document...</computeroutput> was visible for about 2 seconds.</para>
+</listitem><listitem><para>Progress steps were: <computeroutput>0.2</computeroutput>, <computeroutput>0.5</computeroutput>, <computeroutput>success</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold></para>
+<para>Notification disappeared too fast to be noticable. </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/notificationsasync.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_38f7e1650fa3a2c008aa938d323ace78" kind="dir">
+    <compoundname>DAO_WebPortal/Views/Shared</compoundname>
+    <innerfile refid="_index_8cshtml_8cs">Index.cshtml.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Views/Shared/"/>
+  </compounddef>
+</doxygen>

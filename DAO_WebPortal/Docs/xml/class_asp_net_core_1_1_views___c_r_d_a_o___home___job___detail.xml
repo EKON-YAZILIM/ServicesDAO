@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_CRDAO_Home_Job_Detail</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.JobPostDetailModel &gt;</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a3594d895c6f46c901741e3f80fa62fe0" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperAttribute_0</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_0</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperAttribute_0</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_JobCardPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="47" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a0c2c4de6a7b13e165264e9f376924617" prot="private" static="yes" mutable="no">
+        <type>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute</type>
+        <definition>readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperAttribute_1</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperAttribute_1</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperAttribute_1</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute(&quot;name&quot;, &quot;../Shared/_EmptyPartial.cshtml&quot;, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="48" column="94" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a39f1f07b4937ff843c8f88bb08350eda" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperExecutionContext</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperExecutionContext</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperExecutionContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="51" column="92" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a507a3658f2e0299734a2b9db53589f0e" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperRunner</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperRunner</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperRunner</qualifiedname>
+        <initializer>= new global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperRunner()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="53" column="82" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1af487a79a4e8fa88dcdec5dd3678fc3cb" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperStringValueBuffer</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperStringValueBuffer</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperStringValueBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="55" column="24" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a5d03135a7b546256b79fbcc8c9b7add7" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Home_Job_Detail.__backed__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__backed__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__backed__tagHelperScopeManager</qualifiedname>
+        <initializer>= null</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="57" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a74a64b8cbcae246a3fb9e8a568015b29" prot="private" static="no" mutable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper AspNetCore.Views_CRDAO_Home_Job_Detail.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</definition>
+        <argsstring></argsstring>
+        <name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="69" column="74" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a51857a6ac84f4000b885b3cfe16a19db" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AspNetCore.Views_CRDAO_Home_Job_Detail.Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.Count</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="389" column="25" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1acb64925628b442e4e141efd9770f879c" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager</type>
+        <definition>global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperScopeManager AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperScopeManager</definition>
+        <argsstring></argsstring>
+        <name>__tagHelperScopeManager</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.__tagHelperScopeManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="58" column="88" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="59" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1aa007c3e9cff025bbcc036f08ce6faf9d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_CRDAO_Home_Job_Detail.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.httpContextAccessor</qualifiedname>
+        <initializer>                                 
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;!-- Heading --&gt;
+                                
+                                &lt;!-- Comment body --&gt;
+                                &lt;div class=&quot;&quot;comment-body&quot;&quot;&gt;
+
+&quot; class=&quot;&quot;card-text me-2 cA cursorp&quot;&quot;&gt;
+                                        &lt;svg class=&quot;&quot;icon&quot;&quot;&gt;
+                                            &lt;use xlink:href=&quot;&quot;/Home/images/svg/free.svg#cil-comment-bubble&quot;&quot;&gt;&lt;/use&gt;
+                                        &lt;/svg&gt; Reply
+                                    &lt;/a&gt;
+
+&quot;&gt;
+                                            &lt;svg class=&quot;&quot;icon&quot;&quot;&gt;
+                                                &lt;use xlink:href=&quot;&quot;/Home/images/svg/free.svg#cil-trash&quot;&quot;&gt;&lt;/use&gt;
+                                            &lt;/svg&gt; Delete
+                                        &lt;/a&gt;
+&quot;                                   &lt;span class=&quot;&quot;card-text me-2 text-danger&quot;&quot;&gt;
+                                        &lt;svg class=&quot;&quot;icon&quot;&quot;&gt;
+                                            &lt;use xlink:href=&quot;&quot;/Home/images/svg/free.svg#cil-flag-alt&quot;&quot;&gt;&lt;/use&gt;
+                                        &lt;/svg&gt; This comment is flagged
+                                   &lt;/span&gt;
+&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="963" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="963" bodyend="963"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a4e6af80a9fd604ce541d0127a5ddf095" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_CRDAO_Home_Job_Detail.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="965" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="965" bodyend="965"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a70e1baec1f114ce0d85d2e90f5f11743" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_CRDAO_Home_Job_Detail.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="967" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="967" bodyend="967"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a707e742607d97bbef00a421851425007" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_CRDAO_Home_Job_Detail.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="969" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="969" bodyend="969"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a6dd1e8590c2b12f6a161f0d3b1d8a3e7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_CRDAO_Home_Job_Detail.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="971" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="971" bodyend="971"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a26e8909570024cf2e717fff98caaeaf4" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.WebsiteViewModels.JobPostDetailModel &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.WebsiteViewModels.JobPostDetailModel&gt; AspNetCore.Views_CRDAO_Home_Job_Detail.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="973" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="973" bodyend="973"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a840d25b4a3c2fbfc12126a8c6508dff1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_CRDAO_Home_Job_Detail.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="71" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="71" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1aa683042e6e55f78f206b3761606d927d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AspNetCore.Views_CRDAO_Home_Job_Detail.ShowCommentTree</definition>
+        <argsstring>(IList&lt; Helpers.Models.WebsiteViewModels.JobPostCommentModel &gt; currentcomments)</argsstring>
+        <name>ShowCommentTree</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Home_Job_Detail.ShowCommentTree</qualifiedname>
+        <param>
+          <type>IList&lt; Helpers.Models.WebsiteViewModels.JobPostCommentModel &gt;</type>
+          <declname>currentcomments</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="391" column="33" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="391" bodyend="956"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Home_Job_Detail</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.JobPostDetailModel &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Home_Job_Detail</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.WebsiteViewModels.JobPostDetailModel &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" line="45" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Home/Job_Detail.cshtml.g.cs" bodystart="46" bodyend="974"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a5d03135a7b546256b79fbcc8c9b7add7" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__backed__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a74a64b8cbcae246a3fb9e8a568015b29" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a3594d895c6f46c901741e3f80fa62fe0" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__tagHelperAttribute_0</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a0c2c4de6a7b13e165264e9f376924617" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__tagHelperAttribute_1</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a39f1f07b4937ff843c8f88bb08350eda" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__tagHelperExecutionContext</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a507a3658f2e0299734a2b9db53589f0e" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__tagHelperRunner</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1acb64925628b442e4e141efd9770f879c" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__tagHelperScopeManager</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1af487a79a4e8fa88dcdec5dd3678fc3cb" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>__tagHelperStringValueBuffer</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a707e742607d97bbef00a421851425007" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a51857a6ac84f4000b885b3cfe16a19db" prot="private" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>Count</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a840d25b4a3c2fbfc12126a8c6508dff1" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a26e8909570024cf2e717fff98caaeaf4" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1aa007c3e9cff025bbcc036f08ce6faf9d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a6dd1e8590c2b12f6a161f0d3b1d8a3e7" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a4e6af80a9fd604ce541d0127a5ddf095" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1aa683042e6e55f78f206b3761606d927d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>ShowCommentTree</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___home___job___detail_1a70e1baec1f114ce0d85d2e90f5f11743" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Home_Job_Detail</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

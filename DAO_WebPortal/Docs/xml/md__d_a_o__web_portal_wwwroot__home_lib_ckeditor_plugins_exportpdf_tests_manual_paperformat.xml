@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_paperformat" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_paperformat</compoundname>
+    <title>paperformat</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, bug, 24 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, basicstyles, notification</para>
+<para><orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button (the one next to the <computeroutput>Source</computeroutput> button) in the first editor.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Wait for the file to download.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Do the same in the second editor.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Compare paper format in files.</para>
+<para><bold>Expected:</bold><itemizedlist>
+<listitem><para>First editor produced file in <computeroutput>A4</computeroutput> format (<computeroutput>8.27in x 11.7in</computeroutput>);</para>
+</listitem><listitem><para>Second editor produced file in <computeroutput>A6</computeroutput> format (<computeroutput>4.13in x 5.83in</computeroutput>).</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Unexpected:</bold></para>
+<para>Any file is in different format than intended (e.g. <computeroutput>Letter</computeroutput> - <computeroutput>8.5in x 11in</computeroutput>). </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/paperformat.md"/>
+  </compounddef>
+</doxygen>

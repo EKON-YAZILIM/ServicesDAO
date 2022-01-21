@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_e6c9643b9e3c9364fb48464164a1adc2" kind="dir">
+    <compoundname>DAO_WebPortal/wwwroot/Home/lib/ckeditor/samples/old</compoundname>
+    <innerdir refid="dir_60370b5e64209e92617b8aa34a93d556">DAO_WebPortal/wwwroot/Home/lib/ckeditor/samples/old/assets</innerdir>
+    <innerfile refid="sample__posteddata_8php">sample_posteddata.php</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/samples/old/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::UserKYC</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1ac76da63bdaccc9beaff593d835a767ad" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.UserKYC.UserKYCID</definition>
+        <argsstring></argsstring>
+        <name>UserKYCID</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.UserKYCID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="12" column="20" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a88f07eb47364953a8831afaf762ca6d3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.UserKYC.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="13" column="20" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a652840532ebfcce3fed87631f29e831f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.UserType</definition>
+        <argsstring></argsstring>
+        <name>UserType</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.UserType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="14" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a89020b754ef7b95b5f9c06c60d02a0db" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.FileId1</definition>
+        <argsstring></argsstring>
+        <name>FileId1</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.FileId1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="15" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a11ea46aca2d8308480943a3f0829f4e1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.FileId2</definition>
+        <argsstring></argsstring>
+        <name>FileId2</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.FileId2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="16" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1ac17b81ffdc0ab322162a22256d19fab9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.ApplicantId</definition>
+        <argsstring></argsstring>
+        <name>ApplicantId</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.ApplicantId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="17" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a55959a981f0958d68b80194318e40bfe" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.VerificationId</definition>
+        <argsstring></argsstring>
+        <name>VerificationId</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.VerificationId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="18" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a8aeb600141fdda99715ec3f152edaf09" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.DocumentId</definition>
+        <argsstring></argsstring>
+        <name>DocumentId</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.DocumentId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="19" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a6438ea0065fa943bea52f271e1386402" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.KYCStatus</definition>
+        <argsstring></argsstring>
+        <name>KYCStatus</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.KYCStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="20" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a6594f48c810652f52cd243e8a6e5dcda" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.UserKYC.Comment</definition>
+        <argsstring></argsstring>
+        <name>Comment</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.Comment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="21" column="23" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a4702b04fa28d3f160cac5d0663e6bb9b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool DAO_DbService.Models.UserKYC.Verified</definition>
+        <argsstring></argsstring>
+        <name>Verified</name>
+        <qualifiedname>DAO_DbService.Models.UserKYC.Verified</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/UserKYC.cs" line="22" column="21" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/UserKYC.cs" line="9" column="11" bodyfile="DAO_DbService/Models/UserKYC.cs" bodystart="10" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1ac17b81ffdc0ab322162a22256d19fab9" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>ApplicantId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a6594f48c810652f52cd243e8a6e5dcda" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>Comment</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a8aeb600141fdda99715ec3f152edaf09" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>DocumentId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a89020b754ef7b95b5f9c06c60d02a0db" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>FileId1</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a11ea46aca2d8308480943a3f0829f4e1" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>FileId2</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a6438ea0065fa943bea52f271e1386402" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>KYCStatus</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a88f07eb47364953a8831afaf762ca6d3" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>UserID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1ac76da63bdaccc9beaff593d835a767ad" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>UserKYCID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a652840532ebfcce3fed87631f29e831f" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>UserType</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a55959a981f0958d68b80194318e40bfe" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>VerificationId</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_user_k_y_c_1a4702b04fa28d3f160cac5d0663e6bb9b" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::UserKYC</scope><name>Verified</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

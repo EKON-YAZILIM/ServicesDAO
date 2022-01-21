@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___shared_____public_header_partial" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Shared__PublicHeaderPartial</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1ac053bf5836db7c359aa7c4d20902e06d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_Shared__PublicHeaderPartial.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="165" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="165" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1a6711f638fd12c0aa4e9b55696c49d226" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Shared__PublicHeaderPartial.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="167" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1a539f755b0936b4ffcca2931d2e1d3b81" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Shared__PublicHeaderPartial.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="169" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1ad1276b56863cc1f85f0cd7fae368ed55" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Shared__PublicHeaderPartial.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="171" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="171" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1a8fb54b6de30d8daccdc8fcd1e82e5c05" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Shared__PublicHeaderPartial.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="173" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="173" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1a4460aab53046e7a53fb26a7fbcd6be98" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views_Shared__PublicHeaderPartial.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="175" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="175" bodyend="175"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___shared_____public_header_partial_1aa46c6393c6e092d745920c855441fe83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Shared__PublicHeaderPartial.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Shared__PublicHeaderPartial.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="41" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="41" bodyend="162"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Shared__PublicHeaderPartial</label>
+        <link refid="class_asp_net_core_1_1_views___shared_____public_header_partial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Shared__PublicHeaderPartial</label>
+        <link refid="class_asp_net_core_1_1_views___shared_____public_header_partial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" line="38" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_PublicHeaderPartial.cshtml.g.cs" bodystart="39" bodyend="176"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1ad1276b56863cc1f85f0cd7fae368ed55" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1aa46c6393c6e092d745920c855441fe83" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1a4460aab53046e7a53fb26a7fbcd6be98" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1ac053bf5836db7c359aa7c4d20902e06d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1a8fb54b6de30d8daccdc8fcd1e82e5c05" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1a6711f638fd12c0aa4e9b55696c49d226" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___shared_____public_header_partial_1a539f755b0936b4ffcca2931d2e1d3b81" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Shared__PublicHeaderPartial</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

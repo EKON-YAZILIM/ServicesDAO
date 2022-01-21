@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___identity_service_1_1_controllers" kind="namespace" language="C#">
+    <compoundname>DAO_IdentityService::Controllers</compoundname>
+    <innerclass refid="class_d_a_o___identity_service_1_1_controllers_1_1_identity_controller" prot="public">DAO_IdentityService::Controllers::IdentityController</innerclass>
+    <innerclass refid="class_d_a_o___identity_service_1_1_controllers_1_1_info_controller" prot="public">DAO_IdentityService::Controllers::InfoController</innerclass>
+    <innerclass refid="class_d_a_o___identity_service_1_1_controllers_1_1_kyc_controller" prot="public">DAO_IdentityService::Controllers::KycController</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_IdentityService/Controllers/IdentityController.cs" line="19" column="1"/>
+  </compounddef>
+</doxygen>

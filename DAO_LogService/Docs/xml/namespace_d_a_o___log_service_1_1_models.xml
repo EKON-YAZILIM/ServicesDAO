@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___log_service_1_1_models" kind="namespace" language="C#">
+    <compoundname>DAO_LogService::Models</compoundname>
+    <innerclass refid="class_d_a_o___log_service_1_1_models_1_1_application_log" prot="public">DAO_LogService::Models::ApplicationLog</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_models_1_1_error_log" prot="public">DAO_LogService::Models::ErrorLog</innerclass>
+    <innerclass refid="class_d_a_o___log_service_1_1_models_1_1_user_log" prot="public">DAO_LogService::Models::UserLog</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Models/ApplicationLog.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

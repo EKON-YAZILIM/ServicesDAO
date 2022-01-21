@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender" kind="class" language="C#" prot="public">
+    <compoundname>DAO_NotificationService::Integrations::SmtpMailSender</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender_1aa1dcbf205b43238a9b910ca9a7de1b18" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_NotificationService.Integrations.SmtpMailSender.SendEmail</definition>
+        <argsstring>(SendEmailModel model)</argsstring>
+        <name>SendEmail</name>
+        <qualifiedname>DAO_NotificationService.Integrations.SmtpMailSender.SendEmail</qualifiedname>
+        <param>
+          <type>SendEmailModel</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Integrations/SmtpMailSender.cs" line="12" column="30" bodyfile="DAO_NotificationService/Integrations/SmtpMailSender.cs" bodystart="12" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender_1a6b70e06fa6fb3a109f7d3a29bdfcbf84" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_NotificationService.Integrations.SmtpMailSender.WrapToMailTemplate</definition>
+        <argsstring>(string content)</argsstring>
+        <name>WrapToMailTemplate</name>
+        <qualifiedname>DAO_NotificationService.Integrations.SmtpMailSender.WrapToMailTemplate</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>content</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Integrations/SmtpMailSender.cs" line="56" column="30" bodyfile="DAO_NotificationService/Integrations/SmtpMailSender.cs" bodystart="56" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/Integrations/SmtpMailSender.cs" line="10" column="19" bodyfile="DAO_NotificationService/Integrations/SmtpMailSender.cs" bodystart="11" bodyend="81"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender_1aa1dcbf205b43238a9b910ca9a7de1b18" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Integrations::SmtpMailSender</scope><name>SendEmail</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_integrations_1_1_smtp_mail_sender_1a6b70e06fa6fb3a109f7d3a29bdfcbf84" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Integrations::SmtpMailSender</scope><name>WrapToMailTemplate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

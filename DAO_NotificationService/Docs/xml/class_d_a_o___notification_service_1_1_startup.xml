@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___notification_service_1_1_startup" kind="class" language="C#" prot="public">
+    <compoundname>DAO_NotificationService::Startup</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___notification_service_1_1_startup_1a642b2a1390da876ee067be25add46b0a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>IConfiguration</type>
+        <definition>IConfiguration DAO_NotificationService.Startup.Configuration</definition>
+        <argsstring></argsstring>
+        <name>Configuration</name>
+        <qualifiedname>DAO_NotificationService.Startup.Configuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Startup.cs" line="73" column="31" bodyfile="DAO_NotificationService/Startup.cs" bodystart="73" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_startup_1a390c5e80adc2e752b6c5d31f5e954c9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DAO_NotificationService.Startup.Startup</definition>
+        <argsstring>(IConfiguration configuration, IWebHostEnvironment env)</argsstring>
+        <name>Startup</name>
+        <qualifiedname>DAO_NotificationService.Startup.Startup</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Startup.cs" line="25" column="16" bodyfile="DAO_NotificationService/Startup.cs" bodystart="25" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_startup_1add05e4c0aa8316ac09bf165c773a6641" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_NotificationService.Startup.ConfigureServices</definition>
+        <argsstring>(IServiceCollection services)</argsstring>
+        <name>ConfigureServices</name>
+        <qualifiedname>DAO_NotificationService.Startup.ConfigureServices</qualifiedname>
+        <param>
+          <type>IServiceCollection</type>
+          <declname>services</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Startup.cs" line="76" column="21" bodyfile="DAO_NotificationService/Startup.cs" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_startup_1acda116ac638ae0fae8a4aa073e1b62ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DAO_NotificationService.Startup.Configure</definition>
+        <argsstring>(IApplicationBuilder app, IWebHostEnvironment env)</argsstring>
+        <name>Configure</name>
+        <qualifiedname>DAO_NotificationService.Startup.Configure</qualifiedname>
+        <param>
+          <type>IApplicationBuilder</type>
+          <declname>app</declname>
+        </param>
+        <param>
+          <type>IWebHostEnvironment</type>
+          <declname>env</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Startup.cs" line="82" column="21" bodyfile="DAO_NotificationService/Startup.cs" bodystart="82" bodyend="119"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_startup_1aa7f82609d4d99394e1064f9168a67e43" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_NotificationService.Startup.LoadConfig</definition>
+        <argsstring>(IConfiguration configuration)</argsstring>
+        <name>LoadConfig</name>
+        <qualifiedname>DAO_NotificationService.Startup.LoadConfig</qualifiedname>
+        <param>
+          <type>IConfiguration</type>
+          <declname>configuration</declname>
+        </param>
+        <briefdescription>
+<para>Loads application config from appsettings.json </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Startup.cs" line="44" column="28" bodyfile="DAO_NotificationService/Startup.cs" bodystart="44" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___notification_service_1_1_startup_1a88341c7cd1453d5ec7f9d85fc382798f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_NotificationService.Startup.InitializeService</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeService</name>
+        <qualifiedname>DAO_NotificationService.Startup.InitializeService</qualifiedname>
+        <briefdescription>
+<para>Initializes application (Db migrations, connection check, timer construction) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_NotificationService/Startup.cs" line="53" column="28" bodyfile="DAO_NotificationService/Startup.cs" bodystart="53" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_NotificationService/Startup.cs" line="23" column="11" bodyfile="DAO_NotificationService/Startup.cs" bodystart="24" bodyend="120"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___notification_service_1_1_startup_1a642b2a1390da876ee067be25add46b0a" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Startup</scope><name>Configuration</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_startup_1acda116ac638ae0fae8a4aa073e1b62ae" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Startup</scope><name>Configure</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_startup_1add05e4c0aa8316ac09bf165c773a6641" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Startup</scope><name>ConfigureServices</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_startup_1a88341c7cd1453d5ec7f9d85fc382798f" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Startup</scope><name>InitializeService</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_startup_1aa7f82609d4d99394e1064f9168a67e43" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Startup</scope><name>LoadConfig</name></member>
+      <member refid="class_d_a_o___notification_service_1_1_startup_1a390c5e80adc2e752b6c5d31f5e954c9d" prot="public" virt="non-virtual"><scope>DAO_NotificationService::Startup</scope><name>Startup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

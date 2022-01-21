@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_program_1_1_settings" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Program::Settings</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1ab3ff4c99e8d3f7cf82f76c4822e3ac30" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.DbConnectionString</definition>
+        <argsstring></argsstring>
+        <name>DbConnectionString</name>
+        <qualifiedname>DAO_DbService.Program.Settings.DbConnectionString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="20" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1a01d84ae89cfc6168603f32773c5f4c76" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.LocalDbConnectionString</definition>
+        <argsstring></argsstring>
+        <name>LocalDbConnectionString</name>
+        <qualifiedname>DAO_DbService.Program.Settings.LocalDbConnectionString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="21" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1a1640635b55655314354520efb290dd36" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.RabbitMQUrl</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUrl</name>
+        <qualifiedname>DAO_DbService.Program.Settings.RabbitMQUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="22" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1a9b7d44ead26529ab30f15fcfa51904ad" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.RabbitMQUsername</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQUsername</name>
+        <qualifiedname>DAO_DbService.Program.Settings.RabbitMQUsername</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="23" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1a8f65ed58fcd0857e3052d737293f615f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.RabbitMQPassword</definition>
+        <argsstring></argsstring>
+        <name>RabbitMQPassword</name>
+        <qualifiedname>DAO_DbService.Program.Settings.RabbitMQPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="24" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1afadf0df33ee729aa92dfc8d4e004df4a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.Voting_Engine_Url</definition>
+        <argsstring></argsstring>
+        <name>Voting_Engine_Url</name>
+        <qualifiedname>DAO_DbService.Program.Settings.Voting_Engine_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="25" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1a15608f6ea9ba301b90756f93bbca4a1a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.Service_Reputation_Url</definition>
+        <argsstring></argsstring>
+        <name>Service_Reputation_Url</name>
+        <qualifiedname>DAO_DbService.Program.Settings.Service_Reputation_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="26" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1_1_settings_1a6ff71474ebc1dd0f69ff5e17a379db43" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Program.Settings.Service_Log_Url</definition>
+        <argsstring></argsstring>
+        <name>Service_Log_Url</name>
+        <qualifiedname>DAO_DbService.Program.Settings.Service_Log_Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="27" column="27" bodyfile="DAO_DbService/Program.cs" bodystart="27" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Program.cs" line="18" column="15" bodyfile="DAO_DbService/Program.cs" bodystart="19" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1ab3ff4c99e8d3f7cf82f76c4822e3ac30" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>DbConnectionString</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a01d84ae89cfc6168603f32773c5f4c76" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>LocalDbConnectionString</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a8f65ed58fcd0857e3052d737293f615f" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>RabbitMQPassword</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a1640635b55655314354520efb290dd36" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>RabbitMQUrl</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a9b7d44ead26529ab30f15fcfa51904ad" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>RabbitMQUsername</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a6ff71474ebc1dd0f69ff5e17a379db43" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>Service_Log_Url</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1a15608f6ea9ba301b90756f93bbca4a1a" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>Service_Reputation_Url</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1_1_settings_1afadf0df33ee729aa92dfc8d4e004df4a" prot="public" virt="non-virtual"><scope>DAO_DbService::Program::Settings</scope><name>Voting_Engine_Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -14,10 +14,18 @@ using Helpers.Models.SharedModels;
 
 namespace DAO_LogService.Controllers
 {
+
+    /// <summary>
+    ///  ApplicationLogsController contains Application Logs operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class ApplicationLogController : Controller
     {
+        /// <summary>
+        ///  Get application logs list
+        /// </summary>
+        /// <returns>ApplicationLog List</returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<ApplicationLogDto> Get()
@@ -40,6 +48,9 @@ namespace DAO_LogService.Controllers
             return _mapper.Map<List<ApplicationLog>, List<ApplicationLogDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// Get application log by id
+        /// </summary>
         [Route("GetId")]
         [HttpGet]
         public ApplicationLogDto GetId(int id)
@@ -62,6 +73,9 @@ namespace DAO_LogService.Controllers
             return _mapper.Map<ApplicationLog, ApplicationLogDto>(model);
         }
 
+        /// <summary>
+        /// Saves the ApplicationLog using the post method.
+        /// </summary>
         [Route("Post")]
         [HttpPost]
         public ApplicationLogDto Post([FromBody] ApplicationLogDto model)
@@ -83,6 +97,10 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves the list of ApplicationLogs model using post method
+        /// </summary>
+        /// <returns>List of applicationLog class</returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<ApplicationLogDto> PostMultiple([FromBody] List<ApplicationLogDto> model)
@@ -104,6 +122,9 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes the applicationLogs by id using delete method
+        /// </summary>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -125,6 +146,9 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates the applicationLogs by model using put method
+        /// </summary>
         [Route("Update")]
         [HttpPut]
         public ApplicationLogDto Update([FromBody] ApplicationLogDto model)
@@ -146,6 +170,10 @@ namespace DAO_LogService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the applicationLogs pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<ApplicationLogDto> GetPaged(int page = 1, int pageCount = 30)
@@ -175,6 +203,10 @@ namespace DAO_LogService.Controllers
             return res;
         }
 
+        /// <summary>
+        /// Gets last applicationLogs list by count parameter.
+        /// </summary>
+        /// <returns>ApplicationLog list</returns>
         [Route("GetLastWithCount")]
         [HttpGet]
         public IEnumerable<ApplicationLogDto> GetLastWithCount(int count = 20)

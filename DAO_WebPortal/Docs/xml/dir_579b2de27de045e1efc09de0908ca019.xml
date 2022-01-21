@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_579b2de27de045e1efc09de0908ca019" kind="dir">
+    <compoundname>DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public</compoundname>
+    <innerfile refid="_views_2_public_2_contact_8cshtml_8g_8cs">Contact.cshtml.g.cs</innerfile>
+    <innerfile refid="_views_2_public_2_error_8cshtml_8g_8cs">Error.cshtml.g.cs</innerfile>
+    <innerfile refid="_views_2_public_2_index_8cshtml_8g_8cs">Index.cshtml.g.cs</innerfile>
+    <innerfile refid="_views_2_public_2_price___discovery_8cshtml_8g_8cs">Price_Discovery.cshtml.g.cs</innerfile>
+    <innerfile refid="_views_2_public_2_price___discovery___detail_8cshtml_8g_8cs">Price_Discovery_Detail.cshtml.g.cs</innerfile>
+    <innerfile refid="_views_2_public_2_privacy___policy_8cshtml_8g_8cs">Privacy_Policy.cshtml.g.cs</innerfile>
+    <innerfile refid="_views_2_public_2_public___job___detail_8cshtml_8g_8cs">Public_Job_Detail.cshtml.g.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Public/"/>
+  </compounddef>
+</doxygen>

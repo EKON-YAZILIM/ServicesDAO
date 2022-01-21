@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::comment_pinned_added</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a3628643a095fd4237cdfb7a0a83747eb" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.comment_pinned_added.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.comment_pinned_added.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211112073158_comment_pinned_added.cs" line="7" column="33" bodyfile="DAO_DbService/Migrations/20211112073158_comment_pinned_added.cs" bodystart="7" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a2741ce170480e5fe50f99607ff3eac14" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.comment_pinned_added.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.comment_pinned_added.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211112073158_comment_pinned_added.cs" line="20" column="33" bodyfile="DAO_DbService/Migrations/20211112073158_comment_pinned_added.cs" bodystart="20" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a8fe4e80ab9bdfe08b5e7f74f2ba85337" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.comment_pinned_added.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.comment_pinned_added.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211112073158_comment_pinned_added.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211112073158_comment_pinned_added.Designer.cs" bodystart="15" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.comment_pinned_added</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.comment_pinned_added</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211112073158_comment_pinned_added.cs" line="5" column="19" bodyfile="DAO_DbService/Migrations/20211112073158_comment_pinned_added.cs" bodystart="6" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a8fe4e80ab9bdfe08b5e7f74f2ba85337" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::comment_pinned_added</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a2741ce170480e5fe50f99607ff3eac14" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::comment_pinned_added</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1comment__pinned__added_1a3628643a095fd4237cdfb7a0a83747eb" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::comment_pinned_added</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

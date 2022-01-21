@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_ddfcb5a0ca8f80e00604d4618cb5e0e8" kind="dir">
+    <compoundname>DAO_DbService</compoundname>
+    <innerdir refid="dir_98394e4f4e2754f2eb3af574c2df8616">DAO_DbService/Contexts</innerdir>
+    <innerdir refid="dir_c6f05509494c94e66af74f20fa1c0272">DAO_DbService/Controllers</innerdir>
+    <innerdir refid="dir_c1ca4a7f2b64fa84e1341e427fda53fe">DAO_DbService/Mapping</innerdir>
+    <innerdir refid="dir_77dd319ce521ad423d9ddb9349ce1c4b">DAO_DbService/Migrations</innerdir>
+    <innerdir refid="dir_ead65c8ed650e462cacd3486ba55a708">DAO_DbService/Models</innerdir>
+    <innerdir refid="dir_33f4d1f3ec8580dd98545b64a324a195">DAO_DbService/obj</innerdir>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <innerfile refid="_startup_8cs">Startup.cs</innerfile>
+    <innerfile refid="_timed_events_8cs">TimedEvents.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/"/>
+  </compounddef>
+</doxygen>

@@ -14,10 +14,17 @@ using static Helpers.Constants.Enums;
 
 namespace DAO_DbService.Controllers
 {
+    /// <summary>
+    ///  JobPostCommentController contains job post comment operation methods
+    /// </summary>
     [Route("[controller]")]
     [ApiController]
     public class JobPostCommentController : Controller
     {
+        /// <summary>
+        /// Gets JobPostComment List
+        /// </summary>
+        /// <returns></returns>
         [Route("Get")]
         [HttpGet]
         public IEnumerable<JobPostCommentDto> Get()
@@ -40,6 +47,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<JobPostComment>, List<JobPostCommentDto>>(model).ToArray();
         }
 
+        /// <summary>
+        /// returns a list of all job post comment by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         [Route("JobPostCommentSearch")]
         [HttpGet]
         public IEnumerable<JobPostCommentDto> JobPostCommentSearch(string query)
@@ -62,6 +74,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<List<JobPostComment>, List<JobPostCommentDto>>(res).ToArray();
         }
 
+        /// <summary>
+        /// Get JobPostComment by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [Route("GetId")]
         [HttpGet]
         public JobPostCommentDto GetId(int id)
@@ -84,6 +101,11 @@ namespace DAO_DbService.Controllers
             return _mapper.Map<JobPostComment, JobPostCommentDto>(model);
         }
 
+        /// <summary>
+        /// Saves job post comment model using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Post")]
         [HttpPost]
         public JobPostCommentDto Post([FromBody] JobPostCommentDto model)
@@ -105,6 +127,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Saves job post comment list using post method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("PostMultiple")]
         [HttpPost]
         public List<JobPostCommentDto> PostMultiple([FromBody] List<JobPostCommentDto> model)
@@ -126,6 +153,12 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Removes job post comment by id
+        /// Ends job post comment
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <returns></returns>
         [Route("Delete")]
         [HttpDelete]
         public bool Delete(int? ID)
@@ -147,6 +180,11 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Updates jobPostComment using put method
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [Route("Update")]
         [HttpPut]
         public JobPostCommentDto Update([FromBody] JobPostCommentDto model)
@@ -168,6 +206,13 @@ namespace DAO_DbService.Controllers
             }
         }
 
+        /// <summary>
+        /// Brings up the jobPostComment pages.
+        /// The selected page is fetched. Not all pages are returned
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("GetPaged")]
         [HttpGet]
         public PaginationEntity<JobPostCommentDto> GetPaged(int page = 1, int pageCount = 30)
@@ -196,7 +241,14 @@ namespace DAO_DbService.Controllers
 
             return res;
         }
-       
+
+        /// <summary>
+        /// returns a list containing desired amount of found job post comment by using title or descrpition as search key
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="page"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
         [Route("Search")]
         [HttpGet]
         public PaginationEntity<JobPostCommentDto> Search(string query, int page = 1, int pageCount = 30)
@@ -222,7 +274,6 @@ namespace DAO_DbService.Controllers
             }
 
         }
-
 
     }
 }

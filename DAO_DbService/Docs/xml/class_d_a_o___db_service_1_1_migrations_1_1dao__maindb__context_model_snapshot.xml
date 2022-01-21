@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::dao_maindb_contextModelSnapshot</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ModelSnapshot</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot_1a4ce31ef862629f2ca659df303468271c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.dao_maindb_contextModelSnapshot.BuildModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildModel</name>
+        <qualifiedname>DAO_DbService.Migrations.dao_maindb_contextModelSnapshot.BuildModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/dao_maindb_contextModelSnapshot.cs" line="13" column="33" bodyfile="DAO_DbService/Migrations/dao_maindb_contextModelSnapshot.cs" bodystart="13" bodyend="391"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.dao_maindb_contextModelSnapshot</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ModelSnapshot</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.dao_maindb_contextModelSnapshot</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ModelSnapshot</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/dao_maindb_contextModelSnapshot.cs" line="11" column="12" bodyfile="DAO_DbService/Migrations/dao_maindb_contextModelSnapshot.cs" bodystart="12" bodyend="392"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1dao__maindb__context_model_snapshot_1a4ce31ef862629f2ca659df303468271c" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::dao_maindb_contextModelSnapshot</scope><name>BuildModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

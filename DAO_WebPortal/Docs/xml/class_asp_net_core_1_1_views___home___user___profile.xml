@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___home___user___profile" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_Home_User_Profile</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.DtoModels.MainDbDto.UserDto &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___user___profile_1ae913964284061e1131fcb09035631f2d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>IHttpContextAccessor</type>
+        <definition>IHttpContextAccessor AspNetCore.Views_Home_User_Profile.httpContextAccessor</definition>
+        <argsstring></argsstring>
+        <name>httpContextAccessor</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.httpContextAccessor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="443" column="37" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="443" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___user___profile_1a717602a0bec98ceb102b82db2e6a7618" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_Home_User_Profile.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.ModelExpressionProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="445" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="445" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___user___profile_1a18342526d07f55d4ca1ebfc4e9e2ed5e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_Home_User_Profile.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="447" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="447" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___user___profile_1ab8b6d6e8d4d07be0f6157fcfe69b5294" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_Home_User_Profile.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="449" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="449" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___user___profile_1aea7a613549a6af70568870cd87b2225d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_Home_User_Profile.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="451" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="451" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___home___user___profile_1a3318a27e4cceb38247262964903f7cfe" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; Helpers.Models.DtoModels.MainDbDto.UserDto &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;Helpers.Models.DtoModels.MainDbDto.UserDto&gt; AspNetCore.Views_Home_User_Profile.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="453" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="453" bodyend="453"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___home___user___profile_1a0d4802b200a164e0831a6da7704e3be7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_Home_User_Profile.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_Home_User_Profile.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="48" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="48" bodyend="440"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_User_Profile</label>
+        <link refid="class_asp_net_core_1_1_views___home___user___profile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.DtoModels.MainDbDto.UserDto &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_Home_User_Profile</label>
+        <link refid="class_asp_net_core_1_1_views___home___user___profile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; Helpers.Models.DtoModels.MainDbDto.UserDto &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" line="45" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views/Home/User_Profile.cshtml.g.cs" bodystart="46" bodyend="454"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1ab8b6d6e8d4d07be0f6157fcfe69b5294" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1a0d4802b200a164e0831a6da7704e3be7" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1a3318a27e4cceb38247262964903f7cfe" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1ae913964284061e1131fcb09035631f2d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>httpContextAccessor</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1aea7a613549a6af70568870cd87b2225d" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1a717602a0bec98ceb102b82db2e6a7618" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___home___user___profile_1a18342526d07f55d4ca1ebfc4e9e2ed5e" prot="public" virt="non-virtual"><scope>AspNetCore::Views_Home_User_Profile</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

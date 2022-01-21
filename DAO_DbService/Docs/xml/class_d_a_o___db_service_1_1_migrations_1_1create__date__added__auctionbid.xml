@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::create_date_added_auctionbid</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a1bfa8bc3da75bb594ec5b3375c18353e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.create_date_added_auctionbid.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.create_date_added_auctionbid.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.cs" line="8" column="33" bodyfile="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.cs" bodystart="8" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a60dad36708763672a47b75889a55283b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.create_date_added_auctionbid.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.create_date_added_auctionbid.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.cs" line="18" column="33" bodyfile="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.cs" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a91c60134effb6b3fcb48e973188a5c61" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.create_date_added_auctionbid.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.create_date_added_auctionbid.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.Designer.cs" bodystart="15" bodyend="260"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.create_date_added_auctionbid</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.create_date_added_auctionbid</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.cs" line="6" column="19" bodyfile="DAO_DbService/Migrations/20211113151808_create_date_added_auctionbid.cs" bodystart="7" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a91c60134effb6b3fcb48e973188a5c61" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::create_date_added_auctionbid</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a60dad36708763672a47b75889a55283b" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::create_date_added_auctionbid</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1create__date__added__auctionbid_1a1bfa8bc3da75bb594ec5b3375c18353e" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::create_date_added_auctionbid</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

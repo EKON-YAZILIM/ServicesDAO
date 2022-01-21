@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="namespace_d_a_o___web_portal" kind="namespace" language="C#">
+    <compoundname>DAO_WebPortal</compoundname>
+    <innerclass refid="class_d_a_o___web_portal_1_1_program" prot="public">DAO_WebPortal::Program</innerclass>
+    <innerclass refid="class_d_a_o___web_portal_1_1_startup" prot="public">DAO_WebPortal::Startup</innerclass>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_controllers">DAO_WebPortal::Controllers</innernamespace>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_models">DAO_WebPortal::Models</innernamespace>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_providers">DAO_WebPortal::Providers</innernamespace>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_resources">DAO_WebPortal::Resources</innernamespace>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_utility">DAO_WebPortal::Utility</innernamespace>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_views">DAO_WebPortal::Views</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Controllers/HomeController.cs" line="27" column="1"/>
+  </compounddef>
+</doxygen>

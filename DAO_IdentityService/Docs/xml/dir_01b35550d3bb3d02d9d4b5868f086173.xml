@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_01b35550d3bb3d02d9d4b5868f086173" kind="dir">
+    <compoundname>DAO_IdentityService/Controllers</compoundname>
+    <innerfile refid="_identity_controller_8cs">IdentityController.cs</innerfile>
+    <innerfile refid="_info_controller_8cs">InfoController.cs</innerfile>
+    <innerfile refid="_kyc_controller_8cs">KycController.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_IdentityService/Controllers/"/>
+  </compounddef>
+</doxygen>

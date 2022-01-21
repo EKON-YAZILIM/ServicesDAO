@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_models_1_1_auction_bid" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Models::AuctionBid</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1abff76a8082cd85f488ea032bdbe92569" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.AuctionBid.AuctionBidID</definition>
+        <argsstring></argsstring>
+        <name>AuctionBidID</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.AuctionBidID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="12" column="20" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1af05ce7259b88264f252a003b632f0c52" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.AuctionBid.AuctionID</definition>
+        <argsstring></argsstring>
+        <name>AuctionID</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.AuctionID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="13" column="20" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a885304b33b65b2a18efbe76944f8050f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_DbService.Models.AuctionBid.UserID</definition>
+        <argsstring></argsstring>
+        <name>UserID</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.UserID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="14" column="20" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a0ee147329e0596ee01afaad76b02b4dd" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_DbService.Models.AuctionBid.Price</definition>
+        <argsstring></argsstring>
+        <name>Price</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.Price</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="15" column="23" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a0514470b233fa1d1686d4e2becd08a61" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.AuctionBid.Time</definition>
+        <argsstring></argsstring>
+        <name>Time</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.Time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="16" column="23" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1ae0dcf503928fc72fe35b5680ca2d0e25" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double DAO_DbService.Models.AuctionBid.ReputationStake</definition>
+        <argsstring></argsstring>
+        <name>ReputationStake</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.ReputationStake</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="17" column="23" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a4800bd7af761d09c0926b496a4cb747e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_DbService.Models.AuctionBid.CreateDate</definition>
+        <argsstring></argsstring>
+        <name>CreateDate</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.CreateDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="18" column="25" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a27fecf4a46be08ca5bfb50ac0ca2cd73" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_DbService.Models.AuctionBid.AssociateUserNote</definition>
+        <argsstring></argsstring>
+        <name>AssociateUserNote</name>
+        <qualifiedname>DAO_DbService.Models.AuctionBid.AssociateUserNote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Models/AuctionBid.cs" line="19" column="23" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_DbService/Models/AuctionBid.cs" line="9" column="11" bodyfile="DAO_DbService/Models/AuctionBid.cs" bodystart="10" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a27fecf4a46be08ca5bfb50ac0ca2cd73" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>AssociateUserNote</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1abff76a8082cd85f488ea032bdbe92569" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>AuctionBidID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1af05ce7259b88264f252a003b632f0c52" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>AuctionID</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a4800bd7af761d09c0926b496a4cb747e" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>CreateDate</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a0ee147329e0596ee01afaad76b02b4dd" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>Price</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1ae0dcf503928fc72fe35b5680ca2d0e25" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>ReputationStake</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a0514470b233fa1d1686d4e2becd08a61" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>Time</name></member>
+      <member refid="class_d_a_o___db_service_1_1_models_1_1_auction_bid_1a885304b33b65b2a18efbe76944f8050f" prot="public" virt="non-virtual"><scope>DAO_DbService::Models::AuctionBid</scope><name>UserID</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

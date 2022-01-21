@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_program" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Program</compoundname>
+    <innerclass refid="class_d_a_o___db_service_1_1_program_1_1_settings" prot="public">DAO_DbService::Program::Settings</innerclass>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_program_1a7807a5f143296bffa7e1fc241065eefa" prot="public" static="yes" mutable="no">
+        <type>Monitizer</type>
+        <definition>Monitizer DAO_DbService.Program.monitizer</definition>
+        <argsstring></argsstring>
+        <name>monitizer</name>
+        <qualifiedname>DAO_DbService.Program.monitizer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="30" column="33" bodyfile="DAO_DbService/Program.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_program_1a666234fe567fe1ebdd89385d970929d3" prot="public" static="yes" mutable="no">
+        <type>Helpers.RabbitMQ</type>
+        <definition>Helpers.RabbitMQ DAO_DbService.Program.rabbitMq</definition>
+        <argsstring></argsstring>
+        <name>rabbitMq</name>
+        <qualifiedname>DAO_DbService.Program.rabbitMq</qualifiedname>
+        <initializer>= new Helpers.RabbitMQ()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="32" column="39" bodyfile="DAO_DbService/Program.cs" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_program_1ac75a9659afcd0ad6f6260b10a1be1806" prot="public" static="yes" mutable="no">
+        <type>Mysql</type>
+        <definition>Mysql DAO_DbService.Program.mysql</definition>
+        <argsstring></argsstring>
+        <name>mysql</name>
+        <qualifiedname>DAO_DbService.Program.mysql</qualifiedname>
+        <initializer>= new Helpers.Mysql()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="33" column="29" bodyfile="DAO_DbService/Program.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_o___db_service_1_1_program_1a71051f2e37a26eee192c7c8c5f847d92" prot="public" static="yes" mutable="no">
+        <type>DbContextOptions</type>
+        <definition>DbContextOptions DAO_DbService.Program.dbOptions</definition>
+        <argsstring></argsstring>
+        <name>dbOptions</name>
+        <qualifiedname>DAO_DbService.Program.dbOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="34" column="40" bodyfile="DAO_DbService/Program.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___db_service_1_1_program_1a51ac370aeb796088891ecce97c644aaf" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_d_a_o___db_service_1_1_program_1_1_settings" kindref="compound">Settings</ref></type>
+        <definition>Settings DAO_DbService.Program._settings</definition>
+        <argsstring></argsstring>
+        <name>_settings</name>
+        <qualifiedname>DAO_DbService.Program._settings</qualifiedname>
+        <initializer>= new <ref refid="class_d_a_o___db_service_1_1_program_1_1_settings" kindref="compound">Settings</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="31" column="32" bodyfile="DAO_DbService/Program.cs" bodystart="31" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_program_1ab722a299371b80344e37b569708095ae" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_DbService.Program.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <qualifiedname>DAO_DbService.Program.Main</qualifiedname>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="36" column="28" bodyfile="DAO_DbService/Program.cs" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_program_1ad314af733fcb2e3745db38cfaa14da0f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IHostBuilder</type>
+        <definition>static IHostBuilder DAO_DbService.Program.CreateHostBuilder</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>CreateHostBuilder</name>
+        <qualifiedname>DAO_DbService.Program.CreateHostBuilder</qualifiedname>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Program.cs" line="41" column="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Program</label>
+        <link refid="class_d_a_o___db_service_1_1_program"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>dbOptions</edgelabel>
+          <edgelabel>monitizer</edgelabel>
+          <edgelabel>mysql</edgelabel>
+          <edgelabel>rabbitMq</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>static</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Program.cs" line="16" column="11" bodyfile="DAO_DbService/Program.cs" bodystart="17" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_program_1a51ac370aeb796088891ecce97c644aaf" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>_settings</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1ad314af733fcb2e3745db38cfaa14da0f" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>CreateHostBuilder</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1a71051f2e37a26eee192c7c8c5f847d92" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>dbOptions</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1ab722a299371b80344e37b569708095ae" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>Main</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1a7807a5f143296bffa7e1fc241065eefa" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>monitizer</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1ac75a9659afcd0ad6f6260b10a1be1806" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>mysql</name></member>
+      <member refid="class_d_a_o___db_service_1_1_program_1a666234fe567fe1ebdd89385d970929d3" prot="public" virt="non-virtual"><scope>DAO_DbService::Program</scope><name>rabbitMq</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

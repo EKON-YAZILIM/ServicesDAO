@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="md__d_a_o__web_portal_wwwroot__home_lib_ckeditor_plugins_exportpdf_tests_manual_tokentwoeditorswrong" kind="page">
+    <compoundname>md_DAO_WebPortal_wwwroot_Home_lib_ckeditor_plugins_exportpdf_tests_manual_tokentwoeditorswrong</compoundname>
+    <title>tokentwoeditorswrong</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>@bender-tags: exportpdf, feature, 77 @bender-ui: collapsed @bender-include: ../_helpers/tools.js @bender-ckeditor-plugins: wysiwygarea, toolbar, basicstyles, notification, format</para>
+<para>Note: You need the Internet connection to run this test.</para>
+<para><orderedlist>
+<listitem><para>Click <computeroutput>Export to PDF</computeroutput> button in both editors.</para>
+</listitem></orderedlist>
+<orderedlist>
+<listitem><para>Examine the area in the red frames below each editor.</para>
+<para><bold>Expected:</bold> First box contains token value and the second one <computeroutput>undefined</computeroutput>.</para>
+<para><bold>Unexpected:</bold> Values in both boxes are the same or none of them is <computeroutput>undefined</computeroutput>. </para>
+</listitem></orderedlist>
+</para>
+    </detaileddescription>
+    <location file="DAO_WebPortal/wwwroot/Home/lib/ckeditor/plugins/exportpdf/tests/manual/tokentwoeditorswrong.md"/>
+  </compounddef>
+</doxygen>

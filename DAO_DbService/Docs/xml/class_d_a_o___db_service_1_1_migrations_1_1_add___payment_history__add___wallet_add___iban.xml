@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::Add_PaymentHistory_add_WalletAdd_Iban</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1a92611b44851c25661d70025d75e3e816" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs" line="9" column="33" bodyfile="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs" bodystart="9" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1a5d34b6f9fac4a442d6868693fc254906" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs" line="48" column="33" bodyfile="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs" bodystart="48" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1aeb54d3c25638ace7d458149a0dbf8acd" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.Designer.cs" bodystart="15" bodyend="298"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.Add_PaymentHistory_add_WalletAdd_Iban</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs" line="7" column="19" bodyfile="DAO_DbService/Migrations/20211116070533_Add_PaymentHistory_add_WalletAdd_Iban.cs" bodystart="8" bodyend="65"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1aeb54d3c25638ace7d458149a0dbf8acd" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::Add_PaymentHistory_add_WalletAdd_Iban</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1a5d34b6f9fac4a442d6868693fc254906" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::Add_PaymentHistory_add_WalletAdd_Iban</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_add___payment_history__add___wallet_add___iban_1a92611b44851c25661d70025d75e3e816" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::Add_PaymentHistory_add_WalletAdd_Iban</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

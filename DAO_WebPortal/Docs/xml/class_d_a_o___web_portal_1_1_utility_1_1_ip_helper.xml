@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___web_portal_1_1_utility_1_1_ip_helper" kind="class" language="C#" prot="public">
+    <compoundname>DAO_WebPortal::Utility::IpHelper</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_ip_helper_1a1d2c0de1d444b1448490f010f435e621" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_WebPortal.Utility.IpHelper.GetClientIpAddress</definition>
+        <argsstring>(Microsoft.AspNetCore.Http.HttpContext context)</argsstring>
+        <name>GetClientIpAddress</name>
+        <qualifiedname>DAO_WebPortal.Utility.IpHelper.GetClientIpAddress</qualifiedname>
+        <param>
+          <type>Microsoft.AspNetCore.Http.HttpContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Get client IP address from HttpContext object </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HttpContext object</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Client IP Address</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/IpHelper.cs" line="19" column="30" bodyfile="DAO_WebPortal/Utility/IpHelper.cs" bodystart="19" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___web_portal_1_1_utility_1_1_ip_helper_1a8d7950a1429f135657874581a3450c6b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string DAO_WebPortal.Utility.IpHelper.GetClientPort</definition>
+        <argsstring>(Microsoft.AspNetCore.Http.HttpContext context)</argsstring>
+        <name>GetClientPort</name>
+        <qualifiedname>DAO_WebPortal.Utility.IpHelper.GetClientPort</qualifiedname>
+        <param>
+          <type>Microsoft.AspNetCore.Http.HttpContext</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Get client port from HttpContext object </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>context</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>HttpContext object</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Client port</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/Utility/IpHelper.cs" line="40" column="30" bodyfile="DAO_WebPortal/Utility/IpHelper.cs" bodystart="40" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>IpHelper class for extracting client ip and port from HttpContext object. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_WebPortal/Utility/IpHelper.cs" line="12" column="19" bodyfile="DAO_WebPortal/Utility/IpHelper.cs" bodystart="13" bodyend="55"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_ip_helper_1a1d2c0de1d444b1448490f010f435e621" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::IpHelper</scope><name>GetClientIpAddress</name></member>
+      <member refid="class_d_a_o___web_portal_1_1_utility_1_1_ip_helper_1a8d7950a1429f135657874581a3450c6b" prot="public" virt="non-virtual"><scope>DAO_WebPortal::Utility::IpHelper</scope><name>GetClientPort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

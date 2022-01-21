@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_models_1_1_error_log" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::Models::ErrorLog</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1a33cba9b44c70181976e39e7f433bba7b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_LogService.Models.ErrorLog.ErrorLogId</definition>
+        <argsstring></argsstring>
+        <name>ErrorLogId</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.ErrorLogId</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="12" column="20" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1adc19d978111bf38e4c156dde2eb7988f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.Server</definition>
+        <argsstring></argsstring>
+        <name>Server</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="13" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1a897b40803873542f5d927f0fbfbd14c1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.Application</definition>
+        <argsstring></argsstring>
+        <name>Application</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Application</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="14" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1acb99099922804b12615cd8bcd4651b4b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.Message</definition>
+        <argsstring></argsstring>
+        <name>Message</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="15" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1a4ab53d2903187bb95e09695147cf85df" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.Target</definition>
+        <argsstring></argsstring>
+        <name>Target</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Target</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="16" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1ad4c9651b23033e4696eef9c776c6103b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.Trace</definition>
+        <argsstring></argsstring>
+        <name>Trace</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Trace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="17" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1ad0937662728f501ea55fe231ad303a12" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime DAO_LogService.Models.ErrorLog.Date</definition>
+        <argsstring></argsstring>
+        <name>Date</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="18" column="25" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1a632338c6135002a95ec836333f7367b8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.IdFieldName</definition>
+        <argsstring></argsstring>
+        <name>IdFieldName</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.IdFieldName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="19" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1a76d074f1403de6ad7e27704066285e80" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int DAO_LogService.Models.ErrorLog.IdField</definition>
+        <argsstring></argsstring>
+        <name>IdField</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.IdField</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="20" column="20" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="class_d_a_o___log_service_1_1_models_1_1_error_log_1a95158b18d0ea0d9fa80ebb6f0e55f761" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string DAO_LogService.Models.ErrorLog.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>DAO_LogService.Models.ErrorLog.Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/Models/ErrorLog.cs" line="21" column="23" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/Models/ErrorLog.cs" line="9" column="11" bodyfile="DAO_LogService/Models/ErrorLog.cs" bodystart="10" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a897b40803873542f5d927f0fbfbd14c1" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Application</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1ad0937662728f501ea55fe231ad303a12" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Date</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a33cba9b44c70181976e39e7f433bba7b" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>ErrorLogId</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a76d074f1403de6ad7e27704066285e80" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>IdField</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a632338c6135002a95ec836333f7367b8" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>IdFieldName</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1acb99099922804b12615cd8bcd4651b4b" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Message</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1adc19d978111bf38e4c156dde2eb7988f" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Server</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a4ab53d2903187bb95e09695147cf85df" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Target</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1ad4c9651b23033e4696eef9c776c6103b" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Trace</name></member>
+      <member refid="class_d_a_o___log_service_1_1_models_1_1_error_log_1a95158b18d0ea0d9fa80ebb6f0e55f761" prot="public" virt="non-virtual"><scope>DAO_LogService::Models::ErrorLog</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

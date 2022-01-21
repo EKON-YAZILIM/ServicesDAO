@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___log_service_1_1_main_events" kind="class" language="C#" prot="public">
+    <compoundname>DAO_LogService::MainEvents</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_main_events_1aba1de9d16623236d52be8fdfd4367846" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.MainEvents.IntiliazeLogService</definition>
+        <argsstring>()</argsstring>
+        <name>IntiliazeLogService</name>
+        <qualifiedname>DAO_LogService.MainEvents.IntiliazeLogService</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/MainEvents.cs" line="15" column="28" bodyfile="DAO_LogService/MainEvents.cs" bodystart="15" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_main_events_1ae61d0c11923eb3b9f20c433ddbdaf879" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.MainEvents.OnApplicationLog</definition>
+        <argsstring>(string source, byte[] data)</argsstring>
+        <name>OnApplicationLog</name>
+        <qualifiedname>DAO_LogService.MainEvents.OnApplicationLog</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/MainEvents.cs" line="36" column="28" bodyfile="DAO_LogService/MainEvents.cs" bodystart="36" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_main_events_1a1cd1db48790b3a44fda58ba143bf7310" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.MainEvents.OnErrorLog</definition>
+        <argsstring>(string source, byte[] data)</argsstring>
+        <name>OnErrorLog</name>
+        <qualifiedname>DAO_LogService.MainEvents.OnErrorLog</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/MainEvents.cs" line="44" column="28" bodyfile="DAO_LogService/MainEvents.cs" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___log_service_1_1_main_events_1a8da52eacf8c9dcc210332efd3650d429" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void DAO_LogService.MainEvents.OnUserLog</definition>
+        <argsstring>(string source, byte[] data)</argsstring>
+        <name>OnUserLog</name>
+        <qualifiedname>DAO_LogService.MainEvents.OnUserLog</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>byte[]</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_LogService/MainEvents.cs" line="52" column="28" bodyfile="DAO_LogService/MainEvents.cs" bodystart="52" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DAO_LogService/MainEvents.cs" line="13" column="11" bodyfile="DAO_LogService/MainEvents.cs" bodystart="14" bodyend="60"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___log_service_1_1_main_events_1aba1de9d16623236d52be8fdfd4367846" prot="public" virt="non-virtual"><scope>DAO_LogService::MainEvents</scope><name>IntiliazeLogService</name></member>
+      <member refid="class_d_a_o___log_service_1_1_main_events_1ae61d0c11923eb3b9f20c433ddbdaf879" prot="public" virt="non-virtual"><scope>DAO_LogService::MainEvents</scope><name>OnApplicationLog</name></member>
+      <member refid="class_d_a_o___log_service_1_1_main_events_1a1cd1db48790b3a44fda58ba143bf7310" prot="public" virt="non-virtual"><scope>DAO_LogService::MainEvents</scope><name>OnErrorLog</name></member>
+      <member refid="class_d_a_o___log_service_1_1_main_events_1a8da52eacf8c9dcc210332efd3650d429" prot="public" virt="non-virtual"><scope>DAO_LogService::MainEvents</scope><name>OnUserLog</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

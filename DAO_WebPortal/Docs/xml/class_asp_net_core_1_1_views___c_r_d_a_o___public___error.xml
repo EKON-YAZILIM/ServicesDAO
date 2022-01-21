@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error" kind="class" language="C#" prot="public">
+    <compoundname>AspNetCore::Views_CRDAO_Public_Error</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1ab89c84640ae26344421eb6b4212757ba" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider AspNetCore.Views_CRDAO_Public_Error.ModelExpressionProvider</definition>
+        <argsstring></argsstring>
+        <name>ModelExpressionProvider</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Error.ModelExpressionProvider</qualifiedname>
+        <initializer>
+&lt;div class=&quot;&quot;nk-wrap ov-h&quot;&quot;&gt;
+    &lt;div class=&quot;&quot;container&quot;&quot;&gt;
+        &lt;main class=&quot;&quot;nk-pages nk-pages-centered tc-light px-0 text-center&quot;&quot;&gt;
+            &lt;header class=&quot;&quot;pt-5&quot;&quot;&gt;
+                &lt;a href=&quot;&quot;./&quot;&quot; class=&quot;&quot;d-inline-block logo-lg&quot;&quot;&gt;&lt;img src=&quot;&quot;../Public/images/logo-light2x.png&quot;&quot; srcset=&quot;&quot;../Public/images/logo-light2x.png 2x&quot;&quot; alt=&quot;&quot;logo&quot;&quot;&gt;&lt;/a&gt;
+            &lt;/header&gt;
+            &lt;div class=&quot;&quot;my-auto py-5&quot;&quot;&gt;
+                &lt;div class=&quot;&quot;row justify-content-center&quot;&quot;&gt;
+                    &lt;div class=&quot;&quot;col-xl-6 col-md-7 col-sm-9&quot;&quot;&gt;
+                        &lt;div class=&quot;&quot;position-relative&quot;&quot;&gt;
+                            &lt;h2 class=&quot;&quot;title-xxl-grad&quot;&quot;&gt;404&lt;/h2&gt;
+                            &lt;h5 class=&quot;&quot;pb-2&quot;&quot;&gt;Opps! Why you’re here?&lt;/h5&gt;
+                            &lt;p&quot;&gt;The page you are looking for does not exists or you don&apos;t have the authorization to view this page.&lt;/p&gt;
+                            &lt;a href=&quot;&quot;../Public/Index&quot;&quot; class=&quot;&quot;btn btn-grad btn-md btn-round&quot;&quot;&gt;Back to home&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;footer class=&quot;&quot;pb-5 tc-light&quot;&quot;&gt;
+
+                &lt;p class=&quot;&quot;copyright-text copyright-text-s3&quot;&quot;&gt;Copyright © &quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="84" column="83" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a453bae80fa2a2d125abae297236a20a0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IUrlHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IUrlHelper AspNetCore.Views_CRDAO_Public_Error.Url</definition>
+        <argsstring></argsstring>
+        <name>Url</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Error.Url</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="86" column="57" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a1e37c7d9a2536df8648556c43f5804ef" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.IViewComponentHelper AspNetCore.Views_CRDAO_Public_Error.Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Error.Component</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="88" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1aa6cfa663d51da124c006d764e39a8f79" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper AspNetCore.Views_CRDAO_Public_Error.Json</definition>
+        <argsstring></argsstring>
+        <name>Json</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Error.Json</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="90" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="property" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a7860b35b9aaa49b6ad3fc003c8c0f889" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt; dynamic &gt;</type>
+        <definition>global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper&lt;dynamic&gt; AspNetCore.Views_CRDAO_Public_Error.Html</definition>
+        <argsstring></argsstring>
+        <name>Html</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Error.Html</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="92" column="67" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="92" bodyend="92"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a288e23fafad2353328888a435adacc49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async override global::System.Threading.Tasks.Task</type>
+        <definition>async override global::System.Threading.Tasks.Task AspNetCore.Views_CRDAO_Public_Error.ExecuteAsync</definition>
+        <argsstring>()</argsstring>
+        <name>ExecuteAsync</name>
+        <qualifiedname>AspNetCore.Views_CRDAO_Public_Error.ExecuteAsync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="34" column="64" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="34" bodyend="81"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Public_Error</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>AspNetCore.Views_CRDAO_Public_Error</label>
+        <link refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>global::MicrosoftAspNetCore::Mvc::Razor::RazorPage&lt; dynamic &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" line="31" column="11" bodyfile="DAO_WebPortal/obj/Debug/netcoreapp3.1/Razor/Views-CRDAO/Public/Error.cshtml.g.cs" bodystart="32" bodyend="93"/>
+    <listofallmembers>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a1e37c7d9a2536df8648556c43f5804ef" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Error</scope><name>Component</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a288e23fafad2353328888a435adacc49" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Error</scope><name>ExecuteAsync</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a7860b35b9aaa49b6ad3fc003c8c0f889" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Error</scope><name>Html</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1aa6cfa663d51da124c006d764e39a8f79" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Error</scope><name>Json</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1ab89c84640ae26344421eb6b4212757ba" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Error</scope><name>ModelExpressionProvider</name></member>
+      <member refid="class_asp_net_core_1_1_views___c_r_d_a_o___public___error_1a453bae80fa2a2d125abae297236a20a0" prot="public" virt="non-virtual"><scope>AspNetCore::Views_CRDAO_Public_Error</scope><name>Url</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

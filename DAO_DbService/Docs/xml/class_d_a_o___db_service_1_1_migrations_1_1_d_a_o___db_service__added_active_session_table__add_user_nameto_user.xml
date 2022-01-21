@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::DAO_DbService_addedActiveSessionTable_addUserNametoUser</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a12ddf9a5f8fed88b7d3382ddbc339db6" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs" line="9" column="33" bodyfile="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs" bodystart="9" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a6f58d3f65e6afd9edc4318aad648754d" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs" line="33" column="33" bodyfile="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs" bodystart="33" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a04c41568d1f719db47f759bfe1a74c60" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.Designer.cs" bodystart="15" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.DAO_DbService_addedActiveSessionTable_addUserNametoUser</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs" line="7" column="19" bodyfile="DAO_DbService/Migrations/20211013132010_DAO_DbService_addedActiveSessionTable_addUserNametoUser.cs" bodystart="8" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a04c41568d1f719db47f759bfe1a74c60" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_addedActiveSessionTable_addUserNametoUser</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a6f58d3f65e6afd9edc4318aad648754d" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_addedActiveSessionTable_addUserNametoUser</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1_d_a_o___db_service__added_active_session_table__add_user_nameto_user_1a12ddf9a5f8fed88b7d3382ddbc339db6" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::DAO_DbService_addedActiveSessionTable_addUserNametoUser</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

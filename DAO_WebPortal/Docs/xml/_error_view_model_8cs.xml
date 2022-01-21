@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_error_view_model_8cs" kind="file" language="C#">
+    <compoundname>ErrorViewModel.cs</compoundname>
+    <innerclass refid="class_d_a_o___web_portal_1_1_models_1_1_error_view_model" prot="public">DAO_WebPortal::Models::ErrorViewModel</innerclass>
+    <innernamespace refid="namespace_d_a_o___web_portal">DAO_WebPortal</innernamespace>
+    <innernamespace refid="namespace_d_a_o___web_portal_1_1_models">DAO_WebPortal::Models</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using</highlight><highlight class="normal"><sp/>System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="namespace_d_a_o___web_portal_1_1_models" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_d_a_o___web_portal_1_1_models" kindref="compound">DAO_WebPortal.Models</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="class_d_a_o___web_portal_1_1_models_1_1_error_view_model" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_d_a_o___web_portal_1_1_models_1_1_error_view_model" kindref="compound">ErrorViewModel</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="class_d_a_o___web_portal_1_1_models_1_1_error_view_model_1aa95dbb92680ef5cd01dc86fb3d33b46f" kindref="member">RequestId</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_d_a_o___web_portal_1_1_models_1_1_error_view_model_1a649964326af69ce0682a1484aea55560" kindref="member">ShowRequestId</ref><sp/>=&gt;<sp/>!</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">.IsNullOrEmpty(<ref refid="class_d_a_o___web_portal_1_1_models_1_1_error_view_model_1aa95dbb92680ef5cd01dc86fb3d33b46f" kindref="member">RequestId</ref>);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="DAO_WebPortal/Models/ErrorViewModel.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered" kind="class" language="C#" prot="public">
+    <compoundname>DAO_DbService::Migrations::auctions_transffered</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Migration</basecompoundref>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a8cf3c0ed2be8a9006877ff4f2aea150c" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.auctions_transffered.Up</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Up</name>
+        <qualifiedname>DAO_DbService.Migrations.auctions_transffered.Up</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211111100143_auctions_transffered.cs" line="9" column="33" bodyfile="DAO_DbService/Migrations/20211111100143_auctions_transffered.cs" bodystart="9" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a868145ecfc3320b100b82fa8cf2e54c3" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.auctions_transffered.Down</definition>
+        <argsstring>(MigrationBuilder migrationBuilder)</argsstring>
+        <name>Down</name>
+        <qualifiedname>DAO_DbService.Migrations.auctions_transffered.Down</qualifiedname>
+        <param>
+          <type>MigrationBuilder</type>
+          <declname>migrationBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211111100143_auctions_transffered.cs" line="18" column="33" bodyfile="DAO_DbService/Migrations/20211111100143_auctions_transffered.cs" bodystart="18" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a6aa868bff5aa6359a280960b8ffc90da" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void DAO_DbService.Migrations.auctions_transffered.BuildTargetModel</definition>
+        <argsstring>(ModelBuilder modelBuilder)</argsstring>
+        <name>BuildTargetModel</name>
+        <qualifiedname>DAO_DbService.Migrations.auctions_transffered.BuildTargetModel</qualifiedname>
+        <param>
+          <type>ModelBuilder</type>
+          <declname>modelBuilder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DAO_DbService/Migrations/20211111100143_auctions_transffered.Designer.cs" line="15" column="33" bodyfile="DAO_DbService/Migrations/20211111100143_auctions_transffered.Designer.cs" bodystart="15" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.auctions_transffered</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAO_DbService.Migrations.auctions_transffered</label>
+        <link refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Migration</label>
+      </node>
+    </collaborationgraph>
+    <location file="DAO_DbService/Migrations/20211111100143_auctions_transffered.cs" line="7" column="19" bodyfile="DAO_DbService/Migrations/20211111100143_auctions_transffered.cs" bodystart="8" bodyend="57"/>
+    <listofallmembers>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a6aa868bff5aa6359a280960b8ffc90da" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::auctions_transffered</scope><name>BuildTargetModel</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a868145ecfc3320b100b82fa8cf2e54c3" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::auctions_transffered</scope><name>Down</name></member>
+      <member refid="class_d_a_o___db_service_1_1_migrations_1_1auctions__transffered_1a8cf3c0ed2be8a9006877ff4f2aea150c" prot="protected" virt="non-virtual"><scope>DAO_DbService::Migrations::auctions_transffered</scope><name>Up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
