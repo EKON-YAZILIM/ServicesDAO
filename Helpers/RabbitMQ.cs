@@ -164,15 +164,16 @@ namespace Helpers
         /// <param name="routingKey">Routing key</param>
         /// <param name="data">Serialized data</param>
         /// <param name="props">Properties</param>        
-        public void Publish(string exchange, string routingKey, byte[] data, IBasicProperties props = null)
+        public bool Publish(string exchange, string routingKey, byte[] data, IBasicProperties props = null)
         {
             try
             {
                 channel.BasicPublish(exchange: exchange, routingKey: routingKey, basicProperties: props, body: data);
+                return true;
             }
             catch
             {
-
+                return false;
             }
         }
 

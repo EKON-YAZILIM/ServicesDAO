@@ -70,5 +70,9 @@
 /crdaoprivate.ppk
 /UnitTests/DAO_WebPortal.Test/bin
 /UnitTests/DAO_WebPortal.Test/obj
+/UnitTests/DAO_LogService.Test/obj
+/UnitTests/DAO_LogService.Test/bin
+/UnitTests/DAO_NotificationService.Test/bin
+/UnitTests/DAO_NotificationService.Test/obj
 .DS_Store
 

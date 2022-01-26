@@ -69,9 +69,9 @@ namespace Helpers
 
                 result = new StreamReader(response.GetResponseStream()).ReadToEnd();
             }
-            catch
+            catch (Exception ex)
             {
-
+                string err = ex.Message;
             }
 
             return result;

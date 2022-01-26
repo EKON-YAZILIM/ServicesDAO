@@ -207,7 +207,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "You must fill all the fields to post a job.";
                     return Json(result);
                 }
-
+                
                 //Create JobPost model
                 JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Tags = tags, CodeUrl = codeurl, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
@@ -220,13 +220,16 @@ namespace DAO_WebPortal.Controllers
                 {
                     result.Success = true;
                     result.Message = "Job posted successfully and will be available after admin review.";
-                    result.Content = model;
-
+                    result.Content = model;                    
                     Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User added a new job.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                     //Set server side toastr because page will be redirected
-                    TempData["toastr-message"] = result.Message;
-                    TempData["toastr-type"] = "success";
+                    try
+                    {
+                        TempData["toastr-message"] = result.Message;
+                        TempData["toastr-type"] = "success";
+                    } catch (Exception) { }
+                    
 
                     return Json(result);
                 }
