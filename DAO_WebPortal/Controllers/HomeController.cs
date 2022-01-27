@@ -108,7 +108,7 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("My-Jobs")]
-        public IActionResult My_Jobs(JobStatusTypes? status)
+        public IActionResult My_Jobs(JobStatusTypes? status, string query)
         {
             ViewBag.Title = "My Jobs";
 
@@ -117,7 +117,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID")+ "&query=" + query, HttpContext.Session.GetString("Token"));
                 //Parse response
                 myJobsModel = Helpers.Serializers.DeserializeJson<MyJobsViewModel>(jobsJson);
             }
@@ -135,7 +135,7 @@ namespace DAO_WebPortal.Controllers
         /// <returns></returns>
         [Route("All-Jobs")]
         [Route("Home/All-Jobs")]
-        public IActionResult All_Jobs(JobStatusTypes? status, int page = 1, int pageCount = 10)
+        public IActionResult All_Jobs(JobStatusTypes? status, string query, int page = 1, int pageCount = 10)
         {
             ViewBag.Title = "All Jobs";
 
@@ -144,7 +144,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID") + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID")+ "&query=" + query + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
                 //Parse response
                 var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<JobPostViewModel>>(jobsJson);
 
@@ -926,7 +926,7 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("Auctions")]
-        public IActionResult Auctions()
+        public IActionResult Auctions(string query)
         {
             ViewBag.Title = "Auctions";
 
@@ -935,7 +935,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get auctions from ApiGateway
-                var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions", HttpContext.Session.GetString("Token"));
+                var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions?query="+query, HttpContext.Session.GetString("Token"));
                 //Parse response
                 auctionsModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(auctionsJson);
 
@@ -947,8 +947,11 @@ namespace DAO_WebPortal.Controllers
                 //Match users existing bids with auctions
                 foreach (var bid in bidsModel)
                 {
-                    var auction = auctionsModel.First(x => x.AuctionID == bid.AuctionID);
-                    auction.UsersBidId = bid.AuctionBidID;
+                    if(auctionsModel.Count(x=>x.AuctionID == bid.AuctionID) > 0)
+                    {
+                        var auction = auctionsModel.First(x => x.AuctionID == bid.AuctionID);
+                        auction.UsersBidId = bid.AuctionBidID;
+                    }
                 }
             }
             catch (Exception ex)
@@ -1483,11 +1486,11 @@ namespace DAO_WebPortal.Controllers
                 informalVoting.Type = Enums.VoteTypes.JobCompletion;
                 informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime);
 
-                if (Program._settings.AuctionTimeType == "week")
+                if (Program._settings.VotingTimeType == "week")
                 {
                     informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime * 7);
                 }
-                else if (Program._settings.AuctionTimeType == "minute")
+                else if (Program._settings.VotingTimeType == "minute")
                 {
                     informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingTime);
                 }
@@ -1678,15 +1681,15 @@ namespace DAO_WebPortal.Controllers
                     {
                         informalVoting.Type = Enums.VoteTypes.Simple;
                     }
-                    informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime);
+                    informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.SimpleVotingTime);
 
-                    if (Program._settings.AuctionTimeType == "week")
+                    if (Program._settings.SimpleVotingTimeType == "week")
                     {
-                        informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime * 7);
+                        informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.SimpleVotingTime * 7);
                     }
-                    else if (Program._settings.AuctionTimeType == "minute")
+                    else if (Program._settings.SimpleVotingTimeType == "minute")
                     {
-                        informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.VotingTime);
+                        informalVoting.EndDate = DateTime.Now.AddMinutes(Program._settings.SimpleVotingTime);
                     }
 
                     //Get total dao member count
@@ -2321,7 +2324,7 @@ namespace DAO_WebPortal.Controllers
                     TempData["toastr-message"] = result.Message;
                     TempData["toastr-type"] = "success";
 
-                    Startup.LoadDaoSettings();
+                    Startup.LoadDaoSettings(null, null);
                 }
                 else
                 {

@@ -23,7 +23,7 @@ namespace DAO_WebPortal
             public string RabbitMQUsername { get; set; }
             public string RabbitMQPassword { get; set; }
             public string Service_ApiGateway_Url { get; set; }
-   
+
 
             public string EncryptionKey { get; set; }
 
@@ -67,6 +67,15 @@ namespace DAO_WebPortal
 
             //Cost -> Reputation conversion rate (Specifies the conversion rate from a job�s bid price amount when minting reputation for a proposal to the system)
             public double ReputationConversionRate { get; set; }
+            
+            //Determines if a new user can be onboarded as a VA with a simple vote
+            public bool VAOnboardingSimpleVote { get; set; }
+
+            //Timeframe for simple votings
+            public double SimpleVotingTime { get; set; }
+            
+            //Time type for simple votings (Weeks, days, minutes)
+            public string SimpleVotingTimeType { get; set; }
 
             //STRIPE PAYMENT INTEGRATION KEYS
             public string StripePublicKey { get; set; }

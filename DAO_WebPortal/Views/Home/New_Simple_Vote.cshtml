@@ -93,6 +93,20 @@
                             <td>Reputation Conversion Rate</td>
                             <td><input type="text" class="form-control" id="ReputationConversionRate" value="@Program._settings.ReputationConversionRate" /> </td>
                         </tr>
+                        <tr>
+                            <td>Simple Voting Time</td>
+                            <td><input type="text" class="form-control" id="SimpleVotingTime" value="@Program._settings.SimpleVotingTime" /> </td>
+                        </tr>
+                        <tr>
+                            <td>Simple Voting Time Type</td>
+                            <td>
+                                <select class="form-control" id="SimpleVotingTimeType" value="@Program._settings.SimpleVotingTimeType">
+                                    <!option @(Program._settings.SimpleVotingTimeType == "week" ? "selected" : "") value="week">Week</!option>
+                                    <!option @(Program._settings.SimpleVotingTimeType == "day" ? "selected" : "") value="day">Day</!option>
+                                    <!option @(Program._settings.SimpleVotingTimeType == "minute" ? "selected" : "") value="minute">Minute</!option>
+                                </select>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -185,6 +199,8 @@
                         var VotingTime = parseInt($('#VotingTime').val());
                         var VotingTimeType = $('#VotingTimeType').val();
                         var ReputationConversionRate = parseFloat($('#ReputationConversionRate').val());
+                        var SimpleVotingTime = parseInt($('#SimpleVotingTime').val());
+                        var SimpleVotingTimeType = $('#SimpleVotingTimeType').val();
 
                         //Ajax post action
                         $.ajax({
@@ -207,6 +223,8 @@
                                     "VotingTime": VotingTime,
                                     "VotingTimeType": VotingTimeType,
                                     "ReputationConversionRate": ReputationConversionRate,
+                                    "SimpleVotingTime": SimpleVotingTime,
+                                    "SimpleVotingTimeType": SimpleVotingTimeType,
                                 }  
                             },
                             success: function (result) {

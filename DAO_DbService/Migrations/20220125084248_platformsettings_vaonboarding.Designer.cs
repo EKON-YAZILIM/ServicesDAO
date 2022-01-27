@@ -3,14 +3,16 @@ using System;
 using DAO_DbService.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAO_DbService.Migrations
 {
     [DbContext(typeof(dao_maindb_context))]
-    partial class dao_maindb_contextModelSnapshot : ModelSnapshot
+    [Migration("20220125084248_platformsettings_vaonboarding")]
+    partial class platformsettings_vaonboarding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -259,12 +261,6 @@ namespace DAO_DbService.Migrations
 
                     b.Property<double?>("ReputationConversionRate")
                         .HasColumnType("double");
-
-                    b.Property<double?>("SimpleVotingTime")
-                        .HasColumnType("double");
-
-                    b.Property<string>("SimpleVotingTimeType")
-                        .HasColumnType("text");
 
                     b.Property<int?>("UserID")
                         .HasColumnType("int");

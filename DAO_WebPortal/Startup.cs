@@ -20,11 +20,13 @@ using System.Threading.Tasks;
 using static DAO_WebPortal.Program;
 using static Helpers.Constants.Enums;
 using Stripe;
+using System.Timers;
 
 namespace DAO_WebPortal
 {
     public class Startup
     {
+        public static System.Timers.Timer daoSettingsTimer;
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             //Get related appsettings.json file (Development or Production)
@@ -38,6 +40,12 @@ namespace DAO_WebPortal
 
             LoadConfig(configuration);
             InitializeService();
+
+            //DAO settings refresh timer
+            daoSettingsTimer = new System.Timers.Timer(60000);
+            daoSettingsTimer.Elapsed += LoadDaoSettings;
+            daoSettingsTimer.AutoReset = true;
+            daoSettingsTimer.Enabled = true;
         }
 
         /// <summary>
@@ -49,7 +57,7 @@ namespace DAO_WebPortal
             var config = configuration.GetSection("PlatformSettings");
             config.Bind(_settings);
 
-            LoadDaoSettings();
+            LoadDaoSettings(null, null);
         }
 
 
@@ -81,7 +89,7 @@ namespace DAO_WebPortal
         /// <summary>
         ///  Loads platform settings from db if exists.
         /// </summary>
-        public static void LoadDaoSettings()
+        public static void LoadDaoSettings(Object source, ElapsedEventArgs e)
         {            
             //Ensure db service is up and running
             Thread.Sleep(10000);
@@ -154,6 +162,26 @@ namespace DAO_WebPortal
                 {
                     Program._settings.ReputationConversionRate = Convert.ToDouble(settings.ReputationConversionRate);
                 }
+
+                if (settings.SimpleVotingTime != null)
+                {
+                    Program._settings.SimpleVotingTime = Convert.ToInt32(settings.SimpleVotingTime);
+                }
+                else
+                {
+                    Program._settings.SimpleVotingTime = Convert.ToInt32(settings.VotingTime);
+                }
+
+                if (!string.IsNullOrEmpty(settings.SimpleVotingTimeType))
+                {
+                    Program._settings.SimpleVotingTimeType = settings.SimpleVotingTimeType;
+                }
+                else
+                {
+                    Program._settings.SimpleVotingTimeType = settings.VotingTimeType;
+                }
+
+                Program._settings.VAOnboardingSimpleVote = settings.VAOnboardingSimpleVote;        
             }
         }
 

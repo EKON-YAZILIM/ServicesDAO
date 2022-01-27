@@ -15,22 +15,32 @@
 
 
 <!-- Tab list -->
-<ul class="nav nav-underline border-0 mb-3" role="tablist">
-    <li class="nav-item mx-2">
-        <a class="nav-link active" data-coreui-toggle="tab" href="#activeAuctionsTab" role="tab" aria-selected="false">
-            <svg class="icon me-2">
-                <use xlink:href="/Home/images/svg/free.svg#cil-media-play"></use>
-            </svg>Active
-        </a>
-    </li>
-    <li class="nav-item mx-2">
-        <a class="nav-link" data-coreui-toggle="tab" href="#completedAuctionsTab" role="tab" aria-selected="true">
-            <svg class="icon me-2">
-                <use xlink:href="/Home/images/svg/free.svg#cil-check"></use>
-            </svg>Completed
-        </a>
-    </li>
-</ul>
+<div class="row">
+    <div class="col-md-6">
+        <ul class="nav nav-underline border-0 mb-1" role="tablist">
+            <li class="nav-item mx-2">
+                <a class="nav-link active" data-coreui-toggle="tab" href="#activeAuctionsTab" role="tab" aria-selected="false">
+                    <svg class="icon me-2">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-media-play"></use>
+                    </svg>Active
+                </a>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link" data-coreui-toggle="tab" href="#completedAuctionsTab" role="tab" aria-selected="true">
+                    <svg class="icon me-2">
+                        <use xlink:href="/Home/images/svg/free.svg#cil-check"></use>
+                    </svg>Completed
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6 d-flex justify-content-end">
+        <div class="input-group"  style="height: 30px;max-width:350px">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input class="form-control" id="jobQueryFilter" type="text" placeholder="Search job title">
+        </div>  
+    </div>
+</div>
 
 <!-- Content -->
 <div class="tab-content rounded-bottom mt-2">
@@ -528,6 +538,17 @@
                 }
             });
 
+            //Check if text filter exists
+            if (getQueryParameter("query") != null && getQueryParameter("query") != "") {
+                $("#jobQueryFilter").val(getQueryParameter("query"));
+            }
+
+            //Search filter enter keypress event
+            $("#jobQueryFilter").on('keypress',function(e) {
+                if(e.which == 13) {
+                    window.location.href = "../Auctions?query=" + $("#jobQueryFilter").val();
+                }
+            });
         });
 
         //Send auctionIDs to CountDown function

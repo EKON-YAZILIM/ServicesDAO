@@ -316,11 +316,15 @@ namespace DAO_DbService
                                             db.SaveChanges();
                                         }
 
-                                        //If job doer is Associate, change the user type to  VA
-                                        if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                        //Get last DAO settinf and check if new user should be onboarded as VA automatically
+                                        if(db.PlatformSettings.OrderByDescending(x=>x.PlatformSettingID).First().VAOnboardingSimpleVote == false)
                                         {
-                                            user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
-                                            db.SaveChanges();
+                                            //If job doer is Associate, change the user type to  VA
+                                            if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                            {
+                                                user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
+                                                db.SaveChanges();
+                                            }
                                         }
 
                                         //Send notification email to job poster and job doer
