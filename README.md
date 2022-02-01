@@ -62,7 +62,7 @@ git clone https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine
 ```
 <br>
 
-In the terminal ``` code .``` when you type, the project files will open. <br><br>
+Enter the ServicesDAO_VotingEngine project file. In the terminal ``` code .``` when you type, the project files will open. <br><br>
 
 The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be edited. <br><br>
 
