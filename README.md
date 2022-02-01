@@ -28,6 +28,10 @@ Project consists of two solutions:
 - VotingEngine <br>
 <br>
 This repository contains only ServicesDAO.
+<br>
+VotingEnginge and ReputationService microservices and their database instances should be entegrated to the project environment (daonetwork) to run the project with all its functionality.
+<br>
+After setting up the environment, you can do the steps below to install and run.
 
 After installing Docker to your environment, you can run the below command under the project directory to install and run.<br>
 ```shell
