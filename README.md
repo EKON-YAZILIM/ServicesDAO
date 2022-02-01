@@ -32,7 +32,8 @@ This repository contains only ServicesDAO. <br>
 VotingEnginge and ReputationService microservices and their database instances should be entegrated to the project environment (daonetwork) to run the project with all its functionality.
 
 <br>
-After setting up the environment, you can do the steps below to install and run. <br> <br>
+After setting up the environment, you can do the steps below to install and run. <br> 
+<br>
 
 1. Under the project directory, open terminal and run: <br>
 
