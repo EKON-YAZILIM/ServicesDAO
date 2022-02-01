@@ -64,7 +64,7 @@ git clone https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine
 
 The docker-compose.yml file in the ServicesDAO_VotingEngine project needs some editing. <br><br>
 
-- In order to avoid conflicts with Rabbitmq, some parts of the yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
+-	 In order to avoid conflicts with Rabbitmq, some parts of the yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
 
 ```shell
 # dao_rabbitmq:
@@ -91,7 +91,7 @@ The docker-compose.yml file in the ServicesDAO_VotingEngine project needs some e
 ```
 
 <br>
-- At the same time, to try to perform RabbitMQ health checks: <br>
+-	At the same time, to try to perform RabbitMQ health checks: <br>
 
 ```shell
 dao_votingengine:
