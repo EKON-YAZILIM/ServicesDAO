@@ -121,8 +121,7 @@ namespace DAO_IdentityService.Test
                 application = Helpers.Constants.Enums.AppNames.DAO_ApiGateway,
                 ip = "",
                 port ="" 
-            };
-            
+            };            
             LoginModel userX = new LoginModel() { 
                 email = "doesnot@exsist.com",
                 pass = "",

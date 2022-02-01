@@ -25,6 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_IdentityService.Test", "UnitTests\DAO_IdentityService.Test\DAO_IdentityService.Test.csproj", "{2F4E6580-20F6-408E-A9E6-DB5F2490C4FB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_WebPortal.Test", "UnitTests\DAO_WebPortal.Test\DAO_WebPortal.Test.csproj", "{F922178C-4069-480B-9074-799B693562EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO_NotificationService.Test", "UnitTests\DAO_NotificationService.Test\DAO_NotificationService.Test.csproj", "{0E37E997-CD59-49B1-B6FB-92C525D88FFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,14 @@ Global
 		{2F4E6580-20F6-408E-A9E6-DB5F2490C4FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4E6580-20F6-408E-A9E6-DB5F2490C4FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4E6580-20F6-408E-A9E6-DB5F2490C4FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F922178C-4069-480B-9074-799B693562EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F922178C-4069-480B-9074-799B693562EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F922178C-4069-480B-9074-799B693562EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F922178C-4069-480B-9074-799B693562EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E37E997-CD59-49B1-B6FB-92C525D88FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E37E997-CD59-49B1-B6FB-92C525D88FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E37E997-CD59-49B1-B6FB-92C525D88FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E37E997-CD59-49B1-B6FB-92C525D88FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +90,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8BA54AA9-D33D-4210-AEE8-6276DD9E6672} = {0F0A2576-E0AB-4B97-AE16-1C8829D9513A}
 		{2F4E6580-20F6-408E-A9E6-DB5F2490C4FB} = {0F0A2576-E0AB-4B97-AE16-1C8829D9513A}
+		{F922178C-4069-480B-9074-799B693562EF} = {0F0A2576-E0AB-4B97-AE16-1C8829D9513A}
+		{0E37E997-CD59-49B1-B6FB-92C525D88FFB} = {0F0A2576-E0AB-4B97-AE16-1C8829D9513A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C01F51E4-65BD-4F62-ABEF-1661B516E469}

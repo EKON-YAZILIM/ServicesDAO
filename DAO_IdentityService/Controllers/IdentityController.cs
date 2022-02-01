@@ -232,7 +232,8 @@ namespace DAO_IdentityService.Controllers
 
                     //Send email
                     SendEmailModel emailModel = new SendEmailModel() { Subject = emailTitle, Content = emailContent, To = new List<string> { userModel.Email } };
-                    Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel));
+                    if(!Program.rabbitMq.Publish(Helpers.Constants.FeedNames.NotificationFeed, "email", Helpers.Serializers.Serialize(emailModel)))
+                        return new SimpleResponse { Message = "RabbitMQ email sending failed!", Success = false };
 
 
                     //Logging
