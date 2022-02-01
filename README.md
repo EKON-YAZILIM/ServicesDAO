@@ -29,7 +29,7 @@ Project consists of two solutions:
 <br>
 This repository contains only ServicesDAO. <br>
 <br>
-VotingEnginge and ReputationService microservices and their database instances should be entegrated to the project environment (daonetwork) to run the project with all its functionality. <br>
+VotingEngine and ReputationService microservices and their database instances should be entegrated to the project environment (daonetwork) to run the project with all its functionality. <br>
 <br>
 After setting up the environment, you can do the steps below to install and run. <br> 
 <br>
@@ -37,8 +37,32 @@ After setting up the environment, you can do the steps below to install and run.
 1. Under the project directory, open terminal and run: <br>
 
 ```shell
-docker-compose up –build
+docker-compose up –-build
 ```
+<br><br>
+The command will create:
+<br>
+
+- dao_webportal
+- dao_identityservice 
+- dao_dbservice 
+- dao_logservice 
+- dao_notificationservice
+- dao_apigateway 
+<br><br>
+
+A local network is created by docker-compose (dao_network) and above microservices communicate with each other within that network. <br><br>
+
+To project to be work with full functionality, VotingEngine and ReputationService microservices and their database instances should be entegrated. <br><br>
+
+2. Go to the parent directory and clone the repository with the following command. <br>
+
+```shell
+git clone https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine
+```
+<br><br>
+blablabalbdab
+
 
 
 
