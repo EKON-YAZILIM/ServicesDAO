@@ -26,6 +26,7 @@ sudo apt install dotnet-sdk-3.1
 Project consists of two solutions:
 - ServicesDAO
 - VotingEngine <br>
+<br>
 This repository contains only ServicesDAO.
 
 After installing Docker to your environment, you can run the below command under the project directory to install and run.<br>
