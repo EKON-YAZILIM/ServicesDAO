@@ -60,7 +60,7 @@ To project to be work with full functionality, VotingEngine and ReputationServic
 ```shell
 git clone https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine
 ```
-<br><br>
+<br>
 
 The docker-compose.yml file in the ServicesDAO_VotingEngine project needs some editing. <br><br>
 
@@ -90,7 +90,7 @@ The docker-compose.yml file in the ServicesDAO_VotingEngine project needs some e
   #       - daonetwork
 ```
 
-<br><br>
+<br>
 - At the same time, to try to perform RabbitMQ health checks: <br>
 ```shell
 dao_votingengine:
@@ -120,21 +120,17 @@ dao_reputationservice:
       - daonetwork
 
 ```
-<br><br>
+<br>
 Under ServicesDAO_VotingEngine project directory, open terminal and run: <br>
 
 ```shell
 docker-compose up –-build
 ```
-<br><br>
+<br>
 After docker-compose is up, you can access the application from the below link. 
 <br><br>
 dao_webportal - http://localhost:8895
 
-After installing Docker to your environment, you can run the below command under the project directory to install and run.<br>
-```shell
-docker-compose up --build
-```
 <br><br>
 
 Using below links, you can see the status, logs and/or erros of the belonging microservice from localhost.<br>
