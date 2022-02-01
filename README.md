@@ -91,7 +91,7 @@ The docker-compose.yml file in the ServicesDAO_VotingEngine project needs some e
 ```
 
 <br>
-- At the same time, to try to perform RabbitMQ health checks: <br>
+- At the same time, to try to perform RabbitMQ health checks: <br><br>
 
 ```shell
 dao_votingengine:
