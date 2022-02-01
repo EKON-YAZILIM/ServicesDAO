@@ -25,7 +25,7 @@ sudo apt install dotnet-sdk-3.1
 ## Install and run
 Project consists of two solutions:
 - ServicesDAO
-- VotingEngine
+- ServicesDAO_VotingEngine
 <br>
 This repository contains only ServicesDAO. <br>
 <br>
@@ -62,7 +62,9 @@ git clone https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine
 ```
 <br>
 
-The docker-compose.yml file in the ServicesDAO_VotingEngine project needs some editing. <br><br>
+In the terminal "code ." when you type, the project files will open. <br><br>
+
+The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be edited. <br><br>
 
 - In order to avoid conflicts with Rabbitmq, some parts of the yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
 
