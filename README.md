@@ -132,7 +132,7 @@ After docker-compose is up, you can access the application from the below link.
 <br><br>
 dao_webportal - http://localhost:8895
 
-<br><br>
+<br>
 
 Using below links, you can see the status, logs and/or erros of the belonging microservice from localhost.<br>
 dao_identityservice - http://localhost:8890<br>
