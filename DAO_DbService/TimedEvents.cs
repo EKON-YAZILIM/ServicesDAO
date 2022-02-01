@@ -138,21 +138,14 @@ namespace DAO_DbService
         /// <param name="e"></param>
         private static void CheckJobStatus(Object source, ElapsedEventArgs e)
         {
-            try
-            {
-                //Check completed informal votings and update job status accordingly
-                CheckCompletedInformalVotings();
+            //Check completed informal votings and update job status accordingly
+            CheckCompletedInformalVotings();
 
-                //Check completed formal votings and update job status accordingly
-                CheckCompletedFormalVotings();
+            //Check completed formal votings and update job status accordingly
+            CheckCompletedFormalVotings();
 
-                //Check job doer does not provided job evidence and started informal voting within expected time frame
-                CheckJobFail();
-            }
-            catch (Exception ex)
-            {
-                Program.monitizer.AddConsole("Exception in timer CheckJobStatus. Ex: " + ex.Message);
-            }
+            //Check job doer does not provided job evidence and started informal voting within expected time frame
+            CheckJobFail();
         }
 
         /// <summary>
@@ -160,67 +153,83 @@ namespace DAO_DbService
         /// </summary>
         private static void CheckCompletedInformalVotings()
         {
-            using (dao_maindb_context db = new dao_maindb_context())
+            try
             {
-                //Check completed informal votings and update job status accordingly
-                var informalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.InformalVoting).ToList();
-
-                //Get completed informal votes from ApiGateway
-                string informalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(informalVotingJobs.Select(x => x.JobID)));
-
-                //Parse result
-                List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson).Where(x => x.IsFormal == false).ToList();
-
-                foreach (var voting in completedInformalModel)
+                using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    try
+                    //Check completed informal votings and update job status accordingly
+                    var informalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.InformalVoting).ToList();
+
+                    //Get completed informal votes from ApiGateway
+                    string informalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(informalVotingJobs.Select(x => x.JobID)));
+
+                    //Parse result
+                    List<VotingDto> completedInformalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(informalVotingsCompletedJson).Where(x => x.IsFormal == false).ToList();
+
+                    foreach (var voting in completedInformalModel)
                     {
-                        //Informal voting finished without quorum -> Set job status to Expired
-                        if (voting.Status == Enums.VoteStatusTypes.Expired)
+                        try
                         {
-                            var job = db.JobPosts.Find(voting.JobID);
-                            job.Status = Enums.JobStatusTypes.Expired;
-                            db.SaveChanges();
+                            //Informal voting finished without quorum -> Set job status to Expired
+                            if (voting.Status == Enums.VoteStatusTypes.Expired)
+                            {
+                                var job = db.JobPosts.Find(voting.JobID);
+                                job.Status = Enums.JobStatusTypes.Expired;
+                                db.SaveChanges();
 
-                            //Send notification email to job poster and job doer
-                            var jobPoster = db.Users.Find(job.UserID);
-                            var jobDoer = db.Users.Find(job.JobDoerUserID);
+                                //Send notification email to job poster and job doer
+                                var jobPoster = db.Users.Find(job.UserID);
+                                var jobDoer = db.Users.Find(job.JobDoerUserID);
 
-                            //Set email title and content
-                            string emailTitle = "Informal voting finished without quorum for job #" + job.JobID;
-                            string emailContent = "Greetings, {name}, <br><br> Informal voting process for your job finished without the quorum. <br><br> Your job status is now expired. Please contact with system admin.";
+                                //Set email title and content
+                                string emailTitle = "Informal voting finished without quorum for job #" + job.JobID;
+                                string emailContent = "Greetings, {name}, <br><br> Informal voting process for your job finished without the quorum. <br><br> Your job status is now expired. Please contact with system admin.";
 
-                            //Send email to job poster
-                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                            //Send email to job doer
-                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                //Send email to job poster
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                //Send email to job doer
+                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                            }
+                            //Informal voting completed -> Set job status according to vote result
+                            else
+                            {
+                                if (voting.StakedFor >= voting.StakedAgainst)
+                                {
+                                    var job = db.JobPosts.Find(voting.JobID);
+                                    job.Status = Enums.JobStatusTypes.FormalVoting;
+                                    db.SaveChanges();
+
+                                    //Send notification email to job poster and job doer
+                                    var jobPoster = db.Users.Find(job.UserID);
+                                    var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                                    //Set email title and content
+                                    string emailTitle = "Formal voting started for your job #" + job.JobID;
+                                    string emailContent = "Greetings, {name}, <br><br> Informal voting process for your job completed successfully. <br><br> Your job is now on formal voting.";
+
+                                    //Send email to job poster
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                    //Send email to job doer
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                }
+                                else
+                                {
+                                    var job = db.JobPosts.Find(voting.JobID);
+                                    job.Status = Enums.JobStatusTypes.Failed;
+                                    db.SaveChanges();
+                                }
+                            }
                         }
-                        //Informal voting completed -> Set job status according to vote result
-                        else
+                        catch (Exception ex)
                         {
-                            var job = db.JobPosts.Find(voting.JobID);
-                            job.Status = Enums.JobStatusTypes.FormalVoting;
-                            db.SaveChanges();
-
-                            //Send notification email to job poster and job doer
-                            var jobPoster = db.Users.Find(job.UserID);
-                            var jobDoer = db.Users.Find(job.JobDoerUserID);
-
-                            //Set email title and content
-                            string emailTitle = "Formal voting started for your job #" + job.JobID;
-                            string emailContent = "Greetings, {name}, <br><br> Informal voting process for your job completed successfully. <br><br> Your job is now on formal voting.";
-
-                            //Send email to job poster
-                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                            //Send email to job doer
-                            SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                            Program.monitizer.AddConsole("Exception in timer CheckCompletedInformalVotings. Ex: " + ex.Message);
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Program.monitizer.AddConsole("Exception in timer CheckCompletedInformalVotings. Ex: " + ex.Message);
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddConsole("Exception in timer CheckCompletedInformalVotings. Ex: " + ex.Message);
             }
         }
 
@@ -229,131 +238,163 @@ namespace DAO_DbService
         /// </summary>
         private static void CheckCompletedFormalVotings()
         {
-            using (dao_maindb_context db = new dao_maindb_context())
+            try
             {
-                //Check completed formal votings and update job status accordingly
-                var formalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.FormalVoting).ToList();
-
-                //Get completed formal votes from ApiGateway
-                string formalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(formalVotingJobs.Select(x => x.JobID)));
-
-                //Parse result
-                List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson).Where(x => x.IsFormal == true).ToList();
-
-                foreach (var voting in completedFormalModel)
+                using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    try
+                    //Check completed formal votings and update job status accordingly
+                    var formalVotingJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.FormalVoting).ToList();
+
+                    //Get completed formal votes from ApiGateway
+                    string formalVotingsCompletedJson = Helpers.Request.Post(Program._settings.Voting_Engine_Url + "/Voting/GetCompletedVotingsByJobIds", Helpers.Serializers.SerializeJson(formalVotingJobs.Select(x => x.JobID)));
+
+                    //Parse result
+                    List<VotingDto> completedFormalModel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(formalVotingsCompletedJson).Where(x => x.IsFormal == true).ToList();
+
+                    foreach (var voting in completedFormalModel)
                     {
-                        //Formal voting finished without quorum -> Set job status to Expired
-                        if (voting.Status == Enums.VoteStatusTypes.Expired)
+                        try
                         {
-                            var job = db.JobPosts.Find(voting.JobID);
-                            job.Status = Enums.JobStatusTypes.Expired;
-                            db.SaveChanges();
-                        }
-                        //Formal voting completed -> Set job status according to vote result
-                        else if (voting.Status == Enums.VoteStatusTypes.Completed)
-                        {
-                            //Find winning side
-                            if (voting.StakedFor > voting.StakedAgainst)
+                            //Formal voting finished without quorum -> Set job status to Expired
+                            if (voting.Status == Enums.VoteStatusTypes.Expired)
                             {
                                 var job = db.JobPosts.Find(voting.JobID);
-                                job.Status = Enums.JobStatusTypes.Completed;
+                                job.Status = Enums.JobStatusTypes.Expired;
                                 db.SaveChanges();
-
-                                if(voting.Type == VoteTypes.JobCompletion)
+                            }
+                            //Formal voting completed -> Set job status according to vote result
+                            else if (voting.Status == Enums.VoteStatusTypes.Completed)
+                            {
+                                //Find winning side
+                                if (voting.StakedFor > voting.StakedAgainst)
                                 {
-                                    //Create payment
-                                    var auction = db.Auctions.First(x => x.JobID == voting.JobID);
-                                    var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
-                                    var user = db.Users.Find(auctionWinnerBid.UserID);
+                                    var job = db.JobPosts.Find(voting.JobID);
+                                    job.Status = Enums.JobStatusTypes.Completed;
+                                    db.SaveChanges();
 
-                                    //Get reputation stakes from reputation service
-                                    var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
-                                    var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
-
-                                    //Get reputations of voters who voted FOR
-                                    var forReps =  reputations.Where(x => x.Type == Enums.StakeType.For).ToList();
-                                    //Add job doer to list
-                                    forReps.Add(new UserReputationStakeDto(){ UserID = job.JobDoerUserID});
-                                    var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
-                                    var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
-
-                                    //Create Payment History model for dao members who participated into voting
-                                    foreach (var group in forReps.GroupBy(x => x.UserID))
+                                    //Job completion formal vote passed
+                                    if (voting.Type == VoteTypes.JobCompletion)
                                     {
-                                        if(reputationsTotal.Count(x=>x.UserID == group.Key) == 0) continue;
+                                        //Create payment
+                                        var auction = db.Auctions.First(x => x.JobID == voting.JobID);
+                                        var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+                                        var user = db.Users.Find(auctionWinnerBid.UserID);
 
-                                        double usersRepPerc = reputationsTotal.FirstOrDefault(x=>x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x=>x.LastTotal);
-                                        double memberPayment = auctionWinnerBid.Price * usersRepPerc;
+                                        //Get reputation stakes from reputation service
+                                        var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
+                                        var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
 
-                                        var daouser = db.Users.Find(group.Key);
+                                        //Get reputations of voters who voted FOR
+                                        var forReps = reputations.Where(x => x.Type == Enums.StakeType.For).ToList();
+                                        //Add job doer to list
+                                        forReps.Add(new UserReputationStakeDto() { UserID = job.JobDoerUserID });
+                                        var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                                        var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
 
-                                        PaymentHistory paymentDaoMember = new PaymentHistory
+                                        //Create Payment History model for dao members who participated into voting
+                                        foreach (var group in forReps.GroupBy(x => x.UserID))
                                         {
-                                            JobID = job.JobID,
-                                            Amount = memberPayment,
-                                            CreateDate = DateTime.Now,
-                                            IBAN = daouser.IBAN,
-                                            UserID = daouser.UserId,
-                                            WalletAddress = daouser.WalletAddress,
-                                            Explanation = "User received payment for DAO policing."
-                                        };
+                                            if (reputationsTotal.Count(x => x.UserID == group.Key) == 0) continue;
 
-                                        db.PaymentHistories.Add(paymentDaoMember);
-                                        db.SaveChanges();
+                                            double usersRepPerc = reputationsTotal.FirstOrDefault(x => x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x => x.LastTotal);
+                                            double memberPayment = auctionWinnerBid.Price * usersRepPerc;
+
+                                            var daouser = db.Users.Find(group.Key);
+
+                                            PaymentHistory paymentDaoMember = new PaymentHistory
+                                            {
+                                                JobID = job.JobID,
+                                                Amount = memberPayment,
+                                                CreateDate = DateTime.Now,
+                                                IBAN = daouser.IBAN,
+                                                UserID = daouser.UserId,
+                                                WalletAddress = daouser.WalletAddress,
+                                                Explanation = group.Key == auctionWinnerBid.UserID ? "User received payment for job completion." : "User received payment for DAO policing."
+                                            };
+
+                                            db.PaymentHistories.Add(paymentDaoMember);
+                                            db.SaveChanges();
+                                        }
+
+                                        //Get last DAO settinf and check if new user should be onboarded as VA automatically
+                                        if(db.PlatformSettings.OrderByDescending(x=>x.PlatformSettingID).First().VAOnboardingSimpleVote == false)
+                                        {
+                                            //If job doer is Associate, change the user type to  VA
+                                            if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                            {
+                                                user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
+                                                db.SaveChanges();
+                                            }
+                                        }
+
+                                        //Send notification email to job poster and job doer
+                                        var jobPoster = db.Users.Find(job.UserID);
+                                        var jobDoer = db.Users.Find(job.JobDoerUserID);
+
+                                        //Set email title and content
+                                        string emailTitle = "Formal voting finished successfully for job #" + job.JobID;
+                                        string emailContent = "Greetings, {name}, <br><br> Congratulations, your job passed the formal voting and job is completed successfully. <br><br> Payment for the job will be visible on the 'Payment History' for job doer.";
+
+                                        //Send email to job poster
+                                        SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                        //Send email to job doer
+                                        SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
                                     }
-
-                                    //If job doer is Associate, change the user type to  VA
-                                    if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                    //VA onboarding formal vote passed
+                                    else if (voting.Type == VoteTypes.Simple && job.Title.Contains("New VA Onboarding"))
                                     {
-                                        user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
+                                        string username = job.Title.Split("(")[1].Split(")")[0];
+                                        var user = db.Users.First(x => x.UserName == username);
+                                        user.UserType = UserIdentityType.VotingAssociate.ToString();
                                         db.SaveChanges();
                                     }
-
-                                    //Send notification email to job poster and job doer
-                                    var jobPoster = db.Users.Find(job.UserID);
-                                    var jobDoer = db.Users.Find(job.JobDoerUserID);
-
-                                    //Set email title and content
-                                    string emailTitle = "Formal voting finished successfully for job #" + job.JobID;
-                                    string emailContent = "Greetings, {name}, <br><br> Congratulations, your job passed the formal voting and job is completed successfully. <br><br> Payment for the job will be visible on the 'Payment History' for job doer.";
-
-                                    //Send email to job poster
-                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                                    //Send email to job doer
-                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                    //Governance formal vote passed
+                                    else if (voting.Type == VoteTypes.Governance)
+                                    {
+                                        string settingsJson = job.JobDescription.Split("Variables listed below will be applied to DAO")[1];
+                                        PlatformSetting settings = Helpers.Serializers.DeserializeJson<PlatformSetting>(settingsJson);
+                                        if (settings != null)
+                                        {
+                                            settings.UserID = job.UserID;
+                                            db.PlatformSettings.Add(settings);
+                                            db.SaveChanges();
+                                        }
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                var job = db.JobPosts.Find(voting.JobID);
-                                job.Status = Enums.JobStatusTypes.Failed;
-                                db.SaveChanges();
-
-                                if(voting.Type == VoteTypes.JobCompletion)
+                                else
                                 {
-                                    //Send notification email to job poster and job doer
-                                    var jobPoster = db.Users.Find(job.UserID);
-                                    var jobDoer = db.Users.Find(job.JobDoerUserID);
+                                    var job = db.JobPosts.Find(voting.JobID);
+                                    job.Status = Enums.JobStatusTypes.Failed;
+                                    db.SaveChanges();
 
-                                    //Set email title and content
-                                    string emailTitle = "Formal voting finished AGAINST for job #" + job.JobID;
-                                    string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job failed to pass formal voting. Job amount will be refunded to job poster.";
+                                    if (voting.Type == VoteTypes.JobCompletion)
+                                    {
+                                        //Send notification email to job poster and job doer
+                                        var jobPoster = db.Users.Find(job.UserID);
+                                        var jobDoer = db.Users.Find(job.JobDoerUserID);
 
-                                    //Send email to job poster
-                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                                    //Send email to job doer
-                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                        //Set email title and content
+                                        string emailTitle = "Formal voting finished AGAINST for job #" + job.JobID;
+                                        string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job failed to pass formal voting. Job amount will be refunded to job poster.";
+
+                                        //Send email to job poster
+                                        SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                        //Send email to job doer
+                                        SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                    }
                                 }
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
+                        catch (Exception ex)
+                        {
+                            Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
             }
         }
 
@@ -362,53 +403,60 @@ namespace DAO_DbService
         /// </summary>
         private static void CheckJobFail()
         {
-            using (dao_maindb_context db = new dao_maindb_context())
+            try
             {
-                //Get current active jobs
-                var activeJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.AuctionCompleted).ToList();
-
-                foreach (var job in activeJobs)
+                using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    try
+                    //Get current active jobs
+                    var activeJobs = db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.AuctionCompleted).ToList();
+
+                    foreach (var job in activeJobs)
                     {
-                        var auction = db.Auctions.Where(x => x.JobID == job.JobID).OrderByDescending(x => x.CreateDate).First();
-                        var winnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
-
-                        int expectedDays = Convert.ToInt32(winnerBid.Time);
-
-                        if (expectedDays > 0)
+                        try
                         {
-                            //Job doer didn't post valid evidence and started informal voting within expected time range -> Set job status to Failed
-                            if (Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
+                            var auction = db.Auctions.Where(x => x.JobID == job.JobID).OrderByDescending(x => x.CreateDate).First();
+                            var winnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+
+                            int expectedDays = Convert.ToInt32(winnerBid.Time);
+
+                            if (expectedDays > 0)
                             {
-                                string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + job.JobID + "&reftype=" + Enums.StakeType.Mint);
+                                //Job doer didn't post valid evidence and started informal voting within expected time range -> Set job status to Failed
+                                if (Convert.ToDateTime(auction.PublicAuctionEndDate).AddDays(expectedDays) < DateTime.Now)
+                                {
+                                    string releaseResult = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/ReleaseStakes?referenceProcessID=" + job.JobID + "&reftype=" + Enums.StakeType.Mint);
 
-                                job.Status = Enums.JobStatusTypes.Failed;
-                                db.SaveChanges();
+                                    job.Status = Enums.JobStatusTypes.Failed;
+                                    db.SaveChanges();
 
 
-                                //Send notification email to job poster and job doer
-                                var jobPoster = db.Users.Find(job.UserID);
-                                var jobDoer = db.Users.Find(job.JobDoerUserID);
+                                    //Send notification email to job poster and job doer
+                                    var jobPoster = db.Users.Find(job.UserID);
+                                    var jobDoer = db.Users.Find(job.JobDoerUserID);
 
-                                //Set email title and content
-                                string emailTitle = "Job failed #" + job.JobID;
-                                string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job is failed because job doer didn't post a valid evidence of work and started informal voting process within the expected time frame.";
+                                    //Set email title and content
+                                    string emailTitle = "Job failed #" + job.JobID;
+                                    string emailContent = "Greetings, {name}, <br><br> We are sorry to give you the bad news. <br><br> Your job is failed because job doer didn't post a valid evidence of work and started informal voting process within the expected time frame.";
 
-                                //Send email to job poster
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
-                                //Send email to job doer
-                                SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
+                                    //Send email to job poster
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobPoster.NameSurname.Split(' ')[0]), jobPoster.Email);
+                                    //Send email to job doer
+                                    SendNotificationEmail(emailTitle, emailContent.Replace("{name}", jobDoer.NameSurname.Split(' ')[0]), jobDoer.Email);
 
+                                }
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Program.monitizer.AddConsole("Exception in timer CheckJobFail. Ex: " + ex.Message);
-                    }
+                        catch (Exception ex)
+                        {
+                            Program.monitizer.AddConsole("Exception in timer CheckJobFail. Ex: " + ex.Message);
+                        }
 
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddConsole("Exception in timer CheckJobFail. Ex: " + ex.Message);
             }
         }
 

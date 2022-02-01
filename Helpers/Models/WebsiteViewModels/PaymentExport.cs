@@ -10,6 +10,6 @@ namespace Helpers.Models.WebsiteViewModels
     {
        public JobPostDto job {get;set;}
        public AuctionBidItemModel winnerBid { get; set;}
-
+       public PaymentHistoryDto paymentHistory { get; set;}
     }    
 }

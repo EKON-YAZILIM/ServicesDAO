@@ -9,6 +9,7 @@
 	<CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'DAO_WebPortal.Production' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.20" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
@@ -16,7 +17,7 @@
     <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
     <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
     <PackageReference Include="Stripe.net" Version="39.80.0" />
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="ImageProcessor.Core.CoreCompat" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -162,6 +163,9 @@
     <UpToDateCheckInput Remove="Views-CRDAO\Shared\_JobTablePartial.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ImageProcessor.Core.CoreCompat" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\Home\lib\ckeditor\adapters\jquery.js" />
     <None Include="wwwroot\Home\lib\ckeditor\build-config.js" />

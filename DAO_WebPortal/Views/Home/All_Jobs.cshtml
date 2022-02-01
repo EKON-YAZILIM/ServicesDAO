@@ -8,28 +8,32 @@
 
 <!-- Row -->
 <div class="row d-flex mb-3">
-    <div class="col-md-6 d-flex">
-    <div class="input-group mb-2 float-right" style="max-width: 300px;">
-            <span class="input-group-text"><i class="fas fa-filter"></i></span>
-            <select class="form-select" id="jobStatusSelect">
-                <option value="*" selected>All Jobs</option>
-                <option value="AdminApprovalPending">Admin Approval Pending</option>
-                <option value="DoSFeePending">DoS Fee Pending</option>
-                <option value="KYCPending">KYC Pending</option>
-                <option value="InternalAuction">Internal Auction</option>
-                <option value="PublicAuction">Public Auction</option>
-                <option value="AuctionCompleted">Auction Completed</option>
-                <option value="InformalVoting">Informal Voting</option>
-                <option value="FormalVoting">Formal Voting</option>
-                <option value="Completed">Completed</option>
-                <option value="Failed">Failed</option>
-                <option value="Expired">Expired</option>
-                <option value="Rejected">Rejected</option>
-            </select>
-        </div>
+    <div class="col-md-8 d-flex">  
+        <div class="input-group"  style="height: 30px;">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input class="form-control" id="jobQueryFilter" type="text" placeholder="Search job title">
+        </div>  
+        <div class="input-group mb-2  ms-2 float-right" style="max-width: 280px;">
+                <span class="input-group-text"><i class="fas fa-filter"></i></span>
+                <select class="form-select" id="jobStatusSelect">
+                    <option value="*" selected>All Jobs</option>
+                    <option value="AdminApprovalPending">Admin Approval Pending</option>
+                    <option value="DoSFeePending">DoS Fee Pending</option>
+                    <option value="KYCPending">KYC Pending</option>
+                    <option value="InternalAuction">Internal Auction</option>
+                    <option value="PublicAuction">Public Auction</option>
+                    <option value="AuctionCompleted">Auction Completed</option>
+                    <option value="InformalVoting">Informal Voting</option>
+                    <option value="FormalVoting">Formal Voting</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Failed">Failed</option>
+                    <option value="Expired">Expired</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+        </div>  
     </div>
-    <div class="col-md-6 d-flex justify-content-end">
-        <button class="btn btn-primary" type="button" onclick="window.location.href='./New-Job';">
+    <div class="col-md-4 d-flex justify-content-end">
+        <button class="btn btn-primary text-white" type="button" onclick="window.location.href='./New-Job';">
             <i class="fas fa-plus me-1"></i> Post New Job
         </button>
     </div>
@@ -83,12 +87,28 @@
                     $(obj).attr("href", $(obj).attr("href") + "&status=" + getQueryParameter("status"))
                 });
             }
+                       
+            //Check if text filter exists
+            if (getQueryParameter("query") != null && getQueryParameter("query") != "") {
+                $("#jobQueryFilter").val(getQueryParameter("query"));
+
+                //Change pagination links according to status filter
+                $('.page-link').each(function (i, obj) {
+                    $(obj).attr("href", $(obj).attr("href") + "&query=" + getQueryParameter("query"))
+                });
+            }
 
             //Job status filter event
             $('#jobStatusSelect').on('change', function () {
-                window.location.href = "../All-Jobs?status=" + this.value;
+                window.location.href = "../All-Jobs?status=" + this.value + "&query=" + $("#jobQueryFilter").val();
             });
 
+            //Search filter enter keypress event
+            $("#jobQueryFilter").on('keypress',function(e) {
+                if(e.which == 13) {
+                    window.location.href = "../All-Jobs?query=" + $("#jobQueryFilter").val() + "&status="+ $('#jobStatusSelect').val();
+                }
+            });
 
         });
     </script>

@@ -23,14 +23,119 @@ sudo apt install dotnet-sdk-3.1
 ```
 
 ## Install and run
-After installing Docker to your environment, you can run the below command under the project directory to install and run.<br>
-```shell
-docker-compose up --build
-```
-A local network is created by docker-compose (dao_network) and all microservices communicate with each other within that network.<br>
-After docker-compose is up, you can access the application from the below link.<br>
-dao_webportal - http://localhost:8895<br>
+Project consists of two solutions:
+- ServicesDAO
+- ServicesDAO_VotingEngine
 <br>
+This repository contains only ServicesDAO. <br>
+<br>
+VotingEngine and ReputationService microservices and their database instances should be entegrated to the project environment (daonetwork) to run the project with all its functionality. <br>
+<br>
+After setting up the environment, you can do the steps below to install and run. <br> 
+<br>
+
+1. Under the project directory, open terminal and run: <br>
+
+```shell
+docker-compose up –-build
+```
+<br>
+The command will create:
+<br>
+
+- dao_webportal
+- dao_identityservice 
+- dao_dbservice 
+- dao_logservice 
+- dao_notificationservice
+- dao_apigateway 
+<br><br>
+
+A local network is created by docker-compose (dao_network) and above microservices communicate with each other within that network. <br><br>
+
+To project to be work with full functionality, VotingEngine and ReputationService microservices and their database instances should be entegrated. <br><br>
+
+2. Go to the parent directory and clone the repository with the following command. <br>
+
+```shell
+git clone https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine
+```
+<br>
+
+Enter the ServicesDAO_VotingEngine project file. In the terminal ``` code .``` when you type, the project files will open. <br><br>
+
+The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be edited. <br><br>
+
+- In order to avoid conflicts with Rabbitmq, some parts of the yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
+
+```shell
+# dao_rabbitmq:
+  #   image: rabbitmq:3-management
+  #   container_name: 'dao_rabbitmq'
+  #   environment:
+  #       RABBITMQ_DEFAULT_USER: "daorabbit"
+  #       RABBITMQ_DEFAULT_PASS: "dao2021*"
+  #   ports:
+  #       - 5673:5673
+  #       - 5672:5672
+  #       - 15672:15672
+  #   volumes:
+  #       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+  #       - ~/.docker-conf/rabbitmq/log/:/var/lib/log
+  #   healthcheck:
+  #       test: rabbitmq-diagnostics -q status
+  #       interval: 10s
+  #       timeout: 30s
+  #       retries: 15
+    
+  #   networks:
+  #       - daonetwork
+```
+
+<br>
+- At the same time, to try to perform RabbitMQ health checks: <br><br>
+
+```shell
+dao_votingengine:
+    image: ${DOCKER_REGISTRY-}daovotingengine
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: DAO_VotingEngine/Dockerfile
+    # depends_on:      
+    #   dao_rabbitmq:
+    #     condition: service_healthy
+    restart: always
+    networks:
+      - daonetwork
+
+dao_reputationservice:
+    image: ${DOCKER_REGISTRY-}daoreputationservice
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: DAO_ReputationService/Dockerfile
+    # depends_on:      
+    #   dao_rabbitmq:
+    #     condition: service_healthy
+    restart: always
+    networks:
+      - daonetwork
+
+```
+<br>
+Under ServicesDAO_VotingEngine project directory, open terminal and run: <br>
+
+```shell
+docker-compose up –-build
+```
+<br>
+After docker-compose is up, you can access the application from the below link. 
+<br><br>
+dao_webportal - http://localhost:8895
+
+<br>
+
 Using below links, you can see the status, logs and/or erros of the belonging microservice from localhost.<br>
 dao_identityservice - http://localhost:8890<br>
 dao_dbservice - http://localhost:8889<br>

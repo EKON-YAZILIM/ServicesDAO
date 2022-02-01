@@ -177,7 +177,7 @@ namespace DAO_DbService.Controllers
         /// <returns>List<PaymentExport></returns>
         [Route("ExportPaymentHistory")]
         [HttpGet]
-        public List<PaymentExport> ExportPaymentHistory()
+        public List<PaymentExport> ExportPaymentHistory(int? userid)
         {
 
             List<PaymentExport> model = new List<PaymentExport>();
@@ -185,15 +185,22 @@ namespace DAO_DbService.Controllers
 
             using (dao_maindb_context db = new dao_maindb_context())
             {
-                foreach (var job in db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.Completed).ToList())
+                foreach (var job in db.JobPosts.Where(x => x.Status == Enums.JobStatusTypes.Completed && (userid == null || x.JobDoerUserID == userid)).ToList())
                 {
                     PaymentExport item = new PaymentExport();
                     item.job = _mapper.Map<JobPost, JobPostDto>(job);
                     item.job.JobDescription = "";
-                    var auction = db.Auctions.First(x => x.JobID == item.job.JobID);
-                    WebsiteController cont = new WebsiteController();
-                    var bids = cont.GetAuctionBids(auction.AuctionID);
-                    item.winnerBid = bids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+                    if(db.Auctions.Count(x => x.JobID == item.job.JobID) > 0)
+                    {
+                        var auction = db.Auctions.First(x => x.JobID == item.job.JobID);
+                        WebsiteController cont = new WebsiteController();
+                        var bids = cont.GetAuctionBids(auction.AuctionID);
+                        item.winnerBid = bids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+                    }
+                    item.paymentHistory = new PaymentHistoryDto();
+                    if(userid != null && db.PaymentHistories.Count(x=> x.JobID == job.JobID && x.UserID == userid) > 0){
+                        item.paymentHistory = _mapper.Map<PaymentHistory, PaymentHistoryDto>(db.PaymentHistories.First(x=> x.JobID == job.JobID && (userid == null || x.UserID == userid)));
+                    }
                     model.Add(item);
                 }
 

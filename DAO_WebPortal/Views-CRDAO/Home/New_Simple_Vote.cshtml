@@ -10,10 +10,112 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group mb-4">
+            <label class="mb-2"><b><i class="fas fa-star"></i> Type</b></label>
+            <select class="form-control" id="voteType">
+                <option value="custom">Custom</option>
+                <option value="va">VA Onboarding</option>
+                <option value="governance">Governance</option>
+            </select>
+        </div> 
+        <div class="d-none" id="vaVoteDiv">
+            <div class="form-group mb-4">
+                <label class="mb-2"><b><i class="fas fa-user"></i> New VA Username</b></label>
+                <input type="text" class="form-control" id="vausername" placeholder="Username">
+            </div> 
+        </div>
+        <div class="d-none" id="governanceVoteDiv">
+            <div class="row">
+                <table class="table table-striped table-hover mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Default Policing Rate</td>
+                            <td><input type="text" class="form-control" id="DefaultPolicingRate" value="@Program._settings.DefaultPolicingRate" /></td>
+                        </tr>
+                        <tr>
+                            <td>Max Policing Rate</td>
+                            <td><input type="text" class="form-control" id="MaxPolicingRate" value="@Program._settings.MaxPolicingRate" /></td>
+                        </tr>
+                        <tr>
+                            <td>Min Policing Rate</td>
+                            <td><input type="text" class="form-control" id="MinPolicingRate" value="@Program._settings.MinPolicingRate" /></td>
+                        </tr>
+                        <tr>
+                            <td>Forum KYC Required</td>
+                            <td>
+                                <select class="form-control" id="ForumKYCRequired" value="@Program._settings.ForumKYCRequired">
+                                    <option value="1">True</option>
+                                    <option value="0">False</option>
+                                </select>
+                        </tr>
+                        <tr>
+                            <td>Quorum Ratio</td>
+                            <td><input type="text" class="form-control" id="QuorumRatio" value="@Program._settings.QuorumRatio" /></td>
+                        </tr>
+                        <tr>
+                            <td>Internal Auction Time</td>
+                            <td><input type="text" class="form-control" id="InternalAuctionTime" value="@Program._settings.InternalAuctionTime" /></td>
+                        </tr>
+                        <tr>
+                            <td>Public Auction Time</td>
+                            <td><input type="text" class="form-control" id="PublicAuctionTime" value="@Program._settings.PublicAuctionTime" /></td>
+                        </tr>
+                        <tr>
+                            <td>Auction Time Type</td>
+                            <td>
+                                <select class="form-control" id="AuctionTimeType">
+                                    <!option @(Program._settings.AuctionTimeType == "week" ? "selected" : "") value="week">Week</!option>
+                                    <!option @(Program._settings.AuctionTimeType == "day" ? "selected" : "") value="day">Day</!option>
+                                    <!option @(Program._settings.AuctionTimeType == "minute" ? "selected" : "") value="minute">Minute</!option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Voting Time</td>
+                            <td><input type="text" class="form-control" id="VotingTime" value="@Program._settings.VotingTime" /> </td>
+                        </tr>
+                        <tr>
+                            <td>Voting Time Type</td>
+                            <td>
+                                <select class="form-control" id="VotingTimeType" value="@Program._settings.VotingTimeType">
+                                    <!option @(Program._settings.VotingTimeType == "week" ? "selected" : "") value="week">Week</!option>
+                                    <!option @(Program._settings.VotingTimeType == "day" ? "selected" : "") value="day">Day</!option>
+                                    <!option @(Program._settings.VotingTimeType == "minute" ? "selected" : "") value="minute">Minute</!option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Reputation Conversion Rate</td>
+                            <td><input type="text" class="form-control" id="ReputationConversionRate" value="@Program._settings.ReputationConversionRate" /> </td>
+                        </tr>
+                        <tr>
+                            <td>Simple Voting Time</td>
+                            <td><input type="text" class="form-control" id="SimpleVotingTime" value="@Program._settings.SimpleVotingTime" /> </td>
+                        </tr>
+                        <tr>
+                            <td>Simple Voting Time Type</td>
+                            <td>
+                                <select class="form-control" id="SimpleVotingTimeType" value="@Program._settings.SimpleVotingTimeType">
+                                    <!option @(Program._settings.SimpleVotingTimeType == "week" ? "selected" : "") value="week">Week</!option>
+                                    <!option @(Program._settings.SimpleVotingTimeType == "day" ? "selected" : "") value="day">Day</!option>
+                                    <!option @(Program._settings.SimpleVotingTimeType == "minute" ? "selected" : "") value="minute">Minute</!option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-group mb-4" id="titlediv">
             <label class="mb-2" for="title"><b><i class="fas fa-heading"></i> Title</b></label>
             <input type="text" class="form-control" id="title" placeholder="Title of the post">
         </div> 
-        <div class="form-group">
+        <div class="form-group" id="descriptiondiv">
             <label class="mb-2" for="description"><b><i class="fas fa-file mx-1"></i> Description</b></label>
             <textarea type="text" id="description" name="description"  placeholder="Description of the vote" rows="10"></textarea>
         </div>
@@ -37,6 +139,30 @@
                 skin: 'moono-lisa'
             });
         }
+
+        $('#voteType').on('change', function() {
+            if(this.value == "custom"){
+                $('#vaVoteDiv').addClass("d-none");
+                $('#governanceVoteDiv').addClass("d-none");
+
+                $('#titlediv').removeClass("d-none");
+                $('#descriptiondiv').removeClass("d-none");
+            }
+            if(this.value == "va"){
+                $('#vaVoteDiv').removeClass("d-none");   
+                $('#governanceVoteDiv').addClass("d-none");
+
+                $('#titlediv').addClass("d-none");
+                $('#descriptiondiv').addClass("d-none");
+            }
+            if(this.value == "governance"){
+                $('#vaVoteDiv').addClass("d-none");   
+                $('#governanceVoteDiv').removeClass("d-none");  
+
+                $('#titlediv').addClass("d-none");
+                $('#descriptiondiv').addClass("d-none");
+            }
+        });
     });
 
     //Add new simple vote function
@@ -56,13 +182,51 @@
                     action: function () {
 
                         //Create job model
-                        var title = $('#title').val()
+                        var title = $('#title').val();
                         var description = CKEDITOR.instances["description"].getData();
+                        var voteType = $('#voteType').val();
+                        var vausername = $('#vausername').val();
+
+                        //Create settings model
+                        var DefaultPolicingRate = parseFloat($('#DefaultPolicingRate').val());
+                        var MaxPolicingRate = parseFloat($('#MaxPolicingRate').val());
+                        var MinPolicingRate = parseFloat($('#MinPolicingRate').val());
+                        var ForumKYCRequired = parseInt($('#ForumKYCRequired').val());
+                        var QuorumRatio = parseFloat($('#QuorumRatio').val());
+                        var InternalAuctionTime = parseInt($('#InternalAuctionTime').val());
+                        var PublicAuctionTime = parseInt($('#PublicAuctionTime').val());
+                        var AuctionTimeType = $('#AuctionTimeType').val();
+                        var VotingTime = parseInt($('#VotingTime').val());
+                        var VotingTimeType = $('#VotingTimeType').val();
+                        var ReputationConversionRate = parseFloat($('#ReputationConversionRate').val());
+                        var SimpleVotingTime = parseInt($('#SimpleVotingTime').val());
+                        var SimpleVotingTimeType = $('#SimpleVotingTimeType').val();
+
                         //Ajax post action
                         $.ajax({
                             type: "POST",
                             url: "../Home/New_SimpleVote_Post",
-                            data: { "title": title, "description": description },
+                            data: { 
+                                "title": title, 
+                                "description": description, 
+                                "type": voteType, 
+                                "vausername": vausername, 
+                                "settings":{
+                                    "DefaultPolicingRate": DefaultPolicingRate,
+                                    "MaxPolicingRate": MaxPolicingRate,
+                                    "MinPolicingRate": MinPolicingRate,
+                                    "ForumKYCRequired": ForumKYCRequired,
+                                    "QuorumRatio": QuorumRatio,
+                                    "InternalAuctionTime": InternalAuctionTime,
+                                    "PublicAuctionTime": PublicAuctionTime,
+                                    "AuctionTimeType": AuctionTimeType,
+                                    "VotingTime": VotingTime,
+                                    "VotingTimeType": VotingTimeType,
+                                    "ReputationConversionRate": ReputationConversionRate,
+                                    "SimpleVotingTime": SimpleVotingTime,
+                                    "SimpleVotingTimeType": SimpleVotingTimeType,
+                                }  
+                            },
                             success: function (result) {
                                 if (result.success) {
                                     window.location.href = "../Votings";

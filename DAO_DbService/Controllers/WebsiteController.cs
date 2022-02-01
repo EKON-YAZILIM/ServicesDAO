@@ -30,7 +30,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAllJobs")]
         [HttpGet]
-        public PaginationEntity<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status, int userid = 0, int page = 1, int pageCount = 30)
+        public PaginationEntity<JobPostViewModel> GetAllJobs(Helpers.Constants.Enums.JobStatusTypes? status, string query, int userid = 0, int page = 1, int pageCount = 30)
         {
             PaginationEntity<JobPostViewModel> res = new PaginationEntity<JobPostViewModel>();
 
@@ -44,7 +44,8 @@ namespace DAO_DbService.Controllers
                                                         let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
                                                         let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                                         let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                                        where (status == null || job.Status == status)
+                                                        where (status == null || job.Status == status) &&
+                                                        (query == null || job.Title.Contains(query))
                                                         orderby job.CreateDate descending
                                                         select new JobPostViewModel
                                                         {
@@ -110,7 +111,7 @@ namespace DAO_DbService.Controllers
                               let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == comment.JobPostCommentID)
                               let downvote = db.UserCommentVotes.Count(x => x.IsUpVote == false && x.JobPostCommentID == comment.JobPostCommentID)
                               let isComment = comment.UserID == userid ? true : false
-                              where comment.JobID == jobid
+                              where comment.JobID == jobid 
                               select new JobPostCommentModel
                               {
                                   UserID = user.UserId,
@@ -224,7 +225,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetUserJobs")]
         [HttpGet]
-        public MyJobsViewModel GetUserJobs(int userid, Helpers.Constants.Enums.JobStatusTypes? status)
+        public MyJobsViewModel GetUserJobs(int userid, string query, Helpers.Constants.Enums.JobStatusTypes? status)
         {
             MyJobsViewModel result = new MyJobsViewModel();
             result.ownedJobs = new List<JobPostViewModel>();
@@ -240,7 +241,9 @@ namespace DAO_DbService.Controllers
                                         let explanation = job.JobDescription.Substring(0, 250)
                                         let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                         let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                        where job.UserID == userid && (status == null || job.Status == status)
+                                        where job.UserID == userid && 
+                                        (status == null || job.Status == status) &&
+                                        (query == null || job.Title.Contains(query))
                                         orderby job.CreateDate descending
                                         select new JobPostViewModel
                                         {
@@ -271,7 +274,10 @@ namespace DAO_DbService.Controllers
                                        let explanation = job.JobDescription.Substring(0, 250)
                                        let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                        let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                       where auctionbid.UserID == userid && auctionbid.AuctionBidID == auction.WinnerAuctionBidID && (status == null || job.Status == status)
+                                       where auctionbid.UserID == userid && 
+                                       auctionbid.AuctionBidID == auction.WinnerAuctionBidID && 
+                                       (status == null || job.Status == status)  &&
+                                       (query == null || job.Title.Contains(query))
                                        select new JobPostViewModel
                                        {
                                            Title = job.Title,
@@ -413,7 +419,7 @@ namespace DAO_DbService.Controllers
         /// <returns></returns>
         [Route("GetAuctions")]
         [HttpGet]
-        public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.AuctionStatusTypes? status)
+        public List<AuctionViewModel> GetAuctions(Helpers.Constants.Enums.AuctionStatusTypes? status, string query)
         {
             List<AuctionViewModel> result = new List<AuctionViewModel>();
             try
@@ -428,7 +434,8 @@ namespace DAO_DbService.Controllers
                               join user in db.Users on bidRes.UserID equals user.UserId into ps2
                               from userRes in ps2.DefaultIfEmpty()
                               let bidcount = db.AuctionBids.Count(x => x.AuctionID == act.AuctionID)
-                              where status == null || act.Status == status
+                              where (status == null || act.Status == status) &&
+                              (query == null || job.Title.Contains(query))
                               orderby act.CreateDate descending
                               select new AuctionViewModel
                               {

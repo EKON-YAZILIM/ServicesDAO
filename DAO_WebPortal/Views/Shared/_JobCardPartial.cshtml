@@ -48,7 +48,7 @@
             <span class="badge bg-success float-right mt-1">Completed</span>
         }
 
-        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected)
+        @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Expired || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Rejected || Model.Status == Helpers.Constants.Enums.JobStatusTypes.FailRestart)
         {
             <span class="badge bg-danger float-right">@Model.Status.ToString()</span>
         }
@@ -227,9 +227,12 @@
 
     @* VOTE SUMMARY *@
     @if(pageType == "detail"){
+        bool addSeperator = false;
 
-        if(Model.Voting.Any(x=>x.IsFormal == false)){
-            var voting = Model.Voting.First(x=>x.IsFormal == false);
+        if(Model.Voting.Any(x=>x.IsFormal == false && x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed)){
+            addSeperator = true;
+
+            var voting = Model.Voting.First(x=>x.IsFormal == false && x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed);
             double forRatio = Convert.ToDouble(voting.StakedFor) / Convert.ToDouble(voting.StakedFor + voting.StakedAgainst);
             string forPerc = Math.Round(forRatio * 100, 2) + "%";
             double againstRatio = 1 - forRatio;
@@ -265,8 +268,10 @@
 
         }
 
-        if(Model.Voting.Any(x=>x.IsFormal == true)){
-            var voting = Model.Voting.First(x=>x.IsFormal == true);
+        if(Model.Voting.Any(x=>x.IsFormal == true && x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed)){
+            addSeperator = true;
+
+            var voting = Model.Voting.First(x=>x.IsFormal == true && x.Status == Helpers.Constants.Enums.VoteStatusTypes.Completed);
             double forRatio = Convert.ToDouble(voting.StakedFor) / Convert.ToDouble(voting.StakedFor + voting.StakedAgainst);
             string forPerc = Math.Round(forRatio * 100, 2) + "%";
             double againstRatio = 1 - forRatio;
@@ -300,7 +305,9 @@
             </div>
         }
 
-        <hr> 
+        if(addSeperator){
+            <hr> 
+        }
     }
 
     @* FULL DESCRIPTION *@
@@ -379,6 +386,18 @@
                 <svg class="icon">
                     <use xlink:href="/Home/images/svg/free.svg#cil-pencil"></use>
                 </svg> Edit
+            </a>
+        }
+    }
+
+    @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed)
+    {
+        if(Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID")){
+            <!-- Job Restart Button (Visible for jobposter for expired, failed jobs) -->
+            <a class="card-text mx-2 text-danger" href="#" onclick="RestartJob(@Model.JobID);">
+                <svg class="icon">
+                    <use xlink:href="/Home/images/svg/free.svg#cil-loop-circular"></use>
+                </svg> Restart Flow
             </a>
         }
     }

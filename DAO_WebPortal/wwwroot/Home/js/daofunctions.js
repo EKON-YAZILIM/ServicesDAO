@@ -203,6 +203,40 @@ function getQueryParameter(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function RestartJob(jobid){
+    $.confirm({
+        title: 'Confirmation',
+        content: 'A new job record will be created and job flow will be restarted.',
+        buttons: {
+            cancel: {
+                text: 'Cancel'
+            },
+            confirm: {
+                text: 'Continue',
+                btnClass: 'btn btn-primary',
+                action: function() {
+
+                    $.ajax({
+                        type: "GET",
+                        url: "../Home/RestartJob",
+                        data: {
+                            "jobid": jobid,
+                        },
+                        success: function(result) {
+                            if (result.success) {
+                                window.location.href = "../Auctions";
+                            } else {
+                                toastr.warning(result.message);
+                            }
+                        }
+                    });
+
+                }
+            }
+        }
+    });    
+}
+
 //Input mask for number inputs
 $('input.number').on("input", function(e) {
     $(this).val($(this).val().replace(/[^0-9\.]/g, ''));

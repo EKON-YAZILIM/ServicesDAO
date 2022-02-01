@@ -29,8 +29,9 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
-                <span class="small ms-1"><b>Payment History Table</b></span>
+            <div class="card-header">  
+                <span class="small ms-1"><b style="line-height: 30px;">Payment History Table</b></span>       
+                <button type="button" class="btn btn-primary btn-sm float-right" onclick="ExportCsv();">CSV Export</button>             
             </div>
             <div class="card-body p-0">
                 @if (Model.UserPaymentHistoryList.Count > 0)
@@ -74,3 +75,10 @@
         </div>
     </div>
 </div>
+@section Scripts{
+    <script>
+        function ExportCsv(){
+            window.open("../Home/ExportPaymentHistoryCsv", '_blank').focus();
+        }
+   </script>
+}
