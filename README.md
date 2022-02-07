@@ -240,9 +240,12 @@ _If you are a VotingAssociate, you can directly recruit._ <br>
 	-	Everyone can vote here.
 	-	The job is approved or rejected according to the votes cast.
 
+### Reputation History
+-	On this page, you can find all the details about your reputation. <br>
 
+### Payment History
+-	On this page, you can find all the details about the payments.
 
-	
 
 ## Develop
 All applications can be built and run in their own docker containers with the following command;
