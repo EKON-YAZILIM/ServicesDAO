@@ -214,7 +214,7 @@ _If you are an Associate, you must pay a fee to be able to job._ <br>
 _If you are a VotingAssociate, you can directly recruit._ <br>
 
 ### Auction Page
-	#### Active Internal Auctions:
+-	Active Internal Auctions:
 	-	Only VotingAssociates can bid.
 	-	And you cannot bid on your own affairs.
 	-	You can see and approve bids for the job you have created from the "Show Bids" button.
