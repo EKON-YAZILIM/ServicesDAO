@@ -185,6 +185,38 @@ dao_rabbitmq user interface adress is http://localhost:15672<br>
 -	The last comments given to the jobs are displayed on this page. <br>
 -	You can follow the stages of the jobs you have created and the jobs you have done. <br>
 
+#### All Jobs Page
+-	It is the page where all jobs are displayed. <br>
+-	You can also add a job yourself from the “Post New Job” button at the top right. (The process of adding a job is explained in detail under the heading “My Jobs”).<br>
+-	You can search according to the title of the job from the search button at the top.<br>
+-	You can filter according to the status of the jobs from the selectbox at the top.<br>
+-	If you click on the job, you can go to the detail page of the job.<br>
+
+#### My Jobs Page
+-	If you want to add a job, you click on the “Post New Job” button. <br>
+-	There are some rules for adding jobs. You have to add jobs by following these rules. <br>
+-	After reading the rules, you can follow the steps below to add jobs. <br>
+	1.	Need to define a title for the job.
+	2.	Set a price for the job in Euros.
+	3.	Set a timeframe for the job to be completed in days.
+	4.	Determine the relevant coding languages and tags.
+	5.	Add the repository address or the code file where the job will be done.
+	6.	Need to add a detailed description of the job.
+-	After filling this information, you will press the “Submit Job” button to add a job.<br>
+-	You will see 2 conditions. If you accept these, you can create a job by saying "continue".<br>
+-	After creating the job, you can make edits again if you want.<br>
+-	By clicking “Comment”, you can both comment and access previous comments. And you can reply to other comments.<br>
+-	It must be approved by the admin in order to perform the transactions related to the created jobs.<br>
+-	Otherwise, bids cannot be given for jobs.<br>
+-	The label of the jobs not approved by the admin is “Pending”. <br><br>
+
+>	If you are an Associate, you must pay a fee to be able to job. <br>
+>	If you are a VotingAssociate, you can directly recruit.<br>
+
+
+
+	
+
 ## Develop
 All applications can be built and run in their own docker containers with the following command;
 ```shell
