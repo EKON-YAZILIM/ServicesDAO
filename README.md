@@ -180,19 +180,19 @@ dao_rabbitmq user interface adress is http://localhost:15672<br>
 -	This is required to create a user because the registration process is completed with the activation mail.<br>
 -	To activate a user without email registration, the IsActive and KYCStatus columns in the daodb.Users table in the database should be set to 1 manually.<br>
 
-#### Dashboard Page
+### Dashboard Page
 -	On this page, you can see the amount of available reputation, the number of jobs you have created, the amount of auctions and votes you have given. <br>
 -	The last comments given to the jobs are displayed on this page. <br>
 -	You can follow the stages of the jobs you have created and the jobs you have done. <br>
 
-#### All Jobs Page
+### All Jobs Page
 -	It is the page where all jobs are displayed. <br>
 -	You can also add a job yourself from the “Post New Job” button at the top right. (The process of adding a job is explained in detail under the heading “My Jobs”).<br>
 -	You can search according to the title of the job from the search button at the top.<br>
 -	You can filter according to the status of the jobs from the selectbox at the top.<br>
 -	If you click on the job, you can go to the detail page of the job.<br>
 
-#### My Jobs Page
+### My Jobs Page
 -	If you want to add a job, you click on the “Post New Job” button. <br>
 -	There are some rules for adding jobs. You have to add jobs by following these rules. <br>
 -	After reading the rules, you can follow the steps below to add jobs. <br>
@@ -213,6 +213,13 @@ dao_rabbitmq user interface adress is http://localhost:15672<br>
 _If you are an Associate, you must pay a fee to be able to job._ <br>
 _If you are a VotingAssociate, you can directly recruit._ <br>
 
+### Auction Page
+	#### Active Internal Auctions:
+	-	Only VotingAssociates can bid.
+	-	And you cannot bid on your own affairs.
+	-	You can see and approve bids for the job you have created from the "Show Bids" button.
+	-	If the job owner approves the bid, that person starts doing the job.
+	-	There is a certain time. If no bid is given by the VotingAssociates within this period, this job falls to "Active Public Auctions".
 
 
 	
