@@ -214,12 +214,32 @@ _If you are an Associate, you must pay a fee to be able to job._ <br>
 _If you are a VotingAssociate, you can directly recruit._ <br>
 
 ### Auction Page
--	Active Internal Auctions:
+-	**Active Internal Auctions:**
 	-	Only VotingAssociates can bid.
 	-	And you cannot bid on your own affairs.
 	-	You can see and approve bids for the job you have created from the "Show Bids" button.
 	-	If the job owner approves the bid, that person starts doing the job.
-	-	There is a certain time. If no bid is given by the VotingAssociates within this period, this job falls to "Active Public Auctions".
+	-	There is a certain time. If no bid is given by the VotingAssociates within this period, this job falls to "Active Public Auctions". <br>
+-	**Active Public Auctions:**
+	-	Associates can bid for jobs that are not bid by VotingAssociates.<br>
+
+
+### Approval of Job:
+-	After the job owner approves one of the bids, the approved person starts to do the job. <br>
+-	After the job is done, the person doing the job should press the “Show Informal Voting” button on the “Job Details” page of the job. In this way, the job to be voted on. <br>
+-	Voting process details are also under the “Voting Page” heading. <br>
+
+
+### Voting Page
+-	**Active Informal Votes:**
+	-	The job done comes here and is voted here only by VotingAssociates.
+	-	The person cannot vote for his/her own job. 
+	-	When voting, you must choose one of the two options and enter the reputation amount.
+	-	If the votes here exceed the quorum, they can move to the “Active Formal Votes” section.
+-	**Active Formal Votes:**
+	-	Everyone can vote here.
+	-	The job is approved or rejected according to the votes cast.
+
 
 
 	
