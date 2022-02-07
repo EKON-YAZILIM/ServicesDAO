@@ -168,17 +168,17 @@ Application logs and notifications are carried/delivered by a RabbitMQ instance 
 dao_rabbitmq user interface adress is http://localhost:15672<br>
 
 ## Usage
--To log in to the DAO, you must first sign up.
--Press the “Sign Up” button and fill in the information requested.
--Check the box “I accept the terms and conditions” and click the sign up button.
--Afterwards, an activation e-mail to sent your e-mail address.
--In order to receive this activation e-mail, you must enter the valid SMTP information in the required place in the appsettings.json file.
--If you have entered this SMTP information, you will receive an activation e-mail.
--Click on the link specified in the activation e-mail. 
--You will be redirected to the application url using your default browser. 
--Once the page appeared, you should see a toaster indicating that the activation was successful.
--This is required to create a user because the registration process is completed with the activation mail.
--To activate a user without email registration, the IsActive and KYCStatus columns in the daodb.Users table in the database should be set to 1 manually.
+-To log in to the DAO, you must first sign up. <br>
+-Press the “Sign Up” button and fill in the information requested.<br>
+-Check the box “I accept the terms and conditions” and click the sign up button.<br>
+-Afterwards, an activation e-mail to sent your e-mail address.<br>
+-In order to receive this activation e-mail, you must enter the valid SMTP information in the required place in the appsettings.json file.<br>
+-If you have entered this SMTP information, you will receive an activation e-mail.<br>
+-Click on the link specified in the activation e-mail. <br>
+-You will be redirected to the application url using your default browser. <br>
+-Once the page appeared, you should see a toaster indicating that the activation was successful.<br>
+-This is required to create a user because the registration process is completed with the activation mail.<br>
+-To activate a user without email registration, the IsActive and KYCStatus columns in the daodb.Users table in the database should be set to 1 manually.<br>
 
 ## Develop
 All applications can be built and run in their own docker containers with the following command;
