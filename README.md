@@ -168,12 +168,17 @@ Application logs and notifications are carried/delivered by a RabbitMQ instance 
 dao_rabbitmq user interface adress is http://localhost:15672<br>
 
 ## Usage
-The test application is live at here[http://3.128.180.61:8895/].
-
-After entering the valid SMTP credentials to appsettings.json file you can complete sign up process with e-mail verification. Also a sign up process can be completed manually by updating Users table in the daodb database.<br>
-
-The voting part of the application is a separate module and is not available in this repostory.<br>
-The voting engine and reputation service can be found as a stand-alone project at this link[https://github.com/EKON-YAZILIM/ServicesDAO_VotingEngine.git].<br>
+-To log in to the DAO, you must first sign up.
+-Press the “Sign Up” button and fill in the information requested.
+-Check the box “I accept the terms and conditions” and click the sign up button.
+-Afterwards, an activation e-mail to sent your e-mail address.
+-In order to receive this activation e-mail, you must enter the valid SMTP information in the required place in the appsettings.json file.
+-If you have entered this SMTP information, you will receive an activation e-mail.
+-Click on the link specified in the activation e-mail. 
+-You will be redirected to the application url using your default browser. 
+-Once the page appeared, you should see a toaster indicating that the activation was successful.
+-This is required to create a user because the registration process is completed with the activation mail.
+-To activate a user without email registration, the IsActive and KYCStatus columns in the daodb.Users table in the database should be set to 1 manually.
 
 ## Develop
 All applications can be built and run in their own docker containers with the following command;
