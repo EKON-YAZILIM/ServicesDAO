@@ -210,8 +210,8 @@ dao_rabbitmq user interface adress is http://localhost:15672<br>
 -	Otherwise, bids cannot be given for jobs.<br>
 -	The label of the jobs not approved by the admin is “Pending”. <br><br>
 
->If you are an Associate, you must pay a fee to be able to job. <br>
->If you are a VotingAssociate, you can directly recruit.<br>
+_If you are an Associate, you must pay a fee to be able to job._ <br>
+_If you are a VotingAssociate, you can directly recruit._ <br>
 
 
 
