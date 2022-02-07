@@ -196,12 +196,12 @@ dao_rabbitmq user interface adress is http://localhost:15672<br>
 -	If you want to add a job, you click on the “Post New Job” button. <br>
 -	There are some rules for adding jobs. You have to add jobs by following these rules. <br>
 -	After reading the rules, you can follow the steps below to add jobs. <br>
-	1.	Need to define a title for the job.
-	2.	Set a price for the job in Euros.
-	3.	Set a timeframe for the job to be completed in days.
-	4.	Determine the relevant coding languages and tags.
-	5.	Add the repository address or the code file where the job will be done.
-	6.	Need to add a detailed description of the job.
+	1.Need to define a title for the job.
+	2.Set a price for the job in Euros.
+	3.Set a timeframe for the job to be completed in days.
+	4.Determine the relevant coding languages and tags.
+	5.Add the repository address or the code file where the job will be done.
+	6.Need to add a detailed description of the job.
 -	After filling this information, you will press the “Submit Job” button to add a job.<br>
 -	You will see 2 conditions. If you accept these, you can create a job by saying "continue".<br>
 -	After creating the job, you can make edits again if you want.<br>
@@ -210,8 +210,8 @@ dao_rabbitmq user interface adress is http://localhost:15672<br>
 -	Otherwise, bids cannot be given for jobs.<br>
 -	The label of the jobs not approved by the admin is “Pending”. <br><br>
 
->	If you are an Associate, you must pay a fee to be able to job. <br>
->	If you are a VotingAssociate, you can directly recruit.<br>
+>If you are an Associate, you must pay a fee to be able to job. <br>
+>If you are a VotingAssociate, you can directly recruit.<br>
 
 
 
