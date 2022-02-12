@@ -5,6 +5,31 @@
 
 @model Helpers.Models.WebsiteViewModels.PaymentHistoryViewModel
 
+<!-- Submit Vote Modal  -->
+<div class="modal fade" id="csvModal" tabindex="-1" aria-labelledby="csvModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Export Options</h5>
+            </div>
+            <div class="modal-body">
+                <b>Start Date:</b>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="date" placeholder="Start" id="startdate">
+                </div>
+                <b>End Date:</b>
+                <div class="input-group mb-3">
+                    <input class="form-control" type="date" placeholder="End" id="enddate">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" onclick="ExportCsv();">Export</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="row my-3">
     <div class="col-md-6">
         <div class="card text-white cardCyan mb-3">
@@ -31,7 +56,7 @@
         <div class="card">
             <div class="card-header">  
                 <span class="small ms-1"><b style="line-height: 30px;">Payment History Table</b></span>       
-                <button type="button" class="btn btn-primary btn-sm float-right" onclick="ExportCsv();">CSV Export</button>             
+                <button type="button" class="btn btn-primary btn-sm float-right text-white" onclick="ExportCsvModal();"><i class="fa fa-file-csv me-2"></i>CSV Export</button>
             </div>
             <div class="card-body p-0">
                 @if (Model.UserPaymentHistoryList.Count > 0)
@@ -77,8 +102,11 @@
 </div>
 @section Scripts{
     <script>
+        function ExportCsvModal(){
+            $("#csvModal").modal("toggle");
+        }
         function ExportCsv(){
-            window.open("../Home/ExportPaymentHistoryCsv", '_blank').focus();
+            window.open("../Home/ExportPaymentHistoryCsv?start="+$("#startdate").val()+"&end="+$("#enddate").val(), '_blank').focus();
         }
    </script>
 }

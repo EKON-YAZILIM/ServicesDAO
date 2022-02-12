@@ -154,6 +154,29 @@
                 </li>
             }
 
+
+            <li class="nav-item d-block d-sm-none mt-3">
+                <center>
+                    <nav>
+                        <div class="btn-group" role="group">
+                            <input class="btn-check" id="btn-light-theme" type="radio" name="theme-switch" autocomplete="off" value="light-theme" onchange="handleThemeChange(this.value)">
+                            <label class="btn btn-primary" for="btn-light-theme">
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-sun"></use>
+                                </svg>
+                            </label>
+                            <input class="btn-check" id="btn-dark-theme" type="radio" name="theme-switch" autocomplete="off" value="dark-theme" onchange="handleThemeChange(this.value)">
+                            <label class="btn btn-primary" for="btn-dark-theme">
+                                <svg class="icon">
+                                    <use xlink:href="/Home/images/svg/free.svg#cil-moon"></use>
+                                </svg>
+                            </label>
+                        </div>
+                    </nav>
+                </center>
+
+            </li>
+
         </ul>
     </div>
 
@@ -166,8 +189,8 @@
                     </svg>
                 </button>
                 <h4 class="d-none d-md-block">@ViewBag.Title</h4>
-                <nav class="header-nav ms-auto me-4">
-                    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <nav class="header-nav ms-auto me-4 d-none d-sm-block">
+                    <div class="btn-group" role="group">
                         <input class="btn-check" id="btn-light-theme" type="radio" name="theme-switch" autocomplete="off" value="light-theme" onchange="handleThemeChange(this.value)">
                         <label class="btn btn-primary" for="btn-light-theme">
                             <svg class="icon">

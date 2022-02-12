@@ -468,7 +468,7 @@
             </div>
             <div id="winnerButtons" class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" onclick="SubmitVote();">Submit Vote</button>
+                <button type="submit" class="btn btn-primary" onclick="SubmitVote();" id="voteBtn">Submit Vote</button>
             </div>
         </div>
     </div>
@@ -589,25 +589,34 @@
                             text: 'Continue',
                             btnClass: 'btn btn-primary',
                             action: function () {
+                                $("#voteBtn").prop("disabled", true);
+                                $("#voteBtn").html('<i class="fas fa-circle-notch fa-spin"></i> Submitting Vote...');
+
                                 $.ajax({
                                     type: "POST",
                                     url: "../Home/SubmitVote",
                                     data: { "VotingID": selectedVotingId, "Direction": selectedDirection, "ReputationStake": $("#reputationStake").val() },
                                     success: function (result) {
-                                       console.log(result);
                                             if (result.success) {
                                                 window.location.reload();
                                             }
                                             else {
                                                 toastr.warning(result.message);
                                             }
+
+                                            $("#voteBtn").prop("disabled", false);
+                                            $("#voteBtn").html('Submit Vote');
                                         },
-                                          failure: function (response) {
-                                                toastr.warning("@Lang.ConnectionError");
+                                        failure: function (response) {
+                                            toastr.warning("@Lang.ConnectionError");
+                                            $("#voteBtn").prop("disabled", false);
+                                            $("#voteBtn").html('Submit Vote');                                                
                                         },
                                         error: function (response) {
-                                             toastr.error("@Lang.UnexpectedError");
-                                    }
+                                            toastr.error("@Lang.UnexpectedError");
+                                            $("#voteBtn").prop("disabled", false);
+                                            $("#voteBtn").html('Submit Vote');     
+                                        }
                                 });
                             }
                         }

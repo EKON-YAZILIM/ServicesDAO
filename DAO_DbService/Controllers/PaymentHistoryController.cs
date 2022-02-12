@@ -209,6 +209,62 @@ namespace DAO_DbService.Controllers
             return model;
         }
 
+
+        /// <summary>
+        /// Get job and payment details for completed jobs of the user between two dates
+        /// </summary>
+        /// <returns>List<PaymentExport></returns>
+        [Route("ExportPaymentHistoryByDate")]
+        [HttpGet]
+        public List<PaymentExport> ExportPaymentHistoryByDate(int? userid, DateTime? start, DateTime? end)
+        {
+
+            List<PaymentExport> model = new List<PaymentExport>();
+
+
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                var result = (from paymentHist in db.PaymentHistories
+                              join job in db.JobPosts on paymentHist.JobID equals job.JobID
+                              join jobDoer in db.Users on job.JobDoerUserID equals jobDoer.UserId
+                              join jobPoster in db.Users on job.UserID equals jobPoster.UserId
+                              where
+                              (userid == null || userid == paymentHist.UserID)
+                              && (start == null || paymentHist.CreateDate >= start)
+                              && (end == null || paymentHist.CreateDate <= end)
+                              select new
+                              {
+                                jobPost = job,
+                                payment = paymentHist,
+                                jobDoer = jobDoer.UserName,
+                                jobPoster = jobPoster.UserName
+                              }).ToList();
+
+                var users = db.Users.ToList();
+                
+                foreach (var item in result)
+                {
+                    PaymentExport export = new PaymentExport();
+                    export.job = _mapper.Map<JobPost, JobPostDto>(item.jobPost);
+                    export.job.JobDescription = "";
+                    if(db.Auctions.Count(x => x.JobID == export.job.JobID) > 0)
+                    {
+                        var auction = db.Auctions.First(x => x.JobID == export.job.JobID);
+                        WebsiteController cont = new WebsiteController();
+                        var bids = cont.GetAuctionBids(auction.AuctionID);
+                        export.winnerBid = bids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
+                    }
+                    export.paymentHistory = _mapper.Map<PaymentHistory, PaymentHistoryDto>(item.payment);
+                    export.JobDoerUsername = item.jobDoer;
+                    export.JobPosterUsername = item.jobPoster;
+                    model.Add(export);
+                }
+
+            }
+
+            return model;
+        }
+
         /// <summary>
         ///  Deletes all records from payment history table and recreate records from completed jobs.
         /// </summary>

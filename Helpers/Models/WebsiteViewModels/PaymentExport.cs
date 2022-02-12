@@ -8,8 +8,10 @@ namespace Helpers.Models.WebsiteViewModels
 {
     public class PaymentExport
     {
-       public JobPostDto job {get;set;}
-       public AuctionBidItemModel winnerBid { get; set;}
-       public PaymentHistoryDto paymentHistory { get; set;}
+        public JobPostDto job {get;set;}
+        public AuctionBidItemModel winnerBid { get; set;}
+        public PaymentHistoryDto paymentHistory { get; set;}
+        public string JobDoerUsername {get;set;}
+        public string JobPosterUsername {get;set;}
     }    
 }
