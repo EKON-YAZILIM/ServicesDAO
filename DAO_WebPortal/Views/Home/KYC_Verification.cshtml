@@ -425,7 +425,6 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
             control = true;
 
             $(':input[required]').each(function () {
-                debugger;
                 if ($(this).val() == "") {
                     $(this).addClass("invalidInput");
                     control = false;

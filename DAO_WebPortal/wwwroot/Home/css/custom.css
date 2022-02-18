@@ -348,11 +348,11 @@
     min-width: 400px;
 }
 
-@media(max-width: 990px) {
+/* @media(max-width: 990px) {
     .card {
         margin: 20px;
     }
-}
+} */
 /************VA Dasboard Card*******/
 #nav-items li a,
 #profile {

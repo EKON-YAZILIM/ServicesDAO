@@ -129,8 +129,7 @@
       
             //Start auction countdowns
             for (i = 0; i < dataModel.length; i++) {
-                debugger;
-                    var countDownDate = new Date(dataModel[i].endDate).getTime();
+                var countDownDate = new Date(dataModel[i].endDate).getTime();
 
                 auctionCountdownDictionary[dataModel[i].jobID] = countDownDate;
                 CountDown(dataModel[i].jobID, countDownDate);
