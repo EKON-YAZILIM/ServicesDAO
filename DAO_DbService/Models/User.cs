@@ -24,6 +24,6 @@ namespace DAO_DbService.Models
         public string UserName { get; set; }
         public string WalletAddress { get; set; }
         public string IBAN { get; set; }
-
+        public DateTime DateBecameVA { get; set; }
     }
 }

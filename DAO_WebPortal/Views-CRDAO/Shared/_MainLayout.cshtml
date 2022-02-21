@@ -98,6 +98,18 @@
                     </svg> Voting
                 </a>
             </li>
+
+            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="../VA-Directory">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-address-book"></use>
+                        </svg> VA Directory
+                    </a>
+                </li>
+            }
+
             <li class="nav-item">
                 <a class="nav-link" href="../Reputation-History">
                     <svg class="nav-icon">
@@ -112,6 +124,7 @@
                     </svg> Payment History
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="../User-Profile">
                     <svg class="nav-icon">

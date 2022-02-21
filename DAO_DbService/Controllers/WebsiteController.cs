@@ -45,7 +45,7 @@ namespace DAO_DbService.Controllers
                                                         let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                                         let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
                                                         where (status == null || job.Status == status) &&
-                                                        (query == null || job.Title.Contains(query))
+                                                        (query == null || job.Title.Contains(query))
                                                         orderby job.CreateDate descending
                                                         select new JobPostViewModel
                                                         {
@@ -111,7 +111,7 @@ namespace DAO_DbService.Controllers
                               let upvote = db.UserCommentVotes.Count(x => x.IsUpVote == true && x.JobPostCommentID == comment.JobPostCommentID)
                               let downvote = db.UserCommentVotes.Count(x => x.IsUpVote == false && x.JobPostCommentID == comment.JobPostCommentID)
                               let isComment = comment.UserID == userid ? true : false
-                              where comment.JobID == jobid 
+                              where comment.JobID == jobid
                               select new JobPostCommentModel
                               {
                                   UserID = user.UserId,
@@ -241,9 +241,9 @@ namespace DAO_DbService.Controllers
                                         let explanation = job.JobDescription.Substring(0, 250)
                                         let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                         let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                        where job.UserID == userid && 
+                                        where job.UserID == userid &&
                                         (status == null || job.Status == status) &&
-                                        (query == null || job.Title.Contains(query))
+                                        (query == null || job.Title.Contains(query))
                                         orderby job.CreateDate descending
                                         select new JobPostViewModel
                                         {
@@ -274,10 +274,10 @@ namespace DAO_DbService.Controllers
                                        let explanation = job.JobDescription.Substring(0, 250)
                                        let flagcount = db.JobPostComments.Count(x => x.JobID == job.JobID && x.IsFlagged == true)
                                        let userflagged = db.JobPostComments.Count(x => x.JobID == job.JobID && x.UserID == userid && x.IsFlagged == true) > 0
-                                       where auctionbid.UserID == userid && 
-                                       auctionbid.AuctionBidID == auction.WinnerAuctionBidID && 
-                                       (status == null || job.Status == status)  &&
-                                       (query == null || job.Title.Contains(query))
+                                       where auctionbid.UserID == userid &&
+                                       auctionbid.AuctionBidID == auction.WinnerAuctionBidID &&
+                                       (status == null || job.Status == status) &&
+                                       (query == null || job.Title.Contains(query))
                                        select new JobPostViewModel
                                        {
                                            Title = job.Title,
@@ -435,7 +435,7 @@ namespace DAO_DbService.Controllers
                               from userRes in ps2.DefaultIfEmpty()
                               let bidcount = db.AuctionBids.Count(x => x.AuctionID == act.AuctionID)
                               where (status == null || act.Status == status) &&
-                              (query == null || job.Title.Contains(query))
+                              (query == null || job.Title.Contains(query))
                               orderby act.CreateDate descending
                               select new AuctionViewModel
                               {
@@ -882,7 +882,7 @@ namespace DAO_DbService.Controllers
 
                     //Get voting count
                     //Get model from Voting_Engine_Url
-                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByUserId?userid="+userid));
+                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByUserId?userid=" + userid));
 
                     res.MyVotesCount = VotingModel.Count();
 
@@ -1020,7 +1020,7 @@ namespace DAO_DbService.Controllers
 
                     //Get voting count
                     //Get model from Voting_Engine_Url
-                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByUserId?userid="+userid));
+                    var VotingModel = Helpers.Serializers.DeserializeJson<List<VoteDto>>(Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/GetAllVotesByUserId?userid=" + userid));
                     res.MyVotesCount = VotingModel.Count();
 
                     //Get job ratio from the comparison of the last two months                   
@@ -1153,7 +1153,66 @@ namespace DAO_DbService.Controllers
 
         #endregion
 
+        #region VA Directory
 
+        /// <summary>
+        /// Get VA Directory view data
+        /// </summary>
+        /// <returns>List<VADirectoryViewModel></returns>
+        [Route("GetVADirectory")]
+        [HttpGet]
+        public List<VADirectoryViewModel> GetVADirectory()
+        {
+            List<VADirectoryViewModel> result = new List<VADirectoryViewModel>();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    List<User> users = db.Users.ToList();
+
+                    string votingJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get");
+                    List<VotingDto> votings = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingJson);
+
+                    string votesJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Vote/Get");
+                    List<VoteDto> votes = Helpers.Serializers.DeserializeJson<List<VoteDto>>(votesJson);
+
+                    var userRepsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputations");
+                    var userReps = Helpers.Serializers.DeserializeJson<List<Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto>>(userRepsJson);
+                    
+                    var dt = DateTime.Now.AddMonths(-1);
+                    int voteThisMonth = votings.Count(x=>x.StartDate.Month == DateTime.Now.Month && x.StartDate.Year == DateTime.Now.Year);
+                    int voteLastMonth = votings.Count(x=>x.StartDate.Month == dt.Month && x.StartDate.Year == dt.Year);
+
+                    foreach (var item in users.Where(x=>x.UserType == Enums.UserIdentityType.VotingAssociate.ToString()))
+                    {
+                        int totalVoteCount = votings.Count(x=>x.StartDate >= item.DateBecameVA);
+
+                        int userVoteThisMonth = votes.Count(x=>x.UserID == item.UserId && x.Date.Month == DateTime.Now.Month && x.Date.Year == DateTime.Now.Year);
+                        int userVoteLastMonth = votes.Count(x=> x.UserID == item.UserId && x.Date.Month == dt.Month && x.Date.Year == dt.Year);
+                        int userVoteTotal = votes.Count(x=> x.UserID == item.UserId);
+
+                        VADirectoryViewModel vadirectory = new VADirectoryViewModel();
+                        vadirectory.Name = item.NameSurname;
+                        vadirectory.Email = item.Email;
+                        vadirectory.TotalRep = userReps.First(x=>x.UserID == item.UserId).LastTotal;
+                        vadirectory.VLastMonth = Math.Round(Convert.ToDouble(userVoteLastMonth) / Convert.ToDouble(voteLastMonth), 2);
+                        vadirectory.VThisMonth = Math.Round(Convert.ToDouble(userVoteThisMonth) / Convert.ToDouble(voteThisMonth), 2);
+                        vadirectory.VTotal = Math.Round(Convert.ToDouble(userVoteTotal) / Convert.ToDouble(totalVoteCount), 2);;
+                        vadirectory.DateBecameVA = item.DateBecameVA;
+                        result.Add(vadirectory);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
+            }
+
+            return result;
+        }
+
+        #endregion
     }
 }
 

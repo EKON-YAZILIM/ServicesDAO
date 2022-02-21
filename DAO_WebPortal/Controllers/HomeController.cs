@@ -2653,6 +2653,34 @@ namespace DAO_WebPortal.Controllers
 
         #endregion
 
+        #region  VA Directory
+        /// <summary>
+        ///  VA Directory view
+        /// </summary>
+        /// <returns></returns>
+        [Route("VA-Directory")]
+        public IActionResult VA_Directory()
+        {
+            ViewBag.Title = "VA Directory";
+
+            List<VADirectoryViewModel> model = new List<VADirectoryViewModel>();
+
+            try
+            {
+                //Get VA Directory data from ApiGateway
+                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetVADirectory", HttpContext.Session.GetString("Token"));
+                //Parse response
+                model = Helpers.Serializers.DeserializeJson<List<VADirectoryViewModel>>(paymentsJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(model);
+        }
+        #endregion
+
         #region Utility
 
         [HttpGet]

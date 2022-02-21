@@ -23,6 +23,7 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public string UserName { get; set; }
         public string WalletAddress { get; set; }
         public string IBAN { get; set; }
+        public DateTime DateBecameVA { get; set; }
 
     }
 }
