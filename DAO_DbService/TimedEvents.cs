@@ -322,6 +322,7 @@ namespace DAO_DbService
                                             //If job doer is Associate, change the user type to  VA
                                             if (user.UserType == Enums.UserIdentityType.Associate.ToString())
                                             {
+                                                user.DateBecameVA = DateTime.Now;
                                                 user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
                                                 db.SaveChanges();
                                             }
@@ -346,6 +347,7 @@ namespace DAO_DbService
                                         string username = job.Title.Split("(")[1].Split(")")[0];
                                         var user = db.Users.First(x => x.UserName == username);
                                         user.UserType = UserIdentityType.VotingAssociate.ToString();
+                                        user.DateBecameVA = DateTime.Now;
                                         db.SaveChanges();
                                     }
                                     //Governance formal vote passed
