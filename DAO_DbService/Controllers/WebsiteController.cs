@@ -1179,27 +1179,40 @@ namespace DAO_DbService.Controllers
 
                     var userRepsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputations");
                     var userReps = Helpers.Serializers.DeserializeJson<List<Helpers.Models.DtoModels.ReputationDbDto.UserReputationHistoryDto>>(userRepsJson);
-                    
+
                     var dt = DateTime.Now.AddMonths(-1);
-                    int voteThisMonth = votings.Count(x=>x.StartDate.Month == DateTime.Now.Month && x.StartDate.Year == DateTime.Now.Year);
-                    int voteLastMonth = votings.Count(x=>x.StartDate.Month == dt.Month && x.StartDate.Year == dt.Year);
+                    int voteThisMonth = votings.Count(x => x.StartDate.Month == DateTime.Now.Month && x.StartDate.Year == DateTime.Now.Year);
+                    int voteLastMonth = votings.Count(x => x.StartDate.Month == dt.Month && x.StartDate.Year == dt.Year);
 
-                    foreach (var item in users.Where(x=>x.UserType == Enums.UserIdentityType.VotingAssociate.ToString()))
+                    foreach (var item in users.Where(x => x.UserType == Enums.UserIdentityType.VotingAssociate.ToString()))
                     {
-                        int totalVoteCount = votings.Count(x=>x.StartDate >= item.DateBecameVA);
-
-                        int userVoteThisMonth = votes.Count(x=>x.UserID == item.UserId && x.Date.Month == DateTime.Now.Month && x.Date.Year == DateTime.Now.Year);
-                        int userVoteLastMonth = votes.Count(x=> x.UserID == item.UserId && x.Date.Month == dt.Month && x.Date.Year == dt.Year);
-                        int userVoteTotal = votes.Count(x=> x.UserID == item.UserId);
 
                         VADirectoryViewModel vadirectory = new VADirectoryViewModel();
                         vadirectory.Name = item.NameSurname;
                         vadirectory.Email = item.Email;
-                        vadirectory.TotalRep = userReps.First(x=>x.UserID == item.UserId).LastTotal;
-                        vadirectory.VLastMonth = Math.Round(Convert.ToDouble(userVoteLastMonth) / Convert.ToDouble(voteLastMonth), 2);
-                        vadirectory.VThisMonth = Math.Round(Convert.ToDouble(userVoteThisMonth) / Convert.ToDouble(voteThisMonth), 2);
-                        vadirectory.VTotal = Math.Round(Convert.ToDouble(userVoteTotal) / Convert.ToDouble(totalVoteCount), 2);;
-                        vadirectory.DateBecameVA = item.DateBecameVA;
+
+                        try
+                        {
+                            int totalVoteCount = votings.Count(x => x.StartDate >= item.DateBecameVA);
+
+                            int userVoteThisMonth = votes.Where(x => x.UserID == item.UserId && x.Date.Month == DateTime.Now.Month && x.Date.Year == DateTime.Now.Year).GroupBy(x=>x.VotingID).Count();
+                            int userVoteLastMonth = votes.Where(x => x.UserID == item.UserId && x.Date.Month == dt.Month && x.Date.Year == dt.Year).GroupBy(x=>x.VotingID).Count();
+                            int userVoteTotal = votes.Where(x => x.UserID == item.UserId).GroupBy(x=>x.VotingID).Count();
+
+                            vadirectory.TotalRep = userReps.First(x => x.UserID == item.UserId).LastTotal;
+                            if(userVoteLastMonth > 0 && voteLastMonth > 0)
+                            vadirectory.VLastMonth = Math.Round(Convert.ToDouble(userVoteLastMonth) / Convert.ToDouble(voteLastMonth) * 100, 2);
+                            if(userVoteThisMonth > 0 && voteThisMonth > 0)
+                            vadirectory.VThisMonth = Math.Round(Convert.ToDouble(userVoteThisMonth) / Convert.ToDouble(voteThisMonth) * 100, 2);
+                            if(userVoteTotal > 0 && totalVoteCount > 0)
+                            vadirectory.VTotal = Math.Round(Convert.ToDouble(userVoteTotal) / Convert.ToDouble(totalVoteCount) * 100, 2);
+
+                            vadirectory.DateBecameVA = item.DateBecameVA;
+                        }
+                        catch
+                        {
+
+                        }
                         result.Add(vadirectory);
                     }
                 }

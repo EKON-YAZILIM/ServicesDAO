@@ -49,7 +49,7 @@
         <!-- .card -->
         <div class="card mb-4">
             <div class="card-header">
-                <span class="small d-inline-block"><i class="fas fa-dot-circle text-success me-2"></i><b>Active Internal Auctions</b></span>
+                <span class="d-inline-block mt-1"><i class="fas fa-dot-circle text-success me-2"></i><b>Active Internal Auctions</b></span>
 
                 <div class="form-check form-switch  d-inline-block float-right">
                     <input class="form-check-input" type="checkbox" id="internalEligibleSwitch">
@@ -150,7 +150,7 @@
         <!-- .card -->
         <div class="card">
             <div class="card-header">
-                <span class="small ms-1 d-inline-block"><i class="fas fa-dot-circle text-success me-2"></i><b>Active Public Auctions</b></span>
+                <span class="d-inline-block mt-1"><i class="fas fa-dot-circle text-success me-2"></i><b>Active Public Auctions</b></span>
                 <div class="form-check form-switch  d-inline-block float-right">
                     <input class="form-check-input" type="checkbox" id="publicEligibleSwitch">
                     <small class="form-check-label" for="publicEligibleSwitch">Show only eligible</small>
@@ -251,7 +251,7 @@
         <!-- .card -->
         <div class="card mb-4">
             <div class="card-header">
-                <span class="small ms-1"><i class="fas fa-dot-circle text-primary me-2"></i><b>Completed Auctions</b></span>
+                <span class="mt-1"><i class="fas fa-dot-circle text-primary me-2"></i><b>Completed Auctions</b></span>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive h-250">
@@ -306,7 +306,7 @@
         </div><!-- .card -->
         <!-- .card -->
         <div class="card">
-            <div class="card-header"><span class="small ms-1"><i class="fas fa-dot-circle text-warning me-2"></i><b>Expired Auctions</b></span></div>
+            <div class="card-header"><span class="mt-1"><i class="fas fa-dot-circle text-warning me-2"></i><b>Expired Auctions</b></span></div>
             <div class="card-body p-0">
                 <div class="table-responsive h-250">
                     @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Expired).Count() > 0)

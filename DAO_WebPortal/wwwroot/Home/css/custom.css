@@ -44,22 +44,22 @@
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
+    background-color: #494e64;
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
-    background-color: #F5F5F5;
+    width: 0px;
+    background-color: #494e64;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 7px;
+    border-radius: 3px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #3e4ab1;
+    background-color: #353e68;
 }
 
 :root {
-    scrollbar-color: #1a236f #F5F5F5 !important;
+    scrollbar-color: #353e68 #494e64 !important;
     scrollbar-width: thin !important;
 }
 
@@ -142,10 +142,13 @@
     height: calc(100% - 50px);
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    background-color: var(--cui-link-color, #c8c4f0);
+    background-color: #e7e8ed;
     background-clip: padding-box;
 }
 
+.dark-theme .comment-border-link{
+    background-color: #353c68;
+}
     .comment-border-link:hover {
         background-color: rgba(0, 0, 0, 0.3);
     }
@@ -167,6 +170,11 @@
     display: inline;
 }
 
+.titleContainer .badge{
+    position: relative;
+    top: -2px;
+ }
+
 .cursorp {
     cursor: pointer !important
 }
@@ -181,7 +189,7 @@
 }
 
 .dark-theme select {
-    background-color: #2d2e38 !important;
+    background-color: #222639d6 !important;
 }
 
 .highlighted div:first-child {
@@ -383,9 +391,9 @@
     fill: currentColor;
     transition: inherit;
     position: absolute;
-    top: 38px;
-    height: 25px;
-    width: 30px;
+    top: 40px;
+    left: 10px;
+    font-size: 21px;
 }
 
 .dashboarAvatar {
@@ -485,7 +493,7 @@ tbody tr:hover .trSlider span {
     font-size: 50px;
     top: 20px;
     left: 25px;
-    color: #3e488f;
+    color: #4459b1;
 }
 
 /* Shinning Button  */
@@ -571,7 +579,7 @@ tbody tr:hover .trSlider span {
         }
 
 .dark-theme .steps > .step:before {
-    background: #24252f;
+    background: #2a3052;
     border: 1px solid #a9a9a9
 }
 
@@ -600,8 +608,8 @@ tbody tr:hover .trSlider span {
 
     .steps > .step.is-complete:before {
         content: "✓";
-        color: #5bc748;
-        border: 2px solid #5bc748;
+        color: var(--cui-success,  #5bc748);
+        border: 2px solid var(--cui-success,  #5bc748);
     }
 
 .steps > .step.is-inactive:before {
@@ -615,7 +623,7 @@ tbody tr:hover .trSlider span {
 }
 
 .steps > .step.is-complete:after {
-    background: #5bc748;
+    background: var(--cui-success,  #5bc748);;
 }
 
 .steps > .step.is-uncomplete:before {
@@ -661,3 +669,17 @@ tbody tr:hover .trSlider span {
   .font-sm {
       font-size: 13px !important;
   }
+
+  .jobDetailTable td:nth-child(1) {  
+     color:#707491;
+  }
+
+  .dark-theme .jobDetailTable td:nth-child(1) {  
+    color:#868aa5;
+ }
+
+ .card-header span{
+     font-size: 0.9em;
+     line-height: 30px;
+ }
+

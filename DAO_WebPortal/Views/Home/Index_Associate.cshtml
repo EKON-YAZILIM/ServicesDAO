@@ -7,10 +7,8 @@
     <div class="col-md-3">
         <div class="card mb-3">
             <div class="card-body p-2">
-                <svg class="dashIcon text-success">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
-                </svg>
                 <h6 class="card-title mb-1">
+                    <i class="fas fa-star dashIcon"></i>
                     Available Reputation
                 </h6>
                 <h3 class="text-right mb-0">
@@ -27,10 +25,8 @@
         </div>
         <div class="card mb-3">
             <div class="card-body p-2">
-                <svg class="dashIcon text-success">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
-                </svg>
                 <h6 class="card-title mb-1">
+                    <i class="fas fa-layer-group dashIcon"></i>
                     My Jobs
                 </h6>
                 <h3 class="text-right mb-0 fw-semibold">
@@ -40,10 +36,8 @@
         </div>
         <div class="card mb-3">
             <div class="card-body p-2">
-                <svg class="dashIcon text-success">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-auction"></use>
-                </svg>
                 <h6 class="card-title mb-1">
+                    <i class="fas fa-gavel dashIcon"></i>
                     My Auctions
                 </h6>
                 <h3 class="text-right mb-0 fw-semibold">
@@ -53,10 +47,8 @@
         </div>
         <div class="card mb-3">
             <div class="card-body p-2">
-                <svg class="dashIcon text-success">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-thumb-up"></use>
-                </svg>
                 <h6 class="card-title mb-1">
+                    <i class="fas fa-thumbs-up dashIcon"></i>
                     My Votes
                 </h6>
                 <h3 class="text-right mb-0 fw-semibold">
@@ -68,9 +60,7 @@
     <div class="col-md-5">
         <div class="card p-0">
             <div class="card-header">
-                <svg class="comment-icon text-primary">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-comment-bubble"></use>
-                </svg>Latest Comments
+                Latest Comments
             </div>
             <div class="card-body mt-1 h-300 overflowy">
 
@@ -114,9 +104,7 @@
     <div class="col-md-4">
         <div class="card p-0">
             <div class="card-header">
-                <svg class="comment-icon text-warning">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-star"></use>
-                </svg>Trending Topics
+                Trending Topics
             </div>
             <div class="card-body mt-1 h-300 overflowy">
                 @if (Model.PopularJobs.Count > 0)
@@ -154,9 +142,7 @@
     <div class="col-lg-12">
         <div class="card mb-4">
             <div class="card-header">
-                <svg class="comment-icon text-primary">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-briefcase"></use>
-                </svg> My Jobs As Owner
+                My Jobs As Owner
             </div>
             <div class="card-body h-300 overflowy">
                 @if (Model.MyOwnerJobs.Count() > 0)
@@ -182,9 +168,7 @@
     <div class="col-lg-12">
         <div class="card mb-4">
             <div class="card-header">
-                <svg class="comment-icon text-primary">
-                    <use xlink:href="/Home/images/svg/free.svg#cil-library-add"></use>
-                </svg> My Jobs As Doer
+                My Jobs As Doer
             </div>
             <div class="card-body h-300 overflowy">
                 @if (Model.MyDoerJobs.Count() > 0)

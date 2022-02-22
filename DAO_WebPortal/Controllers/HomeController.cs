@@ -421,7 +421,7 @@ namespace DAO_WebPortal.Controllers
                 if (informalVoting != null && informalVoting.VotingID > 0)
                 {
                     result.Success = false;
-                    result.Message = "This job is in voting process. Posting comments are disabled.";
+                    result.Message = "This job is in voting process or completed. Posting comments are disabled.";
                     return Json(result);
                 }
 

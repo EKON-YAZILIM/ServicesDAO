@@ -156,9 +156,16 @@
                 <h5 class="card-title" title="Services DAO Portal Scoping Grant">@Model.Title</h5>
 
                 <div class="card-body">
-                    <p class="p-3 py-0 card-text text-justify" style="white-space: pre-line">
-                        @Model.JobDescription
-                    </p>
+                    @if(Model.JobDescription.Contains("<p>"))
+                    {
+                        @Html.Raw(Model.JobDescription);
+                    }
+                    else
+                    {
+                        <p class="p-3 py-0 card-text text-justify" style="white-space: pre-line">
+                            @Model.JobDescription
+                        </p>
+                    }
                     <p class="card-text"><small class="text-medium-emphasis">Last updated @Model.LastUpdate</small></p>
                 </div>
 

@@ -20,7 +20,7 @@
                     <!-- .card -->
                     <div class="card mb-4 p-0">
                         <div class="card-header">
-                            <span class="small ms-1"><b>Active Internal Auctions</b></span>
+                            <span class="ms-1"><b>Active Internal Auctions</b></span>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive h-250">
@@ -69,7 +69,7 @@
                     </div> <!-- .card -->
                     <!-- .card -->
                     <div class="card  p-0">
-                        <div class="card-header"><span class="small ms-1"><b>Active Public Auctions</b></span></div>
+                        <div class="card-header"><span class="ms-1"><b>Active Public Auctions</b></span></div>
                         <div class="card-body p-0">
                             <div class="table-responsive h-250">
                                 @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.PublicBidding).Count() > 0)
@@ -121,7 +121,7 @@
                     <!-- .card -->
                     <div class="card mb-4 p-0">
                         <div class="card-header">
-                            <span class="small ms-1"><b>Completed Auctions</b></span>
+                            <span class="ms-1"><b>Completed Auctions</b></span>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive h-250">
@@ -174,7 +174,7 @@
                     </div><!-- .card -->
                     <!-- .card -->
                     <div class="card p-0">
-                        <div class="card-header"><span class="small ms-1"><b>Expired Auctions</b></span></div>
+                        <div class="card-header"><span class="ms-1"><b>Expired Auctions</b></span></div>
                         <div class="card-body p-0">
                             <div class="table-responsive h-250">
                                 @if (Model.Where(x => x.Status == Helpers.Constants.Enums.AuctionStatusTypes.Expired).Count() > 0)

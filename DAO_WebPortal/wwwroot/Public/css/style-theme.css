@@ -1,16 +1,16 @@
-@font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-Bold.eot"); src: local("Poppins Bold"), local("Poppins-Bold"), url("../fonts/Poppins-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-Bold.woff2") format("woff2"), url("../fonts/Poppins-Bold.woff") format("woff"), url("../fonts/Poppins-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url("../../fonts/static/Nunito-Bold.eot"); src: local("Nunito Bold"), local("Nunito-Bold"), url("../../fonts/static/Nunito-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/static/Nunito-Bold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
 
-@font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-Light.eot"); src: local("Poppins Light"), local("Poppins-Light"), url("../fonts/Poppins-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-Light.woff2") format("woff2"), url("../fonts/Poppins-Light.woff") format("woff"), url("../fonts/Poppins-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url("../../fonts/static/Nunito-Light.eot"); src: local("Nunito Light"), local("Nunito-Light"), url("../../fonts/static/Nunito-Light.eot?#iefix") format("embedded-opentype"),  url("../../fonts/static/Nunito-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; }
 
-@font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-SemiBold.eot"); src: local("Poppins SemiBold"), local("Poppins-SemiBold"), url("../fonts/Poppins-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-SemiBold.woff2") format("woff2"), url("../fonts/Poppins-SemiBold.woff") format("woff"), url("../fonts/Poppins-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url("../../fonts/static/Nunito-SemiBold.eot"); src: local("Nunito SemiBold"), local("Nunito-SemiBold"), url("../../fonts/static/Nunito-SemiBold.eot?#iefix") format("embedded-opentype"), url("../../fonts/static/Nunito-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; }
 
-@font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-Medium.eot"); src: local("Poppins Medium"), local("Poppins-Medium"), url("../fonts/Poppins-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-Medium.woff2") format("woff2"), url("../fonts/Poppins-Medium.woff") format("woff"), url("../fonts/Poppins-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url("../../fonts/static/Nunito-Medium.eot"); src: local("Nunito Medium"), local("Nunito-Medium"), url("../../fonts/static/Nunito-Medium.eot?#iefix") format("embedded-opentype"), url("../../fonts/static/Nunito-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; }
 
-@font-face { font-family: 'Poppins'; src: url("../fonts/Poppins-Regular.eot"); src: local("Poppins Regular"), local("Poppins-Regular"), url("../fonts/Poppins-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Poppins-Regular.woff2") format("woff2"), url("../fonts/Poppins-Regular.woff") format("woff"), url("../fonts/Poppins-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Nunito'; src: url("../../fonts/static/Nunito-Regular.eot"); src: local("Nunito Regular"), local("Nunito-Regular"), url("../../fonts/static/Nunito-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/static/Nunito-Regular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 
 /** 02. Utilities */
 /** 02.01 Reset */
-html, body { font-family: "Poppins", sans-serif; color: #415076; font-size: 14px; line-height: 1.68; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; }
+html, body { font-family: "Nunito", sans-serif; color: #415076; font-size: 14px; line-height: 1.68; font-weight: 300; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: relative; }
 
 @media (min-width: 576px) { html, body { font-size: 16px; line-height: 1.68; font-weight: 300; } }
 
@@ -26,7 +26,7 @@ blockquote::after, blockquote::before, q::after, q::before { content: none; }
 
 table { border-collapse: collapse; border-spacing: 0; }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: #0a1992; font-weight: 600; font-family: "Poppins", sans-serif; line-height: 1.45; margin-bottom: 0.5rem; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 { color: #0a1992; font-weight: 600; font-family: "Nunito", sans-serif; line-height: 1.45; margin-bottom: 0.5rem; }
 
 h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child, .h1:last-child, .h2:last-child, .h3:last-child, .h4:last-child, .h5:last-child, .h6:last-child { margin-bottom: 0; }
 
@@ -1960,7 +1960,7 @@ hr { position: relative; z-index: 5; }
 
 @media (min-width: 1200px) { .text-xl-left .btn-grp { justify-content: flex-start; } }
 
-.badge { color: #fff; background-color: #2b56f5; display: inline-block; font-weight: 600; text-transform: uppercase; border-radius: 34px; padding: 5px 16px; font-size: 13px; line-height: 24px; border: 1px solid #2b56f5; }
+.badge { color: #fff; background-color: #2b56f5; display: inline-block; font-weight: 600; text-transform: uppercase; border-radius: 34px; padding: 5px 16px; font-size: 13px; line-height: 24px; }
 
 .badge:not(.badge-outline) { color: #fff; }
 
@@ -2239,7 +2239,7 @@ a .title { transition: all .4s; }
 
 .list-number li { line-height: 1.86; margin-bottom: 10px; padding-left: 65px; }
 
-.list-number li:before { position: absolute; top: 10px; left: 25px; counter-increment: item; content: counter(item) "."; font-size: 30px; font-weight: 700; line-height: 1; color: #2b56f5; font-family: 'Poppins', sans-serif !important; }
+.list-number li:before { position: absolute; top: 10px; left: 25px; counter-increment: item; content: counter(item) "."; font-size: 30px; font-weight: 700; line-height: 1; color: #2b56f5; font-family: 'Nunito', sans-serif !important; }
 
 .tc-light .list-number li:before { color: #2b56f5; }
 
@@ -4009,16 +4009,16 @@ ul.progress-info { display: flex; justify-content: space-between; }
   .cpn-action .cpn-btns, .cpn-action .cpn-links { padding-top: 0; }
   .cpn-btns + .cpn-links { padding-top: 20px; }
   .cpn-links + .cpn-btns { padding-top: 20px; }
-  .cpn-head .title { font-size: 2.125rem; }
+  .cpn-head .title { font-size: 2.5rem; }
   .cpn-head .title-sm { font-size: 1.85rem; }
-  .cpn-head .title-md { font-size: 2.6rem; }
+  .cpn-head .title-md { font-size: 3rem; }
   .cpn-head .title-lg { font-size: 4rem; }
   .cpn-head .title-lg-s2 { font-size: 3rem; }
   .cpn-head .title-lg-s3 { font-size: 2rem; }
   .cpn-boxed { padding: 35px; }
   .cpn-social { margin-top: 50px; }
   .cpn-s2 { margin-top: -122px !important; padding-top: 0; } }
-
+  .cpn-head p { font-size: 18px; }
 @media (min-width: 1200px) { .banner-gfx-re-s1 { margin: 0 -380px 0 -180px; }
   .banner-gfx-re-s2 { margin: 0 -330px 0 -110px; }
   .banner-gfx-re-s5 { margin: 0 -515px 0 0; }
@@ -4104,7 +4104,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 
 .section-head .title-xs:not(:last-child) { margin-bottom: .5rem; }
 
-.section-head .title:before { position: absolute; left: 50%; top: 50%; content: attr(title); font-family: "Poppins", sans-serif; line-height: .9; text-transform: uppercase; white-space: nowrap; color: #7381f5; transform: translate(-50%, -50%); opacity: 0.06; }
+.section-head .title:before { position: absolute; left: 50%; top: 50%; content: attr(title); font-family: "Nunito", sans-serif; line-height: .9; text-transform: uppercase; white-space: nowrap; color: #7381f5; transform: translate(-50%, -50%); opacity: 0.06; }
 
 .tc-light .section-head .title:before { opacity: 0.06; }
 
@@ -5781,7 +5781,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 /** 04.13 WGS */
 .wgs { margin-bottom: 30px; }
 
-.wgs-title { text-transform: uppercase; color: #0a1992; font-size: 1rem; font-weight: 600; letter-spacing: 0.075em; }
+.wgs-title { text-transform: uppercase; color: #0a1992; font-size: 1.2rem; font-weight: 600; letter-spacing: 0.075em; }
 
 .wgs-title-s2, .wgs-title-s3 { font-size: 1.125rem; letter-spacing: normal; }
 
@@ -5805,7 +5805,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 
 .wgs-links li:last-child { padding-bottom: 0px; }
 
-.wgs-links li a { font-size: 0.9em; line-height: 20px; display: block; color: #12183a; }
+.wgs-links li a { font-size: 1em; line-height: 30px; display: block; color: #12183a; }
 
 .wgs-links li a:hover { color: #2b56f5; }
 
@@ -6523,7 +6523,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
 
 .menu-item > ul, .menu-item .menu-sub { display: none; }
 
-.menu-item a { font-family: "Poppins", sans-serif; font-size: 14px; line-height: 16.8px; color: #415076; padding: 12px 0; display: block; }
+.menu-item a { font-family: "Nunito", sans-serif; font-size: 15px; line-height: 16.8px; color: #415076; padding: 12px 0; display: block; }
 
 .header-menu-s2 .menu-item a { font-size: 15px; }
 
@@ -6551,9 +6551,9 @@ ul.progress-info { display: flex; justify-content: space-between; }
 
 .menu-sub .menu-sub .menu-item a { padding-top: 6px; padding-bottom: 6px; }
 
-.menu-sub a { font-family: "Poppins", sans-serif; font-size: 13px; color: #415076; }
+.menu-sub a { font-family: "Nunito", sans-serif; font-size: 13px; color: #415076; }
 
-.menu-mega a { font-family: "Poppins", sans-serif; font-size: 13px; color: #415076; }
+.menu-mega a { font-family: "Nunito", sans-serif; font-size: 13px; color: #415076; }
 
 .is-dark .menu-item a { color: #fff; }
 
@@ -6638,7 +6638,7 @@ ul.progress-info { display: flex; justify-content: space-between; }
   .has-fixed .header-navbar { margin-top: 0; }
   .menu { display: flex; align-items: center; padding: 0; }
   .menu-item { border-bottom: none; }
-  .menu-item > a { font-weight: 400; padding: 20px 10px; }
+  .menu-item > a { font-weight: 600; padding: 20px 10px; }
   .menu-drop .menu-item > a { font-weight: 300; }
   .menu-item:hover { z-index: 9999; }
   .menu-sub { position: absolute; min-width: 215px; max-width: 215px; background: #fff; padding: 15px 10px; top: 100%; left: 0; display: block !important; z-index: 99; opacity: 0; visibility: hidden; transition: all .4s; border-radius: 4px; transform: translateX(0) translateY(-8px); box-shadow: 0 3px 12px 0 rgba(18, 24, 58, 0.08); }
