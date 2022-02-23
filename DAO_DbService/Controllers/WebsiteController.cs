@@ -1171,6 +1171,10 @@ namespace DAO_DbService.Controllers
                 {
                     List<User> users = db.Users.ToList();
 
+                    var jobPosts = (from job in db.JobPosts
+                            where job.Status == Enums.JobStatusTypes.Completed
+                            select new JobPost { JobDoerUserID = job.JobDoerUserID, CreateDate = job.CreateDate }).ToList();
+
                     string votingJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/Get");
                     List<VotingDto> votings = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingJson);
 
@@ -1190,22 +1194,29 @@ namespace DAO_DbService.Controllers
                         VADirectoryViewModel vadirectory = new VADirectoryViewModel();
                         vadirectory.Name = item.NameSurname;
                         vadirectory.Email = item.Email;
+                        vadirectory.Username = item.UserName;
 
                         try
                         {
-                            int totalVoteCount = votings.Count(x => x.StartDate >= item.DateBecameVA);
+                            //Get user's jobs as Job Doer to subtract from all jobs
+                            int jobTotal = jobPosts.Count(x=>x.JobDoerUserID == item.UserId && x.CreateDate >= item.DateBecameVA) * 2;
+                            int jobThisMonth = jobPosts.Count(x=>x.JobDoerUserID == item.UserId && x.CreateDate.Month == DateTime.Now.Month && x.CreateDate.Year == DateTime.Now.Year) * 2;
+                            int jobLastMonth = jobPosts.Count(x=>x.JobDoerUserID == item.UserId && x.CreateDate.Month == dt.Month && x.CreateDate.Year == dt.Year) * 2;
 
+                            //Get user votes
+                            int totalVotingCount = votings.Count(x => x.StartDate >= item.DateBecameVA);
                             int userVoteThisMonth = votes.Where(x => x.UserID == item.UserId && x.Date.Month == DateTime.Now.Month && x.Date.Year == DateTime.Now.Year).GroupBy(x=>x.VotingID).Count();
                             int userVoteLastMonth = votes.Where(x => x.UserID == item.UserId && x.Date.Month == dt.Month && x.Date.Year == dt.Year).GroupBy(x=>x.VotingID).Count();
                             int userVoteTotal = votes.Where(x => x.UserID == item.UserId).GroupBy(x=>x.VotingID).Count();
 
+                            //Find user participation percentages
                             vadirectory.TotalRep = userReps.First(x => x.UserID == item.UserId).LastTotal;
                             if(userVoteLastMonth > 0 && voteLastMonth > 0)
-                            vadirectory.VLastMonth = Math.Round(Convert.ToDouble(userVoteLastMonth) / Convert.ToDouble(voteLastMonth) * 100, 2);
+                            vadirectory.VLastMonth = Math.Round(Convert.ToDouble(userVoteLastMonth) / Convert.ToDouble(voteLastMonth - jobLastMonth) * 100, 2);
                             if(userVoteThisMonth > 0 && voteThisMonth > 0)
-                            vadirectory.VThisMonth = Math.Round(Convert.ToDouble(userVoteThisMonth) / Convert.ToDouble(voteThisMonth) * 100, 2);
-                            if(userVoteTotal > 0 && totalVoteCount > 0)
-                            vadirectory.VTotal = Math.Round(Convert.ToDouble(userVoteTotal) / Convert.ToDouble(totalVoteCount) * 100, 2);
+                            vadirectory.VThisMonth = Math.Round(Convert.ToDouble(userVoteThisMonth) / Convert.ToDouble(voteThisMonth - jobThisMonth) * 100, 2);
+                            if(userVoteTotal > 0 && totalVotingCount > 0)
+                            vadirectory.VTotal = Math.Round(Convert.ToDouble(userVoteTotal) / Convert.ToDouble(totalVotingCount - jobTotal) * 100, 2);
 
                             vadirectory.DateBecameVA = item.DateBecameVA;
                         }

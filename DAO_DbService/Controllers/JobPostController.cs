@@ -266,5 +266,6 @@ namespace DAO_DbService.Controllers
 
             return _mapper.Map<List<JobPost>, List<JobPostDto>>(model);
         }
+
     }
 }
