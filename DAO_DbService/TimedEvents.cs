@@ -275,57 +275,32 @@ namespace DAO_DbService
                                     //Job completion formal vote passed
                                     if (voting.Type == VoteTypes.JobCompletion)
                                     {
-                                        //Create payment
                                         var auction = db.Auctions.First(x => x.JobID == voting.JobID);
                                         var auctionWinnerBid = db.AuctionBids.First(x => x.AuctionBidID == auction.WinnerAuctionBidID);
                                         var user = db.Users.Find(auctionWinnerBid.UserID);
 
-                                        //Get reputation stakes from reputation service
-                                        var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
-                                        var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+                                        bool vaOnboarded = false;
 
-                                        //Get reputations of voters who voted FOR
-                                        var forReps = reputations.Where(x => x.Type == Enums.StakeType.For).ToList();
-                                        //Add job doer to list
-                                        forReps.Add(new UserReputationStakeDto() { UserID = job.JobDoerUserID });
-                                        var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
-                                        var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
-
-                                        //Create Payment History model for dao members who participated into voting
-                                        foreach (var group in forReps.GroupBy(x => x.UserID))
-                                        {
-                                            if (reputationsTotal.Count(x => x.UserID == group.Key) == 0) continue;
-
-                                            double usersRepPerc = reputationsTotal.FirstOrDefault(x => x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x => x.LastTotal);
-                                            double memberPayment = auctionWinnerBid.Price * usersRepPerc;
-
-                                            var daouser = db.Users.Find(group.Key);
-
-                                            PaymentHistory paymentDaoMember = new PaymentHistory
-                                            {
-                                                JobID = job.JobID,
-                                                Amount = memberPayment,
-                                                CreateDate = DateTime.Now,
-                                                IBAN = daouser.IBAN,
-                                                UserID = daouser.UserId,
-                                                WalletAddress = daouser.WalletAddress,
-                                                Explanation = group.Key == auctionWinnerBid.UserID ? "User received payment for job completion." : "User received payment for DAO policing."
-                                            };
-
-                                            db.PaymentHistories.Add(paymentDaoMember);
-                                            db.SaveChanges();
-                                        }
-
-                                        //Get last DAO settinf and check if new user should be onboarded as VA automatically
-                                        if(db.PlatformSettings.OrderByDescending(x=>x.PlatformSettingID).First().VAOnboardingSimpleVote == false)
+                                        //Get last DAO setting and check if new user should be onboarded as VA automatically
+                                        if (db.PlatformSettings.OrderByDescending(x => x.PlatformSettingID).First().VAOnboardingSimpleVote == false)
                                         {
                                             //If job doer is Associate, change the user type to  VA
-                                            if (user.UserType == Enums.UserIdentityType.Associate.ToString())
+                                            if (user.UserType == Enums.UserIdentityType.Associate.ToString() && auctionWinnerBid.VaOnboarding == true)
                                             {
                                                 user.DateBecameVA = DateTime.Now;
                                                 user.UserType = Enums.UserIdentityType.VotingAssociate.ToString();
                                                 db.SaveChanges();
+                                                vaOnboarded = true;
                                             }
+                                        }
+
+                                        if (vaOnboarded || user.UserType != Enums.UserIdentityType.Associate.ToString())
+                                        {
+                                            CompleteJobVA(voting, job, auctionWinnerBid);
+                                        }
+                                        else
+                                        {
+                                            CompleteJobExternal(voting, job, auctionWinnerBid);
                                         }
 
                                         //Send notification email to job poster and job doer
@@ -397,6 +372,109 @@ namespace DAO_DbService
             catch (Exception ex)
             {
                 Program.monitizer.AddConsole("Exception in timer CheckCompletedFormalVotings. Ex: " + ex.Message);
+            }
+        }
+
+        private static void CompleteJobVA(VotingDto voting, JobPost job, AuctionBid auctionWinnerBid)
+        {
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                //Get reputation stakes from reputation service
+                var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
+                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+
+                //Get reputations of voters who voted FOR
+                var forReps = reputations.Where(x => x.Type == Enums.StakeType.For).ToList();
+                //Add job doer to list
+                forReps.Add(new UserReputationStakeDto() { UserID = job.JobDoerUserID });
+                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+
+                //Create Payment History model for dao members who participated into voting
+                foreach (var group in forReps.GroupBy(x => x.UserID))
+                {
+                    if (reputationsTotal.Count(x => x.UserID == group.Key) == 0) continue;
+
+                    double usersRepPerc = reputationsTotal.FirstOrDefault(x => x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x => x.LastTotal);
+                    double memberPayment = auctionWinnerBid.Price * usersRepPerc;
+
+                    var daouser = db.Users.Find(group.Key);
+
+                    PaymentHistory paymentDaoMember = new PaymentHistory
+                    {
+                        JobID = job.JobID,
+                        Amount = memberPayment,
+                        CreateDate = DateTime.Now,
+                        IBAN = daouser.IBAN,
+                        UserID = daouser.UserId,
+                        WalletAddress = daouser.WalletAddress,
+                        Explanation = group.Key == auctionWinnerBid.UserID ? "User received payment for job completion." : "User received payment for DAO policing."
+                    };
+
+                    db.PaymentHistories.Add(paymentDaoMember);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+        private static void CompleteJobExternal(VotingDto voting, JobPost job, AuctionBid auctionWinnerBid)
+        {
+            using (dao_maindb_context db = new dao_maindb_context())
+            {
+                //Get reputation stakes from reputation service
+                var reputationsJson = Helpers.Request.Get(Program._settings.Service_Reputation_Url + "/UserReputationStake/GetByProcessId?referenceProcessID=" + voting.VotingID + "&reftype=" + StakeType.For);
+                var reputations = Helpers.Serializers.DeserializeJson<List<UserReputationStakeDto>>(reputationsJson);
+
+                //Get reputations of voters who voted FOR
+                var forReps = reputations.Where(x => x.Type == Enums.StakeType.For).ToList();
+                //Add job doer to list
+                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+
+                PlatformSettingController contr = new PlatformSettingController();
+                PlatformSettingDto lastSettings = contr.GetLatestSetting();
+                
+                //Create Payment History model for dao members who participated into voting
+                foreach (var group in forReps.GroupBy(x => x.UserID))
+                {
+                    if (reputationsTotal.Count(x => x.UserID == group.Key) == 0) continue;
+
+                    double usersRepPerc = reputationsTotal.FirstOrDefault(x => x.UserID == group.Key).LastTotal / reputationsTotal.Sum(x => x.LastTotal);
+                    double memberPayment = auctionWinnerBid.Price * usersRepPerc * Convert.ToDouble(lastSettings.DefaultPolicingRate);
+
+                    var daouser = db.Users.Find(group.Key);
+
+                    PaymentHistory paymentDaoMember = new PaymentHistory
+                    {
+                        JobID = job.JobID,
+                        Amount = memberPayment,
+                        CreateDate = DateTime.Now,
+                        IBAN = daouser.IBAN,
+                        UserID = daouser.UserId,
+                        WalletAddress = daouser.WalletAddress,
+                        Explanation = "User received payment for DAO policing."
+                    };
+
+                    db.PaymentHistories.Add(paymentDaoMember);
+                    db.SaveChanges();
+                }
+
+
+                var jobdoeruser = db.Users.Find(job.JobDoerUserID);
+                //Create payment of the job doer
+                PaymentHistory paymentExternalMember = new PaymentHistory
+                {
+                    JobID = job.JobID,
+                    Amount = auctionWinnerBid.Price - (auctionWinnerBid.Price * Convert.ToDouble(lastSettings.DefaultPolicingRate)),
+                    CreateDate = DateTime.Now,
+                    IBAN = jobdoeruser.IBAN,
+                    UserID = jobdoeruser.UserId,
+                    WalletAddress = jobdoeruser.WalletAddress,
+                    Explanation = "User received payment for job completion."
+                };
+
+                db.PaymentHistories.Add(paymentExternalMember);
+                db.SaveChanges();
             }
         }
 

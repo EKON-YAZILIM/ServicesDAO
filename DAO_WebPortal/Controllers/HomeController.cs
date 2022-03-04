@@ -192,10 +192,10 @@ namespace DAO_WebPortal.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult New_Job_Post(string title, double amount, string time, string description, string tags, string codeurl)
         {
-            if (!ModelState.IsValid)
-            {
-                return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
-            }
+            // if (!ModelState.IsValid)
+            // {
+            //     return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
+            // }
 
             SimpleResponse result = new SimpleResponse();
 
@@ -1062,6 +1062,12 @@ namespace DAO_WebPortal.Controllers
                     return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields" });
                 }
 
+                int time = 0;
+                bool timeParsed = int.TryParse(Model.Time, out time);
+                if (timeParsed == false || time <= 0){
+                    return Json(new SimpleResponse { Success = false, Message = "Timeframe must be positive integer." });
+                }
+
                 //Check if public user trying to submit bid for expired or completed auction
                 if (auction.Status == Enums.AuctionStatusTypes.Completed || auction.Status == Enums.AuctionStatusTypes.Expired)
                 {
@@ -1215,6 +1221,11 @@ namespace DAO_WebPortal.Controllers
                 //Parse response
                 AuctionDto auction = Helpers.Serializers.DeserializeJson<AuctionDto>(auctionJson);
 
+                //Get user model from ApiGateway
+                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + auctionBid.UserId, HttpContext.Session.GetString("Token"));
+                //Parse response
+                UserDto userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
+
                 //Check if user is authorized to choose winner (Must be job poster)
                 if (auction.JobPosterUserId != HttpContext.Session.GetInt32("UserID"))
                 {
@@ -1235,6 +1246,13 @@ namespace DAO_WebPortal.Controllers
 
                         //Mint new reputation with (ReputationConversionRate(DAO Variable) * Bid Price)
                         UserReputationStakeDto stake = new UserReputationStakeDto() { UserID = auctionBid.UserId, Amount = auctionBid.Price * Program._settings.ReputationConversionRate, CreateDate = DateTime.Now, Type = StakeType.Mint, ReferenceID = auction.JobID, ReferenceProcessID = auction.JobID, Status = ReputationStakeStatus.Staked };
+
+                        //If winner is external user and doesnt want to get onboarded as VA.
+                        if(auctionBid.VaOnboarding == false && userModel.UserType == Enums.UserIdentityType.Associate.ToString())
+                        {
+                            stake.Amount = auctionBid.Price * Program._settings.DefaultPolicingRate * Program._settings.ReputationConversionRate;
+                        }
+                        
                         //Post model to ApiGateway
                         string mintJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/SubmitStake", Helpers.Serializers.SerializeJson(stake), HttpContext.Session.GetString("Token"));
                         //Parse response
@@ -1252,12 +1270,6 @@ namespace DAO_WebPortal.Controllers
                             Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "Job poster selected the winner bid. Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                             //Send notification email to winner
-
-                            //Get winner user object 
-                            var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + auctionBid.UserId, HttpContext.Session.GetString("Token"));
-                            //Parse result
-                            var userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
-
                             //Set email title and content
                             string emailTitle = "You won the auction for job #" + auction.JobID;
                             string emailContent = "Greetings, " + userModel.NameSurname.Split(' ')[0] + ", <br><br> You won the auction of '" + jobStatusResult.Title + "'.<br><br> Please post your job completion evidence as a comment to the related job and start informal voting process within expected timeframe";
@@ -1486,11 +1498,25 @@ namespace DAO_WebPortal.Controllers
                     return Json(new SimpleResponse { Success = false, Message = "User is not authorized to start informal voting for this job." });
                 }
 
+                //Get user model from ApiGateway
+                var userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetId?id=" + winnerBid.UserId, HttpContext.Session.GetString("Token"));
+                //Parse response
+                UserDto userModel = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
+
                 //Start informal voting
                 VotingDto informalVoting = new VotingDto();
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
-                informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
+                if(winnerBid.VaOnboarding == false && userModel.UserType == Enums.UserIdentityType.Associate.ToString())
+                {
+                    //Job doer wont earn any reputations
+                    informalVoting.PolicingRate = 1;
+                }
+                else
+                {
+                    //Job doer will earn reputation and will be onboarded as VA
+                    informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
+                }
                 informalVoting.QuorumRatio = Program._settings.QuorumRatio;
                 informalVoting.Type = Enums.VoteTypes.JobCompletion;
                 informalVoting.EndDate = DateTime.Now.AddDays(Program._settings.VotingTime);
@@ -1582,8 +1608,8 @@ namespace DAO_WebPortal.Controllers
                     return Json(new SimpleResponse { Success = false, Message = "You can't submit vote to your own job." });
                 }
 
-                //Check if user trying to submit bid for his/her own job
-                if (voting.Type == VoteTypes.JobCompletion && (ReputationStake == null || ReputationStake <= 0))
+                //Check if user trying to submit bid with 0 reputation
+                if (ReputationStake == null || ReputationStake <= 0)
                 {
                     return Json(new SimpleResponse { Success = false, Message = "You must stake reputation greater than 0 for this voting type." });
                 }

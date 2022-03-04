@@ -15,5 +15,6 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public double ReputationStake { get; set; }
         public DateTime CreateDate { get; set; }
         public string AssociateUserNote { get; set; }
+        public bool VaOnboarding {get;set;}
     }
 }

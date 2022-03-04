@@ -443,6 +443,60 @@
     </div>
 </div>
 
+<!-- Payment Policy Confirmation Modal (No Onboarding)  -->
+<div class="modal fade" id="PaymentPolicyConfirmation2-Modal" tabindex="-1" aria-labelledby="PaymentPolicyConfirmation2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Confirmation"><b>Please read carefully and confirm</b></h5>
+                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task in accordance with Section 4.4 will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO in accordance with the distribution mechanism of Minimum Viable Protocol Requirements for “Blockchain Infrastructure for Measuring Domain Specific Reputation in Autonomous Decentralized and Anonymous Systems” as described in this paper (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;</a> accessed December 20, 2021) (hereinafter “MVPR”).</p>
+
+                <p class="mb-1"><b>Your payment will be calculated as:</b></small><br>
+                <p><i>Your Bid(€) - [Your Bid(€) * @Program._settings.DefaultPolicingRate (DAO Policing Rate)]</i></small>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success text-white" onclick="AgreeTerms();">Agree Terms</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- VA Onboarding Selection Modal  -->
+<div class="modal fade" id="VAOnboarding-Modal" tabindex="-1" aria-labelledby="PaymentPolicyConfirmation" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Confirmation"><b>Onboarding Selection</b></h5>
+                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <p class="text-justify">
+                    Would you like to become a Voting Associate member as a part of this DAO after completing the work?
+                </p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <input class="btn-check mr-3" id="btn-check-outlined" type="radio" autocomplete="off" name="btnradio" onclick="SelectVAOption(0)">
+                        <label class="btn btn-outline-success w-100 mb-3" for="btn-check-outlined">YES</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="btn-check" id="btn-check-outlined2" type="radio" autocomplete="off" name="btnradio" onclick="SelectVAOption(1)">
+                        <label class="btn btn-outline-danger w-100 mb-3" for="btn-check-outlined2">NO</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success text-white" onclick="ShowTerms();">Show Terms</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts{
 
     <script>
@@ -455,6 +509,7 @@
         var now = new Date(@DateTime.Now.Year, @(DateTime.Now.Month-1), @DateTime.Now.Day, @DateTime.Now.Hour, @DateTime.Now.Minute, @DateTime.Now.Second);
 
         var selectedAuctionId = 0;
+        var selectedDirection = -1;
 
         $(document).ready(function () {
 
@@ -636,6 +691,11 @@
                             var time = $('#time').val();
                             var note = $('#note').val();
                             var reputation = $('#reputation').val();
+                            var vaOnboarding = true;
+
+                            if(selectedDirection == 1){
+                                vaOnboarding = false;
+                            }
 
                             //Ajax post action
                             $.ajax({
@@ -646,7 +706,8 @@
                                     "time": time,
                                     "auctionid": selectedAuctionId,
                                     "associateUserNote": note,
-                                    "reputationStake": reputation
+                                    "reputationStake": reputation,
+                                    "vaOnboarding": vaOnboarding
                                 },
                                 success: function (result) {
                                     if (result.success) {
@@ -681,13 +742,29 @@
         //Payment policy confirmation
         function OpenPaymentConfirmation(auctionId, jobId){
             selectedAuctionId = auctionId;
-            $("#PaymentPolicyConfirmation-Modal").modal("toggle");
             $("#AddBidModalTitle").text("New Bid for Job #" + jobId);
+
+            @if(userType == "Associate")
+            {
+                @Html.Raw("$('#VAOnboarding-Modal').modal('toggle');")
+            }
+            else
+            {
+                @Html.Raw("$('#PaymentPolicyConfirmation-Modal').modal('toggle');")
+            }
         }
 
         //Payment policy agree
         function AgreeTerms(){
-            $("#PaymentPolicyConfirmation-Modal").modal("toggle");
+            if(selectedDirection == 1)
+            {
+                $("#PaymentPolicyConfirmation2-Modal").modal("toggle");
+            }
+            else if(selectedDirection == 0 || selectedDirection == -1)
+            {
+                $("#PaymentPolicyConfirmation-Modal").modal("toggle");
+            }
+            
             $("#AddBid-Modal").modal("toggle");
         }
 
@@ -739,6 +816,28 @@
                     }
                 }
             });
+        }
+
+        function SelectVAOption(direction) {
+            selectedDirection = direction;
+        }
+
+        function ShowTerms(){
+            if(selectedDirection == 0)
+            {
+                $('#VAOnboarding-Modal').modal('toggle');
+                $('#PaymentPolicyConfirmation-Modal').modal('toggle');
+            }
+            else if(selectedDirection == 1)
+            {
+                $('#VAOnboarding-Modal').modal('toggle');
+                $('#PaymentPolicyConfirmation2-Modal').modal('toggle');
+                
+            }
+            else
+            {
+                toastr.warning("Please select an option.");
+            }
         }
     </script>
 }
