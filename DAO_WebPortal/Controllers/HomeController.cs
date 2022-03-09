@@ -1059,7 +1059,18 @@ namespace DAO_WebPortal.Controllers
                 //Check inputs
                 if (Model.Price <= 0 || string.IsNullOrEmpty(Model.Time))
                 {
-                    return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields" });
+                    return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields." });
+                }
+
+                //Check if referrer exists
+                if(!string.IsNullOrEmpty(Model.Referrer))
+                {
+                    string userRefJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetByUsername?username=" + Model.Referrer, HttpContext.Session.GetString("Token"));
+                    var userRef = Helpers.Serializers.DeserializeJson<UserDto>(userRefJson);
+                    if(userRef == null || userRef.UserId <= 0)
+                    {
+                        return Json(new SimpleResponse { Success = false, Message = "Referrer username could not be found." });
+                    }
                 }
 
                 int time = 0;

@@ -683,3 +683,13 @@ tbody tr:hover .trSlider span {
      line-height: 30px;
  }
 
+.bidinputsm{
+    width: 87px;
+    display: inline;
+}
+
+@media(max-width: 720px) {
+    #calculatedpayment {
+        font-size: 12px;
+    }
+}

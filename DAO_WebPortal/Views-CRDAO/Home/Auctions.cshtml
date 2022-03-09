@@ -219,7 +219,6 @@
                                                                 <use xlink:href="/Home/images/svg/free.svg#cil-send"></use>
                                                             </svg> Submit Bid
                                                         </a>
-
                                                     }
                                                     else if (auction.UsersBidId != null)
                                                     {
@@ -371,25 +370,42 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label class="form-label" for="price"><b>Price</b></label>
                     <div class="input-group mb-3">
-                        <span class="input-group-text">€</span>
+                        <span class="input-group-text"> <center><i class="fas fa fa-euro-sign mx-1" style="font-size:18px"></i></center></span>
                         <input class="form-control number" type="text" aria-label="price" placeholder="Price" id="price"><span class="input-group-text">.00</span>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="time"><b>Time</b></label>
                     <div class="input-group mb-3">
-                        <input class="form-control number" type="text" aria-label="Time" placeholder="Time" id="time"><span class="input-group-text">days</span>
+                         <span class="input-group-text"> <i class="fas fa fa-business-time"></i></span>
+                        <input class="form-control number" type="text" aria-label="Time" placeholder="Expected Timeframe" id="time"><span class="input-group-text">days</span>
                     </div>
                 </div>
 
                 @if (userType == Enums.UserIdentityType.Associate.ToString())
                 {
                     <div class="mb-3">
-                        <label class="form-label" for="Note"><b>Note</b> (Please put your resume or portfolio if you are not known member of this DAO)</label>
+                         <div class="input-group mb-3">
+                             <span class="input-group-text"> <i class="fab fa-github" style="font-size:21px"></i></span>
+                            <input class="form-control" type="text" aria-label="githublink" placeholder="Github Link" id="githublink">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                         <div class="input-group mb-3">
+                            <span class="input-group-text"> <i class="fas fa fa-id-card" style="font-size:18px"></i></span>
+                            <input class="form-control" type="text" aria-label="resumelink" placeholder="Professional Resume Link" id="resumelink">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                         <div class="input-group mb-3">
+                            <span class="input-group-text"> <i class="fas fa fa-user-check"></i></span>
+                            <input class="form-control" type="text" aria-label="referrer" placeholder="Referrer Username (Optional)" id="referrer">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="Note"><b>Note</b></label>
                         <div class="input-group mb-3">
-                            <textarea class="form-control" type="text" aria-label="Note" placeholder="Note" id="note"></textarea>
+                            <textarea class="form-control" type="text" aria-label="Note" placeholder="Please put any additional notes and expriences into this field" id="note"></textarea>
                         </div>
                     </div>
                 }
@@ -413,61 +429,9 @@
     </div>
 </div>
 
-<!-- Payment Policy Confirmation Modal  -->
-<div class="modal fade" id="PaymentPolicyConfirmation-Modal" tabindex="-1" aria-labelledby="PaymentPolicyConfirmation" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="Confirmation"><b>Please read carefully and confirm</b></h5>
-                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task in accordance with Section 4.4 will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO in accordance with the distribution mechanism of Minimum Viable Protocol Requirements for “Blockchain Infrastructure for Measuring Domain Specific Reputation in Autonomous Decentralized and Anonymous Systems” as described in this paper (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;</a> accessed December 20, 2021) (hereinafter “MVPR”).</p>
-
-                <center class="pb-3">
-                    <p class="text-center">Current Reputation Distribution Of Voting Associates</p>
-                    <canvas class="chart" id="reputation-chart" height="150"></canvas>
-                </center>
-
-                <small><b>Your initial reputation calculated as:</b></small><br>
-                <small><i>Your Bid(€) * @Program._settings.ReputationConversionRate (Reputation conversion rate) * @Program._settings.DefaultPolicingRate (Policing rate)</i></small>
-                <br><br>
-                <small><b>Your payment calculated as:</b></small><br>
-                <small><i>Your Bid(€) * (Your Initial Reputation / Total Reputation of Voters)</i></small>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success text-white" onclick="AgreeTerms();">Agree Terms</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Payment Policy Confirmation Modal (No Onboarding)  -->
-<div class="modal fade" id="PaymentPolicyConfirmation2-Modal" tabindex="-1" aria-labelledby="PaymentPolicyConfirmation2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="Confirmation"><b>Please read carefully and confirm</b></h5>
-                <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-                <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task in accordance with Section 4.4 will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO in accordance with the distribution mechanism of Minimum Viable Protocol Requirements for “Blockchain Infrastructure for Measuring Domain Specific Reputation in Autonomous Decentralized and Anonymous Systems” as described in this paper (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;</a> accessed December 20, 2021) (hereinafter “MVPR”).</p>
-
-                <p class="mb-1"><b>Your payment will be calculated as:</b></small><br>
-                <p><i>Your Bid(€) - [Your Bid(€) * @Program._settings.DefaultPolicingRate (DAO Policing Rate)]</i></small>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success text-white" onclick="AgreeTerms();">Agree Terms</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- VA Onboarding Selection Modal  -->
 <div class="modal fade" id="VAOnboarding-Modal" tabindex="-1" aria-labelledby="PaymentPolicyConfirmation" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="Confirmation"><b>Onboarding Selection</b></h5>
@@ -489,9 +453,38 @@
                         <label class="btn btn-outline-danger w-100 mb-3" for="btn-check-outlined2">NO</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task in accordance with <a href="../Public/ossagtc.pdf" target="_blank">Section 4.4</a> will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO in accordance with the distribution mechanism of Minimum Viable Protocol Requirements for “Blockchain Infrastructure for Measuring Domain Specific Reputation in Autonomous Decentralized and Anonymous Systems” as described in this paper (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;</a> accessed December 20, 2021) (hereinafter “MVPR”). <br><br> <b>Please note that once you become a member, you are automatically becoming part of every future distribution pro rata to your reputation score</b></p>
+                        
+                        <center class="pb-3">
+                            <p class="text-center">Current Reputation Distribution Of Voting Associates</p>
+                            <canvas class="chart" id="reputation-chart2" height="200"></canvas>
+                        </center>
+
+                        <small><b>Your initial reputation calculated as:</b></small><br>
+                        <small><i><input class="form-control form-control-sm bidinputsm" placeholder="Your Bid(€)" type="text" /> * @Program._settings.ReputationConversionRate (Reputation conversion rate) * (1 - @Program._settings.DefaultPolicingRate (Policing rate))</i></small>
+                        <br><br>
+                        <small><b>Your payment calculated as:</b></small><br>
+                        <small><i><input class="form-control form-control-sm bidinputsm" placeholder="Your Bid(€)" type="text" /> * (Your Initial Reputation / Total Reputation of Voters)</i></small>
+                    </div>
+                    <div class="col-md-6">
+
+                        <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO. Therefore, CRDAO reserves the right to charge policing fee for this brokerage and approval process.</p>
+
+                        <center class="pb-3">
+                            <p class="text-center">Payment Distribution</p>
+                            <canvas class="chart" id="reputation-chart3" height="250"></canvas>
+                        </center>
+
+                        <small class="mb-1"><b>Your payment calculated as:</b></small><br>
+                        <small><i><input class="form-control form-control-sm bidinputsm" placeholder="Your Bid(€)" type="text" /> * (1 - @Program._settings.DefaultPolicingRate (Policing Rate))</i></small>
+                    </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success text-white" onclick="ShowTerms();">Show Terms</button>
+            <div class="modal-footer" style="display:block">
+                <span id="calculatedpayment" class="d-none" style="line-height: 45px;"><b>Calculated Payment:</b> <span id="paymenttotal"></span></span>
+                <button type="submit" class="btn btn-success text-white float-right" onclick="AgreeTerms();">Agree Terms</button>
             </div>
         </div>
     </div>
@@ -510,6 +503,7 @@
 
         var selectedAuctionId = 0;
         var selectedDirection = -1;
+        var vareputations = {};
 
         $(document).ready(function () {
 
@@ -554,6 +548,8 @@
                 type: "GET",
                 url: "../Home/GetVaReputationChart",
                 success: function (result) {
+                    vareputations = result;
+                    
                     var pieChartOptions = {
                         responsive: false,
                         elements: {
@@ -583,7 +579,50 @@
                                     'rgb(224, 235, 54, 0.65)',
                                     'rgb(235, 154, 54, 0.65)',
                                     'rgb(76, 66, 229, 0.65)',
-                                    'rgb(199, 54, 235, 0.65)'
+                                    'rgb(199, 54, 235, 0.65)',
+                                    'rgb(245, 132, 132, 0.65)'
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                        },
+                        options: pieChartOptions
+                    });
+
+                    const cardChart2 = new Chart(document.getElementById('reputation-chart2'), {
+                        type: 'pie',
+                        data: {
+                                labels: result.labels,
+                                datasets: [{
+                                    label: 'Reputation Distribution',
+                                    data: result.values,
+                                    backgroundColor: [                    
+                                    'rgb(235, 154, 54, 0.65)',
+                                    'rgb(235, 54, 154, 0.65)',
+                                    'rgb(54, 210, 235, 0.65)',
+                                    'rgb(54, 235, 143, 0.65)',
+                                    'rgb(224, 235, 54, 0.65)',
+                                    'rgb(235, 154, 54, 0.65)',
+                                    'rgb(76, 66, 229, 0.65)',
+                                    'rgb(199, 54, 235, 0.65)',
+                                    'rgb(245, 132, 132, 0.65)'
+                                    ],
+                                    hoverOffset: 4
+                                }]
+                        },
+                        options: pieChartOptions
+                    });
+
+                    pieChartOptions.plugins.legend.position = "bottom";
+                    const cardChart3 = new Chart(document.getElementById('reputation-chart3'), {
+                        type: 'pie',
+                        data: {
+                                labels: ["Your Payment (%)", "DAO Policing Fee (%)"],
+                                datasets: [{
+                                    label: 'Payment Distribution',
+                                    data: [@((1-Program._settings.DefaultPolicingRate)*100), @(Program._settings.DefaultPolicingRate*100)],
+                                    backgroundColor: [                    
+                                    'rgb(76, 66, 229, 0.65)',
+                                    'rgb(235, 54, 154, 0.65)'
                                     ],
                                     hoverOffset: 4
                                 }]
@@ -592,6 +631,7 @@
                     });
                 }
             });
+
 
             //Check if text filter exists
             if (getQueryParameter("query") != null && getQueryParameter("query") != "") {
@@ -603,6 +643,12 @@
                 if(e.which == 13) {
                     window.location.href = "../Auctions?query=" + $("#jobQueryFilter").val();
                 }
+            });
+
+            $('.bidinputsm').keyup(function(event){
+                $("#calculatedpayment").removeClass("d-none");
+                $('.bidinputsm').val($(this).val());
+                CalculatePayment();
             });
         });
 
@@ -691,6 +737,9 @@
                             var time = $('#time').val();
                             var note = $('#note').val();
                             var reputation = $('#reputation').val();
+                            var github = $('#githublink').val();
+                            var resume = $('#resumelink').val();
+                            var referrer = $('#referrer').val();
                             var vaOnboarding = true;
 
                             if(selectedDirection == 1){
@@ -707,7 +756,10 @@
                                     "auctionid": selectedAuctionId,
                                     "associateUserNote": note,
                                     "reputationStake": reputation,
-                                    "vaOnboarding": vaOnboarding
+                                    "vaOnboarding": vaOnboarding,
+                                    "githubLink": github,
+                                    "resumeLink": resume,
+                                    "referrer": referrer
                                 },
                                 success: function (result) {
                                     if (result.success) {
@@ -756,16 +808,16 @@
 
         //Payment policy agree
         function AgreeTerms(){
-            if(selectedDirection == 1)
+            if(selectedDirection == 0 || selectedDirection == 1)
             {
-                $("#PaymentPolicyConfirmation2-Modal").modal("toggle");
+                $("#VAOnboarding-Modal").modal("toggle");
+                
+                $("#AddBid-Modal").modal("toggle");
             }
-            else if(selectedDirection == 0 || selectedDirection == -1)
+            else
             {
-                $("#PaymentPolicyConfirmation-Modal").modal("toggle");
+                toastr.warning("Please select an option.");
             }
-            
-            $("#AddBid-Modal").modal("toggle");
         }
 
         //Bid delete function
@@ -817,27 +869,51 @@
                 }
             });
         }
-
+        
+        //User VA Onboarding select function
         function SelectVAOption(direction) {
             selectedDirection = direction;
+
+            if($('.bidinputsm').val() != "")
+            {
+                CalculatePayment();
+            }
         }
 
-        function ShowTerms(){
+        //Calculator method based on user's va onboarding selection
+        function CalculatePayment()
+        {
+            var price = $('.bidinputsm').val();
+
             if(selectedDirection == 0)
             {
-                $('#VAOnboarding-Modal').modal('toggle');
-                $('#PaymentPolicyConfirmation-Modal').modal('toggle');
+                var totalreps = 0;
+                for (var i = 0; i < vareputations.labels.length; i++) {
+                    if(vareputations.labels[i].indexOf("+") != -1){
+                        totalreps += parseInt(vareputations.labels[i].replace("+","")) * parseInt(vareputations.values[i]);
+                    }
+                    else if(vareputations.labels[i].indexOf("-") != -1){
+                        totalreps += parseInt(vareputations.labels[i].split("-")[0]) * parseInt(vareputations.values[i]);
+                    }
+                    else{
+                        totalreps += parseInt(vareputations.labels[i]) * parseInt(vareputations.values[i]);
+                    }
+                }   
+
+                var initialrep = price * @Program._settings.ReputationConversionRate * (1 - @Program._settings.DefaultPolicingRate);
+                var ratio = parseFloat(initialrep / (totalreps + initialrep));
+                
+                $("#paymenttotal").html(parseFloat(price * ratio).toFixed(2) + " €");
             }
             else if(selectedDirection == 1)
             {
-                $('#VAOnboarding-Modal').modal('toggle');
-                $('#PaymentPolicyConfirmation2-Modal').modal('toggle');
-                
+                $("#paymenttotal").html((parseFloat(price) - (parseFloat(price) * @Program._settings.DefaultPolicingRate)) + " €");
             }
             else
             {
-                toastr.warning("Please select an option.");
+                $("#paymenttotal").html("Please select an onboarding option");
             }
         }
+
     </script>
 }
