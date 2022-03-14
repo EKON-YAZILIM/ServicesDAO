@@ -52,7 +52,10 @@
                             <th scope="col">Username</th>
                             <th class="cursorp thSort" scope="col">Price <i class="fas fa-sort"></i></th>
                             <th class="cursorp thSort" scope="col">Time (days) <i class="fas fa-sort"></i></th>
-                            <th class="cursorp thSort" scope="col">Reputation Stake <i class="fas fa-sort"></i></th>
+                            <th class="cursorp thSort" scope="col">Rep. Stake <i class="fas fa-sort"></i></th>
+                            <th scope="col">Github</th>
+                            <th scope="col">Resume</th>
+                            <th scope="col">Referrer</th>
                             <th scope="col">User Note</th>
                             <th scope="col"></th>
                         </tr>
@@ -85,6 +88,9 @@
                                 <td class="@colClass">@item.Price</td>
                                 <td class="@colClass">@item.Time</td>
                                 <td class="@colClass">@item.ReputationStake</td>
+                                <td class="@colClass"><a href="@item.GithubLink" target="_blank">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.GithubLink, 30)</a></td>
+                                <td class="@colClass"><a href="@item.ResumeLink" target="_blank">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.ResumeLink, 30)</a></td>
+                                <td class="@colClass">@item.Referrer</td>
                                 <td class="@colClass">                          
                                     @if (item.UserNote != null && item.UserNote.Length > 20)
                                     {
@@ -99,7 +105,7 @@
                                 <td class="text-right @colClass">
 
                                     @*If bidding continues, show buttons *@
-                                    @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding)
+                                    @if (Model.Auction.Status == Enums.AuctionStatusTypes.InternalBidding || Model.Auction.Status == Enums.AuctionStatusTypes.PublicBidding || Model.Auction.Status == Enums.AuctionStatusTypes.Expired)
                                     {
                                         @*If user is job poster , show select winner bid button *@
                                         if (Model.Auction.JobPosterUserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
@@ -145,7 +151,7 @@
             </div>
             <div id="winnerButtons" class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary" onclick="ChooseAsWinnerBid(this,this.id);">Select Bid</button>
+                <button type="button" class="btn btn-primary selectBidBtn" onclick="ChooseAsWinnerBid(this,this.id);">Select Bid</button>
             </div>
         </div>
     </div>
@@ -181,8 +187,8 @@
 
         //Select winner bid function
         function ChooseAsWinnerBid(e, bidId) {
-            $(e).prop("disabled", true);
-            $(e).html('<i class="fas fa-circle-notch fa-spin"></i> Selecting Bid..');
+            $(".selectBidBtn").prop("disabled", true);
+            $(".selectBidBtn").html('<i class="fas fa-circle-notch fa-spin"></i> Selecting Bid..');
                     //Ajax post action
                 $.ajax({
                     type: "GET",
@@ -197,16 +203,24 @@
                             else {
                                 toastr.warning(result.message);
                             }
+
+                            $(".selectBidBtn").prop("disabled", false);
+                            $(".selectBidBtn").html('Select Bid');
                         },
                     failure: function (response) {
-                            toastr.warning("@Lang.ConnectionError");
+                        toastr.warning("@Lang.ConnectionError");
+
+                        $(".selectBidBtn").prop("disabled", false);
+                        $(".selectBidBtn").html('Select Bid');
                     },
                     error: function (response) {
-                            toastr.error("@Lang.UnexpectedError");
+                        toastr.error("@Lang.UnexpectedError");
+
+                        $("#selectBidBtn").prop("disabled", false);
+                        $("#selectBidBtn").html('Select Bid');
                     }
                 });
-            $(e).prop("disabled", false);
-            $(e).html('Select Bid');
+
         }
 
         //Bids table sorting functions

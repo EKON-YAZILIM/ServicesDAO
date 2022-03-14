@@ -1062,6 +1062,11 @@ namespace DAO_WebPortal.Controllers
                     return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields." });
                 }
 
+                if(string.IsNullOrEmpty(Model.ResumeLink) && auction.Status == Enums.AuctionStatusTypes.PublicBidding)
+                {
+                    return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields." });
+                }
+
                 //Check if referrer exists
                 if(!string.IsNullOrEmpty(Model.Referrer))
                 {

@@ -17,5 +17,8 @@ namespace Helpers.Models.WebsiteViewModels
         public string UserNote { get; set; }
         public string UserType { get; set; }
         public double UsersTotalReputation { get; set; }
+        public string GithubLink { get; set; }
+        public string ResumeLink { get; set; }
+        public string Referrer { get; set; }
     }
 }

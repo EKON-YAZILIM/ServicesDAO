@@ -532,7 +532,10 @@ namespace DAO_DbService.Controllers
                                   AuctionBidID = actbid.AuctionBidID,
                                   NameSurname = user.NameSurname,
                                   UserNote = actbid.AssociateUserNote,
-                                  UserType = user.UserType
+                                  UserType = user.UserType,
+                                  Referrer = actbid.Referrer,
+                                  GithubLink = actbid.GithubLink,
+                                  ResumeLink = actbid.ResumeLink
                               }).ToList();
 
                     var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(result.Select(x => x.UserId)));

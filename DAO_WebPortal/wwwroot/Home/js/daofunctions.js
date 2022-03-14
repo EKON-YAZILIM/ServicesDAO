@@ -13,7 +13,8 @@ function StartInformalVoting(JobId) {
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm2"><label class="form-check-label text-justify" for="flexCheckDefault">     I hereby declare that my bid and associated work product will benefit decentralization and open-source projects generally, pursuant to the mission statement of OSSA, which is to support open source and transparent scientific research of emerging technologies for community building by way of submitting grants to developers and scientists in Switzerland and abroad. </label></div>' +
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm3"><label class="form-check-label text-justify" for="flexCheckDefault">            I hereby declare that my bid and associated work product is in line with international transparency standards; will be published on Github under the CRDAO repo, and my team and I have sufficient qualifications, experience and capacity to actually finish my bid and associated work product. </label></div>' +
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm4"><label class="form-check-label text-justify" for="flexCheckDefault">    I hereby declare that I have not built tools and do not intend to build tools to attack the CRDAO and OSSA. </label></div>' +
-            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">   I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>',
+            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">   I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>'+
+            '<div class="comment-body mt-3"><textarea name="textarea-evidence" id="textarea-evidence" rows="3"></textarea><div class="d-flex justify-content-end mt-1"></div></div>',
         columnClass: 'col-md-8 col-md-offset-2',
         buttons: {
             cancel: {
@@ -40,6 +41,26 @@ function StartInformalVoting(JobId) {
                         return false;
                     }
 
+                    var token = $('input[name="__RequestVerificationToken"]', token).val();
+                    var comment = CKEDITOR.instances["textarea-evidence"].getData();
+        
+                    if (comment == "") {
+                        toastr.warning("Job evidence cannot be empty.");
+                        return;
+                    }
+  
+                    $.ajax({
+                        type: "POST",
+                        url: "../Home/AddNewComment",
+                        data: { "JobId": JobId, "CommentId": 0, "Comment": comment, "__RequestVerificationToken": token },
+                        success: function (result) {                   
+                        },
+                        failure: function (response) {
+                        },
+                        error: function (response) {
+                        }
+                    });
+
                     $.ajax({
                         url: "../StartInformalVoting/" + JobId,
                         type: "GET",
@@ -64,6 +85,19 @@ function StartInformalVoting(JobId) {
             }
         }
     });
+
+    setTimeout(() => {        
+        if (document.body.classList.contains('dark-theme')) {
+            CKEDITOR.replace("textarea-evidence", {
+                skin: 'moono-dark'
+            });
+        }
+        else {
+            CKEDITOR.replace("textarea-evidence", {
+                skin: 'moono-lisa'
+            });
+        }
+    }, 150);
 }
 
 selectedJobId = 0;
