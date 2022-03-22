@@ -1154,6 +1154,40 @@ namespace DAO_DbService.Controllers
             return result;
         }
 
+        [Route("AllPaymentHistory")]
+        [HttpGet]
+        public PaymentHistoryViewModel AllPaymentHistory()
+        {
+            PaymentHistoryViewModel result = new PaymentHistoryViewModel();
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    result.UserPaymentHistoryList = (from payment in db.PaymentHistories
+                                                     join job in db.JobPosts on payment.JobID equals job.JobID
+                                                     join user in db.Users on payment.UserID equals user.UserId
+                                                     select new UserPaymentHistoryItem
+                                                     {
+                                                         Title = job.Title,
+                                                         IBAN = payment.IBAN,
+                                                         JobID = payment.JobID,
+                                                         JobAmount = job.Amount,
+                                                         PaymentAmount = payment.Amount,
+                                                         WalletAddress = payment.WalletAddress,
+                                                         CreateDate = payment.CreateDate,
+                                                         Explanation = payment.Explanation,
+                                                         NameSurname = user.NameSurname,
+                                                         UserName = user.UserName
+                                                     }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
+            }
+            return result;
+        }
+
         #endregion
 
         #region VA Directory

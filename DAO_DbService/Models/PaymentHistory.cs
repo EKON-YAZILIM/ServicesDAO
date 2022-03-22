@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using static Helpers.Constants.Enums;
 
 namespace DAO_DbService.Models
 {
@@ -17,6 +18,6 @@ namespace DAO_DbService.Models
         public string IBAN { get; set; }
         public DateTime CreateDate { get; set; }
         public string Explanation { get; set; }
-
+        public PaymentType Status { get; set; }
     }
 }
