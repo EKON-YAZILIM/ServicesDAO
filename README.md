@@ -37,7 +37,7 @@ After setting up the environment, you can do the steps below to install and run.
 1. Under the project directory, open terminal and run: <br>
 
 ```shell
-docker-compose up –-build
+docker-compose up
 ```
 <br>
 The command will create:
@@ -66,7 +66,7 @@ Enter the ServicesDAO_VotingEngine project file. In the terminal ``` code .``` w
 
 The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be edited. <br><br>
 
-- In order to avoid conflicts with Rabbitmq, some parts of the yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
+- In order to avoid conflicts with Rabbitmq, some parts of the docker-compose.yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
 
 ```shell
 # dao_rabbitmq:
@@ -93,7 +93,7 @@ The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be 
 ```
 
 <br>
-- At the same time, to try to perform RabbitMQ health checks: <br><br>
+- Disable the RabbitMQ health checks: <br><br>
 
 ```shell
 dao_votingengine:
@@ -127,7 +127,7 @@ dao_reputationservice:
 Under ServicesDAO_VotingEngine project directory, open terminal and run: <br>
 
 ```shell
-docker-compose up –-build
+docker-compose up
 ```
 <br>
 After docker-compose is up, you can access the application from the below link. 
