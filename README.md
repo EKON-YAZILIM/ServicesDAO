@@ -127,7 +127,7 @@ dao_reputationservice:
 Under ServicesDAO_VotingEngine project directory, open terminal and run: <br>
 
 ```shell
-docker-compose up –-build
+docker-compose up
 ```
 <br>
 After docker-compose is up, you can access the application from the below link. 
