@@ -29,6 +29,8 @@
             ApplicationError
         }
 
+
+
         /// <summary>
         ///  Enum of user log types in the system
         /// </summary>
@@ -73,7 +75,7 @@
             PublicAuction,
             AuctionCompleted,
             InformalVoting,
-            FormalVoting,            
+            FormalVoting,
             Completed,
             Failed,
             Expired,
@@ -138,5 +140,15 @@
             Released
         }
 
+        /// <summary>
+        ///  Enum of userpayment status types
+        /// </summary>
+        public enum PaymentType
+        {
+            Pending,
+            Completed,
+            Cancelled,
+
+        }
     }
 }

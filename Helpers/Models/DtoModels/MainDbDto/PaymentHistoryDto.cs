@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using static Helpers.Constants.Enums;
 
 namespace Helpers.Models.DtoModels.MainDbDto
 {
@@ -15,5 +16,6 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public string IBAN { get; set; }
         public DateTime CreateDate { get; set; }
         public string Explanation { get; set; }
+        public PaymentType Status { get; set; }
     }
 }
