@@ -37,7 +37,7 @@ After setting up the environment, you can do the steps below to install and run.
 1. Under the project directory, open terminal and run: <br>
 
 ```shell
-docker-compose up –-build
+docker-compose up
 ```
 <br>
 The command will create:
@@ -93,7 +93,7 @@ The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be 
 ```
 
 <br>
-- At the same time, to try to perform RabbitMQ health checks: <br><br>
+- Disable the RabbitMQ health checks: <br><br>
 
 ```shell
 dao_votingengine:
