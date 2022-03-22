@@ -66,7 +66,7 @@ Enter the ServicesDAO_VotingEngine project file. In the terminal ``` code .``` w
 
 The docker-compose.yml file in the ServicesDAO_VotingEngine project needs to be edited. <br><br>
 
-- In order to avoid conflicts with Rabbitmq, some parts of the yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
+- In order to avoid conflicts with Rabbitmq, some parts of the docker-compose.yml file should be removed. Parts that need to be commented out to exclude from the project: <br>
 
 ```shell
 # dao_rabbitmq:
