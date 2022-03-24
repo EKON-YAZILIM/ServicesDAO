@@ -363,5 +363,33 @@ namespace DAO_DbService.Controllers
 
         }
 
+        [Route("ChangeStatusMulti")]
+        [HttpPost]
+        public List<PaymentHistoryDto> ChangeStatusMulti([FromBody] List<int> ids, Enums.PaymentType status)
+        {
+            List<PaymentHistoryDto> model = new List<PaymentHistoryDto>();
+
+            try
+            {
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    foreach (var item in db.PaymentHistories.Where(x => ids.Contains(x.PaymentHistoryID)))
+                    {
+                        item.Status = status;
+                        db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        db.SaveChanges();
+                        model.Add(_mapper.Map<PaymentHistory, PaymentHistoryDto>(item));
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return model;
+        }
+
     }
 }

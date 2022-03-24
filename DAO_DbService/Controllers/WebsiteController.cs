@@ -1126,6 +1126,7 @@ namespace DAO_DbService.Controllers
                                                      where payment.UserID == userid
                                                      select new UserPaymentHistoryItem
                                                      {
+                                                         PaymentHistoryId = payment.PaymentHistoryID,
                                                          Title = job.Title,
                                                          IBAN = payment.IBAN,
                                                          JobID = payment.JobID,
@@ -1133,7 +1134,9 @@ namespace DAO_DbService.Controllers
                                                          PaymentAmount = payment.Amount,
                                                          WalletAddress = payment.WalletAddress,
                                                          CreateDate = payment.CreateDate,
-                                                         Explanation = payment.Explanation
+                                                         Explanation = payment.Explanation,
+                                                         Status = payment.Status
+                                                         
                                                      }).ToList();
 
                     result.TotalAmount = result.UserPaymentHistoryList.Sum(x => x.PaymentAmount);
@@ -1168,6 +1171,7 @@ namespace DAO_DbService.Controllers
                                                      join user in db.Users on payment.UserID equals user.UserId
                                                      select new UserPaymentHistoryItem
                                                      {
+                                                         PaymentHistoryId = payment.PaymentHistoryID,
                                                          Title = job.Title,
                                                          IBAN = payment.IBAN,
                                                          JobID = payment.JobID,
@@ -1177,7 +1181,9 @@ namespace DAO_DbService.Controllers
                                                          CreateDate = payment.CreateDate,
                                                          Explanation = payment.Explanation,
                                                          NameSurname = user.NameSurname,
-                                                         UserName = user.UserName
+                                                         UserName = user.UserName,
+                                                         Status = payment.Status
+
                                                      }).ToList();
                 }
             }
