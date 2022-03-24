@@ -365,7 +365,7 @@ namespace DAO_DbService.Controllers
 
         [Route("ChangeStatusMulti")]
         [HttpPost]
-        public List<PaymentHistoryDto> ChangeStatusMulti([FromBody] List<int> ids, Enums.PaymentType status)
+        public List<PaymentHistoryDto> ChangeStatusMulti(List<int> ids, Enums.PaymentType status)
         {
             List<PaymentHistoryDto> model = new List<PaymentHistoryDto>();
 
@@ -373,14 +373,15 @@ namespace DAO_DbService.Controllers
             {
                 using (dao_maindb_context db = new dao_maindb_context())
                 {
-                    foreach (var item in db.PaymentHistories.Where(x => ids.Contains(x.PaymentHistoryID)))
+                    foreach (var item in db.PaymentHistories.Where(x => ids.Contains(x.PaymentHistoryID)).ToList())
                     {
-                        item.Status = status;
-                        db.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                        PaymentHistory pm = db.PaymentHistories.Find(item.PaymentHistoryID);
+                        pm.Status = status;               
                         db.SaveChanges();
                         model.Add(_mapper.Map<PaymentHistory, PaymentHistoryDto>(item));
                     }
 
+                  
                 }
             }
             catch (Exception ex)
