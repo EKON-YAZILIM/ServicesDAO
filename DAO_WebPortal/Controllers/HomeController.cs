@@ -117,7 +117,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID")+ "&query=" + query, HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetUserJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID") + "&query=" + query, HttpContext.Session.GetString("Token"));
                 //Parse response
                 myJobsModel = Helpers.Serializers.DeserializeJson<MyJobsViewModel>(jobsJson);
             }
@@ -144,7 +144,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get jobs data from ApiGateway
-                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID")+ "&query=" + query + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
+                string jobsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAllJobs?status=" + status + "&userid=" + HttpContext.Session.GetInt32("UserID") + "&query=" + query + "&page=" + page + "&pageCount=" + pageCount, HttpContext.Session.GetString("Token"));
                 //Parse response
                 var jobsListPaged = Helpers.Serializers.DeserializeJson<PaginationEntity<JobPostViewModel>>(jobsJson);
 
@@ -208,7 +208,7 @@ namespace DAO_WebPortal.Controllers
                     result.Message = "You must fill all the fields to post a job.";
                     return Json(result);
                 }
-                
+
                 //Create JobPost model
                 JobPostDto model = new JobPostDto() { UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Amount = amount, JobDescription = description, CreateDate = DateTime.Now, TimeFrame = time, LastUpdate = DateTime.Now, Title = title, Tags = tags, CodeUrl = codeurl, Status = Enums.JobStatusTypes.AdminApprovalPending };
 
@@ -232,8 +232,9 @@ namespace DAO_WebPortal.Controllers
                     {
                         TempData["toastr-message"] = result.Message;
                         TempData["toastr-type"] = "success";
-                    } catch (Exception) { }
-                    
+                    }
+                    catch (Exception) { }
+
 
                     return Json(result);
                 }
@@ -498,6 +499,7 @@ namespace DAO_WebPortal.Controllers
         public JsonResult DeleteComment(int CommentId)
         {
             SimpleResponse result = new SimpleResponse();
+
             try
             {
                 JobPostCommentDto model = new JobPostCommentDto();
@@ -507,6 +509,7 @@ namespace DAO_WebPortal.Controllers
                 //Parse result
                 model = Helpers.Serializers.DeserializeJson<JobPostCommentDto>(modelJson);
 
+
                 //Check if user trying to delete comment for another user
                 if (model.UserID != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")))
                 {
@@ -514,6 +517,17 @@ namespace DAO_WebPortal.Controllers
                 }
                 else
                 {
+
+                    //Check if this job entered voting phase. If yes user can't post comment anymore
+                    var informalVotingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetInformalVotingByJobId?jobid=" + model.JobID, HttpContext.Session.GetString("Token"));
+                    var informalVoting = Helpers.Serializers.DeserializeJson<VotingDto>(informalVotingJson);
+                    if (informalVoting != null && informalVoting.VotingID > 0)
+                    {
+                        result.Success = false;
+                        result.Message = "This job is in voting process or completed. Deleting comments are disabled.";
+                        return Json(result);
+                    }
+
                     model.Comment = "This comment is deleted by the owner.";
 
                     //Update comment as deleted        
@@ -941,7 +955,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get auctions from ApiGateway
-                var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions?query="+query, HttpContext.Session.GetString("Token"));
+                var auctionsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetAuctions?query=" + query, HttpContext.Session.GetString("Token"));
                 //Parse response
                 auctionsModel = Helpers.Serializers.DeserializeJson<List<AuctionViewModel>>(auctionsJson);
 
@@ -953,7 +967,7 @@ namespace DAO_WebPortal.Controllers
                 //Match users existing bids with auctions
                 foreach (var bid in bidsModel)
                 {
-                    if(auctionsModel.Count(x=>x.AuctionID == bid.AuctionID) > 0)
+                    if (auctionsModel.Count(x => x.AuctionID == bid.AuctionID) > 0)
                     {
                         var auction = auctionsModel.First(x => x.AuctionID == bid.AuctionID);
                         auction.UsersBidId = bid.AuctionBidID;
@@ -1062,17 +1076,17 @@ namespace DAO_WebPortal.Controllers
                     return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields." });
                 }
 
-                if(string.IsNullOrEmpty(Model.ResumeLink) && auction.Status == Enums.AuctionStatusTypes.PublicBidding)
+                if (string.IsNullOrEmpty(Model.ResumeLink) && auction.Status == Enums.AuctionStatusTypes.PublicBidding)
                 {
                     return Json(new SimpleResponse { Success = false, Message = "Please fill the necessary fields." });
                 }
 
                 //Check if referrer exists
-                if(!string.IsNullOrEmpty(Model.Referrer))
+                if (!string.IsNullOrEmpty(Model.Referrer))
                 {
                     string userRefJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetByUsername?username=" + Model.Referrer, HttpContext.Session.GetString("Token"));
                     var userRef = Helpers.Serializers.DeserializeJson<UserDto>(userRefJson);
-                    if(userRef == null || userRef.UserId <= 0)
+                    if (userRef == null || userRef.UserId <= 0)
                     {
                         return Json(new SimpleResponse { Success = false, Message = "Referrer username could not be found." });
                     }
@@ -1080,7 +1094,8 @@ namespace DAO_WebPortal.Controllers
 
                 int time = 0;
                 bool timeParsed = int.TryParse(Model.Time, out time);
-                if (timeParsed == false || time <= 0){
+                if (timeParsed == false || time <= 0)
+                {
                     return Json(new SimpleResponse { Success = false, Message = "Timeframe must be positive integer." });
                 }
 
@@ -1264,11 +1279,11 @@ namespace DAO_WebPortal.Controllers
                         UserReputationStakeDto stake = new UserReputationStakeDto() { UserID = auctionBid.UserId, Amount = auctionBid.Price * Program._settings.ReputationConversionRate, CreateDate = DateTime.Now, Type = StakeType.Mint, ReferenceID = auction.JobID, ReferenceProcessID = auction.JobID, Status = ReputationStakeStatus.Staked };
 
                         //If winner is external user and doesnt want to get onboarded as VA.
-                        if(auctionBid.VaOnboarding == false && userModel.UserType == Enums.UserIdentityType.Associate.ToString())
+                        if (auctionBid.VaOnboarding == false && userModel.UserType == Enums.UserIdentityType.Associate.ToString())
                         {
                             stake.Amount = auctionBid.Price * Program._settings.DefaultPolicingRate * Program._settings.ReputationConversionRate;
                         }
-                        
+
                         //Post model to ApiGateway
                         string mintJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/SubmitStake", Helpers.Serializers.SerializeJson(stake), HttpContext.Session.GetString("Token"));
                         //Parse response
@@ -1389,7 +1404,7 @@ namespace DAO_WebPortal.Controllers
                     }
 
                     //For simple votes job poster and job doer is equal
-                    if(voting.JobDoerUserID == 0) voting.JobDoerUserID = voting.JobOwnerUserID;
+                    if (voting.JobDoerUserID == 0) voting.JobDoerUserID = voting.JobOwnerUserID;
                 }
 
                 //Get user's available reputation and save it to session to show in vote modal
@@ -1523,7 +1538,7 @@ namespace DAO_WebPortal.Controllers
                 VotingDto informalVoting = new VotingDto();
                 informalVoting.JobID = jobid;
                 informalVoting.StartDate = DateTime.Now;
-                if(winnerBid.VaOnboarding == false && userModel.UserType == Enums.UserIdentityType.Associate.ToString())
+                if (winnerBid.VaOnboarding == false && userModel.UserType == Enums.UserIdentityType.Associate.ToString())
                 {
                     //Job doer wont earn any reputations
                     informalVoting.PolicingRate = 1;
@@ -1684,21 +1699,21 @@ namespace DAO_WebPortal.Controllers
                     string userJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Users/GetByUsername?username=" + model.vausername, HttpContext.Session.GetString("Token"));
                     var userObj = Helpers.Serializers.DeserializeJson<UserDto>(userJson);
 
-                    if(userObj == null || userObj.UserId <= 0)
+                    if (userObj == null || userObj.UserId <= 0)
                     {
                         result.Success = false;
                         result.Message = "Could not find a user with this username.";
                         return Json(result);
                     }
 
-                    model.title = "New VA Onboarding ("+model.vausername+")";
-                    model.description = model.vausername+" has indicated his interest and willingness to serve as a VA. In accordance with DAO policy, "+model.vausername+" is herewith proposed as a voting associate.";
+                    model.title = "New VA Onboarding (" + model.vausername + ")";
+                    model.description = model.vausername + " has indicated his interest and willingness to serve as a VA. In accordance with DAO policy, " + model.vausername + " is herewith proposed as a voting associate.";
                 }
 
                 if (model.type == "governance")
                 {
                     model.title = "Governance Vote (DAO Variables)";
-                    model.description = "Variables listed below will be applied to DAO"+Environment.NewLine+Environment.NewLine+ JsonConvert.SerializeObject(model.settings, Formatting.Indented);
+                    model.description = "Variables listed below will be applied to DAO" + Environment.NewLine + Environment.NewLine + JsonConvert.SerializeObject(model.settings, Formatting.Indented);
                 }
 
                 //Empty fields control
@@ -1724,7 +1739,7 @@ namespace DAO_WebPortal.Controllers
                     informalVoting.StartDate = DateTime.Now;
                     informalVoting.PolicingRate = Program._settings.DefaultPolicingRate;
                     informalVoting.QuorumRatio = Program._settings.QuorumRatio;
-                    if(model.type == "governance")
+                    if (model.type == "governance")
                     {
                         informalVoting.Type = Enums.VoteTypes.Governance;
                     }
@@ -1813,7 +1828,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get reputation history data from ApiGateway
-                string repsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetByUserIdDate?userid=" + HttpContext.Session.GetInt32("UserID")+"&start="+start.ToString()+"&end="+end.ToString(), HttpContext.Session.GetString("Token"));
+                string repsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetByUserIdDate?userid=" + HttpContext.Session.GetInt32("UserID") + "&start=" + start.ToString() + "&end=" + end.ToString(), HttpContext.Session.GetString("Token"));
                 //Parse response
                 List<UserReputationHistoryDto> model = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(repsJson);
 
@@ -1821,7 +1836,7 @@ namespace DAO_WebPortal.Controllers
                 sb.AppendLine("Date;Title;Explanation;Earned Amount;Lost Amount; Staked Total; Usable Total; Cumulative Total");
                 foreach (var item in model.OrderByDescending(x => x.Date))
                 {
-                    sb.AppendLine(item.Date + ";" + item.Title + ";" + item.Explanation + ";" + item.EarnedAmount + ";"  + item.LostAmount + ";"  + item.LastStakedTotal + ";" + item.LastUsableTotal + ";" + item.LastTotal);
+                    sb.AppendLine(item.Date + ";" + item.Title + ";" + item.Explanation + ";" + item.EarnedAmount + ";" + item.LostAmount + ";" + item.LastStakedTotal + ";" + item.LastUsableTotal + ";" + item.LastTotal);
                 }
 
                 byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString()); ;
@@ -1874,9 +1889,8 @@ namespace DAO_WebPortal.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("ProfileUpdate")]
-        public JsonResult ProfileUpdate(string image, IFormFile File)
+        public JsonResult ProfileUpdate(string image, string walletAddress, string ibanAddress, IFormFile File)
         {
-            SimpleResponse result = new SimpleResponse();
 
             try
             {
@@ -1888,6 +1902,7 @@ namespace DAO_WebPortal.Controllers
                     //If custom image uploaded
                     if (File != null)
                     {
+
                         var file = File;
                         var ext = (Path.GetExtension(file.FileName).ToLower());
 
@@ -1911,6 +1926,9 @@ namespace DAO_WebPortal.Controllers
                         modeluser.ProfileImage = Path.GetFileName(image);
                     }
 
+                    modeluser.IBAN = ibanAddress;
+                    modeluser.WalletAddress = walletAddress;
+
                     //Update user  
                     var updatemodel = Helpers.Serializers.DeserializeJson<UserDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/Users/Update", Helpers.Serializers.SerializeJson(modeluser), HttpContext.Session.GetString("Token")));
 
@@ -1919,11 +1937,17 @@ namespace DAO_WebPortal.Controllers
                         Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User updated their profile photo.", Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                         HttpContext.Session.SetString("ProfileImage", modeluser.ProfileImage);
+
+
+                        TempData["toastr-message"] = "Save changes successful.";
+                        TempData["toastr-type"] = "success";
+
+
                         return Json(new SimpleResponse { Success = true, Message = "Save changes successful." });
                     }
                 }
 
-                return Json(result);
+                return Json(new SimpleResponse { Success = false, Message = "Profile Updated Failed." });
             }
             catch (Exception ex)
             {
@@ -2134,6 +2158,34 @@ namespace DAO_WebPortal.Controllers
             return View(model);
         }
 
+
+        /// <summary>
+        ///  All Payment History view
+        /// </summary>
+        /// <returns></returns>
+        [Route("Payment-History-Admin")]
+        public IActionResult Payment_History_Admin()
+        {
+            ViewBag.Title = "Payment History";
+
+            PaymentHistoryViewModel model = new PaymentHistoryViewModel();
+
+            try
+            {
+                //Get payment history data from ApiGateway
+                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/AllPaymentHistory", HttpContext.Session.GetString("Token"));
+                //Parse response
+                model = Helpers.Serializers.DeserializeJson<PaymentHistoryViewModel>(paymentsJson);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return View(model);
+        }
+
+
         /// <summary>
         ///  Exports payment history to csv
         /// </summary>
@@ -2143,7 +2195,7 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get payment history data from ApiGateway
-                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?userid=" + HttpContext.Session.GetInt32("UserID")+"&start="+start.ToString()+"&end="+end.ToString(), HttpContext.Session.GetString("Token"));
+                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?userid=" + HttpContext.Session.GetInt32("UserID") + "&start=" + start.ToString() + "&end=" + end.ToString(), HttpContext.Session.GetString("Token"));
                 //Parse response
                 List<PaymentExport> model = Helpers.Serializers.DeserializeJson<List<PaymentExport>>(paymentsJson);
 
@@ -2151,7 +2203,7 @@ namespace DAO_WebPortal.Controllers
                 sb.AppendLine("JobID;Job Name;Job Post Date;Payment Date;Job Poster;Job Doer;Bid Price;Payment Amount");
                 foreach (var item in model.OrderByDescending(x => x.paymentHistory.CreateDate))
                 {
-                    sb.AppendLine(item.job.JobID + ";" + item.job.Title + ";" + item.job.CreateDate + ";" + item.paymentHistory.CreateDate + ";"  + item.JobPosterUsername + ";"  + item.JobDoerUsername + ";" + item.winnerBid.Price + ";" + item.paymentHistory.Amount);
+                    sb.AppendLine(item.job.JobID + ";" + item.job.Title + ";" + item.job.CreateDate + ";" + item.paymentHistory.CreateDate + ";" + item.JobPosterUsername + ";" + item.JobDoerUsername + ";" + item.winnerBid.Price + ";" + item.paymentHistory.Amount);
                 }
 
                 byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString()); ;
@@ -2387,6 +2439,7 @@ namespace DAO_WebPortal.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [AuthorizeAdmin]
         [Route("DaoVariablesPost")]
         public JsonResult DaoVariablesPost(PlatformSettingDto model)
         {
@@ -2693,6 +2746,48 @@ namespace DAO_WebPortal.Controllers
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
 
+        [HttpPost]
+        [AuthorizeAdmin]
+        public JsonResult ChangePaymentStatusMulti(List<int> idList)
+        {
+            SimpleResponse result = new SimpleResponse();
+
+            try
+            {
+                //Post model to ApiGateway
+                string jsonResult = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ChangeStatusMulti?status="+Enums.PaymentType.Completed, Helpers.Serializers.SerializeJson(idList), HttpContext.Session.GetString("Token"));
+                //Parse result
+                List<PaymentHistoryDto> resultParsed = Helpers.Serializers.DeserializeJson<List<PaymentHistoryDto>>(jsonResult);
+
+                if (resultParsed != null)
+                {
+                    result.Success = true;
+                    result.Message = "Status changed successfully.";
+
+                    //Set server side toastr because page will be redirected
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "success";
+
+                    Startup.LoadDaoSettings(null, null);
+                }
+                else
+                {
+                    result.Success = false;
+                    result.Message = "Error occured while changing Status variables.";
+
+                    TempData["toastr-message"] = result.Message;
+                    TempData["toastr-type"] = "warning";
+                }
+
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
         #endregion
 
         #region  VA Directory

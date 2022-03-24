@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DAO_WebPortal</name>
+    </assembly>
+    <members>
+        <member name="T:DAO_WebPortal.Controllers.HomeController">
+            <summary>
+             Controller for views and actions
+            </summary>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Index">
+            <summary>
+            Dashboard Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.My_Jobs(System.Nullable{Helpers.Constants.Enums.JobStatusTypes})">
+            <summary>
+            User's Job Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.All_Jobs(System.Nullable{Helpers.Constants.Enums.JobStatusTypes},System.Int32,System.Int32)">
+            <summary>
+            All Jobs Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.New_Job">
+            <summary>
+            New Job Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.New_Job_Post(System.String,System.Double,System.String,System.String,System.String,System.String)">
+            <summary>
+             New job post registration function
+            </summary>
+            <param name="title">Title</param>
+            <param name="amount">Amount</param>
+            <param name="time">Time</param>
+            <param name="description">Description</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.My_Job_Edit(System.Int32)">
+            <summary>
+             Job Edit Page
+            </summary>
+            <param name="Job">Job Id</param>     
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.My_Job_Update(Helpers.Models.DtoModels.MainDbDto.JobPostDto)">
+            <summary>
+            Edit user Job post 
+            </summary>
+            <param name="Model">JobPostDto Model</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Job_Detail(System.Int32)">
+            <summary>
+            Job Detail Page
+            </summary>
+            <param name="JobID">Job Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.AddNewComment(System.Int32,System.Int32,System.String)">
+            <summary>
+            Add new comment
+            </summary>
+            <param name="JobId">Job id</param>
+            <param name="CommentId">Main comment id</param>
+            <param name="Comment">Comment</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.DeleteComment(System.Int32)">
+            <summary>
+            Delete user comment and comments upvote and downvote
+            </summary>
+            <param name="CommentId">JobPostCommentID</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.UpVote(System.Int32)">
+            <summary>
+            Comment upvote function
+            </summary>
+            <param name="JobPostCommentId">JobPostCommentId</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.DownVote(System.Int32)">
+            <summary>
+            Comment downvote function
+            </summary>
+            <param name="JobPostCommentId">JobPostCommentId</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.FlagJob(System.Int32,System.String)">
+            <summary>
+            Inserts flag comment to the job
+            </summary>
+            <param name="jobid">Job id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.RemoveFlag(System.Int32)">
+            <summary>
+            Removes flag comment from the job
+            </summary>
+            <param name="jobid">Job id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Auctions">
+            <summary>
+            Auctions Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.My_Bids">
+            <summary>
+            My Bids Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Auction_Detail(System.Int32)">
+            <summary>
+            Auction Detail Page
+            </summary>
+            <param name="AuctionID">Auction Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Auction_Bid_Add(Helpers.Models.DtoModels.MainDbDto.AuctionBidDto)">
+            <summary>
+            Add new bid for auction
+            </summary>
+            <param name="Model">AuctionBidDto Model</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Auction_Bid_Delete(System.Int32)">
+            <summary>
+            Delete Auction Bid
+            </summary>
+            <param name="id">Auction Bid ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.ChooseWinnerBid(System.Int32)">
+            <summary>
+             This method chooses winner bid and changes the status of the auction as completed. 
+             Only job poster is authorized to call the method
+            </summary>
+            <param name="bidId"></param>
+            <param name="auctionId"></param>
+            <param name="jobid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.GetVaReputationChart">
+            <summary>
+            Returns data for reputation pie chart in the payment policy confirmation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Votings">
+            <summary>
+            Votes Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Vote_Detail(System.Int32)">
+            <summary>
+            Vote Detail Page
+            </summary>
+            <param name="VoteID">Vote Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.StartInformalVoting(System.Int32)">
+            <summary>
+             Job Edit Page
+            </summary>
+            <param name="Job">Job Id</param>     
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.SubmitVote(System.Int32,Helpers.Constants.Enums.StakeType,System.Nullable{System.Double})">
+            <summary>
+             User submit vote action.
+            </summary>
+            <param name="VotingID"></param>
+            <param name="Direction"></param>
+            <param name="ReputationStake"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Reputation_History">
+            <summary>
+            User Reputation History Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.User_Profile">
+            <summary>
+            User Profile Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.ProfileUpdate(System.String,Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+             Profile save changes action
+            </summary>
+            <param name="image"></param>
+            <param name="File"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.ResizeImage(System.Byte[],System.Double,System.Double)">
+            <summary>
+             Resize uploaded profile image
+            </summary>
+            <param name="data">Image as byte array</param>
+            <param name="w">Expected width</param>
+            <param name="h">Expected height</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.KYC_Verification">
+            <summary>
+            User KYC Verification Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.UploadKYCDoc(Helpers.Models.KYCModels.KYCFileUpload)">
+            <summary>
+             Submits form data for the KYC verification
+            </summary>
+            <param>User information</param>
+            <returns>Generic Simple Response class</returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.PayDosFee(System.Int32)">
+            <summary>
+             Public user pay dos fee action
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Payment_History">
+            <summary>
+             Payment History view
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.AdminJobApproval(System.Int32)">
+            <summary>
+             Approves job with "AdminApprovalPending" status
+            </summary>
+            <param name="JobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.AdminJobDisapproval(System.Int32)">
+            <summary>
+             Disapproves job with "AdminApprovalPending" status
+            </summary>
+            <param name="JobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Dao_Variables">
+            <summary>
+             This view shows global parameters of the DAO
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.DaoVariablesPost(Helpers.Models.DtoModels.MainDbDto.PlatformSettingDto)">
+            <summary>
+             DAO Variables save changes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Users_List(System.Int32,System.Int32)">
+            <summary>
+             This view shows users of the DAO
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.UserSearch(System.String)">
+            <summary>
+             Finds user info from query
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Reputation_Logs(System.Int32,System.Int32)">
+            <summary>
+             This view shows reputation logs of the DAO
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.ReputationSearch(System.String)">
+            <summary>
+             Finds user reputations from user id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.Application_Logs(System.Int32,System.Int32)">
+            <summary>
+             This view shows application logs of the DAO
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.RestartVoting(System.Int32)">
+            <summary>
+             Approves job with "AdminApprovalPending" status
+            </summary>
+            <param name="JobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.RestartAuction(System.Int32)">
+            <summary>
+             Approves job with "AdminApprovalPending" status
+            </summary>
+            <param name="JobId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.New_Simple_Vote">
+            <summary>
+            New Simple Vote Page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.HomeController.New_SimpleVote_Post(System.String,System.String)">
+            <summary>
+             New simple vote post function
+            </summary>
+            <param name="title">Title</param>
+            <param name="description">Description</param>
+            <returns></returns>
+        </member>
+        <member name="T:DAO_WebPortal.Controllers.PublicController">
+            <summary>
+             Controller for public views and public actions
+            </summary>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.Login(System.String,System.String,System.String)">
+            <summary>
+             User login function
+            </summary>
+            <param name="email">User's email or username</param>
+            <param name="password">User's password</param>
+            <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.Register(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+             New user registration function
+            </summary>
+            <param name="email">Email</param>
+            <param name="username">Username</param>
+            <param name="namesurname">Name Surname</param>
+            <param name="password">Password</param>
+            <param name="repass">Password confirmation</param>
+            <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.RegisterCompleteView(System.String)">
+            <summary>
+            Completes user registration from activation link in the confirmation email
+            </summary>
+            <param name="str">Encrypted user information in the registration email</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.ResetPassword(System.String,System.String)">
+            <summary>
+            Sends password reset email to user's email
+            </summary>
+            <param name="email">User's email</param>
+            <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.ResetPasswordView(System.String)">
+            <summary>
+            Opens password reset model from 
+            </summary>
+            <param name="str">Encrypted user information in the password reset email</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.ResetPasswordComplete(System.String,System.String,System.String)">
+            <summary>
+            Sets user new password
+            </summary>
+            <param name="newpass">New password</param>
+            <param name="newpassagain">New password confirmation</param>
+            <param name="usercode">Captcha code (Needed after 3 failed requests)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.Logout">
+            <summary>
+            User logout function
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.SubmitContactForm(System.String,System.String,System.String,System.String)">
+            <summary>
+             Sends user's message as email to system admins
+            </summary>
+            <param name="namesurname">User's name surname</param>
+            <param name="email">User's email</param>
+            <param name="message">User's message</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.GetCaptchaImage(System.String)">
+            <summary>
+            Creates captcha image for public forms
+            This method is called after 3 failed requests
+            </summary>
+            <param name="code">Captcha code</param>
+            <returns>Captcha image</returns>
+        </member>
+        <member name="M:DAO_WebPortal.Controllers.PublicController.KycCallBack(Helpers.Models.KYCModels.KYCCallBack)">
+            <summary>
+            KYC call back function
+            </summary>
+            <param name="Response"></param>
+        </member>
+        <member name="T:DAO_WebPortal.Resources.Lang">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ConnectionError">
+            <summary>
+              Looks up a localized string similar to Could not receive response from the server..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.EmailError">
+            <summary>
+              Looks up a localized string similar to Please enter an e-mail address registered in the system..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Error">
+            <summary>
+              Looks up a localized string similar to Error.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ErrorMailMsg">
+            <summary>
+              Looks up a localized string similar to There is an existing account with this email address..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ErrorNote">
+            <summary>
+              Looks up a localized string similar to An error occurred while proccesing your request..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ErrorPasswordMsg">
+            <summary>
+              Looks up a localized string similar to The password must contain at least 8 characters and contain 1 digit 1 lowercase 1 uppercase..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ErrorUserMsg">
+            <summary>
+              Looks up a localized string similar to There is an existing account with this Username..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.ErrorUsernamePassword">
+            <summary>
+              Looks up a localized string similar to Username or password is wrong..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.IncorrectPassReset">
+            <summary>
+              Looks up a localized string similar to Incorrect password reset request..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Login_AggreeTerms">
+            <summary>
+              Looks up a localized string similar to I agree your terms and conditions.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Login_CheckTermsError">
+            <summary>
+              Looks up a localized string similar to Please confirm user agreement..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Login_ForgotPassword">
+            <summary>
+              Looks up a localized string similar to Forgot password?.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Login_RememberMe">
+            <summary>
+              Looks up a localized string similar to Remember me.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Login_SignInTitle">
+            <summary>
+              Looks up a localized string similar to Sign In.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.LoginViewTitle">
+            <summary>
+              Looks up a localized string similar to Welcome to ServicesDAO.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.NotCompatiblePass">
+            <summary>
+              Looks up a localized string similar to Passwords entered are not compatible..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.PasswordResetSuccess">
+            <summary>
+              Looks up a localized string similar to Password reset link sent to your email..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.RegisterComplete">
+            <summary>
+              Looks up a localized string similar to Registration completed. You can sign in with your email/username and password..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.RegisterEmailSent">
+            <summary>
+              Looks up a localized string similar to Please confirm your account from your email..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.RegisterEmailTitle">
+            <summary>
+              Looks up a localized string similar to Welcome to ServicesDAO.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.RenewExpired">
+            <summary>
+              Looks up a localized string similar to This password renewal request has expired..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.SecureNote">
+            <summary>
+              Looks up a localized string similar to Enter security code.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.Successful">
+            <summary>
+              Looks up a localized string similar to Success.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.SuccessLogin">
+            <summary>
+              Looks up a localized string similar to Login successful..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.UnauthorizedAccess">
+            <summary>
+              Looks up a localized string similar to You are unauthorized to perform this action..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.UnexpectedError">
+            <summary>
+              Looks up a localized string similar to An unexpected error has occurred. Please try again later.
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.UpdatePassword">
+            <summary>
+              Looks up a localized string similar to Your password has been updated. You can sign in with your new password..
+            </summary>
+        </member>
+        <member name="P:DAO_WebPortal.Resources.Lang.WrongErrorCodeEntered">
+            <summary>
+              Looks up a localized string similar to Incorrect security code entry..
+            </summary>
+        </member>
+        <member name="M:DAO_WebPortal.Startup.LoadConfig(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+             Loads application config from appsettings.json
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:DAO_WebPortal.Startup.InitializeService">
+            <summary>
+             Initializes application (Db migrations, connection check, timer construction)
+            </summary>
+        </member>
+        <member name="M:DAO_WebPortal.Startup.LoadDaoSettings">
+            <summary>
+             Loads platform settings from db if exists.
+            </summary>
+        </member>
+        <member name="T:DAO_WebPortal.Utility.Captcha">
+            <summary>
+             Captcha class for generating captcha control for public inputs
+            </summary>
+        </member>
+        <member name="T:DAO_WebPortal.Utility.IpHelper">
+            <summary>
+             IpHelper class for extracting client ip and port from HttpContext object.
+            </summary>
+        </member>
+        <member name="M:DAO_WebPortal.Utility.IpHelper.GetClientIpAddress(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+             Get client IP address from HttpContext object
+            </summary>
+            <param name="context">HttpContext object</param>
+            <returns>Client IP Address</returns>
+        </member>
+        <member name="M:DAO_WebPortal.Utility.IpHelper.GetClientPort(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+             Get client port from HttpContext object
+            </summary>
+            <param name="context">HttpContext object</param>
+            <returns>Client port</returns>
+        </member>
+        <member name="M:DAO_WebPortal.Utility.StringHelper.ShortenString(System.String,System.Int32)">
+            <summary>
+             Method for shortening strings in narrow spaces like tables and cards etc.
+            </summary>
+            <param name="text">Input text</param>
+            <param name="length">Desired length</param>
+            <returns></returns>
+        </member>
+        <member name="M:DAO_WebPortal.Utility.StringHelper.AnonymizeReputation(System.Nullable{System.Double})">
+            <summary>
+             Used for hiding user's reputation and converting it to a range to provide anonymity
+            </summary>
+            <param name="text">Input text</param>
+            <param name="length">Desired length</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

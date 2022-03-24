@@ -17,7 +17,7 @@
         <div class="card mb-3">
             <!-- Job Card -->
             <partial name="../Shared/_JobCardPartial.cshtml" model="Model.JobPostWebsiteModel" />
-            
+
             <!-- Comments footer -->
             <div id="commentsx" class="card-footer collapse show">
                 <div id="comments" class="comment-thread">
@@ -107,18 +107,17 @@
                                         }
                                     </div>
                                     <div class="comment-info">
-                                        <a href="#" class="comment-author">@commentItem.UserName</a> 
-                                        @if(commentItem.UserReputation != null && commentItem.UserReputation > 0)
+                                        <a href="#" class="comment-author">@commentItem.UserName</a>
+                                        @if (commentItem.UserReputation != null && commentItem.UserReputation > 0)
                                         {
                                             <small class="mx-1">@Convert.ToInt32(commentItem.UserReputation) reps</small>
                                         }
                                         <p class="m-0">
-                                            @commentItem.Date.ToShortDateString() @commentItem.Date.ToShortTimeString()                                 
+                                            @commentItem.Date.ToShortDateString() @commentItem.Date.ToShortTimeString()
                                         </p>
                                     </div>
                                 </div>
                                 <!-- Heading -->
-                                
                                 <!-- Comment body -->
                                 <div class="comment-body">
 
@@ -174,26 +173,26 @@
 
                                     @if (commentItem.IsUsersComment == true && commentItem.Comment != "This comment is deleted by the owner.")
                                     {
-                                        <a onclick="DeleteComment(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp" id="delete_@commentItem.JobPostCommentID">
-                                            <svg class="icon">
-                                                <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
-                                            </svg> Delete
-                                        </a>
+
+                                           <a onclick="DeleteComment(@commentItem.JobPostCommentID);" class="card-text me-2 cA cursorp" id="delete_@commentItem.JobPostCommentID">
+                                                <svg class="icon">
+                                                    <use xlink:href="/Home/images/svg/free.svg#cil-trash"></use>
+                                                </svg> Delete
+                                           </a>      
                                     }
 
 
-                                @if (Convert.ToBoolean(commentItem.IsFlagged) == true)
-                                {
-                                   <span class="card-text me-2 text-danger">
-                                        <svg class="icon">
-                                            <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
-                                        </svg> This comment is flagged
-                                   </span>
-                                }
+                                    @if (Convert.ToBoolean(commentItem.IsFlagged) == true)
+                                    {
+                                        <span class="card-text me-2 text-danger">
+                                            <svg class="icon">
+                                                <use xlink:href="/Home/images/svg/free.svg#cil-flag-alt"></use>
+                                            </svg> This comment is flagged
+                                        </span>
+                                    }
 
                                 </div>
 
-                                <!-- Comment body -->
                                 <div class="replies">
                                     @{
                                         if (Model.JobPostCommentModel.Count(x => x.SubCommentID == commentItem.JobPostCommentID) > 0)
@@ -207,9 +206,7 @@
                     }
                 }
             </div>
-
         </div>
-
     </div>
 </div>
 
@@ -353,7 +350,6 @@
                         $(e).html('Reply');
                 }
             });
-
         }
 
         //Delete Comment

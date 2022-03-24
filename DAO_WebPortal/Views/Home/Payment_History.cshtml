@@ -66,11 +66,11 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">JobId</th>
                                     <th scope="col">Job Title</th>
                                     <th scope="col">Payment Amount</th>
                                     <th scope="col">Explanation</th>
-                                    @* <th scope="col">IBAN</th>
-                                    <th scope="col">CSPR Address</th> *@
+                                    <th scope="col">Payment Status</th>
                                     <th scope="col">Date</th>
                                 </tr>
                             </thead>
@@ -78,12 +78,12 @@
                                 @foreach (var item in Model.UserPaymentHistoryList)
                                 {
                                     <tr>
+                                        <th>@item.PaymentHistoryId</th>
                                         <th>@item.JobID</th>
                                         <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                         <td>@Math.Round(item.PaymentAmount,2) €</td>
                                         <td>@item.Explanation</td>
-                                        @* <td>@item.IBAN</td>
-                                        <td>@item.WalletAddress</td> *@
+                                        <td>@item.Status</td>
                                         <td>@item.CreateDate</td>
                                     </tr>
                                 }

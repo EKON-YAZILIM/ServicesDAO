@@ -10,11 +10,11 @@
 <!-- Row -->
 <div class="row d-flex mb-3">
     <div class="col-md-8 d-flex">
-    <div class="input-group"  style="height: 30px;">
-        <span class="input-group-text"><i class="fas fa-search"></i></span>
-        <input class="form-control" id="jobQueryFilter" type="text" placeholder="Search job title">
-    </div>  
-    <div class="input-group mb-2 ms-2 float-right" style="max-width: 280px;">
+        <div class="input-group" style="height: 30px;">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+            <input class="form-control" id="jobQueryFilter" type="text" placeholder="Search job title">
+        </div>
+        <div class="input-group mb-2 ms-2 float-right" style="max-width: 280px;">
             <span class="input-group-text"><i class="fas fa-filter"></i></span>
             <select class="form-select" id="jobStatusSelect">
                 <option value="*" selected>All Jobs</option>
@@ -53,7 +53,6 @@
                     <partial name="../Shared/_JobCardPartial.cshtml" model="item" />
                 </div>
             }
-
         }
         else
         {
@@ -62,6 +61,7 @@
 
     </div>
 </div>
+
 
 @section Scripts{
 
@@ -76,7 +76,7 @@
                     $(obj).attr("href", $(obj).attr("href") + "&status=" + getQueryParameter("status"))
                 });
             }
-           
+
             //Check if text filter exists
             if (getQueryParameter("query") != null && getQueryParameter("query") != "") {
                 $("#jobQueryFilter").val(getQueryParameter("query"));
@@ -93,9 +93,9 @@
             });
 
             //Search filter enter keypress event
-            $("#jobQueryFilter").on('keypress',function(e) {
-                if(e.which == 13) {
-                    window.location.href = "../My-Jobs?query=" + $("#jobQueryFilter").val() + "&status="+ $('#jobStatusSelect').val();
+            $("#jobQueryFilter").on('keypress', function (e) {
+                if (e.which == 13) {
+                    window.location.href = "../My-Jobs?query=" + $("#jobQueryFilter").val() + "&status=" + $('#jobStatusSelect').val();
                 }
             });
 

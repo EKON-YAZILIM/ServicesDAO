@@ -7,14 +7,15 @@ function ShareJobPost() {
 function StartInformalVoting(JobId) {
     $.confirm({
         title: 'Confirmation',
-        content: '<b>Are you confirming that you submitted a valid evidence for job completion and start informal voting process ?</b>' +
-
+        content: '<b>Are you confirming that you submitted a valid evidence for job completion and start informal voting process ?</b>' +           
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm1"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that all results, work product, etc. associated with my bid and associated work product will be made available under an open-source license. I acknowledge that I am legally responsible to ensure that all parts of this project are open-source. </label></div>' +
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm2"><label class="form-check-label text-justify" for="flexCheckDefault">     I hereby declare that my bid and associated work product will benefit decentralization and open-source projects generally, pursuant to the mission statement of OSSA, which is to support open source and transparent scientific research of emerging technologies for community building by way of submitting grants to developers and scientists in Switzerland and abroad. </label></div>' +
-            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm3"><label class="form-check-label text-justify" for="flexCheckDefault">            I hereby declare that my bid and associated work product is in line with international transparency standards; will be published on Github under the CRDAO repo, and my team and I have sufficient qualifications, experience and capacity to actually finish my bid and associated work product. </label></div>' +
-            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm4"><label class="form-check-label text-justify" for="flexCheckDefault">    I hereby declare that I have not built tools and do not intend to build tools to attack the CRDAO and OSSA. </label></div>' +
-            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">   I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>'+
-            '<div class="comment-body mt-3"><textarea name="textarea-evidence" id="textarea-evidence" rows="3"></textarea><div class="d-flex justify-content-end mt-1"></div></div>',
+            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm3"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that my bid and associated work product is in line with international transparency standards; will be published on Github under the CRDAO repo, and my team and I have sufficient qualifications, experience and capacity to actually finish my bid and associated work product. </label></div>' +
+            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm4"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that I have not built tools and do not intend to build tools to attack the CRDAO and OSSA. </label></div>' +
+            '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>' +
+            '<div class="row mt-4" style="width:100%"><div class="col-md-6"><label>Pull Request Link:</label><input type="email" class="form-control" id="prLink" placeholder="Paste your reviews GitHub pull request link here."></div>' +
+            '<div class="form-group col-md-6"><label>Review Result:</label><select class="form-control" id="revResult"><option>PASS</option><option>PASS with Notes</option><option>FAIL</option></select></div></div>',
+
         columnClass: 'col-md-8 col-md-offset-2',
         buttons: {
             cancel: {
@@ -42,12 +43,15 @@ function StartInformalVoting(JobId) {
                     }
 
                     var token = $('input[name="__RequestVerificationToken"]', token).val();
-                    var comment = CKEDITOR.instances["textarea-evidence"].getData();
-        
-                    if (comment == "") {
-                        toastr.warning("Job evidence cannot be empty.");
+
+                    /*  var comment = CKEDITOR.instances["textarea-evidence"].getData();*/
+
+                    if ($('#prLink').val() == "") {
+                        toastr.warning("Pull request link cannot be empty.");
                         return;
                     }
+
+                    var comment = '<div><b>Recommendation:' + $('#revResult option:selected').text() + '</b><p>Pull Request Link: <a href="' + $('#prLink').val() + '">' + $('#prLink').val() + '</a></p></div>';
   
                     $.ajax({
                         type: "POST",
@@ -85,19 +89,6 @@ function StartInformalVoting(JobId) {
             }
         }
     });
-
-    setTimeout(() => {        
-        if (document.body.classList.contains('dark-theme')) {
-            CKEDITOR.replace("textarea-evidence", {
-                skin: 'moono-dark'
-            });
-        }
-        else {
-            CKEDITOR.replace("textarea-evidence", {
-                skin: 'moono-lisa'
-            });
-        }
-    }, 150);
 }
 
 selectedJobId = 0;

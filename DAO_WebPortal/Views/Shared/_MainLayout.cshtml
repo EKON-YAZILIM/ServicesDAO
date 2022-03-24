@@ -97,7 +97,7 @@
                     </svg> Voting
                 </a>
             </li>
-            
+
             @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
             {
                 <li class="nav-item">
@@ -116,13 +116,16 @@
                     </svg> Reputation History
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Payment-History">
-                    <svg class="nav-icon">
-                        <use xlink:href="/Home/images/svg/free.svg#cil-wallet"></use>
-                    </svg> Payment History
-                </a>
-            </li>
+            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") != Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
+            {
+                <li class="nav-item">
+                    <a class="nav-link" href="../Payment-History">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-wallet"></use>
+                        </svg> Payment History
+                    </a>
+                </li>
+            }
 
 
             <li class="nav-item">
@@ -144,6 +147,15 @@
                         </svg>Users List
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../Payment-History-Admin">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-wallet"></use>
+                        </svg> Payment History
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="../Application-Logs">
                         <svg class="nav-icon">
