@@ -27,5 +27,7 @@ namespace Helpers.Models.WebsiteViewModels
         public string JobDoerUsername { get; set; }
         public double? WinnerBidPrice { get; set; }
         public int? EligibleUserCount { get; set; }
+        public double? StakedForInformal { get; set; }
+        public double? StakedAgainstInformal { get; set; }
     }
 }

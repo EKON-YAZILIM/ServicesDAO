@@ -182,6 +182,8 @@ namespace DAO_WebPortal
                 }
 
                 Program._settings.VAOnboardingSimpleVote = settings.VAOnboardingSimpleVote;        
+
+                Program._settings.DistributePaymentWithoutVote = settings.DistributePaymentWithoutVote;   
             }
         }
 

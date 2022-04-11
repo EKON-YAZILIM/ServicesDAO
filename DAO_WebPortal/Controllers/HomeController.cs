@@ -2195,15 +2195,21 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get payment history data from ApiGateway
-                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?userid=" + HttpContext.Session.GetInt32("UserID") + "&start=" + start.ToString() + "&end=" + end.ToString(), HttpContext.Session.GetString("Token"));
+                string url = Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?userid=" + HttpContext.Session.GetInt32("UserID") + "&start=" + start.ToString() + "&end=" + end.ToString();
+                //Get all users payments if user type is admin
+                if(HttpContext.Session.GetString("UserType") == Enums.UserIdentityType.Admin.ToString())
+                {
+                    url = Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?start=" + start.ToString() + "&end=" + end.ToString();
+                }
+                string paymentsJson = Helpers.Request.Get(url, HttpContext.Session.GetString("Token"));
                 //Parse response
                 List<PaymentExport> model = Helpers.Serializers.DeserializeJson<List<PaymentExport>>(paymentsJson);
 
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("JobID;Job Name;Job Post Date;Payment Date;Job Poster;Job Doer;Bid Price;Payment Amount");
+                sb.AppendLine("JobID;Job Name;Job Post Date;Payment Date;Job Poster;Job Doer;Bid Price;Payment User;Payment Amount");
                 foreach (var item in model.OrderByDescending(x => x.paymentHistory.CreateDate))
                 {
-                    sb.AppendLine(item.job.JobID + ";" + item.job.Title + ";" + item.job.CreateDate + ";" + item.paymentHistory.CreateDate + ";" + item.JobPosterUsername + ";" + item.JobDoerUsername + ";" + item.winnerBid.Price + ";" + item.paymentHistory.Amount);
+                    sb.AppendLine(item.job.JobID + ";" + item.job.Title + ";" + item.job.CreateDate + ";" + item.paymentHistory.CreateDate + ";" + item.JobPosterUsername + ";" + item.JobDoerUsername + ";" + item.winnerBid.Price+ ";" + item.PaymentUsername + ";" + item.paymentHistory.Amount);
                 }
 
                 byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString()); ;

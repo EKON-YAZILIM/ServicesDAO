@@ -28,3 +28,51 @@ requiredContent:"a{cke-xyz}","default":"",id:"advStyles",validate:CKEDITOR.dialo
 b[k];l=g.data("cke-saved-href");m=a.linkText&&q!=a.linkText;d=l==q;l="email"==a.type&&l=="mailto:"+q;g.setAttributes(h.set);g.removeAttributes(h.removed);if(m)e=a.linkText;else if(d||l)e="email"==a.type?a.email.address:h.set["data-cke-saved-href"];e&&g.setText(e);f.push(p(c,g))}c.getSelection().selectRanges(f);delete this._.selectedElements}else{b=n.getLinkAttributes(c,a);h=c.getSelection().getRanges();f=new CKEDITOR.style({element:"a",attributes:b.set});m=[];f.type=CKEDITOR.STYLE_INLINE;for(g=0;g<
 h.length;g++){d=h[g];d.collapsed?(e=new CKEDITOR.dom.text(a.linkText||("email"==a.type?a.email.address:b.set["data-cke-saved-href"]),c.document),d.insertNode(e),d.selectNodeContents(e)):q!==a.linkText&&(e=new CKEDITOR.dom.text(a.linkText,c.document),d.shrink(CKEDITOR.SHRINK_TEXT),c.editable().extractHtmlFromRange(d),d.insertNode(e));e=d._find("a");for(k=0;k<e.length;k++)e[k].remove(!0);f.applyToRange(d,c);m.push(d)}c.getSelection().selectRanges(m)}},onLoad:function(){c.config.linkShowAdvancedTab||
 this.hidePage("advanced");c.config.linkShowTargetTab||this.hidePage("target")},onFocus:function(){var a=this.getContentElement("info","linkType");a&&"url"==a.getValue()&&(a=this.getContentElement("info","url"),a.select())}}})})();
+
+/* Here we are latching on an event ... in this case, the dialog open event */
+
+CKEDITOR.on('dialogDefinition', function(ev) {
+
+    try {
+
+        /* this just gets the name of the dialog */
+
+var dialogName = ev.data.name;
+
+/* this just gets the contents of the opened dialog */
+
+var dialogDefinition = ev.data.definition;
+
+ 
+
+/* Make sure that the dialog opened is the link plugin ... otherwise do nothing */
+
+if(dialogName == 'link') {
+
+    /* Getting the contents of the Target tab */
+
+    var informationTab = dialogDefinition.getContents('target');
+
+    /* Getting the contents of the dropdown field "Target" so we can set it */
+
+    var targetField = informationTab.get('linkTargetType');
+
+    /* Now that we have the field, we just set the default to _blank
+
+    A good modification would be to check the value of the URL field
+
+    and if the field does not start with "mailto:" or a relative path,
+
+    then set the value to "_blank" */
+
+    targetField['default'] = '_blank';
+
+}
+
+    } catch(exception) {
+
+        alert('Error ' + ev.message);
+
+    }
+
+});

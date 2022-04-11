@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static DAO_DbService.Mapping.AutoMapperBase;
+using System.Text;
 
 namespace DAO_DbService.Controllers
 {
@@ -1072,6 +1073,9 @@ namespace DAO_DbService.Controllers
                            join actbid in db.AuctionBids on pAuction.AuctionID equals actbid.AuctionID into auctionbid
                            from pAuctionBid in auctionbid.DefaultIfEmpty(new AuctionBid() { AuctionBidID = 0, Price = 0 })
 
+                           let stakedForInformal = (voting.IsFormal && model.Count(x=>x.JobID == job.JobID && x.IsFormal == false) > 0) ? model.First(x=>x.JobID == job.JobID).StakedFor : null
+                           let stakedAgainstInformal = (voting.IsFormal && model.Count(x=>x.JobID == job.JobID && x.IsFormal == false) > 0) ? model.First(x=>x.JobID == job.JobID).StakedAgainst : null
+
                            where (status == null || voting.Status == status) && (pUser == null || pAuctionBid.UserID == pUser.UserId)
                            orderby voting.CreateDate descending
                            select new VotingViewModel
@@ -1092,7 +1096,9 @@ namespace DAO_DbService.Controllers
                                JobOwnerUserID = job.UserID,
                                JobDoerUsername = pUser.UserName,
                                WinnerBidPrice = pAuctionBid.Price,
-                               EligibleUserCount = voting.EligibleUserCount
+                               EligibleUserCount = voting.EligibleUserCount,
+                               StakedForInformal = stakedForInformal,
+                               StakedAgainstInformal =  stakedAgainstInformal
                            }).ToList();
                 }
             }
@@ -1192,6 +1198,62 @@ namespace DAO_DbService.Controllers
                 Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
             }
             return result;
+        }
+
+
+        [Route("ExportCompletedJobs")]
+        [HttpGet]
+        public string ExportCompletedJobs()
+        {
+            StringBuilder result = new StringBuilder();
+            result.AppendLine("JobID;Job Name;Job Poster;Formal Vote Completion;Job Doer;Bid Amount");
+            try
+            {
+
+                string votingsJson = Helpers.Request.Get(Program._settings.Voting_Engine_Url + "/Voting/GetVotingByStatus?status="+Helpers.Constants.Enums.VoteStatusTypes.Completed.ToString());
+                List<VotingDto> votingmodel = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingsJson);
+
+                using (dao_maindb_context db = new dao_maindb_context())
+                {
+                    var users = db.Users.ToList();
+                    var jobs = (from job in db.JobPosts
+                                       join user in db.Users on job.UserID equals user.UserId
+                                       join auction in db.Auctions on job.JobID equals auction.JobID
+                                       join auctionbid in db.AuctionBids on auction.AuctionID equals auctionbid.AuctionID
+                                       let count = db.JobPostComments.Count(x => x.JobID == job.JobID)
+                                       let explanation = job.JobDescription.Substring(0, 250)              
+                                       where auctionbid.AuctionBidID == auction.WinnerAuctionBidID &&
+                                       job.Status == Enums.JobStatusTypes.Completed
+                                       select new JobPostViewModel
+                                       {
+                                           Title = job.Title,
+                                           JobPosterUserName = user.NameSurname,
+                                           CreateDate = job.CreateDate,
+                                           JobDescription = explanation,
+                                           LastUpdate = job.LastUpdate,
+                                           JobID = job.JobID,
+                                           Status = job.Status,
+                                           Amount = auctionbid.Price,
+                                           CommentCount = count,
+                                           JobDoerUserID = job.JobDoerUserID,
+                                           DosFeePaid = job.DosFeePaid,
+                                           JobPosterUserID = job.UserID,
+                                           CodeUrl = job.CodeUrl,
+                                           Tags = job.Tags,
+                                           TimeFrame = job.TimeFrame
+                                       }).ToList();
+
+                    foreach (var item in jobs)
+                    {
+                        result.AppendLine(item.JobID+";"+item.Title + ";" +item.JobPosterUserName + ";"+votingmodel.Last(x=>x.JobID == item.JobID && x.IsFormal == true).EndDate+";"+users.First(x=>x.UserId == item.JobDoerUserID).NameSurname+";"+item.Amount);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, Enums.LogTypes.ApplicationError, true);
+            }
+            return result.ToString();
         }
 
         #endregion
