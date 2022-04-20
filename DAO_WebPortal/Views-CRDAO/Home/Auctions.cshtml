@@ -35,10 +35,10 @@
         </ul>
     </div>
     <div class="col-md-6 d-flex justify-content-end">
-        <div class="input-group" style="height: 30px;max-width:350px">
+        <div class="input-group"  style="height: 30px;max-width:350px">
             <span class="input-group-text"><i class="fas fa-search"></i></span>
             <input class="form-control" id="jobQueryFilter" type="text" placeholder="Search job title">
-        </div>
+        </div>  
     </div>
 </div>
 
@@ -377,7 +377,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="input-group mb-3">
-                        <span class="input-group-text"> <i class="fas fa fa-business-time"></i></span>
+                         <span class="input-group-text"> <i class="fas fa fa-business-time"></i></span>
                         <input class="form-control number" type="text" aria-label="Time" placeholder="Expected Timeframe" id="time"><span class="input-group-text">days</span>
                     </div>
                 </div>
@@ -385,19 +385,19 @@
                 @if (userType == Enums.UserIdentityType.Associate.ToString())
                 {
                     <div class="mb-3">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text"> <i class="fab fa-github" style="font-size:21px"></i></span>
+                         <div class="input-group mb-3">
+                             <span class="input-group-text"> <i class="fab fa-github" style="font-size:21px"></i></span>
                             <input class="form-control" type="text" aria-label="githublink" placeholder="Github Profile Link" id="githublink">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <div class="input-group mb-3">
+                         <div class="input-group mb-3">
                             <span class="input-group-text"> <i class="fas fa fa-id-card" style="font-size:18px"></i></span>
                             <input class="form-control" type="text" aria-label="resumelink" placeholder="Professional Resume Link" id="resumelink">
                         </div>
                     </div>
                     <div class="mb-3">
-                        <div class="input-group mb-3">
+                         <div class="input-group mb-3">
                             <span class="input-group-text"> <i class="fas fa fa-user-check"></i></span>
                             <input class="form-control" type="text" aria-label="referrer" placeholder="Referrer Username (Optional)" id="referrer">
                         </div>
@@ -456,7 +456,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <p class="text-justify font-sm pb-3">The Bidder acknowledges and agrees that any Fee deposited in an escrow smart contract with the CRDAO and to be released upon completion of the Task in accordance with <a href="../Public/ossagtc.pdf" target="_blank">Section 4.4</a> will not be allocated in full to the Bidder having completed the Task, but will be distributed and allocated by CRDAO in accordance with the distribution mechanism of Minimum Viable Protocol Requirements for “Blockchain Infrastructure for Measuring Domain Specific Reputation in Autonomous Decentralized and Anonymous Systems” as described in this paper (<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3125822;</a> accessed December 20, 2021) (hereinafter “MVPR”). <br><br> <b>Please note that once you become a member, you are automatically becoming part of every future distribution pro rata to your reputation score</b></p>
-
+                        
                         <center class="pb-3">
                             <p class="text-center">Current Reputation Distribution Of Voting Associates</p>
                             <canvas class="chart" id="reputation-chart2" height="200"></canvas>
@@ -549,7 +549,7 @@
                 url: "../Home/GetVaReputationChart",
                 success: function (result) {
                     vareputations = result;
-
+                    
                     var pieChartOptions = {
                         responsive: false,
                         elements: {
@@ -571,7 +571,7 @@
                                 datasets: [{
                                     label: 'Reputation Distribution',
                                     data: result.values,
-                                    backgroundColor: [
+                                    backgroundColor: [                    
                                     'rgb(235, 154, 54, 0.65)',
                                     'rgb(235, 54, 154, 0.65)',
                                     'rgb(54, 210, 235, 0.65)',
@@ -595,7 +595,7 @@
                                 datasets: [{
                                     label: 'Reputation Distribution',
                                     data: result.values,
-                                    backgroundColor: [
+                                    backgroundColor: [                    
                                     'rgb(235, 154, 54, 0.65)',
                                     'rgb(235, 54, 154, 0.65)',
                                     'rgb(54, 210, 235, 0.65)',
@@ -620,7 +620,7 @@
                                 datasets: [{
                                     label: 'Payment Distribution',
                                     data: [@((1-Program._settings.DefaultPolicingRate)*100), @(Program._settings.DefaultPolicingRate*100)],
-                                    backgroundColor: [
+                                    backgroundColor: [                    
                                     'rgb(76, 66, 229, 0.65)',
                                     'rgb(235, 54, 154, 0.65)'
                                     ],
@@ -631,7 +631,6 @@
                     });
                 }
             });
-
 
             //Check if text filter exists
             if (getQueryParameter("query") != null && getQueryParameter("query") != "") {
@@ -650,6 +649,14 @@
                 $('.bidinputsm').val($(this).val());
                 CalculatePayment();
             });
+
+            //If user redirected from "Submit Bid" button in the job card
+            if(getQueryParameter("auctionid") != null)
+            {
+                setTimeout(function() {
+                    OpenPaymentConfirmation(parseInt(getQueryParameter("auctionid")), parseInt(getQueryParameter("jobid")));
+                }, 500);
+            }
         });
 
         //Send auctionIDs to CountDown function
@@ -763,7 +770,7 @@
                                 },
                                 success: function (result) {
                                     if (result.success) {
-                                        window.location.reload();
+                                        window.location = window.location.href.split("?")[0];
                                     }
                                     else {
                                         toastr.warning(result.message);
@@ -811,7 +818,7 @@
             if(selectedDirection == 0 || selectedDirection == 1)
             {
                 $("#VAOnboarding-Modal").modal("toggle");
-
+                
                 $("#AddBid-Modal").modal("toggle");
             }
             else
@@ -844,7 +851,7 @@
                                     },
                                     success: function (result) {
                                         if (result.success) {
-                                            window.location.reload();
+                                            window.location = window.location.href.split("?")[0];
                                         }
                                         else {
                                             toastr.warning(result.message);
@@ -869,7 +876,7 @@
                 }
             });
         }
-
+        
         //User VA Onboarding select function
         function SelectVAOption(direction) {
             selectedDirection = direction;
@@ -898,11 +905,11 @@
                     else{
                         totalreps += parseInt(vareputations.labels[i]) * parseInt(vareputations.values[i]);
                     }
-                }
+                }   
 
                 var initialrep = price * @Program._settings.ReputationConversionRate * (1 - @Program._settings.DefaultPolicingRate);
                 var ratio = parseFloat(initialrep / (totalreps + initialrep));
-
+                
                 $("#paymenttotal").html(parseFloat(price * ratio).toFixed(2) + " €");
             }
             else if(selectedDirection == 1)

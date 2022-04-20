@@ -166,6 +166,7 @@
                                     <th scope="col">Job Doer</th>
                                     <th scope="col">Time Left</th>
                                     <th scope="col">Quorum</th>
+                                    <th scope="col">Informal</th>
                                     <th scope="col">My Vote</th>
                                 </tr>
                             </thead>
@@ -199,6 +200,13 @@
                                                     <i data-toggle="tooltip" data-placement="top" title="Quorum not reached" class="fas fa-times-circle mr-2 text-danger"></i>
                                                 }
                                                 @item.VoteCount / @item.EligibleUserCount
+                                            </td>
+                                            <td> 
+                                                @{                                        
+                                                    double informalPerc = Math.Round(Convert.ToDouble(item.StakedForInformal) / Convert.ToDouble(item.StakedForInformal + item.StakedAgainstInformal) * 100, 2);
+                                                    <div><i class="fas fa-caret-up text-success font-lg"></i> <small>@informalPerc</small></div>
+                                                    <div><i class="fas fa-caret-down text-danger font-lg"></i> <small>@Math.Round(100-informalPerc,2)</small></div>
+                                                }                              
                                             </td>
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {
@@ -361,6 +369,7 @@
                                     <th scope="col">Job Price</th>
                                     <th scope="col">Job Doer</th>
                                     <th scope="col">Quorum</th>
+                                    <th scope="col">Informal</th>
                                     <th scope="col">My Vote</th>
                                     <th scope="col">Voting Result</th>
                                     <th scope="col"></th>
@@ -389,7 +398,13 @@
                                                 }
                                                  @item.VoteCount / @item.EligibleUserCount                                                
                                             </td>
-
+                                            <td>                                         
+                                                @{                                        
+                                                    double informalPerc = Math.Round(Convert.ToDouble(item.StakedForInformal) / Convert.ToDouble(item.StakedForInformal + item.StakedAgainstInformal) * 100, 2);
+                                                    <div><i class="fas fa-caret-up text-success font-lg"></i> <small>@informalPerc</small></div>
+                                                    <div><i class="fas fa-caret-down text-danger font-lg"></i> <small>@Math.Round(100-informalPerc,2)</small></div>
+                                                }
+                                            </td>
                                             @*User's Vote*@
                                             @if (item.UserVote == Helpers.Constants.Enums.StakeType.For)
                                             {

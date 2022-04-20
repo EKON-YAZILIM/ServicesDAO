@@ -632,7 +632,6 @@
                 }
             });
 
-
             //Check if text filter exists
             if (getQueryParameter("query") != null && getQueryParameter("query") != "") {
                 $("#jobQueryFilter").val(getQueryParameter("query"));
@@ -650,6 +649,14 @@
                 $('.bidinputsm').val($(this).val());
                 CalculatePayment();
             });
+
+            //If user redirected from "Submit Bid" button in the job card
+            if(getQueryParameter("auctionid") != null)
+            {
+                setTimeout(function() {
+                    OpenPaymentConfirmation(parseInt(getQueryParameter("auctionid")), parseInt(getQueryParameter("jobid")));
+                }, 500);
+            }
         });
 
         //Send auctionIDs to CountDown function
@@ -763,7 +770,7 @@
                                 },
                                 success: function (result) {
                                     if (result.success) {
-                                        window.location.reload();
+                                        window.location = window.location.href.split("?")[0];
                                     }
                                     else {
                                         toastr.warning(result.message);
@@ -844,7 +851,7 @@
                                     },
                                     success: function (result) {
                                         if (result.success) {
-                                            window.location.reload();
+                                            window.location = window.location.href.split("?")[0];
                                         }
                                         else {
                                             toastr.warning(result.message);

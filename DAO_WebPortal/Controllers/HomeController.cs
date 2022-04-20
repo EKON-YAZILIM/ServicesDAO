@@ -1200,7 +1200,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Release staked reputation for the bid.
-                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
+                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseStakesByType?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
                 //Post model to ApiGateway
                 var deleteBidResponse = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));
@@ -2794,6 +2794,32 @@ namespace DAO_WebPortal.Controllers
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
+        
+        /// <summary>
+        ///  Export completed jobs as CSV
+        /// </summary>
+        /// <returns></returns>
+        [AuthorizeAdmin]
+        public IActionResult ExportJobs()
+        {
+            try
+            {
+                //Get payment history data from ApiGateway
+                string url = Program._settings.Service_ApiGateway_Url + "/Db/Website/ExportCompletedJobs";
+                string jobsCsv = Helpers.Request.Get(url, HttpContext.Session.GetString("Token"));
+
+                byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(jobsCsv);
+
+                return File(fileBytes, "text/csv", "CRDAO Completed.csv");
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return File(new List<byte>().ToArray(), "text/csv", "CRDAO Completed Jobs.csv");
+        }
+
         #endregion
 
         #region  VA Directory

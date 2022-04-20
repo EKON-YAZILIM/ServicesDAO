@@ -385,20 +385,26 @@ namespace DAO_DbService
 
                 //Get reputations of voters who
                 var participatedUsers = reputations.Where(x => x.Type == Enums.StakeType.For || x.Type == Enums.StakeType.Against).ToList();
+                var allVAs =  db.Users.Where(x=>x.UserType == Enums.UserIdentityType.VotingAssociate.ToString()).Select(x=>x.UserId);
+
                 //Add job doer to list
                 participatedUsers.Add(new UserReputationStakeDto() { UserID = job.JobDoerUserID });
-                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(participatedUsers.Select(x => x.UserID)));
-                var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
+                var reputationsTotalJson = "";
+                var reputationsTotal = new List<UserReputationHistoryDto>();
 
                 List<int> userIds = new List<int>();
                 //Create Payment History model for dao members who participated into voting
                 if(lastSettings.DistributePaymentWithoutVote)
                 {
-                    userIds = db.Users.Where(x=>x.UserType == Enums.UserIdentityType.VotingAssociate.ToString()).Select(x=>x.UserId).ToList();
+                    userIds = allVAs.ToList();
+                    reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(allVAs.ToList()));
+                    reputationsTotal =Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
                 }
                 else
                 {
                     userIds = participatedUsers.GroupBy(x => x.UserID).Select(x=>x.Key).ToList();
+                    reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(participatedUsers.Select(x => x.UserID)));
+                    reputationsTotal =Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
                 }
 
                 foreach (var userId in userIds)
@@ -438,7 +444,7 @@ namespace DAO_DbService
                 //Get reputations of voters
                 var participatedUsers = reputations.Where(x => x.Type == Enums.StakeType.For || x.Type == Enums.StakeType.Against).ToList();
                 //Add job doer to list
-                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(forReps.Select(x => x.UserID)));
+                var reputationsTotalJson = Helpers.Request.Post(Program._settings.Service_Reputation_Url + "/UserReputationHistory/GetLastReputationByUserIds", Helpers.Serializers.SerializeJson(participatedUsers.Select(x => x.UserID)));
                 var reputationsTotal = Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
 
                 PlatformSettingController contr = new PlatformSettingController();
