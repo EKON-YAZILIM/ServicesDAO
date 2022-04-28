@@ -21,6 +21,7 @@ using static DAO_WebPortal.Program;
 using static Helpers.Constants.Enums;
 using Stripe;
 using System.Timers;
+using Westwind.AspNetCore.Markdown;
 
 namespace DAO_WebPortal
 {
@@ -226,6 +227,8 @@ namespace DAO_WebPortal
                 options.Cookie.IsEssential = true;
             });
 
+            services.AddMarkdown();
+            
             //services.AddHsts(options =>
             //{
             //    //options.MaxAge = TimeSpan.FromDays(100);
@@ -253,6 +256,8 @@ namespace DAO_WebPortal
             app.UseSession();
 
             app.UseStaticFiles();
+
+            app.UseMarkdown();
 
             //app.UseHttpsRedirection();
 

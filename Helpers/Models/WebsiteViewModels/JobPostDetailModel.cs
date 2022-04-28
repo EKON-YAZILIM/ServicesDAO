@@ -6,11 +6,13 @@ using System.Text;
 
 namespace Helpers.Models.WebsiteViewModels
 {
-   public class JobPostDetailModel
+    public class JobPostDetailModel
     {
         public JobPostViewModel JobPostWebsiteModel { get; set; }
         public List<JobPostCommentModel> JobPostCommentModel { get; set; }
         public AuctionDto Auction { get; set; }
         public AuctionBidDto WinnerBid { get; set; }
+
+        public string MarkdownHtmlContent { get; set; }
     }
 }

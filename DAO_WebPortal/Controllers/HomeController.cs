@@ -24,6 +24,7 @@ using Helpers.Models.KYCModels;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
+using Westwind.AspNetCore.Markdown;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -378,6 +379,20 @@ namespace DAO_WebPortal.Controllers
                 var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetByJobId?jobid=" + JobID, HttpContext.Session.GetString("Token"));
                 model.JobPostWebsiteModel.Voting = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingJson);
 
+
+                //Get review result comment if exists
+                // try
+                // {
+                //     if(model.JobPostCommentModel.Count(x=>x.IsPinned == true && x.Comment.Contains("Recommendation:") && x.Comment.Contains("Pull Request Link:")) > 0)
+                //     {
+                //         JobPostCommentModel reviewResultComment = model.JobPostCommentModel.First(x=>x.IsPinned == true && x.Comment.Contains("Recommendation:") && x.Comment.Contains("Pull Request Link:"));
+                //         string reviewLink = reviewResultComment.Comment.Split(Environment.NewLine)[1].Split(':')[1].Trim();
+                //         string html = Markdown.Parse(markdownText);
+                //     }
+                // }
+                // catch
+                // {
+                // }
             }
             catch (Exception ex)
             {
@@ -972,6 +987,13 @@ namespace DAO_WebPortal.Controllers
                         var auction = auctionsModel.First(x => x.AuctionID == bid.AuctionID);
                         auction.UsersBidId = bid.AuctionBidID;
                     }
+                }
+           
+                //Get user's available reputation and save it to session to show in vote modal
+                var reputationJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                if (!string.IsNullOrEmpty(reputationJson))
+                {
+                    HttpContext.Session.SetString("LastUsableReputation", Helpers.Serializers.DeserializeJson<UserReputationHistoryDto>(reputationJson).LastUsableTotal.ToString());
                 }
             }
             catch (Exception ex)
