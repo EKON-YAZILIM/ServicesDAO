@@ -98,7 +98,7 @@
                 </a>
             </li>
 
-            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
+            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString() || httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
             {
                 <li class="nav-item">
                     <a class="nav-link" href="../VA-Directory">

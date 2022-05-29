@@ -20,5 +20,6 @@ namespace Helpers.Models.WebsiteViewModels
         public string GithubLink { get; set; }
         public string ResumeLink { get; set; }
         public string Referrer { get; set; }
+        public bool VaOnboarding { get; set; }
     }
 }
