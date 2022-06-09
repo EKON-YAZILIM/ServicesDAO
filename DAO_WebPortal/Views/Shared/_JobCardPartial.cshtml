@@ -409,7 +409,6 @@
     <!-- Display "Start Informal Voting" button for job doer if auction is completed -->
     @if ((Model.Status == Helpers.Constants.Enums.JobStatusTypes.AuctionCompleted || Model.Status == Helpers.Constants.Enums.JobStatusTypes.Failed) && Model.JobDoerUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
-        <!-- New comment click -->
         <button onclick="StartInformalVoting(@Model.JobID);" class="btn btn-sm btn-primary btn-shine float-right">
             Start Informal Voting
         </button>
@@ -418,7 +417,6 @@
     <!-- Display "Submit KYC" button for job poster if auction is completed -->
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.KYCPending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
-        <!-- New comment click -->
         <button onclick="window.location.href='../KYC-Verification'" class="btn btn-sm btn-primary btn-shine float-right">
             Submit KYC
         </button>
@@ -427,7 +425,6 @@
     <!-- Display "Pay DoS Fee" button for job poster if auction is completed -->
     @if (Model.Status == Helpers.Constants.Enums.JobStatusTypes.DoSFeePending && Model.JobPosterUserID == httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
     {
-        <!-- New comment click -->
         <button onclick="PayDosFeeModal(@Model.JobID);" class="btn btn-sm btn-primary btn-shine float-right">
             Pay DoS Fee
         </button>
@@ -445,6 +442,24 @@
             </script>
         </form> *@
     }
+
+
+    <!-- Display "Submit Bid" button if auction continues -->
+    @if (Model.JobPosterUserID != httpContextAccessor.HttpContext.Session.GetInt32("UserID"))
+    {
+        if(
+            (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString() && Model.Status == Helpers.Constants.Enums.JobStatusTypes.InternalAuction) 
+            ||
+            (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Associate.ToString() && Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction) 
+        )
+        {
+            <!-- New bid click -->
+            <button onclick="window.location.href='../Auctions?auctionid=@Model.Auction.AuctionID&jobid=@Model.JobID'" class="btn btn-sm btn-primary btn-shine float-right">
+                Submit Bid
+            </button>
+        }
+    }
+
 </div> <!-- Footer -->
 
 

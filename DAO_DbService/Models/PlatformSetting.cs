@@ -27,6 +27,7 @@ namespace DAO_DbService.Models
         public double? ReputationConversionRate { get; set; }
         public bool VAOnboardingSimpleVote { get; set; }
         public double? SimpleVotingTime { get; set; }
-        public string SimpleVotingTimeType { get; set; }
+        public string SimpleVotingTimeType { get; set; }        
+        public bool DistributePaymentWithoutVote { get; set; }
     }
 }

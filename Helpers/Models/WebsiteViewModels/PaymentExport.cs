@@ -13,5 +13,6 @@ namespace Helpers.Models.WebsiteViewModels
         public PaymentHistoryDto paymentHistory { get; set;}
         public string JobDoerUsername {get;set;}
         public string JobPosterUsername {get;set;}
+        public string PaymentUsername {get;set;}
     }    
 }

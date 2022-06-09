@@ -56,6 +56,7 @@
                             <th scope="col">Github</th>
                             <th scope="col">Resume</th>
                             <th scope="col">Referrer</th>
+                            <th scope="col">VA Onboarding</th>
                             <th scope="col">User Note</th>
                             <th scope="col"></th>
                         </tr>
@@ -91,6 +92,7 @@
                                 <td class="@colClass"><a href="@item.GithubLink" target="_blank">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.GithubLink, 30)</a></td>
                                 <td class="@colClass"><a href="@item.ResumeLink" target="_blank">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.ResumeLink, 30)</a></td>
                                 <td class="@colClass">@item.Referrer</td>
+                                <td class="@colClass">@item.VaOnboarding</td>
                                 <td class="@colClass">                          
                                     @if (item.UserNote != null && item.UserNote.Length > 20)
                                     {

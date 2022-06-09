@@ -13,8 +13,8 @@ function StartInformalVoting(JobId) {
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm3"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that my bid and associated work product is in line with international transparency standards; will be published on Github under the CRDAO repo, and my team and I have sufficient qualifications, experience and capacity to actually finish my bid and associated work product. </label></div>' +
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm4"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that I have not built tools and do not intend to build tools to attack the CRDAO and OSSA. </label></div>' +
             '<div class="form-check m-2"><input class="form-check-input" type="checkbox" value="" id="checkConfirm5"><label class="form-check-label text-justify" for="flexCheckDefault">I hereby declare that I have not previously failed to fulfill my contractual obligations under an earlier bid and associated work product between myself and the CRDAO and OSSA.</label></div>' +
-            '<div class="row mt-4" style="width:100%"><div class="col-md-6"><label>Pull Request Link:</label><input type="email" class="form-control" id="prLink" placeholder="Paste your reviews GitHub pull request link here."></div>' +
-            '<div class="form-group col-md-6"><label>Review Result:</label><select class="form-control" id="revResult"><option>PASS</option><option>PASS with Notes</option><option>FAIL</option></select></div></div>',
+            '<div class="row p-3" style="width:100%"><div class="col-md-6"><b>Pull Request Link:</b><input type="email" class="form-control" id="prLink" placeholder="Paste your reviews GitHub pull request link here."></div>' +
+            '<div class="form-group col-md-6"><b>Review Result:</b><select class="form-control" id="revResult"><option>PASS</option><option>PASS with Notes</option><option>FAIL</option></select></div></div>',
 
         columnClass: 'col-md-8 col-md-offset-2',
         buttons: {
@@ -51,7 +51,7 @@ function StartInformalVoting(JobId) {
                         return;
                     }
 
-                    var comment = '<div><b>Recommendation:' + $('#revResult option:selected').text() + '</b><p>Pull Request Link: <a href="' + $('#prLink').val() + '">' + $('#prLink').val() + '</a></p></div>';
+                    var comment = '<div><b>Recommendation: ' + $('#revResult option:selected').text() + '</b><p>Pull Request Link: <a target="_blank" href="' + $('#prLink').val() + '">' + $('#prLink').val() + '</a></p></div>';
   
                     $.ajax({
                         type: "POST",

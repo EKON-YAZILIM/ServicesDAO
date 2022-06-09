@@ -75,7 +75,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.UserPaymentHistoryList)
+                                @foreach (var item in Model.UserPaymentHistoryList.OrderByDescending(x=>x.CreateDate))
                                 {
                                     <tr>
                                         <th>@item.PaymentHistoryId</th>
