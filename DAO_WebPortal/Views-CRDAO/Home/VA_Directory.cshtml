@@ -19,6 +19,7 @@
                         <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
+                                    <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">V% Total</th>
@@ -29,14 +30,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model)
+                                @{
+                                    int counter = 0;
+                                }
+                                @foreach (var item in Model.OrderBy(x=>x.DateBecameVA))
                                 {
+                                    counter ++;
                                     <tr>
+                                        <th>@counter</th>
                                         <th>@item.Name</th>
                                         <td>@item.Email</td>
-                                        <td>@item.VTotal</td>
-                                        <td>@item.VLastMonth</td>
-                                        <td>@item.VThisMonth</td>
+                                        <td>
+                                            @if(item.VTotal >= 100){
+                                                <span>100</span>
+                                            }
+                                            else{
+                                                <span>@item.VTotal</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if(item.VLastMonth >= 100){
+                                                <span>100</span>
+                                            }
+                                            else{
+                                                <span>@item.VLastMonth</span>
+                                            }
+                                        <td>
+                                            @if(item.VThisMonth >= 100){
+                                                <span>100</span>
+                                            }
+                                            else{
+                                                <span>@item.VThisMonth</span>
+                                            }
+                                        </td>
                                         <td>@item.TotalRep</td>
                                         <td>@item.DateBecameVA</td>
                                     </tr>

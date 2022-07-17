@@ -4,6 +4,7 @@
 }
 
 @model Helpers.Models.WebsiteViewModels.PaymentHistoryViewModel
+
 <!-- Export Modal  -->
 <div class="modal fade" id="csvModal" tabindex="-1" aria-labelledby="csvModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -35,7 +36,7 @@
             <div class="card-body" style="padding-left:95px">
                 <i class="fas fa-coins cardIcon"></i>
                 <h5 class="card-title mb-0">Total Payments</h5>
-                <h2 class="text-right mb-0">@Math.Round(Model.TotalAmount, 2)</h2>
+                <h2 class="text-right mb-0">@Math.Round(Model.TotalAmount,2)</h2>
             </div>
         </div>
     </div>
@@ -44,7 +45,7 @@
             <div class="card-body" style="padding-left:95px">
                 <i class="fas fa-coins cardIcon"></i>
                 <h5 class="card-title mb-0">Monthly Payments</h5>
-                <h2 class="text-right mb-0">@Math.Round(Model.LastMonthAmount, 2)</h2>
+                <h2 class="text-right mb-0">@Math.Round(Model.LastMonthAmount,2)</h2>
             </div>
         </div>
     </div>
@@ -53,8 +54,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">
-                <span class="small ms-1"><b style="line-height: 30px;">Payment History Table</b></span>
+            <div class="card-header">  
+                <span class="small ms-1"><b style="line-height: 30px;">Payment History Table</b></span>       
                 <button type="button" class="btn btn-primary btn-sm float-right text-white" onclick="ExportCsvModal();"><i class="fa fa-file-csv me-2"></i>CSV Export</button>
             </div>
             <div class="card-body p-0">
@@ -74,13 +75,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.UserPaymentHistoryList)
+                                @foreach (var item in Model.UserPaymentHistoryList.OrderByDescending(x=>x.CreateDate))
                                 {
                                     <tr>
                                         <th>@item.PaymentHistoryId</th>
                                         <th>@item.JobID</th>
                                         <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                        <td>@Math.Round(item.PaymentAmount, 2) €</td>
+                                        <td>@Math.Round(item.PaymentAmount,2) €</td>
                                         <td>@item.Explanation</td>
                                         <td>@item.Status</td>
                                         <td>@item.CreateDate</td>
@@ -101,11 +102,11 @@
 </div>
 @section Scripts{
     <script>
-        function ExportCsvModal() {
+        function ExportCsvModal(){
             $("#csvModal").modal("toggle");
         }
-        function ExportCsv() {
-            window.open("../Home/ExportPaymentHistoryCsv?start=" + $("#startdate").val() + "&end=" + $("#enddate").val(), '_blank').focus();
+        function ExportCsv(){
+            window.open("../Home/ExportPaymentHistoryCsv?start="+$("#startdate").val()+"&end="+$("#enddate").val(), '_blank').focus();
         }
-    </script>
+   </script>
 }

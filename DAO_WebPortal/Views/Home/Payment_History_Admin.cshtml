@@ -35,8 +35,9 @@
         <div class="card">
             <div class="card-header">
                 <span class="small ms-1"><b style="line-height: 30px;">Payment History Table</b></span>
-                <button type="button" class="btn btn-primary btn-sm float-right mx-2 text-white saveStatusBtn" onclick="saveChanges()"><i class="fas fa-save me-2"></i>Save Changes</button>
-                <button type="button" class="btn btn-primary btn-sm float-right text-white" onclick="ExportCsvModal();"><i class="fa fa-file-csv me-2"></i>CSV Export</button>
+                <button type="button" class="btn btn-primary btn-sm float-right mx-1 text-white saveStatusBtn" onclick="saveChanges()"><i class="fas fa-save me-2"></i>Save Changes</button>
+                <button type="button" class="btn btn-primary btn-sm float-right text-white mx-1" onclick="ExportCsvModal();"><i class="fa fa-file-csv me-2"></i>CSV Export</button>
+                 <button type="button" class="btn btn-primary btn-sm float-right text-white mx-1" onclick="ExportJobs();"><i class="fa fa-file-csv me-2"></i>Export Jobs</button>
             </div>
             <div class="card-body p-0">
                 @if (Model.UserPaymentHistoryList.Count > 0)
@@ -142,6 +143,10 @@
         }
         function ExportCsv() {
             window.open("../Home/ExportPaymentHistoryCsv?start=" + $("#startdate").val() + "&end=" + $("#enddate").val(), '_blank').focus();
+        }
+
+         function ExportJobs() {
+            window.open("../Home/ExportJobs", '_blank').focus();
         }
     </script>
 }

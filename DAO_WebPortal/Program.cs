@@ -77,6 +77,9 @@ namespace DAO_WebPortal
             //Time type for simple votings (Weeks, days, minutes)
             public string SimpleVotingTimeType { get; set; }
 
+            //If true -> All VAs get payment from completed jobs according to their total reputation without participation to the vote
+            public bool DistributePaymentWithoutVote { get; set; }
+
             //STRIPE PAYMENT INTEGRATION KEYS
             public string StripePublicKey { get; set; }
             public string StripePrivateKey { get; set; }

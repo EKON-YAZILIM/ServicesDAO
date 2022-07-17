@@ -24,6 +24,7 @@ using Helpers.Models.KYCModels;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
+using Westwind.AspNetCore.Markdown;
 
 namespace DAO_WebPortal.Controllers
 {
@@ -378,6 +379,20 @@ namespace DAO_WebPortal.Controllers
                 var votingJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Voting/Voting/GetByJobId?jobid=" + JobID, HttpContext.Session.GetString("Token"));
                 model.JobPostWebsiteModel.Voting = Helpers.Serializers.DeserializeJson<List<VotingDto>>(votingJson);
 
+
+                //Get review result comment if exists
+                // try
+                // {
+                //     if(model.JobPostCommentModel.Count(x=>x.IsPinned == true && x.Comment.Contains("Recommendation:") && x.Comment.Contains("Pull Request Link:")) > 0)
+                //     {
+                //         JobPostCommentModel reviewResultComment = model.JobPostCommentModel.First(x=>x.IsPinned == true && x.Comment.Contains("Recommendation:") && x.Comment.Contains("Pull Request Link:"));
+                //         string reviewLink = reviewResultComment.Comment.Split(Environment.NewLine)[1].Split(':')[1].Trim();
+                //         string html = Markdown.Parse(markdownText);
+                //     }
+                // }
+                // catch
+                // {
+                // }
             }
             catch (Exception ex)
             {
@@ -973,6 +988,13 @@ namespace DAO_WebPortal.Controllers
                         auction.UsersBidId = bid.AuctionBidID;
                     }
                 }
+           
+                //Get user's available reputation and save it to session to show in vote modal
+                var reputationJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationHistory/GetLastReputation?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
+                if (!string.IsNullOrEmpty(reputationJson))
+                {
+                    HttpContext.Session.SetString("LastUsableReputation", Helpers.Serializers.DeserializeJson<UserReputationHistoryDto>(reputationJson).LastUsableTotal.ToString());
+                }
             }
             catch (Exception ex)
             {
@@ -1200,7 +1222,7 @@ namespace DAO_WebPortal.Controllers
                 }
 
                 //Release staked reputation for the bid.
-                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseSingleStake?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
+                SimpleResponse releaseStakeResponse = Helpers.Serializers.DeserializeJson<SimpleResponse>(Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Reputation/UserReputationStake/ReleaseStakesByType?referenceID=" + id + "&reftype=" + Enums.StakeType.Bid, HttpContext.Session.GetString("Token")));
 
                 //Post model to ApiGateway
                 var deleteBidResponse = Helpers.Serializers.DeserializeJson<bool>(Helpers.Request.Delete(Program._settings.Service_ApiGateway_Url + "/Db/AuctionBid/Delete?id=" + id, HttpContext.Session.GetString("Token")));
@@ -2195,15 +2217,21 @@ namespace DAO_WebPortal.Controllers
             try
             {
                 //Get payment history data from ApiGateway
-                string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?userid=" + HttpContext.Session.GetInt32("UserID") + "&start=" + start.ToString() + "&end=" + end.ToString(), HttpContext.Session.GetString("Token"));
+                string url = Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?userid=" + HttpContext.Session.GetInt32("UserID") + "&start=" + start.ToString() + "&end=" + end.ToString();
+                //Get all users payments if user type is admin
+                if(HttpContext.Session.GetString("UserType") == Enums.UserIdentityType.Admin.ToString())
+                {
+                    url = Program._settings.Service_ApiGateway_Url + "/Db/PaymentHistory/ExportPaymentHistoryByDate?start=" + start.ToString() + "&end=" + end.ToString();
+                }
+                string paymentsJson = Helpers.Request.Get(url, HttpContext.Session.GetString("Token"));
                 //Parse response
                 List<PaymentExport> model = Helpers.Serializers.DeserializeJson<List<PaymentExport>>(paymentsJson);
 
                 StringBuilder sb = new StringBuilder();
-                sb.AppendLine("JobID;Job Name;Job Post Date;Payment Date;Job Poster;Job Doer;Bid Price;Payment Amount");
+                sb.AppendLine("JobID;Job Name;Job Post Date;Payment Date;Job Poster;Job Doer;Bid Price;Payment User;Payment Amount");
                 foreach (var item in model.OrderByDescending(x => x.paymentHistory.CreateDate))
                 {
-                    sb.AppendLine(item.job.JobID + ";" + item.job.Title + ";" + item.job.CreateDate + ";" + item.paymentHistory.CreateDate + ";" + item.JobPosterUsername + ";" + item.JobDoerUsername + ";" + item.winnerBid.Price + ";" + item.paymentHistory.Amount);
+                    sb.AppendLine(item.job.JobID + ";" + item.job.Title + ";" + item.job.CreateDate + ";" + item.paymentHistory.CreateDate + ";" + item.JobPosterUsername + ";" + item.JobDoerUsername + ";" + item.winnerBid.Price+ ";" + item.PaymentUsername + ";" + item.paymentHistory.Amount);
                 }
 
                 byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString()); ;
@@ -2788,6 +2816,32 @@ namespace DAO_WebPortal.Controllers
 
             return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
         }
+        
+        /// <summary>
+        ///  Export completed jobs as CSV
+        /// </summary>
+        /// <returns></returns>
+        [AuthorizeAdmin]
+        public IActionResult ExportJobs()
+        {
+            try
+            {
+                //Get payment history data from ApiGateway
+                string url = Program._settings.Service_ApiGateway_Url + "/Db/Website/ExportCompletedJobs";
+                string jobsCsv = Helpers.Request.Get(url, HttpContext.Session.GetString("Token"));
+
+                byte[] fileBytes = System.Text.Encoding.UTF8.GetBytes(jobsCsv);
+
+                return File(fileBytes, "text/csv", "CRDAO Completed.csv");
+            }
+            catch (Exception ex)
+            {
+                Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
+            }
+
+            return File(new List<byte>().ToArray(), "text/csv", "CRDAO Completed Jobs.csv");
+        }
+
         #endregion
 
         #region  VA Directory

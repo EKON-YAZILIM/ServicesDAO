@@ -98,7 +98,7 @@
                 </a>
             </li>
 
-            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString())
+            @if (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.VotingAssociate.ToString() || httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
             {
                 <li class="nav-item">
                     <a class="nav-link" href="../VA-Directory">
@@ -116,6 +116,7 @@
                     </svg> Reputation History
                 </a>
             </li>
+
             @if (httpContextAccessor.HttpContext.Session.GetString("UserType") != Helpers.Constants.Enums.UserIdentityType.Admin.ToString())
             {
                 <li class="nav-item">
@@ -141,18 +142,18 @@
                 <li class="nav-title">ADMIN PAGES</li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../Users-List">
-                        <svg class="nav-icon">
-                            <use xlink:href="/Home/images/svg/free.svg#cil-wc"></use>
-                        </svg>Users List
-                    </a>
-                </li>
-
-                <li class="nav-item">
                     <a class="nav-link" href="../Payment-History-Admin">
                         <svg class="nav-icon">
                             <use xlink:href="/Home/images/svg/free.svg#cil-wallet"></use>
                         </svg> Payment History
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../Users-List">
+                        <svg class="nav-icon">
+                            <use xlink:href="/Home/images/svg/free.svg#cil-wc"></use>
+                        </svg>Users List
                     </a>
                 </li>
 
@@ -304,7 +305,7 @@
     <script src="~/Home/lib/jquery-confirm/jquery-confirm.js"></script>
     <script src="~/Home/js/sorttable.js"></script>
     <script src="~/Home/lib/ckeditor/ckeditor.js"></script>
-    <script src="~/Home/js/daofunctions.js?v=1.0.2"></script>
+    <script src="~/Home/js/daofunctions.js?v=1.0.4"></script>
 
     <script>
 

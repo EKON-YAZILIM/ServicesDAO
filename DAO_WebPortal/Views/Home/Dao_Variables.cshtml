@@ -30,9 +30,9 @@
                     <tr>
                         <td>Forum KYC Required</td>
                         <td>
-                            <select class="form-control" id="ForumKYCRequired" value="@Program._settings.ForumKYCRequired">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
+                            <select class="form-control" id="ForumKYCRequired" value="@Convert.ToInt32(Program._settings.ForumKYCRequired)">
+                                <!option value="1" @(Program._settings.ForumKYCRequired == true ? "selected" : "")>True</!option>
+                                <!option value="-1" @(Program._settings.ForumKYCRequired == false ? "selected" : "")>False</!option>
                             </select>
                         </td>
                     </tr>
@@ -80,8 +80,8 @@
                         <td>VA Onboarding Simple Vote</td>
                         <td>
                             <select class="form-control" id="VAOnboardingSimpleVote" value="@Program._settings.VAOnboardingSimpleVote">
-                                <option value="1">True</option>
-                                <option value="0">False</option>
+                                <!option @(Program._settings.VAOnboardingSimpleVote == true ? "selected" : "") value="1">True</!option>
+                                <!option @(Program._settings.VAOnboardingSimpleVote == false ? "selected" : "")  value="-1">False</!option>
                             </select>
                         </td>
                     </tr>
@@ -96,6 +96,15 @@
                                 <!option @(Program._settings.SimpleVotingTimeType == "week" ? "selected" : "") value="week">Week</!option>
                                 <!option @(Program._settings.SimpleVotingTimeType == "day" ? "selected" : "") value="day">Day</!option>
                                 <!option @(Program._settings.SimpleVotingTimeType == "minute" ? "selected" : "") value="minute">Minute</!option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Payment Without Participation</td>
+                        <td>
+                            <select class="form-control" id="DistributePaymentWithoutVote" value="@Program._settings.DistributePaymentWithoutVote">
+                                <!option @(Program._settings.DistributePaymentWithoutVote == true ? "selected" : "")  value="1">True</!option>
+                                <!option @(Program._settings.DistributePaymentWithoutVote == false ? "selected" : "")  value="-1">False</!option>
                             </select>
                         </td>
                     </tr>
@@ -118,7 +127,8 @@
             var DefaultPolicingRate = parseFloat($('#DefaultPolicingRate').val());
             var MaxPolicingRate = parseFloat($('#MaxPolicingRate').val());
             var MinPolicingRate = parseFloat($('#MinPolicingRate').val());
-            var ForumKYCRequired = parseInt($('#ForumKYCRequired').val());
+            var ForumKYCRequired = false;
+            if(parseInt($('#ForumKYCRequired').val()) == 1) { ForumKYCRequired = true; }
             var QuorumRatio = parseFloat($('#QuorumRatio').val());
             var InternalAuctionTime = parseInt($('#InternalAuctionTime').val());
             var PublicAuctionTime = parseInt($('#PublicAuctionTime').val());
@@ -126,9 +136,12 @@
             var VotingTime = parseInt($('#VotingTime').val());
             var VotingTimeType = $('#VotingTimeType').val();
             var ReputationConversionRate = parseFloat($('#ReputationConversionRate').val());
-            var VAOnboardingSimpleVote = parseInt($('#VAOnboardingSimpleVote').val());
+            var VAOnboardingSimpleVote = false;
+            if(parseInt($('#VAOnboardingSimpleVote').val()) == 1) { VAOnboardingSimpleVote = true; }
             var SimpleVotingTime = parseInt($('#SimpleVotingTime').val());
             var SimpleVotingTimeType = $('#SimpleVotingTimeType').val();
+            var DistributePaymentWithoutVote = false;
+            if(parseInt($('#DistributePaymentWithoutVote').val()) == 1) { DistributePaymentWithoutVote = true; }
 
             $.confirm({
                 title: 'Confirmation',
@@ -162,6 +175,7 @@
                                         "VAOnboardingSimpleVote":VAOnboardingSimpleVote,
                                         "SimpleVotingTime": SimpleVotingTime,
                                         "SimpleVotingTimeType": SimpleVotingTimeType,
+                                        "DistributePaymentWithoutVote": DistributePaymentWithoutVote
                                     },
                                     success: function (result) {
                                         if (result.success) {
