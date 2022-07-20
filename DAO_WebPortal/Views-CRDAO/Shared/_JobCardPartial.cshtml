@@ -453,10 +453,13 @@
             (httpContextAccessor.HttpContext.Session.GetString("UserType") == Helpers.Constants.Enums.UserIdentityType.Associate.ToString() && Model.Status == Helpers.Constants.Enums.JobStatusTypes.PublicAuction) 
         )
         {
-            <!-- New bid click -->
-            <button onclick="window.location.href='../Auctions?auctionid=@Model.Auction.AuctionID&jobid=@Model.JobID'" class="btn btn-sm btn-primary btn-shine float-right">
-                Submit Bid
-            </button>
+            if(Model.AuctionBids.Count(x=>x.UserId == httpContextAccessor.HttpContext.Session.GetInt32("UserID")) == 0)
+            {
+                <!-- New bid click -->
+                <button onclick="window.location.href='../Auctions?auctionid=@Model.Auction.AuctionID&jobid=@Model.JobID'" class="btn btn-sm btn-primary btn-shine float-right">
+                    Submit Bid
+                </button>
+            }
         }
     }
 

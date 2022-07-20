@@ -2171,6 +2171,8 @@ namespace DAO_WebPortal.Controllers
                 string paymentsJson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/PaymentHistoryByUserId?userid=" + HttpContext.Session.GetInt32("UserID"), HttpContext.Session.GetString("Token"));
                 //Parse response
                 model = Helpers.Serializers.DeserializeJson<PaymentHistoryViewModel>(paymentsJson);
+
+                model.UserPaymentHistoryList = model.UserPaymentHistoryList.OrderByDescending(x=>x.CreateDate).ToList();
             }
             catch (Exception ex)
             {
