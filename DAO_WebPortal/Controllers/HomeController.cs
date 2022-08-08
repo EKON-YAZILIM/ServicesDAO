@@ -220,8 +220,10 @@ namespace DAO_WebPortal.Controllers
 
                 if (model != null && model.JobID > 0)
                 {
-                    result.Success = true;
-                    result.Message = "Job posted successfully and will be available after admin review.";
+                    result = ApproveJob(model.JobID);
+
+                    // result.Success = true;
+                    // result.Message = "Job posted successfully and will be available after admin review.";
 
                     result.Content = model;
 
@@ -879,69 +881,73 @@ namespace DAO_WebPortal.Controllers
                 //Parse result
                 var JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(jobJson);
 
-                //Set status to FailRestart
-                JobModel.Status = JobStatusTypes.FailRestart;
-                JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
-
-                JobModel.Status = JobStatusTypes.InternalAuction;
-                JobModel.CreateDate = DateTime.Now;
-                JobModel.JobID = 0;
-
-                //Post model to ApiGateway
-                string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token"));
-
-                //Parse reponse
-                var model = Helpers.Serializers.DeserializeJson<JobPostDto>(jobPostResponseJson);
-
-                if (model != null && model.JobID > 0)
+                if (JobModel.UserID != Convert.ToInt32(HttpContext.Session.GetInt32("UserID")) && 
+                (JobModel.Status == Helpers.Constants.Enums.JobStatusTypes.Failed || JobModel.Status == Helpers.Constants.Enums.JobStatusTypes.Expired))
                 {
 
-                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User restarted job #" + jobid, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
-                    Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User added a new job (Restart) #" + model.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+                    //Set status to FailRestart
+                    JobModel.Status = JobStatusTypes.FailRestart;
+                    JobModel = Helpers.Serializers.DeserializeJson<JobPostDto>(Helpers.Request.Put(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Update", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token")));
 
-                    //Set auction end dates
-                    DateTime internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime);
-                    DateTime publicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
-
-                    if (Program._settings.AuctionTimeType == "week")
-                    {
-                        internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime * 7);
-                        publicAuctionEndDate = DateTime.Now.AddDays((Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime) * 7);
-                    }
-                    else if (Program._settings.AuctionTimeType == "minute")
-                    {
-                        internalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime);
-                        publicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
-                    }
-
-                    AuctionDto AuctionModel = new AuctionDto()
-                    {
-                        JobID = model.JobID,
-                        JobPosterUserId = model.UserID,
-                        CreateDate = DateTime.Now,
-                        Status = AuctionStatusTypes.InternalBidding,
-                        InternalAuctionEndDate = internalAuctionEndDate,
-                        PublicAuctionEndDate = publicAuctionEndDate
-                    };
+                    JobModel.Status = JobStatusTypes.InternalAuction;
+                    JobModel.CreateDate = DateTime.Now;
+                    JobModel.JobID = 0;
 
                     //Post model to ApiGateway
-                    //Add new auction
-                    AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+                    string jobPostResponseJson = Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/JobPost/Post", Helpers.Serializers.SerializeJson(JobModel), HttpContext.Session.GetString("Token"));
 
-                    if (AuctionModel != null && AuctionModel.AuctionID > 0)
+                    //Parse reponse
+                    var model = Helpers.Serializers.DeserializeJson<JobPostDto>(jobPostResponseJson);
+
+                    if (model != null && model.JobID > 0)
                     {
-                        result.Success = true;
-                        result.Message = "Restart successful. New job created and internal auction process started for the job.";
-                        result.Content = AuctionModel;
+
+                        Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User restarted job #" + jobid, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+                        Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User added a new job (Restart) #" + model.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
+
+                        //Set auction end dates
+                        DateTime internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime);
+                        DateTime publicAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+
+                        if (Program._settings.AuctionTimeType == "week")
+                        {
+                            internalAuctionEndDate = DateTime.Now.AddDays(Program._settings.InternalAuctionTime * 7);
+                            publicAuctionEndDate = DateTime.Now.AddDays((Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime) * 7);
+                        }
+                        else if (Program._settings.AuctionTimeType == "minute")
+                        {
+                            internalAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime);
+                            publicAuctionEndDate = DateTime.Now.AddMinutes(Program._settings.InternalAuctionTime + Program._settings.PublicAuctionTime);
+                        }
+
+                        AuctionDto AuctionModel = new AuctionDto()
+                        {
+                            JobID = model.JobID,
+                            JobPosterUserId = model.UserID,
+                            CreateDate = DateTime.Now,
+                            Status = AuctionStatusTypes.InternalBidding,
+                            InternalAuctionEndDate = internalAuctionEndDate,
+                            PublicAuctionEndDate = publicAuctionEndDate
+                        };
+
+                        //Post model to ApiGateway
+                        //Add new auction
+                        AuctionModel = Helpers.Serializers.DeserializeJson<AuctionDto>(Helpers.Request.Post(Program._settings.Service_ApiGateway_Url + "/Db/Auction/Post", Helpers.Serializers.SerializeJson(AuctionModel), HttpContext.Session.GetString("Token")));
+
+                        if (AuctionModel != null && AuctionModel.AuctionID > 0)
+                        {
+                            result.Success = true;
+                            result.Message = "Restart successful. New job created and internal auction process started for the job.";
+                            result.Content = AuctionModel;
+                        }
+
+                        //Set server side toastr because page will be redirected
+                        TempData["toastr-message"] = result.Message;
+                        TempData["toastr-type"] = "success";
+
+                        return Json(result);
                     }
-
-                    //Set server side toastr because page will be redirected
-                    TempData["toastr-message"] = result.Message;
-                    TempData["toastr-type"] = "success";
-
-                    return Json(result);
                 }
-
             }
             catch (Exception ex)
             {
@@ -2262,6 +2268,14 @@ namespace DAO_WebPortal.Controllers
         [HttpGet]
         public JsonResult AdminJobApproval(int JobId)
         {
+            SimpleResponse result = ApproveJob(JobId);
+
+
+            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+        }
+
+        public SimpleResponse ApproveJob(int JobId)
+        {
             SimpleResponse result = new SimpleResponse();
 
             try
@@ -2317,7 +2331,7 @@ namespace DAO_WebPortal.Controllers
                         result.Message = "There is an existing auction related with this job.";
                         result.Content = AuctionModel;
 
-                        return Json(result);
+                        return result;
                     }
 
                     //Post model to ApiGateway
@@ -2379,7 +2393,7 @@ namespace DAO_WebPortal.Controllers
                 TempData["toastr-message"] = result.Message;
                 TempData["toastr-type"] = "success";
 
-                return Json(result);
+                return result;
 
             }
             catch (Exception ex)
@@ -2387,7 +2401,8 @@ namespace DAO_WebPortal.Controllers
                 Program.monitizer.AddException(ex, LogTypes.ApplicationError, true);
             }
 
-            return Json(new SimpleResponse { Success = false, Message = Lang.ErrorNote });
+            return result;
+
         }
 
         /// <summary>
