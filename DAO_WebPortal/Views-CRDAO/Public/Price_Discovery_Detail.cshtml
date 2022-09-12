@@ -69,6 +69,8 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Username</th>
+                                        <th scope="col">Total Rep.</th>
+                                        <th scope="col">Staked Rep.</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Time (days)</th>
                                         <th scope="col">User Note</th>
@@ -85,6 +87,8 @@
                                             <th scope="row">@Count</th>
                                             <td>@item.NameSurname</td>
                                             <td>@item.UserName</td>
+                                            <td>@Math.Round(item.UsersTotalReputation,2)</td>
+                                            <td>@Math.Round(item.ReputationStake,5).ToString("F5").TrimEnd('0')</td>
                                             <td>@item.Price</td>
                                             <td>@item.Time</td>
                                             <td>

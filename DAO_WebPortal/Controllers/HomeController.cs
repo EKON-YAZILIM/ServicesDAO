@@ -412,15 +412,8 @@ namespace DAO_WebPortal.Controllers
         /// <param name="Comment">Comment</param>
         /// <returns></returns>
         [HttpPost]
-        [PreventDuplicateRequest]
-        [ValidateAntiForgeryToken]
         public JsonResult AddNewComment(int JobId, int CommentId, string Comment)
         {
-            if (!ModelState.IsValid)
-            {
-                return Json(new SimpleResponse { Success = false, Message = "Double post action prevented." });
-            }
-
             SimpleResponse result = new SimpleResponse();
 
             try
@@ -1555,6 +1548,16 @@ namespace DAO_WebPortal.Controllers
                     Program.monitizer.AddUserLog(Convert.ToInt32(HttpContext.Session.GetInt32("UserID")), Helpers.Constants.Enums.UserLogType.Request, "User tried to start informal voting for job that is not yours. Job #" + auction.JobID, Utility.IpHelper.GetClientIpAddress(HttpContext), Utility.IpHelper.GetClientPort(HttpContext));
 
                     return Json(new SimpleResponse { Success = false, Message = "User is not authorized to start informal voting for this job." });
+                }
+
+                //Check if job evidence is posted
+                int? userid = HttpContext.Session.GetInt32("UserID");
+                var commentsjson = Helpers.Request.Get(Program._settings.Service_ApiGateway_Url + "/Db/Website/GetJobComment?jobid=" + jobid + "&userid=" +  userid, HttpContext.Session.GetString("Token"));
+                //Parse response
+                var comments = Helpers.Serializers.DeserializeJson<List<JobPostCommentModel>>(commentsjson);
+                if(comments.Count(x=>x.UserID == userid && x.SubCommentID == 0) == 0)
+                {
+                     return Json(new SimpleResponse { Success = false, Message = "Please post a job completion evidence to start informal voting." });
                 }
 
                 //Get user model from ApiGateway
