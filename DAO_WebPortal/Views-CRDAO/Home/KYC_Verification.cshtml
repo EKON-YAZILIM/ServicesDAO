@@ -227,7 +227,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             </div>
                         </div>
                         <div class="gaps-4x"></div>
-                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('PASSPORT')">Upload Documents</button>
+                        <button class="btn btn-primary uploadBtn" type="button" onclick="UploadVerDoc('PASSPORT')">Upload Documents</button>
                         <div class="gaps-1x"></div>
                     </div>
                     <div class="tab-pane fade" id="national-card">
@@ -297,7 +297,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             </div>
                         </div>
                         <div class="gaps-4x"></div>
-                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('GOVERNMENT_ID')">Upload Documents</button>
+                        <button class="btn btn-primary uploadBtn" type="button" onclick="UploadVerDoc('GOVERNMENT_ID')">Upload Documents</button>
                         <div class="gaps-1x"></div>
                     </div>
                     <div class="tab-pane fade" id="driver-licence">
@@ -369,7 +369,7 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                             </div>
                         </div>
                         <div class="gaps-4x"></div>
-                        <button class="btn btn-primary" type="button" onclick="UploadVerDoc('DRIVERS_LICENSE')">Upload Documents</button>
+                        <button class="btn btn-primary uploadBtn" type="button" onclick="UploadVerDoc('DRIVERS_LICENSE')">Upload Documents</button>
                         <div class="gaps-1x"></div>
                     </div>
                 </div>
@@ -471,6 +471,8 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                 toastr.warning("Please fill in all required inputs.");
             }
             if (control) {
+                $(".uploadBtn").prop("disabled", true);
+                $(".uploadBtn").html('<i class="fas fa-circle-notch fa-spin"></i> Uploading Documents...');
 
                 $.ajax({
                     method: 'POST',
@@ -479,6 +481,9 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                     processData: false, // required for FormData with jQuery
                     contentType: false, // required for FormData with jQuery
                     success: function (result) {
+                        $(".uploadBtn").prop("disabled", false);
+                        $(".uploadBtn").html('Upload Documents');
+
                         console.log(result);
                         if (result.success) {
                             toastr.success(result.message);
@@ -491,10 +496,14 @@ else if (!Model.Status.Verified && Model.Status.KYCStatus == "completed")
                         }
                     },
                     failure: function (response) {
-                            toastr.warning("@Lang.ConnectionError");
+                        toastr.warning("@Lang.ConnectionError");        
+                        $(".uploadBtn").prop("disabled", false);
+                        $(".uploadBtn").html('Upload Documents');  
                     },
                     error: function (response) {
-                         toastr.error("@Lang.UnexpectedError");
+                        toastr.error("@Lang.UnexpectedError");
+                        $(".uploadBtn").prop("disabled", false);
+                        $(".uploadBtn").html('Upload Documents');
                     }
                 });
             }
