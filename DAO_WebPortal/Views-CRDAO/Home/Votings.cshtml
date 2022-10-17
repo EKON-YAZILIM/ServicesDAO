@@ -77,7 +77,7 @@
                                             <td>
                                                 @if(!string.IsNullOrWhiteSpace(item.JobDoerUsername))
                                                 {
-                                                    <span>@item.WinnerBidPrice</span>
+                                                    <span>@DAO_WebPortal.Utility.StringHelper.FormatPrice(item.WinnerBidPrice)</span>
                                                 } 
                                                 else{
                                                     <span>Simple Voting</span>
@@ -182,7 +182,7 @@
                                             <td>
                                                 @if(!string.IsNullOrWhiteSpace(item.JobDoerUsername))
                                                 {
-                                                    <span>@item.WinnerBidPrice</span>
+                                                    <span>@DAO_WebPortal.Utility.StringHelper.FormatPrice(item.WinnerBidPrice)</span>
                                                 } 
                                                 else{
                                                     <span>Simple Voting</span>
@@ -292,7 +292,7 @@
                                         <tr>
                                             <th>@item.JobID</th>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.WinnerBidPrice</td>
+                                            <td>@DAO_WebPortal.Utility.StringHelper.FormatPrice(item.WinnerBidPrice)</td>
                                             <td>@item.JobDoerUsername</td>
                                             <td>
                                                 @if(item.VoteCount >= item.QuorumCount)
@@ -385,7 +385,7 @@
                                         <tr>
                                             <th>@item.JobID</th>
                                             <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
-                                            <td>@item.WinnerBidPrice</td>
+                                            <td>@DAO_WebPortal.Utility.StringHelper.FormatPrice(item.WinnerBidPrice)</td>
                                             <td>@item.JobDoerUsername</td>
                                             <td>
                                                 @if(item.VoteCount >= item.QuorumCount)

@@ -35,8 +35,8 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Main styles for this application-->
-    <link href="~/Home/css/style.css?v=1.0.1" rel="stylesheet" />
-    <link href="~/Home/css/custom.css?v=1.0.4" rel="stylesheet" />
+    <link href="~/Home/css/style.css?v=1.0.2" rel="stylesheet" />
+    <link href="~/Home/css/custom.css?v=1.0.5" rel="stylesheet" />
 
     <!-- Library styles -->
     <link href="~/Home/lib/chartjs/css/coreui-chartjs.css" rel="stylesheet" />
@@ -336,12 +336,14 @@
                 if (typeof (element) != 'undefined' && element != null) {
                     document.getElementById('btn-dark-theme').checked = true;
                 }
+                $('html').addClass('htmlScroll');
             }
             else {
                 var element = document.getElementById('btn-light-theme');
                 if (typeof (element) != 'undefined' && element != null) {
                     document.getElementById('btn-light-theme').checked = true;
                 }
+                $('html').removeClass('htmlScroll');
             }
 
             //Display toastr message from server side
@@ -372,9 +374,11 @@
 
             if (src === 'light-theme') {
                 document.body.classList.remove('dark-theme');
+                $('html').removeClass('htmlScroll');
             }
             if (src === 'dark-theme') {
                 document.body.classList.add('dark-theme');
+                $('html').addClass('htmlScroll');
             }
             document.body.dispatchEvent(event);
             changeThemeCookie(src);

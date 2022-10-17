@@ -43,13 +43,35 @@ namespace DAO_WebPortal.Utility
 
             if(reputation >= 50 && reputation < 100) return "50-100";
 
-            if(reputation >= 100) return reputation.ToString()[0]+"00+";
+            if(reputation >= 100 && reputation < 1000) return reputation.ToString()[0]+"00+";
             
-            if(reputation >= 1000)return reputation.ToString()[0]+"000+";
+            if(reputation >= 1000 && reputation < 10000)return reputation.ToString()[0]+"000+";
 
             if(reputation >= 10000)return reputation.ToString()[0]+"0000+";
 
             return "10.000+";
+        }
+
+        public static string FormatPrice(double? price){
+
+           try
+           {
+                return Convert.ToDouble(price).ToString("N2");
+           }
+           catch
+           {
+
+           }
+
+            if(price == null) 
+            {
+                return "";
+            }
+            else
+            {
+                return price.ToString();
+            }
+
         }
     }
 }

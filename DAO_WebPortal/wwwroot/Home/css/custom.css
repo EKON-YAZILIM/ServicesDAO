@@ -47,8 +47,13 @@
     background-color: #494e64;
 }
 
-::-webkit-scrollbar {
-    width: 0px;
+.dark-theme ::-webkit-scrollbar {
+    width: 6px;
+    background-color: #494e64;
+}
+
+.htmlScroll ::-webkit-scrollbar {
+    width: 6px;
     background-color: #494e64;
 }
 

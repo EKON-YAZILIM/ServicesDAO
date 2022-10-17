@@ -33,7 +33,7 @@
 
                             <tr>
                                 <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.JobName, 25)</a></td>
-                                <td>@item.Price</td>
+                                <td>@DAO_WebPortal.Utility.StringHelper.FormatPrice(item.Price) €</td>
                                 <td>@item.Time</td>
                                 <td>@item.ReputationStake</td>
 

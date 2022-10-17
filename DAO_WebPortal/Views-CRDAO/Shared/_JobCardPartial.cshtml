@@ -82,7 +82,7 @@
                 <table class="table jobDetailTable">
                     <tr>
                         <td><i class="fas fa-coins me-2"></i><i>Job Poster's Budget</i></td>
-                        <td>@Model.Amount €</td>
+                        <td>@DAO_WebPortal.Utility.StringHelper.FormatPrice(Model.Amount) €</td>
                     </tr>
                     <tr>
                         <td><i class="fas fa-calendar me-2"></i><i>Time Frame</i></td>
