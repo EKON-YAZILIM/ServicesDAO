@@ -65,8 +65,25 @@
                                     <tr>
                                         <th>@item.PaymentHistoryId</th>
                                         <th>@item.JobID</th>
-                                        <th>@item.UserName</th>
-                                        <th>@item.NameSurname</th>
+                                        <th>
+                                            @if(!string.IsNullOrEmpty(item.UserName)) 
+                                            {  
+                                                <span>@item.UserName</span>
+                                            }
+                                            else
+                                            {
+                                                <span></span>
+                                            }
+                                        </th>
+                                        <th>
+                                            @if(!string.IsNullOrEmpty(item.NameSurname)) 
+                                            {  
+                                                <span>@item.NameSurname</span>
+                                            }
+                                            else
+                                            {
+                                                <span>DAO Governance</span>
+                                            }</th>
                                         <td><a href="../Job-Detail/@item.JobID">@DAO_WebPortal.Utility.StringHelper.ShortenString(item.Title, 25)</a></td>
                                         <td>@Math.Round(item.PaymentAmount, 2) €</td>
                                         <td>@item.Explanation</td>

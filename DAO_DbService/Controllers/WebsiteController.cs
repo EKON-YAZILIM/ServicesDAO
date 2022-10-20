@@ -1175,7 +1175,8 @@ namespace DAO_DbService.Controllers
                 {
                     result.UserPaymentHistoryList = (from payment in db.PaymentHistories
                                                      join job in db.JobPosts on payment.JobID equals job.JobID
-                                                     join user in db.Users on payment.UserID equals user.UserId
+                                                     join user in db.Users on payment.UserID equals user.UserId into userps
+                                                     from user in userps.DefaultIfEmpty()
                                                      select new UserPaymentHistoryItem
                                                      {
                                                          PaymentHistoryId = payment.PaymentHistoryID,

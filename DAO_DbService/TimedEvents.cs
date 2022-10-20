@@ -328,6 +328,7 @@ namespace DAO_DbService
                                         if (settings != null)
                                         {
                                             settings.UserID = job.UserID;
+                                            settings.CreateDate = DateTime.Now;
                                             db.PlatformSettings.Add(settings);
                                             db.SaveChanges();
 
@@ -407,12 +408,33 @@ namespace DAO_DbService
                     reputationsTotal =Helpers.Serializers.DeserializeJson<List<UserReputationHistoryDto>>(reputationsTotalJson);
                 }
 
+                //Create governance payment
+                double remainingJobAmount = auctionWinnerBid.Price;
+                if(lastSettings.GovernancePaymentRatio != null && lastSettings.GovernancePaymentRatio > 0)
+                {
+                    PaymentHistory paymentGovernance = new PaymentHistory
+                    {
+                        JobID = job.JobID,
+                        Amount = remainingJobAmount * Convert.ToDouble(lastSettings.GovernancePaymentRatio),
+                        CreateDate = DateTime.Now,
+                        IBAN = "",
+                        UserID = 0,
+                        WalletAddress = lastSettings.GovernanceWallet,
+                        Explanation = "Governance payment"
+                    };
+
+                    remainingJobAmount = remainingJobAmount - (remainingJobAmount * Convert.ToDouble(lastSettings.GovernancePaymentRatio));
+
+                    db.PaymentHistories.Add(paymentGovernance);
+                    db.SaveChanges();
+                }
+
                 foreach (var userId in userIds)
                 {
                     if (reputationsTotal.Count(x => x.UserID == userId) == 0) continue;
 
                     double usersRepPerc = reputationsTotal.FirstOrDefault(x => x.UserID == userId).LastTotal / reputationsTotal.Sum(x => x.LastTotal);
-                    double memberPayment = auctionWinnerBid.Price * usersRepPerc;
+                    double memberPayment = remainingJobAmount * usersRepPerc;
 
                     var daouser = db.Users.Find(userId);
 
@@ -461,13 +483,34 @@ namespace DAO_DbService
                     userIds = participatedUsers.GroupBy(x => x.UserID).Select(x=>x.Key).ToList();
                 }
 
+               //Create governance payment
+                double remainingJobAmount = auctionWinnerBid.Price;
+                if(lastSettings.GovernancePaymentRatio != null && lastSettings.GovernancePaymentRatio > 0)
+                {
+                    PaymentHistory paymentGovernance = new PaymentHistory
+                    {
+                        JobID = job.JobID,
+                        Amount = remainingJobAmount * Convert.ToDouble(lastSettings.GovernancePaymentRatio),
+                        CreateDate = DateTime.Now,
+                        IBAN = "",
+                        UserID = 0,
+                        WalletAddress = lastSettings.GovernanceWallet,
+                        Explanation = "Governance payment"
+                    };
+
+                    remainingJobAmount = remainingJobAmount - (remainingJobAmount * Convert.ToDouble(lastSettings.GovernancePaymentRatio));
+
+                    db.PaymentHistories.Add(paymentGovernance);
+                    db.SaveChanges();
+                }
+
                 //Create Payment History model for dao members who participated into voting
                 foreach (var userId in userIds)
                 {
                     if (reputationsTotal.Count(x => x.UserID == userId) == 0) continue;
 
                     double usersRepPerc = reputationsTotal.FirstOrDefault(x => x.UserID == userId).LastTotal / reputationsTotal.Sum(x => x.LastTotal);
-                    double memberPayment = auctionWinnerBid.Price * usersRepPerc * Convert.ToDouble(lastSettings.DefaultPolicingRate);
+                    double memberPayment = remainingJobAmount * usersRepPerc * Convert.ToDouble(lastSettings.DefaultPolicingRate);
 
                     var daouser = db.Users.Find(userId);
 
@@ -492,7 +535,7 @@ namespace DAO_DbService
                 PaymentHistory paymentExternalMember = new PaymentHistory
                 {
                     JobID = job.JobID,
-                    Amount = auctionWinnerBid.Price - (auctionWinnerBid.Price * Convert.ToDouble(lastSettings.DefaultPolicingRate)),
+                    Amount = remainingJobAmount - (remainingJobAmount * Convert.ToDouble(lastSettings.DefaultPolicingRate)),
                     CreateDate = DateTime.Now,
                     IBAN = jobdoeruser.IBAN,
                     UserID = jobdoeruser.UserId,

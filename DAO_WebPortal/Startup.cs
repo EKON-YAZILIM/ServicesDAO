@@ -182,6 +182,16 @@ namespace DAO_WebPortal
                     Program._settings.SimpleVotingTimeType = settings.VotingTimeType;
                 }
 
+                if (settings.GovernancePaymentRatio != null)
+                {
+                    Program._settings.GovernancePaymentRatio = Convert.ToDouble(settings.GovernancePaymentRatio);
+                }
+
+                if (!string.IsNullOrEmpty(settings.GovernanceWallet))
+                {
+                    Program._settings.GovernanceWallet = settings.GovernanceWallet;
+                }
+
                 Program._settings.VAOnboardingSimpleVote = settings.VAOnboardingSimpleVote;        
 
                 Program._settings.DistributePaymentWithoutVote = settings.DistributePaymentWithoutVote;   

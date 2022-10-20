@@ -26,5 +26,7 @@ namespace Helpers.Models.DtoModels.MainDbDto
         public double? SimpleVotingTime { get; set; }
         public string SimpleVotingTimeType { get; set; }
         public bool DistributePaymentWithoutVote { get; set; }
+        public double? GovernancePaymentRatio { get; set; }
+        public string GovernanceWallet { get; set; }
     }
 }

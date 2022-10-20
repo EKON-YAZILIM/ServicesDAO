@@ -108,6 +108,14 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <td>Governance Fee Ratio</td>
+                        <td><input type="text" class="form-control" id="GovernancePaymentRatio" value="@Program._settings.GovernancePaymentRatio" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Governance Wallet</td>
+                        <td><input type="text" class="form-control" id="GovernanceWallet" value="@Program._settings.GovernanceWallet" /> </td>
+                    </tr>
                 </tbody>
             </table>
             <button class="btn btn-primary mt-2" onclick="SaveDaoVariables(this);">Save Changes</button>
