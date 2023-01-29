@@ -8,6 +8,7 @@ services:
   dao_rabbitmq:
     image: rabbitmq:3-management
     container_name: 'dao_rabbitmq'
+    hostname: 'rabbit_node_1'
     environment:
         RABBITMQ_DEFAULT_USER: "daorabbit"
         RABBITMQ_DEFAULT_PASS: "dao2021*"
