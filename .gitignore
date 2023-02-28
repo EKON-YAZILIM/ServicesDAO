@@ -75,4 +75,5 @@
 /UnitTests/DAO_NotificationService.Test/bin
 /UnitTests/DAO_NotificationService.Test/obj
 .DS_Store
+/DAO_WebPortal/bin/Debug/net6.0
 

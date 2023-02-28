@@ -24,7 +24,8 @@ using Helpers.Models.KYCModels;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Text;
-using Westwind.AspNetCore.Markdown;
+
+
 
 namespace DAO_WebPortal.Controllers
 {
@@ -1998,7 +1999,7 @@ namespace DAO_WebPortal.Controllers
         /// <param name="w">Expected width</param>
         /// <param name="h">Expected height</param>
         /// <returns></returns>
-        public static string ResizeImage(byte[] data, double w, double h)
+      public static string ResizeImage(byte[] data, double w, double h)
         {
             using (var ms = new MemoryStream(data))
             {
@@ -2022,7 +2023,6 @@ namespace DAO_WebPortal.Controllers
                 return Convert.ToBase64String(byteImage);
             }
         }
-
         /// <summary>
         /// User KYC Verification Page
         /// </summary>
