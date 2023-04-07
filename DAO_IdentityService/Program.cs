@@ -30,6 +30,7 @@ namespace DAO_IdentityService
             public string JwtTokenKey { get; set; }
             public string KYCID { get; set; }
             public string KYCURL { get; set; }
+            public string KYCFORMID { get; set; }
             public string WebURLforKYCResponse { get; set; }
 
         }

@@ -77,3 +77,4 @@
 .DS_Store
 /DAO_WebPortal/bin/Debug/net6.0
 
+/DAO_IdentityService/bin/Debug/net6.0

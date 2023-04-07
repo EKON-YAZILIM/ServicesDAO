@@ -46,6 +46,8 @@ namespace DAO_IdentityService.Controllers
                                 //Create File Request
                                 var model2 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files", form.Files[0], Program._settings.KYCID);
 
+                                if(model2.file_id == null) return new SimpleResponse() { Success = false, Message = "KYC Provider Error: "+ model2.error };
+
                                 //Create applicant document request
                                 var Doc = new KYCDocument() { applicant_id = model.applicant_id, type = Type, document_number = DocumentNumber, issue_date = IssueDate, expiry_date = ExpiryDate, front_side_id = model2.file_id };
 
@@ -55,6 +57,8 @@ namespace DAO_IdentityService.Controllers
                                 {
                                     model3 = Helpers.Request.UploadFiletoKYCAID(Program._settings.KYCURL + "/files", form.Files[1], Program._settings.KYCID);
 
+                                    if (model3.file_id == null) return new SimpleResponse() { Success = false, Message = "KYC Provider Error: " + model2.error };
+
                                     Doc.back_side_id = model3.file_id;
                                 }
 
@@ -63,7 +67,7 @@ namespace DAO_IdentityService.Controllers
 
                                 //Create verification request
 
-                                var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse };
+                                var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, form_id = Program._settings.KYCFORMID };
                                 var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/verifications", Helpers.Serializers.SerializeJson(Verify), Program._settings.KYCID));
 
                                 //New KYC request for Db record
@@ -134,7 +138,7 @@ namespace DAO_IdentityService.Controllers
 
                             var model4 = Helpers.Serializers.DeserializeJson<KYCDocumentResponse>(Helpers.Request.KYCPatch(Program._settings.KYCURL + "/documents/" + userModel.DocumentId, Helpers.Serializers.SerializeJson(Doc), Program._settings.KYCID));
 
-                            var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, callback_url = Program._settings.WebURLforKYCResponse };
+                            var Verify = new KYCVerification() { applicant_id = model.applicant_id, types = new List<string>() { "DOCUMENT" }, form_id = Program._settings.KYCFORMID };
                             var model5 = Helpers.Serializers.DeserializeJson<KYCVerificationResponse>(Helpers.Request.KYCPost(Program._settings.KYCURL + "/verifications", Helpers.Serializers.SerializeJson(Verify), Program._settings.KYCID));
 
                             //Update KYC Db record
